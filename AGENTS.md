@@ -5,6 +5,36 @@
 **Tech Stack:** Python 3.13+, UV, Ruff, Ty, pytest, sentence-transformers, opencite (OpenAlex / Semantic Scholar / PubMed aggregator), PyGithub, Cloudflare Pages.
 **Architecture:** CLI-first package (`dataset_citations.*`) with discovery → DOI extraction → opencite lookup → scoring → analysis → dashboard pipeline. Automated via GitHub Actions.
 
+## Reading the shared documentation
+
+`docs.nemar.org` is the canonical surface for anything about the NEMAR platform rather than about
+this pipeline (nemar-cli ADR 0057). Public pages need nothing; fetch the URL. **Every page also
+has a Markdown mirror at the same path plus `.md`**, which is what to fetch if you are a program,
+and `https://docs.nemar.org/llms.txt` indexes them.
+
+```bash
+curl -s https://docs.nemar.org/platform/data-api.md
+```
+
+Pages under `/admin/` are gated: `nemarOrg/docs` is private at source and the gate admits the
+`admin` and `owner` roles only. An admin holding a NEMAR CLI key reads one without a browser:
+
+```bash
+nemar admin docs admin/operations/systems-inventory
+```
+
+## If you cannot read something you need
+
+**Open the issue anyway.** Losing read access must not cost you the ability to report a problem
+(nemar-cli ADR 0057).
+
+If you hit an admin-adjacent problem, or need a runbook you cannot open, file the issue on the
+relevant repository, say plainly what you could not read and what you were trying to do, and tag
+**`@nemarOrg/admins`**. Someone with access will either answer or open the page for you.
+
+Escalation replaces read access. **Silence does not.** A blocked agent that stops without saying
+so is the failure mode this instruction exists to prevent.
+
 ## Related Repositories
 Three sibling repos jointly produce the public NEMAR surface. They live under `/Users/yahya/Documents/git/nemar/` locally and under `github.com/nemarOrg/` remotely.
 
@@ -12,9 +42,12 @@ Three sibling repos jointly produce the public NEMAR surface. They live under `/
 |---|---|---|
 | `nemar-cli` | `../nemar/nemar-cli/` | Bun CLI for BIDS dataset upload/version/DOI. Cloudflare Worker backend serves `api.nemar.org` (D1 catalog) + `data.nemar.org` (S3-backed BIDS view). LLM enrichment writes `.nemar/metadata.json` into each dataset repo. |
 | `website` | `../nemar/website/` | Astro 6 SSR frontend for `nemar.org`, deployed to Cloudflare Pages. SSR reads dataset metadata at request time from `api.nemar.org` and `data.nemar.org`. No build-time data bundling. |
-| `dataset_citations` (this repo) | `../dataset_citations/` | Citation discovery, scoring, analysis, and dashboard. Reads `.nemar/metadata.json` for DOIs; publishes `citations/json_opencite/` and the dashboard at `dashboard.nemar.org/citations/`. |
+| `nemar-citations` (this repo) | `../nemar-citations/` | Citation discovery, scoring, analysis, and dashboard. Reads `.nemar/metadata.json` for DOIs; publishes `citations/json_opencite/` and the dashboard at `dashboard.nemar.org/citations/`. |
 
-**Cross-repo contracts** (details: `.rules/cross_repo.md`):
+**Cross-repo contracts** (details: `.rules/cross_repo.md`). The platform side of each is
+documented at [`docs.nemar.org/platform/api/`](https://docs.nemar.org/platform/api/) and
+[`docs.nemar.org/platform/data-api/`](https://docs.nemar.org/platform/data-api/); what follows is
+how THIS repo consumes them:
 - `.nemar/metadata.json` schema (`NemarMetadataV2`) — producer: `nemar-cli/backend/src/services/enrich-dataset.ts`; consumer: `src/dataset_citations/sources/nemar_metadata.py`. Authoritative DOI source via `related_identifiers[]` with DataCite relation types.
 - `https://api.nemar.org/datasets` — public, no auth, returns full catalog (nm-* and on-* IDs). Preferred over GitHub API for discovery.
 - `https://data.nemar.org/<id>/metadata.json` — per-dataset neuroschema. Live for `nm-*` IDs; legacy `ds-*` still requires GitHub-based discovery.
