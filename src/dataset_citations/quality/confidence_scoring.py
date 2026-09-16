@@ -20,6 +20,8 @@ from typing import Any
 import numpy as np
 import pandas as pd
 
+from dataset_citations.utils.model_loading import load_sentence_transformer
+
 from .dataset_metadata import extract_dataset_text, load_dataset_metadata
 
 logger = logging.getLogger(__name__)
@@ -81,13 +83,14 @@ class CitationConfidenceScorer:
         try:
             # Lazy import to avoid import errors during CLI help
             import torch
-            from sentence_transformers import SentenceTransformer
 
             logger.info(f"Loading sentence transformer model: {self.model_name}")
             logger.info(f"Using device: {self.device}")
 
-            # Initialize model with device
-            self.model = SentenceTransformer(self.model_name, device=self.device)
+            # Initialize model with device. Cache-first so an expired or wrong
+            # HuggingFace credential cannot 401 a public, already-downloaded
+            # checkpoint out from under the nightly run (issue #217).
+            self.model = load_sentence_transformer(self.model_name, self.device)
 
             # Explicitly move model to device if it's not already there
             if hasattr(torch, "device"):
@@ -101,9 +104,8 @@ class CitationConfidenceScorer:
             logger.info("Falling back to all-MiniLM-L6-v2 model")
             try:
                 import torch
-                from sentence_transformers import SentenceTransformer
 
-                self.model = SentenceTransformer("all-MiniLM-L6-v2", device=self.device)
+                self.model = load_sentence_transformer("all-MiniLM-L6-v2", self.device)
 
                 # Explicitly move model to device
                 if hasattr(torch, "device"):
@@ -478,19 +480,15 @@ class SentenceTransformerModel:
     def _load_model(self):
         """Load the sentence transformer model."""
         try:
-            from sentence_transformers import SentenceTransformer
-
             logger.info(f"Loading model: {self.model_name} on {self.device}")
-            self.model = SentenceTransformer(self.model_name, device=self.device)
+            self.model = load_sentence_transformer(self.model_name, self.device)
             logger.info("Model loaded successfully")
         except Exception as e:
             logger.error(f"Failed to load model {self.model_name}: {e}")
             # Fallback to a commonly available model
             try:
-                from sentence_transformers import SentenceTransformer
-
                 logger.info("Falling back to all-MiniLM-L6-v2 model")
-                self.model = SentenceTransformer("all-MiniLM-L6-v2", device=self.device)
+                self.model = load_sentence_transformer("all-MiniLM-L6-v2", self.device)
                 logger.info("Fallback model loaded successfully")
             except Exception as fallback_error:
                 logger.error(f"Failed to load fallback model: {fallback_error}")
