@@ -43,9 +43,18 @@ logger = logging.getLogger(__name__)
 # A file carrying one of these should be re-fetched on the next run (retry);
 # any other status (success, partial, no_doi_references, no_data_paper_anchor,
 # unsupported_prefix:*) is stable and safe to skip within the freshness window.
-_API_FAILURE_STATUSES = frozenset(
-    {"rate_limit", "auth", "network", "not_found", "parse", "other"}
-)
+#
+# `not_found` is deliberately NOT here (issue #217). It means the anchor DOI
+# resolved no record in OpenAlex -- a property of the DOI, not of the API. Some
+# anchors are simply unindexed (conference proceedings) or malformed at the
+# source (`10.3389/fnhum.2022.xxxxx` is a literal placeholder in a dataset's
+# metadata), so they return `not_found` on every run, forever. Counting that as
+# an API failure wedged the nightly pipeline: the 36 affected datasets were
+# never skipped as fresh, so on most nights they were the ONLY datasets
+# processed, which made `successes == 0 and api_failures == processed` true and
+# aborted the run at exit 3 before scoring, embeddings or the commit. Treating
+# it as a stable outcome lets it retry once per freshness window instead.
+_API_FAILURE_STATUSES = frozenset({"rate_limit", "auth", "network", "parse", "other"})
 
 # Per-output-dir cache of the last time each dataset was fetched. Kept OUT of
 # the committed citation JSON (and gitignored) so the freshness gate has a

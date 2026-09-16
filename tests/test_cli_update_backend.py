@@ -356,6 +356,31 @@ class FreshnessGateTests(TestCase):
             path.write_text("not json at all")
             self.assertEqual(load_state(str(path)), {})
 
+    def test_has_stable_status_true_for_not_found(self) -> None:
+        """A DOI absent from OpenAlex is a property of the DOI, not the API.
+
+        Regression for issue #217: while `not_found` counted as a transient API
+        failure, the 36 datasets whose anchors are permanently unindexed were
+        re-fetched every night, were the only datasets processed on most nights,
+        and so tripped the exit-3 guard and aborted the whole nightly pipeline
+        before scoring, embeddings or the commit.
+        """
+        from dataset_citations.cli.update import _has_stable_status
+
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "on004019_citations.json"
+            self._write_json(path, {"metadata": {"fetch_status": "not_found"}})
+            self.assertTrue(_has_stable_status(str(path)))
+
+    def test_not_found_is_not_an_api_failure_status(self) -> None:
+        """The exit-3 sentinel must not fire on permanently unindexed anchors."""
+        from dataset_citations.cli.update import _API_FAILURE_STATUSES
+
+        self.assertNotIn("not_found", _API_FAILURE_STATUSES)
+        # The genuinely transient ones stay, or exit 3 stops detecting outages.
+        for status in ("rate_limit", "auth", "network", "parse", "other"):
+            self.assertIn(status, _API_FAILURE_STATUSES)
+
 
 class IdempotentWriteTests(TestCase):
     """run_opencite_backend must not rewrite a citation file when only the
