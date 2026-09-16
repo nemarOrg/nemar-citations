@@ -46,8 +46,17 @@ class TestOfflineEnv:
 
 
 class TestLoadSentenceTransformer:
+    @pytest.mark.skipif(
+        not os.environ.get("RUN_INTEGRATION_TESTS"),
+        reason="reaches huggingface.co; set RUN_INTEGRATION_TESTS=1 to enable",
+    )
     def test_missing_checkpoint_still_raises(self):
-        """A genuinely absent model must fail loudly, not return None."""
+        """A genuinely absent model must fail loudly, not return None.
+
+        Gated: an uncached repo id falls through to the Hub, so this makes a
+        real outbound call. Every other live-network test in this suite is
+        gated the same way to keep the default run offline.
+        """
         pytest.importorskip("sentence_transformers")
         with pytest.raises((OSError, ValueError, RuntimeError)):
             load_sentence_transformer(

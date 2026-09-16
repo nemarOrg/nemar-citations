@@ -61,6 +61,11 @@ _API_FAILURE_STATUSES = frozenset({"rate_limit", "auth", "network", "parse", "ot
 # timestamp that advances every run without churning the diff. `date_last_updated`
 # inside the citation JSON now means "last content change" (issue #165), so it
 # can no longer double as the freshness signal.
+# Smallest processed batch that can be read as evidence of an upstream outage.
+# Below this a run is too small for "every dataset returned not_found" to mean
+# anything; the permanently-unindexed set alone is ~36 datasets.
+_OUTAGE_MIN_BATCH = 50
+
 _FETCH_STATE_FILENAME = ".fetch_state.json"
 
 
@@ -208,6 +213,7 @@ def run_opencite_backend(args: argparse.Namespace) -> None:
     stub_only = 0
     write_failures = 0
     api_failures = 0
+    not_found_failures = 0
     skipped_fresh = 0
     unchanged = 0
     for dataset_id in dataset_ids:
@@ -269,6 +275,8 @@ def run_opencite_backend(args: argparse.Namespace) -> None:
             status = payload.get("metadata", {}).get("fetch_status", "empty")
             if status in _API_FAILURE_STATUSES:
                 api_failures += 1
+            if status == "not_found":
+                not_found_failures += 1
             logger.info("%s: 0 citations (status=%s)", dataset_id, status)
 
     save_state(fetch_state_path, fetch_state)
@@ -297,6 +305,33 @@ def run_opencite_backend(args: argparse.Namespace) -> None:
         # Zero successes among processed datasets and every stub was an API
         # failure (not just a dataset without DOIs). Exit 3 so cron can detect
         # the degraded run before downstream steps regenerate empty CSVs.
+        raise SystemExit(3)
+    if (
+        processed >= _OUTAGE_MIN_BATCH
+        and processed > total // 2
+        and successes == 0
+        and not_found_failures == processed
+    ):
+        # `not_found` is no longer an API-failure status (#217), but it can
+        # still be produced BY an outage rather than by a bad DOI: opencite's
+        # classify_error buckets any error text containing "not found" here
+        # (ahead of its network branch), and _is_unresolved_seed reports it
+        # whenever every source fails to resolve an anchor, transiently or not.
+        #
+        # The two cases separate by scale. The datasets with permanently
+        # unindexed anchors are a small, stable minority (36 of ~740). A run
+        # that processed MOST of the corpus and got nothing but not_found is an
+        # outage, so fail loudly rather than publish an empty night. The
+        # majority threshold is what keeps this from re-creating the #217 wedge,
+        # where the same 36 datasets were the entire processed set, and the
+        # absolute floor keeps a deliberately small run (a two-dataset
+        # re-check, a test) from looking like a corpus-wide outage.
+        logger.error(
+            "every one of %d processed datasets (of %d total) returned "
+            "not_found; treating as an upstream outage rather than data",
+            processed,
+            total,
+        )
         raise SystemExit(3)
 
 

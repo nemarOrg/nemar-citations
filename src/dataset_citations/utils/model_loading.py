@@ -66,12 +66,30 @@ def load_sentence_transformer(model_name: str, device: str) -> Any:
         logger.info("Loaded %s from the local cache (offline)", model_name)
         return model
     except Exception as exc:
-        logger.info(
-            "%s not usable from cache (%s); retrying against the Hub",
+        # Broad by necessity: "not cached yet" is the expected case, but a
+        # corrupted cache entry, a full disk, a permissions problem or a CUDA
+        # OOM surface here too, and several of those will ALSO fail on the
+        # network path with a misleading message ("not a valid model
+        # identifier" when the cache write fails). Log the real message at
+        # WARNING, not just the exception type, or the true cause is gone by
+        # the time anyone reads the log.
+        logger.warning(
+            "%s not usable from cache (%s: %s); retrying against the Hub",
             model_name,
             type(exc).__name__,
+            exc,
         )
+        # Python unbinds the `except` name at block exit; keep it for the
+        # combined error below.
+        cache_exc: Exception = exc
 
-    model = SentenceTransformer(model_name, device=device)
+    try:
+        model = SentenceTransformer(model_name, device=device)
+    except Exception as network_exc:
+        # Surface BOTH causes: the cache failure is usually the real one.
+        raise RuntimeError(
+            f"{model_name}: could not load from cache ({cache_exc!r}) "
+            f"nor from the Hub ({network_exc!r})"
+        ) from network_exc
     logger.info("Loaded %s from the Hub", model_name)
     return model

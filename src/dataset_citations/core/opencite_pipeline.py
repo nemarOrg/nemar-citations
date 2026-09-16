@@ -361,7 +361,22 @@ def _flatten_batch(
         # so they survive this pass and are resolved by `dedupe_citations`
         # below, which can record the superseded DOI on the survivor.
         key = base_doi(work.doi) or normalize_title(work.title)
-        if not key or key in seen:
+        if not key:
+            # No usable identity: no DOI, and a title that normalizes to
+            # nothing (a fully non-Latin-script title, since normalize_title
+            # keeps only ASCII alphanumerics). Keep it as its own record
+            # rather than drop it. An empty key must never mean "same as the
+            # other empty-key record", which is the choice dedupe_citations
+            # and merge_accession_mentions both already make.
+            logger.warning(
+                "citing work has no usable identity (doi=%r, title=%r); "
+                "keeping it as a distinct record",
+                work.doi,
+                work.title,
+            )
+            works.append(work)
+            return
+        if key in seen:
             return
         seen.add(key)
         works.append(work)
