@@ -171,3 +171,98 @@ class TestDedupeCitations:
 
     def test_empty_input(self):
         assert dedupe_citations([]) == ([], 0)
+
+
+class TestDedupeCitationsMultiRecord:
+    """Groups larger than a pair, where the two passes interact."""
+
+    def test_doi_pass_winner_carries_into_the_title_pass(self):
+        """A record merged in pass 1 must still be the one pass 2 merges into.
+
+        A and B share a base DOI, so pass 1 collapses them; C is the preprint
+        of that same work under a different DOI, so pass 2 collapses again. The
+        survivor has to accumulate BOTH dropped DOIs, which only happens if the
+        pass-1 winner is what pass 2 sees.
+        """
+        title = "Leveraging SVD Entropy for Alzheimer Detection"
+        kept, dropped = dedupe_citations(
+            [
+                _work("10.36227/techrxiv.23992554", title, cited_by=1),
+                _work("10.36227/techrxiv.23992554.v2", title, cited_by=2),
+                _work("10.1109/tbme.2024.123456", title, cited_by=30),
+            ]
+        )
+        assert dropped == 2
+        assert len(kept) == 1
+        assert kept[0]["doi"] == "10.1109/tbme.2024.123456"
+        assert kept[0]["superseded_dois"] == [
+            "10.36227/techrxiv.23992554",
+            "10.36227/techrxiv.23992554.v2",
+        ]
+
+    def test_repeated_zenodo_deposits_collapse_to_one(self):
+        """Five deposits of one record, as seen in on004504."""
+        title = "Analysis code for: Empirical validation of the framework"
+        kept, dropped = dedupe_citations(
+            [_work(f"10.5281/zenodo.193622{n}", title) for n in range(5)]
+        )
+        assert len(kept) == 1
+        assert dropped == 4
+        assert len(kept[0]["superseded_dois"]) == 4
+
+    def test_doi_pass_replaces_the_earlier_record_when_the_later_one_wins(self):
+        """Order-independence inside pass 1, not just pass 2.
+
+        Both records share a base DOI; the second is the version of record, so
+        it must replace the first in place rather than lose by arriving later.
+        """
+        kept, dropped = dedupe_citations(
+            [
+                _work("10.6084/m9.figshare.31991745.v1", "UREEF"),
+                _work("10.6084/m9.figshare.31991745", "UREEF", cited_by=9),
+            ]
+        )
+        assert dropped == 1
+        assert kept[0]["doi"] == "10.6084/m9.figshare.31991745"
+
+    def test_records_with_neither_doi_nor_title_never_merge(self):
+        """Empty identity must not collapse unrelated records into one.
+
+        `base_doi(None)` and `normalize_title(None)` are both "", so a naive
+        key would make every identity-less record equal to every other.
+        """
+        kept, dropped = dedupe_citations(
+            [_work(None, None), _work(None, ""), _work(None, None)]
+        )
+        assert len(kept) == 3
+        assert dropped == 0
+
+    def test_existing_with_doi_absorbs_incoming_without_one(self):
+        """The symmetric half of the corroborated guard.
+
+        The DOI-bearing record arrives FIRST here; the earlier test covers the
+        opposite arrival order.
+        """
+        title = "BrainWave: A Brain Signal Foundation Model"
+        kept, dropped = dedupe_citations(
+            [_work("10.1038/s41586-024-00001-x", title), _work(None, title)]
+        )
+        assert dropped == 1
+        assert kept[0]["doi"] == "10.1038/s41586-024-00001-x"
+
+    def test_two_preprints_of_one_work_keep_a_deterministic_winner(self):
+        """No version of record present; the choice must still be stable."""
+        title = "Stochastic Graph Heat Modelling for Connectivity"
+        forward = dedupe_citations(
+            [
+                _work("10.48550/arxiv.2402.12785", title),
+                _work("10.1101/2024.02.13.580102", title),
+            ]
+        )[0]
+        reverse = dedupe_citations(
+            [
+                _work("10.1101/2024.02.13.580102", title),
+                _work("10.48550/arxiv.2402.12785", title),
+            ]
+        )[0]
+        assert forward[0]["doi"] == reverse[0]["doi"]

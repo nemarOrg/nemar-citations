@@ -44,6 +44,9 @@ _PREPRINT_PREFIXES = (
     "10.26434/",  # ChemRxiv
     "10.20944/",  # Preprints.org
     "10.2139/",  # SSRN
+    "10.36227/",  # TechRxiv (IEEE)
+    "10.22541/",  # Authorea
+    "10.12688/",  # F1000Research / Wellcome Open (versioned records)
     "10.5281/",  # Zenodo
     "10.6084/",  # figshare
     "10.82901/",  # NEMAR dataset DOIs
@@ -144,13 +147,16 @@ def _absorb(winner: dict[str, Any], loser: dict[str, Any]) -> None:
     that used to appear as its own citation stays traceable, and the
     accession-mention flags survive a merge in either direction.
     """
-    loser_doi = normalize_doi(loser.get("doi"))
     winner_doi = normalize_doi(winner.get("doi"))
-    if loser_doi and loser_doi != winner_doi:
+    # The loser's own DOI, plus anything it had already absorbed. A three-way
+    # merge (version DOI -> concept DOI -> version of record) would otherwise
+    # lose the first DOI when the pass-1 winner loses again in pass 2.
+    incoming = [normalize_doi(loser.get("doi"))]
+    incoming.extend(normalize_doi(d) for d in loser.get("superseded_dois") or [])
+    new_dois = {d for d in incoming if d and d != winner_doi}
+    if new_dois:
         superseded = winner.setdefault("superseded_dois", [])
-        if loser_doi not in superseded:
-            superseded.append(loser_doi)
-            superseded.sort()
+        superseded[:] = sorted(set(superseded) | new_dois)
     if loser.get("mentions_accession") and not winner.get("mentions_accession"):
         winner["mentions_accession"] = True
         winner.setdefault("matched_accession", loser.get("matched_accession"))

@@ -1,6 +1,6 @@
 {
   "dataset_id": "on006104",
-  "num_citations": 4,
+  "num_citations": 7,
   "date_last_updated": "2026-08-25T10:54:30.687375+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
@@ -88,7 +88,7 @@
       "on006104",
       "ds006104"
     ],
-    "num_accession_mentions": 4,
+    "num_accession_mentions": 7,
     "num_dataset_citations": 7,
     "num_datapaper_citations": 0
   },
@@ -123,12 +123,12 @@
       "author": "Varshith Madishetty",
       "venue": "arXiv (Cornell University)",
       "year": 2026,
-      "url": "https://openalex.org/W7151673542",
+      "url": "https://doi.org/10.48550/arxiv.2604.02362",
       "cited_by": 0,
       "abstract": "Decoding speech information from scalp EEG remains difficult due to low SNR and spatial blurring. We present CIPHER (Conformer-based Inference of Phonemes from High-density EEG Representations), a dual-pathway model using (i) ERP features and (ii) broadband DDA coefficients. On OpenNeuro ds006104 (24 participants, two studies with concurrent TMS), binary articulatory tasks reach near-ceiling performance but are highly confound-vulnerable (acoustic onset separability and TMS-target blocking). On the primary 11-class CVC phoneme task under full Study 2 LOSO (16 held-out subjects), performance is substantially lower (real-word WER: ERP 0.671 +/- 0.080, DDA 0.688 +/- 0.096, indicating limited fine-grained discriminability. We therefore position this work as a benchmark and feature-comparison study rather than an EEG-to-text system, and we constrain neural-representation claims to confound-controlled evidence.",
-      "doi": null,
+      "doi": "10.48550/arxiv.2604.02362",
       "pmid": null,
-      "openalex_id": "W7151673542",
+      "openalex_id": "W7151085102",
       "source_doi": null,
       "source_relation": null,
       "discovery_backend": "openalex",
@@ -141,22 +141,19 @@
         "dataset_text_length": 2341,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      },
-      "superseded_dois": [
-        "10.48550/arxiv.2604.02362"
-      ]
+      }
     },
     {
       "title": "Leakage-Audited Benchmarking Reveals Limited Evidence for Cross-Subject Auditory-Evoked EEG Vowel Perception Decoding",
       "author": "Xiaoyang Li, Zeyan Tao",
       "venue": "arXiv (Cornell University)",
       "year": 2026,
-      "url": "https://openalex.org/W7160457462",
+      "url": "https://doi.org/10.48550/arxiv.2605.00865",
       "cited_by": 0,
       "abstract": "We tested whether auditory-evoked EEG supports subject-independent five-vowel perception decoding when trial identity, model identity, prediction provenance, and participant-level inference are controlled within a single benchmark. We reconstructed Study 2 event tables from OpenNeuro ds006104 version 1.0.1 and analyzed the consonant-vowel pair task. One-to-one marker-stimulus pairing yielded 3,840 independent trials; control-condition selection and artifact rejection retained 1,094 epochs from 16 participants and 61 EEG channels. Thirteen unique implementations were evaluated using leave-one-subject-out testing, with participant metrics reconstructed from 36,102 trial predictions across 33 complete prediction replicas. Random Forest was numerically highest at 21.474% balanced accuracy (95% participant-bootstrap interval, 19.526-23.482%; chance, 20%), but neither its participant-level tests nor any implementation survived correction across the 13-model family. Deep-model performance was close to chance, and several architectures showed substantial seed-dependent variation and low trial-label agreement. In a separate descriptive sensor-space representation, participant-associated effects accounted for 72.24% of the balanced standardized centroid sum of squares, compared with 2.04% for vowel-associated effects; between-participant same-vowel distances exceeded within-participant across-vowel distances for all 16 participants. An exploratory MDM analysis comprising 9,616 genuine refits across training cohorts of 3-15 participants showed no monotonic performance gain. Within this dataset and protocol, evidence for reliable cross-subject five-vowel decoding is limited. The benchmark provides a reproducible chain from source rows to retained epochs, predictions, participant-level metrics, multiplicity-adjusted inference, and bounded diagnostic analyses.",
-      "doi": null,
+      "doi": "10.48550/arxiv.2605.00865",
       "pmid": null,
-      "openalex_id": "W7160457462",
+      "openalex_id": "W7160267332",
       "source_doi": null,
       "source_relation": null,
       "discovery_backend": "openalex",
@@ -169,10 +166,7 @@
         "dataset_text_length": 2341,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      },
-      "superseded_dois": [
-        "10.48550/arxiv.2605.00865"
-      ]
+      }
     },
     {
       "title": "Reproducibility materials for \"Leakage-Audited Benchmarking Reveals Limited Evidence for Cross-Subject Auditory-Evoked EEG Vowel Perception Decoding\"",
@@ -197,10 +191,98 @@
         "dataset_text_length": 2341,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      },
-      "superseded_dois": [
-        "10.5281/zenodo.21805983"
-      ]
+      }
+    },
+    {
+      "title": "Reproducibility materials for \"Leakage-Audited Benchmarking Reveals Limited Evidence for Cross-Subject Auditory-Evoked EEG Vowel Perception Decoding\"",
+      "author": "Xiaoyang Li, Zeyan Tao",
+      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "year": 2026,
+      "url": "https://doi.org/10.5281/zenodo.21805983",
+      "cited_by": 0,
+      "abstract": "Versioned evidence package for manuscript JNE-110683.R2. The archive contains complete Study 2 event-to-trial ledgers; control-condition preprocessing and retained-epoch identities; the numerically verified (1,094, 61, 308) analysis tensor; 36,102 primary leave-one-subject-out predictions across 33 complete replicas; re-executed XGBoost, Random Forest, and LightGBM outputs; five-seed records for five deep architectures; a 9,616-refit exploratory MDM training-size analysis; exact normalization, temporal-bin, and inductive MDM_EA specifications; source data and panel registries for all 25 panels across seven figures; executable scripts; portable tests; environment specifications; and SHA-256 manifests. The original OpenNeuro ds006104 dataset is cited and is not redistributed in this archive. 本存档中重新分发。",
+      "doi": "10.5281/zenodo.21805983",
+      "pmid": null,
+      "openalex_id": "W7172501782",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds006104",
+      "confidence_scoring": {
+        "confidence_score": 0.759723360836506,
+        "similarity_score": 0.6577691435813904,
+        "citation_text_length": 1076,
+        "dataset_text_length": 2341,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "CIPHER: Conformer-based Inference of Phonemes from High-density EEG",
+      "author": "Varshith Madishetty",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://openalex.org/W7151673542",
+      "cited_by": 0,
+      "abstract": "Decoding speech information from scalp EEG remains difficult due to low SNR and spatial blurring. We present CIPHER (Conformer-based Inference of Phonemes from High-density EEG Representations), a dual-pathway model using (i) ERP features and (ii) broadband DDA coefficients. On OpenNeuro ds006104 (24 participants, two studies with concurrent TMS), binary articulatory tasks reach near-ceiling performance but are highly confound-vulnerable (acoustic onset separability and TMS-target blocking). On the primary 11-class CVC phoneme task under full Study 2 LOSO (16 held-out subjects), performance is substantially lower (real-word WER: ERP 0.671 +/- 0.080, DDA 0.688 +/- 0.096, indicating limited fine-grained discriminability. We therefore position this work as a benchmark and feature-comparison study rather than an EEG-to-text system, and we constrain neural-representation claims to confound-controlled evidence.",
+      "doi": null,
+      "pmid": null,
+      "openalex_id": "W7151673542",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds006104",
+      "confidence_scoring": {
+        "confidence_score": 0.8374627339839936,
+        "similarity_score": 0.7250759601593018,
+        "citation_text_length": 1069,
+        "dataset_text_length": 2341,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Leakage-Audited Benchmarking Reveals Limited Evidence for Cross-Subject Auditory-Evoked EEG Vowel Perception Decoding",
+      "author": "Xiaoyang Li, Zeyan Tao",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://openalex.org/W7160457462",
+      "cited_by": 0,
+      "abstract": "We tested whether auditory-evoked EEG supports subject-independent five-vowel perception decoding when trial identity, model identity, prediction provenance, and participant-level inference are controlled within a single benchmark. We reconstructed Study 2 event tables from OpenNeuro ds006104 version 1.0.1 and analyzed the consonant-vowel pair task. One-to-one marker-stimulus pairing yielded 3,840 independent trials; control-condition selection and artifact rejection retained 1,094 epochs from 16 participants and 61 EEG channels. Thirteen unique implementations were evaluated using leave-one-subject-out testing, with participant metrics reconstructed from 36,102 trial predictions across 33 complete prediction replicas. Random Forest was numerically highest at 21.474% balanced accuracy (95% participant-bootstrap interval, 19.526-23.482%; chance, 20%), but neither its participant-level tests nor any implementation survived correction across the 13-model family. Deep-model performance was close to chance, and several architectures showed substantial seed-dependent variation and low trial-label agreement. In a separate descriptive sensor-space representation, participant-associated effects accounted for 72.24% of the balanced standardized centroid sum of squares, compared with 2.04% for vowel-associated effects; between-participant same-vowel distances exceeded within-participant across-vowel distances for all 16 participants. An exploratory MDM analysis comprising 9,616 genuine refits across training cohorts of 3-15 participants showed no monotonic performance gain. Within this dataset and protocol, evidence for reliable cross-subject five-vowel decoding is limited. The benchmark provides a reproducible chain from source rows to retained epochs, predictions, participant-level metrics, multiplicity-adjusted inference, and bounded diagnostic analyses.",
+      "doi": null,
+      "pmid": null,
+      "openalex_id": "W7160457462",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds006104",
+      "confidence_scoring": {
+        "confidence_score": 0.74469987988472,
+        "similarity_score": 0.6447618007659912,
+        "citation_text_length": 1704,
+        "dataset_text_length": 2341,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
-  ]
+  ],
+  "confidence_scoring": {
+    "model_used": "Qwen/Qwen3-Embedding-0.6B",
+    "scoring_date": "2026-08-26T10:15:55.595578+00:00",
+    "dataset_text_length": 2341,
+    "num_citations_scored": 7,
+    "summary_stats": {
+      "mean_confidence": 0.75671639084816,
+      "median_confidence": 0.759723360836506,
+      "std_confidence": 0.06962295988814807,
+      "min_confidence": 0.6132427865266801,
+      "max_confidence": 0.8374627339839936,
+      "high_confidence_count": 6,
+      "medium_confidence_count": 1,
+      "low_confidence_count": 0
+    }
+  }
 }

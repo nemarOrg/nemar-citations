@@ -1,6 +1,6 @@
 {
   "dataset_id": "on004998",
-  "num_citations": 16,
+  "num_citations": 17,
   "date_last_updated": "2026-08-25T10:45:30.690035+00:00",
   "metadata": {
     "total_cumulative_citations": 43,
@@ -88,7 +88,7 @@
       "on004998",
       "ds004998"
     ],
-    "num_accession_mentions": 1,
+    "num_accession_mentions": 2,
     "num_dataset_citations": 4,
     "num_datapaper_citations": 13
   },
@@ -465,10 +465,48 @@
         "dataset_text_length": 2339,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      },
-      "superseded_dois": [
-        "10.5281/zenodo.21136786"
-      ]
+      }
+    },
+    {
+      "title": "One Token, Six Modalities: Pre-Registered Cross-Modality Screening of a Single-Token Class-Discriminant Encoder for Wearable and Implantable Physiological Monitoring",
+      "author": "Randolph James Ferlic, Kimberly Kate Ferlic",
+      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "year": 2026,
+      "url": "https://doi.org/10.5281/zenodo.21136786",
+      "cited_by": 0,
+      "abstract": "Description This record accompanies a manuscript that screens a single class-discriminant codebook token — one window of a physiological signal reduced to one ~9-bit index computed on the device — across six physiological modalities (five wearable, plus an implantable neural comparator) on real public data, under strict pre-registration (frozen recipe, patient-disjoint splits, five seeds, a frozen GO/MARGINAL/NO-GO rule, and honest negatives reported verbatim). Four modalities are GO on unseen subjects: atrial fibrillation (AF) from single-lead ECG, sleep/wake and three-class staging from wrist heart rate, induced stress from electrodermal activity, and sleep apnea from pulse-oximetry SpO2. Two boundaries are mapped honestly: cuffless blood-pressure category is largely subject-identity leakage rather than physiology, and rest-state deep-brain medication state does not decode across patients (its uncompressed ceiling sits at chance — signal absence, not a compression loss). The flagship AF vertical is de-risked end-to-end — cross-dataset generalization with no retraining (AUC 0.822), federated refresh, onset prediction (0.789), graceful motion-noise robustness, and a selective high-fidelity co-channel whose confirmation stage repairs the single token's arrhythmia-specificity limit (AF-versus-ectopy AUC 0.623 → 0.875). A cross-cutting regularity is documented: the single-token tax scales with task information content. Method companion: Paper 19 (doi:10.5281/zenodo.20788187). Application companion: Paper 30 — CGM (doi:10.5281/zenodo.21114273). Keywords: wearable health monitoring; class-discriminant codebook; vector quantization; on-device inference; atrial fibrillation; sleep staging; sleep apnea; pulse oximetry; cross-dataset generalization; federated refresh; pre-registration; edge AI; selective reconstruction References 1. R. J. Ferlic and K. K. Ferlic, \"A single-token class-discriminant codebook encoder for physiological signals (Paper 19),\" Zenodo, 10.5281/zenodo.20788187. 2. R. J. Ferlic and K. K. Ferlic, \"On-device glucose alarms from a single learned token (Paper 30),\" Zenodo, 10.5281/zenodo.21114273. 3. G. B. Moody and R. G. Mark, \"A new method for detecting atrial fibrillation using R-R intervals (MIT-BIH Atrial Fibrillation Database),\" Computers in Cardiology, vol. 10, pp. 227-230, 1983. 4. T. Penzel, G. B. Moody, R. G. Mark, A. L. Goldberger, and J. H. Peter, \"The Apnea-ECG Database,\" Computers in Cardiology, vol. 27, pp. 255-258, 2000. 5. O. Walch, Y. Huang, D. Forger, and C. Goldstein, \"Sleep stage prediction with raw acceleration and photoplethysmography-derived heart rate,\" Sleep, vol. 42, no. 12, zsz180, 2019. 6. A. L. Goldberger et al., \"PhysioBank, PhysioToolkit, and PhysioNet: components of a new research resource for complex physiologic signals,\" Circulation, vol. 101, no. 23, pp. e215-e220, 2000. 7. M. M. Ghassemi et al., \"You Snooze, You Win: the PhysioNet/Computing in Cardiology Challenge 2018,\" Computing in Cardiology, vol. 45, 2018. 8. J. Birjandtalab, D. Cogan, M. B. Pouyan, and M. Nourani, \"A Non-EEG dataset for assessment of neurological status,\" in IEEE Int. Conf. on Biomedical and Health Informatics (BHI), 2016. 9. J. A. Healey and R. W. Picard, \"Detecting stress during real-world driving tasks using physiological sensors,\" IEEE Trans. Intelligent Transportation Systems, vol. 6, no. 2, pp. 156-166, 2005. 10. C. Heneghan, \"St. Vincent's University Hospital / University College Dublin Sleep Apnea Database (ucddb),\" PhysioNet, 2011. 11. G. B. Moody, W. E. Muldrow, and R. G. Mark, \"A noise stress test for arrhythmia detectors (MIT-BIH Noise Stress Test Database),\" Computers in Cardiology, vol. 11, pp. 381-384, 1984. 12. P. Mehrgardt, M. Khoshkhou, and A. Argha, \"Pulse Transit Time PPG Dataset,\" PhysioNet, 2022. 13. A. van den Oord, O. Vinyals, and K. Kavukcuoglu, \"Neural discrete representation learning,\" in Advances in Neural Information Processing Systems (NeurIPS), 2017. 14. J. Ballé, V. Laparra, and E. P. Simoncelli, \"End-to-end optimized image compression,\" in Int. Conf. on Learning Representations (ICLR), 2017. 15. N. Tishby and N. Zaslavsky, \"Deep learning and the information bottleneck principle,\" in IEEE Information Theory Workshop (ITW), 2015. 16. M. V. Perez et al., \"Large-scale assessment of a smartwatch to identify atrial fibrillation (Apple Heart Study),\" New England Journal of Medicine, vol. 381, no. 20, pp. 1909-1917, 2019. 17. J. Torres-Soto and E. A. Ashley, \"Multi-task deep learning for cardiac rhythm detection in wearable devices (DeepBeat),\" npj Digital Medicine, vol. 3, no. 116, 2020. 18. A. Y. Hannun et al., \"Cardiologist-level arrhythmia detection and classification in ambulatory electrocardiograms using a deep neural network,\" Nature Medicine, vol. 25, no. 1, pp. 65-69, 2019. 19. G. D. Clifford et al., \"AF classification from a short single lead ECG recording: the PhysioNet/Computing in Cardiology Challenge 2017,\" Computing in Cardiology, vol. 44, 2017. 20. P. Schmidt, A. Reiss, R. Duerichen, C. Marberger, and K. Van Laerhoven, \"Introducing WESAD, a multimodal dataset for wearable stress and affect detection,\" in ACM Int. Conf. on Multimodal Interaction (ICMI), 2018. 21. R. Mukkamala et al., \"Toward ubiquitous blood pressure monitoring via pulse transit time: theory and practice,\" IEEE Trans. Biomedical Engineering, vol. 62, no. 8, pp. 1879-1901, 2015. 22. I. Odinaka, P.-H. Lai, A. D. Kaplan, J. A. O'Sullivan, E. J. Sirevaag, and J. W. Rohrbaugh, \"ECG biometric recognition: a comparative analysis,\" IEEE Trans. Information Forensics and Security, vol. 7, no. 6, pp. 1812-1824, 2012. 23. B. McMahan, E. Moore, D. Ramage, S. Hampson, and B. A. y Arcas, \"Communication-efficient learning of deep networks from decentralized data,\" in Artificial Intelligence and Statistics (AISTATS), 2017. 24. J. Pineau et al., \"Improving reproducibility in machine learning research: a report from the NeurIPS 2019 reproducibility program,\" Journal of Machine Learning Research, vol. 22, no. 164, pp. 1-20, 2021. 25. O. E. Gundersen and S. Kjensmo, \"State of the art: reproducibility in artificial intelligence,\" in AAAI Conf. on Artificial Intelligence, 2018. 26. A. Reiss, I. Indlekofer, P. Schmidt, and K. Van Laerhoven, \"Deep PPG: large-scale heart rate estimation with convolutional neural networks,\" Sensors, vol. 19, no. 14, 3079, 2019. 27. E. Bourtsoulatze, D. Burth Kurka, and D. Gündüz, \"Deep joint source-channel coding for wireless image transmission,\" IEEE Trans. Cognitive Communications and Networking, vol. 5, no. 3, pp. 567-579, 2019. 28. D. Dias and J. P. S. Cunha, \"Wearable health devices—vital sign monitoring, systems and technologies,\" Sensors, vol. 18, no. 8, 2414, 2018. 29. A. A. Kühn, A. Kupsch, G.-H. Schneider, and P. Brown, \"Reduction in subthalamic 8-35 Hz oscillatory activity correlates with clinical improvement in Parkinson's disease,\" European Journal of Neuroscience, vol. 23, no. 7, pp. 1956-1960, 2006. 30. W.-J. Neumann et al., \"Subthalamic synchronized oscillatory activity correlates with motor impairment in patients with Parkinson's disease,\" Movement Disorders, vol. 31, no. 11, pp. 1748-1751, 2016. 31. S. Little et al., \"Adaptive deep brain stimulation in advanced Parkinson disease,\" Annals of Neurology, vol. 74, no. 3, pp. 449-457, 2013. License This work is released under the Creative Commons Attribution 4.0 International License (CC BY 4.0). The encoding method and its federated, privacy, input-quality-gate, and selective tiered-fidelity co-channel mechanisms are covered by previously filed U.S. provisional patent applications (Nos. 64/095,354; 64/084,807; 64/084,817; 64/084,821; 64/097,102; 64/098,837); patent rights are separate from the copyright license. This is an application and validation of a previously-published method and introduces no new subject matter. Public datasets (PhysioNet afdb, ltafdb, nsrdb, afpdb, mitdb, nstdb, apnea-ecg, ucddb, challenge-2018, sleep-accel, drivedb, noneeg, pulse-transit-time-ppg; OpenNeuro ds004998) retain their own licenses and are not redistributed in the archive. Licensing inquiries: randolphf@fieldstoneanalyticsllc.com. Randolph James Ferlic, M.D. · Kimberly Kate Ferlic · Fieldstone Analytics, LLC · DOI 10.5281/zenodo.21136786",
+      "doi": "10.5281/zenodo.21136786",
+      "pmid": null,
+      "openalex_id": "W7167089314",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004998",
+      "confidence_scoring": {
+        "confidence_score": 0.4071080254018307,
+        "similarity_score": 0.35247448086738586,
+        "citation_text_length": 1803,
+        "dataset_text_length": 2339,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
-  ]
+  ],
+  "confidence_scoring": {
+    "model_used": "Qwen/Qwen3-Embedding-0.6B",
+    "scoring_date": "2026-08-25T12:00:55.979558+00:00",
+    "dataset_text_length": 2339,
+    "num_citations_scored": 17,
+    "summary_stats": {
+      "mean_confidence": 0.5959673262869611,
+      "median_confidence": 0.6776163581013681,
+      "std_confidence": 0.24341904273874085,
+      "min_confidence": 0.15551571518182758,
+      "max_confidence": 1.0,
+      "high_confidence_count": 7,
+      "medium_confidence_count": 7,
+      "low_confidence_count": 3
+    }
+  }
 }
