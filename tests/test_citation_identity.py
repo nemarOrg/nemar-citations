@@ -66,7 +66,7 @@ class TestNormalizeTitle:
     def test_folds_en_dash_and_trailing_period(self):
         # The nm000132 pair that survived the old tuple key.
         left = "Revisiting the electrophysiological correlates of valence and expectancy in reward processing - A multi-lab replication."
-        right = "Revisiting the electrophysiological correlates of valence and expectancy in reward processing – A multi-lab replication"
+        right = "Revisiting the electrophysiological correlates of valence and expectancy in reward processing \u2013 A multi-lab replication"
         assert normalize_title(left) == normalize_title(right)
 
     def test_distinct_titles_stay_distinct(self):
@@ -81,7 +81,7 @@ class TestDedupeCitations:
             _work("10.1016/j.cortex.2024.12.017", "Reward processing - A replication."),
             _work(
                 "10.1016/j.cortex.2024.12.017",
-                "Reward processing – A replication",
+                "Reward processing \u2013 A replication",
             ),
         ]
         kept, dropped = dedupe_citations(records)
