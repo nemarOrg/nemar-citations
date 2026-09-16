@@ -10,7 +10,10 @@ from pathlib import Path
 
 import pytest
 
-from dataset_citations.cli.dedupe_citations import dedupe_citation_file
+from dataset_citations.cli.dedupe_citations import (
+    CitationFileUnreadable,
+    dedupe_citation_file,
+)
 
 
 def _write(tmp_path: Path, name: str, details: list[dict], **extra) -> Path:
@@ -90,7 +93,75 @@ class TestDedupeCitationFile:
         path = _write(tmp_path, "on000002", [])
         assert dedupe_citation_file(path) == 0
 
-    def test_unreadable_file_is_skipped_not_raised(self, tmp_path):
+    def test_unreadable_file_raises_rather_than_reporting_zero(self, tmp_path):
+        """A corrupt file must be distinguishable from a clean one.
+
+        Returning 0 made "could not parse this file" identical to "no
+        duplicates here", so a truncated citation JSON was skipped forever
+        with no aggregate signal and the CLI still exited 0.
+        """
         path = tmp_path / "broken_citations.json"
         path.write_text("{not json", encoding="utf-8")
-        assert dedupe_citation_file(path) == 0
+        with pytest.raises(CitationFileUnreadable):
+            dedupe_citation_file(path)
+
+    def test_bucket_counters_follow_the_surviving_records(self, tmp_path):
+        """num_dataset_citations / num_datapaper_citations must be re-derived.
+
+        The dashboard keys on these rather than recomputing them (AGENTS.md),
+        so leaving them stale after a merge publishes buckets that no longer
+        sum to num_citations.
+        """
+        title = "Shared work"
+        path = _write(
+            tmp_path,
+            "on004148",
+            [
+                {
+                    "doi": "10.1016/j.neuroimage.2022.1",
+                    "title": title,
+                    "cited_by": 5,
+                    "source_relation": "References",
+                },
+                {
+                    "doi": "10.1101/2022.01.01.000001",
+                    "title": title,
+                    "cited_by": 1,
+                    "source_relation": "References",
+                },
+                {
+                    "doi": "10.1016/j.other.2022.2",
+                    "title": "Another work",
+                    "cited_by": 2,
+                    "discovery_method": "accession_mention",
+                },
+            ],
+        )
+        payload = json.loads(path.read_text())
+        payload["metadata"]["num_dataset_citations"] = 1
+        payload["metadata"]["num_datapaper_citations"] = 2
+        path.write_text(json.dumps(payload, indent=2), encoding="utf-8")
+
+        assert dedupe_citation_file(path) == 1
+        after = json.loads(path.read_text())
+        buckets = (
+            after["metadata"]["num_dataset_citations"]
+            + after["metadata"]["num_datapaper_citations"]
+        )
+        assert buckets == after["num_citations"] == 2
+
+    def test_bucket_counters_are_not_invented_when_absent(self, tmp_path):
+        """A file that never went through find-mentions must not gain them."""
+        title = "Shared work"
+        path = _write(
+            tmp_path,
+            "on000003",
+            [
+                {"doi": "10.1016/a.1", "title": title, "cited_by": 5},
+                {"doi": "10.1101/2022.01.01.000002", "title": title, "cited_by": 1},
+            ],
+        )
+        assert dedupe_citation_file(path) == 1
+        after = json.loads(path.read_text())
+        assert "num_dataset_citations" not in after["metadata"]
+        assert "num_datapaper_citations" not in after["metadata"]
