@@ -184,10 +184,32 @@ uv run dataset-citations-find-mentions \
   exit 2
 }
 
+# 3d. Merge duplicate citing works (#216). The fetch path dedupes what it
+#     writes, but a file produced before #216 can still carry a paper twice:
+#     the same DOI under two punctuations, a concept DOI beside its versioned
+#     form (10.82901/nemar.onNNNNNN vs ...v1.0.0), or a preprint beside its
+#     version of record. Runs AFTER find-mentions (so newly merged mentions are
+#     included) and BEFORE score-confidence, which then scores the final list;
+#     the CLI drops the stale confidence block on any file it changes so
+#     --skip-existing re-scores exactly those. Idempotent, so a steady-state
+#     night writes nothing and adds no git churn. Non-fatal: leftover
+#     duplicates inflate counts but do not corrupt anything downstream.
+echo "--- dedupe (merge duplicate citing works) ---"
+uv run dataset-citations-dedupe \
+  --citations-dir citations/json_opencite \
+  || echo "WARN: dataset-citations-dedupe failed; duplicate citing works may remain and inflate counts. See the error above." >&2
+
 # 4. Semantic confidence scoring on RTX 4090. --skip-existing is a small speedup
 #    for unchanged citation files. Same `|| exit 2` guard as the other GPU
 #    steps so a CUDA OOM aborts cleanly instead of feeding empty scores
 #    downstream.
+#
+#    No HuggingFace credential is required or wanted here (#217). Both
+#    checkpoints are public and already in this host's hub cache, and
+#    `utils.model_loading` loads them with the network disabled before it will
+#    consider the Hub. An EXPIRED token used to be worse than none at all: it
+#    turned anonymous-readable public models into hard 401s and took down the
+#    runs on 2026-09-15 and 2026-09-16.
 echo "--- score-confidence (cuda) ---"
 uv run dataset-citations-score-confidence \
   --citations-dir citations/json_opencite \
@@ -313,7 +335,8 @@ git commit -m "data: hallu nightly pipeline ($TS)
 
 GPU semantic scoring + embeddings on RTX 4090. Pipeline:
   catalog discover -> metadata -> judge-anchors -> opencite fetch
-  -> prune-mirrored -> find-mentions -> score-confidence -> generate-embeddings
+  -> prune-mirrored -> find-mentions -> dedupe -> score-confidence
+  -> generate-embeddings
 
 $(echo "$DIFFSTAT")"
 
