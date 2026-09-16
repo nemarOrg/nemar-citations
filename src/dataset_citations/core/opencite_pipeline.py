@@ -358,8 +358,9 @@ def _flatten_batch(
         # the PAIR (the pre-#216 behavior) meant a single punctuation
         # difference between OpenAlex and S2 produced two records for one
         # paper. Preprint-vs-published pairs carry genuinely different DOIs,
-        # so they survive this pass and are resolved by `dedupe_citations`
-        # below, which can record the superseded DOI on the survivor.
+        # so they survive this pass and are resolved by the
+        # `dedupe_citations` call that runs next (defined earlier in this
+        # file), which can record the superseded DOI on the survivor.
         key = base_doi(work.doi) or normalize_title(work.title)
         if not key:
             # No usable identity: no DOI, and a title that normalizes to

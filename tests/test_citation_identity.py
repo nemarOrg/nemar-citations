@@ -266,3 +266,37 @@ class TestDedupeCitationsMultiRecord:
             ]
         )[0]
         assert forward[0]["doi"] == reverse[0]["doi"]
+
+
+class TestZenodoIsTitleDependent:
+    """Zenodo deposits merge via the title pass, not via `base_doi`.
+
+    Documents a real limit rather than an aspiration: Zenodo mints a distinct
+    integer per deposit instead of a `.vN` suffix, so no amount of suffix
+    stripping relates two of them.
+    """
+
+    def test_base_doi_cannot_relate_two_zenodo_deposits(self):
+        assert base_doi("10.5281/zenodo.19051613") != base_doi(
+            "10.5281/zenodo.19051614"
+        )
+
+    def test_identical_titles_still_merge(self):
+        kept, dropped = dedupe_citations(
+            [
+                _work("10.5281/zenodo.19051613", "The Relational Foundation v2"),
+                _work("10.5281/zenodo.19051614", "The Relational Foundation v2"),
+            ]
+        )
+        assert len(kept) == 1 and dropped == 1
+
+    def test_titles_that_drift_between_versions_do_not_merge(self):
+        """The documented limitation. If this ever starts passing, the module
+        docstring's Zenodo paragraph needs updating too."""
+        kept, dropped = dedupe_citations(
+            [
+                _work("10.5281/zenodo.19051613", "Analysis code (Version 1)"),
+                _work("10.5281/zenodo.19051614", "Analysis code (Version 2)"),
+            ]
+        )
+        assert len(kept) == 2 and dropped == 0

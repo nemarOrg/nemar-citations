@@ -36,7 +36,8 @@ def _ids(citation: dict[str, Any]) -> list[str]:
     """Strong identifiers (DOI + OpenAlex id) for dedup matching.
 
     The DOI goes through `base_doi` so a concept DOI and its versioned form
-    (`...` / `....v1.0.0`) match each other, and any superseded DOI already
+    (`10.82901/nemar.on004842` / `...on004842.v1.0.0`) match each other, and
+    any superseded DOI already
     folded into this record still identifies it -- otherwise a mention
     carrying the preprint DOI would re-append a paper we merged earlier.
     """

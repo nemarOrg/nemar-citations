@@ -49,9 +49,11 @@ logger = logging.getLogger(__name__)
 # anchors are simply unindexed (conference proceedings) or malformed at the
 # source (`10.3389/fnhum.2022.xxxxx` is a literal placeholder in a dataset's
 # metadata), so they return `not_found` on every run, forever. Counting that as
-# an API failure wedged the nightly pipeline: the 36 affected datasets were
-# never skipped as fresh, so on most nights they were the ONLY datasets
-# processed, which made `successes == 0 and api_failures == processed` true and
+# an API failure wedged the nightly pipeline: the 36 such datasets in the
+# catalog discovery list (42 files on disk carry the status, but 6 are legacy
+# ds-* no longer discovered) were never skipped as fresh, so they were the ONLY
+# datasets processed on most nights, which made
+# `successes == 0 and api_failures == processed` true and
 # aborted the run at exit 3 before scoring, embeddings or the commit. Treating
 # it as a stable outcome lets it retry once per freshness window instead.
 _API_FAILURE_STATUSES = frozenset({"rate_limit", "auth", "network", "parse", "other"})

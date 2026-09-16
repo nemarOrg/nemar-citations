@@ -5,13 +5,22 @@ anchor plus an accession-mention hit, OpenAlex plus Semantic Scholar -- and the
 copies rarely agree byte for byte. Three kinds of disagreement produced real
 double-counting in `citations/json_opencite/`:
 
-1. Same DOI, different title text. OpenAlex and S2 punctuate differently
-   ("... reward processing - A multi-lab replication." vs "... reward
-   processing - A multi-lab replication", hyphen vs en dash). Keying on
-   (doi, title) as a tuple meant these never collapsed.
+1. Same DOI, different title text. OpenAlex and S2 punctuate differently.
+   For `10.1016/j.cortex.2024.12.017` the two copies differ by a trailing
+   period AND by the dash before "A multi-lab replication": OpenAlex uses an
+   ASCII hyphen (U+002D), S2 an en dash (U+2013). This source file is
+   deliberately ASCII, so the codepoints are named rather than shown. Keying
+   on (doi, title) as a tuple meant these never collapsed.
 2. Concept DOI vs version DOI. `10.82901/nemar.on004842` and
-   `10.82901/nemar.on004842.v1.0.0` are the same record; likewise Zenodo
-   `...19051613` / `...19051614` and figshare `....v1` / `....v2`.
+   `10.82901/nemar.on004842.v1.0.0` are the same record, as are figshare's
+   `....v1` / `....v2`. Both carry a `.vN` suffix, so `base_doi` collapses
+   them outright.
+   Zenodo is NOT one of these, despite looking like it: it mints a wholly
+   distinct integer per deposit (`zenodo.19051613` / `zenodo.19051614`), so
+   no suffix stripping can relate them. Those merge only through the title
+   pass below, which means Zenodo deposits whose titles drift between
+   versions ("... (Version 1)" vs "... (Version 2)") stay separate. That is
+   a known limit, not an oversight.
 3. Preprint and version of record. `10.31219/osf.io/pu5vb` and
    `10.1016/j.neuroimage.2022.119623` are one work; counting both inflates a
    dataset's citation total.
@@ -30,10 +39,11 @@ from typing import Any
 
 # Repository / preprint-server DOI prefixes. A DOI under one of these is a
 # preprint or a deposit record, so it loses to a journal DOI for the same work.
-# 10.64898 is bioRxiv/medRxiv's post-2026 prefix, alongside the legacy 10.1101.
+# 10.64898 is bioRxiv/medRxiv's prefix for all submissions since December
+# 2025, alongside the legacy 10.1101.
 _PREPRINT_PREFIXES = (
     "10.1101/",  # bioRxiv / medRxiv (legacy)
-    "10.64898/",  # bioRxiv / medRxiv (current)
+    "10.64898/",  # bioRxiv / medRxiv (current since December 2025)
     "10.48550/",  # arXiv
     "10.21203/",  # Research Square
     "10.31234/",  # PsyArXiv
@@ -115,9 +125,11 @@ def normalize_title(title: Any) -> str:
 def _prefer(left: dict[str, Any], right: dict[str, Any]) -> dict[str, Any]:
     """Pick the better of two records for the same work.
 
-    Version of record beats preprint; among equals, the richer record wins
-    (more populated fields), then the higher `cited_by`, then the lexically
-    smaller DOI so the outcome never depends on input order.
+    In order: version of record beats preprint; then having a DOI at all
+    beats having none (this dominates, so a one-field record with a DOI still
+    beats a ten-field record without one); then the richer record (more
+    populated fields); then the higher `cited_by`; and finally the lexically
+    smaller DOI, purely so the outcome never depends on input order.
     """
     left_pre = is_preprint_doi(left.get("doi"))
     right_pre = is_preprint_doi(right.get("doi"))
@@ -129,8 +141,10 @@ def _prefer(left: dict[str, Any], right: dict[str, Any]) -> dict[str, Any]:
             1 if normalize_doi(record.get("doi")) else 0,
             sum(1 for value in record.values() if value not in (None, "", 0, "n/a")),
             int(record.get("cited_by") or 0),
-            # Negated lexical order: tuples compare greatest-first below, so the
-            # smaller DOI has to sort larger here.
+            # Stored as-is. The first three fields are compared greatest-wins
+            # as a slice; this one is NOT part of that comparison and is
+            # broken out separately below, smallest-wins, so no ordering
+            # trick is applied to it here.
             normalize_doi(record.get("doi")),
         )
 
