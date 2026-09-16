@@ -1,9 +1,9 @@
 {
   "dataset_id": "on003620",
-  "num_citations": 37,
+  "num_citations": 36,
   "date_last_updated": "2026-08-25T10:29:42.909515+00:00",
   "metadata": {
-    "total_cumulative_citations": 492,
+    "total_cumulative_citations": 529,
     "fetch_date": "2026-08-25T10:29:42.909515+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
@@ -66,7 +66,7 @@
       "on003620",
       "ds003620"
     ],
-    "num_accession_mentions": 2,
+    "num_accession_mentions": 1,
     "num_dataset_citations": 2,
     "num_datapaper_citations": 35
   },
@@ -92,7 +92,10 @@
         "dataset_text_length": 2479,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
+      },
+      "superseded_dois": [
+        "10.1101/2021.10.18.464805"
+      ]
     },
     {
       "title": "The reality of virtual reality",
@@ -900,47 +903,6 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
-    },
-    {
-      "title": "Zapline-plus: a Zapline extension for automatic and adaptive removal of frequency-specific noise artifacts in M/EEG",
-      "author": "Marius Klug, Niels A Kloosterman",
-      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
-      "year": 2021,
-      "url": "https://doi.org/10.1101/2021.10.18.464805",
-      "cited_by": 11,
-      "abstract": "Abstract Removing power line noise and other frequency-specific artifacts from electrophysiological data without affecting neural signals remains a challenging task. Recently, an approach was introduced that combines spectral and spatial filtering to effectively remove line noise: Zapline (de Cheveigné, 2020). This algorithm, however, requires manual selection of the noise frequency and the number of spatial components to remove during spatial filtering. Moreover, it assumes that noise frequency and spatial topography are stable over time, which is often not warranted. To overcome these issues, we introduce Zapline-plus, which allows adaptive and automatic removal of frequency-specific noise artifacts from M/EEG and LFP data. To achieve this, our extension first segments the data into periods (chunks) in which the noise is spatially stable. Then, for each chunk, it searches for peaks in the power spectrum, and finally applies Zapline. The exact noise frequency around the found target frequency is also determined separately for every chunk to allow fluctuations of the peak noise frequency over time. The number of to-be-removed components by Zapline is automatically determined using an outlier detection algorithm. Finally, the frequency spectrum after cleaning is analyzed for suboptimal cleaning and parameters are adapted accordingly if necessary before re-running the process. The software creates a detailed plot for monitoring the cleaning. We showcase the efficacy of the different features of our algorithm by applying it to four openly available data sets, two EEG sets containing both stationary and mobile task conditions, and two MEG sets containing strong line noise.",
-      "doi": "10.1101/2021.10.18.464805",
-      "pmid": null,
-      "openalex_id": "W3206629941",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds003620",
-      "confidence_scoring": {
-        "confidence_score": 0.5765204966068268,
-        "similarity_score": 0.49915194511413574,
-        "citation_text_length": 1725,
-        "dataset_text_length": 2479,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
     }
-  ],
-  "confidence_scoring": {
-    "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-08-25T11:42:18.447619+00:00",
-    "dataset_text_length": 2479,
-    "num_citations_scored": 37,
-    "summary_stats": {
-      "mean_confidence": 0.5438170078759258,
-      "median_confidence": 0.544563647657633,
-      "std_confidence": 0.12796811099177222,
-      "min_confidence": 0.3162582188844681,
-      "max_confidence": 0.8203334033489229,
-      "high_confidence_count": 5,
-      "medium_confidence_count": 27,
-      "low_confidence_count": 5
-    }
-  }
+  ]
 }

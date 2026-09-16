@@ -1,6 +1,6 @@
 {
   "dataset_id": "on007020",
-  "num_citations": 3,
+  "num_citations": 2,
   "date_last_updated": "2026-08-25T10:58:56.345062+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
@@ -43,7 +43,7 @@
       "on007020",
       "ds007020"
     ],
-    "num_accession_mentions": 3,
+    "num_accession_mentions": 2,
     "num_dataset_citations": 3,
     "num_datapaper_citations": 0
   },
@@ -71,32 +71,10 @@
         "dataset_text_length": 2272,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Índice de Complexidade Collatz (ICC): Um Novo Biomarcador EEG para Doenças Neurodegenerativas",
-      "author": "Diego DAmaceno",
-      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
-      "year": 2026,
-      "url": "https://doi.org/10.5281/zenodo.18943264",
-      "cited_by": 0,
-      "abstract": "Índice de Complexidade Collatz (ICC) Este repositório contém a implementação e validação preliminar do Índice de Complexidade Collatz (ICC) , um novo biomarcador para análise de sinais EEG baseado na transformada matemática de Collatz. O que é o ICC? O ICC é calculado a partir da potência do EEG segmentada em janelas de 1 segundo. Para cada janela: 1. A potência média é extraída e normalizada2. O valor é convertido para inteiro e submetido à transformada de Collatz: - Se par → divide por 2 - Se ímpar → multiplica por 3 e soma 13. O processo se repete até convergir para o ciclo 4-2-14. O ICC é o número de iterações necessárias para a convergência Interpretação:- ICC baixo → sinal estável, previsível- ICC alto → transição neural, instabilidade, possível atividade epileptiforme Validação em Dados Reais O ICC foi testado em dois datasets públicos do OpenNeuro: | Dataset | Doença | Condição | Resultado ||---------|--------|----------|-----------|| ds006036 | Alzheimer | Olhos abertos + fotoestimulação | ICC alto, muitas janelas anômalas || ds007020 | Parkinson | Resting-state | ICC baixo, poucas anomalias | Conclusão preliminar: O ICC diferencia os dois grupos, sugerindo que Alzheimer apresenta maior instabilidade neural (possível atividade epileptiforme subclínica) enquanto Parkinson mantém padrão mais regular. Este é um trabalho em desenvolvimento, parte de pesquisa independente. Não constitui recomendação médica. Os dados são provenientes de datasets públicos anonimizados. Interessado em colaborar ou testar o ICC em seus dados? Me envie um e-mail: Diegoamaceno1@gmail.com",
-      "doi": "10.5281/zenodo.18943264",
-      "pmid": null,
-      "openalex_id": "W7134822994",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds007020",
-      "confidence_scoring": {
-        "confidence_score": 0.5458674377202989,
-        "similarity_score": 0.47261250019073486,
-        "citation_text_length": 1702,
-        "dataset_text_length": 2272,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
+      },
+      "superseded_dois": [
+        "10.5281/zenodo.18943264"
+      ]
     },
     {
       "title": "Robust and Clinically Reliable EEG Biomarkers: A Cross Population Framework for Generalizable Parkinson's Disease Detection",
@@ -123,21 +101,5 @@
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
     }
-  ],
-  "confidence_scoring": {
-    "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-08-26T10:18:25.679519+00:00",
-    "dataset_text_length": 2272,
-    "num_citations_scored": 3,
-    "summary_stats": {
-      "mean_confidence": 0.6021861290931703,
-      "median_confidence": 0.5458674377202989,
-      "std_confidence": 0.07964665715461933,
-      "min_confidence": 0.5458674377202989,
-      "max_confidence": 0.714823511838913,
-      "high_confidence_count": 1,
-      "medium_confidence_count": 2,
-      "low_confidence_count": 0
-    }
-  }
+  ]
 }

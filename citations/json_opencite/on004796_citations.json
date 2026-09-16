@@ -1,9 +1,9 @@
 {
   "dataset_id": "on004796",
-  "num_citations": 36,
+  "num_citations": 33,
   "date_last_updated": "2026-08-25T10:43:06.558085+00:00",
   "metadata": {
-    "total_cumulative_citations": 81,
+    "total_cumulative_citations": 86,
     "fetch_date": "2026-08-25T10:43:06.558085+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
@@ -63,7 +63,7 @@
       "on004796",
       "ds004796"
     ],
-    "num_accession_mentions": 6,
+    "num_accession_mentions": 4,
     "num_dataset_citations": 8,
     "num_datapaper_citations": 28
   },
@@ -112,7 +112,10 @@
         "dataset_text_length": 2336,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
+      },
+      "superseded_dois": [
+        "10.48550/arxiv.2502.01678"
+      ]
     },
     {
       "title": "Dual-Transformer Cross-Attention Framework for Alzheimer’s disease detection via dPTE-Guided EEG channel selection and multi-modal integration",
@@ -695,22 +698,24 @@
     },
     {
       "title": "A Granularity-Aware EEG Feature Framework for Psychopathology Dimension Prediction",
-      "author": "Haofan Cheng, Jingjing Hu, Jingrong Pei, Shuaiqi Fu, Meilun Shen, Shuaiwen Fang, Meng Wang, Dan Guo, Jie Zhang",
-      "venue": "n/a",
+      "author": "Haofan Cheng, Jingjing Hu, Jingrong Pei, Shuaiqi Fu, Meilun Shen, Shuai Fang, M Wang, Dan Guo, Jie M. Zhang",
+      "venue": "arXiv (Cornell University)",
       "year": 2026,
-      "url": "n/a",
+      "url": "https://openalex.org/W7167748092",
       "cited_by": 0,
-      "abstract": "Electroencephalography (EEG) offers a noninvasive approach for examining neurophysiological correlates of dimensional psychopathology, yet systematic evidence across EEG paradigms and feature granularities remains limited. Here, we develop a granularity-aware EEG feature pipeline that organizes multi-scale descriptors into global, regional, and channel levels. Using the Healthy Brain Network (HBN) cohort, we evaluate the prediction of four psychopathology dimensions: p-factor, internalizing, externalizing, and attention problems, across four EEG paradigms. Given the heterogeneity of pediatric psychopathology and the moderate reliability of questionnaire-derived scores, this setting represents a challenging feasibility test rather than a clinical screening scenario. Tree-based models and granularity-balanced feature selection showed promising improvements over conventional approaches in selected conditions, although effect sizes remained modest. Visualization of selected markers reveale",
+      "abstract": "Electroencephalography (EEG) offers a noninvasive approach for examining neurophysiological correlates of dimensional psychopathology, yet systematic evidence across EEG paradigms and feature granularities remains limited. Here, we develop a granularity-aware EEG feature pipeline that organizes multi-scale descriptors into global, regional, and channel levels. Using the Healthy Brain Network (HBN) cohort, we evaluate the prediction of four psychopathology dimensions: p-factor, internalizing, externalizing, and attention problems, across four EEG paradigms. Given the heterogeneity of pediatric psychopathology and the moderate reliability of questionnaire-derived scores, this setting represents a challenging feasibility test rather than a clinical screening scenario. Tree-based models and granularity-balanced feature selection showed promising improvements over conventional approaches in selected conditions, although effect sizes remained modest. Visualization of selected markers revealed dimension-specific spatial and spectral patterns that were broadly aligned with existing neurophysiological knowledge. An exploratory cross-dataset sanity check on the independent PEARL cohort suggested that the proposed selection principle remains technically feasible under protocol shifts, without claiming cross-dataset generalizability. Overall, multi-scale EEG features contain weak but detectable signals related to dimensional psychopathology, and granularity-aware selection may serve as a useful feature-reduction strategy for future EEG-based phenotyping studies.",
       "doi": null,
       "pmid": null,
-      "openalex_id": null,
-      "source_doi": "10.1038/s41597-024-03106-5",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
+      "openalex_id": "W7167748092",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004796",
       "confidence_scoring": {
-        "confidence_score": 0.5190276128053666,
-        "similarity_score": 0.44937455654144287,
-        "citation_text_length": 1234,
+        "confidence_score": 0.5195595654845239,
+        "similarity_score": 0.4498351216316223,
+        "citation_text_length": 1754,
         "dataset_text_length": 2336,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -813,31 +818,6 @@
       }
     },
     {
-      "title": "LEAD: An EEG Foundation Model for Alzheimer's Disease Detection",
-      "author": "Yihe Wang, Nan Huang, Nadia Mammone, Marco Cecchi, Xiang Zhang",
-      "venue": "arXiv (Cornell University)",
-      "year": 2025,
-      "url": "https://doi.org/10.48550/arxiv.2502.01678",
-      "cited_by": 2,
-      "abstract": "Electroencephalography (EEG) provides a non-invasive, highly accessible, and cost-effective approach for detecting Alzheimer's disease (AD). However, existing methods, whether based on handcrafted feature engineering or standard deep learning, face three major challenges: 1) the lack of large-scale EEG-based AD datasets for robust representation learning; 2) limited generalizability across subjects; and 3) difficulty in adapting to highly heterogeneous data. To address these challenges, we curate the world's largest EEG-AD corpus to date, comprising 2,238 subjects. Leveraging this unique resource, we propose LEAD, the first large-scale foundation model for EEG-based AD detection. Specifically, we design a gated temporal-spatial Transformer that can adapt to EEG recordings with arbitrary lengths, channel configurations, and sampling rates. In addition, we introduce a subject-regularized training strategy to enhance subject-level feature learning. We further employ medical contrastive learning for pre-training on 13 datasets, including 4 AD datasets and 9 non-AD neurological disorder datasets, and fine-tune/test the model on the other 5 AD datasets. LEAD achieves the best average ranking across all 20 evaluations on 5 downstream datasets, substantially outperforming existing approaches, including state-of-the-art (SOTA) EEG foundation models. These results strongly demonstrate the effectiveness and practical potential of the proposed method for real-world EEG-based AD detection. Source code: https://github.com/DL4mHealth/LEAD",
-      "doi": "10.48550/arxiv.2502.01678",
-      "pmid": null,
-      "openalex_id": "W4407184772",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004796",
-      "confidence_scoring": {
-        "confidence_score": 0.578718940615654,
-        "similarity_score": 0.5010553598403931,
-        "citation_text_length": 1690,
-        "dataset_text_length": 2336,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Preclinical Neural Divergence associated with Genetic Risk for Alzheimer's Disease: A Multimodal Resting-State EEG and Neuroimaging Study",
       "author": "Shlok Khare",
       "venue": "Zenodo (CERN European Organization for Nuclear Research)",
@@ -860,73 +840,10 @@
         "dataset_text_length": 2336,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Preclinical Neural Divergence associated with Genetic Risk for Alzheimer's Disease: A Multimodal Resting-State EEG and Neuroimaging Study",
-      "author": "Shlok Khare",
-      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
-      "year": 2026,
-      "url": "https://doi.org/10.5281/zenodo.19562977",
-      "cited_by": 0,
-      "abstract": "Pre-symptomatic Alzheimer’s risk detection is difficult precisely because genetically at-risk individuals look neurologically normal for years before any clinical presentation. This paper presents a multimodal neurophysiological framework distinguishing two biologically distinct risk pathways, APOE ε4 (N = 48) and PICALM rs3851179 (N = 30), using resting-state EEG and fMRI in a pre-symptomatic cohort (µage ≈55 years) from the PEARL-Neuro dataset (OpenNeuro ds004796). EEGNet trained under leave-one-subject-out cross-validation reveals a bimodal fold structure in which 57.8% of APOE e3/e4 carriers and 80.0% of PICALM carriers are correctly classified at the subject level, with no intermediate folds between near-perfect (F1 = 1.0, 50/77) and near-chance (F1 ≈0.47–0.50, 27/77) performance. This structure reflects genuine individual variability in pre-symptomatic EEG divergence onset, with age confirmed as non-explanatory (Mann-Whitney U, p>.05). SHAP analysis and EEGNet’s learned spatial filters converge independently on bilateral temporal and frontal channels as the primary discriminating anatomy. Default Mode Network (DMN) connectivity is the single most discriminative individual feature (mean |SHAP|= 0.038) despite showing no linear correlation with any EEG measure (r < 0.17, all p > .16, N = 68), indicating the two modalities access distinct biological aspects of the same risk process. Late fusion demonstrates a ceiling effect consistent with EEGNet’s near-perfect unimodal performance, but within the 24 maximally uncertain subjects, DMN provides genuine probability calibration improvement of approximately 0.20–0.25 in P(PICALM risk). A companion ResNet18 analysis on OASIS-2 (N = 150 baseline sessions) contributes neuroanatomical grounding through Grad-CAM, identifying posterior-inferior atrophy as the primary CDR-based MCI discriminator. Together, these results suggest the preclinical Alzheimer’s neural phenotype is modality-specific, pathway-dependent, and individually variable in its timing of emergence.",
-      "doi": "10.5281/zenodo.19562977",
-      "pmid": null,
-      "openalex_id": "W7154262027",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004796",
-      "confidence_scoring": {
-        "confidence_score": 0.8062752440571787,
-        "similarity_score": 0.6980738043785095,
-        "citation_text_length": 1743,
-        "dataset_text_length": 2336,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "A Granularity-Aware EEG Feature Framework for Psychopathology Dimension Prediction",
-      "author": "Haofan Cheng, Jingjing Hu, Jingrong Pei, Shuaiqi Fu, Meilun Shen, Shuai Fang, M Wang, Dan Guo, Jie M. Zhang",
-      "venue": "arXiv (Cornell University)",
-      "year": 2026,
-      "url": "https://openalex.org/W7167748092",
-      "cited_by": 0,
-      "abstract": "Electroencephalography (EEG) offers a noninvasive approach for examining neurophysiological correlates of dimensional psychopathology, yet systematic evidence across EEG paradigms and feature granularities remains limited. Here, we develop a granularity-aware EEG feature pipeline that organizes multi-scale descriptors into global, regional, and channel levels. Using the Healthy Brain Network (HBN) cohort, we evaluate the prediction of four psychopathology dimensions: p-factor, internalizing, externalizing, and attention problems, across four EEG paradigms. Given the heterogeneity of pediatric psychopathology and the moderate reliability of questionnaire-derived scores, this setting represents a challenging feasibility test rather than a clinical screening scenario. Tree-based models and granularity-balanced feature selection showed promising improvements over conventional approaches in selected conditions, although effect sizes remained modest. Visualization of selected markers revealed dimension-specific spatial and spectral patterns that were broadly aligned with existing neurophysiological knowledge. An exploratory cross-dataset sanity check on the independent PEARL cohort suggested that the proposed selection principle remains technically feasible under protocol shifts, without claiming cross-dataset generalizability. Overall, multi-scale EEG features contain weak but detectable signals related to dimensional psychopathology, and granularity-aware selection may serve as a useful feature-reduction strategy for future EEG-based phenotyping studies.",
-      "doi": null,
-      "pmid": null,
-      "openalex_id": "W7167748092",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004796",
-      "confidence_scoring": {
-        "confidence_score": 0.5195595654845239,
-        "similarity_score": 0.4498351216316223,
-        "citation_text_length": 1754,
-        "dataset_text_length": 2336,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
+      },
+      "superseded_dois": [
+        "10.5281/zenodo.19562977"
+      ]
     }
-  ],
-  "confidence_scoring": {
-    "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-08-25T11:57:54.115464+00:00",
-    "dataset_text_length": 2336,
-    "num_citations_scored": 36,
-    "summary_stats": {
-      "mean_confidence": 0.5875512020910781,
-      "median_confidence": 0.5731361614912749,
-      "std_confidence": 0.11376034044808543,
-      "min_confidence": 0.4169780986011029,
-      "max_confidence": 0.8096334922313692,
-      "high_confidence_count": 6,
-      "medium_confidence_count": 30,
-      "low_confidence_count": 0
-    }
-  }
+  ]
 }
