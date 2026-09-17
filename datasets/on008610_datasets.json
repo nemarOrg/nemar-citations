@@ -1,0 +1,70 @@
+{
+  "dataset_id": "on008610",
+  "date_retrieved": "2026-09-16T10:01:13.812833+00:00",
+  "dataset_description": {
+    "Name": "FUS and Tactile Neuromodulation in NHP VPL - Electrophysiology",
+    "BIDSVersion": "1.9.0",
+    "DatasetType": "raw",
+    "License": "CC0",
+    "Authors": [
+      "Ning Zheng",
+      "Pai-Feng Yang",
+      "M. Anthony Phipps",
+      "Jiro Kusunose",
+      "Arabinda Mishra",
+      "Jixin Xia",
+      "William Rodriguez",
+      "Allen T. Newton",
+      "Benoit M. Dawant",
+      "John C. Gore",
+      "Charles F. Caskey",
+      "Li Min Chen"
+    ],
+    "Acknowledgements": "We thank Ms. Chaohui Tang and Xuerong Zhang for assisting with animal care and data acquisition.",
+    "HowToAcknowledge": "Please cite: Zheng, N., Yang, P.F., Phipps, M.A. et al. Transcranial focused ultrasound modulates spiking, LFP, and BOLD activity in the primate thalamus. Nat Commun (2026). https://doi.org/10.1038/s41467-026-75826-8",
+    "Funding": [
+      "NIH/NINDS RF1 NS126144",
+      "NIH/NIBIB 1U18EB02935"
+    ],
+    "EthicsApprovals": [
+      "IACUC protocol # M170062-03"
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.1038/s41467-026-75826-8"
+    ],
+    "DatasetDOI": "10.82901/nemar.on008610",
+    "SourceDatasets": [
+      {
+        "URL": "n/a",
+        "DOI": "n/a",
+        "Version": "n/a"
+      },
+      {
+        "DOI": "doi:10.18112/openneuro.ds008610.v1.0.0"
+      }
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "Custom BlackRock-to-BIDS pipeline",
+        "Version": "0.1.0",
+        "Description": "NPMK (openNSx/openNEV) for raw read, MatNWB for NWB export",
+        "CodeURL": ""
+      }
+    ],
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.on008610-blue)](https://doi.org/10.82901/nemar.on008610)\n\n# Raw Macaque Electrophysiology Dataset\n\n## Overview\nThis dataset contains intracranial electrophysiology recordings from macaque VPL thalamus, acquired with a NeuroNexus V1x32-Edge (Vector Array) single-shank probe (32 sites, 100 µm pitch, 177 µm² iridium sites) on a Blackrock Cerebus system, during two conditions:\n\n- Focused ultrasound (FUS) neuromodulation, with sonication targeted at either:\n  - VPL thalamus (co-located with the recording array), or\n  - insular cortex (recording remains in VPL)\n- Tactile stimulation of the hand contralateral to the recording hemisphere (right-hemisphere VPL array → left-hand stimulation, unless a session notes otherwise)\n\nFUS target (VPL vs insular cortex) and tactile stimulation side are recorded in each run’s `events.tsv` `stim_site` column—treat that as the authoritative per-trial record.\n\nThe data support the following publication:\nZheng, N., Yang, P.F., Phipps, M.A. et al. Transcranial focused ultrasound modulates spiking, LFP, and BOLD activity in the primate thalamus. *Nat Commun* (2026). https://doi.org/10.1038/s41467-026-75826-8\n\n## Subjects\nSpecies: *Macaca fascicularis* and *Macaca mulatta*  \nSubject identifiers have been anonymized.  \nAdditional subject information is provided in `participants.tsv`.\n\n## Experimental design\nExtracellular electrophysiology was recorded from: VPL  \nFocused ultrasound was targeted to: VPL or insular cortex  \n\nThe experiment included the following conditions:\n- Focused ultrasound stimulation\n- Tactile stimulation\n\nEvent timing and stimulation parameters are provided in the corresponding `events.tsv` files.\n\n## Electrophysiology acquisition\nRecording system: Blackrock Microsystems  \nRecording hardware: CerePlex Direct with CerePlex M headstage  \nElectrode/probe: NeuroNexus V1x32-Edge  \nNumber of channels: 32  \nSampling frequency: 30 kHz (spikes), 1 kHz (LFP)  \nRecording hemisphere: Right  \nRecording location: VPL  \n\n## Data format\nRaw Blackrock files were read with NPMK (`openNSx`, `openNEV`) in MATLAB and written to NWB using MatNWB.\n\nFile types may include:\n- `.nwb`: raw electrophysiology recording and metadata\n- `.tsv`: participant, channel, electrode, and event tables\n- `.json`: metadata describing corresponding files\n\n## Data included\nsub-01:\n- Spikes dataset: FUS stimulation in VPL (`ses-ieeg01`)\n- LFP dataset: FUS stimulation in VPL (`ses-ieeg02`)\n- Tactile stimulation (left hand) (`ses-ieeg03`)\n\nsub-02:\n- Spikes dataset: FUS stimulation in VPL (`ses-ieeg01`)\n- LFP dataset: FUS stimulation in VPL (`ses-ieeg02`)\n- Spikes dataset: FUS stimulation in insular cortex (`ses-ieeg03`)\n- Tactile stimulation (left hand) (`ses-ieeg04`)\n\n## Funding\nThis work was supported by NIH grants:\n- NINDS RF1 NS126144\n- NIBIB 1U18EB02935\n\n## Contact\nLi Min Chen  \nVanderbilt University Institute of Imaging Science, Vanderbilt University  \nlimin.chen@vanderbilt.edu\n\nLi Min Chen\nDepartment of Radiology and Radiological Sciences, Vanderbilt University Medical Center\nlimin.chen@vumc.org\n\n## License\nCC0",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/on008610",
+    "exists": true,
+    "description": "FUS and Tactile Neuromodulation in NHP VPL - Electrophysiology",
+    "created_at": "2026-09-08T20:00:54+00:00",
+    "updated_at": "2026-09-14T14:35:43+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}
