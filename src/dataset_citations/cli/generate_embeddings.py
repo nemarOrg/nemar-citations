@@ -45,14 +45,18 @@ def load_dataset_metadata(dataset_id: str, datasets_dir: Path) -> str | None:
         with open(dataset_file) as f:
             dataset_data = json.load(f)
 
-        # Combine relevant metadata fields
+        # Combine relevant metadata fields. A key can be present with a null
+        # value: 61 of 763 datasets in the 2026-09-17 run carry
+        # "description": null, and appending that raised
+        # "sequence item 0: expected str instance, NoneType found" out of the
+        # join below, so those datasets silently got no embedding refresh.
+        # A dataset with no text is the "no metadata" case, not an error.
         metadata_parts = []
 
-        if "description" in dataset_data:
-            metadata_parts.append(dataset_data["description"])
-
-        if "readme_content" in dataset_data:
-            metadata_parts.append(dataset_data["readme_content"])
+        for field in ("description", "readme_content"):
+            value = dataset_data.get(field)
+            if value:
+                metadata_parts.append(str(value))
 
         if "dataset_description" in dataset_data:
             desc = dataset_data["dataset_description"]
