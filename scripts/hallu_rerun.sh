@@ -106,7 +106,7 @@ judge_anchors() {
   # so a partial judgment run does not let `update_citations` proceed
   # with a half-written sidecar tree.
   run uv run dataset-citations-judge-anchors \
-    --datasets-list-file "$DATASETS_LIST" \
+    --dataset-list-file "$DATASETS_LIST" \
     --output-dir citations/anchor_judgments \
     --skip-existing || {
     echo "ERROR: dataset-citations-judge-anchors failed; aborting." >&2
