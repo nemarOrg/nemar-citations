@@ -11,8 +11,6 @@ import tempfile
 from pathlib import Path
 from unittest import TestCase, skipUnless
 
-from dataset_citations.dashboard.data.aggregator import DataAggregator
-
 
 class TestIntegrationWorkflow(TestCase):
     """Integration tests for the complete workflow pipeline."""
@@ -221,49 +219,6 @@ class TestIntegrationWorkflow(TestCase):
         self.assertEqual(counts_by_id["ds_empty"], 0)
         self.assertEqual(counts_by_id["ds_lowconf"], 5)
 
-    def test_aggregator_with_real_data(self):
-        """Test data aggregator with controlled real data."""
-        # Create minimal analysis results
-        network_dir = self.results_dir / "network_analysis"
-        network_dir.mkdir(parents=True, exist_ok=True)
-
-        # Create bridge papers based on shared authors
-        bridge_papers = [
-            {
-                "paper_id": "1",
-                "title": "Neural correlates of test behavior",
-                "datasets": "ds_small,ds_medium",
-                "confidence": "0.85",
-            }
-        ]
-
-        csv_exports_dir = network_dir / "csv_exports"
-        csv_exports_dir.mkdir(exist_ok=True)
-
-        with open(csv_exports_dir / "bridge_papers.csv", "w", newline="") as f:
-            writer = csv.DictWriter(f, fieldnames=bridge_papers[0].keys())
-            writer.writeheader()
-            writer.writerows(bridge_papers)
-
-        # Initialize aggregator
-        aggregator = DataAggregator(
-            results_dir=self.results_dir,
-            citations_dir=self.citations_dir,
-            datasets_dir=self.datasets_dir,
-        )
-
-        # Aggregate data
-        data = aggregator.aggregate_all_data()
-
-        # Verify aggregation results
-        self.assertIn("summary_stats", data)
-        stats = data["summary_stats"]
-
-        self.assertEqual(stats["total_datasets"], 4)
-        self.assertEqual(stats["total_citations"], 16)
-        self.assertEqual(stats["high_confidence_citations"], 10)
-        self.assertEqual(stats["bridge_papers"], 1)
-
     def test_incremental_updates(self):
         """Test handling of incremental citation updates."""
         # Simulate adding a new citation to ds_small
@@ -306,39 +261,6 @@ class TestIntegrationWorkflow(TestCase):
 
 class TestEdgeCases(TestCase):
     """Test edge cases and error handling."""
-
-    def test_malformed_json(self):
-        """Test handling of malformed JSON files."""
-        temp_dir = tempfile.mkdtemp()
-        try:
-            bad_json_path = Path(temp_dir) / "bad.json"
-            with open(bad_json_path, "w") as f:
-                f.write("{ this is not valid json }")
-
-            # Aggregator should handle this gracefully
-            aggregator = DataAggregator(
-                results_dir=Path(temp_dir), citations_dir=Path(temp_dir)
-            )
-            data = aggregator.aggregate_minimal_data()
-
-            # Should return valid structure even with bad data
-            self.assertIn("summary_stats", data)
-            self.assertIn("metadata", data)
-        finally:
-            shutil.rmtree(temp_dir)
-
-    def test_missing_directories(self):
-        """Test handling of missing directories."""
-        aggregator = DataAggregator(
-            results_dir=Path("/nonexistent/path"),
-            citations_dir=Path("/another/nonexistent/path"),
-        )
-
-        # Should not crash
-        data = aggregator.aggregate_minimal_data()
-
-        self.assertIn("summary_stats", data)
-        self.assertEqual(data["summary_stats"]["total_datasets"], 0)
 
     def test_unicode_handling(self):
         """Test handling of Unicode characters in citations."""

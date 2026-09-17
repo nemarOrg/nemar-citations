@@ -58,16 +58,16 @@ GitHub (ds-* fallback)   ─┘             │
 - **Threshold:** ≥ 0.4 surfaces in the dashboard's high-confidence view.
 
 ### 4. Dashboard generation
-- **Entry point CLI:** `dataset-citations-create-reports` → `src/dataset_citations/cli/create_interactive_reports_modular.py`.
-- **Generator:** `src/dataset_citations/dashboard/core.py` (modularized; the legacy 3113-line `create_interactive_reports.py` is no longer the active entry point).
-- **Template:** `src/dataset_citations/dashboard/templates/nemar_simple.py` — overview / network / themes tabs.
-- **Components:** `src/dataset_citations/dashboard/components/` (modals, charts, etc.).
-- **Per-dataset uses/related panel:** **not yet implemented.** The modal at `dashboard/components/modals.py:105-140` currently splits citations only by confidence, not by `source_relation`. Adding a "uses vs related" view is a small, isolated change once `citations/json_opencite/` actually contains data.
+- **App:** `web/` — an Astro app (epic #127), the only dashboard that ships.
+- **Data layer:** `web/src/lib/data.ts` reads the committed `citations/json_opencite/` and `dashboard_data/` at build time; nothing reaches the client.
+- **Build + deploy:** `.github/workflows/deploy-dashboard.yml` runs `bun run build` and publishes `web/dist` to the `nemar-dashboard` Cloudflare Pages project at `dashboard.nemar.org/citations/`.
+- **Retired:** the Python generator (`src/dataset_citations/dashboard/`, `dataset-citations-create-reports`, `dashboard_templates.js`, `dashboard_styles.css`) was removed in #127 P8. Its history is in git.
+- **Counting policy:** `data.ts` still recomputes counts with a build-local confidence filter plus a methods denylist, so the live figures can differ from the canonical JSON. Collapsing to one policy is #192.
 
 ### 5. Automation workflow
-- **File:** `.github/workflows/update_citations.yml`.
-- **Triggers:** weekly cron (Sunday 06:00 UTC) + `workflow_dispatch`.
-- **Steps:** Discover → Update citations (opencite) → Score → Generate dashboard → Deploy to Cloudflare Pages → Open PR.
+- **File:** `scripts/hallu_cron_pipeline.sh`, run nightly at 03:00 PDT by cron on the hallu GPU host. `update_citations.yml` no longer exists.
+- **Steps:** discover → retrieve-metadata → judge-anchors → update (opencite) → prune-mirrored → find-mentions → dedupe → score-confidence → generate-embeddings → analyze-umap → themes/network/temporal → commit to an auto-update branch → PR → auto-merge on green CI.
+- **Publication:** the merge to `main` triggers `deploy-dashboard.yml`. See `AUTOMATION.md`.
 - **Status as of May 18, 2026:** Workflow is correctly wired to opencite (post PR #47 / #50), but the most recent run (`26030534541`) was cancelled at the 6h GitHub Actions ceiling during the fetch step. Downstream steps (scoring, dashboard, deploy) never ran. The public dashboard therefore still shows January 2026 scholarly-format JSON.
 
 ## Cross-repo data flow

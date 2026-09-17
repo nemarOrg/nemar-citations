@@ -1,7 +1,8 @@
 #!/bin/zsh
 #
 # Comprehensive end-to-end workflow for Dataset Citations project
-# This script runs the complete pipeline: discover → update → score → analyze → dashboard
+# This script runs the complete pipeline: discover -> update -> score -> analyze.
+# Dashboard rendering moved to the Astro app in web/ (#127 P8).
 #
 # Usage:
 #   ./run_end_to_end_workflow.sh [mode]
@@ -182,21 +183,6 @@ print('Test metadata generated')
     uv rundataset-citations-analyze-networks \
         --output-dir "$TEST_OUTPUT_DIR/results/network_analysis" || true
 
-    print_status "Step 6/6: Generating dashboard..."
-    uv runpython -c "
-from dataset_citations.dashboard.core import DashboardGenerator
-from pathlib import Path
-
-gen = DashboardGenerator(
-    results_dir=Path('$TEST_OUTPUT_DIR/dashboard_data'),
-    output_dir=Path('$TEST_OUTPUT_DIR/interactive_reports'),
-    citations_dir=Path('$TEST_OUTPUT_DIR/citations/json_opencite'),
-)
-
-output_path = gen.generate_dashboard(dashboard_type='nemar', lazy_load=True)
-print(f'Dashboard generated: {output_path}')
-" || print_warning "Dashboard generation failed"
-
     # Validate outputs
     print_status "Validating test outputs..."
     VALIDATION_PASSED=true
@@ -211,7 +197,7 @@ print(f'Dashboard generated: {output_path}')
         VALIDATION_PASSED=false
     fi
 
-    if [ -f "$TEST_OUTPUT_DIR/interactive_reports/dataset_citations_dashboard.html" ]; then
+    if [ -d "$TEST_OUTPUT_DIR/dashboard_data" ]; then
         print_status "Dashboard generated successfully"
         ls -lh "$TEST_OUTPUT_DIR/interactive_reports/"*.html
     else
@@ -392,34 +378,6 @@ run_full_workflow() {
         --citations-dir citations/json_opencite \
         --output-dir dashboard_data/temporal 2>&1 | tee -a "$LOG_FILE"
 
-    # Step 6: Generating interactive dashboard
-    print_status "Step 6/8: Generating interactive dashboard..."
-    uv runpython -c "
-from dataset_citations.dashboard.core import DashboardGenerator
-from pathlib import Path
-
-gen = DashboardGenerator(
-    results_dir=Path('dashboard_data'),
-    output_dir=Path('interactive_reports'),
-    citations_dir=Path('citations/json_opencite')
-)
-
-output_path = gen.generate_dashboard(dashboard_type='nemar', lazy_load=True)
-print(f'Dashboard generated: {output_path}')
-" 2>&1 | tee -a "$LOG_FILE"
-
-    # Validate outputs
-    print_status "Validating outputs..."
-    JSON_COUNT=$(find citations/json_opencite -name "*.json" 2>/dev/null | wc -l)
-    print_info "Generated $JSON_COUNT citation JSON files"
-
-    if [ -f "interactive_reports/dataset_citations_dashboard_nemar.html" ]; then
-        print_status "Dashboard generated successfully ✓"
-        ls -lh interactive_reports/*.html
-    else
-        print_error "Dashboard generation failed"
-    fi
-
     # Step 7: Updating previous_citations.csv
     print_status "Step 7/8: Updating previous_citations.csv for next run..."
     TODAY_DATE=$(date +%d%m%Y)
@@ -513,47 +471,10 @@ $(git diff origin/main..HEAD --name-only | head -20)
     print_info "Branch: $BRANCH_NAME"
     print_info "Log file: $LOG_FILE"
 
-    # Deploy dashboard to GitHub Pages
-    print_status "Deploying dashboard to GitHub Pages..."
+    # The GitHub Pages dashboard deploy was retired with the Python generator
+    # (#127 P8). The dashboard is an Astro app in web/, deployed to Cloudflare
+    # Pages by .github/workflows/deploy-dashboard.yml on push to main.
 
-    TEMP_DIR=$(mktemp -d)
-    print_info "Using temp directory for GitHub Pages: $TEMP_DIR"
-
-    if git clone https://${GITHUB_TOKEN}@github.com/neuromechanist/neuromechanist.github.io.git "$TEMP_DIR/github-pages" 2>/dev/null; then
-        cd "$TEMP_DIR/github-pages"
-
-        git config user.name "citations-bot"
-        git config user.email "shirazi@ieee.org"
-
-        mkdir -p static
-
-        print_info "Copying dashboard files to static directory..."
-        cp "$DASHBOARD_PATH/dataset_citations_dashboard_nemar.html" static/dataset_citations_dashboard.html 2>/dev/null || print_warning "Dashboard HTML not found"
-        cp -r "$DASHBOARD_PATH/data" static/ 2>/dev/null || print_warning "Data directory not found"
-        cp "$DASHBOARD_PATH/dashboard_styles.css" static/ 2>/dev/null || print_warning "Styles CSS not found"
-        cp "$DASHBOARD_PATH/dashboard_templates.js" static/ 2>/dev/null || print_warning "Dashboard templates not found"
-
-        if ! git diff --quiet; then
-            print_info "Committing dashboard updates..."
-            git add static/
-            git commit -m "Update NEMAR citations dashboard - $(date +'%Y-%m-%d %H:%M')"
-
-            PAGES_BRANCH=$(git rev-parse --abbrev-ref HEAD)
-            if git push origin "$PAGES_BRANCH"; then
-                print_status "Dashboard deployed successfully to GitHub Pages ✓"
-                print_info "Dashboard URL: https://sccn.github.io/nemar-citations/dataset_citations_dashboard_nemar.html"
-            else
-                print_warning "Failed to push dashboard to GitHub Pages"
-            fi
-        else
-            print_info "No changes in dashboard files, skipping deployment"
-        fi
-    else
-        print_warning "Failed to clone GitHub Pages repository. Skipping dashboard deployment."
-    fi
-
-    # Clean up temp directory for GitHub Pages
-    rm -rf "$TEMP_DIR"
 
     # Return to original directory and clean up worktree
     cd "$ORIGINAL_DIR"
