@@ -18,6 +18,7 @@ Email: shirazi@ieee.org
 from __future__ import annotations
 
 import argparse
+import json
 import logging
 import os
 from pathlib import Path
@@ -45,13 +46,75 @@ def _sidecar_path(output_dir: str, dataset_id: str) -> Path:
     return Path(output_dir) / f"{dataset_id}.json"
 
 
+def _judged_anchor_keys(sidecar: Path) -> set[str]:
+    """Anchor identifiers this sidecar already carries a judgment for."""
+    try:
+        payload = load_judgment_sidecar(sidecar)
+    except (OSError, ValueError, TypeError):
+        return set()
+    keys: set[str] = set()
+    for judgment in payload.get("judgments") or []:
+        identifier = judgment.get("anchor_identifier")
+        if isinstance(identifier, str) and identifier.strip():
+            keys.add(identifier.strip().casefold())
+    return keys
+
+
+def _recorded_anchor_keys(citations_dir: str | None, dataset_id: str) -> set[str]:
+    """Anchor identifiers the last pipeline run recorded for this dataset.
+
+    Read from the committed citation JSON's `metadata.anchors[]`, which lists
+    EVERY anchor the pipeline resolved. Using it here keeps the coverage check
+    free: no GitHub or data.nemar.org round trip just to decide whether to skip.
+    Returns an empty set when there is nothing to compare against, which makes
+    the caller fall back to the old file-exists behavior.
+    """
+    if not citations_dir:
+        return set()
+    path = Path(citations_dir) / f"{dataset_id}_citations.json"
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return set()
+    metadata = payload.get("metadata")
+    if not isinstance(metadata, dict):
+        return set()
+    keys: set[str] = set()
+    for anchor in metadata.get("anchors") or []:
+        identifier = anchor.get("identifier") if isinstance(anchor, dict) else None
+        if isinstance(identifier, str) and identifier.strip():
+            keys.add(identifier.strip().casefold())
+    return keys
+
+
 def _should_skip(
-    sidecar: Path, *, skip_existing: bool, max_age_days: int
+    sidecar: Path,
+    *,
+    skip_existing: bool,
+    max_age_days: int,
+    citations_dir: str | None = None,
+    dataset_id: str | None = None,
 ) -> tuple[bool, str]:
-    """Return (skip, reason). Reason is for logging only."""
+    """Return (skip, reason). Reason is for logging only.
+
+    `--skip-existing` used to skip on the mere existence of the sidecar, which
+    froze a dataset's judgments at whatever its anchor set was the first time
+    it ran. Anchors added afterwards were never judged, so they fell through
+    the pipeline's "fetch all when unjudged" path and pulled in the citers of
+    BIDS/methods papers. That is how 52% of recorded anchors ended up with a
+    null classification while every dataset still had a sidecar (#180).
+
+    So an existing sidecar is only a reason to skip when it actually covers
+    every anchor the last pipeline run recorded.
+    """
     if not sidecar.exists():
         return False, ""
     if skip_existing:
+        if dataset_id:
+            recorded = _recorded_anchor_keys(citations_dir, dataset_id)
+            missing = recorded - _judged_anchor_keys(sidecar)
+            if missing:
+                return False, ""
         return True, "exists"
     if max_age_days > 0:
         try:
@@ -138,6 +201,17 @@ def main() -> int:
         ),
     )
     parser.add_argument(
+        "--citations-dir",
+        default="citations/json_opencite",
+        help=(
+            "Citation JSON directory, read only to decide whether an existing "
+            "sidecar still covers the dataset's anchors. With --skip-existing, "
+            "a dataset whose citation JSON records an anchor the sidecar has no "
+            "judgment for is re-judged instead of skipped (default: "
+            "citations/json_opencite)."
+        ),
+    )
+    parser.add_argument(
         "--log-level",
         choices=["DEBUG", "INFO", "WARNING", "ERROR"],
         default="INFO",
@@ -196,6 +270,8 @@ def main() -> int:
                 sidecar,
                 skip_existing=args.skip_existing,
                 max_age_days=args.max_age_days,
+                citations_dir=getattr(args, "citations_dir", None),
+                dataset_id=dataset_id,
             )
             if skip:
                 logger.info("%s: skipping (%s)", dataset_id, reason)

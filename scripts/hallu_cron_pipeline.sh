@@ -158,9 +158,15 @@ curl -s --max-time 5 "${OLLAMA_PROBE_URL}/api/tags" >/dev/null || {
 # below ensures a partial judgment run does not feed downstream `update`
 # with a half-written sidecar tree.
 echo "--- judge-anchors (gpu, ollama) ---"
+#     --citations-dir makes --skip-existing coverage-aware (#180): a dataset
+#     whose citation JSON records an anchor the sidecar has no judgment for is
+#     re-judged rather than skipped. Without it a sidecar froze at whatever
+#     anchor set existed the first time it was written, and anchors added later
+#     fell through the pipeline's "fetch all when unjudged" path.
 uv run dataset-citations-judge-anchors \
   --dataset-list-file "$DATASETS_LIST" \
   --output-dir citations/anchor_judgments \
+  --citations-dir citations/json_opencite \
   --skip-existing || {
   echo "ERROR: dataset-citations-judge-anchors failed; aborting before update." >&2
   exit 2
