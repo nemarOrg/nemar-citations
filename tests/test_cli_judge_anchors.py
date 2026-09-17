@@ -62,7 +62,7 @@ class CliHelpAndParser(TestCase):
         finally:
             sys.argv = old_argv
         help_text = buf.getvalue()
-        self.assertIn("--datasets-list-file", help_text)
+        self.assertIn("--dataset-list-file", help_text)
         self.assertIn("--output-dir", help_text)
         self.assertIn("--skip-existing", help_text)
         self.assertIn("--max-age-days", help_text)
@@ -76,7 +76,7 @@ class CliHelpAndParser(TestCase):
             old_argv = sys.argv
             sys.argv = [
                 "dataset-citations-judge-anchors",
-                "--datasets-list-file",
+                "--dataset-list-file",
                 str(list_file),
                 "--output-dir",
                 str(Path(tmp) / "out"),
@@ -116,7 +116,7 @@ class CliOllamaPreflight(TestCase):
             old_argv = sys.argv
             sys.argv = [
                 "dataset-citations-judge-anchors",
-                "--datasets-list-file",
+                "--dataset-list-file",
                 str(list_file),
                 "--output-dir",
                 str(output_dir),
@@ -180,7 +180,7 @@ class CliSkipExistingAndMaxAge(TestCase):
         old_argv = sys.argv
         sys.argv = [
             "dataset-citations-judge-anchors",
-            "--datasets-list-file",
+            "--dataset-list-file",
             str(list_file),
             "--output-dir",
             str(output_dir),
@@ -335,7 +335,7 @@ class CliWritesJudgmentRecords(TestCase):
                 cli_judge.judge_dataset_anchors = fake_judge  # type: ignore[assignment]
                 sys.argv = [
                     "dataset-citations-judge-anchors",
-                    "--datasets-list-file",
+                    "--dataset-list-file",
                     str(list_file),
                     "--output-dir",
                     str(output_dir),
@@ -379,7 +379,7 @@ class CliWritesJudgmentRecords(TestCase):
                 cli_judge.judge_dataset_anchors = fake_judge  # type: ignore[assignment]
                 sys.argv = [
                     "dataset-citations-judge-anchors",
-                    "--datasets-list-file",
+                    "--dataset-list-file",
                     str(list_file),
                     "--output-dir",
                     str(output_dir),

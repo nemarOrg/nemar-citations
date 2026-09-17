@@ -121,11 +121,16 @@ def checked_within(
     """Return True if `dataset_id` was checked within `max_age_seconds`.
 
     Any missing entry or unparseable timestamp returns False (re-check).
+
+    The comparison is strict (`<`), so a dataset checked exactly
+    `max_age_seconds` ago is treated as STALE and re-fetched. With `<=` a cron
+    whose period equals the freshness window landed on the boundary every run
+    and therefore never refreshed anything (#80).
     """
     checked_at = parse_checked_at(state, dataset_id)
     if checked_at is None:
         return False
-    return datetime.now(UTC) - checked_at <= timedelta(seconds=max_age_seconds)
+    return datetime.now(UTC) - checked_at < timedelta(seconds=max_age_seconds)
 
 
 def stamp_checked(state: dict[str, str], dataset_id: str) -> None:

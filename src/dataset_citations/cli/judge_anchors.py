@@ -95,7 +95,7 @@ def main() -> int:
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
     parser.add_argument(
-        "--datasets-list-file",
+        "--dataset-list-file",
         required=True,
         help="Path to a newline-separated list of dataset IDs to judge.",
     )
@@ -151,9 +151,9 @@ def main() -> int:
         format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
     )
 
-    dataset_ids = _read_dataset_ids(args.datasets_list_file)
+    dataset_ids = _read_dataset_ids(args.dataset_list_file)
     if not dataset_ids:
-        logger.error("dataset list file %s is empty", args.datasets_list_file)
+        logger.error("dataset list file %s is empty", args.dataset_list_file)
         return 1
 
     github_token = args.github_token or os.getenv("GITHUB_TOKEN")
