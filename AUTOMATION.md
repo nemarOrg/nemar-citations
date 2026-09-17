@@ -1,140 +1,128 @@
 # Automated Citation Updates
 
-This document describes the automated weekly citation update system.
-
 ## Overview
 
-The pipeline runs automatically via two paths:
+The pipeline runs nightly on **hallu** (the GPU host), not in GitHub Actions.
+`scripts/hallu_cron_pipeline.sh` is the single producer of citation data,
+embeddings and analysis outputs.
+CI only consumes what that script commits.
 
-1. **GitHub Actions weekly cron** (preferred for production): `.github/workflows/update_citations.yml` triggers every Sunday at 06:00 UTC. The job fetches citations via opencite, regenerates the dashboard, and deploys to Cloudflare Pages at `dashboard.nemar.org/citations/`. The same workflow can be triggered manually via `workflow_dispatch`.
-2. **Local cron** (optional fallback): a host-side `setup_cron.sh` adds a crontab entry that calls `run_end_to_end_workflow.sh full`. Useful for environments that cannot run GitHub Actions.
-
-## Setup Instructions
-
-### GitHub Actions (recommended)
-No setup required beyond having the workflow file in `.github/workflows/`. Optional repository secrets raise opencite's rate limits:
-
-- `GITHUB_TOKEN` (provided automatically by Actions)
-- `SEMANTIC_SCHOLAR_API_KEY`
-- `OPENALEX_API_KEY`
-- `PUBMED_API_KEY`
-- `CLOUDFLARE_API_TOKEN`, `CLOUDFLARE_ACCOUNT_ID` (required for the dashboard deploy step)
-
-### Local cron (optional)
-
-1. Ensure `.secrets` file exists with your API keys:
-   ```bash
-   GITHUB_TOKEN=your_token_here
-   # Optional, raise opencite rate limits:
-   # SEMANTIC_SCHOLAR_API_KEY=your_key
-   # OPENALEX_API_KEY=your_key
-   # PUBMED_API_KEY=your_key
-   ```
-
-2. Run the setup script:
-   ```bash
-   ./setup_cron.sh
-   ```
-
-### Manual Trigger
-
-To manually run a full update locally:
-```bash
-./run_monthly_update.sh
-# or, equivalently:
-./run_end_to_end_workflow.sh full
+```
+hallu cron (03:00 PDT, nightly)
+  -> discover -> retrieve-metadata -> judge-anchors -> update (opencite fetch)
+  -> prune-mirrored -> find-mentions -> dedupe -> score-confidence
+  -> generate-embeddings -> analyze-umap -> themes / network / temporal
+  -> commit to auto-update/<timestamp> -> PR -> auto-merge on green CI
+       |
+       v
+  push to main triggers .github/workflows/deploy-dashboard.yml
+  -> builds the HTML and deploys to Cloudflare Pages
 ```
 
-To manually trigger the GitHub Actions workflow:
-```bash
-gh workflow run "Update citations" --repo nemarOrg/nemar-citations
+The heavy steps live on hallu because its RTX 4090 runs the semantic scoring and
+embeddings roughly ten times faster than CPU torch in GitHub Actions (epic #96),
+and because hallu's own IP carries its own GitHub rate-limit budget.
+
+There is no `update_citations.yml` workflow;
+it was removed when hallu became the producer.
+The two workflows that remain are `test.yml` (lint, types, pytest) and
+`deploy-dashboard.yml` (build and deploy from already-produced inputs).
+
+## Host Setup
+
+The crontab entry on hallu:
+
+```
+0 3 * * * PATH=/home/yahya/.local/bin:/usr/local/bin:/usr/bin:/bin \
+  /home/yahya/dataset_citations/scripts/hallu_cron_pipeline.sh \
+  > /home/yahya/dataset_citations/.logs/cron-stdout.log 2>&1
 ```
 
-## What Happens During an Automated Run
+Requirements on the host:
 
-1. **Updates main branch** -- Pulls latest changes.
-2. **Runs full workflow**:
-   - Discovers datasets from OpenNeuro and nemarDatasets.
-   - Fetches citing works via opencite (OpenAlex / Semantic Scholar / PubMed) anchored on each dataset's reference DOIs (extracted from `.nemar/metadata.json` or `dataset_description.json`).
-   - Retrieves dataset metadata.
-   - Calculates confidence scores.
-   - Generates analysis (network, temporal, themes).
-   - Creates dashboard.
-3. **Creates PR** -- Automatic PR for review.
-4. **Deploys dashboard** -- Cloudflare Pages at `https://dashboard.nemar.org/citations/`.
+- A `gh auth login` session. The script reads `gh auth token` at run time rather
+  than storing a token on disk; an empty token aborts the run with exit 2.
+- A reachable Ollama daemon for anchor adjudication, probed before the judging
+  step. Override the URL with `OLLAMA_BASE_URL` and the checkpoint with
+  `OLLAMA_MODEL` (default `gemma4:e4b`; `gemma4:31b` discriminates better but
+  OOMs on the shared host).
+- **No HuggingFace credential.** Both sentence-transformer checkpoints are
+  public and cached locally, and `utils/model_loading.py` loads them with the
+  network disabled before it will consider the Hub. Do not set `HF_TOKEN` here
+  expecting it to help: an *expired* token is worse than none, because it turns
+  an anonymous-readable public repo into a hard 401. That is what took the
+  pipeline down on 2026-09-15 and 2026-09-16 (issue #217).
+
+Optional, to raise opencite's limits: `OPENALEX_API_KEY`,
+`SEMANTIC_SCHOLAR_API_KEY`, `PUBMED_API_KEY`.
+`OPENCITE_DISABLED_SOURCES` turns a source off without a code change.
+
+## Safety Properties
+
+- **Lock.** `flock` on `.cron.lock`; a concurrent invocation logs a skip and
+  exits 0 rather than clobbering the run in progress.
+- **Disposable tree.** Each run starts with `git reset --hard origin/main`, so
+  the working tree is assumed disposable between runs. A run that aborts before
+  its commit loses its work entirely and starts over the next night.
+- **Guarded steps.** The script uses `set -uo pipefail` without `-e`, so every
+  step carries an explicit `|| { exit 2; }`. Cleanup steps (`prune-mirrored`,
+  `dedupe`, the export steps) warn instead, since they cannot corrupt anything
+  downstream.
+- **No-op exit.** If nothing tracked changed, the script exits 0 before
+  committing, which is the normal outcome on a quiet night.
 
 ## Logs
 
-GitHub Actions runs are visible at https://github.com/nemarOrg/nemar-citations/actions.
+On hallu:
 
-Local runs log to:
+```bash
+ls -lt ~/dataset_citations/.logs/          # one cron-<timestamp>.log per run
+grep -n '^--- \|^ERROR\|FAILED' ~/dataset_citations/.logs/cron-<ts>.log
 ```
-logs/citation_update_YYYY-MM-DD_HH-MM.log
-```
+
+Each step announces itself as `--- <step> ---`, so the first `ERROR` after the
+last such line identifies where a run died.
+
+**Byte-identical logs across nights mean the pipeline is wedged**, not idle: the
+hard reset makes a deterministic failure reproduce exactly, so the same work is
+redone and fails the same way every night. Compare sizes with `ls -l` before
+reading.
+
+CI runs are at https://github.com/nemarOrg/nemar-citations/actions.
 
 ## Monitoring
 
-Check for:
-- New weekly PRs titled "Update dataset citations".
-- Dashboard updates at https://dashboard.nemar.org/citations/.
-- Log files in `logs/` directory (local cron only).
-- GitHub Actions email notifications on failed runs.
+- Merged `auto-update/<timestamp>` PRs. A gap longer than a day or two means the
+  cron is aborting before its commit.
+- `dashboard.nemar.org/citations/` for the deployed result.
 
 ## Troubleshooting
 
-### Local cron job not running
-1. Check crontab is installed:
-   ```bash
-   crontab -l
-   ```
-2. Check system logs:
-   ```bash
-   tail -f /var/log/system.log | grep cron
-   ```
-3. Verify script permissions:
-   ```bash
-   ls -la run_monthly_update.sh
-   ```
+**No auto-update PR for several days.** Read the most recent log, find the last
+`--- <step> ---` before the error. Known wedges:
 
-### Workflow fails
-1. Check GitHub Actions log for the failed run.
-2. For local runs, check the log file:
-   ```bash
-   tail -50 logs/citation_update_*.log
-   ```
-3. Verify API keys in `.secrets` (or repo secrets for GitHub Actions).
-4. Test manually:
-   ```bash
-   ./run_end_to_end_workflow.sh full
-   ```
+- `dataset-citations-update` exiting 3 means every processed dataset returned a
+  transient API-failure status. If the same small set of datasets is processed
+  every night, check whether their statuses are genuinely transient rather than
+  permanent properties of their anchor DOIs (issue #217).
+- A model-loading failure in `score-confidence` should no longer be possible
+  from a credential problem; if one appears, confirm the checkpoints are still
+  in `~/.cache/huggingface/hub/`.
 
-## Disable Local Automation
+**Ollama unreachable.** The preflight aborts with exit 2 before any judging, so
+no run publishes stale judgments. Restart the daemon and wait for the next
+night, or run the script by hand.
 
-To remove the local cron job:
+**Manual run.** Safe to invoke directly; the lock prevents overlap with cron:
+
 ```bash
-crontab -l | grep -v 'run_monthly_update.sh' | crontab -
+ssh hallu '~/dataset_citations/scripts/hallu_cron_pipeline.sh'
 ```
 
-To disable the GitHub Actions weekly trigger without deleting the workflow, edit `.github/workflows/update_citations.yml` and comment out the `schedule:` block.
+Mind the rate-limit budget: a full pass over the corpus costs roughly two days
+of the OpenAlex accession-search allowance, so avoid re-running it casually.
 
 ## Schedule Customization
 
-GitHub Actions weekly schedule lives in `.github/workflows/update_citations.yml`:
-```yaml
-schedule:
-  - cron: "0 6 * * 0"  # Sunday 06:00 UTC
-```
-
-Local cron is in `setup_cron.sh`. Edit the `CRON_SCHEDULE` line:
-```bash
-# Format: minute hour day month day_of_week
-# Examples:
-# 0 2 1 * *    -- 1st of each month at 2:00 AM
-# 0 14 15 * *  -- 15th of each month at 2:00 PM
-# 0 2 * * 1    -- Every Monday at 2:00 AM
-```
-
-Then re-run:
-```bash
-./setup_cron.sh
-```
+Edit the crontab entry on hallu (`crontab -e`). The script itself takes no
+schedule argument.

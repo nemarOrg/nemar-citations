@@ -30,6 +30,11 @@ from dataset_citations.core.checkpoint import (
     DEFAULT_CHECKPOINT_DIR,
     CheckpointStore,
 )
+from dataset_citations.core.citation_identity import (
+    base_doi,
+    dedupe_citations,
+    normalize_title,
+)
 from dataset_citations.core.citation_utils import (
     add_discovery_provenance,
     stamp_dataset_metadata,
@@ -214,8 +219,20 @@ def fetch_dataset_citations_via_opencite(
             dataset_metadata=dataset_metadata,
         )
 
-    citation_details = [_citing_work_to_dict(w) for w in citing_works]
-    total_cumulative_citations = sum((w.citation_count or 0) for w in citing_works)
+    citation_details, duplicates_dropped = dedupe_citations(
+        [_citing_work_to_dict(w) for w in citing_works]
+    )
+    if duplicates_dropped:
+        logger.info(
+            "%s: merged %d duplicate citing work(s) (version/preprint variants)",
+            dataset_id,
+            duplicates_dropped,
+        )
+    # Counts must come from the deduped list, not `citing_works`, or the
+    # cumulative total keeps counting a preprint and its published version.
+    total_cumulative_citations = sum(
+        int(c.get("cited_by") or 0) for c in citation_details
+    )
 
     payload: dict[str, Any] = {
         "dataset_id": dataset_id,
@@ -331,33 +348,51 @@ def _flatten_batch(
     are not surfaced (the corresponding anchors are re-fetched and produce
     a fresh outcome that lands here).
     """
-    seen: set[tuple[str, str]] = set()
+    seen: set[str] = set()
     works: list[CitingWork] = []
     errors: dict[str, str] = {}
 
-    for work in prior_works or []:
-        key = ((work.doi or "").lower(), _normalize_title(work.title))
+    def _take(work: CitingWork) -> None:
+        # A DOI identifies the work once version suffixes are stripped; only
+        # when there is no DOI does the title become the identity. Keying on
+        # the PAIR (the pre-#216 behavior) meant a single punctuation
+        # difference between OpenAlex and S2 produced two records for one
+        # paper. Preprint-vs-published pairs carry genuinely different DOIs,
+        # so they survive this pass and are resolved by the
+        # `dedupe_citations` call that runs next (defined earlier in this
+        # file), which can record the superseded DOI on the survivor.
+        key = base_doi(work.doi) or normalize_title(work.title)
+        if not key:
+            # No usable identity: no DOI, and a title that normalizes to
+            # nothing (a fully non-Latin-script title, since normalize_title
+            # keeps only ASCII alphanumerics). Keep it as its own record
+            # rather than drop it. An empty key must never mean "same as the
+            # other empty-key record", which is the choice dedupe_citations
+            # and merge_accession_mentions both already make.
+            logger.warning(
+                "citing work has no usable identity (doi=%r, title=%r); "
+                "keeping it as a distinct record",
+                work.doi,
+                work.title,
+            )
+            works.append(work)
+            return
         if key in seen:
-            continue
+            return
         seen.add(key)
         works.append(work)
+
+    for work in prior_works or []:
+        _take(work)
 
     for anchor_id, result in batch.items():
         if not isinstance(result, FetchSuccess):
             errors[anchor_id] = result.reason
             continue
         for work in result.value:
-            key = ((work.doi or "").lower(), _normalize_title(work.title))
-            if key in seen:
-                continue
-            seen.add(key)
-            works.append(work)
+            _take(work)
 
     return works, errors
-
-
-def _normalize_title(title: str) -> str:
-    return " ".join(title.lower().split())
 
 
 def _citing_work_to_dict(work: CitingWork) -> dict[str, Any]:

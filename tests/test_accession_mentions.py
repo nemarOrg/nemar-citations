@@ -156,3 +156,65 @@ class MergeAccessionMentionsTests(TestCase):
         empty_mention = {"discovery_method": "accession_mention", "venue": "n/a"}
         merged = merge_accession_mentions(cj, [empty_mention], ["ds002718"])
         self.assertEqual(merged["num_citations"], 1)  # nothing to dedup/display by
+
+
+class SharedIdentityDedupTests(TestCase):
+    """The merge now shares `citation_identity` with the fetch-side dedup (#216).
+
+    Before that, `_ids` lowercased the raw DOI and `_title_key` was
+    `strip().lower()`, so a mention could re-enter as a second copy of a paper
+    the pipeline had already recorded under a different DOI spelling.
+    """
+
+    def test_mention_on_a_superseded_preprint_doi_does_not_reappend(self) -> None:
+        """The case `_ids`' superseded_dois branch exists for.
+
+        `dedupe_citations` folds an OSF preprint into its published version and
+        records the preprint DOI on the survivor. A later accession-mention hit
+        still carries the preprint DOI, so without indexing `superseded_dois`
+        the same paper would come back as a separate citation.
+        """
+        survivor = _anchor("10.1016/j.neuroimage.2022.119623")
+        survivor["superseded_dois"] = ["10.31219/osf.io/pu5vb"]
+        merged = merge_accession_mentions(
+            _base([survivor]), [_mention("10.31219/osf.io/pu5vb")], ["ds002718"]
+        )
+        self.assertEqual(merged["num_citations"], 1)
+        self.assertTrue(merged["citation_details"][0]["mentions_accession"])
+
+    def test_versioned_doi_mention_matches_the_concept_doi_anchor(self) -> None:
+        """`base_doi` collapses the version suffix on BOTH sides of the match.
+
+        Plain lowercasing treated `...on004842` and `...on004842.v1.0.0` as two
+        different papers.
+        """
+        merged = merge_accession_mentions(
+            _base([_anchor("10.82901/nemar.on004842")]),
+            [_mention("10.82901/nemar.on004842.v1.0.0")],
+            ["ds002718"],
+        )
+        self.assertEqual(merged["num_citations"], 1)
+
+    def test_title_fallback_folds_punctuation_drift(self) -> None:
+        """Title-only dedup now normalizes punctuation, not just case.
+
+        Neither record has a DOI or an OpenAlex id, so the title is the only
+        identity available; the sources differ by an en dash and a trailing
+        period.
+        """
+        anchor = _anchor("10.1/unused")
+        anchor["doi"] = None
+        anchor["title"] = "Reward processing - A multi-lab replication."
+        mention = _mention(None)
+        mention["title"] = "Reward processing \u2013 A multi-lab replication"
+        merged = merge_accession_mentions(_base([anchor]), [mention], ["ds002718"])
+        self.assertEqual(merged["num_citations"], 1)
+
+    def test_genuinely_different_papers_still_both_kept(self) -> None:
+        """The looser matching must not start collapsing unrelated papers."""
+        merged = merge_accession_mentions(
+            _base([_anchor("10.1016/j.cortex.2019.12.001")]),
+            [_mention("10.1038/s41467-024-49538-w")],
+            ["ds002718"],
+        )
+        self.assertEqual(merged["num_citations"], 2)

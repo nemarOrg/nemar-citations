@@ -21,6 +21,11 @@ from __future__ import annotations
 
 from typing import Any
 
+from dataset_citations.core.citation_identity import (
+    base_doi,
+    normalize_title,
+)
+
 # Intentional subset of RelationType: only the relations whose anchor IS the
 # dataset record (vs a paper about it). IsDescribedBy/References/IsDerivedFrom
 # denote papers, so they stay out.
@@ -28,19 +33,36 @@ _DATASET_RELATIONS = frozenset({"IsVersionOf", "IsIdenticalTo"})
 
 
 def _ids(citation: dict[str, Any]) -> list[str]:
-    """Strong identifiers (DOI + OpenAlex id, lowercased) for dedup matching."""
+    """Strong identifiers (DOI + OpenAlex id) for dedup matching.
+
+    The DOI goes through `base_doi` so a concept DOI and its versioned form
+    (`10.82901/nemar.on004842` / `...on004842.v1.0.0`) match each other, and
+    any superseded DOI already
+    folded into this record still identifies it -- otherwise a mention
+    carrying the preprint DOI would re-append a paper we merged earlier.
+    """
     out: list[str] = []
-    for field in ("doi", "openalex_id"):
-        value = citation.get(field)
-        if value:
-            out.append(str(value).strip().lower())
+    doi = base_doi(citation.get("doi"))
+    if doi:
+        out.append(doi)
+    for superseded in citation.get("superseded_dois") or []:
+        key = base_doi(superseded)
+        if key:
+            out.append(key)
+    openalex_id = citation.get("openalex_id")
+    if openalex_id:
+        out.append(str(openalex_id).strip().lower())
     return out
 
 
 def _title_key(citation: dict[str, Any]) -> str:
-    """Lowercased title, used as a dedup fallback only when no strong ids exist."""
-    title = citation.get("title")
-    return str(title).strip().lower() if title else ""
+    """Normalized title, used as a dedup fallback only when no strong ids exist.
+
+    Shares `normalize_title` with the fetch-side dedup so punctuation drift
+    between sources ("... replication." vs "... replication") does not let a
+    mention re-enter as a second copy.
+    """
+    return normalize_title(citation.get("title"))
 
 
 def cites_dataset(citation: dict[str, Any]) -> bool:

@@ -206,6 +206,84 @@ class RunOpenciteBackendTests(TestCase):
             finally:
                 cli_module.fetch_dataset_citations_via_opencite = original  # type: ignore[assignment]
 
+    def test_not_found_only_run_does_not_exit_nonzero(self) -> None:
+        """A run where every dataset's anchors are unindexed must NOT exit 3.
+
+        End-to-end regression for #217, driving `run_opencite_backend` rather
+        than asserting on the constant. 36 datasets have anchor DOIs that are
+        permanently absent from OpenAlex (`on004019`'s is the placeholder
+        `10.3389/fnhum.2022.xxxxx`), so on most nights they were the only
+        datasets processed. While `not_found` counted as an API failure that
+        made `successes == 0 and api_failures == processed` true, aborting the
+        nightly pipeline before scoring, embeddings and the commit.
+
+        The bug can return through the successes/api_failures/processed
+        bookkeeping, not just through the frozenset, which is why this drives
+        the real exit path.
+        """
+        from dataset_citations.cli import update as cli_module
+
+        with tempfile.TemporaryDirectory() as out_dir:
+            list_file = Path(out_dir) / "list.txt"
+            list_file.write_text("on004019\non006593\n")
+
+            def stub_pipeline(dataset_id, **_):
+                return {
+                    "dataset_id": dataset_id,
+                    "num_citations": 0,
+                    "date_last_updated": "2026-01-01T00:00:00",
+                    "metadata": {
+                        "schema_version": "2.1",
+                        "discovery_backend": "opencite",
+                        "fetch_status": "not_found",
+                    },
+                    "citation_details": [],
+                }
+
+            original = cli_module.fetch_dataset_citations_via_opencite
+            cli_module.fetch_dataset_citations_via_opencite = stub_pipeline  # type: ignore[assignment]
+            args = _make_args(list_file, out_dir)
+            try:
+                # Must return normally: no SystemExit at all.
+                cli_update.run_opencite_backend(args)
+            finally:
+                cli_module.fetch_dataset_citations_via_opencite = original  # type: ignore[assignment]
+
+    def test_rate_limit_still_exits_3_after_the_not_found_change(self) -> None:
+        """Removing `not_found` must not blunt outage detection.
+
+        The exit-3 sentinel still has to fire when the failures are genuinely
+        transient, or #217's fix would trade one silent failure for another.
+        """
+        from dataset_citations.cli import update as cli_module
+
+        with tempfile.TemporaryDirectory() as out_dir:
+            list_file = Path(out_dir) / "list.txt"
+            list_file.write_text("on004019\non006593\n")
+
+            def stub_pipeline(dataset_id, **_):
+                return {
+                    "dataset_id": dataset_id,
+                    "num_citations": 0,
+                    "date_last_updated": "2026-01-01T00:00:00",
+                    "metadata": {
+                        "schema_version": "2.1",
+                        "discovery_backend": "opencite",
+                        "fetch_status": "rate_limit",
+                    },
+                    "citation_details": [],
+                }
+
+            original = cli_module.fetch_dataset_citations_via_opencite
+            cli_module.fetch_dataset_citations_via_opencite = stub_pipeline  # type: ignore[assignment]
+            args = _make_args(list_file, out_dir)
+            try:
+                with self.assertRaises(SystemExit) as ctx:
+                    cli_update.run_opencite_backend(args)
+                self.assertEqual(ctx.exception.code, 3)
+            finally:
+                cli_module.fetch_dataset_citations_via_opencite = original  # type: ignore[assignment]
+
     def test_total_write_failure_raises_systemexit(self) -> None:
         """When every write fails, surface non-zero exit.
 
@@ -355,6 +433,31 @@ class FreshnessGateTests(TestCase):
             path = Path(tmp) / ".fetch_state.json"
             path.write_text("not json at all")
             self.assertEqual(load_state(str(path)), {})
+
+    def test_has_stable_status_true_for_not_found(self) -> None:
+        """A DOI absent from OpenAlex is a property of the DOI, not the API.
+
+        Regression for issue #217: while `not_found` counted as a transient API
+        failure, the 36 datasets whose anchors are permanently unindexed were
+        re-fetched every night, were the only datasets processed on most nights,
+        and so tripped the exit-3 guard and aborted the whole nightly pipeline
+        before scoring, embeddings or the commit.
+        """
+        from dataset_citations.cli.update import _has_stable_status
+
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "on004019_citations.json"
+            self._write_json(path, {"metadata": {"fetch_status": "not_found"}})
+            self.assertTrue(_has_stable_status(str(path)))
+
+    def test_not_found_is_not_an_api_failure_status(self) -> None:
+        """The exit-3 sentinel must not fire on permanently unindexed anchors."""
+        from dataset_citations.cli.update import _API_FAILURE_STATUSES
+
+        self.assertNotIn("not_found", _API_FAILURE_STATUSES)
+        # The genuinely transient ones stay, or exit 3 stops detecting outages.
+        for status in ("rate_limit", "auth", "network", "parse", "other"):
+            self.assertIn(status, _API_FAILURE_STATUSES)
 
 
 class IdempotentWriteTests(TestCase):
