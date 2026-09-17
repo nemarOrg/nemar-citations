@@ -1,0 +1,34 @@
+{
+  "dataset_id": "on008701",
+  "date_retrieved": "2026-09-16T10:01:17.433771+00:00",
+  "dataset_description": {
+    "Name": "MET - Music-Induced Emotion EEG Dataset",
+    "BIDSVersion": "1.7.0",
+    "DatasetType": "raw",
+    "Authors": [
+      "Weng Lam, Cheang"
+    ],
+    "DatasetDOI": "10.82901/nemar.on008701",
+    "License": "CC0",
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.18112/openneuro.ds008701.v1.0.2"
+      }
+    ],
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.on008701-blue)](https://doi.org/10.82901/nemar.on008701)\n\n# MET: Music-Induced EEG Dataset\n\n## Overview\n\nThe MET (Music-Induced EEG Dataset) contains EEG recordings collected from 20 participants during resting-state and music-listening experiments.\n\nEach participant completed:\n- One resting-state recording session (`ses-rest`)\n- Twenty music-listening sessions (`ses-t01` to `ses-t20`)\n\nEach music session corresponds to a different song. The total recording duration for each song is 130 seconds, including:\n\n- 5 seconds before music onset\n- 120 seconds of music playback\n- 5 seconds after music offset\n\nEEG signals were originally recorded using a 128-channel EEG system at a sampling rate of 1000 Hz. After preprocessing and channel selection, 66 EEG channels are provided in this dataset.\n\nThe dataset follows the Brain Imaging Data Structure (BIDS) specification for EEG recordings.\n\n---\n\n## Repository Structure\n\nEach EEG session contains the following files:\n\n*_eeg.eeg: EEG signal data in BrainVision format. (Unit: µV [microvolts])\n\n*_eeg.vhdr: BrainVision header file containing acquisition parameters.\n\n*_eeg.vmrk: Event marker file.\n\n*_eeg.json: EEG recording metadata.\n\n*_channels.tsv: Information about EEG channels, including channel names and units.\n\n*_events.tsv: Timing information for experimental events.\n\n*_events.json: Description of event variables stored in events.tsv.\n\n*_electrodes.tsv: Spatial coordinates of EEG electrodes.\n\n*_coordsystem.json: Coordinate system used for electrode locations.\n\n*_scans.tsv: List of files acquired during the session.\n\n---\n\n## Sample Code (PTTHON):\n\n```py\n\nfrom mne_bids import BIDSPath, read_raw_bids\n\n# 1. Set file path and file name\nbids_path = BIDSPath(\n    subject='01',          # subject index (eg. 01)\n    session='t01',          # trial index (eg. t01)\n    task='music',\n    datatype='eeg',\n    root='/Users/kathy/Documents/EEG data/EGI_preprocessed_bids' # directory root path\n)\n\n# 2. Load BIDS file\nraw_read = read_raw_bids(bids_path=bids_path, extra_params={'preload': True})\n\n# 3. Check Info\nprint(raw_read.info)\n\n```\n\n---\n\n\n\nReferences\n----------\nAppelhoff, S., Sanderson, M., Brooks, T., Vliet, M., Quentin, R., Holdgraf, C., Chaumon, M., Mikulan, E., Tavabi, K., Höchenberger, R., Welke, D., Brunner, C., Rockhill, A., Larson, E., Gramfort, A. and Jas, M. (2019). MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis. Journal of Open Source Software 4: (1896). https://doi.org/10.21105/joss.01896\n\nPernet, C. R., Appelhoff, S., Gorgolewski, K. J., Flandin, G., Phillips, C., Delorme, A., Oostenveld, R. (2019). EEG-BIDS, an extension to the brain imaging data structure for electroencephalography. Scientific Data, 6, 103. https://doi.org/10.1038/s41597-019-0104-8\n\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/on008701",
+    "exists": true,
+    "description": "MET - Music-Induced Emotion EEG Dataset",
+    "created_at": "2026-09-08T20:30:57+00:00",
+    "updated_at": "2026-09-14T14:36:08+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

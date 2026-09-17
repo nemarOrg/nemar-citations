@@ -1,0 +1,54 @@
+{
+  "dataset_id": "on008768",
+  "date_retrieved": "2026-09-16T10:01:24.844952+00:00",
+  "dataset_description": {
+    "Name": "Resting-State EEG in Parkinson's Disease and Healthy Controls",
+    "BIDSVersion": "1.11.1",
+    "DatasetType": "raw",
+    "License": "CC0",
+    "Authors": [
+      "Brooke Yeager",
+      "Arturo Espinoza",
+      "Rachel Cole",
+      "Christina Weber",
+      "Ergun Uc",
+      "James Cavanagh",
+      "Nandakumar Narayanan"
+    ],
+    "Keywords": [
+      "EEG",
+      "resting-state EEG",
+      "Parkinson's disease",
+      "healthy controls",
+      "electroencephalography",
+      "neuroscience"
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "BIDS conversion and curation",
+        "Description": "Conversion and curation of existing BrainVision resting-state EEG recordings and associated participant and session metadata into BIDS format."
+      }
+    ],
+    "DatasetDOI": "10.82901/nemar.on008768",
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.18112/openneuro.ds008768.v1.0.0"
+      }
+    ],
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.on008768-blue)](https://doi.org/10.82901/nemar.on008768)\n\n# Resting-State EEG in Parkinson's Disease and Healthy Controls\n\n## Overview\n\nThis dataset contains human resting-state electroencephalography (EEG) recordings collected from individuals with Parkinson's disease (PD) and healthy controls (HC). Recordings were acquired during eyes-open resting-state conditions.\n\nThe dataset includes 358 resting-state EEG recordings from 312 unique participants. Some participants have recordings from multiple sessions, allowing for longitudinal analyses.\n\n## Participants\n\nThe dataset includes participants with Parkinson's disease and healthy control participants. Participant-level demographic information is provided in `participants.tsv`.\n\nParticipant-level variables include:\n\n- Age at the first resting-state EEG session\n- Sex\n- Education\n- Race\n- Group (PD or Control)\n\nSession-specific clinical and acquisition information is provided in each participant's `_sessions.tsv` file.\n\nSession-level variables include:\n\n- Age at the time of recording\n- Montreal Cognitive Assessment (MoCA) score\n- UPDRS Part III score\n- Parkinson's disease duration\n- Levodopa equivalent daily dose (LEDD)\n- Resting-state condition\n- De-identified acquisition date\n- Days since the participant's first session\n\n## EEG Data\n\nEEG recordings are provided in BrainVision format (`.vhdr`, `.vmrk`, and `.eeg`) and organized according to the Brain Imaging Data Structure (BIDS) specification.\n\nThe majority of recordings were acquired at 500 Hz. A subset of recordings was acquired at 25,000 Hz. Original sampling frequencies have been retained.\n\nEEG recordings use Pz as the reference electrode. Recordings contain between 63 and 64 EEG channels, with some recordings additionally containing auxiliary channels such as audio or respiratory measurements. These channels have been retained where available.\n\nRecordings were collected using eyes-open resting-state conditions.\n\n## Dataset Organization\n\nThe dataset follows BIDS version 1.11.1.\n\nAt the dataset level:\n\n- `participants.tsv` contains one row per participant.\n- `participants.json` describes the participant-level variables.\n- Participant-specific `_sessions.tsv` files contain session-level demographic, clinical, and acquisition information.\n- Participant-specific `_sessions.json` files describe the session-level variables.\n- EEG recordings and associated metadata are contained within participant/session directories.\n\n## De-identification\n\nAcquisition dates have been de-identified for public release. Dates were altered while preserving the exact intervals between sessions within each participant. Therefore, the absolute acquisition dates should not be interpreted as the original dates of data collection.\n\n## Contributing Studies\n\nThe recordings were collected as part of multiple research projects. The dataset combines these recordings into a common BIDS-formatted dataset for public reuse. The contributing project identifiers used during data curation are not treated as separate source datasets in this release.\n\n## Missing Data\n\nMissing demographic or clinical values are represented as `n/a` in accordance with BIDS conventions.\n\n## License\n\nThis dataset is released under the Creative Commons CC0 1.0 Universal dedication.\n\n## Contact\n\nFor questions regarding the dataset, please contact:\n\nNandakumar Narayanan  \nnandakumar-narayanan@uiowa.edu\nUniversity of Iowa",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/on008768",
+    "exists": true,
+    "description": "Resting-State EEG in Parkinson's Disease and Healthy Controls",
+    "created_at": "2026-09-08T22:30:49+00:00",
+    "updated_at": "2026-09-14T14:36:39+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

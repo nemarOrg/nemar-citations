@@ -1,0 +1,48 @@
+{
+  "dataset_id": "on008257",
+  "date_retrieved": "2026-09-16T10:00:57.780708+00:00",
+  "dataset_description": {
+    "Name": "EEG Moments Dataset (EMD)",
+    "BIDSVersion": "1.9.0",
+    "DatasetType": "raw",
+    "License": "CC0",
+    "Authors": [
+      "Alessandro T. Gifford",
+      "Pablo Oyarzo",
+      "Anne W. Zonneveld",
+      "Christina Sartzetaki",
+      "Iris I.A. Groen",
+      "Radoslaw M. Cichy"
+    ],
+    "HowToAcknowledge": "??????????????????????????????",
+    "EthicsApprovals": [
+      "Procedures were approved by the ethical committee of the Department of Education and Psychology at Freie Universität Berlin and were in accordance with the Declaration of Helsinki."
+    ],
+    "ReferencesAndLinks": [
+      "Paper: ???????????????????????????????",
+      "Code: https://github.com/gifale95/EMD",
+      "BOLD Moments Dataset: https://doi.org/10.1038/s41467-024-50310-3"
+    ],
+    "DatasetDOI": "10.82901/nemar.on008257",
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.18112/openneuro.ds008257.v1.0.0"
+      }
+    ],
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.on008257-blue)](https://doi.org/10.82901/nemar.on008257)\n\n# EEG Moments Dataset (EMD)\n\nThis is the data repository for the [EEG Moments Dataset (EMD)][paper_emd]. EMD contains EEG responses to 1,102 3-second videos across 6 human subjects. During the EMD experiment, the video stimuli were presented with the corresponding audio track, so as to enable analyses of visual and/or auditory processing of naturalistic dynamic events. Each subject saw the 1,000 video training set 6 times, and the 102 video testing set 24 times. Each video is additionally human-annotated with 15 object labels, 5 scene labels, 5 action labels, 5 sentence text descriptions, 1 spoken transcription, 1 memorability score, and 1 memorability decay rate.\n\nEMD is the EEG companion dataset of the [BOLD Moments Dataset (BMD)][paper_bmd], which consists of fMRI responses for the same 1,102 3-second videos.\n\nEMD additionally contains eye tracking data (gaze and pupil size) collected during the EEG experiment. Note that subjects were instructed to maintain central fixation during the stimulus video presentation.\n\n\n\n## 🔍 Overview of contents\n\nThe home folder (everything except the `./stimuli` and the `./derivatives/` folders) contains the raw EEG and eye-tracking data in BIDS format before any preprocessing. The eye-tracking data is denoted as `physio` in the corresponding file names. Download this folder if you want to run your own preprocessing pipeline.\n\nThe `./stimuli/` folder contains a `.txt` file with instructions to access the video stimuli which, due to copyright permission considerations, must be downloaded separately.\n\nThe `./derivatives/` folder contains all data derivatives, including the stimulus metadata (`./derivatives/stimuli_metadata/`), preprocessed EEG data (`./derivatives/eeg/`), and preprocessed eye-tracking data (`./derivatives/eyetracking/`).\n\n\n\n## 📝 Data collection notes\n\n### 🧠 Missing EEG data\n\n#### Subject 1\n\n- **Session 3:**\n    - **Run 10:** The first EEG video trial is missing, as the EEG recording only starts ~400ms after the onset of the first video trial.\n\n#### Subject 5\n\n- **Session 7:**\n    - **Run 16:** The EEG recording only contains the first 64 (out of 66) video trials.\n\n### 👁️ Missing eye tracking data \n\n#### Subject 4\n\n- **Session 5:**\n    - **Run 5:** The eye tracking recording only contains the first 39 (out of 66) video trials.\n- **Session 6:**\n    - **Run 10:** The eye tracking recording only contains the first 23 (out of 66) video trials.\n    - **Run 12:** The eye tracking recording only contains the first 33 (out of 66) video trials.\n\n#### Subject 5\n\n- **Session 6:**\n    - **Run 11:** The eye tracking recording only contains the first 50 (out of 66) video trials.\n\n\n\n## 💻 Code\n\nThe code we used for collecting, preprocessing and analyzing the EEG Moments Dataset (EMD) is available on [GitHub][github].\n\nIf you wish to familiarize with EMD's preprocessed EEG and eye tracking data, check out this [interactive Colab tutorial][colab].\n\n\n\n## 📧 Contact\n\nFor any question regarding the EEG Moments Dataset, you can get in touch with Ale Gifford (alessandro.gifford@gmail.com).\n\n\n\n## 📜 Citation\n\nIf you use EMD's data, please cite the paper:\n\n> * Gifford AT, Oyarzo P, Zonneveld AW, Sartzetaki C, Groen IIA, Cichy RM. 2026. !!!TITLE!!!. _arXiv_. DOI: [!!!!!!!!!!!!!!!!!!][paper_emd]\n\nIf you use EMD's stimuli or stimulus metadata, please also cite the paper:\n\n> * Lahner B, Dwivedi K, Iamshchinina P, Graumann M, Lascelles A, Roig G, Gifford AT, Pan B, Jin S, Murty AR, Kay K, Oliva A, Cichy RM. 2024. Modeling short visual events through the BOLD moments video fMRI dataset and metadata. _Nature Communications_. DOI: [https://doi.org/10.1038/s41467-024-50310-3][paper_bmd]\n\n\n\n[paper_emd]: !!!!!!!!!!!!!!!!!!!!!!!!!!!!!\n[paper_bmd]: https://doi.org/10.1038/s41467-024-50310-3\n[github]: https://github.com/gifale95/EMD\n[colab]: https://colab.research.google.com/drive/1Z5MDo8yy3sucggLQ4SMETtud2E1igRE9?usp=drive_link\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/on008257",
+    "exists": true,
+    "description": "EEG Moments Dataset (EMD)",
+    "created_at": "2026-09-08T16:26:46+00:00",
+    "updated_at": "2026-09-14T14:34:00+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

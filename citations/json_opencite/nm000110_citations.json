@@ -1,6 +1,6 @@
 {
   "dataset_id": "nm000110",
-  "num_citations": 149,
+  "num_citations": 150,
   "date_last_updated": "2026-08-25T10:01:21.347385+00:00",
   "metadata": {
     "total_cumulative_citations": 2458,
@@ -82,7 +82,13 @@
       "PhysioNet"
     ],
     "methods_description": "Subjects underwent continuous scalp EEG monitoring using the International 10-20 electrode system with bipolar montages. Signals were sampled at 256 samples per second with 16-bit resolution. Most recording files contain one hour of digitized EEG signals, with some containing two-hour or four-hour recordings. Additional signals including ECG and vagal nerve stimulus (VNS) were recorded in some cases. The original EEG data in .edf format from PhysioNet has been converted to BIDS format with standardized channel naming. Channel names have been standardized to match the standard 10-05 montage naming convention. Bipolar channel pairs are represented in the format 'Electrode1-Electrode2' (e.g., 'FP1-F7'). Non-EEG channels such as ECG are preserved with appropriate BIDS channel types. All protected health information (PHI) in the original files has been replaced with surrogate information.",
-    "funding": []
+    "funding": [],
+    "searched_accessions": [
+      "nm000110"
+    ],
+    "num_accession_mentions": 1,
+    "num_dataset_citations": 50,
+    "num_datapaper_citations": 100
   },
   "citation_details": [
     {
@@ -3511,22 +3517,47 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "An Order Estimation Based Approach to Identify Response Genes for Microarray Time Course Data",
+      "author": "Zhiheng K Lu, Allen O. Brian, Anthony F. Desmond",
+      "venue": "Statistical Applications in Genetics and Molecular Biology",
+      "year": 2012,
+      "url": "https://doi.org/10.1515/1544-6115.1818",
+      "cited_by": 2,
+      "abstract": "Gene expression profiles from microarray time course experiments provide a unique opportunity to examine genome-wide signal processing and gene responses. A fundamental issue in microarray experiments is that the treatment condition can only be controlled at the cell level rather than at the gene level. The treatment condition does not affect all genes equally. Some genes depend on other genes to detect external changes. The dependency between genes is not fully deterministic and may vary with treatment condition. Thus the expression of each gene is potentially affected by two confounding effects: the treatment effect and the gene context effect arising from the regulatory interactions among genes. This gene context effect is hard to isolate. Neither can it be simply ignored. Instead, this gene context information which may be different under different treatment conditions is of primary biological interest. We introduce an approach which deals with the confounding effects and takes into account the uncontrollable gene context effect. Our method is based on the estimation of the number of hidden states, which, in our development, corresponds to the order of a hidden Markov model (HMM). For each gene, its observed expression is modeled by a gamma distribution determined by the corresponding hidden state at each time point. Those genes showing evidence for more than one hidden state can be categorized as the signalling genes, or in a wider sense, as the response genes which are coordinated by a cell system in reaction to a specific external condition. These response genes can be used in the comparison of different treatment conditions, to investigate the gene context effect under different treatments. Microarray time course data are also analyzed to demonstrate our method.",
+      "doi": "10.1515/1544-6115.1818",
+      "pmid": "23241685",
+      "openalex_id": "W2265464824",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "nm000110",
+      "confidence_scoring": {
+        "confidence_score": 0.28299041986465456,
+        "similarity_score": 0.25726401805877686,
+        "citation_text_length": 1738,
+        "dataset_text_length": 2229,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-08-25T11:10:53.633848+00:00",
+    "scoring_date": "2026-09-17T10:39:38.761593+00:00",
     "dataset_text_length": 2229,
-    "num_citations_scored": 149,
+    "num_citations_scored": 150,
     "summary_stats": {
-      "mean_confidence": 0.4935658750963091,
-      "median_confidence": 0.510770987123251,
-      "std_confidence": 0.1079082581872365,
+      "mean_confidence": 0.49216203872809805,
+      "median_confidence": 0.5102987983077765,
+      "std_confidence": 0.10890457732740783,
       "min_confidence": 0.164143303334713,
       "max_confidence": 0.7914810115098954,
       "high_confidence_count": 2,
       "medium_confidence_count": 115,
-      "low_confidence_count": 32
+      "low_confidence_count": 33
     }
   }
 }

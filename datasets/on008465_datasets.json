@@ -1,0 +1,46 @@
+{
+  "dataset_id": "on008465",
+  "date_retrieved": "2026-09-16T10:01:06.246343+00:00",
+  "dataset_description": {
+    "Name": "NeuralEcho MACS high-density communication-related EEG dataset",
+    "BIDSVersion": "1.7.0",
+    "DatasetType": "raw",
+    "Authors": [
+      "Huang Jinfeng",
+      "Kangqiao Liu",
+      "Li Zhongjie",
+      "Jin Yongdong"
+    ],
+    "Acknowledgements": "Data collection and curation were conducted collaboratively by Tianjin University, Shenzhen University and NeuralEcho Technology Co., Ltd.",
+    "HowToAcknowledge": "Please cite the accompanying Scientific Data Data Descriptor.",
+    "GeneratedBy": [
+      {
+        "Name": "MNE-BIDS",
+        "Version": "0.17.0",
+        "CodeURL": "https://mne.tools/mne-bids/"
+      }
+    ],
+    "DatasetDOI": "10.82901/nemar.on008465",
+    "License": "CC0",
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.18112/openneuro.ds008465.v1.0.0"
+      }
+    ],
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.on008465-blue)](https://doi.org/10.82901/nemar.on008465)\n\nNeuralEcho MACS high-density communication-related EEG dataset\n================================================================\n\nOverview\n--------\nThis dataset contains high-density EEG recordings from 30 healthy,\nright-handed, native Chinese-speaking adults. Participants performed imagined\nand executed vocalization and writing tasks involving four Chinese strokes\n(heng, shu, pie and na) and four English letters (a, b, c and d).\n\nExperimental design\n-------------------\nEach participant completed eight runs of 64 trials. The factorial design\ncrossed task mode (motor imagery or motor execution), action (read/speak or\nwrite), script (Chinese or English) and token identity, yielding 32 event-coded\nconditions and 15,360 task events.\n\nData organization\n-----------------\nThe BIDS root contains BrainVision EEG data and metadata. Proprietary Neuroscan\nsource recordings are under sourcedata/. EEGLAB preprocessing derivatives and\nsubject-level machine-learning exports are under derivatives/. Those two\ndirectories are intentionally listed in .bidsignore because they are shared\nfor reuse but are not part of raw-BIDS validation.\n\nElectrode coordinates and reference\n-----------------------------------\nThe electrodes.tsv files contain a shared 127-channel cap-layout template\nderived from Code/127cn.csv. Coordinates are expressed in millimetres using\nthe EEGLAB ALS convention: positive x points anteriorly, positive y points to\nthe participant's left and positive z points superiorly. These are template\ncoordinates repeated across participants, not participant-specific digitized\npositions. Trigger is an acquisition channel and is therefore excluded from\nelectrodes.tsv. The continuous recordings used the bilateral mastoid\nelectrodes M1 and M2 as the EEG reference.\n\nAuthors and contributors\n------------------------\nHuang Jinfeng; Kangqiao Liu; Li Zhongjie; Jin Yongdong.\nData were collected and curated collaboratively by Tianjin University,\nShenzhen University and NeuralEcho Technology Co., Ltd.\n\nReferences\n----------\nAppelhoff, S. et al. MNE-BIDS: Organizing electrophysiological data into the\nBIDS format and facilitating their analysis. Journal of Open Source Software\n4, 1896 (2019). https://doi.org/10.21105/joss.01896\n\nPernet, C. R. et al. EEG-BIDS, an extension to the brain imaging data structure\nfor electroencephalography. Scientific Data 6, 103 (2019).\nhttps://doi.org/10.1038/s41597-019-0104-8\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/on008465",
+    "exists": true,
+    "description": "NeuralEcho MACS high-density communication-related EEG dataset",
+    "created_at": "2026-09-08T19:01:02+00:00",
+    "updated_at": "2026-09-14T14:34:51+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}
