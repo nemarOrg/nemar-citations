@@ -112,7 +112,7 @@ curl -s --max-time 5 "${OLLAMA_PROBE_URL}/api/tags" >/dev/null || {
 # with a half-written sidecar tree.
 echo "--- judge-anchors (gpu, ollama) ---"
 uv run dataset-citations-judge-anchors \
-  --datasets-list-file "$DATASETS_LIST" \
+  --dataset-list-file "$DATASETS_LIST" \
   --output-dir citations/anchor_judgments \
   --skip-existing || {
   echo "ERROR: dataset-citations-judge-anchors failed; aborting before update." >&2

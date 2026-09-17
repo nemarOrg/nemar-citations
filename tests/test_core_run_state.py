@@ -135,3 +135,32 @@ class RollingCoverageTests(TestCase):
         # Everything is now fresh, so a fourth run would do no work at all.
         remaining = [d for d in corpus if not checked_within(d, state, 7 * 86400)]
         self.assertEqual(remaining, [])
+
+
+class BoundaryFreshnessTests(TestCase):
+    """The freshness window is half-open: exactly at the boundary is stale.
+
+    Regression for #80. With `<=`, a cron whose period equals the freshness
+    window landed on the boundary every single run and never refreshed.
+    """
+
+    def test_exactly_at_the_window_is_stale(self) -> None:
+        window = 7 * 86400
+        state = {
+            "on000001": (datetime.now(UTC) - timedelta(seconds=window)).isoformat()
+        }
+        self.assertFalse(checked_within("on000001", state, window))
+
+    def test_just_inside_the_window_is_fresh(self) -> None:
+        window = 7 * 86400
+        state = {
+            "on000001": (datetime.now(UTC) - timedelta(seconds=window - 60)).isoformat()
+        }
+        self.assertTrue(checked_within("on000001", state, window))
+
+    def test_past_the_window_is_stale(self) -> None:
+        window = 7 * 86400
+        state = {
+            "on000001": (datetime.now(UTC) - timedelta(seconds=window + 60)).isoformat()
+        }
+        self.assertFalse(checked_within("on000001", state, window))

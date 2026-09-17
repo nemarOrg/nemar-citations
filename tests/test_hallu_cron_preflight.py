@@ -259,3 +259,27 @@ def test_rerun_full_mode_runs_analysis_after_umap() -> None:
     assert full_block.index("umap_analysis") < full_block.index("themes_analysis"), (
         "analysis stages must run after umap_analysis in the rerun helper's full mode"
     )
+
+
+def test_no_hallu_script_uses_the_retired_plural_flag():
+    """Regression for #94.
+
+    The flag was harmonized to `--dataset-list-file` and `hallu_rerun.sh` was
+    missed on the first pass. That script is the manual recovery path, so a
+    stale flag there fails exactly when someone is rescuing a broken night.
+    """
+    for script in (CRON_SCRIPT, RERUN_SCRIPT):
+        text = script.read_text(encoding="utf-8")
+        assert "--datasets-list-file" not in text, (
+            f"{script.name} still uses the retired flag spelling"
+        )
+
+
+def test_judge_anchors_invocations_use_the_canonical_flag():
+    for script in (CRON_SCRIPT, RERUN_SCRIPT):
+        text = script.read_text(encoding="utf-8")
+        if "dataset-citations-judge-anchors" not in text:
+            continue
+        assert "--dataset-list-file" in text, (
+            f"{script.name} calls judge-anchors without the canonical flag"
+        )
