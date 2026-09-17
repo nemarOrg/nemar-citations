@@ -93,11 +93,18 @@ class TestLoadSentenceTransformer:
             "the offline path is not engaging"
         )
 
-    def test_loads_a_cached_checkpoint_despite_a_rejected_token(self):
-        """When the checkpoint is cached, a bad credential must not matter.
+    def test_loads_a_cached_checkpoint_despite_a_junk_token(self):
+        """A junk credential in the environment must not affect a warm cache.
 
-        Reproduces the 2026-09-15 / 2026-09-16 outage shape: the Hub rejects
-        the stored token, and the load has to come off disk anyway.
+        Scope, stated honestly: this does NOT reproduce the 2026-09-15 outage.
+        The Hub answers 200 for a public repo whatever `HF_TOKEN` contains, so
+        a malformed value provokes no 401 and this test passes against the
+        broken env-var implementation too. Reproducing a real expired-token 401
+        needs a token the Hub once issued, which cannot be committed.
+
+        The regression guard for the actual defect is the request counter
+        above; this one only pins the weaker property that a stray credential
+        does not perturb the cache path.
         """
         _skip_unless_cached(_CACHED_MODEL)
 
