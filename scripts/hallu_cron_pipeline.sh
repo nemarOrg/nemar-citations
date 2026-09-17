@@ -39,7 +39,7 @@ fi
 
 trap 'rc=$?; if [ $rc -ne 0 ]; then echo "FAILED rc=$rc at line $LINENO"; fi' EXIT
 
-echo "=== hallu-cron $TS start (host=$(hostname), pid=$$) ==="
+echo "=== hallu-cron $TS ${HALLU_CRON_STAGE2:+stage 2 }start (host=$(hostname), pid=$$) ==="
 cd "$REPO_DIR"
 
 # Pull the GitHub token from gh CLI. cron jobs run with a minimal env;
