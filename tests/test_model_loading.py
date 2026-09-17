@@ -1,48 +1,47 @@
 """Cache-first checkpoint loading (issue #217).
 
-No mocks: the env-var contract is observable directly, and the loader is
-exercised against the real `sentence_transformers` only when a checkpoint is
-actually cached on the machine running the tests.
+No mocks. The property under test, "a cached checkpoint loads without talking
+to the Hub", is directly observable: `huggingface_hub` logs every outbound
+request through `httpx` / `urllib3`, so a log handler counts them for real.
+
+The first version of this fix set `HF_HUB_OFFLINE=1` around the load and was
+asserted only through the environment variable. Those assertions passed while
+the loader still made 38 Hub round trips per call, because `huggingface_hub`
+reads the variable once at import time. Counting requests tests the behavior
+rather than the mechanism, so it cannot pass the same way.
 """
 
+import logging
 import os
 
 import pytest
 
-from dataset_citations.utils.model_loading import (
-    _offline_env,
-    load_sentence_transformer,
-)
+from dataset_citations.utils.model_loading import load_sentence_transformer
+
+_CACHED_MODEL = "sentence-transformers/all-MiniLM-L6-v2"
 
 
-class TestOfflineEnv:
-    def test_sets_both_offline_flags_inside_the_block(self):
-        with _offline_env():
-            assert os.environ["HF_HUB_OFFLINE"] == "1"
-            assert os.environ["TRANSFORMERS_OFFLINE"] == "1"
+class _HubRequestCounter(logging.Handler):
+    """Count log records that mention an outbound huggingface.co request."""
 
-    def test_restores_absent_vars_on_exit(self):
-        for key in ("HF_HUB_OFFLINE", "TRANSFORMERS_OFFLINE"):
-            os.environ.pop(key, None)
-        with _offline_env():
-            pass
-        assert "HF_HUB_OFFLINE" not in os.environ
-        assert "TRANSFORMERS_OFFLINE" not in os.environ
+    def __init__(self) -> None:
+        super().__init__()
+        self.count = 0
 
-    def test_restores_preexisting_value_on_exit(self):
-        os.environ["HF_HUB_OFFLINE"] = "0"
-        try:
-            with _offline_env():
-                assert os.environ["HF_HUB_OFFLINE"] == "1"
-            assert os.environ["HF_HUB_OFFLINE"] == "0"
-        finally:
-            os.environ.pop("HF_HUB_OFFLINE", None)
+    def emit(self, record: logging.LogRecord) -> None:
+        if "huggingface.co" in record.getMessage():
+            self.count += 1
 
-    def test_restores_even_when_the_block_raises(self):
-        os.environ.pop("HF_HUB_OFFLINE", None)
-        with pytest.raises(ValueError), _offline_env():
-            raise ValueError("boom")
-        assert "HF_HUB_OFFLINE" not in os.environ
+
+def _skip_unless_cached(name: str) -> None:
+    pytest.importorskip("sentence_transformers")
+    from huggingface_hub import constants, try_to_load_from_cache
+
+    if (
+        try_to_load_from_cache(name, "modules.json", cache_dir=constants.HF_HUB_CACHE)
+        is None
+    ):
+        pytest.skip(f"{name} is not in the local hub cache")
 
 
 class TestLoadSentenceTransformer:
@@ -63,31 +62,52 @@ class TestLoadSentenceTransformer:
                 "nemar-citations/definitely-not-a-real-model", "cpu"
             )
 
-    def test_loads_a_cached_checkpoint_without_network(self):
-        """When the checkpoint is cached, an invalid token must not matter.
+    def test_cached_checkpoint_loads_with_no_hub_requests(self):
+        """The regression guard: a warm cache must cost zero Hub round trips.
 
-        Skipped unless the model is already in this machine's hub cache, which
-        is exactly the condition the fix targets on hallu.
+        This is what the nightly run on hallu depends on. Skipped where the
+        checkpoint is not cached, which is the condition the fix targets.
         """
-        pytest.importorskip("sentence_transformers")
-        from huggingface_hub import constants, try_to_load_from_cache
+        _skip_unless_cached(_CACHED_MODEL)
 
-        name = "sentence-transformers/all-MiniLM-L6-v2"
-        if (
-            try_to_load_from_cache(
-                name, "modules.json", cache_dir=constants.HF_HUB_CACHE
-            )
-            is None
-        ):
-            pytest.skip(f"{name} is not in the local hub cache")
+        counter = _HubRequestCounter()
+        watched = [
+            logging.getLogger(name)
+            for name in ("httpx", "urllib3.connectionpool", "requests")
+        ]
+        previous_levels = [(lg, lg.level) for lg in watched]
+        for lg in watched:
+            lg.setLevel(logging.INFO)
+            lg.addHandler(counter)
+        try:
+            model = load_sentence_transformer(_CACHED_MODEL, "cpu")
+        finally:
+            for lg in watched:
+                lg.removeHandler(counter)
+            for lg, level in previous_levels:
+                lg.setLevel(level)
+
+        assert model is not None
+        assert counter.count == 0, (
+            f"cached load made {counter.count} huggingface.co request(s); "
+            "the offline path is not engaging"
+        )
+
+    def test_loads_a_cached_checkpoint_despite_a_rejected_token(self):
+        """When the checkpoint is cached, a bad credential must not matter.
+
+        Reproduces the 2026-09-15 / 2026-09-16 outage shape: the Hub rejects
+        the stored token, and the load has to come off disk anyway.
+        """
+        _skip_unless_cached(_CACHED_MODEL)
 
         previous = os.environ.get("HF_TOKEN")
         # Not a credential: a deliberately malformed value the Hub rejects,
         # reproducing the expired-token 401 that broke the nightly run.
         os.environ["HF_TOKEN"] = "hf_" + ("invalid" * 4)
         try:
-            model = load_sentence_transformer(name, "cpu")
-            assert model.get_sentence_embedding_dimension() == 384
+            model = load_sentence_transformer(_CACHED_MODEL, "cpu")
+            assert model.get_embedding_dimension() == 384
         finally:
             if previous is None:
                 os.environ.pop("HF_TOKEN", None)
