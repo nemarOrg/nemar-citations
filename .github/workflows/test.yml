@@ -134,23 +134,17 @@ jobs:
 
       - name: Test CLI commands
         run: |
-          uv run dataset-citations-discover --help
-          uv run dataset-citations-update --help
-
-          mkdir -p test_results/temporal_analysis test_results/network_analysis
-          echo '{"test": "data"}' > test_results/temporal_analysis/results.json
-
-          uv run dataset-citations-create-reports \
-            --results-dir test_results \
-            --output-dir test_output \
-            --verbose || true
-
-          if [ -f "test_output/dataset_citations_dashboard.html" ]; then
-            echo "Dashboard generated successfully"
-            ls -lh test_output/*.html
-          else
-            echo "Dashboard generation test completed (may have warnings)"
-          fi
+          # Every CLI the hallu cron invokes must at least resolve and parse
+          # args. The retired dataset-citations-create-reports step used to
+          # live here; the dashboard is an Astro build now (#127 P8), covered
+          # by deploy-dashboard.yml's own verify step.
+          for cmd in discover retrieve-metadata judge-anchors update \
+                     prune-mirrored find-mentions dedupe score-confidence \
+                     generate-embeddings analyze-umap export-umap-points \
+                     export-modalities; do
+            echo "--- dataset-citations-$cmd ---"
+            uv run "dataset-citations-$cmd" --help > /dev/null
+          done
 
   end-to-end-test:
     name: End-to-End Workflow Test

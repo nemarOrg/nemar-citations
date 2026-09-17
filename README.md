@@ -144,8 +144,8 @@ uv run dataset-citations-score-confidence            # AI scoring
 uv run dataset-citations-analyze-temporal            # Trends
 uv run dataset-citations-analyze-networks            # Networks
 
-# Dashboards
-uv run dataset-citations-create-reports              # Generate HTML
+# Dashboard (Astro app in web/; built and deployed by CI)
+cd web && bun install && bun run build              # Build locally
 
 # All commands support --help for detailed usage
 ```

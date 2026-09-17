@@ -40,7 +40,6 @@ The automation pipeline is BROKEN - dashboard generation was never integrated in
    ```yaml
    - name: Generate Interactive Dashboard
      run: |
-       dataset-citations-create-reports \
          --results-dir analysis_results/ \
          --output-dir interactive_reports/ \
          --top-citations 20
