@@ -393,3 +393,113 @@ class CliWritesJudgmentRecords(TestCase):
                 cli_judge.judge_dataset_anchors = original_judge  # type: ignore[assignment]
                 sys.argv = old_argv
             self.assertEqual(rc, 2)
+
+
+class SkipExistingRespectsAnchorCoverage(TestCase):
+    """`--skip-existing` must not freeze a sidecar at its first anchor set.
+
+    Regression for #180. Skipping on mere file existence meant an anchor added
+    after the sidecar was first written never got judged; it fell through the
+    pipeline's "fetch all when unjudged" path and pulled in the citers of
+    BIDS/methods papers. Measured on the committed corpus, that left 851 of
+    1,642 recorded anchors (52%) with a null classification even though every
+    dataset had a sidecar.
+    """
+
+    def _fixture(self, tmp: Path, judged: list[str], recorded: list[str]) -> Path:
+        sidecar_dir = tmp / "anchor_judgments"
+        sidecar_dir.mkdir(parents=True)
+        (sidecar_dir / "on000001.json").write_text(
+            json.dumps(
+                {
+                    "dataset_id": "on000001",
+                    "judged_at": "2026-09-01T00:00:00+00:00",
+                    "judgment_model": "gemma4:e4b",
+                    "judgments": [
+                        {"anchor_identifier": a, "classification": "data_paper"}
+                        for a in judged
+                    ],
+                }
+            ),
+            encoding="utf-8",
+        )
+        citations_dir = tmp / "json_opencite"
+        citations_dir.mkdir(parents=True)
+        (citations_dir / "on000001_citations.json").write_text(
+            json.dumps(
+                {
+                    "dataset_id": "on000001",
+                    "metadata": {"anchors": [{"identifier": a} for a in recorded]},
+                    "citation_details": [],
+                }
+            ),
+            encoding="utf-8",
+        )
+        return sidecar_dir / "on000001.json"
+
+    def test_uncovered_anchor_forces_a_rejudge(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            sidecar = self._fixture(
+                root,
+                judged=["10.1038/sdata.2015.1"],
+                recorded=["10.1038/sdata.2015.1", "10.21105/joss.01896"],
+            )
+            skip, _ = cli_judge._should_skip(
+                sidecar,
+                skip_existing=True,
+                max_age_days=0,
+                citations_dir=str(root / "json_opencite"),
+                dataset_id="on000001",
+            )
+            self.assertFalse(skip)
+
+    def test_full_coverage_still_skips(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            sidecar = self._fixture(
+                root,
+                judged=["10.1038/sdata.2015.1", "10.21105/joss.01896"],
+                recorded=["10.1038/sdata.2015.1", "10.21105/joss.01896"],
+            )
+            skip, reason = cli_judge._should_skip(
+                sidecar,
+                skip_existing=True,
+                max_age_days=0,
+                citations_dir=str(root / "json_opencite"),
+                dataset_id="on000001",
+            )
+            self.assertTrue(skip)
+            self.assertEqual(reason, "exists")
+
+    def test_coverage_match_is_case_insensitive(self) -> None:
+        """DOIs are case-insensitive; a case difference is not a missing anchor."""
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            sidecar = self._fixture(
+                root,
+                judged=["10.1038/SData.2015.1"],
+                recorded=["10.1038/sdata.2015.1"],
+            )
+            skip, _ = cli_judge._should_skip(
+                sidecar,
+                skip_existing=True,
+                max_age_days=0,
+                citations_dir=str(root / "json_opencite"),
+                dataset_id="on000001",
+            )
+            self.assertTrue(skip)
+
+    def test_missing_citation_json_falls_back_to_file_exists(self) -> None:
+        """No citation JSON means nothing to compare; keep the old behavior."""
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            sidecar = self._fixture(root, judged=["10.1/a"], recorded=["10.1/a"])
+            skip, _ = cli_judge._should_skip(
+                sidecar,
+                skip_existing=True,
+                max_age_days=0,
+                citations_dir=str(root / "does-not-exist"),
+                dataset_id="on000001",
+            )
+            self.assertTrue(skip)
