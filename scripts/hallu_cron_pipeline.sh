@@ -6,29 +6,40 @@
 # Locking: flock prevents concurrent runs. Logs land in $REPO_DIR/.logs/.
 # Safety: a `git reset --hard origin/main` runs before any pipeline step,
 # so this script assumes the working tree is disposable between runs.
+#
+# Two stages: stage 1 takes the lock, opens the log and checks out main, then
+# re-execs into the script it just checked out. Stage 2 runs the pipeline. See
+# the re-exec block below for why that indirection is load-bearing.
 set -uo pipefail
 
 REPO_DIR="$HOME/dataset_citations"
 LOG_DIR="$REPO_DIR/.logs"
 LOCK_FILE="$REPO_DIR/.cron.lock"
-TS="$(date -u +%Y-%m-%dT%H-%M-%SZ)"
+# Stage 2 inherits the timestamp so both halves append to one log rather than
+# splitting the run across two files.
+TS="${HALLU_CRON_TS:-$(date -u +%Y-%m-%dT%H-%M-%SZ)}"
 LOG="$LOG_DIR/cron-$TS.log"
 
 mkdir -p "$LOG_DIR"
 
-# Single-writer lock; concurrent invocations short-circuit instead of clobbering each other.
-exec 200>"$LOCK_FILE"
-if ! flock -n 200; then
-  echo "[hallu-cron $TS] another run in progress, skipping" | tee -a "$LOG_DIR/cron-skips.log"
-  exit 0
-fi
+# Stage 1 only. Both the lock fd and stdout survive the exec, so stage 2
+# inherits them: re-running `exec 200>` would close the descriptor, dropping
+# the lock, and reopening it leaves a window for a second run to slip in.
+if [ -z "${HALLU_CRON_STAGE2:-}" ]; then
+  # Single-writer lock; concurrent invocations short-circuit instead of clobbering each other.
+  exec 200>"$LOCK_FILE"
+  if ! flock -n 200; then
+    echo "[hallu-cron $TS] another run in progress, skipping" | tee -a "$LOG_DIR/cron-skips.log"
+    exit 0
+  fi
 
-# Tee all subsequent output to the timestamped log file.
-exec > >(tee -a "$LOG") 2>&1
+  # Tee all subsequent output to the timestamped log file.
+  exec > >(tee -a "$LOG") 2>&1
+fi
 
 trap 'rc=$?; if [ $rc -ne 0 ]; then echo "FAILED rc=$rc at line $LINENO"; fi' EXIT
 
-echo "=== hallu-cron $TS start (host=$(hostname), pid=$$) ==="
+echo "=== hallu-cron $TS ${HALLU_CRON_STAGE2:+stage 2 }start (host=$(hostname), pid=$$) ==="
 cd "$REPO_DIR"
 
 # Pull the GitHub token from gh CLI. cron jobs run with a minimal env;
@@ -42,11 +53,47 @@ if [ -z "${GITHUB_TOKEN:-}" ]; then
   exit 2
 fi
 
-# Reset working tree to fresh main so each cron run starts from a known good state.
-git fetch --quiet origin main
-git checkout --quiet main
-git reset --quiet --hard origin/main
-git clean --quiet -fd citations/.checkpoints/ 2>/dev/null || true
+# Reset working tree to fresh main so each cron run starts from a known
+# good state, then hand over to the version of this script that was just
+# checked out.
+#
+# WHY THE RE-EXEC: bash streams a script from an open file descriptor as it
+# runs, and git replaces files by writing a temp file and renaming it over
+# the original. The rename gives the path a new inode; the descriptor bash
+# is reading keeps pointing at the old one. So without this handover the
+# process executes the PREVIOUS run's copy of this file to completion,
+# while every `uv run` below builds the CLIs from the tree that was just
+# checked out. The script and the code it calls are then one commit apart.
+#
+# That is not theoretical. On 2026-09-17 the 03:00 run died 60 seconds in
+# with
+#     dataset-citations-judge-anchors: error: the following arguments are
+#     required: --dataset-list-file
+# because 2f2fc985 renamed that flag in the CLI and in this script in one
+# atomic commit, and the run still managed to pair the old script with the
+# new CLI. No data, no commit, no PR. Any future change that touches both a
+# CLI signature and its call site here would break the same way.
+#
+# `git pull` in place of `git reset` would not help: the hazard is the
+# inode swap under a running bash, not how the new content arrives.
+# Re-exec is the fix, because it makes bash open the new file and start
+# over from the top.
+#
+# Stage 2 skips this block: the tree is already correct, and fetching again
+# could land a newer commit and swap the inode a second time, reintroducing
+# exactly the bug this avoids.
+if [ -z "${HALLU_CRON_STAGE2:-}" ]; then
+  git fetch --quiet origin main
+  git checkout --quiet main
+  git reset --quiet --hard origin/main
+  git clean --quiet -fd citations/.checkpoints/ 2>/dev/null || true
+
+  export HALLU_CRON_STAGE2=1
+  export HALLU_CRON_TS="$TS"
+  echo "stage 1: checked out $(git rev-parse --short HEAD), re-exec into it"
+  exec "$REPO_DIR/scripts/hallu_cron_pipeline.sh" "$@"
+fi
+
 echo "main at $(git rev-parse --short HEAD)"
 
 DATASETS_LIST="/tmp/hallu_cron_discovered.txt"
