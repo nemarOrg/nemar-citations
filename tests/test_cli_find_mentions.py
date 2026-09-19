@@ -143,6 +143,56 @@ class RunFindMentionsTests(TestCase):
             cli.run_find_mentions(_args(cdir))
             self.assertEqual(path.read_text(), after_first)
 
+    def test_real_mention_advances_date_last_updated_on_disk(self) -> None:
+        """End-to-end regression guard for issue #229.
+
+        `_FakeBackend` above always returns zero citations, so none of the
+        other tests in this file exercise a real content change through
+        `run_find_mentions` -> `merge_accession_mentions(..., when=...)` ->
+        `write_citation_json_if_changed`. Without this, a regression that
+        dropped the `when=` argument at the call site (find_mentions.py) would
+        pass every other test here.
+        """
+
+        class _FoundBackend:
+            def __init__(self, *args: object, **kwargs: object) -> None:
+                pass
+
+            def search(self, terms: list[str]) -> AccessionSearchResult:
+                return AccessionSearchResult(
+                    citations=[
+                        {
+                            "title": "A paper naming the dataset",
+                            "author": "Someone",
+                            "venue": "A Journal",
+                            "year": 2026,
+                            "url": "https://doi.org/10.1/found",
+                            "cited_by": 0,
+                            "abstract": "",
+                            "doi": "10.1/found",
+                            "pmid": None,
+                            "openalex_id": "W1",
+                            "source_doi": None,
+                            "source_relation": None,
+                            "discovery_backend": "openalex",
+                            "discovery_method": "accession_mention",
+                            "matched_accession": "ds002718",
+                        }
+                    ],
+                    failed_terms=[],
+                )
+
+        cli.AccessionSearchBackend = _FoundBackend  # type: ignore[misc]
+        with tempfile.TemporaryDirectory() as tmp:
+            cdir = Path(tmp) / "json_opencite"
+            path = _seed(cdir, "ds002718")
+            cli.run_find_mentions(_args(cdir))
+            data = json.loads(path.read_text())
+            self.assertEqual(data["num_citations"], 1)
+            self.assertNotEqual(data["date_last_updated"], "2026-06-18T00:00:00+00:00")
+            stamped = datetime.fromisoformat(data["date_last_updated"])
+            self.assertGreater(stamped, datetime(2026, 6, 18, tzinfo=UTC))
+
 
 class FreshnessGateTests(TestCase):
     """Rolling `--max-age-days` / `--max-datasets` gating (issue #197).

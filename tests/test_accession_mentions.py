@@ -252,6 +252,24 @@ class DateLastUpdatedTests(TestCase):
         merged = merge_accession_mentions(cj, [empty_mention], ["ds002718"], when=_NEW)
         self.assertEqual(merged["date_last_updated"], _OLD)
 
+    def test_matching_an_already_flagged_anchor_leaves_it_untouched(self) -> None:
+        """Isolates the `flagged` counter's `is not True` guard on its own.
+
+        Unlike `test_rerun_with_already_flagged_anchor_leaves_it_untouched`
+        below, the anchor here is built pre-flagged directly rather than by a
+        prior `merge_accession_mentions` call, so a regression in the guard
+        itself (as opposed to some other rerun-path bug) fails this test and
+        only this test.
+        """
+        anchor = _anchor("10.1/both", "References")
+        anchor["mentions_accession"] = True
+        anchor["matched_accession"] = "ds002718"
+        cj = _base([anchor])
+        merged = merge_accession_mentions(
+            cj, [_mention("10.1/both")], ["ds002718"], when=_NEW
+        )
+        self.assertEqual(merged["date_last_updated"], _OLD)
+
     def test_rerun_with_already_flagged_anchor_leaves_it_untouched(self) -> None:
         cj = _base([_anchor("10.1/anchor", "References")])
         mentions = [_mention("10.2/new"), _mention("10.1/anchor")]
