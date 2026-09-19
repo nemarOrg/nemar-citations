@@ -19,6 +19,7 @@ content-idempotent (issue #165). Issue #169.
 
 from __future__ import annotations
 
+from datetime import UTC, datetime
 from typing import Any
 
 from dataset_citations.core.citation_identity import (
@@ -78,6 +79,8 @@ def merge_accession_mentions(
     citation_json: dict[str, Any],
     mentions: list[dict[str, Any]],
     searched_accessions: list[str],
+    *,
+    when: datetime | None = None,
 ) -> dict[str, Any]:
     """Fold accession `mentions` into `citation_json` (mutated and returned).
 
@@ -91,6 +94,11 @@ def merge_accession_mentions(
       skips files that already carry the block) re-scores the dataset.
     - `num_citations` is recomputed; `metadata` records the searched accessions
       and the per-bucket breakdown.
+    - `date_last_updated` advances to `when` (default now) whenever a mention is
+      appended or an existing citation is newly flagged. `date_last_updated`
+      means "last content change" (issue #165); this step changes content just
+      as much as the opencite fetch does, and was previously the one write path
+      that silently left the field stale (issue #229).
 
     All counts derive from the final state (not deltas), so a re-run with the
     same mentions produces byte-identical output.
@@ -118,6 +126,7 @@ def merge_accession_mentions(
             by_title.setdefault(title, citation)
 
     appended = 0
+    flagged = 0
     for mention in mentions:
         mention_ids = _ids(mention)
         existing = next((by_id[i] for i in mention_ids if i in by_id), None)
@@ -133,11 +142,15 @@ def merge_accession_mentions(
         elif existing.get("discovery_method") != "accession_mention":
             # Anchor citation that also names the accession -> flag for both
             # buckets (no-op if already flagged, keeping re-runs idempotent).
+            if existing.get("mentions_accession") is not True:
+                flagged += 1
             existing["mentions_accession"] = True
             existing.setdefault("matched_accession", mention.get("matched_accession"))
 
     if appended:
         citation_json.pop("confidence_scoring", None)
+    if appended or flagged:
+        citation_json["date_last_updated"] = (when or datetime.now(UTC)).isoformat()
 
     citation_json["num_citations"] = len(details)
     meta = citation_json.setdefault("metadata", {})

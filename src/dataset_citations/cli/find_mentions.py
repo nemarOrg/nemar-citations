@@ -18,6 +18,7 @@ import glob
 import json
 import logging
 import os
+from datetime import UTC, datetime
 from pathlib import Path
 
 from dataset_citations.backends.accession_search import AccessionSearchBackend
@@ -164,7 +165,9 @@ def run_find_mentions(args: argparse.Namespace) -> None:
             processed += 1
             result = backend.search(terms)
             total_mentions += len(result.citations)
-            merged = merge_accession_mentions(citation_json, result.citations, terms)
+            merged = merge_accession_mentions(
+                citation_json, result.citations, terms, when=datetime.now(UTC)
+            )
             try:
                 if write_citation_json_if_changed(filepath, merged):
                     updated += 1

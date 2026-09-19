@@ -26,6 +26,7 @@ from __future__ import annotations
 import argparse
 import json
 import logging
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -42,13 +43,21 @@ class CitationFileUnreadable(Exception):
     """A citation JSON could not be read or parsed."""
 
 
-def dedupe_citation_file(path: Path, *, dry_run: bool = False) -> int:
+def dedupe_citation_file(
+    path: Path, *, dry_run: bool = False, when: datetime | None = None
+) -> int:
     """Rewrite `path` with duplicates merged. Returns the number dropped.
 
     Returns 0 and leaves the file untouched when nothing is duplicated, which
     keeps the git diff empty on a steady-state run. Raises
     `CitationFileUnreadable` when the file cannot be read or parsed, so the
     caller can count and report that separately from "nothing to merge".
+
+    Merging duplicates changes citation content as much as a fresh fetch does,
+    so `date_last_updated` advances to `when` (default now) whenever a
+    duplicate is actually dropped; `date_last_updated` means "last content
+    change" (issue #165), and this step was previously the one write path that
+    silently left it stale (issue #229).
     """
     try:
         payload: dict[str, Any] = json.loads(path.read_text(encoding="utf-8"))
@@ -93,6 +102,7 @@ def dedupe_citation_file(path: Path, *, dry_run: bool = False) -> int:
     # Scores were computed against the pre-merge citation list; drop them so the
     # scoring step recomputes rather than trusting a stale block.
     payload.pop("confidence_scoring", None)
+    payload["date_last_updated"] = (when or datetime.now(UTC)).isoformat()
 
     if not dry_run:
         path.write_text(

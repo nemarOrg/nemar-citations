@@ -6,6 +6,7 @@ way the corpus exercises them.
 """
 
 import json
+from datetime import UTC, datetime
 from pathlib import Path
 
 import pytest
@@ -15,12 +16,14 @@ from dataset_citations.cli.dedupe_citations import (
     dedupe_citation_file,
 )
 
+_OLD = "2026-09-16T00:00:00+00:00"
+
 
 def _write(tmp_path: Path, name: str, details: list[dict], **extra) -> Path:
     payload = {
         "dataset_id": name,
         "num_citations": len(details),
-        "date_last_updated": "2026-09-16T00:00:00+00:00",
+        "date_last_updated": _OLD,
         "metadata": {
             "schema_version": "2.1",
             "discovery_backend": "opencite",
@@ -165,3 +168,40 @@ class TestDedupeCitationFile:
         after = json.loads(path.read_text())
         assert "num_dataset_citations" not in after["metadata"]
         assert "num_datapaper_citations" not in after["metadata"]
+
+
+class TestDateLastUpdated:
+    """Issue #229: merging duplicates changes content and must advance the stamp."""
+
+    def test_merging_a_duplicate_advances_date_last_updated(self, preprint_pair):
+        when = datetime(2026, 9, 20, 3, 0, 0, tzinfo=UTC)
+        dedupe_citation_file(preprint_pair, when=when)
+        payload = json.loads(preprint_pair.read_text())
+        assert payload["date_last_updated"] == when.isoformat()
+
+    def test_clean_file_leaves_date_last_updated_untouched(self, tmp_path):
+        path = _write(
+            tmp_path,
+            "on000004",
+            [
+                {"doi": "10.1016/a", "title": "A", "cited_by": 1},
+                {"doi": "10.1016/b", "title": "B", "cited_by": 2},
+            ],
+        )
+        when = datetime(2026, 9, 20, 3, 0, 0, tzinfo=UTC)
+        assert dedupe_citation_file(path, when=when) == 0
+        payload = json.loads(path.read_text())
+        assert payload["date_last_updated"] == _OLD
+
+    def test_dry_run_does_not_advance_the_stamp_on_disk(self, preprint_pair):
+        when = datetime(2026, 9, 20, 3, 0, 0, tzinfo=UTC)
+        dedupe_citation_file(preprint_pair, dry_run=True, when=when)
+        payload = json.loads(preprint_pair.read_text())
+        assert payload["date_last_updated"] == _OLD
+
+    def test_defaults_to_now_when_when_is_omitted(self, preprint_pair):
+        before = datetime.now(UTC)
+        dedupe_citation_file(preprint_pair)
+        payload = json.loads(preprint_pair.read_text())
+        stamped = datetime.fromisoformat(payload["date_last_updated"])
+        assert stamped >= before

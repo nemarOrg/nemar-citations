@@ -3,12 +3,16 @@
 from __future__ import annotations
 
 import copy
+from datetime import UTC, datetime
 from unittest import TestCase
 
 from dataset_citations.core.accession_mentions import (
     cites_dataset,
     merge_accession_mentions,
 )
+
+_OLD = "2026-06-18T00:00:00+00:00"
+_NEW = datetime(2026, 9, 20, 3, 0, 0, tzinfo=UTC)
 
 
 def _anchor(doi: str, relation: str = "References") -> dict:
@@ -39,7 +43,7 @@ def _base(details: list[dict]) -> dict:
     return {
         "dataset_id": "ds002718",
         "num_citations": len(details),
-        "date_last_updated": "2026-06-18T00:00:00+00:00",
+        "date_last_updated": _OLD,
         "metadata": {"fetch_status": "success"},
         "citation_details": list(details),
     }
@@ -218,3 +222,67 @@ class SharedIdentityDedupTests(TestCase):
             ["ds002718"],
         )
         self.assertEqual(merged["num_citations"], 2)
+
+
+class DateLastUpdatedTests(TestCase):
+    """Issue #229: this step changes content and must advance the timestamp."""
+
+    def test_appending_a_mention_advances_date_last_updated(self) -> None:
+        cj = _base([_anchor("10.1/anchor")])
+        merged = merge_accession_mentions(
+            cj, [_mention("10.2/new")], ["ds002718"], when=_NEW
+        )
+        self.assertEqual(merged["date_last_updated"], _NEW.isoformat())
+
+    def test_flagging_an_existing_anchor_advances_date_last_updated(self) -> None:
+        cj = _base([_anchor("10.1/both", "References")])
+        merged = merge_accession_mentions(
+            cj, [_mention("10.1/both")], ["ds002718"], when=_NEW
+        )
+        self.assertEqual(merged["date_last_updated"], _NEW.isoformat())
+
+    def test_no_change_leaves_date_last_updated_untouched(self) -> None:
+        cj = _base([_anchor("10.1/anchor")])
+        merged = merge_accession_mentions(cj, [], ["ds002718"], when=_NEW)
+        self.assertEqual(merged["date_last_updated"], _OLD)
+
+    def test_dropped_mention_with_no_identifier_leaves_it_untouched(self) -> None:
+        cj = _base([_anchor("10.1/anchor")])
+        empty_mention = {"discovery_method": "accession_mention", "venue": "n/a"}
+        merged = merge_accession_mentions(cj, [empty_mention], ["ds002718"], when=_NEW)
+        self.assertEqual(merged["date_last_updated"], _OLD)
+
+    def test_matching_an_already_flagged_anchor_leaves_it_untouched(self) -> None:
+        """Isolates the `flagged` counter's `is not True` guard on its own.
+
+        Unlike `test_rerun_with_already_flagged_anchor_leaves_it_untouched`
+        below, the anchor here is built pre-flagged directly rather than by a
+        prior `merge_accession_mentions` call, so a regression in the guard
+        itself (as opposed to some other rerun-path bug) fails this test and
+        only this test.
+        """
+        anchor = _anchor("10.1/both", "References")
+        anchor["mentions_accession"] = True
+        anchor["matched_accession"] = "ds002718"
+        cj = _base([anchor])
+        merged = merge_accession_mentions(
+            cj, [_mention("10.1/both")], ["ds002718"], when=_NEW
+        )
+        self.assertEqual(merged["date_last_updated"], _OLD)
+
+    def test_rerun_with_already_flagged_anchor_leaves_it_untouched(self) -> None:
+        cj = _base([_anchor("10.1/anchor", "References")])
+        mentions = [_mention("10.2/new"), _mention("10.1/anchor")]
+        first = merge_accession_mentions(cj, mentions, ["ds002718"], when=_NEW)
+        later = datetime(2026, 9, 21, 3, 0, 0, tzinfo=UTC)
+        second = merge_accession_mentions(first, mentions, ["ds002718"], when=later)
+        # Nothing new to append or flag on the second pass; the stamp from the
+        # first pass survives untouched rather than advancing again.
+        self.assertEqual(second["date_last_updated"], _NEW.isoformat())
+
+    def test_defaults_to_now_when_when_is_omitted(self) -> None:
+        cj = _base([_anchor("10.1/anchor")])
+        before = datetime.now(UTC)
+        merged = merge_accession_mentions(cj, [_mention("10.2/new")], ["ds002718"])
+        stamped = datetime.fromisoformat(merged["date_last_updated"])
+        self.assertGreaterEqual(stamped, before)
