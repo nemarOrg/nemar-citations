@@ -1,17 +1,17 @@
 {
   "dataset_id": "nm000160",
-  "num_citations": 7,
-  "date_last_updated": "2026-08-25T10:06:47.704055+00:00",
+  "num_citations": 8,
+  "date_last_updated": "2026-09-22T10:39:14.302684+00:00",
   "metadata": {
-    "total_cumulative_citations": 8,
-    "fetch_date": "2026-08-25T10:06:47.704055+00:00",
+    "total_cumulative_citations": 9,
+    "fetch_date": "2026-09-22T10:39:14.302684+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:31b",
+    "anchor_judgment_model": "gemma4:e4b",
     "anchors": [
       {
         "identifier": "10.1038/s41597-025-05286-0",
@@ -23,7 +23,7 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:31b"
+        "judgment_model": "gemma4:e4b"
       },
       {
         "identifier": "10.82901/nemar.nm000160",
@@ -35,7 +35,7 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:31b"
+        "judgment_model": "gemma4:e4b"
       }
     ],
     "searched_dois": [
@@ -52,13 +52,7 @@
       "multi-joint"
     ],
     "methods_description": "EEG data were acquired using a Neuroscan SynAmps2 system with 62 channels arranged in the standard 1005 montage, referenced to the left mastoid (M1), and sampled at 1000 Hz. Participants performed eight classes of motor imagery tasks (hand open/close, wrist flexion/extension, wrist abduction/adduction, elbow pronation/supination, elbow flexion/extension, shoulder pronation/supination, shoulder abduction/adduction, shoulder flexion/extension) in response to visual cues and text instructions. Each session consisted of 8 blocks containing 40 trials (5 trials per class), totaling 320 trials per subject with a 4-second trial duration.",
-    "funding": [],
-    "searched_accessions": [
-      "nm000160"
-    ],
-    "num_accession_mentions": 1,
-    "num_dataset_citations": 1,
-    "num_datapaper_citations": 6
+    "funding": []
   },
   "citation_details": [
     {
@@ -86,22 +80,45 @@
     },
     {
       "title": "SingLEM: Single-Channel Large EEG Model",
-      "author": "Jamiyan Sukhbaatar, S. Imamura, Ibuki Inoue, Shoya Murakami, Kazi Mahmudul Hassan, Seungwoo Han, Ingon Chanpornpakdi, Toshihisa Tanaka",
-      "venue": "ArXiv",
+      "author": "Jamiyan Sukhbaatar, S. Imamura, Ibuki Inoue, Shoya Murakami, Kazi Mahmudul Hassan, Seung-Woo Han, Ingon Chanpornpakdi, Toshihisa Tanaka",
+      "venue": "IEEE journal of biomedical and health informatics",
       "year": 2025,
-      "url": "https://doi.org/10.48550/arXiv.2509.17920",
+      "url": "https://doi.org/10.1109/JBHI.2026.3732223",
       "cited_by": 3,
-      "abstract": "Current deep learning models for electroencephalography (EEG) are often task-specific and depend on large labeled datasets, limiting their adaptability. Although EEG foundation models seek broader applicability, many still rely on predefined multi-channel inputs, electrode-layout assumptions, or model-specific channel handling. To address these limitations, we introduce the Single-Channel Large EEG Model (SingLEM), a self-supervised foundation model whose hybrid convolutional--Transformer encoder maps each channel independently to a reusable representation capturing local and long-range temporal structure. These representations can be used individually or concatenated through late fusion. We assembled 71 public EEG datasets comprising approximately 9,200 subjects and 357,000 single-channel hours. For leakage-controlled evaluation, downstream results were obtained with a model pretrained on 68 datasets after excluding the three source datasets underlying the six tasks. A model pretraine",
-      "doi": "10.48550/arXiv.2509.17920",
-      "pmid": null,
+      "abstract": "Current deep learning models for electroencephalography (EEG) are often task-specific and depend on large labeled datasets, limiting their adaptability. Although EEG foundation models seek broader applicability, many still rely on predefined multi-channel inputs, electrode-layout assumptions, or model-specific channel handling. To address these limitations, we introduce the Single-Channel Large EEG Model (SingLEM), a self-supervised foundation model whose hybrid convolutional-Transformer encoder maps each channel independently to a reusable representation capturing local and long-range temporal structure. These representations can be used individually or combined through channel-wise feature concatenation. We assembled 71 public EEG datasets comprising approximately 9,200 subjects and 357,000 single-channel hours. For leakage-controlled evaluation, downstream results were obtained with a model pretrained on 68 datasets after excluding the three source datasets underlying the six tasks.",
+      "doi": "10.1109/JBHI.2026.3732223",
+      "pmid": "42709520",
       "openalex_id": null,
       "source_doi": "10.1038/s41597-025-05286-0",
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.48603477448225024,
-        "similarity_score": 0.4208093285560608,
-        "citation_text_length": 1217,
+        "confidence_score": 0.483497483432293,
+        "similarity_score": 0.418612539768219,
+        "citation_text_length": 1262,
+        "dataset_text_length": 2325,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "A Multimodal fNIRS–EEG Dataset for Unilateral Limb Motor Imagery",
+      "author": "Lufeng Feng, Baomin Xu, Haoran Zhang, Bihai Lin, Zuxuan Deng, Sidi Tao, Chenyu Liu, Shifan Jia, Li Duan, Ziyu Jia",
+      "venue": "Scientific Data",
+      "year": 2026,
+      "url": "https://doi.org/10.1038/s41597-026-07807-x",
+      "cited_by": 2,
+      "abstract": "Unilateral limb motor imagery (MI) plays an important role in upper-limb motor rehabilitation and precise control of external devices, and places higher demands on spatial resolution. However, most existing public datasets focus on binary- or four-class left-right limb paradigms that mainly exploit coarse hemispheric lateralization, and there is still a lack of multimodal datasets that simultaneously record electroencephalography (EEG) and functional near-infrared spectroscopy (fNIRS) for unilateral multi-directional MI. To address this gap, we present MIND, a public motor imagery fNIRS-EEG dataset based on a four-class directional MI paradigm of the right upper limb. The dataset includes 64-channel EEG recordings (1000 Hz) and 51-channel fNIRS recordings (47.62 Hz) from 30 participants (12 females, 18 males; aged 19.0-25.0 years). We analyze the spatiotemporal characteristics of EEG spectral power and hemodynamic responses, and provide baseline classification summaries for EEG, fNIRS,",
+      "doi": "10.1038/s41597-026-07807-x",
+      "pmid": "42575895",
+      "openalex_id": "W7202073435",
+      "source_doi": "10.1038/s41597-025-05286-0",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.8035666018724443,
+        "similarity_score": 0.6957286596298218,
+        "citation_text_length": 1231,
         "dataset_text_length": 2325,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -131,23 +148,46 @@
       }
     },
     {
-      "title": "A Multimodal fNIRS–EEG Dataset for Unilateral Limb Motor Imagery",
-      "author": "Lufeng Feng, Baomin Xu, Haoran Zhang, Bihai Lin, Zuxuan Deng, Sidi Tao, Chenyu Liu, Shifan Jia, Li Duan, Ziyu Jia",
-      "venue": "Scientific Data",
+      "title": "The Digital Transformation of Rehabilitation Medicine: A Narrative Review of Artificial Intelligence Innovations, Clinical Integration, and Future Paradigms",
+      "author": "Hao Wu, Yali Yang, Li Wang, Hao Su, Xiaobing Li",
+      "venue": "Journal of Evaluation in Clinical Practice",
       "year": 2026,
-      "url": "https://doi.org/10.1038/s41597-026-07807-x",
-      "cited_by": 1,
-      "abstract": "Unilateral limb motor imagery (MI) plays an important role in upper-limb motor rehabilitation and precise control of external devices, and places higher demands on spatial resolution. However, most existing public datasets focus on binary- or four-class left-right limb paradigms that mainly exploit coarse hemispheric lateralization, and there is still a lack of multimodal datasets that simultaneously record electroencephalography (EEG) and functional near-infrared spectroscopy (fNIRS) for unilateral multi-directional MI. To address this gap, we present MIND, a public motor imagery fNIRS-EEG dataset based on a four-class directional MI paradigm of the right upper limb. The dataset includes 64-channel EEG recordings (1000 Hz) and 51-channel fNIRS recordings (47.62 Hz) from 30 participants (12 females, 18 males; aged 19.0-25.0 years). We analyze the spatiotemporal characteristics of EEG spectral power and hemodynamic responses, and provide baseline classification summaries for EEG, fNIRS,",
-      "doi": "10.1038/s41597-026-07807-x",
-      "pmid": "42575895",
-      "openalex_id": "W7202073435",
+      "url": "https://doi.org/10.1111/jep.70580",
+      "cited_by": 0,
+      "abstract": "BACKGROUND: Traditional rehabilitation medicine, primarily dependent on qualitative clinical assessment and static therapeutic protocols, faces significant challenges in scalability, objectivity, and dynamic adaptability. The integration of Artificial Intelligence (AI) is catalyzing a paradigm shift from \"experience-driven\" to \"data-driven\" precision rehabilitation. OBJECTIVE: This narrative review delineates the current landscape of AI innovations in rehabilitation, evaluates their clinical integration across the patient lifecycle, and identifies the socio-technical barriers to widespread adoption. METHODS: We narratively synthesized recent advancements in four foundational technological pillars: Computer Vision (CV) for markerless motion capture, Reinforcement Learning (RL) for intention-aware robotics, Digital Twins (DT) for prognostic simulation, and Explainable AI (XAI) for clinical decision support. RESULTS: Our analysis reveals that AI-driven models enhance rehabilitative effici",
+      "doi": "10.1111/jep.70580",
+      "pmid": "42671200",
+      "openalex_id": "W7204746425",
       "source_doi": "10.1038/s41597-025-05286-0",
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.8035666018724443,
-        "similarity_score": 0.6957286596298218,
-        "citation_text_length": 1231,
+        "confidence_score": 0.3482343158125878,
+        "similarity_score": 0.3015015721321106,
+        "citation_text_length": 1284,
+        "dataset_text_length": 2325,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "AI-Driven Adaptive Brain-Computer Interfaces for Personalized Neurorehabilitation",
+      "author": "Payel Das, Biplab Das",
+      "venue": "n/a",
+      "year": 2026,
+      "url": "https://doi.org/10.4018/979-8-3373-6816-0.ch001",
+      "cited_by": 0,
+      "abstract": "This chapter per the authors examines advances in brain–computer interface (BCI) technologies for neurorehabilitation, emphasizing the integration of artificial intelligence to address challenges in adaptability, patient variability, and neural signal decoding. It reviews how machine learning and deep learning enable adaptive, personalized therapies for conditions like stroke, Parkinson's disease, and dementia. Evidence from clinical practice highlights improved outcomes with hybrid systems combining EEG and fNIRS, as well as the use of robotics and virtual environments. Technical, ethical, and regulatory challenges—such as data privacy, bias, and transparency are critically reviewed, and practical recommendations for clinical adoption are provided. The chapter offers a roadmap for deploying intelligent BCIs to enhance patient independence and quality of life in rehabilitation.",
+      "doi": "10.4018/979-8-3373-6816-0.ch001",
+      "pmid": null,
+      "openalex_id": "W7160186785",
+      "source_doi": "10.1038/s41597-025-05286-0",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.31525662302970886,
+        "similarity_score": 0.2729494571685791,
+        "citation_text_length": 1034,
         "dataset_text_length": 2325,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -198,47 +238,22 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
-    },
-    {
-      "title": "Identification of Neurotransmitter Receptor Genes Under Significantly Relaxed Selective Constraint by Orthologous Gene Comparisons Between Humans and Rodents",
-      "author": "Hisakazu Iwama, Takashi Gojobori",
-      "venue": "Molecular Biology and Evolution",
-      "year": 2002,
-      "url": "https://doi.org/10.1093/oxfordjournals.molbev.a004013",
-      "cited_by": 23,
-      "abstract": "Neurotransmitter receptors (neuroreceptors) are classified into two types, G protein-coupled receptors (GPCRs) and ligand-gated ion channels. The former occupies a small part of the large GPCR superfamily, whereas the latter consists of three superfamilies. In these superfamilies, humans and rodents share almost the same set of neuroreceptor genes. This neuroreceptor gene set is good material to examine the degree of selective constraint exerted on each member gene of a given superfamily. If there are any neuroreceptor genes under the degree of selective constraint that is very different from that of the other member genes, they may have influenced the functional features characteristic of human neural activities. With the aim of identifying such neuroreceptor genes, we collected sequence data of orthologous neuroreceptor genes for humans, mice, and rats by database searches. This data set included ortholog pairs for 141 kinds of neuroreceptor genes, which covered almost the whole set of neuroreceptor genes known to be expressed in the human brain. The degree of selective constraint was estimated by computing the ratio (d(N)/d(S)) of the number of nonsynonymous substitutions to that of synonymous substitutions. We found that the d(N)/d(S) ratio ranged widely and its distribution fitted a gamma distribution. In particular, we found that four neuroreceptor genes are under the significantly relaxed selective constraint. They are an ionotropic glutamate receptor subunit NMDA-2C, two GABA(A) receptor subunits, i.e., GABA(A)-epsilon and GABA(A)-theta, and a dopamine receptor D4. Interestingly, these neuroreceptors have been reported to be associated with cognitive abilities such as memory and learning, and responsiveness to novel stimuli. These cognitive abilities can influence the behavioral features of an individual. Thus, it suggests that the relaxed-constraint neuroreceptor genes have evolved, assuring that the nervous system responds to a variety of stimuli with proper flexibility.",
-      "doi": "10.1093/oxfordjournals.molbev.a004013",
-      "pmid": "12411598",
-      "openalex_id": "W2006789032",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "nm000160",
-      "confidence_scoring": {
-        "confidence_score": 0.2913736402988434,
-        "similarity_score": 0.2648851275444031,
-        "citation_text_length": 1759,
-        "dataset_text_length": 2325,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-17T10:42:33.441383+00:00",
+    "scoring_date": "2026-09-22T12:14:49.317171+00:00",
     "dataset_text_length": 2325,
-    "num_citations_scored": 7,
+    "num_citations_scored": 8,
     "summary_stats": {
-      "mean_confidence": 0.4779284071709429,
-      "median_confidence": 0.46482151776552205,
-      "std_confidence": 0.16185198977444662,
-      "min_confidence": 0.2913736402988434,
+      "mean_confidence": 0.46438485721126205,
+      "median_confidence": 0.4215175784379244,
+      "std_confidence": 0.15425236272875498,
+      "min_confidence": 0.31525662302970886,
       "max_confidence": 0.8035666018724443,
       "high_confidence_count": 1,
       "medium_confidence_count": 3,
-      "low_confidence_count": 3
+      "low_confidence_count": 4
     }
   }
 }

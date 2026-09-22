@@ -1,29 +1,29 @@
 {
   "dataset_id": "nm000161",
   "num_citations": 14,
-  "date_last_updated": "2026-08-25T10:06:53.430728+00:00",
+  "date_last_updated": "2026-09-22T10:39:19.635901+00:00",
   "metadata": {
-    "total_cumulative_citations": 49,
-    "fetch_date": "2026-08-25T10:06:53.430728+00:00",
+    "total_cumulative_citations": 60,
+    "fetch_date": "2026-09-22T10:39:19.635901+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:31b",
+    "anchor_judgment_model": "gemma4:e4b",
     "anchors": [
       {
         "identifier": "10.1016/j.compbiomed.2024.109132",
         "identifier_type": "doi",
         "source_relation": "IsDerivedFrom",
-        "classification": "data_paper",
+        "classification": null,
         "kept": true,
-        "paper_title": "Handwritten character classification from EEG through continuous kinematic decoding",
-        "paper_year": 2024,
-        "paper_venue": "Computers in Biology and Medicine",
-        "reason": "The paper's title and abstract describe the study and the classification of the ten letters (a,d,e,f,j,n,o,s,t,v) from 20 participants, which matches the dataset's metadata exactly.",
-        "judgment_model": "gemma4:31b"
+        "paper_title": null,
+        "paper_year": null,
+        "paper_venue": null,
+        "reason": null,
+        "judgment_model": "gemma4:e4b"
       },
       {
         "identifier": "10.82901/nemar.nm000161",
@@ -35,7 +35,7 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:31b"
+        "judgment_model": "gemma4:e4b"
       }
     ],
     "searched_dois": [
@@ -51,13 +51,7 @@
       "EEG classification"
     ],
     "methods_description": "EEG data were acquired at 500 Hz from 60 channels using BrainVision active electrodes with right mastoid reference. The experimental protocol involved visual presentation of letter cues (fade-in 2s, visible 0.5s, fade-out 2s) followed by a 4-second writing phase. Each of ten letters was written 60 times across 15 runs per session. Preprocessing included notch filtering at 50 Hz, bandpass filtering (0.3-70 Hz), bad channel interpolation, EOG artifact correction (SGEYESUB), ICA-based artifact removal, common average re-referencing, and downsampling to 128 Hz. Two datasets were created with different frequency bands (0.3-3 Hz and 0.3-40 Hz) for analysis.",
-    "funding": [],
-    "searched_accessions": [
-      "nm000161"
-    ],
-    "num_accession_mentions": 1,
-    "num_dataset_citations": 1,
-    "num_datapaper_citations": 13
+    "funding": []
   },
   "citation_details": [
     {
@@ -66,7 +60,7 @@
       "venue": "ArXiv",
       "year": 2025,
       "url": "https://doi.org/10.48550/arXiv.2502.17480",
-      "cited_by": 33,
+      "cited_by": 37,
       "abstract": "Modern neuroprostheses can now restore communication in patients who have lost the ability to speak or move. However, these invasive devices entail risks inherent to neurosurgery. Here, we introduce a non-invasive method to decode the production of sentences from brain activity and demonstrate its efficacy in a cohort of 35 healthy volunteers. For this, we present Brain2Qwerty, a new deep learning architecture trained to decode sentences from either electro- (EEG) or magneto-encephalography (MEG), while participants typed briefly memorized sentences on a QWERTY keyboard. With MEG, Brain2Qwerty reaches, on average, a character-error-rate (CER) of 32% and substantially outperforms EEG (CER: 67%). For the best participants, the model achieves a CER of 19%, and can perfectly decode a variety of sentences outside of the training set. While error analyses suggest that decoding depends on motor processes, the analysis of typographical errors suggests that it also involves higher-level cogniti",
       "doi": "10.48550/arXiv.2502.17480",
       "pmid": null,
@@ -101,6 +95,52 @@
         "confidence_score": 0.6791958314180375,
         "similarity_score": 0.5880483388900757,
         "citation_text_length": 1242,
+        "dataset_text_length": 2282,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Noninvasive decoding of typed sentences from human brain activity",
+      "author": "Jarod Levy, Mingfang Zhang, Svetlana Pinet, Jérémy Rapin, Hubert Banville, Stéphane d’Ascoli, Jean-Rémi King",
+      "venue": "Nature Neuroscience",
+      "year": 2026,
+      "url": "https://doi.org/10.1038/s41593-026-02303-2",
+      "cited_by": 6,
+      "abstract": "Modern neuroprostheses can now restore communication in patients who have lost the ability to speak or move. However, implanting these invasive devices comes with risks inherent to neurosurgery. Here we introduce a noninvasive method to decode the production of sentences from brain activity and demonstrate its efficacy in a cohort of 35 healthy volunteers. For this, we present Brain2Qwerty, a new deep learning architecture trained to decode sentences from either electro- or magnetoencephalography, while participants typed briefly memorized sentences on a QWERTY keyboard. With magnetoencephalography, Brain2Qwerty reaches, on average, a character error rate of 29% and substantially outperforms electroencephalography (character error rate: 65%). For the best participants, the model achieves a character error rate of 18%, and can perfectly decode a variety of sentences outside of the training set. Overall, these results narrow the gap between invasive and noninvasive methods and thus open ",
+      "doi": "10.1038/s41593-026-02303-2",
+      "pmid": "42374156",
+      "openalex_id": "W7166575844",
+      "source_doi": "10.1016/j.compbiomed.2024.109132",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5217543607950211,
+        "similarity_score": 0.45173537731170654,
+        "citation_text_length": 1231,
+        "dataset_text_length": 2282,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "A Non-Invasive, MRCP-Based BCI for Online Communication",
+      "author": "Markus R. Crell, Kyriaki Kostoglou, Patrick Suwandjieff, Janir Ramos Da Cruz, Gernot R. Müller-Putz",
+      "venue": "IEEE Transactions on Neural Systems and Rehabilitation Engineering",
+      "year": 2026,
+      "url": "https://doi.org/10.1109/tnsre.2026.3666564",
+      "cited_by": 2,
+      "abstract": "Patients with severely impaired motor functions require a stable form of communication for their daily life. Restoring this ability can be achieved with spelling applications controlled by brain-computer interfaces (BCIs). To achieve intuitive control of the application, we propose a BCI system to asynchronously detect single movement intent from EEG. By emulating a button press, we develop a task-agnostic framework applicable to a wide range of interfaces. The system utilizes a model based on movement-related cortical potentials (MRCPs) to detect self-initiated movements without the need for external cues. Twenty participants utilized the developed system to control a spelling interface implemented as a row-column scanner (3-by-3 and 5-by-5 size layouts) to type five-letter words. Participants achieved an overall true positive rate (TPR) of $54.4 \\pm 27.9{\\%}$ (up to 98.6% in single participants) with an average of $2.0 \\pm 1.9$ false positives per minute (FP/min). $60.9 \\pm 28.5{\\%}$",
+      "doi": "10.1109/tnsre.2026.3666564",
+      "pmid": "41719578",
+      "openalex_id": "W7130727218",
+      "source_doi": "10.1016/j.compbiomed.2024.109132",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5188891343772413,
+        "similarity_score": 0.4492546617984772,
+        "citation_text_length": 1259,
         "dataset_text_length": 2282,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -153,23 +193,23 @@
       }
     },
     {
-      "title": "A Non-Invasive, MRCP-Based BCI for Online Communication",
-      "author": "Markus R. Crell, Kyriaki Kostoglou, Patrick Suwandjieff, Janir Ramos Da Cruz, Gernot R. Müller-Putz",
-      "venue": "IEEE Transactions on Neural Systems and Rehabilitation Engineering",
+      "title": "A holistic perspective on noninvasive brain–computer interfaces",
+      "author": "Yidan Ding, Joshua Kosnoff, Bin He",
+      "venue": "Trends in Neurosciences",
       "year": 2026,
-      "url": "https://doi.org/10.1109/tnsre.2026.3666564",
-      "cited_by": 2,
-      "abstract": "Patients with severely impaired motor functions require a stable form of communication for their daily life. Restoring this ability can be achieved with spelling applications controlled by brain-computer interfaces (BCIs). To achieve intuitive control of the application, we propose a BCI system to asynchronously detect single movement intent from EEG. By emulating a button press, we develop a task-agnostic framework applicable to a wide range of interfaces. The system utilizes a model based on movement-related cortical potentials (MRCPs) to detect self-initiated movements without the need for external cues. Twenty participants utilized the developed system to control a spelling interface implemented as a row-column scanner (3-by-3 and 5-by-5 size layouts) to type five-letter words. Participants achieved an overall true positive rate (TPR) of $54.4 \\pm 27.9{\\%}$ (up to 98.6% in single participants) with an average of $2.0 \\pm 1.9$ false positives per minute (FP/min). $60.9 \\pm 28.5{\\%}$",
-      "doi": "10.1109/tnsre.2026.3666564",
-      "pmid": "41719578",
-      "openalex_id": "W7130727218",
+      "url": "https://doi.org/10.1016/j.tins.2026.04.009",
+      "cited_by": 1,
+      "abstract": "Brain-computer interfaces (BCIs) decode neural activity to enable direct communication with external devices. This process consists of three modules: signal acquisition, signal processing, and output translation. While invasive BCIs have demonstrated sophisticated and intuitive capabilities, their reliance on surgical implantation limits widespread use. Noninvasive BCIs, in contrast, are more broadly applicable but have traditionally been constrained by low spatial resolution and suboptimal signal quality. Emerging methodological advances are beginning to overcome these limitations. In this review, we examine recent progress in noninvasive BCIs, focusing on neuromodulation-paired BCIs for signal enhancement, deep neural network-based signal processing approaches, and expanded applications through robotic integration. Together, these parallel developments are driving the emergence of more robust, intuitive, and adaptive BCI systems for human use.",
+      "doi": "10.1016/j.tins.2026.04.009",
+      "pmid": "42185119",
+      "openalex_id": "W7162314391",
       "source_doi": "10.1016/j.compbiomed.2024.109132",
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5188891343772413,
-        "similarity_score": 0.4492546617984772,
-        "citation_text_length": 1259,
+        "confidence_score": 0.29451683655381206,
+        "similarity_score": 0.25499293208122253,
+        "citation_text_length": 1118,
         "dataset_text_length": 2282,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -199,46 +239,23 @@
       }
     },
     {
-      "title": "Noninvasive decoding of typed sentences from human brain activity",
-      "author": "Jarod Levy, Mingfang Zhang, Svetlana Pinet, Jérémy Rapin, Hubert Banville, Stéphane d’Ascoli, Jean-Rémi King",
-      "venue": "Nature Neuroscience",
-      "year": 2026,
-      "url": "https://doi.org/10.1038/s41593-026-02303-2",
+      "title": "Decoding Imagined Handwriting from EEG",
+      "author": "Srinivas Ravishankar, N. Zajzon, V. D. de Sa",
+      "venue": "ArXiv",
+      "year": 2025,
+      "url": "https://doi.org/10.48550/arXiv.2503.11202",
       "cited_by": 1,
-      "abstract": "Modern neuroprostheses can now restore communication in patients who have lost the ability to speak or move. However, implanting these invasive devices comes with risks inherent to neurosurgery. Here we introduce a noninvasive method to decode the production of sentences from brain activity and demonstrate its efficacy in a cohort of 35 healthy volunteers. For this, we present Brain2Qwerty, a new deep learning architecture trained to decode sentences from either electro- or magnetoencephalography, while participants typed briefly memorized sentences on a QWERTY keyboard. With magnetoencephalography, Brain2Qwerty reaches, on average, a character error rate of 29% and substantially outperforms electroencephalography (character error rate: 65%). For the best participants, the model achieves a character error rate of 18%, and can perfectly decode a variety of sentences outside of the training set. Overall, these results narrow the gap between invasive and noninvasive methods and thus open ",
-      "doi": "10.1038/s41593-026-02303-2",
-      "pmid": "42374156",
-      "openalex_id": "W7166575844",
-      "source_doi": "10.1016/j.compbiomed.2024.109132",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5217543607950211,
-        "similarity_score": 0.45173537731170654,
-        "citation_text_length": 1231,
-        "dataset_text_length": 2282,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Electroencephalography-driven machine learning for recognition of emergency numbers for crisis readiness: A translational study",
-      "author": "Jagannath Mohan, L. Sriram, G. Sreenath, S. Sukhi Sudharshan, K. Adalarasu, Saravana Kumar Jaganathan",
-      "venue": "Elsevier eBooks",
-      "year": 2026,
-      "url": "https://doi.org/10.1016/b978-0-443-44638-2.00016-6",
-      "cited_by": 0,
-      "abstract": null,
-      "doi": "10.1016/b978-0-443-44638-2.00016-6",
+      "abstract": "Patients with extreme forms of paralysis face challenges in communication, adversely impacting their quality of life. Recent studies have reported higher-than-chance performance in decoding handwritten letters from EEG signals, potentially allowing these subjects to communicate. However, all prior works have attempted to decode handwriting from EEG during actual motion. Furthermore, they assume that precise movement-onset is known. In this work, we focus on settings closer to real-world use where either movement onset is not known or movement does not occur at all, fully utilizing motor imagery. We show that several existing studies are affected by confounds that make them inapplicable to the imagined handwriting setting. We also investigate how sample complexity affects handwriting decoding performance, guiding future data collection efforts. Our work shows that (a) Sample complexity analysis in single-trial EEG reveals a noise ceiling, which can be alleviated by averaging over trials",
+      "doi": "10.48550/arXiv.2503.11202",
       "pmid": null,
-      "openalex_id": "W7155493473",
+      "openalex_id": null,
       "source_doi": "10.1016/j.compbiomed.2024.109132",
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5133143395185471,
-        "similarity_score": 0.4888707995414734,
-        "citation_text_length": 270,
+        "confidence_score": 0.768556790649891,
+        "similarity_score": 0.6654171347618103,
+        "citation_text_length": 1126,
         "dataset_text_length": 2282,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -268,23 +285,46 @@
       }
     },
     {
-      "title": "A holistic perspective on noninvasive brain–computer interfaces",
-      "author": "Yidan Ding, Joshua Kosnoff, Bin He",
-      "venue": "Trends in Neurosciences",
+      "title": "Electroencephalography-driven machine learning for recognition of emergency numbers for crisis readiness: A translational study",
+      "author": "Jagannath Mohan, L. Sriram, G. Sreenath, S. Sukhi Sudharshan, Adalarasu Kanagasabai, Saravana Kumar Jaganathan",
+      "venue": "Elsevier eBooks",
       "year": 2026,
-      "url": "https://doi.org/10.1016/j.tins.2026.04.009",
+      "url": "https://doi.org/10.1016/b978-0-443-44638-2.00016-6",
       "cited_by": 0,
-      "abstract": "Brain-computer interfaces (BCIs) decode neural activity to enable direct communication with external devices. This process consists of three modules: signal acquisition, signal processing, and output translation. While invasive BCIs have demonstrated sophisticated and intuitive capabilities, their reliance on surgical implantation limits widespread use. Noninvasive BCIs, in contrast, are more broadly applicable but have traditionally been constrained by low spatial resolution and suboptimal signal quality. Emerging methodological advances are beginning to overcome these limitations. In this review, we examine recent progress in noninvasive BCIs, focusing on neuromodulation-paired BCIs for signal enhancement, deep neural network-based signal processing approaches, and expanded applications through robotic integration. Together, these parallel developments are driving the emergence of more robust, intuitive, and adaptive BCI systems for human use.",
-      "doi": "10.1016/j.tins.2026.04.009",
-      "pmid": "42185119",
-      "openalex_id": "W7162314391",
+      "abstract": null,
+      "doi": "10.1016/b978-0-443-44638-2.00016-6",
+      "pmid": null,
+      "openalex_id": "W7155493473",
       "source_doi": "10.1016/j.compbiomed.2024.109132",
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.29451683655381206,
-        "similarity_score": 0.25499293208122253,
-        "citation_text_length": 1118,
+        "confidence_score": 0.5129302561283112,
+        "similarity_score": 0.4885050058364868,
+        "citation_text_length": 279,
+        "dataset_text_length": 2282,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "DRDNet: a dual-view representation decoupling network for handwriting imagery EEG classification",
+      "author": "Zhi-Hao Li, Fan Wang, Hai-Chen Lu, Rong-Zhang Luo, Tian-Wen Li, Lei Zhao, Yun-Fa Fu",
+      "venue": "Journal of Neural Engineering",
+      "year": 2026,
+      "url": "https://doi.org/10.1088/1741-2552/ae9bef",
+      "cited_by": 0,
+      "abstract": "Objective. Handwriting imagery (HI) based on electroencephalography (EEG) offers a non-invasive route to text input and complex intention expression for brain-computer interfaces (BCIs). However, HI EEG decoding is challenged by low signal-to-noise ratios, non-stationarity, cross-session distribution shifts, and the coexistence of continuous temporal trends and local high-response patterns. Approach. We propose a Dual-View Representation Decoupling Network (DRDNet) for HI EEG classification under within-subject cross-session and cross-subject evaluation settings. DRDNet first constructs two complementary temporal views from spatial EEG features using average and max pooling, corresponding to smooth trend-oriented and salient response-oriented representations. These views are then modeled by a bidirectional Mamba encoder and a Transformer encoder, respectively, and adaptively integrated through a time-step-level dynamic fusion mechanism followed by long short-term memory-based temporal ",
+      "doi": "10.1088/1741-2552/ae9bef",
+      "pmid": "42617634",
+      "openalex_id": null,
+      "source_doi": "10.1016/j.compbiomed.2024.109132",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7255453151464463,
+        "similarity_score": 0.6281777620315552,
+        "citation_text_length": 1247,
         "dataset_text_length": 2282,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -292,7 +332,7 @@
     },
     {
       "title": "Handwriting decoding as a challenging motor task for EEG Foundation Models",
-      "author": "Srinivas Ravishankar, I. Ghosh, N. Zajzon, Teng Fei, V. D. Sa",
+      "author": "Srinivas Ravishankar, I. Ghosh, N. Zajzon, Teng Fei, V. D. de Sa",
       "venue": "ArXiv",
       "year": 2026,
       "url": "https://doi.org/10.48550/arXiv.2605.15698",
@@ -305,9 +345,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.7603954786062241,
-        "similarity_score": 0.6583510637283325,
-        "citation_text_length": 1179,
+        "confidence_score": 0.761234679222107,
+        "similarity_score": 0.6590776443481445,
+        "citation_text_length": 1182,
         "dataset_text_length": 2282,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -335,70 +375,22 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
-    },
-    {
-      "title": "Decoding Imagined Handwriting from EEG",
-      "author": "Srinivas Ravishankar, N. Zajzon, Virginia R. de Sa",
-      "venue": "ArXiv",
-      "year": 2025,
-      "url": "https://doi.org/10.48550/arXiv.2503.11202",
-      "cited_by": 0,
-      "abstract": "Patients with extreme forms of paralysis face challenges in communication, adversely impacting their quality of life. Recent studies have reported higher-than-chance performance in decoding handwritten letters from EEG signals, potentially allowing these subjects to communicate. However, all prior works have attempted to decode handwriting from EEG during actual motion. Furthermore, they assume that precise movement-onset is known. In this work, we focus on settings closer to real-world use where either movement onset is not known or movement does not occur at all, fully utilizing motor imagery. We show that several existing studies are affected by confounds that make them inapplicable to the imagined handwriting setting. We also investigate how sample complexity affects handwriting decoding performance, guiding future data collection efforts. Our work shows that (a) Sample complexity analysis in single-trial EEG reveals a noise ceiling, which can be alleviated by averaging over trials",
-      "doi": "10.48550/arXiv.2503.11202",
-      "pmid": null,
-      "openalex_id": null,
-      "source_doi": "10.1016/j.compbiomed.2024.109132",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.7678696650266649,
-        "similarity_score": 0.6648222208023071,
-        "citation_text_length": 1132,
-        "dataset_text_length": 2282,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Tetrahydrobiopterin biosynthesis, regeneration and functions",
-      "author": "Beat Thöny, Günter Auerbach, Nenad Blau",
-      "venue": "Biochemical Journal",
-      "year": 2000,
-      "url": "https://doi.org/10.1042/bj3470001",
-      "cited_by": 865,
-      "abstract": "Tetrahydrobiopterin (BH(4)) cofactor is essential for various processes, and is present in probably every cell or tissue of higher organisms. BH(4) is required for various enzyme activities, and for less defined functions at the cellular level. The pathway for the de novo biosynthesis of BH(4) from GTP involves GTP cyclohydrolase I, 6-pyruvoyl-tetrahydropterin synthase and sepiapterin reductase. Cofactor regeneration requires pterin-4a-carbinolamine dehydratase and dihydropteridine reductase. Based on gene cloning, recombinant expression, mutagenesis studies, structural analysis of crystals and NMR studies, reaction mechanisms for the biosynthetic and recycling enzymes were proposed. With regard to the regulation of cofactor biosynthesis, the major controlling point is GTP cyclohydrolase I, the expression of which may be under the control of cytokine induction. In the liver at least, activity is inhibited by BH(4), but stimulated by phenylalanine through the GTP cyclohydrolase I feedback regulatory protein. The enzymes that depend on BH(4) are the phenylalanine, tyrosine and tryptophan hydroxylases, the latter two being the rate-limiting enzymes for catecholamine and 5-hydroxytryptamine (serotonin) biosynthesis, all NO synthase isoforms and the glyceryl-ether mono-oxygenase. On a cellular level, BH(4) has been found to be a growth or proliferation factor for Crithidia fasciculata, haemopoietic cells and various mammalian cell lines. In the nervous system, BH(4) is a self-protecting factor for NO, or a general neuroprotecting factor via the NO synthase pathway, and has neurotransmitter-releasing function. With regard to human disease, BH(4) deficiency due to autosomal recessive mutations in all enzymes (except sepiapterin reductase) have been described as a cause of hyperphenylalaninaemia. Furthermore, several neurological diseases, including Dopa-responsive dystonia, but also Alzheimer's disease, Parkinson's disease, autism and depression, have been suggested to be a consequence of restricted cofactor availability.",
-      "doi": "10.1042/bj3470001",
-      "pmid": "10727395",
-      "openalex_id": "W2128399345",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "nm000161",
-      "confidence_scoring": {
-        "confidence_score": 0.178598390519619,
-        "similarity_score": 0.16236217319965363,
-        "citation_text_length": 1657,
-        "dataset_text_length": 2282,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-17T10:42:39.107816+00:00",
+    "scoring_date": "2026-09-22T12:15:26.406705+00:00",
     "dataset_text_length": 2282,
     "num_citations_scored": 14,
     "summary_stats": {
-      "mean_confidence": 0.5641506136953831,
-      "median_confidence": 0.5805695879459382,
-      "std_confidence": 0.1641931004682969,
-      "min_confidence": 0.178598390519619,
-      "max_confidence": 0.7678696650266649,
-      "high_confidence_count": 3,
+      "mean_confidence": 0.6032998399436474,
+      "median_confidence": 0.639924994558096,
+      "std_confidence": 0.12928965787223942,
+      "min_confidence": 0.29451683655381206,
+      "max_confidence": 0.768556790649891,
+      "high_confidence_count": 4,
       "medium_confidence_count": 9,
-      "low_confidence_count": 2
+      "low_confidence_count": 1
     }
   }
 }
