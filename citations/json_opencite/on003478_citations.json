@@ -1,10 +1,10 @@
 {
   "dataset_id": "on003478",
-  "num_citations": 13,
-  "date_last_updated": "2026-08-25T10:28:05.046218+00:00",
+  "num_citations": 16,
+  "date_last_updated": "2026-09-22T11:45:26.203160+00:00",
   "metadata": {
-    "total_cumulative_citations": 173,
-    "fetch_date": "2026-08-25T10:28:05.046218+00:00",
+    "total_cumulative_citations": 287,
+    "fetch_date": "2026-09-22T11:06:19.699326+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 1,
@@ -43,8 +43,8 @@
       "on003478",
       "ds003478"
     ],
-    "num_accession_mentions": 13,
-    "num_dataset_citations": 13,
+    "num_accession_mentions": 16,
+    "num_dataset_citations": 16,
     "num_datapaper_citations": 0
   },
   "citation_details": [
@@ -54,7 +54,7 @@
       "venue": "International Journal of Methods in Psychiatric Research",
       "year": 2026,
       "url": "https://doi.org/10.1002/mpr.70088",
-      "cited_by": 0,
+      "cited_by": 1,
       "abstract": "BACKGROUND: Depression is a major mental health disorder, and EEG-based automated detection is emerging as a potential objective diagnostic tool. However, achieving both high accuracy and interpretability remains challenging due to the complex spatiotemporal structure of EEG signals. This study proposes an explainable deep learning framework for depression detection using resting-state EEG data. METHODS: A retrospective computational study using deep learning was conducted using EEG data from 122 subjects in the OpenNeuro dataset (ds003478). Based on Beck Depression Inventory (BDI) scores, participants were classified into control (BDI ≤ 13; n = 76) and depressive (BDI ≥ 20; n = 30) groups; intermediate cases (BDI 14-19; n = 16) were excluded to reduce label ambiguity and construct a high-confidence binary classification framework, although this may reduce applicability to mild or subclinical depression, resulting in a final cohort of 106 subjects. Preprocessing included band-pass filtering (1-40 Hz), 50 Hz notch filtering, Independent Component Analysis, and average referencing. A subject-wise 5-fold cross-validation was applied. A CNN-BiLSTM architecture with an attention mechanism integrated with explainable AI techniques (Grad-CAM and SHAP) was developed. RESULTS: The proposed model achieved an accuracy of 89.76%, an F1-score of 89.58%, and an AUC of 0.936. Ablation analysis confirmed the contribution of temporal modeling and attention mechanisms. Explainability analysis using Grad-CAM and SHAP showed that frontal EEG channels were the most influential in classification, consistent with neurophysiological findings. CONCLUSION: The proposed framework provides an accurate and interpretable method for EEG-based depression detection, supporting applications in computational psychiatry and decision-support systems.",
       "doi": "10.1002/mpr.70088",
       "pmid": "42298924",
@@ -68,6 +68,31 @@
         "confidence_score": 0.7688375338912011,
         "similarity_score": 0.6656602025032043,
         "citation_text_length": 1726,
+        "dataset_text_length": 1445,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Multi-granularity cross-dimensional hypergraph network with domain-partitioned clustering for EEG-based depression detection",
+      "author": "S. Sumathi, Muthuselvi R, Gaurav Kumar Bharti, Mayank Kumar Jain, Bhawani Singh Rathore",
+      "venue": "Journal of King Saud University - Computer and Information Sciences",
+      "year": 2026,
+      "url": "https://doi.org/10.1007/s44443-026-01274-5",
+      "cited_by": 0,
+      "abstract": "Major Depressive Disorder (MDD) affects people worldwide, although electroencephalography (EEG) provides an objective neurophysiological basis for depression assessment, existing graph-based EEG frameworks suffer from several limitations. These include single-threshold brain network construction, decoupled spatiotemporal modeling, noise-sensitive population graph formation, and inadequate handling of inter-subject domain heterogeneity. To address these challenges, a Multi-Granularity Domain-Partitioned Hypergraph Spatiotemporal Network (MG-DPHSN), a novel unified end-to-end framework for EEG-based depression detection, is proposed. MG-DPHSN incorporates three complementary modules. First, a Multi-Granularity Masked Relational Learning (MG-MRL) module constructs a hierarchy of Binary Brain Networks across progressively refined threshold levels, preserving weak yet functionally relevant cortical connections. Second, an Attention-Gated 3D Graph Convolution (AG-G3D) module integrates a learnable channel-frequency attention matrix into a unified graph convolution operation, enabling simultaneous aggregation of spatial, temporal, and spectral information. Third, a Hypergraph-Embedded Secondary Subject Partitioning (H-SSP) module employs Maximum Mean Discrepancy (MMD)-based clustering to partition subjects into biologically coherent sub-domains, thereby restricting hypergraph message passing to distributionally similar subjects and mitigating inter-subject domain shift. Experiments conducted on the OpenNeuro (ds003478) demonstrate the effectiveness of the proposed framework. MG-DPHSN achieves 87.50% accuracy and consistently outperforms eight state-of-the-art methods across multiple evaluation metrics.",
+      "doi": "10.1007/s44443-026-01274-5",
+      "pmid": null,
+      "openalex_id": "W7207571014",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds003478",
+      "confidence_scoring": {
+        "confidence_score": 0.6960481363534928,
+        "similarity_score": 0.6026390790939331,
+        "citation_text_length": 1817,
         "dataset_text_length": 1445,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -99,12 +124,37 @@
       }
     },
     {
+      "title": "Journal of Neural Engineering",
+      "author": "n/a",
+      "venue": "Journal of Neural Engineering",
+      "year": 2013,
+      "url": "https://doi.org/10.1088/issn.1741-2552",
+      "cited_by": 104,
+      "abstract": "Objective. The maintenance of balance is a complicated process in the human brain, which involves multisensory processing such as somatosensory and visual processing, motor planning and execution. It was shown that a specific cortical activity called perturbation-evoked potential (PEP) appears in the electroencephalogram (EEG) during balance perturbation. PEPs are primarily recognized by the N1 component with a negative peak localized in frontal and central regions. There has been a doubt in balance perturbation studies whether the N1 potential of perturbation is elicited due to error processing in the brain. The objective of this study is to test whether the brain perceives postural instability as a cognitive error by imposing two types of perturbations consisting of erroneous and correct perturbations. Approach. We conducted novel research to incorporate the experiment designs of both error and balance studies. To this end, participants encountered errors during balance perturbations at rare moments in the experiment. We induced errors by imposing perturbations to participants in the wrong directions and an erroneous perturbation was considered as a situation when the participant was exposed to an opposite direction of the expected/informed one. In correct perturbations, participants were tilted to the same direction, as they were informed. We analyzed the two conditions in time, time-frequency, and source domains. Main results. We showed that two error-related neural markers were derived from the EEG responses, including error positivity (Pe), and error-related alpha suppression (ERAS) during erroneous perturbations. Consequently, early neural correlates of perturbation cannot be interpreted as error-related responses. We discovered distinct patterns of conscious error processing; both Pe and ERAS are associated with conscious sensations of error. Significance. Our findings indicated that early cortical responses of balance perturbation are not associated with neural error processing of the brain, and errors induce distinct cortical responses that are distinguishable from brain dynamics of N1 potential.",
+      "doi": "10.1088/issn.1741-2552",
+      "pmid": null,
+      "openalex_id": "W4205709116",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds003478",
+      "confidence_scoring": {
+        "confidence_score": 0.39841143488883973,
+        "similarity_score": 0.36219221353530884,
+        "citation_text_length": 1600,
+        "dataset_text_length": 1445,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Exploring Adaptive Graph Topologies and Temporal Graph Networks for EEG-Based Depression Detection",
       "author": "Gang Luo, Hong Rao, Panfeng An, Yunxia Li, Ruiyun Hong, Wenwu Chen, Shengbo Chen",
       "venue": "IEEE Transactions on Neural Systems and Rehabilitation Engineering",
       "year": 2023,
       "url": "https://doi.org/10.1109/tnsre.2023.3320693",
-      "cited_by": 36,
+      "cited_by": 39,
       "abstract": "In recent years, Graph Neural Networks (GNNs) based on deep learning techniques have achieved promising results in EEG-based depression detection tasks but still have some limitations. Firstly, most existing GNN-based methods use pre-computed graph adjacency matrices, which ignore the differences in brain networks between individuals. Additionally, methods based on graph-structured data do not consider the temporal dependency information of brain networks. To address these issues, we propose a deep learning algorithm that explores adaptive graph topologies and temporal graph networks for EEG-based depression detection. Specifically, we designed an Adaptive Graph Topology Generation (AGTG) module that can adaptively model the real-time connectivity of the brain networks, revealing differences between individuals. In addition, we designed a Graph Convolutional Gated Recurrent Unit (GCGRU) module to capture the temporal dynamical changes of brain networks. To further explore the differential features between depressed and healthy individuals, we adopt Graph Topology-based Max-Pooling (GTMP) module to extract graph representation vectors accurately. We conduct a comparative analysis with several advanced algorithms on both public and our own datasets. The results reveal that our final model achieves the highest Area Under the Receiver Operating Characteristic Curve (AUROC) on both datasets, with values of 83% and 99%, respectively. Furthermore, we perform extensive validation experiments demonstrating our proposed method's effectiveness and advantages. Finally, we present a comprehensive discussion on the differences in brain networks between healthy and depressed individuals based on the outputs of our final model's AGTG and GTMP modules.",
       "doi": "10.1109/tnsre.2023.3320693",
       "pmid": "37773916",
@@ -139,6 +189,9 @@
       "discovery_backend": "openalex",
       "discovery_method": "accession_mention",
       "matched_accession": "ds003478",
+      "superseded_dois": [
+        "10.20944/preprints202407.2337.v1"
+      ],
       "confidence_scoring": {
         "confidence_score": 0.743373474776745,
         "similarity_score": 0.6436133980751038,
@@ -146,14 +199,11 @@
         "dataset_text_length": 1445,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      },
-      "superseded_dois": [
-        "10.20944/preprints202407.2337.v1"
-      ]
+      }
     },
     {
       "title": "Major Depressive Disorder as an Informationally Constrained State: A Unified Information-Theoretic Framework Linking Local EEG Dynamics to Whole-Brain Bifurcation Models",
-      "author": "Damián Jan",
+      "author": "Damián  Enrique Jan-Cordón",
       "venue": "SSRN Electronic Journal",
       "year": 2026,
       "url": "https://doi.org/10.2139/ssrn.6903858",
@@ -168,9 +218,9 @@
       "discovery_method": "accession_mention",
       "matched_accession": "ds003478",
       "confidence_scoring": {
-        "confidence_score": 0.5535320073366166,
-        "similarity_score": 0.5271733403205872,
-        "citation_text_length": 229,
+        "confidence_score": 0.5553413987159729,
+        "similarity_score": 0.5288965702056885,
+        "citation_text_length": 245,
         "dataset_text_length": 1445,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -203,11 +253,11 @@
     },
     {
       "title": "Modern Methods of Diagnostics and Treatment of Neurodegenerative Diseases and Depression",
-      "author": "Natalia Shusharina, Denis Yukhnenko, Stepan Botman, Viktor Sapunov, Vladimir Savinov, Gleb Kamyshov, Dmitry Sayapin, I. A. Voznyuk",
+      "author": "Natalia Nikolaevna Shusharina, Denis Yukhnenko, Stepan Botman, Viktor Sapunov, Vladimir Savinov, Gleb Kamyshov, Dmitry Sayapin, Igor A. Voznyuk",
       "venue": "Diagnostics",
       "year": 2023,
       "url": "https://doi.org/10.3390/diagnostics13030573",
-      "cited_by": 98,
+      "cited_by": 102,
       "abstract": "This paper discusses the promising areas of research into machine learning applications for the prevention and correction of neurodegenerative and depressive disorders. These two groups of disorders are among the leading causes of decline in the quality of life in the world when estimated using disability-adjusted years. Despite decades of research, the development of new approaches for the assessment (especially pre-clinical) and correction of neurodegenerative diseases and depressive disorders remains among the priority areas of research in neurophysiology, psychology, genetics, and interdisciplinary medicine. Contemporary machine learning technologies and medical data infrastructure create new research opportunities. However, reaching a consensus on the application of new machine learning methods and their integration with the existing standards of care and assessment is still a challenge to overcome before the innovations could be widely introduced to clinics. The research on the development of clinical predictions and classification algorithms contributes towards creating a unified approach to the use of growing clinical data. This unified approach should integrate the requirements of medical professionals, researchers, and governmental regulators. In the current paper, the current state of research into neurodegenerative and depressive disorders is presented.",
       "doi": "10.3390/diagnostics13030573",
       "pmid": "36766678",
@@ -218,9 +268,9 @@
       "discovery_method": "accession_mention",
       "matched_accession": "ds003478",
       "confidence_scoring": {
-        "confidence_score": 0.43745035976171504,
-        "similarity_score": 0.378744900226593,
-        "citation_text_length": 1655,
+        "confidence_score": 0.4394592091441155,
+        "similarity_score": 0.3804841637611389,
+        "citation_text_length": 1668,
         "dataset_text_length": 1445,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -228,11 +278,11 @@
     },
     {
       "title": "Resting-State Electroencephalogram Depression Diagnosis Based on Traditional Machine Learning and Deep Learning: A Comparative Analysis",
-      "author": "Haijun Lin, Jing Fang, Junpeng Zhang, Xuhui Zhang, Weiying Piao, Yukun Liu",
+      "author": "Haijun Lin, Jing Susan Fang, Junpeng Zhang, Xuhui Zhang, Weiying Piao, Yukun Liu",
       "venue": "Sensors",
       "year": 2024,
       "url": "https://doi.org/10.3390/s24216815",
-      "cited_by": 15,
+      "cited_by": 17,
       "abstract": "The global prevalence of Major Depressive Disorder (MDD) is increasing at an alarming rate, underscoring the urgent need for timely and accurate diagnoses to facilitate effective interventions and treatments. Electroencephalography remains a widely used neuroimaging technique in psychiatry, due to its non-invasive nature and cost-effectiveness. With the rise of computational psychiatry, the integration of EEG with artificial intelligence has yielded remarkable results in diagnosing depression. This review offers a comparative analysis of two predominant methodologies in research: traditional machine learning and deep learning methods. Furthermore, this review addresses key challenges in current research and suggests potential solutions. These insights aim to enhance diagnostic accuracy for depression and also foster further development in the area of computational psychiatry.",
       "doi": "10.3390/s24216815",
       "pmid": "39517712",
@@ -243,9 +293,9 @@
       "discovery_method": "accession_mention",
       "matched_accession": "ds003478",
       "confidence_scoring": {
-        "confidence_score": 0.6400177609920502,
-        "similarity_score": 0.5541279315948486,
-        "citation_text_length": 1143,
+        "confidence_score": 0.6363949477672577,
+        "similarity_score": 0.5509912967681885,
+        "citation_text_length": 1149,
         "dataset_text_length": 1445,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -303,7 +353,7 @@
     },
     {
       "title": "Stem cell derived exosomes: Emerging cell-free therapeutics for neurodegenerative disorders",
-      "author": "Mahmood S. Choudhery, Taqdees Arif, Ruhma Mahmood, David T Harris",
+      "author": "Mahmood Saba Choudhery, Taqdees Arif, Ruhma Mahmood, David T Harris",
       "venue": "World Journal of Stem Cells",
       "year": 2026,
       "url": "https://doi.org/10.4252/wjsc.v18.i3.116226",
@@ -318,9 +368,9 @@
       "discovery_method": "accession_mention",
       "matched_accession": "ds003478",
       "confidence_scoring": {
-        "confidence_score": 0.22749155625700954,
-        "similarity_score": 0.1969623863697052,
-        "citation_text_length": 1483,
+        "confidence_score": 0.2278778535872698,
+        "similarity_score": 0.1972968429327011,
+        "citation_text_length": 1485,
         "dataset_text_length": 1445,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -367,6 +417,9 @@
       "discovery_backend": "openalex",
       "discovery_method": "accession_mention",
       "matched_accession": "ds003478",
+      "superseded_dois": [
+        "10.5281/zenodo.20410200"
+      ],
       "confidence_scoring": {
         "confidence_score": 0.7628671619296075,
         "similarity_score": 0.6604910492897034,
@@ -374,26 +427,51 @@
         "dataset_text_length": 1445,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      },
+      }
+    },
+    {
+      "title": "Eul7rr/eeg-depression-artifact-rejection: v1.0.0: Manuscript submission version",
+      "author": "Tianle Hu",
+      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "year": 2026,
+      "url": "https://doi.org/10.5281/zenodo.22658807",
+      "cited_by": 0,
+      "abstract": "Reproducible pipeline comparing ICA artifact rejection methods for EEG-based depression detection (OpenNeuro ds003478)",
+      "doi": "10.5281/zenodo.22658807",
+      "pmid": null,
+      "openalex_id": "W7211966430",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds003478",
       "superseded_dois": [
-        "10.5281/zenodo.20410200"
-      ]
+        "10.5281/zenodo.22658808"
+      ],
+      "confidence_scoring": {
+        "confidence_score": 0.7541958582401276,
+        "similarity_score": 0.6529834270477295,
+        "citation_text_length": 301,
+        "dataset_text_length": 1445,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-17T10:56:07.576854+00:00",
+    "scoring_date": "2026-09-22T12:59:34.921545+00:00",
     "dataset_text_length": 1445,
-    "num_citations_scored": 13,
+    "num_citations_scored": 16,
     "summary_stats": {
-      "mean_confidence": 0.6101355383717098,
-      "median_confidence": 0.6361204692721367,
-      "std_confidence": 0.14178054111194743,
-      "min_confidence": 0.22749155625700954,
+      "mean_confidence": 0.6113124470738694,
+      "median_confidence": 0.6362577085196972,
+      "std_confidence": 0.14423753729956806,
+      "min_confidence": 0.2278778535872698,
       "max_confidence": 0.7688375338912011,
-      "high_confidence_count": 4,
-      "medium_confidence_count": 8,
-      "low_confidence_count": 1
+      "high_confidence_count": 5,
+      "medium_confidence_count": 9,
+      "low_confidence_count": 2
     }
   }
 }

@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000326",
-  "num_citations": 0,
-  "date_last_updated": "2026-08-25T10:20:57.454456+00:00",
+  "num_citations": 2,
+  "date_last_updated": "2026-09-22T10:58:53.651351+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
-    "fetch_date": "2026-08-25T10:20:57.454456+00:00",
+    "fetch_date": "2026-09-22T10:58:53.651351+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -17,12 +17,12 @@
         "identifier": "10.13026/0byy-ry86",
         "identifier_type": "doi",
         "source_relation": "IsDerivedFrom",
-        "classification": "data_paper",
+        "classification": null,
         "kept": true,
-        "paper_title": "bigP3BCI: An Open, Diverse and Machine Learning Ready P300-based Brain-Computer Interface Dataset",
-        "paper_year": 2024,
-        "paper_venue": "PhysioNet",
-        "reason": "The candidate paper title and abstract explicitly describe the curation and release of the P300-based BCI dataset, matching the content of nm000326.",
+        "paper_title": null,
+        "paper_year": null,
+        "paper_venue": null,
+        "reason": null,
         "judgment_model": "gemma4:e4b"
       },
       {
@@ -52,19 +52,70 @@
       "machine learning"
     ],
     "methods_description": "EEG data were acquired at a sampling rate of 256 Hz using 32 channels with a standard 10-20 montage on a g.USBamp amplifier (g.tec). The experimental paradigm employed a 6x6 checkerboard visual stimulus presentation with target and non-target event classifications. Single sessions were conducted per subject with a trial interval of 0-1.0 seconds. Line frequency was 60 Hz.",
-    "funding": [],
-    "searched_accessions": [
-      "nm000326"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 0
+    "funding": []
   },
-  "citation_details": [],
+  "citation_details": [
+    {
+      "title": "Limits of Trial-Adaptive Neural–Language Fusion Across Large Language Models in P300 Brain–Computer Interfaces",
+      "author": "Alon Gorenshtein, Mahmud Omar, Eric Jia, Yosef Adiniaev, Oved Daniel, Jonathan B. Kruskal, Muneeb Ahmed, Olga Rachel Brook, Eyal Klang, Yiftach Barash",
+      "venue": "medRxiv",
+      "year": 2026,
+      "url": "https://doi.org/10.64898/2026.08.30.26361777",
+      "cited_by": 0,
+      "abstract": "Abstract Objective Published P300-speller fusion schemes fix prior trust regardless of trial reliability; we tested whether a reliability estimate improves on it. Methods We reanalyzed 3,373 archived P300-speller selections from 47 people with ALS (BigP3BCI). A fair, matched-search-space comparison, tuning both a fixed weight and an adaptive policy out-of-fold, was evaluated across 22 evaluable language-model priors up to 46.7B parameters. Two representative priors, GPT-2 and a classical 5-gram, additionally received detailed naive and mechanistic analyses. Results No prior’s 95% CI favored adaptive fusion under the fair comparison, despite unexploited oracle headroom at every scale. Under GPT-2, the naive comparison was significantly worse for adaptive fusion; both anchors converged to a degenerate or near-degenerate fair-comparison solution. For the representative anchors, three further controllers failed to convert that headroom into benefit; the fixed-fused posterior’s output proba",
+      "doi": "10.64898/2026.08.30.26361777",
+      "pmid": null,
+      "openalex_id": "W7208708634",
+      "source_doi": "10.13026/0byy-ry86",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6501243799924851,
+        "similarity_score": 0.5628782510757446,
+        "citation_text_length": 1306,
+        "dataset_text_length": 2461,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Quantifying Large Language Model Influence in Brain Computer Interface Communication for Amyotrophic Lateral Sclerosis",
+      "author": "Alon Gorenshtein, Mahmud Omar, Eric Jia, Yosef Adiniaev, Oved Daniel, Jonathan B. Kruskal, Muneeb Ahmed, Olga Rachel Brook, Yiftach Barash, Eyal Klang",
+      "venue": "medRxiv",
+      "year": 2026,
+      "url": "https://doi.org/10.64898/2026.08.20.26360941",
+      "cited_by": 0,
+      "abstract": "Abstract Large language models are integrated into brain-computer interfaces for communication, but accuracy does not show whether an emitted character depended on neural evidence or on the language-model prior. We retrospectively re-decoded 3,373 P300-speller selections from 47 people with amyotrophic lateral sclerosis, reconstructing a neural posterior and combining it with 25 language priors ranging from 5-grams to 46.7-billion-parameter models. Under held-out, per-source calibration and equal fusion weighting, the prior accounted for a participant-weighted mean 8.6% of posterior displacement (median across selections, 2.9%); the corresponding neural contribution fraction was 0.914 (95% CI, 0.896-0.934). In 4.4% of selections (95% CI, 3.5-5.3), the fused system emitted the intended character although neural evidence alone would not have selected it. Results were similar across 21 neural language models. Accuracy alone does not reveal how strongly a fused brain-computer interface dec",
+      "doi": "10.64898/2026.08.20.26360941",
+      "pmid": null,
+      "openalex_id": "W7204168879",
+      "source_doi": "10.13026/0byy-ry86",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5938072031736374,
+        "similarity_score": 0.5141187906265259,
+        "citation_text_length": 1314,
+        "dataset_text_length": 2461,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    }
+  ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-08-25T11:32:43.033338+00:00",
+    "scoring_date": "2026-09-22T12:47:47.536454+00:00",
     "dataset_text_length": 2461,
-    "num_citations_scored": 0
+    "num_citations_scored": 2,
+    "summary_stats": {
+      "mean_confidence": 0.6219657915830612,
+      "median_confidence": 0.6219657915830612,
+      "std_confidence": 0.028158588409423813,
+      "min_confidence": 0.5938072031736374,
+      "max_confidence": 0.6501243799924851,
+      "high_confidence_count": 0,
+      "medium_confidence_count": 2,
+      "low_confidence_count": 0
+    }
   }
 }
