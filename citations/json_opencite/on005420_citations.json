@@ -1,7 +1,7 @@
 {
   "dataset_id": "on005420",
-  "num_citations": 0,
-  "date_last_updated": "2026-09-22T11:25:04.118895+00:00",
+  "num_citations": 2,
+  "date_last_updated": "2026-09-23T10:39:29.727177+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
     "fetch_date": "2026-09-22T11:25:04.118895+00:00",
@@ -39,13 +39,81 @@
       "spontaneous brain activity"
     ],
     "methods_description": null,
-    "funding": []
+    "funding": [],
+    "searched_accessions": [
+      "on005420",
+      "ds005420"
+    ],
+    "num_accession_mentions": 2,
+    "num_dataset_citations": 2,
+    "num_datapaper_citations": 0
   },
-  "citation_details": [],
+  "citation_details": [
+    {
+      "title": "A Hybrid CNN-Transformer Architecture for Vision-Based EEG State Classification",
+      "author": "Khusniddin R. Ruzimboev, Saidmukhammadjon Babayev, Abdulaziz Xo‘jamqulov, Sobirov Asadbek",
+      "venue": "n/a",
+      "year": 2025,
+      "url": "https://doi.org/10.1109/apeie66761.2025.11289358",
+      "cited_by": 1,
+      "abstract": "This paper presents a comparative analysis of deep learning architectures for electroencephalogram (EEG) signal classification, focusing on the detection of eyes open/closed states. We introduce a novel approach where raw EEG signals are converted into composite image representations, enabling the application of state-of-the-art computer vision models. Our comprehensive evaluation benchmarks modern Convolutional Neural Networks (CNNs) like EfficientNetV2, ResNet50V2, and ConvNeXt against a Vision Transformer (ViT) and a proposed hybrid CNN-ViT architecture. Experiments were conducted on two public datasets: OpenNeuro ds005420 and the PhysioNet EEG Motor/Imagery corpus. The proposed hybrid CNN-ViT model demonstrates superior performance, achieving an accuracy of 73.75% and an AUC of 0.787 on the primary dataset. Notably, this is accomplished with only 1.5 million parameters, significantly outperforming larger models in efficiency. Our findings highlight that a hybrid approach, leveraging the local feature extraction of CNNs and the global context modeling of transformers, offers a robust and computationally efficient solution for EEG analysis. This work validates the efficacy of treating EEG signals as images and underscores the potential of transformer-based architectures for advancing brain-computer interface applications.",
+      "doi": "10.1109/apeie66761.2025.11289358",
+      "pmid": null,
+      "openalex_id": "W4417472906",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds005420",
+      "confidence_scoring": {
+        "confidence_score": 0.6117100578546525,
+        "similarity_score": 0.5296190977096558,
+        "citation_text_length": 1555,
+        "dataset_text_length": 1256,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "A Comparative Study of VGG-19 and a Custom CNN for Binary EEG-State Classification Using Composite Time-Frequency Imaging",
+      "author": "Khusniddin R. Ruzimboev, Ikhtiyor D. Avezmatov, Boburjon I. Shermatov",
+      "venue": "n/a",
+      "year": 2025,
+      "url": "https://doi.org/10.1109/ubmk67458.2025.11207051",
+      "cited_by": 3,
+      "abstract": "Accurately distinguishing eyes-open (EO) from eyes-closed (EC) brain states using electroencephalography (EEG) is a foundational task for brain–computer interfaces and clinical neuro-diagnostics. This study provides a head-to-head benchmark of two distinct deep-learning strategies for this task. We convert multichannel EEG recordings into composite time–frequency images to compare a very-deep, pre-trained VGG-19 network against a lightweight, six-layer custom Convolutional Neural Network (CNN). On the large PhysioNet \"EEG Motor/Imagery\" corpus, VGG-19 achieved superior accuracy (87.88 percent), demonstrating the power of transfer learning. However, a cross-validation experiment on a second, distinct dataset (OpenNeuro ds005420) revealed a performance inversion, with the lightweight CNN (80.12 percent) outperforming VGG-19 (74.96 percent). These findings highlight a critical trade-off: while very-deep models excel on large datasets, lightweight architectures may offer more robust generalization and superior efficiency f or applications with limited data. We conclude by outlining a roadmap for future work, emphasizing generative data augmentation and transformer-based models to bridge this accuracy–efficiency gap.",
+      "doi": "10.1109/ubmk67458.2025.11207051",
+      "pmid": null,
+      "openalex_id": "W4415524309",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds005420",
+      "confidence_scoring": {
+        "confidence_score": 0.6201239562034608,
+        "similarity_score": 0.5369038581848145,
+        "citation_text_length": 1463,
+        "dataset_text_length": 1256,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    }
+  ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-22T13:23:47.498819+00:00",
+    "scoring_date": "2026-09-23T10:48:48.740320+00:00",
     "dataset_text_length": 1256,
-    "num_citations_scored": 0
+    "num_citations_scored": 2,
+    "summary_stats": {
+      "mean_confidence": 0.6159170070290567,
+      "median_confidence": 0.6159170070290567,
+      "std_confidence": 0.004206949174404173,
+      "min_confidence": 0.6117100578546525,
+      "max_confidence": 0.6201239562034608,
+      "high_confidence_count": 0,
+      "medium_confidence_count": 2,
+      "low_confidence_count": 0
+    }
   }
 }

@@ -1,10 +1,10 @@
 {
   "dataset_id": "on005863",
-  "num_citations": 0,
-  "date_last_updated": "2026-08-25T10:53:06.515002+00:00",
+  "num_citations": 1,
+  "date_last_updated": "2026-09-23T10:40:03.724721+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
-    "fetch_date": "2026-08-25T10:53:06.515002+00:00",
+    "fetch_date": "2026-09-23T10:37:36.315333+00:00",
     "processing_version": "1.0",
     "fetch_status": "not_found",
     "anchor_count": 1,
@@ -56,15 +56,51 @@
       "on005863",
       "ds005863"
     ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
+    "num_accession_mentions": 1,
+    "num_dataset_citations": 1,
     "num_datapaper_citations": 0
   },
-  "citation_details": [],
+  "citation_details": [
+    {
+      "title": "Integrating socioeconomic context with multimodal EEG data for improved ADHD risk screening",
+      "author": "Sadikul Haque Sadi, Md. Arman Hossain, Md. Nurul Ahad Tawhid",
+      "venue": "PLoS ONE",
+      "year": 2026,
+      "url": "https://doi.org/10.1371/journal.pone.0357213",
+      "cited_by": 0,
+      "abstract": "Attention-deficit/hyperactivity disorder (ADHD) affects millions globally, yet current diagnostic approaches rely on subjective behavioral assessments without objective neurophysiological markers. While machine learning on electroencephalogram (EEG) data shows promise for automated ADHD risk screening, current methods focus only on brain signals and ignore socioeconomic factors that strongly affect neurodevelopment and ADHD risk. We introduce a novel multimodal deep learning architecture integrating three complementary streams: temporal EEG dynamics via one-dimensional convolutional-recurrent networks, spectro-temporal patterns via two-dimensional convolutional networks with spatial and channel attention, and socioeconomic context via feedforward processing, combined through an attention-based fusion mechanism. Using the Cognitive Electrophysiology in Socioeconomic Context dataset, we evaluate performance across four cognitive tasks with 5-fold stratified cross-validation, ablation studies and benchmarking against a state-of-the-art EEG classification model. Under epoch-level cross-validation, the multimodal approach outperforms EEG-only baselines across all four tasks, achieving accuracy improvements of 2.1-5.9% and sensitivity gains up to 12.2%, with strong positive-class F1-scores (96.4-99.8%). Results showed higher epoch-level performance when socioeconomic context was incorporated alongside neurophysiological signals, a pattern that held across diverse cognitive paradigms. Leave-One-Subject-Out Cross-Validation across all four tasks yielded accuracy of 0.86-0.91 for the EEG-only model and 0.92-0.96 for the multimodal model, with sensitivity of 0.71-0.96 and specificity of 0.95-1.00 for the multimodal model. These subject-independent estimates are more modest than the epoch-level figures and McNemar's test on paired predictions did not reach significance on any task. The EEG backbone, evaluated without modification on an independent paediatric dataset, also achieved 80.4% subject-independent accuracy, outperforming the prior benchmark. Labels derive from a validated self-report screening instrument rather than clinical diagnosis; this model should be understood as a proof-of-concept for ADHD risk screening, not a diagnostic tool. This work suggests the feasibility of context-aware ADHD risk screening that accounts for environmental influences on neurodevelopment alongside neurophysiological signals.",
+      "doi": "10.1371/journal.pone.0357213",
+      "pmid": "42678972",
+      "openalex_id": "W7204872270",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds005863",
+      "confidence_scoring": {
+        "confidence_score": 0.7999476438760759,
+        "similarity_score": 0.692595362663269,
+        "citation_text_length": 1698,
+        "dataset_text_length": 2316,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    }
+  ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-08-25T12:10:36.738985+00:00",
+    "scoring_date": "2026-09-23T10:50:12.238182+00:00",
     "dataset_text_length": 2316,
-    "num_citations_scored": 0
+    "num_citations_scored": 1,
+    "summary_stats": {
+      "mean_confidence": 0.7999476438760759,
+      "median_confidence": 0.7999476438760759,
+      "std_confidence": 0.0,
+      "min_confidence": 0.7999476438760759,
+      "max_confidence": 0.7999476438760759,
+      "high_confidence_count": 1,
+      "medium_confidence_count": 0,
+      "low_confidence_count": 0
+    }
   }
 }
