@@ -1,96 +1,50 @@
 {
   "dataset_id": "on004022",
-  "num_citations": 2,
-  "date_last_updated": "2026-09-22T11:44:02.849215+00:00",
+  "num_citations": 0,
+  "date_last_updated": "2026-09-23T10:32:53.896305+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
-    "fetch_date": "2026-09-22T11:11:49.201866+00:00",
+    "fetch_date": "2026-09-23T10:32:53.896305+00:00",
     "processing_version": "1.0",
-    "fetch_status": "other",
-    "anchor_count": 0,
+    "fetch_status": "success",
+    "anchor_count": 1,
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": null,
-    "anchors": [],
-    "searched_dois": [],
-    "keywords": [],
-    "methods_description": null,
-    "funding": [],
-    "searched_accessions": [
-      "on004022",
-      "ds004022"
+    "anchor_judgment_model": "gemma4:e4b",
+    "anchors": [
+      {
+        "identifier": "10.82901/nemar.on004022",
+        "identifier_type": "doi",
+        "source_relation": "References",
+        "classification": null,
+        "kept": true,
+        "paper_title": null,
+        "paper_year": null,
+        "paper_venue": null,
+        "reason": null,
+        "judgment_model": "gemma4:e4b"
+      }
     ],
-    "num_accession_mentions": 2,
-    "num_dataset_citations": 2,
-    "num_datapaper_citations": 0
+    "searched_dois": [
+      "10.82901/nemar.on004022"
+    ],
+    "keywords": [
+      "EEG",
+      "fNIRS",
+      "motor imagery",
+      "brain-computer interfaces",
+      "orthopedic impairment",
+      "neuroimaging"
+    ],
+    "methods_description": "EEG and fNIRS data were acquired simultaneously during motor imagery tasks. Each trial consisted of a 3-second fixation cross, followed by a 4-second visual cue, a 3-second ready state with gray screen, and a 5-second motor imagery execution period. Four motor imagery tasks (reach, twist, lift, grasp) were presented in random order across 40 trials per session over three sessions.",
+    "funding": []
   },
-  "citation_details": [
-    {
-      "title": "Conditional VAE for personalized neurofeedback in cognitive training",
-      "author": "Imad Eddine Tibermacine, Samuele Russo, Gianmarco Scarano, Giancarlo Tedesco, Abdelaziz Rabehi, Amel Ali Alhussan, Doaa Sami Khafaga, Marwa Metwally Eid, El‐Sayed M. El‐kenawy, Christian Napoli",
-      "venue": "PLoS ONE",
-      "year": 2025,
-      "url": "https://doi.org/10.1371/journal.pone.0335364",
-      "cited_by": 3,
-      "abstract": "Machine learning (ML) offers great potential in healthcare, especially in the analysis of complex physiological signals like electroencephalography (EEG). EEG recordings hold valuable insights into neurological function and can aid in diagnosing various conditions. In this work, we explore the use of a Conditional Variational Autoencoder (CVAE) that injects a binary health label (healthy or orthopedic impairment) into both the encoder input and the latent space coupled with the extracted features, leveraging the conditional input vector to learn representations specific to different health conditions. Our study involved using two public OpenNeuro datasets [1,2]. From the healthy dataset we randomly selected seven subjects to match the seven impaired participants; in both sets we retained the same 11 scalp channels (C3, Cz, C4, FC3, FCz, FC4, CP3, CPz, CP4, F3, F4). Six descriptors-Short time Fourier Transform (STFT), Hurst Exponent (HE), Detrended Fluctuation Analysis (DFA), Correlation Dimension (CD), Kolmogorov-Sinai Entropy (permutation entropy; KS-proxy), and the Largest Lyapunov Exponent (LLE)-are extracted channel-wise and concatenated to form the input feature vector, which distills distinct characteristics from the EEG signals. We rigorously evaluated the performance of our CVAE model in combination with each feature extraction technique. The conditional supply of class labels to both encoder and decoder enabled the CVAE to achieve 93% accuracy on the unseen test split of the dataset with precision of 93%, a recall of 93%, and an F1-score of 0.93 outperforming re-trained CNN baselines. These results highlight the promise of CVAEs and the significance of well-suited feature extraction for robust EEG classification. This work could contribute to the development of automated healthcare diagnostic tools.",
-      "doi": "10.1371/journal.pone.0335364",
-      "pmid": "41171856",
-      "openalex_id": "W4415746957",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004022",
-      "confidence_scoring": {
-        "confidence_score": 0.5366733030974866,
-        "similarity_score": 0.4646522104740143,
-        "citation_text_length": 1808,
-        "dataset_text_length": 1249,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Adversarial denoising of EEG signals: a comparative analysis of standard GAN and WGAN-GP approaches",
-      "author": "Imad Eddine Tibermacine, Samuele Russo, Francesco Citeroni, Giuseppe Mancini, Abdelaziz Rabehi, Amal Hamed Alharbi, El‐Sayed M. El‐kenawy, Christian Napoli",
-      "venue": "Frontiers in Human Neuroscience",
-      "year": 2025,
-      "url": "https://doi.org/10.3389/fnhum.2025.1583342",
-      "cited_by": 17,
-      "abstract": "Introduction: Electroencephalography (EEG) signals frequently contain substantial noise and interference, which can obscure clinically and scientifically relevant features. Traditional denoising approaches, such as linear filtering or wavelet thresholding, often struggle with nonlinear or time-varying artifacts. In response, the present study explores a Generative Adversarial Network (GAN) framework to enhance EEG signal quality, focusing on two variants: a conventional GAN model and a Wasserstein GAN with Gradient Penalty (WGAN-GP). Methods: Data were obtained from two distinct EEG datasets: a \"healthy\" set of 64-channel recordings collected during various motor/imagery tasks, and an \"unhealthy\" set of 18-channel recordings from individuals with orthopedic impairments. Both datasets underwent comprehensive preprocessing, including band-pass filtering (8-30 Hz), channel standardization, and artifact trimming. The training stage involved adversarial learning, in which a generator sought to reconstruct clean EEG signals while a discriminator (or critic in the case of WGAN-GP) attempted to distinguish between real and generated signals. The model evaluation was conducted using quantitative metrics such as signal-to-noise ratio (SNR), peak signal-to-noise ratio (PSNR), correlation coefficient, mutual information, and dynamic time warping (DTW) distance. Results: Experimental findings indicate that adversarial learning substantially improves EEG signal fidelity across multiple quantitative metrics. Specifically, WGAN-GP achieved an SNR of up to 14.47 dB (compared to 12.37 dB for the standard GAN) and exhibited greater training stability, as evidenced by consistently lower relative root mean squared error (RRMSE) values. In contrast, the conventional GAN model excelled in preserving finer signal details, reflected in a PSNR of 19.28 dB and a correlation coefficient exceeding 0.90 in several recordings. Both adversarial frameworks outperformed classical wavelet-based thresholding and linear filtering methods, demonstrating superior adaptability to nonlinear distortions and dynamic interference patterns in EEG time-series data. Discussion: By systematically comparing standard GAN and WGAN-GP architectures, this study highlights a practical trade-off between aggressive noise suppression and high-fidelity signal reconstruction. The demonstrated improvements in signal quality underscore the promise of adversarially trained models for applications ranging from basic neuroscience research to real-time brain-computer interfaces (BCIs) in clinical or consumer-grade settings. The results further suggest that GAN-based frameworks can be easily scaled to next-generation wireless networks and complex electrophysiological datasets, offering robust and dynamic solutions to long-standing challenges in EEG denoising.",
-      "doi": "10.3389/fnhum.2025.1583342",
-      "pmid": "40395688",
-      "openalex_id": "W4410133593",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004022",
-      "confidence_scoring": {
-        "confidence_score": 0.5616387985646725,
-        "similarity_score": 0.4862673580646515,
-        "citation_text_length": 1824,
-        "dataset_text_length": 1249,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    }
-  ],
+  "citation_details": [],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-22T13:04:23.707440+00:00",
+    "scoring_date": "2026-09-23T10:45:38.768207+00:00",
     "dataset_text_length": 1249,
-    "num_citations_scored": 2,
-    "summary_stats": {
-      "mean_confidence": 0.5491560508310795,
-      "median_confidence": 0.5491560508310795,
-      "std_confidence": 0.012482747733592925,
-      "min_confidence": 0.5366733030974866,
-      "max_confidence": 0.5616387985646725,
-      "high_confidence_count": 0,
-      "medium_confidence_count": 2,
-      "low_confidence_count": 0
-    }
+    "num_citations_scored": 0
   }
 }

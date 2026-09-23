@@ -1,7 +1,7 @@
 {
   "dataset_id": "on007176",
-  "num_citations": 4,
-  "date_last_updated": "2026-09-22T11:37:15.115568+00:00",
+  "num_citations": 6,
+  "date_last_updated": "2026-09-23T10:41:17.960861+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
     "fetch_date": "2026-09-22T11:37:15.115568+00:00",
@@ -79,7 +79,14 @@
       {
         "funder_name": "Comité para el Desarrollo de la Investigación (CODI), Universidad de Antioquia"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "on007176",
+      "ds007176"
+    ],
+    "num_accession_mentions": 2,
+    "num_dataset_citations": 2,
+    "num_datapaper_citations": 4
   },
   "citation_details": [
     {
@@ -173,20 +180,70 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "Reliability and disease sensitivity are dissociable properties of EEG foundation-model representations",
+      "author": "Belay Tadesse Gebregergis, Haben Girmay Yhdego, Tewolde Teklu",
+      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+      "year": 2026,
+      "url": "https://doi.org/10.64898/2026.08.19.745052",
+      "cited_by": 0,
+      "abstract": "Abstract EEG foundation models (EEG-FMs) are evaluated almost entirely on disease-discrimination accuracy. A clinical biomarker additionally requires measurement reliability, the stability of repeated measurements on the same individual, which regulatory biomarker frameworks treat as a prerequisite that discrimination does not imply. We asked whether frozen EEG-FM representations provide such stability, whether it is predictable from conventional model descriptors, and what information supports it. We measured test-retest reliability, disease discrimination, and representation distinctiveness for nine frozen representations: six EEG-oriented foundation models spanning masked, contrastive and predictive pretraining, handcrafted spectral features, and two general-purpose time-series models with no EEG exposure. All were evaluated under one preprocessing pipeline across two healthy retest cohorts, at roughly one month and two years, and three neurodegenerative cohorts. Reliability was measured in healthy adults only; the disease cohorts contribute cross-sectional discrimination. Reliability, quantified as the intraclass correlation coefficient (ICC), varied enormously (mean 0.08 to 0.76; coefficient of variation, CV, 53.0%) while disease discrimination, measured as area under the receiver operating characteristic curve (AUC), occupied a far narrower range across the same nine (AUC CV 5.4%), a roughly tenfold difference in relative dispersion, described rather than formally tested. We did not test formal AUC equivalence, so we describe discrimination as varying substantially less than reliability rather than as equivalent. The variation was not consistently explained by pretraining paradigm or domain among the models studied, and a model with no EEG exposure was among the most reliable tested. Alpha-band information contributed disproportionately to reliability, whereas theta-band information ranked first for Alzheimer disease and frontotemporal dementia discrimination, directionally consistent with established EEG evidence in both conditions. Only the reliability half of that contrast is individually significant. Subspace geometry and band ablation, two methodologically distinct analyses, both indicate that the two properties are partially, not fully, dissociable, and network architecture determines whether the dissociation is preserved, traded off, or jointly degraded across depth. Reliability showed no detectable association with discrimination, pretraining paradigm, or domain, and had to be measured directly. We recommend it become a standard evaluation axis for EEG-FM representations intended for longitudinal or biomarker use, and release a reproducible pipeline.",
+      "doi": "10.64898/2026.08.19.745052",
+      "pmid": null,
+      "openalex_id": "W7204133752",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds007176",
+      "confidence_scoring": {
+        "confidence_score": 0.701180409193039,
+        "similarity_score": 0.6070826053619385,
+        "citation_text_length": 1741,
+        "dataset_text_length": 2347,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Polar Geometry of Time-Odd EEG Dynamics",
+      "author": "Dmitry Goldstein",
+      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+      "year": 2026,
+      "url": "https://doi.org/10.64898/2026.09.08.749160",
+      "cited_by": 0,
+      "abstract": "Abstract Objective Longitudinal EEG recordings vary across sessions because of electrode reapplication, referencing, recording conditions, and physiological state. We asked whether multichannel EEG contains a time-odd geometric structure that remains subject-discriminative across repeated recordings and extended inter-session intervals. Approach We constructed a local state–derivative operator T ij = corr( m i , Δ x j ) and isolated its exact skew component, . Polar decomposition, K = Q K M K , separated interaction magnitude from normalized orientation. We applied the same decomposition to signed imaginary coherency, Ω = Im( G ), providing a frequency-domain test based on a separate estimation procedure. We evaluated cross-session subject matching in four public longitudinal EEG datasets, including the Dortmund cohort of 206 participants with recordings separated by approximately five years. Alpha–beta fusion used fixed equal weights without calibration or learned weighting. Main results The empirical operator T was already strongly dominated by its skew component, indicating that K isolates rather than creates the observed time-odd structure. Polar orientation improved longitudinal discriminability for K → Q K in every principal comparison. For the approximately one-month RestCog interval, area under the receiver-operating-characteristic curve (AUC) increased from 0.9222 to 0.9597 and rank-1 identification (CMC@1) from 0.6333 to 0.8167. In Dortmund, AUC increased from 0.8901 to 0.9625 and CMC@1 from 0.4757 to 0.6214. Fixed alpha–beta fusion further increased Dortmund Q K performance to CMC@1 = 0.8350, AUC = 0.9855, and equal-error rate (EER) = 5.90%. The spectral operator reproduced the raw-to-polar AUC advantage for Ω → Q Ω in both alpha and beta across all four datasets. Matched-metric controls preserved the polar AUC advantage in all 40 raw-to-polar comparisons. Significance Across two mathematically linked skew EEG operators obtained using different estimation procedures, removing interaction-magnitude weighting while retaining normalized orientation improved cross-session discriminability. The gain reflects improved genuine–impostor geometry rather than necessarily greater absolute similarity between repeated recordings. Polar orientation provides a compact longitudinal descriptor requiring no performance-tuned internal parameter once preprocessing, temporal support, and frequency band are fixed.",
+      "doi": "10.64898/2026.09.08.749160",
+      "pmid": null,
+      "openalex_id": "W7212457841",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds007176",
+      "confidence_scoring": {
+        "confidence_score": 0.7286585497856142,
+        "similarity_score": 0.6308732032775879,
+        "citation_text_length": 1633,
+        "dataset_text_length": 2347,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-22T13:33:10.358026+00:00",
+    "scoring_date": "2026-09-23T10:52:52.665088+00:00",
     "dataset_text_length": 2347,
-    "num_citations_scored": 4,
+    "num_citations_scored": 6,
     "summary_stats": {
-      "mean_confidence": 0.7813430711627006,
-      "median_confidence": 0.7781442618370057,
-      "std_confidence": 0.15955788273379284,
+      "mean_confidence": 0.7592018739382427,
+      "median_confidence": 0.7199545454978944,
+      "std_confidence": 0.13422318928409502,
       "min_confidence": 0.5690837609767915,
       "max_confidence": 1.0,
-      "high_confidence_count": 3,
+      "high_confidence_count": 5,
       "medium_confidence_count": 1,
       "low_confidence_count": 0
     }
