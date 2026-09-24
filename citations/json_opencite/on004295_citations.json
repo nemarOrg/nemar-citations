@@ -1,326 +1,50 @@
 {
   "dataset_id": "on004295",
-  "num_citations": 10,
-  "date_last_updated": "2026-09-22T11:45:27.428299+00:00",
+  "num_citations": 0,
+  "date_last_updated": "2026-09-24T10:33:33.871584+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
-    "fetch_date": "2026-09-22T11:12:31.979581+00:00",
+    "fetch_date": "2026-09-24T10:33:33.871584+00:00",
     "processing_version": "1.0",
-    "fetch_status": "other",
-    "anchor_count": 0,
+    "fetch_status": "success",
+    "anchor_count": 1,
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": null,
-    "anchors": [],
-    "searched_dois": [],
-    "keywords": [],
-    "methods_description": null,
-    "funding": [],
-    "searched_accessions": [
-      "on004295",
-      "ds004295"
+    "anchor_judgment_model": "gemma4:e4b",
+    "anchors": [
+      {
+        "identifier": "10.82901/nemar.on004295",
+        "identifier_type": "doi",
+        "source_relation": "References",
+        "classification": null,
+        "kept": true,
+        "paper_title": null,
+        "paper_year": null,
+        "paper_venue": null,
+        "reason": null,
+        "judgment_model": "gemma4:e4b"
+      }
     ],
-    "num_accession_mentions": 10,
-    "num_dataset_citations": 10,
-    "num_datapaper_citations": 0
+    "searched_dois": [
+      "10.82901/nemar.on004295"
+    ],
+    "keywords": [
+      "reversal learning",
+      "reward processing",
+      "punishment avoidance",
+      "reinforcement learning",
+      "decision making",
+      "neuroimaging"
+    ],
+    "methods_description": "Two reversal learning tasks were administered with different reinforcement contingencies. The reward task provided positive feedback indicating monetary gain (+10 cents) or non-reward (+0 cents), while the punishment task used positive feedback to signal successful avoidance of a loud white noise burst or negative feedback indicating noise application. White noise intensity was individually calibrated (81-90 dB) for each participant to equate subjective value with monetary reward.",
+    "funding": []
   },
-  "citation_details": [
-    {
-      "title": "NSE Report: Topological Signatures of Reversal Learning EEG Dataset: ds004295 — Reward Gain and Punishment Avoidance Reversal Learning",
-      "author": "Alastair Waterman",
-      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
-      "year": 2026,
-      "url": "https://doi.org/10.5281/zenodo.19066992",
-      "cited_by": 0,
-      "abstract": "Abstract We report a topological analysis of neural dynamics during probabilistic reversal learning using persistent homology (H₁) applied to EEG phase-space trajectories. Using the ds004295 dataset (N = 22, reward gain and punishment avoidance reversal learning), we applied two complementary analyses: (1) a trial-window comparison of pre-reversal, post-reversal, and stable periods, and (2) a sliding-window analysis with 500 ms windows and 100 ms step, tracking H₁ persistence continuously around the reversal point. The trial-window analysis confirmed a theta-band inverted-U trajectory: persistence increased at post-reversal (p = 0.014, d = +0.162) and decreased at stable (p = 0.004, d = +0.268). The sliding-window analysis revealed a dramatically stronger and temporally precise signal: H₁ persistence rose sharply following the reversal marker, peaking at a mean latency of 390 ms (median 600 ms) post-reversal, with baseline-vs-post significance of p < 0.0001 and Cohen’s d = +1.277. Twenty-five of 56 sliding-window timepoints were significant after FDR correction. The sliding-window result directly addresses the key theoretical prediction: a new long-lived topological cycle (C-scar) is born approximately 400–600 ms after the reversal point, consistent with the time course of cognitive rule restructuring. These findings provide the first time-resolved evidence for C-scar formation in neural phase space, offering a precise and experimentally controlled test of the NSE framework.",
-      "doi": "10.5281/zenodo.19066992",
-      "pmid": null,
-      "openalex_id": "W7138325964",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004295",
-      "superseded_dois": [
-        "10.5281/zenodo.19066993"
-      ],
-      "confidence_scoring": {
-        "confidence_score": 0.6627916967868805,
-        "similarity_score": 0.573845624923706,
-        "citation_text_length": 1745,
-        "dataset_text_length": 891,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Negative Space Encoding: A Multi-Dataset Empirical Validation - Topological Signatures of Cognitive Constraints Across Four EEG Datasets",
-      "author": "Alastair Waterman",
-      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
-      "year": 2026,
-      "url": "https://doi.org/10.5281/zenodo.19067557",
-      "cited_by": 0,
-      "abstract": "Abstract We report a comprehensive empirical validation of Negative Space Encoding (NSE) theory using persistent homology applied to four independent EEG datasets (total N = 122 subjects, 486 recordings). NSE proposes that neural information is encoded in the topological structure of constrained absence: long-lived H₁ cycles in neural phase space, termed C-scars, that encode computational boundaries established through learning and experience. Across four paradigms — propofol sedation, five-task cognitive battery, anagram insight, and probabilistic reversal learning — we find convergent evidence for three core NSE predictions: • C-scars collapse selectively under propofol sedation (1.4–1.7× reduction, p < 0.001, ds005620, N=20), while short-lived cycles persist, demonstrating that topological complexity is not a simple correlate of arousal. • C-scar 2D position (birth, death) in the persistence diagram constitutes a subject-specific neural fingerprint, stable across three sessions and five cognitive tasks (alpha Betti d=+1.214, p<0.001, ds004148, N=60). • A time-resolved sliding-window analysis reveals the birth of a new C-scar approximately 390–600 ms following reversal learning events (baseline vs post-reversal: d=+1.277, p<0.0001, ds004295, N=22), providing the first direct temporal observation of C-scar formation. Extended surrogate testing and Betti number analysis reveal that while large portions of the persistence effect co-vary with theta-band power, directed Betti number analysis using Granger causality-based flag complexes shows a significant increase in directed H₁ cycles at reversal (p=0.014, d=+0.477), an effect that is by definition independent of signal amplitude. A hierarchical organisation of C-scars by frequency band emerges across datasets: theta (4–8 Hz) encodes transient rule-level constraints (reversal learning), alpha (8–13 Hz) encodes lifelong perceptual fingerprints (cross-session r=0.847), and beta (13–30 Hz) encodes intermediate conceptual restructuring (insight). We interpret this hierarchy as evidence that C-scars operate across multiple timescales of constraint learning, from minutes to years. These findings are discussed in relation to RDRT (Refusal-Driven Dimensionality Reduction Theory), IIT, and Global Workspace Theory, and concrete directions for future work including directed persistent homology, intracranial recordings, and longitudinal fingerprint tracking are proposed.",
-      "doi": "10.5281/zenodo.19067557",
-      "pmid": null,
-      "openalex_id": "W7138366508",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004295",
-      "superseded_dois": [
-        "10.5281/zenodo.19067558"
-      ],
-      "confidence_scoring": {
-        "confidence_score": 0.4986389619112015,
-        "similarity_score": 0.4317220449447632,
-        "citation_text_length": 1748,
-        "dataset_text_length": 891,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Refusal-Driven Dimensionality Reduction Theory: Empirical Validation and Theoretical Refinement",
-      "author": "Alastair Waterman",
-      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
-      "year": 2026,
-      "url": "https://doi.org/10.5281/zenodo.19067800",
-      "cited_by": 0,
-      "abstract": "Abstract Refusal-Driven Dimensionality Reduction Theory (RDRT) proposes that phenomenal consciousness arises as the structured residue of thermodynamically enforced halts in recursive self-modelling. When a bounded predictive system approaches its energetic ceiling (~20 W in the human cortex), further recursion becomes metabolically untenable; the enforced halt produces a non-calculable remainder — P_noncalc — that constitutes qualia, mineness, and volitional openness. This paper presents the first direct empirical test of RDRT predictions using EEG data from a probabilistic reversal learning paradigm (ds004295, N=22). Three independent lines of evidence support the core RDRT framework while requiring refinement of its temporal predictions: • Gamma-band amplitude increases significantly at reversal (d=+1.186, p<0.001), consistent with the approach to the thermodynamic boundary, but does not produce the predicted gamma dip. Instead, gamma pattern stability (Sγ) falls dramatically (d=−1.082, p<0.001), with 21/22 subjects showing destabilisation. • The relationship between amplitude and stability is strongly anti-correlated during post-reversal processing (r=−0.597, p=0.006), indicating that increased computational effort co-occurs with decreased pattern organisation — operationally consistent with the RDRT concept of ineffective computation preceding P_noncalc formation. • A three-phase temporal sequence is identified: destabilisation (-1.2 to 0s), maximal effort with reorganisation (0 to +1.2s), and post-refusal consolidation (+1.2 to +2.5s) during which effective gamma activity falls below baseline — the predicted signature of the non-calculable remainder. Additional support comes from topological analysis: theta-band H₁ persistence peaks at +390ms (d=+1.277, p<0.0001), directed Betti number increases at +1.0s (p=0.014, d=+0.477), and Betti number decreases while persistence increases, indicating topological reorganisation rather than simple addition. Together these results support a revised RDRT model in which refusal is a process rather than an event, with P_noncalc consolidating over 1–2 seconds following the computational boundary. We discuss implications for the relationship between RDRT and NSE (Negative Space Encoding), the frequency-band hierarchy of C-scars, and the timing of phenomenal residue formation relative to neural dynamics.",
-      "doi": "10.5281/zenodo.19067800",
-      "pmid": null,
-      "openalex_id": "W7137806614",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004295",
-      "superseded_dois": [
-        "10.5281/zenodo.19067801"
-      ],
-      "confidence_scoring": {
-        "confidence_score": 0.5262106606364251,
-        "similarity_score": 0.45559364557266235,
-        "citation_text_length": 1707,
-        "dataset_text_length": 891,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Effective Neural Power and the Phenomenal Vector: Dissipation, Differentiation, and the Locus of P_noncalc",
-      "author": "Alastair Waterman",
-      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
-      "year": 2026,
-      "url": "https://doi.org/10.5281/zenodo.19068026",
-      "cited_by": 0,
-      "abstract": "Abstract Standard EEG analysis measures neural power — the amplitude of oscillatory activity. We propose that power alone is insufficient to characterise the computational state of a frequency band: a band can produce high amplitude while its spatial pattern across channels becomes disorganised, indicating that computations are occurring but producing no structured output. We introduce Effective Power (Eff = Amp × Sγ), where Sγ is gamma pattern stability measured as the Pearson correlation between the current spatial envelope pattern and a stable baseline reference. The dissociation between Amp and Sγ — amplitude rising while stability falls — we term neural dissipation: energy expenditure without proportional structured output. We test this framework on two EEG datasets requiring cognitive restructuring: probabilistic reversal learning (ds004295, N=22) and anagram insight (Oh et al. 2020, N=30). In reversal learning, gamma shows the characteristic dissociation (d_amp=+1.245, d_stab=−1.082) and gamma Eff is neutral, while theta/alpha/beta Eff rise significantly (d=+0.65 to +0.97). In anagram insight, alpha shows the dominant dissociation (d_stab=−0.988, p<0.001) and alpha Eff falls significantly (d=−0.640, p=0.002), while gamma Eff remains neutral in both paradigms. We interpret these results within RDRT (Refusal-Driven Dimensionality Reduction Theory): the band showing the Eff dip identifies the computational level at which the thermodynamic halt occurs and P_noncalc (the non-calculable phenomenal residue) is generated. Reversal learning triggers a rule-level halt (gamma); insight triggers a conceptual-level halt (alpha). This leads to a theoretical proposal: frequency bands differ not merely in temporal scale but in differentiation power — the number of distinct computational states they can represent. Two pathways to increased differentiation are distinguished: computational (transition to a higher-frequency band) and phenomenal (transition to P_noncalc when the computational pathway reaches its boundary). The phenomenal vector Ψ(t) = [Eff_δ, Eff_θ, Eff_α, Eff_β, Eff_γ] captures both pathways simultaneously. Trajectory analysis reveals that reversal and insight produce geometrically opposite transitions in Ψ-space (angle = 144.9°), with reversal showing a highly integrated trajectory (inter-band r = 0.66–0.95) and insight showing an independent multi-band trajectory (inter-band r = 0.01–0.15). These results support a stratified model of P_noncalc generation and provide operational criteria for identifying the locus of phenomenal transition in EEG data.",
-      "doi": "10.5281/zenodo.19068026",
-      "pmid": null,
-      "openalex_id": "W7138326502",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004295",
-      "superseded_dois": [
-        "10.5281/zenodo.19068027"
-      ],
-      "confidence_scoring": {
-        "confidence_score": 0.4027826656401158,
-        "similarity_score": 0.34872958064079285,
-        "citation_text_length": 1718,
-        "dataset_text_length": 891,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Neural Dissipation and the P_noncalc Boundary: The Dissipative Vector Δ as an Operational Criterion for Phenomenal Transition in EEG",
-      "author": "Alastair Waterman",
-      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
-      "year": 2026,
-      "url": "https://doi.org/10.5281/zenodo.19118946",
-      "cited_by": 0,
-      "abstract": "Abstract Standard analysis of neural oscillatory power distinguishes amplitude (total energy) from Effective Power (Eff = Amp × Sγ, organised energy). We introduce the Dissipative Vector Δ = Amp × (1 − max(Sγ, 0)), which captures energy expenditure that fails to produce a coherent spatial output — neural dissipation. We test whether Δ and Eff show a mirror pattern (Eff↓/Δ↑) at the same frequency band and cognitive event, across three EEG datasets: probabilistic reversal learning (ds004295, N=22), anagram insight (Oh et al. 2020, N=30), and meditation mind-wandering (ds001787, N=24). The mirror pattern is confirmed in the alpha band for both insight (d_Eff=−0.640, d_Δ=+0.626) and meditation mind-wandering (d_Eff=−0.499, d_Δ=+0.505), but not for reversal learning, where Eff and Δ rise together across all bands. We propose that the Eff↓/Δ↑ mirror is the operational EEG criterion for the RDRT halt boundary — the point at which organised computation saturates and P_noncalc (the non-calculable phenomenal residue) is generated. Reversal learning, which produces a global energetic surge without band-specific mirror, represents a qualitatively different type of phenomenal transition: an integrated amplitude modulation rather than a localised computational halt.",
-      "doi": "10.5281/zenodo.19118946",
-      "pmid": null,
-      "openalex_id": "W7138837672",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004295",
-      "superseded_dois": [
-        "10.5281/zenodo.19118947"
-      ],
-      "confidence_scoring": {
-        "confidence_score": 0.4999018934369088,
-        "similarity_score": 0.4328154921531677,
-        "citation_text_length": 1516,
-        "dataset_text_length": 891,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Computational Efficiency η and Dissipation Norm ||Δ|| as Universal Markers of Phenomenal Transition in EEG: Evidence from Three Independent Datasets",
-      "author": "Alastair Waterman",
-      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
-      "year": 2026,
-      "url": "https://doi.org/10.5281/zenodo.19119020",
-      "cited_by": 0,
-      "abstract": "Abstract We introduce two integrated scalar metrics derived from the Effective Power framework (Waterman 2026): computational efficiency η = ||Ψ|| / ||A||, where ||Ψ|| is the norm of the five-band Phenomenal Vector and ||A|| is the norm of total oscillatory power; and dissipation norm ||Δ|| = ||A - Ψ||, the norm of the Dissipative Vector. These metrics aggregate across all five frequency bands to provide scalar summaries of the organised-to-dissipative ratio of neural computation at any moment. We test whether η and ||Δ|| constitute universal markers of phenomenal transition across three independent EEG paradigms: probabilistic reversal learning (ds004295, N=22), anagram insight (Oh et al. 2020, N=30), and meditation mind-wandering (ds001787, N=24). η is significantly reduced in all three paradigms at cognitive transition events (reversal: d=−2.583, p<0.001; insight: d=−0.492, p=0.011; meditation MW: d=−0.862, p<0.001). ||Δ|| is significantly elevated in all three paradigms (reversal: d=+1.619, p<0.001; insight: d=+0.577, p=0.003; meditation MW: d=+0.410, p<0.001). The frequency centroid Ψ_c = Σ(f_i × Eff_i) / Σ(Eff_i) is significantly elevated during mind-wandering (d=+0.415, p=0.025) but not at reversal or insight events. We interpret these results within RDRT: η operationalises the computational efficiency of the current phenomenal state, and its reduction marks the transition toward the thermodynamic halt boundary at which P_noncalc is generated. ||Δ|| directly quantifies the energy expenditure that fails to produce organised output — the operational EEG signature of P_noncalc generation. These two metrics, together with band-specific Eff profiles, provide a complete multi-level characterisation of phenomenal transitions in EEG data.",
-      "doi": "10.5281/zenodo.19119020",
-      "pmid": null,
-      "openalex_id": "W7138835501",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004295",
-      "superseded_dois": [
-        "10.5281/zenodo.19119021"
-      ],
-      "confidence_scoring": {
-        "confidence_score": 0.4626368080079556,
-        "similarity_score": 0.40055134892463684,
-        "citation_text_length": 1760,
-        "dataset_text_length": 891,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Computational Efficiency η and Neural Dissipation ||Δ|| as Universal Markers of Phenomenal State: Evidence from Five Independent EEG Datasets",
-      "author": "Alastair Waterman",
-      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
-      "year": 2026,
-      "url": "https://doi.org/10.5281/zenodo.19119734",
-      "cited_by": 0,
-      "abstract": "Abstract We introduce η (computational efficiency) and ||Δ|| (dissipation norm) as scalar EEG metrics derived from the Effective Power framework (Eff = Amp × Sγ; Waterman 2026a). η = ||Ψ|| / ||A|| measures the fraction of total oscillatory energy converted into organised spatial patterns. ||Δ|| = ||A − Ψ|| measures the energy expenditure that fails to produce organised output. We validate these metrics across five independent EEG datasets spanning two fundamentally different classes of phenomenal change: (1) intra-conscious transitions — reversal learning (ds004295, N=22), anagram insight (Oh et al. 2020, N=30), and meditation mind-wandering (ds001787, N=24); and (2) consciousness-level reductions — propofol sedation in two independent datasets (Bajwa et al. 2024, N=21; Chennu et al. 2016, N=20). η is significantly reduced across all five datasets and all comparisons (d=−0.492 to −4.145; all p<0.05). ||Δ|| is significantly elevated in all five (d=+0.410 to +1.619). Across both sedation datasets, η dramatically outperforms Lempel-Ziv Complexity (LZC) as a discriminator of sedation state: AUC 0.988 vs 0.755 (Bajwa); AUC 1.000 vs 0.612 (Chennu). LZC shows paradoxical behaviour under propofol — increasing rather than decreasing with sedation depth — due to delta-amplitude artefact. η is immune to this confound because it measures spatial pattern organisation rather than temporal complexity. In the Chennu dataset, η decreases monotonically in all 20 subjects (Spearman r<0 in 20/20; mean r=−0.680), and correctly differentiates subjects who become behaviourally unresponsive (drowsy) from those who remain responsive, at baseline (p=0.0002) and recovery (p=0.006). We propose η and ||Δ|| as a new class of EEG marker — \"phenomenal state efficiency metrics\" — sensitive to both intra-conscious transitions and consciousness-level gradients, complementing rather than competing with existing temporal complexity measures.",
-      "doi": "10.5281/zenodo.19119734",
-      "pmid": null,
-      "openalex_id": "W7138845868",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004295",
-      "superseded_dois": [
-        "10.5281/zenodo.19119735"
-      ],
-      "confidence_scoring": {
-        "confidence_score": 0.4359304703772069,
-        "similarity_score": 0.37742897868156433,
-        "citation_text_length": 1753,
-        "dataset_text_length": 891,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Two Attractors and Five Layers: A Phenomenal State Space Defined by Spatial Efficiency and Inter-Layer Tension of Neural Oscillations",
-      "author": "Alastair Waterman",
-      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
-      "year": 2026,
-      "url": "https://doi.org/10.5281/zenodo.19234861",
-      "cited_by": 0,
-      "abstract": "Abstract We propose that the phenomenal state of a conscious system can be characterised by two independent dimensions derived from the spatial organisation of neural oscillations across five canonical frequency bands (δ, θ, α, β, γ): (1) η — the spatial efficiency, measuring the overall fraction of oscillatory energy organised into coherent spatial patterns, and (2) angle(Ψ,Δ) — the angle between the Effective Power Vector and the Dissipative Vector in five-dimensional frequency space, measuring the degree of inter-layer tension across the oscillatory hierarchy. Theoretically, these dimensions correspond to two fundamental aspects of phenomenal experience: η tracks the overall level of consciousness — the degree to which the phenomenal field is maintained — while angle(Ψ,Δ) tracks the structural complexity of that field — the number of active boundaries between phenomenal layers, each constituting what we term a \"local hard problem.\" This framework is grounded in the theory of Negative Space Encoding (NSE), which proposes that the oscillatory hierarchy implements progressive constraint-based encoding, with slow bands (δ,θ) serving as a global scaffold for local processing in fast bands (α,β,γ). We validate the two-dimensional framework across five independent EEG datasets spanning propofol sedation (Bajwa et al. 2024, N=21; Chennu et al. 2016, N=20), polysomnographic sleep (Wei et al. 2024, N=7), rule reversal learning (ds004295, N=22), and binocular rivalry (Torralba Cuello et al. 2025, N=29). Three qualitatively distinct trajectory types are identified in the (η, angle) space: horizontal (η changes, angle stable — sedation and reversal), diagonal ascending (η falls, angle rises — sleep onset), and vertical descending (angle collapses at low η — deep sleep). These trajectory types correspond to three distinct mechanisms of phenomenal transition: quantitative reduction, structural complexification, and structural collapse. The two-dimensional framework resolves a key limitation of scalar consciousness metrics: it distinguishes between states with different phenomenal structures at similar consciousness levels, and identifies the N2 sleep stage as the state of maximum inter-layer tension — the state with the most active boundaries between phenomenal layers — even though its overall consciousness level is low. Part of the NSE/RDRT preprint seriesKeywords: consciousness; neural oscillations; spatial efficiency; inter-layer tension; phenomenal state space; sleep; propofol sedation; binocular rivalry; Negative Space Encoding; RDRT; two attractors; frequency bands; EEG",
-      "doi": "10.5281/zenodo.19234861",
-      "pmid": null,
-      "openalex_id": "W7140398052",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004295",
-      "superseded_dois": [
-        "10.5281/zenodo.19234862"
-      ],
-      "confidence_scoring": {
-        "confidence_score": 0.4110181564092637,
-        "similarity_score": 0.3558598756790161,
-        "citation_text_length": 1745,
-        "dataset_text_length": 891,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Phenomenal Transitions as Dissipative Events: Neural Entropy Production Rate Peaks at Moments of Conscious Reorganisation",
-      "author": "Alastair Waterman",
-      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
-      "year": 2026,
-      "url": "https://doi.org/10.5281/zenodo.19323431",
-      "cited_by": 0,
-      "abstract": "Abstract Existing metrics of phenomenal consciousness — spatial efficiency η, Lempel-Ziv complexity, perturbational complexity index — characterise the level of conscious organisation. Here we propose and empirically validate a complementary metric: the rate of change of spatial efficiency, v_η = |dη/dt|, interpreted as a proxy for neural entropy production rate during phenomenal transitions. Drawing on non-equilibrium thermodynamics, we propose the Dissipative Events Hypothesis: phenomenal transitions — moments of conscious reorganisation — coincide with local maxima of entropy production, not with maxima of organisational level. We test this hypothesis across three independent EEG datasets spanning qualitatively distinct types of phenomenal transition: rule reversal learning (ds004295, N=22), polysomnographic sleep stage changes (ANPHY, N=7), and binocular rivalry perceptual switches (N=29). In reversal learning, v_η during the transition period [-1.5, +1.5s] is nearly double the baseline rate (d=1.285, p<0.001), with peak velocity at t=+1.2s — following, not preceding, the reversal event, consistent with post-transition reorganisation. In sleep, epoch-to-epoch |Δη| is significantly elevated at stage boundaries relative to within-stage continuations (d=1.355, p=0.031), and correlates with the magnitude of phenomenal rank difference between stages (Spearman r=0.107, p<0.001). In binocular rivalry, η is significantly lower during pre-switch epochs than during mid-stable control periods (d=−0.932, p<0.001), indicating that systems approaching a perceptual switch occupy a less organised — more dissipative — state. Together, these results support the view that phenomenal transitions are thermodynamic events characterised by elevated entropy production, and suggest that v_η captures a dimension of phenomenal dynamics orthogonal to existing level-of-consciousness metrics. Keywords: EEG; spatial efficiency; entropy production; phenomenal transitions; non-equilibrium thermodynamics; dissipation; binocular rivalry; sleep staging; reversal learning; Negative Space Encoding",
-      "doi": "10.5281/zenodo.19323431",
-      "pmid": null,
-      "openalex_id": "W7142783992",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004295",
-      "superseded_dois": [
-        "10.5281/zenodo.19323432"
-      ],
-      "confidence_scoring": {
-        "confidence_score": 0.44856006100773815,
-        "similarity_score": 0.38836368918418884,
-        "citation_text_length": 1733,
-        "dataset_text_length": 891,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "A Conservation Law for Phenomenal Transitions: Flow Symmetry between Spatial Efficiency and Hierarchical Coupling in Neural Oscillations",
-      "author": "Alastair Waterman",
-      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
-      "year": 2026,
-      "url": "https://doi.org/10.5281/zenodo.19323521",
-      "cited_by": 0,
-      "abstract": "Abstract We report a mathematical relationship between three empirically validated metrics of neural oscillatory organisation — spatial efficiency η, hierarchical coupling C_fast-slow, and entropy production rate v_η = |dη/dt| — that takes the form of a flow symmetry: v_η × η ≈ C_fast-slow × (1 − η). We interpret this as a conservation-like law governing phenomenal transitions: the phenomenal flow (rate of change of organised energy, v_η × η) equals the dissipative flow through the hierarchical boundary (C_fast-slow × (1 − η)). This relationship was first anticipated in formal structure by Refusal-Driven Dimensionality Reduction Theory (RDRT; Waterman 2025–2026), whose unifying equation Ψ = T_M × π_context / M_safety can be translated into DRH variables as v_η = C_fast-slow × (1 − η) / η. We test the flow symmetry across three independent EEG datasets: reversal learning (ds004295, N=22, r=+0.657, p<0.0001), polysomnographic sleep (ANPHY, N=7, r=−0.267, p<0.0001), and binocular rivalry (N=29, r=+0.096, p=0.024). The direction and magnitude of the correlation dissociates active phenomenal reorganisation (Reversal: phenomenal flow > dissipative flow) from passive state dissolution (Sleep: dissipative flow > phenomenal flow), suggesting that the conservation law holds strictly only during directed transitions. We further identify a critical efficiency η* ≈ 0.675 (mean across datasets: 0.715 ± 0.057) at which v_η is maximised — analogous to a critical temperature in physical phase transitions. A quasi-invariant K = v_η × η is significantly more stable across subjects during transitions than during baseline (CV: 0.911 → 0.784, d=1.373, p<0.0001), suggesting that phenomenal transitions follow a universal trajectory in dynamical state space. Temporal ordering analysis reveals that η peaks before C_fast-slow (Δt = 1.70s), indicating that spatial reorganisation precedes hierarchical restabilisation — a three-phase transition signature consistent with thermodynamic relaxation. Keywords: spatial efficiency; hierarchical coupling; conservation law; phenomenal transitions; entropy production; EEG; RDRT; non-equilibrium thermodynamics; reversal learning; sleep staging; binocular rivalry",
-      "doi": "10.5281/zenodo.19323521",
-      "pmid": null,
-      "openalex_id": "W7142899990",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004295",
-      "superseded_dois": [
-        "10.5281/zenodo.19323522"
-      ],
-      "confidence_scoring": {
-        "confidence_score": 0.4075203627347947,
-        "similarity_score": 0.35283148288726807,
-        "citation_text_length": 1748,
-        "dataset_text_length": 891,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    }
-  ],
+  "citation_details": [],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-22T13:06:25.290114+00:00",
+    "scoring_date": "2026-09-24T10:38:06.061590+00:00",
     "dataset_text_length": 891,
-    "num_citations_scored": 10,
-    "summary_stats": {
-      "mean_confidence": 0.47559917369484916,
-      "median_confidence": 0.45559843450784687,
-      "std_confidence": 0.07436695236634658,
-      "min_confidence": 0.4027826656401158,
-      "max_confidence": 0.6627916967868805,
-      "high_confidence_count": 0,
-      "medium_confidence_count": 10,
-      "low_confidence_count": 0
-    }
+    "num_citations_scored": 0
   }
 }
