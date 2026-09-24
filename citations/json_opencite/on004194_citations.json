@@ -1,277 +1,59 @@
 {
   "dataset_id": "on004194",
-  "num_citations": 9,
-  "date_last_updated": "2026-09-22T11:45:27.358437+00:00",
+  "num_citations": 0,
+  "date_last_updated": "2026-09-24T10:32:45.155129+00:00",
   "metadata": {
-    "total_cumulative_citations": 90,
-    "fetch_date": "2026-09-22T11:12:27.906943+00:00",
+    "total_cumulative_citations": 0,
+    "fetch_date": "2026-09-24T10:32:45.155129+00:00",
     "processing_version": "1.0",
-    "fetch_status": "other",
-    "anchor_count": 0,
+    "fetch_status": "success",
+    "anchor_count": 1,
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": null,
-    "anchors": [],
-    "searched_dois": [],
-    "keywords": [],
-    "methods_description": null,
-    "funding": [],
-    "searched_accessions": [
-      "on004194",
-      "ds004194"
+    "anchor_judgment_model": "gemma4:e4b",
+    "anchors": [
+      {
+        "identifier": "10.82901/nemar.on004194",
+        "identifier_type": "doi",
+        "source_relation": "References",
+        "classification": null,
+        "kept": true,
+        "paper_title": null,
+        "paper_year": null,
+        "paper_venue": null,
+        "reason": null,
+        "judgment_model": "gemma4:e4b"
+      }
     ],
-    "num_accession_mentions": 9,
-    "num_dataset_citations": 9,
-    "num_datapaper_citations": 0
+    "searched_dois": [
+      "10.82901/nemar.on004194"
+    ],
+    "keywords": [
+      "Electrocorticography",
+      "Visual Cortex",
+      "Epilepsy",
+      "population receptive field",
+      "intracranial recordings",
+      "visual perception",
+      "temporal dynamics"
+    ],
+    "methods_description": "Participants were implanted with clinical surface (grid) and depth electrodes, with two patients additionally receiving a high-density research grid. Patients viewed grayscale pattern stimuli varying in spatial/temporal properties or color images of six stimulus categories while performing a fixation task with a color-change detection component. Pre-implantation T1 MRI scans were collected for electrode localization. Data were preprocessed into common-average-referenced voltage data and broadband power envelopes, with additional derivatives including epoched trials, freesurfer surface reconstructions, and model fits.",
+    "funding": [
+      {
+        "funder_name": "This work was supported in part through the NYU IT High Performance Computing resources, services, and staff expertise."
+      },
+      {
+        "funder_name": "National Institute of Mental Health",
+        "award_number": "R01MH111417"
+      }
+    ]
   },
-  "citation_details": [
-    {
-      "title": "Precise spatial tuning of visually driven alpha oscillations in human visual cortex",
-      "author": "Kenichi Yuasa, Iris I. A. Groen, Giovanni Piantoni, Stephanie Montenegro, Adeen Flinker, Sasha Devore, Orrin Devinsky, Werner Doyle, Patricia C. Dugan, Daniel J. Friedman, Nick F. Ramsey, Natalia Petridou, Jonathan A. Winawer",
-      "venue": "eLife",
-      "year": 2023,
-      "url": "https://doi.org/10.7554/elife.90387",
-      "cited_by": 2,
-      "abstract": "Neuronal oscillations at about 10 Hz, called alpha oscillations, are often thought to arise from synchronous activity across the occipital cortex and are usually largest when the cortex is inactive. However, recent studies measuring visual receptive fields have reported that local alpha power increases when cortex is excited by visual stimulation. This contrasts with the expectation that alpha oscillations are associated with cortical inactivity. Here, we used intracranial electrodes in human patients to measure alpha oscillations in response to visual stimuli whose location varied systematically across the visual field. We hypothesized that stimulus-driven local increases in alpha power result from a mixture of two effects: a reduction in alpha oscillatory power and a simultaneous increase in broadband power. To test this, we implemented a model to separate these components. The two components were then independently fit by population receptive field (pRF) models. We find that the alpha pRFs have similar center locations to pRFs estimated from broadband power but are several times larger and exhibit the opposite effect: alpha oscillatory power decreases in response to stimuli within the receptive field, reinforcing the link between alpha oscillations and cortical inactivity, whereas broadband power increases. The results demonstrate that alpha suppression in the human visual cortex can be precisely tuned, but that to measure these effects, it is essential to separate the oscillatory signal from broadband power changes. Finally, we show how the large size and the negative valence of alpha pRFs can explain key features of exogenous visual attention.",
-      "doi": "10.7554/elife.90387",
-      "pmid": "40511786",
-      "openalex_id": "W4386378423",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004194",
-      "superseded_dois": [
-        "10.1101/2023.02.11.528137"
-      ],
-      "confidence_scoring": {
-        "confidence_score": 0.7167237263917924,
-        "similarity_score": 0.6205400228500366,
-        "citation_text_length": 1852,
-        "dataset_text_length": 2374,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Characterizing Spatiotemporal Population Receptive Fields in Human Visual Cortex with fMRI",
-      "author": "Insub Kim, Eline R. Kupers, Garikoitz Lerma‐Usabiaga, Kalanit Grill‐Spector",
-      "venue": "Journal of Neuroscience",
-      "year": 2023,
-      "url": "https://doi.org/10.1523/jneurosci.0803-23.2023",
-      "cited_by": 14,
-      "abstract": "The use of fMRI and computational modeling has advanced understanding of spatial characteristics of population receptive fields (pRFs) in human visual cortex. However, we know relatively little about the spatiotemporal characteristics of pRFs because neurons' temporal properties are one to two orders of magnitude faster than fMRI BOLD responses. Here, we developed an image-computable framework to estimate spatiotemporal pRFs from fMRI data. First, we developed a simulation software that predicts fMRI responses to a time-varying visual input given a spatiotemporal pRF model and solves the model parameters. The simulator revealed that ground-truth spatiotemporal parameters can be accurately recovered at the millisecond resolution from synthesized fMRI responses. Then, using fMRI and a novel stimulus paradigm, we mapped spatiotemporal pRFs in individual voxels across human visual cortex in 10 participants (both females and males). We find that a compressive spatiotemporal (CST) pRF model better explains fMRI responses than a conventional spatial pRF model across visual areas spanning the dorsal, lateral, and ventral streams. Further, we find three organizational principles of spatiotemporal pRFs: (1) from early to later areas within a visual stream, spatial and temporal windows of pRFs progressively increase in size and show greater compressive nonlinearities, (2) later visual areas show diverging spatial and temporal windows across streams, and (3) within early visual areas (V1-V3), both spatial and temporal windows systematically increase with eccentricity. Together, this computational framework and empirical results open exciting new possibilities for modeling and measuring fine-grained spatiotemporal dynamics of neural responses using fMRI.",
-      "doi": "10.1523/jneurosci.0803-23.2023",
-      "pmid": "37963768",
-      "openalex_id": "W4388667029",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004194",
-      "superseded_dois": [
-        "10.1101/2023.05.02.539164"
-      ],
-      "confidence_scoring": {
-        "confidence_score": 0.6396513077616692,
-        "similarity_score": 0.5538106560707092,
-        "citation_text_length": 1727,
-        "dataset_text_length": 2374,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Temporal dynamics of short-term neural adaptation across human visual cortex",
-      "author": "Amber Marijn Brands, Sasha Devore, Orrin Devinsky, Werner Doyle, Adeen Flinker, Daniel J. Friedman, Patricia C. Dugan, Jonathan A. Winawer, Iris I. A. Groen",
-      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
-      "year": 2023,
-      "url": "https://doi.org/10.1101/2023.09.13.557378",
-      "cited_by": 1,
-      "abstract": "Abstract Neural responses in visual cortex adapt to prolonged and repeated stimuli. While adaptation occurs across the visual cortex, it is unclear how adaptation patterns and computational mechanisms differ across the visual hierarchy. Here we characterize two signatures of short-term neural adaptation in time-varying intracranial electroencephalography (iEEG) data collected while participants viewed naturalistic image categories varying in duration and repetition interval. Ventraland lateral-occipitotemporal cortex exhibit slower and prolonged adaptation to single stimuli and slower recovery from adaptation to repeated stimuli compared to V1-V3. For category-selective electrodes, recovery from adaptation is slower for preferred than non-preferred stimuli. To model neural adaptation we augment our delayed divisive normalization (DN) model by scaling the input strength as a function of stimulus category, enabling the model to accurately predict neural responses across multiple image categories. The model fits suggest that differences in adaptation patterns arise from slower normalization dynamics in higher visual areas interacting with differences in input strength resulting from category selectivity. Our results reveal systematic differences in temporal adaptation of neural population responses across the human visual hierarchy and show that a single computational model of history-dependent normalization dynamics, fit with area-specific parameters, accounts for these differences. Author summary Neural responses in visual cortex adapt over time, with reduced responses to prolonged and repeated stimuli. Here, we examine how adaptation patterns differ across the visual hierarchy in neural responses recorded from human visual cortex with high temporal and spatial precision. To identify possible neural computations underlying short-term adaptation, we fit the response time courses using a temporal divisive normalization model. The model accurately predicts prolonged and repeated responses in lower and higher visual areas, and reveals differences in temporal adaptation across the visual hierarchy and stimulus categories. Our model suggests that differences in adaptation patterns result from differences in divisive normalization dynamics. Our findings shed light on how information is integrated in the brain on a millisecond-time scale and offer an intuitive framework to study the emergence of neural dynamics across brain areas and stimuli.",
-      "doi": "10.1101/2023.09.13.557378",
-      "pmid": "37745548",
-      "openalex_id": "W4386697529",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004194",
-      "confidence_scoring": {
-        "confidence_score": 0.7290685808658601,
-        "similarity_score": 0.6312282085418701,
-        "citation_text_length": 1810,
-        "dataset_text_length": 2374,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Temporal Dynamics of Neural Responses in Human Visual Cortex",
-      "author": "Iris I. A. Groen, Giovanni Piantoni, Stephanie Montenegro, Adeen Flinker, Sasha Devore, Orrin Devinsky, Werner Doyle, Patricia C. Dugan, Daniel J. Friedman, Nick F. Ramsey, Natalia Petridou, Jonathan A. Winawer",
-      "venue": "Journal of Neuroscience",
-      "year": 2022,
-      "url": "https://doi.org/10.1523/jneurosci.1812-21.2022",
-      "cited_by": 71,
-      "abstract": "Neural responses to visual stimuli exhibit complex temporal dynamics, including subadditive temporal summation, response reduction with repeated or sustained stimuli (adaptation), and slower dynamics at low contrast. These phenomena are often studied independently. Here, we demonstrate these phenomena within the same experiment and model the underlying neural computations with a single computational model. We extracted time-varying responses from electrocorticographic recordings from patients presented with stimuli that varied in duration, interstimulus interval (ISI) and contrast. Aggregating data across patients from both sexes yielded 98 electrodes with robust visual responses, covering both earlier (V1–V3) and higher-order (V3a/b, LO, TO, IPS) retinotopic maps. In all regions, the temporal dynamics of neural responses exhibit several nonlinear features. Peak response amplitude saturates with high contrast and longer stimulus durations, the response to a second stimulus is suppressed for short ISIs and recovers for longer ISIs, and response latency decreases with increasing contrast. These features are accurately captured by a computational model composed of a small set of canonical neuronal operations, that is, linear filtering, rectification, exponentiation, and a delayed divisive normalization. We find that an increased normalization term captures both contrast- and adaptation-related response reductions, suggesting potentially shared underlying mechanisms. We additionally demonstrate both changes and invariance in temporal response dynamics between earlier and higher-order visual areas. Together, our results reveal the presence of a wide range of temporal and contrast-dependent neuronal dynamics in the human visual cortex and demonstrate that a simple model captures these dynamics at millisecond resolution. SIGNIFICANCE STATEMENT Sensory inputs and neural responses change continuously over time. It is especially challenging to understand a system that has both dynamic inputs and outputs. Here, we use a computational modeling approach that specifies computations to convert a time-varying input stimulus to a neural response time course, and we use this to predict neural activity measured in the human visual cortex. We show that this computational model predicts a wide variety of complex neural response shapes, which we induced experimentally by manipulating the duration, repetition, and contrast of visual stimuli. By comparing data and model predictions, we uncover systematic properties of temporal dynamics of neural signals, allowing us to better understand how the brain processes dynamic sensory information.",
-      "doi": "10.1523/jneurosci.1812-21.2022",
-      "pmid": "35999054",
-      "openalex_id": "W4292767352",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004194",
-      "confidence_scoring": {
-        "confidence_score": 0.7464131847023966,
-        "similarity_score": 0.6462451815605164,
-        "citation_text_length": 1832,
-        "dataset_text_length": 2374,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "eLife Assessment: Precise Spatial Tuning of Visually Driven Alpha Oscillations in Human Visual Cortex",
-      "author": "Huan Luo",
-      "venue": "n/a",
-      "year": 2023,
-      "url": "https://doi.org/10.7554/elife.90387.1.sa3",
-      "cited_by": 0,
-      "abstract": "Neuronal oscillations at about 10 Hz, called alpha oscillations, are often thought to arise from synchronous activity across occipital cortex, reflecting general cognitive states such as arousal and alertness. However, there is also evidence that modulation of alpha oscillations in visual cortex can be spatially specific. Here, we used intracranial electrodes in human patients to measure alpha oscillations in response to visual stimuli whose location varied systematically across the visual field. We separated the alpha oscillatory power from broadband power changes. The variation in alpha oscillatory power with stimulus position was then fit by a population receptive field (pRF) model. We find that the alpha pRFs have similar center locations to pRFs estimated from broadband power (70–180 Hz), but are several times larger. The results demonstrate that alpha suppression in human visual cortex can be precisely tuned. Finally, we show how the pattern of alpha responses can explain several features of exogenous visual attention.The alpha oscillation is the largest electrical signal generated by the human brain. An important question in systems neuroscience is the degree to which this oscillation reflects system-wide states and behaviors such as arousal, alertness, and attention, versus much more specific functions in the routing and processing of information. We examined alpha oscillations at high spatial precision in human patients with intracranial electrodes implanted over visual cortex. We discovered a surprisingly high spatial specificity of visually driven alpha oscillations, which we quantified with receptive field models. We further use our discoveries about properties of the alpha response to show a link between these oscillations and the spread of visual attention.",
-      "doi": "10.7554/elife.90387.1.sa3",
-      "pmid": null,
-      "openalex_id": "W4386368806",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004194",
-      "confidence_scoring": {
-        "confidence_score": 0.728440247476101,
-        "similarity_score": 0.6306841969490051,
-        "citation_text_length": 1651,
-        "dataset_text_length": 2374,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Precise spatial tuning of visually driven alpha oscillations in human visual cortex",
-      "author": "Kenichi Yuasa, Iris I. A. Groen, Giovanni Piantoni, Stephanie Montenegro, Adeen Flinker, Sasha Devore, Orrin Devinsky, Werner Doyle, Patricia C. Dugan, Daniel J. Friedman, Nick F. Ramsey, Natalia Petridou, Jonathan A. Winawer",
-      "venue": "eLife",
-      "year": 2025,
-      "url": "https://doi.org/10.7554/elife.90387.3",
-      "cited_by": 2,
-      "abstract": "Neuronal oscillations at about 10 Hz, called alpha oscillations, are often thought to arise from synchronous activity across the occipital cortex and are usually largest when the cortex is inactive. However, recent studies measuring visual receptive fields have reported that local alpha power increases when cortex is excited by visual stimulation. This contrasts with the expectation that alpha oscillations are associated with cortical inactivity. Here, we used intracranial electrodes in human patients to measure alpha oscillations in response to visual stimuli whose location varied systematically across the visual field. We hypothesized that stimulus-driven local increases in alpha power result from a mixture of two effects: a reduction in alpha oscillatory power and a simultaneous increase in broadband power. To test this, we implemented a model to separate these components. The two components were then independently fit by population receptive field (pRF) models. We find that the alpha pRFs have similar center locations to pRFs estimated from broadband power but are several times larger and exhibit the opposite effect: alpha oscillatory power decreases in response to stimuli within the receptive field, reinforcing the link between alpha oscillations and cortical inactivity, whereas broadband power increases. The results demonstrate that alpha suppression in the human visual cortex can be precisely tuned, but that to measure these effects, it is essential to separate the oscillatory signal from broadband power changes. Finally, we show how the large size and the negative valence of alpha pRFs can explain key features of exogenous visual attention.",
-      "doi": "10.7554/elife.90387.3",
-      "pmid": null,
-      "openalex_id": "W4411282992",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004194",
-      "confidence_scoring": {
-        "confidence_score": 0.7167237263917924,
-        "similarity_score": 0.6205400228500366,
-        "citation_text_length": 1852,
-        "dataset_text_length": 2374,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Reviewer #1 (Public Review): Precise spatial tuning of visually driven alpha oscillations in human visual cortex",
-      "author": "n/a",
-      "venue": "n/a",
-      "year": 2025,
-      "url": "https://doi.org/10.7554/elife.90387.3.sa1",
-      "cited_by": 0,
-      "abstract": "Separating alpha oscillations from broadband activity reveals that alpha suppression in the human visual cortex is highly localized, and modulates cortical state in a manner consistent with exogenous spatial attention.",
-      "doi": "10.7554/elife.90387.3.sa1",
-      "pmid": null,
-      "openalex_id": "W4411281898",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004194",
-      "confidence_scoring": {
-        "confidence_score": 0.70126247048378,
-        "similarity_score": 0.6071536540985107,
-        "citation_text_length": 375,
-        "dataset_text_length": 2374,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Reviewer #2 (Public Review): Precise spatial tuning of visually driven alpha oscillations in human visual cortex",
-      "author": "n/a",
-      "venue": "n/a",
-      "year": 2025,
-      "url": "https://doi.org/10.7554/elife.90387.3.sa2",
-      "cited_by": 0,
-      "abstract": "Separating alpha oscillations from broadband activity reveals that alpha suppression in the human visual cortex is highly localized, and modulates cortical state in a manner consistent with exogenous spatial attention.",
-      "doi": "10.7554/elife.90387.3.sa2",
-      "pmid": null,
-      "openalex_id": "W4411283142",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004194",
-      "confidence_scoring": {
-        "confidence_score": 0.7003179395198823,
-        "similarity_score": 0.6063358783721924,
-        "citation_text_length": 375,
-        "dataset_text_length": 2374,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Author response: Precise spatial tuning of visually driven alpha oscillations in human visual cortex",
-      "author": "Kenichi Yuasa, Iris I. A. Groen, Giovanni Piantoni, Stephanie Montenegro, Adeen Flinker, Sasha Devore, Orrin Devinsky, Werner Doyle, Patricia C. Dugan, Daniel J. Friedman, Nick F. Ramsey, Natalia Petridou, Jonathan A. Winawer",
-      "venue": "n/a",
-      "year": 2025,
-      "url": "https://doi.org/10.7554/elife.90387.3.sa4",
-      "cited_by": 0,
-      "abstract": "Separating alpha oscillations from broadband activity reveals that alpha suppression in the human visual cortex is highly localized, and modulates cortical state in a manner consistent with exogenous spatial attention.",
-      "doi": "10.7554/elife.90387.3.sa4",
-      "pmid": null,
-      "openalex_id": "W4411283036",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004194",
-      "confidence_scoring": {
-        "confidence_score": 0.707004007101059,
-        "similarity_score": 0.6121246814727783,
-        "citation_text_length": 585,
-        "dataset_text_length": 2374,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    }
-  ],
+  "citation_details": [],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-22T13:05:54.155764+00:00",
+    "scoring_date": "2026-09-24T10:37:41.790694+00:00",
     "dataset_text_length": 2374,
-    "num_citations_scored": 9,
-    "summary_stats": {
-      "mean_confidence": 0.7095116878549259,
-      "median_confidence": 0.7167237263917924,
-      "std_confidence": 0.02837417775234305,
-      "min_confidence": 0.6396513077616692,
-      "max_confidence": 0.7464131847023966,
-      "high_confidence_count": 8,
-      "medium_confidence_count": 1,
-      "low_confidence_count": 0
-    }
+    "num_citations_scored": 0
   }
 }
