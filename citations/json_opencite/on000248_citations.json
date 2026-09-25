@@ -1,7 +1,7 @@
 {
   "dataset_id": "on000248",
-  "num_citations": 137,
-  "date_last_updated": "2026-09-22T11:01:39.757486+00:00",
+  "num_citations": 140,
+  "date_last_updated": "2026-09-25T10:33:40.976130+00:00",
   "metadata": {
     "total_cumulative_citations": 23280,
     "fetch_date": "2026-09-22T11:01:39.757486+00:00",
@@ -116,7 +116,14 @@
         "funder_name": "ANR",
         "award_number": "ANR-14-NEUC-0002-01"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "on000248",
+      "ds000248"
+    ],
+    "num_accession_mentions": 3,
+    "num_dataset_citations": 3,
+    "num_datapaper_citations": 137
   },
   "citation_details": [
     {
@@ -2173,6 +2180,57 @@
       "source_doi": "10.3389/fnins.2013.00267",
       "source_relation": "References",
       "discovery_backend": "opencite"
+    },
+    {
+      "title": "MEG-BIDS, the brain imaging data structure extended to magnetoencephalography",
+      "author": "Guiomar Niso, Krzysztof J. Gorgolewski, Elizabeth A. Bock, Teon L Brooks, Guillaume Flandin, Alexandre Gramfort, Richard N. Henson, Mainak Jas, Vladimir Litvak, Jeremy T. Moreau, Robert Oostenveld, Jan‐Mathijs Schoffelen, François Tadel, Joseph Wexler, Sylvain Baillet",
+      "venue": "Scientific Data",
+      "year": 2018,
+      "url": "https://doi.org/10.1038/sdata.2018.110",
+      "cited_by": 183,
+      "abstract": "We present a significant extension of the Brain Imaging Data Structure (BIDS) to support the specific aspects of magnetoencephalography (MEG) data. MEG measures brain activity with millisecond temporal resolution and unique source imaging capabilities. So far, BIDS was a solution to organise magnetic resonance imaging (MRI) data. The nature and acquisition parameters of MRI and MEG data are strongly dissimilar. Although there is no standard data format for MEG, we propose MEG-BIDS as a principled solution to store, organise, process and share the multidimensional data volumes produced by the modality. The standard also includes well-defined metadata, to facilitate future data harmonisation and sharing efforts. This responds to unmet needs from the multimodal neuroimaging community and paves the way to further integration of other techniques in electrophysiology. MEG-BIDS builds on MRI-BIDS, extending BIDS to a multimodal data structure. We feature several data-analytics software that have adopted MEG-BIDS, and a diverse sample of open MEG-BIDS data resources available to everyone.",
+      "doi": "10.1038/sdata.2018.110",
+      "pmid": "29917016",
+      "openalex_id": "W2809461164",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds000248"
+    },
+    {
+      "title": "Noise Injection as a Structural Diagnostic Tool for Deep Model Reduction",
+      "author": "C. Y. Lee, Chun-Ming Huang, Wei-Lin Lai",
+      "venue": "n/a",
+      "year": 2026,
+      "url": "https://doi.org/10.3390/engproc2025120031",
+      "cited_by": 1,
+      "abstract": "In this study, we introduce a novel, functionally driven method for model pruning guided by sensitivity analysis. Conventional model compression techniques often rely on proxy metrics, such as weight magnitude, which may not accurately reflect a component’s true functional importance. The proposed method directly assesses this by systematically injecting controlled noise into network layers and measuring the resultant perturbation on inference output. Components exhibiting low sensitivity to this noise are identified as functionally redundant and are pruned. We validated the method on EEGNet, a compact convolutional neural network, using the MNE Sample Event-Related Potential (ERP) dataset, a widely used benchmark for electroencephalography classification. After training the baseline model, we generated a sensitivity profile by quantifying how noise injection at different layers impacts predictive accuracy. This profile then guided targeted pruning of less influential convolutional kernels and weights. Experimental results demonstrate the method’s efficacy, achieving a significant reduction in both parameter count and computational complexity. Crucially, the pruned model retains classification accuracy nearly identical to the original, heavyweight EEGNet. This confirms that sensitivity-guided pruning effectively removes redundancy without degrading performance. In conclusion, our noise injection framework provides a more direct and interpretable criterion for neural network simplification. By linking component pruning to functional impact, our method enables a more precise and efficient model reduction than traditional heuristic-based approaches. The method developed presents a practical pathway toward developing lightweight, accurate, and low-latency models essential for real-world neuro-computational applications. Future work will focus on automating the pruning pipeline and extending the framework’s applicability to diverse neural architectures.",
+      "doi": "10.3390/engproc2025120031",
+      "pmid": null,
+      "openalex_id": "W7127414711",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds000248"
+    },
+    {
+      "title": "mne-tools/mne-bids-pipeline: v1.10.0",
+      "author": "Richard Höchenberger, Eric Larson, Alexandre Gramfort, Stefan Appelhoff, Sophie K. Herbst, Daniel McCloy, Mainak Jas, Charbel-Raphael Segerie, Apolline Mellot, Harrison Ritz, Denis Alexander Engemann, Joan Massich, Mathias Sablé-Meyer, mne[bot], Máté Aller, Kambiz Tavabi, Simon Kern, Rob Luke, Merlin Dumeur, Julia Guiomar Niso Galán, Adonay Nunes, Benedikt Ehinger, Boshra Ariguib, Izem, Judith Schepers, Okimoka, Pierre Guetschel, Thomas S. Binns",
+      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "year": 2026,
+      "url": "https://doi.org/10.5281/zenodo.19440738",
+      "cited_by": 0,
+      "abstract": "<!-- Release notes generated using configuration in .github/release.yaml at main --> What's Changed fix split strings (presumably from autoformatter) by @drammock in https://github.com/mne-tools/mne-bids-pipeline/pull/965 Switch to absolute imports and ensure the Ruff (linter and formatter) exclude patterns are correctly represented in pyproject.toml by @hoechenberger in https://github.com/mne-tools/mne-bids-pipeline/pull/969 MAINT: Use Python CircleCI image by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/970 Choose documentation color scheme automatically based on operating system setting by @hoechenberger in https://github.com/mne-tools/mne-bids-pipeline/pull/979 Be stricter when building documentation by @hoechenberger in https://github.com/mne-tools/mne-bids-pipeline/pull/980 don't fail if emptyroom is missing cHPI channels by @drammock in https://github.com/mne-tools/mne-bids-pipeline/pull/977 allow emptyroom match to vary by session by @drammock in https://github.com/mne-tools/mne-bids-pipeline/pull/976 Vendor external JavaScript with our documentation to better preserve users' privacy by @hoechenberger in https://github.com/mne-tools/mne-bids-pipeline/pull/982 clarify maxfilter log message by @drammock in https://github.com/mne-tools/mne-bids-pipeline/pull/991 Allow separate MRIs per session (for longitudinal studies) by @drammock in https://github.com/mne-tools/mne-bids-pipeline/pull/987 document need for xvfb/osmesa on headless by @drammock in https://github.com/mne-tools/mne-bids-pipeline/pull/997 allow missing sessions by @drammock in https://github.com/mne-tools/mne-bids-pipeline/pull/1000 FIX: noise_cov_method for raw as well by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/1010 MAINT: Add and check type hints by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/995 MAINT: Better type checking by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/1013 BUG: Fix bug with forward creation by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/1014 MAINT: Dont use continue-on-error by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/1015 ENH: Full mypy by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/1016 add config for passing extra kwargs to maxwell_filter by @drammock in https://github.com/mne-tools/mne-bids-pipeline/pull/1038 remove EEG channels from emptyroom when preparing it for maxwell filter by @drammock in https://github.com/mne-tools/mne-bids-pipeline/pull/1040 validate extra_config by @drammock in https://github.com/mne-tools/mne-bids-pipeline/pull/1044 fix ignoring sessions that have no data by @drammock in https://github.com/mne-tools/mne-bids-pipeline/pull/1035 add funloc dataset by @drammock in https://github.com/mne-tools/mne-bids-pipeline/pull/1045 Improve (and test) support for session-specific MRIs by @drammock in https://github.com/mne-tools/mne-bids-pipeline/pull/1039 add framework for TWA head pos as MF destination by @drammock in https://github.com/mne-tools/mne-bids-pipeline/pull/1043 Added implementation of zapline for power noise removal by @ariguiba in https://github.com/mne-tools/mne-bids-pipeline/pull/1032 fix config example in docs by @drammock in https://github.com/mne-tools/mne-bids-pipeline/pull/1054 MAINT: Refactor and document CIs better by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/1053 fixup for TWA-HP (gh1043) by @drammock in https://github.com/mne-tools/mne-bids-pipeline/pull/1055 raise error if loaded SourceSpaces has unexpected subject by @drammock in https://github.com/mne-tools/mne-bids-pipeline/pull/1056 allow calibration and ctc files to be None by @harrisonritz in https://github.com/mne-tools/mne-bids-pipeline/pull/1057 allow dict for ssp_ecg_channel by @drammock in https://github.com/mne-tools/mne-bids-pipeline/pull/1062 extra keyword arguments to find_bad_channels_maxwell, notch_filter, and filter_data; bugfix compute_rank channel types by @harrisonritz in https://github.com/mne-tools/mne-bids-pipeline/pull/1061 intersphinx by @drammock in https://github.com/mne-tools/mne-bids-pipeline/pull/1066 make late pipeline steps robust to missing sessions by @drammock in https://github.com/mne-tools/mne-bids-pipeline/pull/1067 Drop Raw.pick_types and Epochs.pick_types by @PierreGtch in https://github.com/mne-tools/mne-bids-pipeline/pull/1073 fixup generation of template config files by @drammock in https://github.com/mne-tools/mne-bids-pipeline/pull/1074 avoid backslash in fstring and frontload fsaverage download by @drammock in https://github.com/mne-tools/mne-bids-pipeline/pull/1078 Properly compute rank by @harrisonritz in https://github.com/mne-tools/mne-bids-pipeline/pull/1069 fix mf_int_order; add mf_ext_order by @harrisonritz in https://github.com/mne-tools/mne-bids-pipeline/pull/1092 Custom metadata by @harrisonritz in https://github.com/mne-tools/mne-bids-pipeline/pull/1088 FIX: sanitize tags by @harrisonritz in https://github.com/mne-tools/mne-bids-pipeline/pull/1097 fix config validation bug with ica_l_freq by @drammock in https://github.com/mne-tools/mne-bids-pipeline/pull/1119 ENH: Report bad channel statuses by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/1138 BUG: Fix bug with missing sessions by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/1133 ENH: add process_raw_clean and short circuit n_jobs=1 by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/1137 BUG: Fix bug with TWA caching by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/1135 Add support for MNE-ICALabel by @jschepers in https://github.com/mne-tools/mne-bids-pipeline/pull/1018 BUG: Remove unused config vars from steps by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/1152 add more information about how to run test suite by @skjerns in https://github.com/mne-tools/mne-bids-pipeline/pull/1154 MAINT: Work around persistent ds000248 failure by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/1156 MAINT: Remove Makefile by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/1157 Add subject-specific EOG channels with dictionary by @skjerns in https://github.com/mne-tools/mne-bids-pipeline/pull/1151 MAINT: Use openneuro-py main by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/1163 Fix raw.filter only being applied to first run in _06a1_fit_ica.py by @Okimoka in https://github.com/mne-tools/mne-bids-pipeline/pull/1164 Move to lefthook, ty, and dependency groups by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/1166 MAINT: Update lefthook config by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/1170 ENH: Add cov_rank option by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/1159 MAINT: Verify sizes on download by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/1179 Fix outdated docs in steps-ica in CLI by @behinger in https://github.com/mne-tools/mne-bids-pipeline/pull/1180 TST: Add test for gh-1140 by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/1176 BEH: Use union of bads when Maxwell filtering by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/1158 ENH: Allow multiple tasks to be processed jointly by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/1141 don't use subj+session for fs_subj unnecessarily by @drammock in https://github.com/mne-tools/mne-bids-pipeline/pull/1130 ENH: Add support for smoothing steps by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/1195 looser type def for arbitrarycontrast values by @drammock in https://github.com/mne-tools/mne-bids-pipeline/pull/1197 FIX: More flexible ssp_ecg_channel by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/1198 Work around ds003104 issue by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/1200 New Contributors @ariguiba made their first contribution in https://github.com/mne-tools/mne-bids-pipeline/pull/1032 @harrisonritz made their first contribution in https://github.com/mne-tools/mne-bids-pipeline/pull/1057 @PierreGtch made their first contribution in https://github.com/mne-tools/mne-bids-pipeline/pull/1073 @jschepers made their first contribution in https://github.com/mne-tools/mne-bids-pipeline/pull/1018 @skjerns made their first contribution in https://github.com/mne-tools/mne-bids-pipeline/pull/1154 @Okimoka made their first contribution in https://github.com/mne-tools/mne-bids-pipeline/pull/1164 @mne-bot made their first contribution in https://github.com/mne-tools/mne-bids-pipeline/pull/1167 @behinger made their first contribution in https://github.com/mne-tools/mne-bids-pipeline/pull/1180 Full Changelog: https://github.com/mne-tools/mne-bids-pipeline/compare/v1.9.0...v1.10.0",
+      "doi": "10.5281/zenodo.19440738",
+      "pmid": null,
+      "openalex_id": "W7150991254",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds000248"
     }
   ]
 }
