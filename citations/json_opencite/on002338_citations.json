@@ -1,7 +1,7 @@
 {
   "dataset_id": "on002338",
-  "num_citations": 75,
-  "date_last_updated": "2026-09-22T11:02:41.187116+00:00",
+  "num_citations": 80,
+  "date_last_updated": "2026-09-25T10:33:48.327926+00:00",
   "metadata": {
     "total_cumulative_citations": 1556,
     "fetch_date": "2026-09-22T11:02:41.187116+00:00",
@@ -86,7 +86,14 @@
         "funder_name": "French National Research Agency",
         "award_number": "ANR-10-LABX-07-01"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "on002338",
+      "ds002338"
+    ],
+    "num_accession_mentions": 5,
+    "num_dataset_citations": 7,
+    "num_datapaper_citations": 73
   },
   "citation_details": [
     {
@@ -132,7 +139,9 @@
       "openalex_id": "W3004189483",
       "source_doi": "10.1101/397729",
       "source_relation": "References",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "mentions_accession": true,
+      "matched_accession": "ds002338"
     },
     {
       "title": "Simultaneous real-time EEG-fMRI neurofeedback: A systematic review",
@@ -417,7 +426,9 @@
       "openalex_id": "W2888603388",
       "source_doi": "10.1101/862375",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "mentions_accession": true,
+      "matched_accession": "ds002338"
     },
     {
       "title": "Deep and Wide Transfer Learning with Kernel Matching for Pooling Data from Electroencephalography and Psychological Questionnaires",
@@ -1213,6 +1224,91 @@
       "source_doi": "10.3389/fnins.2017.00140",
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite"
+    },
+    {
+      "title": "STCBN-EC: A Spatio-Temporal Constrained Bayesian Causal Network for Multimodal Brain Effective Connectivity Learning",
+      "author": "Zhihao Su, Junzhong Ji, Minqi Yu, Jinduo Liu",
+      "venue": "n/a",
+      "year": 2026,
+      "url": "https://doi.org/10.24963/ijcai.2026/336",
+      "cited_by": 0,
+      "abstract": "Brain effective connectivity (EC) characterizes directional causal interactions among brain regions. However, learning stable and directionally explicit EC networks from multimodal data remains challenging. In practice, functional magnetic resonance imaging (fMRI) and electroencephalography (EEG) differ substantially in spatio-temporal resolution and noise characteristics. Existing methods often rely on manual spatio-temporal alignment and tend to recover only partial causal structures under high noise and Bayesian equivalence classes. To address these challenges, we propose a spatio-temporal constrained Bayesian causal network for multimodal brain effective connectivity learning (STCBN-EC). First, STCBN-EC constructs an anatomically guided EEG–fMRI spatial mapping and derives a unified spatio-temporal representation through slice-level alignment and adaptive modality fusion. Then, a Bayesian causal network is employed to model nonlinear inter-regional dependencies, where uncertainty-driven surrogate scoring is used to evaluate candidate structures. Finally, multimodal representation learning and EC structure estimation are jointly optimized via a gradient-free global optimization strategy. Experiments on simulated and real EEG–fMRI datasets demonstrate that STCBN-EC outperforms state-of-the-art methods and effectively captures state-dependent directional interactions among brain regions.",
+      "doi": "10.24963/ijcai.2026/336",
+      "pmid": null,
+      "openalex_id": "W7213432790",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds002338"
+    },
+    {
+      "title": "Diverse Task Classification from Activation Patterns of Functional Neuro-Images Using Feature Fusion Module",
+      "author": "Osman Tayfun Bişkin, Cemre Candemir, Ali Saffet Gönül, Mustafa Alper Selver",
+      "venue": "Sensors",
+      "year": 2023,
+      "url": "https://doi.org/10.3390/s23073382",
+      "cited_by": 2,
+      "abstract": "One of the emerging fields in functional magnetic resonance imaging (fMRI) is the decoding of different stimulations. The underlying idea is to reveal the hidden representative signal patterns of various fMRI tasks for achieving high task-classification performance. Unfortunately, when multiple tasks are processed, performance remains limited due to several challenges, which are rarely addressed since the majority of the state-of-the-art studies cover a single neuronal activity task. Accordingly, the first contribution of this study is the collection and release of a rigorously acquired dataset, which contains cognitive, behavioral, and affective fMRI tasks together with resting state. After a comprehensive analysis of the pitfalls of existing systems on this new dataset, we propose an automatic multitask classification (MTC) strategy using a feature fusion module (FFM). FFM aims to create a unique signature for each task by combining deep features with time-frequency representations. We show that FFM creates a feature space that is superior for representing task characteristics compared to their individual use. Finally, for MTC, we test a diverse set of deep-models and analyze their complementarity. Our results reveal higher classification accuracy compared to benchmarks. Both the dataset and the code are accessible to researchers for further developments.",
+      "doi": "10.3390/s23073382",
+      "pmid": "37050440",
+      "openalex_id": "W4360863153",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds002338"
+    },
+    {
+      "title": "A numerical variability approach to results stability tests and its application to neuroimaging",
+      "author": "Yohan Chatelain, Loïc Tetrel, Christopher Johnson Markiewicz, Mathias Goncalves, Gregory Kiar, Oscar Estéban, Pierre Bellec, Tristan Glatard",
+      "venue": "arXiv (Cornell University)",
+      "year": 2023,
+      "url": "https://doi.org/10.48550/arxiv.2307.01373",
+      "cited_by": 3,
+      "abstract": "Ensuring the long-term reproducibility of data analyses requires results stability tests to verify that analysis results remain within acceptable variation bounds despite inevitable software updates and hardware evolutions. This paper introduces a numerical variability approach for results stability tests, which determines acceptable variation bounds using random rounding of floating-point calculations. By applying the resulting stability test to \\fmriprep, a widely-used neuroimaging tool, we show that the test is sensitive enough to detect subtle updates in image processing methods while remaining specific enough to accept numerical variations within a reference version of the application. This result contributes to enhancing the reliability and reproducibility of data analyses by providing a robust and flexible method for stability testing.",
+      "doi": "10.48550/arxiv.2307.01373",
+      "pmid": null,
+      "openalex_id": "W4383468781",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds002338"
+    },
+    {
+      "title": "Investigating fMRI neurofeedback score prediction from EEG signals: genetic algorithm applied to hyperparameter selection",
+      "author": "Caroline Pinte, Claire Cury, Pierre Maurel",
+      "venue": "HAL (Le Centre pour la Communication Scientifique Directe)",
+      "year": 2024,
+      "url": "https://openalex.org/W4404850247",
+      "cited_by": 0,
+      "abstract": "Simultaneous electroencephalography (EEG) and functional magnetic resonance imaging (fMRI) acquisitions can provide more effective neurofeedback (NF) training due to their complementary temporal and spatial precision. However, MRI is expensive and can be draining for participants. Therefore, our goal is to reduce the reliance on MRI by developing a model that can predict fMRI NF scores from EEG signals alone, potentially eliminating the need for MRI. Yet, arbitrarily proposing a model architecture for such complex problems is challenging. So, in this study, we used a genetic algorithm to search for neural network architecture hyperparameters, specifically applied here to convolutional neural networks (CNNs) and long short-term memory (LSTM) networks. The resulting architectures provided fMRI NF score predictions that, when combined with EEG NF scores, significantly matched the true bi-modal EEG-fMRI NF scores more closely than the EEG NF scores alone. This approach demonstrates the potential for enriching the EEG modality in a unimodal neurofeedback framework, thereby reducing the need for MRI. However, the predictions still lack precision. Therefore, this work thoroughly investigates the potential for enriching the EEG modality in a unimodal neurofeedback framework. Our code and models are available at https://gitlab.inria.fr/cpinte/prediction-of-fmri-neurofeedback-scores-from-eeg-signals.",
+      "doi": null,
+      "pmid": null,
+      "openalex_id": "W4404850247",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds002338"
+    },
+    {
+      "title": "Apprentissage automatique pour le neurofeedback bi-modal EEG-IRMf : localisation des électrodes EEG et prédiction des scores NF IRMf",
+      "author": "Caroline Pinte",
+      "venue": "theses.fr (ABES)",
+      "year": 2024,
+      "url": "https://openalex.org/W4406631945",
+      "cited_by": 0,
+      "abstract": "Cette thèse explore l'apport des méthodes d'apprentissage automatique dans le contexte de la bi-modalité EEG-IRMf, avec pour objectif de localiser automatiquement et précisément les électrodes EEG dans un volume IRM et de prédire des scores neurofeedback IRMf à partir de signaux EEG. La première partie présente le contexte et les outils utilisés, en abordant les modalités EEG et IRMf ainsi que leur combinaison, le neurofeedback, les réseaux de neurones artificiels, la segmentation d'images et la régression de séries temporelles. La deuxième partie comprend trois contributions principales. La première décrit le développement d'une méthode permettant détecter automatiquement la position et l'étiquetage des électrodes EEG dans un volume IRM à l'aide d'une séquence IRM spécifique. La deuxième contribution propose une méthode de recherche d'hyperparamètres d'architecture de modèles basée sur un algorithme génétique. Ces modèles sont ensuite entraînés sur plusieurs sujets afin de prédire des scores neurofeedback IRMf à partir de signaux EEG. Cette étude compare différentes architectures issues de deux catégories de réseaux neuronaux : les LSTMs et les CNNs. Enfin, la troisième contribution consiste à étudier une piste d'amélioration de ces modèles. Ce travail évalue l'impact de la réduction de la variabilité inter-sujet sur les performances, en appliquant un alignement dans l'espace euclidien aux données EEG.",
+      "doi": null,
+      "pmid": null,
+      "openalex_id": "W4406631945",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds002338"
     }
   ]
 }

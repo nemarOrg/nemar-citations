@@ -1,0 +1,41 @@
+{
+  "dataset_id": "on008862",
+  "date_retrieved": "2026-09-25T10:00:48.937785+00:00",
+  "dataset_description": {
+    "Name": "EEG and hedonic responses to sonic-seasoning soundscapes",
+    "BIDSVersion": "1.9.0",
+    "DatasetType": "raw",
+    "License": "CC0",
+    "Authors": [
+      "Attila Pohlmann",
+      "Felipe Reinoso-Carvalho",
+      "Brayan Rodríguez"
+    ],
+    "Acknowledgements": "",
+    "HowToAcknowledge": "Please cite the associated Data in Brief article and this dataset.",
+    "EthicsApprovals": [
+      "Comité de Ética de Investigación en Seres Humanos, Universidad San Francisco de Quito (CEISH-USFQ); approval Oficio N° 078-2022-CA-P22-053M-CEISH-USFQ"
+    ],
+    "DatasetDOI": "10.82901/nemar.on008862",
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.18112/openneuro.ds008862.v1.0.0"
+      }
+    ],
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.on008862-blue)](https://doi.org/10.82901/nemar.on008862)\n\nEEG and liking responses to sonic-seasoning soundscapes.\n\nPer participant: one combined EEG file (eyes-open + eyes-closed baseline + ~17 s exposure to jungle and deconstruct\nsoundscapes), events.tsv marking segments, with liking ratings and baseline-state survey items in participants.tsv,\nand stimulus audio in /stimuli. Released as recorded (EPOC X hardware bandpass only; no additional software filtering). Recording timestamps removed.\nParticipant IDs are de-identified (sequential sub-NN); the mapping to original recording IDs is held privately and\nis not part of this dataset. See the associated Data in Brief article for full description.\n\nAll participants completed the four conditions in the same fixed order: eyes-open, eyes-closed, jungle, deconstruct.\nThe soundscape order was not counterbalanced.\n\nQUALITY CHANNELS\n----------------\nEach EDF carries, alongside the 14 EEG channels, the manufacturer's continuously logged quality signals,\nall sampled at 128 Hz and listed in each channels.tsv:\n  CQ_<electrode>  per-channel contact quality, ordinal 0-4 (0 = no contact, 4 = good)\n  CQ_Overall      overall contact quality, percent\n  CQ_CMS, CQ_DRL  contact quality of the CMS and DRL reference electrodes, ordinal 0-4\n  EQ_<electrode>  per-channel EEG quality, ordinal 0-4\n  EQ_Overall      overall EEG-quality index, percent\n  EQ_SampleRate   achieved/nominal sampling-rate ratio, -1 to 1\nAcross the 30 released sessions contact quality was uniformly high (CQ_Overall M = 100.0, SD = 0.2,\nrange 99.2-100.0; no channel fell below the acceptable level in any session), while the EEG-quality index\nwas considerably more variable (EQ_Overall M = 62.0, SD = 18.4, range 22.1-90.4). Re-users are encouraged\nto apply their own thresholds to the per-channel indices rather than relying on a single summary.\n\nEEGLAB USERS\n------------\nA processed, EEGLAB-ready version of the two soundscape conditions (jungle, deconstruct)\nis provided under derivatives/eeglab/ as per-condition .set files that import directly\ninto an EEGLAB STUDY with conditions assigned. See derivatives/eeglab/README for details.\nThese derivative files contain the 14 EEG channels only; the quality channels are in the\nraw EDFs at the repository root, which remain the primary, archival data.\n\nREADING THESE FILES\n-------------------\nUse an EDF reader that handles the EMOTIV header correctly (e.g. pyedflib in Python, or EEGLAB's\nBIOSIG importer). Some general-purpose readers misinterpret the header and return flat or\nzero-valued signals; if a channel loads as all zeros, the reader is at fault, not the data.\nAlways sanity-plot one channel after loading.\n\nRESTING CALIBRATION (eyes-open / eyes-closed) — IMPORTANT NOTE\n-------------------------------------------------------------\nThe eyes-open and eyes-closed segments are resting baselines, not length-matched counterparts\nto the 17 s soundscape exposures. Each had a fixed intended duration of ~20 s, but in the\nexperiment builder each advanced on a participant-controlled \"continue\" button (not a hard\ntimer). Segment markers therefore span from segment start to that button press, so recorded\ndurations vary across participants: eyes-open 23.9-202.1 s (M = 32.1) and eyes-closed\n26.3-63.4 s (M = 32.5). The button-press times were not logged and are unrecoverable.\nThe full segments are released unmodified; how to trim or average them is left to the user.\n=> If a length-matched comparison with the soundscape exposures is wanted, the first 17 s of\n   each calibration segment falls within the fixed instructed window for all participants and\n   precedes any post-task advance interval.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/on008862",
+    "exists": true,
+    "description": "EEG and hedonic responses to sonic-seasoning soundscapes",
+    "created_at": "2026-09-23T21:31:14+00:00",
+    "updated_at": "2026-09-24T03:01:42+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}
