@@ -2,6 +2,7 @@
 import CitationItem from "../../components/CitationItem.astro";
 import Base from "../../layouts/Base.astro";
 import { type DatasetDetail, loadAll } from "../../lib/data";
+import { nemarDatasetUrl } from "../../lib/nemar";
 
 export function getStaticPaths() {
   const { datasets } = loadAll();
@@ -21,7 +22,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   <p class="back"><a href={`${base}/`}>← All datasets</a></p>
   <h1 class="ds-title">{dataset.name}</h1>
   <p class="ds-sub">
-    <span class="ds-sub__id">{dataset.id}</span> · {fmt(dataset.numCitations)} high-confidence citations
+    <a class="ds-sub__id" href={nemarDatasetUrl(dataset.id)} title={`Open ${dataset.id} on NEMAR`}>{dataset.id}</a> · {fmt(dataset.numCitations)} high-confidence citations
     {dataset.methodsExcluded > 0 && (
       <span class="ds-sub__excl">· {fmt(dataset.methodsExcluded)} method/standards refs excluded</span>
     )}
@@ -119,6 +120,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   }
   .ds-sub__id {
     font-family: var(--font-mono);
+    color: inherit;
   }
   .ds-sub__excl {
     color: var(--color-fg-subtle);

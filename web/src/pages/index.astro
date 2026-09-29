@@ -5,6 +5,7 @@ import StatCard from "../components/StatCard.astro";
 import Base from "../layouts/Base.astro";
 import { loadAll } from "../lib/data";
 import { MODALITY_META, MODALITY_ORDER, loadModalities } from "../lib/modality";
+import { nemarDatasetUrl } from "../lib/nemar";
 
 const { overview, datasets, charts } = loadAll();
 const fmt = (n: number) => n.toLocaleString("en-US");
@@ -154,7 +155,9 @@ const modSlices =
             <a class="ds__name" href={datasetLink(d.id)}>
               {d.name}
             </a>
-            <span class="ds__id">{d.id}</span>
+            <a class="ds__id" href={nemarDatasetUrl(d.id)} title={`Open ${d.id} on NEMAR`}>
+              {d.id}
+            </a>
             <span class="ds__count">{fmt(d.numCitations)}</span>
           </li>
         ))
@@ -169,7 +172,9 @@ const modSlices =
               <a class="ds__name" href={datasetLink(d.id)}>
                 {d.name}
               </a>
-              <span class="ds__id">{d.id}</span>
+              <a class="ds__id" href={nemarDatasetUrl(d.id)} title={`Open ${d.id} on NEMAR`}>
+              {d.id}
+            </a>
               <span class="ds__count">{fmt(d.numDatasetCitations)}</span>
             </li>
           ))
@@ -190,7 +195,9 @@ const modSlices =
               <a class="ds__name" href={datasetLink(d.id)}>
                 {d.name}
               </a>
-              <span class="ds__id">{d.id}</span>
+              <a class="ds__id" href={nemarDatasetUrl(d.id)} title={`Open ${d.id} on NEMAR`}>
+              {d.id}
+            </a>
               <span class="ds__count">{fmt(d.numDataPaperCitations)}</span>
             </li>
           ))
