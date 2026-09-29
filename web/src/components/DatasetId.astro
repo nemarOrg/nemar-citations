@@ -1,0 +1,29 @@
+---
+/** A dataset id, linked to its NEMAR page when NEMAR serves one (nm*, on*). */
+import { nemarDatasetUrl } from "../lib/nemar";
+
+interface Props {
+  id: string;
+  class?: string;
+}
+
+// `rest` carries the parent's scoped-style attribute, so the parent's class
+// rules (e.g. `.ds__id`) still apply to the element rendered here. It is spread
+// first so it cannot override the link's own attributes. The aria-label tells
+// a screen reader this link leaves for NEMAR, unlike the dataset name beside
+// it, which opens the dataset's citations page here.
+const { id, class: className, ...rest } = Astro.props;
+const url = nemarDatasetUrl(id);
+---
+
+{
+  url ? (
+    <a {...rest} class={className} href={url} title={`Open ${id} on NEMAR`} aria-label={`Open ${id} on NEMAR`}>
+      {id}
+    </a>
+  ) : (
+    <span {...rest} class={className}>
+      {id}
+    </span>
+  )
+}
