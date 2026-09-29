@@ -6,13 +6,16 @@
  * typed contract the pages render. Runs in node during `astro build`; nothing
  * here ships to the client. Epic #127.
  *
- * Counting policy (issue #138): the HEADLINE counts only HIGH-CONFIDENCE
- * citations (confidence_score >= HIGH_CONF) and EXCLUDES BIDS / methods /
- * umbrella anchor papers (a citation pulled in via a method/standards paper is
- * not a citation OF the dataset). Methods anchors are detected as a source DOI
- * that is over-spread across many datasets, plus a curated denylist of canonical
- * BIDS/methods papers. Low-confidence citations are not counted but are kept so
- * the per-dataset view can surface them ("also N low-confidence").
+ * Counting policy (issues #138, #241): the HEADLINE counts only HIGH-CONFIDENCE
+ * citations (confidence_score >= HIGH_CONF) and EXCLUDES citations surfaced
+ * through anchors that are not the dataset's data paper. The pipeline's anchor
+ * gate already drops those; this layer re-checks as a backstop so an ungated
+ * file can never publish inflated counts: an anchor the file itself records as
+ * `kept: false`, an anchor on the never-anchor list shared with the pipeline
+ * (BIDS / software / platform / umbrella papers), or a source DOI over-spread
+ * across many datasets. Accession mentions always count. Low-confidence
+ * citations are not counted but are kept so the per-dataset view can surface
+ * them ("also N low-confidence").
  */
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
@@ -29,23 +32,10 @@ const HIGH_CONF = 0.4;
 // methods/umbrella paper (its citers are not citations of any one dataset).
 const METHODS_SPREAD = 5;
 
-// Curated canonical BIDS / methods / standards / umbrella anchor DOIs (normalized:
-// lowercase, no "doi:" prefix). Excluded even if not over-spread. The over-spread
-// heuristic catches the rest. The principled long-term fix is anchor judgment on
-// the un-judged ds-* datasets (#131); this is the build-local stand-in.
-const METHODS_DENYLIST = new Set<string>([
-  "10.21105/joss.01896", // MNE-BIDS
-  "10.1038/s41597-019-0104-8", // EEG-BIDS
-  "10.1038/s41597-019-0105-7", // iEEG-BIDS
-  "10.1038/sdata.2018.110", // MEG-BIDS
-  "10.1038/sdata.2016.44", // BIDS (original)
-  "10.1038/s41592-018-0235-4", // fMRIPrep
-  "10.3389/fnins.2013.00267", // MNE-Python
-  "10.1016/j.jneumeth.2003.10.009", // EEGLAB
-  "10.1155/2011/156869", // FieldTrip
-  "10.1038/sdata.2017.181", // HBN (umbrella)
-  "10.1038/sdata.2017.40", // HBN resource (umbrella)
-]);
+// Standards / software / platform / umbrella anchor DOIs whose citers are never
+// citations of a dataset, excluded even if not over-spread. One list, shared with
+// the pipeline's anchor gate (issue #241).
+const NEVER_ANCHOR_FILE = join("src", "dataset_citations", "quality", "never_anchor_dois.json");
 
 const citationsDir = findRepoPath(join("citations", "json_opencite"));
 const datasetsDir = findRepoPath("datasets");
@@ -169,6 +159,8 @@ type AnchorMap = Map<string, { classification: string; title: string | null }>;
 interface RawEntry {
   id: string;
   details: RawCitation[];
+  /** Normalized anchor DOIs the file records as `kept: false` (not the data paper). */
+  notKept: Set<string>;
   /** Top-level date_last_updated (ISO) from the citation JSON, or null. */
   lastUpdated: string | null;
 }
@@ -304,10 +296,18 @@ function readEntries(): RawEntry[] | null {
         dataset_id?: string;
         citation_details?: RawCitation[];
         date_last_updated?: string | null;
+        metadata?: { anchors?: Array<{ identifier?: string | null; kept?: boolean }> };
       };
+      const notKept = new Set<string>();
+      for (const anchor of raw.metadata?.anchors ?? []) {
+        if (anchor.kept === false && anchor.identifier) {
+          notKept.add(normalizeDoi(anchor.identifier));
+        }
+      }
       entries.push({
         id: raw.dataset_id || fileName.replace("_citations.json", ""),
         details: raw.citation_details ?? [],
+        notKept,
         lastUpdated: raw.date_last_updated ?? null,
       });
     } catch (err) {
@@ -317,8 +317,23 @@ function readEntries(): RawEntry[] | null {
   return entries;
 }
 
+/** The never-anchor DOI list shared with the pipeline. Throws when the file is
+ * missing or empty: building without it would publish standards-paper citers. */
+function readNeverAnchors(): Set<string> {
+  const path = findRepoPath(NEVER_ANCHOR_FILE);
+  if (!path) {
+    throw new Error(`[data] ${NEVER_ANCHOR_FILE} not found; refusing to build without it.`);
+  }
+  const data = JSON.parse(readFileSync(path, "utf-8")) as { dois?: Array<{ doi?: string }> };
+  const dois = (data.dois ?? []).flatMap((entry) => (entry.doi ? [normalizeDoi(entry.doi)] : []));
+  if (dois.length === 0) {
+    throw new Error(`[data] ${NEVER_ANCHOR_FILE} lists no DOIs; refusing to build.`);
+  }
+  return new Set(dois);
+}
+
 /** Source DOIs attributed across more than METHODS_SPREAD datasets, unioned with
- * the curated denylist — the methods/umbrella anchors whose citers we exclude. */
+ * the never-anchor list: the methods/umbrella anchors whose citers we exclude. */
 function methodsAnchors(entries: RawEntry[]): Set<string> {
   const spread = new Map<string, Set<string>>();
   for (const { id, details } of entries) {
@@ -332,7 +347,7 @@ function methodsAnchors(entries: RawEntry[]): Set<string> {
       spread.set(key, set);
     }
   }
-  const methods = new Set<string>(METHODS_DENYLIST);
+  const methods = readNeverAnchors();
   for (const [anchor, datasets] of spread) {
     if (datasets.size > METHODS_SPREAD) {
       methods.add(anchor);
@@ -341,8 +356,18 @@ function methodsAnchors(entries: RawEntry[]): Set<string> {
   return methods;
 }
 
-function isMethodsCitation(c: RawCitation, methods: Set<string>): boolean {
-  return c.source_doi ? methods.has(normalizeDoi(c.source_doi)) : false;
+/** True when a citation came in only through an anchor that is not the
+ * dataset's data paper. A paper that names the dataset accession cites the
+ * dataset whatever anchor surfaced it, matching the pipeline's gate. */
+function isExcludedCitation(c: RawCitation, methods: Set<string>, notKept: Set<string>): boolean {
+  if (c.discovery_method === "accession_mention" || c.mentions_accession === true) {
+    return false;
+  }
+  if (!c.source_doi) {
+    return false;
+  }
+  const source = normalizeDoi(c.source_doi);
+  return methods.has(source) || notKept.has(source);
 }
 
 let cache: LoadedData | null = null;
@@ -384,14 +409,14 @@ export function loadAll(): LoadedData {
   let datasetsWithCitations = 0;
   const datasets: DatasetDetail[] = [];
 
-  for (const { id, details } of entries) {
+  for (const { id, details, notKept } of entries) {
     const counted: Citation[] = [];
     const lowConf: Citation[] = [];
     let methodsExcluded = 0;
     const anchors = readAnchorMap(id);
 
     for (const c of details) {
-      if (isMethodsCitation(c, methods)) {
+      if (isExcludedCitation(c, methods, notKept)) {
         methodsExcluded += 1;
         continue;
       }

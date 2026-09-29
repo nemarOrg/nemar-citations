@@ -1,10 +1,11 @@
 """Anchors that are never a dataset's data paper, whatever the judge says.
 
 Standards (the Brain Imaging Data Structure (BIDS) family), analysis software
-(MNE, EEGLAB, FieldTrip, ...), and data platforms (OpenNeuro, NEMAR) are cited
-by thousands of papers that never touch a given dataset. Counting their citers
-as citations of the dataset is the worst failure this pipeline can have, so the
-anchor gate refuses them deterministically instead of trusting an LLM verdict:
+(MNE, EEGLAB, FieldTrip, ...), data platforms (OpenNeuro, NEMAR), and umbrella
+initiatives (the Healthy Brain Network) are cited by thousands of papers that
+never touch a given dataset. Counting their citers as citations of the dataset
+is the worst failure this pipeline can have, so the anchor gate refuses them
+deterministically instead of trusting an LLM verdict:
 in the 2026-09-18 snapshot the judge called EEG-BIDS a data paper for three
 datasets and iEEG-BIDS for one (issue #241).
 
