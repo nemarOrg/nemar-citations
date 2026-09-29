@@ -5,7 +5,9 @@ are discovered by `backends/accession_search.py` and folded into the same
 `citation_details[]` list as anchor-based citations, each tagged
 `discovery_method="accession_mention"`. The toggle (#169) buckets:
   - "cites dataset"   = accession mentions + anchor citations whose
-                        source_relation is IsVersionOf / IsIdenticalTo
+                        source_relation is IsVersionOf / IsIdenticalTo, or
+                        whose source anchor is a dataset DOI (NEMAR
+                        `10.82901/`, OpenNeuro `10.18112/openneuro.`)
   - "cites data paper"= the remaining anchor citations (References /
                         IsDerivedFrom / IsDescribedBy)
 
@@ -26,6 +28,7 @@ from dataset_citations.core.citation_identity import (
     base_doi,
     normalize_title,
 )
+from dataset_citations.sources.doi import NEMAR_DOI_PREFIX, is_openneuro_dataset_doi
 
 # Intentional subset of RelationType: only the relations whose anchor IS the
 # dataset record (vs a paper about it). IsDescribedBy/References/IsDerivedFrom
@@ -72,7 +75,12 @@ def cites_dataset(citation: dict[str, Any]) -> bool:
         return True
     if citation.get("mentions_accession"):
         return True
-    return citation.get("source_relation") in _DATASET_RELATIONS
+    if citation.get("source_relation") in _DATASET_RELATIONS:
+        return True
+    # The dataset's own concept DOI is seeded with relation `References`, so the
+    # relation alone would bucket its citers as "cites a paper".
+    source = base_doi(citation.get("source_doi"))
+    return source.startswith(NEMAR_DOI_PREFIX) or is_openneuro_dataset_doi(source)
 
 
 def merge_accession_mentions(

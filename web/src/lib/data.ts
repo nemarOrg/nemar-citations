@@ -51,14 +51,12 @@ const citationsDir = findRepoPath(join("citations", "json_opencite"));
 const datasetsDir = findRepoPath("datasets");
 const anchorJudgmentsDir = findRepoPath(join("citations", "anchor_judgments"));
 
-// OpenNeuro dataset DOIs (10.18112/openneuro.*), the dataset's own record rather
-// than a publication. The trailing dot matches the canonical Python detector
-// (src/dataset_citations/sources/doi.py) and avoids matching other registrants
-// under the same prefix. NEMAR nm-* DOIs use a different prefix (TBD); extend
-// this once it is confirmed. Citations whose source anchor matches this are
-// "cites dataset"; everything else is a publication. ~0 today; grows as the
-// managed mirror gives datasets robust DOIs that accrue direct citations.
-const DATASET_DOI_RE = /^10\.18112\/openneuro\./;
+// Dataset DOIs, the dataset's own record rather than a publication: NEMAR
+// (10.82901/, e.g. 10.82901/nemar.nm000275) and OpenNeuro (10.18112/openneuro.*;
+// the trailing dot avoids other registrants under that prefix). Mirrors
+// core.accession_mentions.cites_dataset. Citations whose source anchor matches
+// this are "cites dataset"; everything else is a publication.
+const DATASET_DOI_RE = /^(?:10\.82901\/|10\.18112\/openneuro\.)/;
 
 /** Where a citation was found: did the citing paper cite the dataset's own DOI,
  * or a publication (data paper) describing it? Derived by joining the citation's
