@@ -14,6 +14,7 @@ from dataset_citations.quality.never_anchor import (
     is_never_anchor,
     is_spec_title,
     never_anchor_dois,
+    parse_never_anchor_list,
 )
 
 
@@ -49,6 +50,40 @@ class NeverAnchorListTests(TestCase):
             )
         )
 
+    def test_a_related_data_descriptor_is_left_to_the_judge(self) -> None:
+        # MIPDB is nm000153's own data paper, and only related work for the
+        # Healthy Brain Network datasets; the program paper is the umbrella.
+        self.assertFalse(
+            is_never_anchor(
+                "10.1038/sdata.2017.40",
+                "A resource for assessing information processing in the "
+                "developing brain using EEG and eye tracking",
+            )
+        )
+        self.assertTrue(is_never_anchor("10.1038/sdata.2017.181"))
+
+    def test_nirs_bids_is_listed(self) -> None:
+        self.assertIn("10.1038/s41597-024-04136-9", never_anchor_dois())
+
+
+class ParseListTests(TestCase):
+    """A broken list must fail loudly, never read as empty."""
+
+    def test_valid_list_is_normalized(self) -> None:
+        raw = json.dumps({"dois": [{"doi": " https://doi.org/10.1/ABC "}]})
+        self.assertEqual(parse_never_anchor_list(raw), frozenset({"10.1/abc"}))
+
+    def test_broken_lists_raise(self) -> None:
+        for raw, error in (
+            ('{"dois": []}', ValueError),
+            ('{"dois": [{"doi": "  "}]}', ValueError),
+            ('{"entries": []}', KeyError),
+            ('{"dois": [{"label": "no doi"}]}', KeyError),
+            ("not json", ValueError),
+        ):
+            with self.subTest(raw=raw), self.assertRaises(error):
+                parse_never_anchor_list(raw)
+
 
 class SpecTitleTests(TestCase):
     def test_bids_spec_and_tool_titles_match(self) -> None:
@@ -82,7 +117,25 @@ class SpecTitleTests(TestCase):
             "A multi-subject, multi-modal human neuroimaging dataset",
             "HBN-EEG: The FAIR implementation of the Healthy Brain Network (HBN) "
             "electroencephalography dataset",
+            # Review of #243: ordinary data-descriptor wording near the phrase.
+            "An extended EEG dataset of visual working memory, organized in the "
+            "Brain Imaging Data Structure",
+            "A large-scale EEG dataset with extended metadata in the Brain Imaging "
+            "Data Structure (BIDS)",
+            "A multi-subject EEG dataset organized following the Brain Imaging Data "
+            "Structure extension for EEG",
+            # Tool names outside the title rule; PyBIDS is caught by its DOI
+            # (see test_pybids_is_caught_by_its_doi).
+            "PyBIDS: Python tools for BIDS datasets",
+            "BIDS-MATLAB: a MATLAB toolbox for BIDS datasets",
             None,
             "",
         ):
             self.assertFalse(is_spec_title(title), title)
+
+    def test_pybids_is_caught_by_its_doi(self) -> None:
+        self.assertTrue(
+            is_never_anchor(
+                "10.21105/joss.01294", "PyBIDS: Python tools for BIDS datasets"
+            )
+        )
