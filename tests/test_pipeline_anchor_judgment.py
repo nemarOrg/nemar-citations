@@ -210,7 +210,7 @@ class JudgmentLookupTests(TestCase):
                     _judgment(
                         "10.1234/timeout",
                         "data_paper",
-                        error="ollama timed out",
+                        error="llm_judgment_failed:claude CLI timed out",
                     ),
                     _judgment("10.1234/ok", "umbrella"),
                 ],

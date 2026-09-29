@@ -16,12 +16,9 @@
 # Assumes:
 #   - cwd is the repo root (or $REPO_DIR is exported).
 #   - `uv` and `gh` are on PATH.
-#   - For --judge-only: an Ollama daemon is reachable at
-#     $OLLAMA_BASE_URL (default http://localhost:11434). On hallu the
-#     daemon is local; from a workstation, set up an ssh tunnel per
-#     scripts/probe_anchor_judgment.py's docstring and point
-#     OLLAMA_BASE_URL at the forwarded port (NOT 11434, which collides
-#     with a workstation-local ollama serve).
+#   - For --judge-only: the `claude` CLI is on PATH and logged in (the
+#     judge is Claude Sonnet 5.5 in headless mode, #241). The judge CLI
+#     health-checks it with one real judgment and exits 2 if it cannot.
 set -uo pipefail
 
 REPO_DIR="${REPO_DIR:-$PWD}"
@@ -89,25 +86,14 @@ retrieve_metadata() {
     --max-failures 10
 }
 
-preflight_ollama() {
-  if [ "$DRY_RUN" -eq 1 ]; then
-    echo "+ curl -s --max-time 5 ${OLLAMA_BASE_URL:-http://localhost:11434}/api/tags >/dev/null"
-    return 0
-  fi
-  curl -s --max-time 5 "${OLLAMA_BASE_URL:-http://localhost:11434}/api/tags" >/dev/null || {
-    echo "ERROR: Ollama daemon at ${OLLAMA_BASE_URL:-http://localhost:11434} not reachable; aborting." >&2
-    exit 2
-  }
-}
-
 judge_anchors() {
-  preflight_ollama
   # `set -uo pipefail` does not abort on non-zero exit; explicit guard
-  # so a partial judgment run does not let `update_citations` proceed
-  # with a half-written sidecar tree.
-  run uv run dataset-citations-judge-anchors \
+  # so a broken judge does not let `update_citations` proceed.
+  run env ANCHOR_JUDGE_MODEL="${ANCHOR_JUDGE_MODEL:-claude-sonnet-5-5}" \
+    uv run dataset-citations-judge-anchors \
     --dataset-list-file "$DATASETS_LIST" \
     --output-dir citations/anchor_judgments \
+    --citations-dir citations/json_opencite \
     --skip-existing || {
     echo "ERROR: dataset-citations-judge-anchors failed; aborting." >&2
     exit 2
@@ -240,7 +226,7 @@ case "$MODE" in
     embeddings
     ;;
   umap)
-    # UMAP only needs the embeddings directory; no GitHub / opencite / Ollama
+    # UMAP only needs the embeddings directory; no GitHub / opencite / judge
     # traffic. Assumes step 5a (embeddings) has populated `embeddings/`;
     # the analyze-umap CLI logs a clear error if the directory is missing.
     umap_analysis
@@ -248,7 +234,7 @@ case "$MODE" in
   analysis)
     # Theme/network/temporal only; reads citations/json_opencite and writes
     # the three dashboard_data/ subdirs deploy-dashboard.yml verifies. No
-    # GitHub / opencite / Ollama traffic.
+    # GitHub / opencite / judge traffic.
     themes_analysis
     network_analysis
     temporal_analysis

@@ -15,15 +15,15 @@ Why a separate file from phase 2's writer:
     without merge conflict on a shared module, and the read API stays small
     and obviously side-effect free.
   * The locked sidecar schema (documented inline below) is the contract; this
-    module never talks to Ollama and never mutates anything on disk.
+    module never talks to the judge and never mutates anything on disk.
 
 The single public function `load_judgment_lookup` returns a mapping from
 canonicalized anchor identifier (DOI/PMID/arXiv in the same shape used by
 `DoiReference.identifier`) to one of the five classifications in
 `llm_client.ALLOWED_CLASSIFICATIONS`. Anchors with a non-null `error` field
-are logged at WARN and treated as if they were absent from the sidecar — the
-pipeline's fallback then re-fetches them under the legacy behavior, which is
-the conservative thing to do when the judgment failed.
+are logged at WARN and treated as if they were absent from the sidecar, so
+the fail-closed anchor gate (`core.anchor_gate`, issue #241) keeps them as
+context only: a failed judgment never lets an anchor's citers count.
 
 Out-of-taxonomy classifications are also logged at WARN and dropped, so a
 single malformed sidecar entry can't poison the whole dataset's run.
@@ -57,8 +57,8 @@ class JudgmentSidecar:
     (paper_title, reason, source_relation, identifier_type) that the
     pipeline folds into schema-v2.1's `metadata.anchors[]` (every anchor,
     with a `kept` flag). `present` distinguishes "sidecar exists and
-    parsed cleanly" from "sidecar missing" — phase 3's pipeline uses this to
-    log a single INFO line per dataset on the fallback path.
+    parsed cleanly" from "sidecar missing"; the pipeline names the missing
+    sidecar in its per-dataset unjudged-anchor warning.
     """
 
     present: bool
@@ -81,8 +81,7 @@ def load_judgment_sidecar(
 
     Out-of-taxonomy classifications are dropped with a WARN; the rest of the
     sidecar still applies. Anchors with `error != null` are similarly
-    dropped with a WARN so the pipeline's no-judgment fallback re-fetches
-    them under the legacy code path.
+    dropped with a WARN, so the anchor gate treats them as unjudged.
     """
     path = Path(judgments_dir) / f"{dataset_id}.json"
     if not path.exists():

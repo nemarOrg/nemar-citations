@@ -8,10 +8,10 @@ Acceptance gate for epic #76 (LLM anchor adjudication). For each dataset in
   2. Fetches the dataset description via `DatasetMetadataRetriever`.
   3. Fetches each anchor paper's title + abstract via the new
      `OpenCiteBackend.get_paper(doi)` sync facade.
-  4. Asks the Ollama-served Gemma model (default tracked in
-     `OllamaJudgmentClient._DEFAULT_MODEL`, deployed on hallu) to classify each anchor as
-     one of `data_paper` / `umbrella` / `methodology` / `related_work` /
-     `irrelevant`.
+  4. Asks the Claude judge (`ClaudeCliJudgmentClient`, the `claude` CLI in
+     headless mode; model from ANCHOR_JUDGE_MODEL, default claude-sonnet-5-5)
+     to classify each anchor as one of `data_paper` / `umbrella` /
+     `methodology` / `related_work` / `irrelevant`.
   5. Prints one row per anchor + a per-classification tally.
 
 Optional `--output` dumps the full per-anchor payload (including the prompt
@@ -21,23 +21,9 @@ and the raw model JSON) so the spot-check evidence can be archived to
 This script does NOT write any sidecar JSON to `citations/anchor_judgments/`;
 that's phase 2 (#86).
 
-Usage:
-    # Option A: run ON hallu via ssh — simplest, no port juggling.
-    ssh hallu 'cd ~/dataset_citations && \
-        uv run python scripts/probe_anchor_judgment.py \
-            --output .context/probe_anchor_judgment_$(date +%Y-%m-%d).json'
-
-    # Option B: workstation with an ssh tunnel.
-    # IMPORTANT: if you also run a local `ollama serve` on this machine, it
-    # already binds 0.0.0.0:11434. Forwarding hallu:11434 to localhost:11434
-    # then collides — connections will silently route to the local daemon
-    # instead of through the tunnel, which is hard to spot until the local
-    # ollama is paused or missing the right model. Use a different local
-    # port (e.g. 21434) and point OLLAMA_BASE_URL at it.
-    ssh -fN -L 21434:localhost:11434 hallu
-    OLLAMA_BASE_URL=http://localhost:21434 \
-        uv run python scripts/probe_anchor_judgment.py \
-            --output .context/probe_anchor_judgment_$(date +%Y-%m-%d).json
+Usage (anywhere the `claude` CLI is logged in, e.g. on hallu):
+    uv run python scripts/probe_anchor_judgment.py \
+        --output .context/probe_anchor_judgment_$(date +%Y-%m-%d).json
 """
 
 from __future__ import annotations
@@ -46,7 +32,7 @@ import argparse
 import json
 import logging
 import sys
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
@@ -56,8 +42,8 @@ from dataset_citations.quality.dataset_metadata import (
     extract_dataset_text,
 )
 from dataset_citations.quality.llm_client import (
+    ClaudeCliJudgmentClient,
     LlmJudgmentError,
-    OllamaJudgmentClient,
     build_anchor_prompt,
 )
 from dataset_citations.sources import (
@@ -113,7 +99,7 @@ def _probe_anchor(
     dataset_description: str,
     ref: DoiReference,
     backend: OpenCiteBackend,
-    client: OllamaJudgmentClient,
+    client: ClaudeCliJudgmentClient,
 ) -> dict[str, Any]:
     """Fetch the anchor paper + ask the LLM. Returns a result dict.
 
@@ -134,7 +120,7 @@ def _probe_anchor(
         record["classification"] = None
         record["reason"] = None
         return record
-    assert isinstance(paper_result, FetchSuccess)
+    assert isinstance(paper_result, FetchSuccess)  # noqa: S101 - upstream contract guard
     paper = paper_result.value
     record["paper_title"] = paper.title
     record["paper_venue"] = paper.venue
@@ -179,7 +165,7 @@ def _probe_dataset(
     bids_source: BidsMetadataSource,
     metadata_retriever: DatasetMetadataRetriever,
     backend: OpenCiteBackend,
-    client: OllamaJudgmentClient,
+    client: ClaudeCliJudgmentClient,
 ) -> list[dict[str, Any]]:
     source = _pick_source(
         dataset_id, nemar_source=nemar_source, bids_source=bids_source
@@ -198,7 +184,7 @@ def _probe_dataset(
                 "error": f"source_failed:{refs_result.reason}:{refs_result.detail}",
             }
         ]
-    assert isinstance(refs_result, FetchSuccess)
+    assert isinstance(refs_result, FetchSuccess)  # noqa: S101 - upstream contract guard
     refs: list[DoiReference] = [
         r for r in refs_result.value if r.identifier_type == "doi"
     ]
@@ -255,14 +241,9 @@ def main() -> int:
         help="Optional path to dump full per-anchor JSON (prompt + raw response).",
     )
     parser.add_argument(
-        "--ollama-base-url",
+        "--model",
         default=None,
-        help="Override OLLAMA_BASE_URL env var.",
-    )
-    parser.add_argument(
-        "--ollama-model",
-        default=None,
-        help="Override OLLAMA_MODEL env var.",
+        help="Judge model id (default: ANCHOR_JUDGE_MODEL, else claude-sonnet-5-5).",
     )
     parser.add_argument(
         "--log-level",
@@ -281,37 +262,31 @@ def main() -> int:
     metadata_retriever = DatasetMetadataRetriever()
     backend = OpenCiteBackend(max_results_per_doi=1)
 
-    with OllamaJudgmentClient(
-        base_url=args.ollama_base_url, model=args.ollama_model
-    ) as client:
-        if not client.health_check():
-            logger.error(
-                "ollama daemon at %s is not reachable; aborting before any judgments",
-                client.base_url,
-            )
-            return 2
+    client = ClaudeCliJudgmentClient(model=args.model)
+    if not client.health_check():
+        logger.error("anchor judge %s failed its health check; aborting", client.model)
+        return 2
 
-        logger.info(
-            "probing %d datasets against ollama model %s @ %s",
-            len(args.datasets),
-            client.model,
-            client.base_url,
+    logger.info(
+        "probing %d datasets against judge model %s",
+        len(args.datasets),
+        client.model,
+    )
+
+    all_records: list[dict[str, Any]] = []
+    for dataset_id in args.datasets:
+        print(f"\n=== {dataset_id} ===")
+        records = _probe_dataset(
+            dataset_id,
+            nemar_source=nemar_source,
+            bids_source=bids_source,
+            metadata_retriever=metadata_retriever,
+            backend=backend,
+            client=client,
         )
-
-        all_records: list[dict[str, Any]] = []
-        for dataset_id in args.datasets:
-            print(f"\n=== {dataset_id} ===")
-            records = _probe_dataset(
-                dataset_id,
-                nemar_source=nemar_source,
-                bids_source=bids_source,
-                metadata_retriever=metadata_retriever,
-                backend=backend,
-                client=client,
-            )
-            for rec in records:
-                _print_row(rec)
-            all_records.extend(records)
+        for rec in records:
+            _print_row(rec)
+        all_records.extend(records)
 
     tally: dict[str, int] = {}
     for rec in all_records:
@@ -329,10 +304,9 @@ def main() -> int:
     if args.output is not None:
         args.output.parent.mkdir(parents=True, exist_ok=True)
         report = {
-            "generated_at": datetime.now(timezone.utc).isoformat(),
+            "generated_at": datetime.now(UTC).isoformat(),
             "datasets": args.datasets,
             "model": client.model,
-            "base_url": client.base_url,
             "tally": tally,
             "error_count": error_count,
             "records": all_records,

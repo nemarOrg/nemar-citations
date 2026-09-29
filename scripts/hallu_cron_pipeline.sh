@@ -131,38 +131,29 @@ uv run dataset-citations-retrieve-metadata \
   exit 2
 }
 
-# Pin the anchor-judgment model. gemma4:e4b (9.6GB) is used instead of the
-# larger gemma4:31b (19GB) because hallu is a shared host and 31B OOMs /
-# blocks other GPU jobs. Honors an explicit OLLAMA_MODEL override for a
-# dedicated host. Keep in sync with llm_client._DEFAULT_MODEL.
-export OLLAMA_MODEL="${OLLAMA_MODEL:-gemma4:e4b}"
-
-# 3. Preflight: Ollama must be reachable for anchor adjudication. If the
-# daemon is down, abort cleanly instead of producing a citation update
-# with stale judgments. Exit 2 mirrors the contract documented for
-# `dataset-citations-judge-anchors` (phase 2, #86). Honors
-# $OLLAMA_BASE_URL so a non-default daemon URL is probed at the same
-# host the CLI ends up calling.
-OLLAMA_PROBE_URL="${OLLAMA_BASE_URL:-http://localhost:11434}"
-curl -s --max-time 5 "${OLLAMA_PROBE_URL}/api/tags" >/dev/null || {
-  echo "ERROR: Ollama daemon at ${OLLAMA_PROBE_URL} not reachable; aborting." >&2
-  exit 2
-}
+# 3. Pin the anchor judge (#241): Claude Sonnet 5.5 through the `claude` CLI
+# (~/.local/bin, on the crontab PATH), logged in as this user. It replaced the
+# Ollama/Gemma judge, which silently errored on every anchor once the shared
+# host lost its models. No separate preflight: the judge CLI runs one real
+# judgment as its health check and exits 2 when the CLI is missing, logged
+# out, or the model is unknown. Keep in sync with llm_client._DEFAULT_MODEL.
+export ANCHOR_JUDGE_MODEL="${ANCHOR_JUDGE_MODEL:-claude-sonnet-5-5}"
 
 # 3a. Anchor adjudication: classify each anchor DOI as data_paper / umbrella /
 # methodology / related_work / irrelevant and write sidecars under
-# citations/anchor_judgments/. `--skip-existing` keeps steady-state runs cheap;
-# the full ~3000-anchor backfill happens on first run after the epic merges.
+# citations/anchor_judgments/. `--skip-existing` keeps steady-state runs cheap:
+# only datasets with a new, errored, or other-model judgment are re-judged, and
+# within those only the anchors that need it. A judge switch re-judges every
+# anchor once (~1,700 calls, about an hour with 4 workers).
 # The cron uses `set -uo pipefail` (no -e), so a non-zero exit from the CLI
 # does NOT halt the script by default; the explicit `|| { exit; }` guard
-# below ensures a partial judgment run does not feed downstream `update`
-# with a half-written sidecar tree.
-echo "--- judge-anchors (gpu, ollama) ---"
+# below stops a broken judge (health check failed, or most calls failing)
+# before `update`. The anchor gate fails closed, so an unjudged anchor never
+# contributes citations either way.
+echo "--- judge-anchors (claude) ---"
 #     --citations-dir makes --skip-existing coverage-aware (#180): a dataset
 #     whose citation JSON records an anchor the sidecar has no judgment for is
-#     re-judged rather than skipped. Without it a sidecar froze at whatever
-#     anchor set existed the first time it was written, and anchors added later
-#     fell through the pipeline's "fetch all when unjudged" path.
+#     re-judged rather than skipped.
 uv run dataset-citations-judge-anchors \
   --dataset-list-file "$DATASETS_LIST" \
   --output-dir citations/anchor_judgments \

@@ -1,42 +1,61 @@
 """Tests for `dataset_citations.quality.llm_client`.
 
-No mocks. The client's HTTP path is overridden via a real subclass that
-returns hand-built strings, matching the pattern used by
-`tests/test_core_opencite_pipeline.py`.
+No mocks. Parsing is exercised on real `claude -p --output-format json`
+outputs recorded on hallu (`tests/test_data/claude_cli_*.json`), fed through a
+real subclass that overrides the process step. The subprocess plumbing itself
+runs against small stand-in executables written to a tempdir.
 
-Integration tests against a real Ollama daemon are gated behind
-RUN_INTEGRATION_TESTS=1.
+The live test against the real `claude` CLI is gated behind
+RUN_CLAUDE_JUDGE_TESTS=1 (it costs about a cent).
 """
 
 from __future__ import annotations
 
+import json
 import os
+import stat
+from pathlib import Path
+from tempfile import TemporaryDirectory
 from unittest import TestCase, skipUnless
 
 from dataset_citations.quality.llm_client import (
     ALLOWED_CLASSIFICATIONS,
+    ClaudeCliJudgmentClient,
     LlmJudgmentError,
-    OllamaJudgmentClient,
     build_anchor_prompt,
 )
 
+_TEST_DATA = Path(__file__).parent / "test_data"
+_OK_OUTPUT = (_TEST_DATA / "claude_cli_judgment_ok.json").read_text("utf-8")
+_NOT_LOGGED_IN_OUTPUT = (_TEST_DATA / "claude_cli_not_logged_in.json").read_text(
+    "utf-8"
+)
 
-class _FakeClient(OllamaJudgmentClient):
-    """Real subclass that bypasses the HTTP step.
 
-    `_generate` is the seam: the parent posts to /api/generate and returns
-    the response string. Here we return whatever was preset on the instance.
-    """
+def _with_verdict(verdict: object) -> str:
+    """The recorded success output with its structured_output replaced."""
+    payload = json.loads(_OK_OUTPUT)
+    payload["structured_output"] = verdict
+    return json.dumps(payload)
 
-    def __init__(self, canned_response: str) -> None:
-        # Skip parent __init__ so no httpx.Client is constructed.
-        self.base_url = "http://test"
-        self.model = "test-model"
-        self.timeout = 5
-        self._canned_response = canned_response
 
-    def _generate(self, prompt: str) -> str:
-        return self._canned_response
+class _RecordedClient(ClaudeCliJudgmentClient):
+    """Real subclass that returns a recorded CLI stdout instead of a process."""
+
+    def __init__(self, stdout: str) -> None:
+        super().__init__(model="test-model", claude_bin="unused", timeout=5)
+        self._stdout = stdout
+
+    def _run_cli(self, prompt: str) -> str:
+        return self._stdout
+
+
+def _stand_in(directory: Path, body: str) -> str:
+    """Write an executable shell script standing in for the claude binary."""
+    path = directory / "claude"
+    path.write_text(f"#!/bin/sh\n{body}\n", "utf-8")
+    path.chmod(path.stat().st_mode | stat.S_IXUSR)
+    return str(path)
 
 
 class BuildAnchorPromptTests(TestCase):
@@ -77,6 +96,22 @@ class BuildAnchorPromptTests(TestCase):
         )
         self.assertIn("method/algorithm paper is methodology, NOT data_paper", prompt)
         self.assertIn("analysis-method paper in a journal", prompt)
+        # Example 4 used to carry ERP CORE's DOI next to an unrelated title.
+        self.assertNotIn("anchor DOI 10.1016/j.neuroimage.2020.117465", prompt)
+
+    def test_prompt_names_standards_and_asks_for_evidence(self) -> None:
+        prompt = build_anchor_prompt(
+            dataset_id="nm000275",
+            dataset_description="EEG during a driving task.",
+            anchor_doi="10.1038/s41597-019-0104-8",
+            anchor_relation="IsDescribedBy",
+            paper_title="EEG-BIDS",
+            paper_abstract=None,
+        )
+        self.assertIn("EEG-BIDS", prompt)
+        self.assertIn("OpenNeuro or NEMAR", prompt)
+        self.assertIn("Choose it only on concrete evidence", prompt)
+        self.assertIn("prefer related_work", prompt)
 
     def test_prompt_handles_missing_abstract(self) -> None:
         prompt = build_anchor_prompt(
@@ -108,108 +143,150 @@ class BuildAnchorPromptTests(TestCase):
 
 
 class JudgeAnchorParseTests(TestCase):
-    """Validate response parsing without touching the network."""
+    """Validate CLI output parsing without spawning a process."""
 
-    def test_valid_response_parses(self) -> None:
-        client = _FakeClient('{"classification": "data_paper", "reason": "ok"}')
-        out = client.judge_anchor("prompt")
-        self.assertEqual(out["classification"], "data_paper")
-        self.assertEqual(out["reason"], "ok")
+    def test_recorded_success_parses(self) -> None:
+        out = _RecordedClient(_OK_OUTPUT).judge_anchor("prompt")
+        self.assertEqual(out["classification"], "methodology")
+        self.assertIn("PREP", out["reason"])
         self.assertEqual(out["model"], "test-model")
-        self.assertIn("raw_response", out)
+        self.assertEqual(out["raw_response"], _OK_OUTPUT)
+
+    def test_not_logged_in_raises_with_cli_message(self) -> None:
+        with self.assertRaises(LlmJudgmentError) as ctx:
+            _RecordedClient(_NOT_LOGGED_IN_OUTPUT).judge_anchor("prompt")
+        self.assertIn("Not logged in", str(ctx.exception))
 
     def test_reason_is_stripped(self) -> None:
-        client = _FakeClient(
-            '{"classification": "methodology", "reason": "  trimmed  "}'
+        client = _RecordedClient(
+            _with_verdict({"classification": "data_paper", "reason": "  trimmed  "})
         )
-        out = client.judge_anchor("prompt")
-        self.assertEqual(out["reason"], "trimmed")
+        self.assertEqual(client.judge_anchor("prompt")["reason"], "trimmed")
 
     def test_unknown_classification_raises(self) -> None:
-        client = _FakeClient('{"classification": "nonsense", "reason": "bad label"}')
+        client = _RecordedClient(
+            _with_verdict({"classification": "nonsense", "reason": "bad label"})
+        )
         with self.assertRaises(LlmJudgmentError) as ctx:
             client.judge_anchor("prompt")
         self.assertIn("not in taxonomy", str(ctx.exception))
 
-    def test_missing_classification_raises(self) -> None:
-        client = _FakeClient('{"reason": "no class field"}')
-        with self.assertRaises(LlmJudgmentError):
-            client.judge_anchor("prompt")
+    def test_missing_or_empty_fields_raise(self) -> None:
+        for verdict in (
+            {"reason": "no class field"},
+            {"classification": "umbrella"},
+            {"classification": "irrelevant", "reason": "   "},
+            None,
+            ["data_paper", "ok"],
+        ):
+            with self.assertRaises(LlmJudgmentError, msg=repr(verdict)):
+                _RecordedClient(_with_verdict(verdict)).judge_anchor("prompt")
 
-    def test_missing_reason_raises(self) -> None:
-        client = _FakeClient('{"classification": "umbrella"}')
-        with self.assertRaises(LlmJudgmentError):
-            client.judge_anchor("prompt")
-
-    def test_empty_reason_raises(self) -> None:
-        client = _FakeClient('{"classification": "irrelevant", "reason": "   "}')
-        with self.assertRaises(LlmJudgmentError):
-            client.judge_anchor("prompt")
-
-    def test_non_json_response_raises(self) -> None:
-        client = _FakeClient("this is not json at all")
+    def test_non_json_output_raises(self) -> None:
         with self.assertRaises(LlmJudgmentError) as ctx:
-            client.judge_anchor("prompt")
+            _RecordedClient("this is not json at all").judge_anchor("prompt")
         self.assertEqual(ctx.exception.raw_response, "this is not json at all")
 
-    def test_json_array_root_raises(self) -> None:
-        client = _FakeClient('["data_paper", "ok"]')
-        with self.assertRaises(LlmJudgmentError):
+
+class RunCliProcessTests(TestCase):
+    """The real subprocess path, against stand-in executables."""
+
+    def setUp(self) -> None:
+        self.dir = Path(self.enterContext(TemporaryDirectory()))
+
+    def test_round_trip_passes_prompt_on_stdin(self) -> None:
+        # The stand-in echoes the recorded output only if the prompt arrived
+        # on stdin, proving the plumbing (argv, stdin, stdout capture).
+        recorded = self.dir / "out.json"
+        recorded.write_text(_OK_OUTPUT, "utf-8")
+        claude = _stand_in(self.dir, f'grep -q "the prompt" && cat "{recorded}"')
+        client = ClaudeCliJudgmentClient(model="m", claude_bin=claude, timeout=10)
+        self.assertEqual(
+            client.judge_anchor("the prompt")["classification"], "methodology"
+        )
+
+    def test_missing_binary_raises(self) -> None:
+        client = ClaudeCliJudgmentClient(
+            claude_bin=str(self.dir / "does-not-exist"), timeout=5
+        )
+        with self.assertRaises(LlmJudgmentError) as ctx:
             client.judge_anchor("prompt")
+        self.assertIn("not found", str(ctx.exception))
+
+    def test_nonzero_exit_without_output_raises(self) -> None:
+        claude = _stand_in(self.dir, 'echo "boom" >&2; exit 3')
+        client = ClaudeCliJudgmentClient(claude_bin=claude, timeout=5)
+        with self.assertRaises(LlmJudgmentError) as ctx:
+            client.judge_anchor("prompt")
+        self.assertIn("exited 3: boom", str(ctx.exception))
+
+    def test_timeout_raises(self) -> None:
+        claude = _stand_in(self.dir, "sleep 5")
+        client = ClaudeCliJudgmentClient(claude_bin=claude, timeout=1)
+        with self.assertRaises(LlmJudgmentError) as ctx:
+            client.judge_anchor("prompt")
+        self.assertIn("timed out", str(ctx.exception))
+
+    def test_health_check_reflects_a_real_round_trip(self) -> None:
+        recorded = self.dir / "out.json"
+        recorded.write_text(_OK_OUTPUT, "utf-8")
+        healthy = ClaudeCliJudgmentClient(
+            claude_bin=_stand_in(self.dir, f'cat "{recorded}"'), timeout=5
+        )
+        self.assertTrue(healthy.health_check())
+
+        logged_out = self.dir / "logged_out.json"
+        logged_out.write_text(_NOT_LOGGED_IN_OUTPUT, "utf-8")
+        other = Path(self.enterContext(TemporaryDirectory()))
+        broken = ClaudeCliJudgmentClient(
+            claude_bin=_stand_in(other, f'cat "{logged_out}"'), timeout=5
+        )
+        with self.assertLogs("dataset_citations.quality.llm_client", "ERROR"):
+            self.assertFalse(broken.health_check())
 
 
 class EnvDefaultsTests(TestCase):
-    """Verify env var overrides without touching the network."""
+    """Verify defaults and env var overrides without spawning anything."""
 
-    def test_explicit_args_win(self) -> None:
-        client = OllamaJudgmentClient(
-            base_url="http://override:9999",
-            model="custom-model",
-            timeout=11,
-        )
-        try:
-            self.assertEqual(client.base_url, "http://override:9999")
-            self.assertEqual(client.model, "custom-model")
-            self.assertEqual(client.timeout, 11)
-        finally:
-            client.close()
+    _KEYS = ("ANCHOR_JUDGE_MODEL", "CLAUDE_BIN", "ANCHOR_JUDGE_TIMEOUT_SECONDS")
+
+    def setUp(self) -> None:
+        self._prior = {key: os.environ.pop(key, None) for key in self._KEYS}
+
+    def tearDown(self) -> None:
+        for key, value in self._prior.items():
+            if value is None:
+                os.environ.pop(key, None)
+            else:
+                os.environ[key] = value
+
+    def test_defaults_pin_sonnet_5_5(self) -> None:
+        client = ClaudeCliJudgmentClient()
+        self.assertEqual(client.model, "claude-sonnet-5-5")
+        self.assertEqual(client.claude_bin, "claude")
 
     def test_env_overrides(self) -> None:
-        prior = {
-            "OLLAMA_BASE_URL": os.environ.get("OLLAMA_BASE_URL"),
-            "OLLAMA_MODEL": os.environ.get("OLLAMA_MODEL"),
-            "OLLAMA_TIMEOUT_SECONDS": os.environ.get("OLLAMA_TIMEOUT_SECONDS"),
-        }
-        try:
-            os.environ["OLLAMA_BASE_URL"] = "http://env-host:12345"
-            os.environ["OLLAMA_MODEL"] = "env-model"
-            os.environ["OLLAMA_TIMEOUT_SECONDS"] = "99"
-            client = OllamaJudgmentClient()
-            try:
-                self.assertEqual(client.base_url, "http://env-host:12345")
-                self.assertEqual(client.model, "env-model")
-                self.assertEqual(client.timeout, 99)
-            finally:
-                client.close()
-        finally:
-            for key, value in prior.items():
-                if value is None:
-                    os.environ.pop(key, None)
-                else:
-                    os.environ[key] = value
+        os.environ["ANCHOR_JUDGE_MODEL"] = "env-model"
+        os.environ["CLAUDE_BIN"] = "/opt/claude"
+        os.environ["ANCHOR_JUDGE_TIMEOUT_SECONDS"] = "99"
+        client = ClaudeCliJudgmentClient()
+        self.assertEqual(
+            (client.model, client.claude_bin, client.timeout),
+            ("env-model", "/opt/claude", 99),
+        )
+
+    def test_explicit_args_win(self) -> None:
+        os.environ["ANCHOR_JUDGE_MODEL"] = "env-model"
+        client = ClaudeCliJudgmentClient(model="arg-model", timeout=11)
+        self.assertEqual((client.model, client.timeout), ("arg-model", 11))
 
 
 @skipUnless(
-    os.getenv("RUN_INTEGRATION_TESTS"),
-    "live ollama call; set RUN_INTEGRATION_TESTS=1 to enable",
+    os.getenv("RUN_CLAUDE_JUDGE_TESTS"),
+    "live claude CLI call; set RUN_CLAUDE_JUDGE_TESTS=1 to enable",
 )
-class OllamaJudgmentClientIntegration(TestCase):
-    """Live integration test against a running Ollama daemon.
-
-    Set OLLAMA_BASE_URL to point at your daemon (defaults to hallu). The
-    test asks the model to classify a fabricated MNE-Python anchor for a
-    fictional dataset and asserts the response is valid + in taxonomy.
-    """
+class ClaudeCliJudgmentIntegration(TestCase):
+    """One real judgment through a logged-in `claude` CLI."""
 
     def test_methodology_anchor_round_trip(self) -> None:
         prompt = build_anchor_prompt(
@@ -228,9 +305,6 @@ class OllamaJudgmentClientIntegration(TestCase):
             paper_venue="Frontiers in Neuroscience",
             paper_year=2013,
         )
-        with OllamaJudgmentClient() as client:
-            if not client.health_check():
-                self.skipTest("ollama daemon not reachable")
-            result = client.judge_anchor(prompt)
+        result = ClaudeCliJudgmentClient().judge_anchor(prompt)
         self.assertIn(result["classification"], ALLOWED_CLASSIFICATIONS)
-        self.assertTrue(result["reason"])
+        self.assertEqual(result["classification"], "methodology")

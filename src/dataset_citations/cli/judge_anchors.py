@@ -31,10 +31,15 @@ from dataset_citations.quality.anchor_judgment import (
     save_judgment_sidecar,
 )
 from dataset_citations.quality.dataset_metadata import DatasetMetadataRetriever
-from dataset_citations.quality.llm_client import OllamaJudgmentClient
+from dataset_citations.quality.llm_client import ClaudeCliJudgmentClient
 from dataset_citations.sources import BidsMetadataSource, NemarMetadataSource
 
 logger = logging.getLogger(__name__)
+
+# Minimum failed judge calls before a mostly-failing run counts as the judge
+# being down (exit 2); below it a couple of flaky calls on a quiet night do
+# not stall the whole pipeline.
+_SYSTEMIC_FAILURES = 5
 
 
 def _read_dataset_ids(path: str) -> list[str]:
@@ -87,6 +92,31 @@ def _recorded_anchor_keys(citations_dir: str | None, dataset_id: str) -> set[str
     return keys
 
 
+def _load_previous(sidecar: Path) -> dict | None:
+    """The sidecar on disk, or None when absent or unreadable."""
+    if not sidecar.exists():
+        return None
+    try:
+        return load_judgment_sidecar(sidecar)
+    except (OSError, ValueError, TypeError) as exc:
+        logger.warning("%s: unreadable sidecar (%s); re-judging", sidecar, exc)
+        return None
+
+
+def _needs_rejudge(payload: dict, model: str) -> str:
+    """Why a readable sidecar cannot be trusted as-is ('' when it can).
+
+    A sidecar written by another judge model is stale by definition (issue
+    #241: every gemma verdict is re-judged by Claude), and one holding an
+    errored entry has an anchor that never got a verdict.
+    """
+    if payload.get("judgment_model") != model:
+        return f"model {payload.get('judgment_model')!r} != {model!r}"
+    if any(j.get("error") for j in payload.get("judgments") or []):
+        return "errored judgments"
+    return ""
+
+
 def _should_skip(
     sidecar: Path,
     *,
@@ -94,8 +124,12 @@ def _should_skip(
     max_age_days: int,
     citations_dir: str | None = None,
     dataset_id: str | None = None,
+    model: str | None = None,
 ) -> tuple[bool, str]:
     """Return (skip, reason). Reason is for logging only.
+
+    When `model` is given, a sidecar judged by a different model, or one with
+    an errored entry, is never skipped (see `_needs_rejudge`).
 
     `--skip-existing` used to skip on the mere existence of the sidecar, which
     froze a dataset's judgments at whatever its anchor set was the first time
@@ -109,6 +143,10 @@ def _should_skip(
     """
     if not sidecar.exists():
         return False, ""
+    if model is not None:
+        payload = _load_previous(sidecar)
+        if payload is None or _needs_rejudge(payload, model):
+            return False, ""
     if skip_existing:
         if dataset_id:
             recorded = _recorded_anchor_keys(citations_dir, dataset_id)
@@ -183,14 +221,20 @@ def main() -> int:
         ),
     )
     parser.add_argument(
-        "--ollama-base-url",
+        "--model",
         default=None,
-        help="Override OLLAMA_BASE_URL env var.",
+        help="Judge model id (default: ANCHOR_JUDGE_MODEL, else claude-sonnet-5-5).",
     )
     parser.add_argument(
-        "--ollama-model",
+        "--claude-bin",
         default=None,
-        help="Override OLLAMA_MODEL env var.",
+        help="Path to the claude CLI (default: CLAUDE_BIN, else `claude` on PATH).",
+    )
+    parser.add_argument(
+        "--workers",
+        type=int,
+        default=4,
+        help="Concurrent judge calls within one dataset (default: 4).",
     )
     parser.add_argument(
         "--github-token",
@@ -239,70 +283,98 @@ def main() -> int:
     metadata_retriever = DatasetMetadataRetriever(github_token=github_token)
     backend = OpenCiteBackend(max_results_per_doi=1)
 
-    # Health-check the Ollama daemon BEFORE any per-dataset work so an
-    # unreachable GPU host fails fast (exit 2). Without this the loop would
-    # write a sidecar per dataset where every judgment is an error, which
-    # phase 3 would have to special-case.
-    with OllamaJudgmentClient(
-        base_url=args.ollama_base_url, model=args.ollama_model
-    ) as client:
-        if not client.health_check():
-            logger.error(
-                "ollama daemon at %s is not reachable; aborting before any judgments",
-                client.base_url,
-            )
-            return 2
-
-        logger.info(
-            "judging anchors for %d dataset(s) -> %s (model=%s, base_url=%s)",
-            len(dataset_ids),
-            args.output_dir,
+    client = ClaudeCliJudgmentClient(model=args.model, claude_bin=args.claude_bin)
+    # One real judgment BEFORE any per-dataset work, so a logged-out CLI, a
+    # missing binary, or an unknown model fails fast (exit 2) instead of
+    # writing an errored judgment for every anchor.
+    if not client.health_check():
+        logger.error(
+            "anchor judge (%s via %s) failed its health check; aborting before "
+            "any judgments",
             client.model,
-            client.base_url,
+            client.claude_bin,
         )
-
-        skipped = 0
-        judged = 0
-        write_failures = 0
-        for dataset_id in dataset_ids:
-            sidecar = _sidecar_path(args.output_dir, dataset_id)
-            skip, reason = _should_skip(
-                sidecar,
-                skip_existing=args.skip_existing,
-                max_age_days=args.max_age_days,
-                citations_dir=getattr(args, "citations_dir", None),
-                dataset_id=dataset_id,
-            )
-            if skip:
-                logger.info("%s: skipping (%s)", dataset_id, reason)
-                skipped += 1
-                continue
-
-            payload = judge_dataset_anchors(
-                dataset_id,
-                nemar_source=nemar_source,
-                bids_source=bids_source,
-                metadata_retriever=metadata_retriever,
-                backend=backend,
-                client=client,
-            )
-            try:
-                save_judgment_sidecar(sidecar, payload)
-            except OSError as exc:
-                logger.error("failed to write %s: %s", sidecar, exc)
-                write_failures += 1
-                continue
-            judged += 1
-            logger.info("%s: %s", dataset_id, _summarize_judgments(payload))
+        return 2
 
     logger.info(
-        "anchor judgment run complete: %d judged, %d skipped, %d write failures, %d total",
-        judged,
+        "judging anchors for %d dataset(s) -> %s (model=%s, workers=%d)",
+        len(dataset_ids),
+        args.output_dir,
+        client.model,
+        args.workers,
+    )
+
+    skipped = 0
+    written = 0
+    write_failures = 0
+    source_failures = 0
+    judged = failed = lookup_failed = reused = 0
+    for dataset_id in dataset_ids:
+        sidecar = _sidecar_path(args.output_dir, dataset_id)
+        skip, reason = _should_skip(
+            sidecar,
+            skip_existing=args.skip_existing,
+            max_age_days=args.max_age_days,
+            citations_dir=getattr(args, "citations_dir", None),
+            dataset_id=dataset_id,
+            model=client.model,
+        )
+        if skip:
+            logger.info("%s: skipping (%s)", dataset_id, reason)
+            skipped += 1
+            continue
+
+        run = judge_dataset_anchors(
+            dataset_id,
+            nemar_source=nemar_source,
+            bids_source=bids_source,
+            metadata_retriever=metadata_retriever,
+            backend=backend,
+            client=client,
+            previous=_load_previous(sidecar),
+            max_workers=args.workers,
+        )
+        if run is None:
+            source_failures += 1
+            continue
+        judged += run.judged
+        failed += run.failed
+        lookup_failed += run.lookup_failed
+        reused += run.reused
+        try:
+            save_judgment_sidecar(sidecar, run.payload)
+        except OSError as exc:
+            logger.error("failed to write %s: %s", sidecar, exc)
+            write_failures += 1
+            continue
+        written += 1
+        logger.info("%s: %s", dataset_id, _summarize_judgments(run.payload))
+
+    logger.info(
+        "anchor judgment run complete: %d sidecars written, %d skipped, %d source "
+        "failures (sidecar left untouched), %d write failures, %d total; judge "
+        "calls: %d ok, %d failed; %d lookups failed; %d judgments reused",
+        written,
         skipped,
+        source_failures,
         write_failures,
         len(dataset_ids),
+        judged,
+        failed,
+        lookup_failed,
+        reused,
     )
-    if write_failures and judged == 0:
+    if write_failures and written == 0:
+        return 2
+    if failed >= _SYSTEMIC_FAILURES and failed > judged:
+        # The health check passed, yet most calls failed: quota, auth expiry,
+        # or an outage mid-run. Abort the cron before `update` so a broken
+        # judge is loud; the gate fails closed, so nothing inflates meanwhile.
+        logger.error(
+            "most judge calls failed (%d failed vs %d ok); treating the judge as down",
+            failed,
+            judged,
+        )
         return 2
     return 0
 
