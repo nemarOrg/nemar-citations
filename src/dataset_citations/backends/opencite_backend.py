@@ -26,7 +26,7 @@ from __future__ import annotations
 import asyncio
 import logging
 from collections.abc import Iterable
-from typing import Any
+from typing import Any, ClassVar
 
 import httpx
 from opencite.citations import CitationExplorer
@@ -55,7 +55,7 @@ class OpenCiteBackend:
 
     # The OpenAlex client class `get_paper` opens; a test points a subclass at a
     # local HTTP server to exercise the real error handling.
-    _openalex_client_cls: type[OpenAlexClient] = OpenAlexClient
+    _openalex_client_cls: ClassVar[type[OpenAlexClient]] = OpenAlexClient
 
     def __init__(
         self,
