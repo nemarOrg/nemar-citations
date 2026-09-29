@@ -52,6 +52,22 @@ describe("isExcludedCitation", () => {
     expect(isExcludedCitation(cite("10.21105/JOSS.01896"), NEVER, NONE, kept)).toBe(true);
   });
 
+  test("a dataset record is never a citing work, even a mention", () => {
+    const kept = anchorVerdicts([
+      { identifier: "10.1/kept", kept: true, kept_reason: "judged_data_paper" },
+    ]);
+    const mirror = cite("10.1/kept", { doi: "10.18112/openneuro.ds005555.v1.1.2" });
+    const sibling = cite(null, {
+      doi: "10.82901/nemar.nm000110",
+      discovery_method: "accession_mention",
+    });
+    expect(isExcludedCitation(mirror, NEVER, NONE, kept)).toBe(true);
+    expect(isExcludedCitation(sibling, NEVER, NONE, kept)).toBe(true);
+    expect(isExcludedCitation(cite("10.1/kept", { doi: "10.1/paper" }), NEVER, NONE, kept)).toBe(
+      false,
+    );
+  });
+
   test("mentions and records without a source anchor always count", () => {
     const mention = cite("10.1/related", { mentions_accession: true });
     const accession = cite(null, { discovery_method: "accession_mention" });

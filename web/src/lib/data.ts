@@ -276,6 +276,7 @@ function ungatedDatasets(entries: RawEntry[]): string[] {
         (c) =>
           c.source_doi &&
           c.discovery_method !== "accession_mention" &&
+          c.mentions_accession !== true &&
           !verdicts.get(normalizeDoi(c.source_doi))?.gated,
       ),
     )

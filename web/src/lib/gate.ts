@@ -25,6 +25,8 @@ export const DATASET_RELATIONS = new Set(["IsVersionOf", "IsIdenticalTo"]);
 export const METHODS_SPREAD = 5;
 
 export interface GateCitation {
+  /** The citing work's own DOI. */
+  doi?: string | null;
   source_doi?: string | null;
   source_relation?: string | null;
   discovery_method?: string | null;
@@ -115,15 +117,25 @@ export function overSpreadAnchors(
   return out;
 }
 
-/** True when a citation must not count toward its dataset: it came in only
- * through an anchor that is not kept. A paper that names the dataset accession
- * cites the dataset whatever anchor surfaced it, matching the pipeline's gate. */
+/** True when the citing work is itself a NEMAR or OpenNeuro dataset record, not
+ * a publication. Mirrors core.anchor_gate.drop_dataset_record_citers. */
+export function isDatasetRecordCiter(c: GateCitation): boolean {
+  return c.doi != null && DATASET_DOI_RE.test(normalizeDoi(c.doi));
+}
+
+/** True when a citation must not count toward its dataset: the citing work is a
+ * dataset record, or it came in only through an anchor that is not kept. A
+ * paper that names the dataset accession cites the dataset whatever anchor
+ * surfaced it, matching the pipeline's gate. */
 export function isExcludedCitation(
   c: GateCitation,
   neverAnchors: Set<string>,
   overSpread: Set<string>,
   verdicts: Map<string, AnchorVerdict>,
 ): boolean {
+  if (isDatasetRecordCiter(c)) {
+    return true;
+  }
   if (c.discovery_method === "accession_mention" || c.mentions_accession === true) {
     return false;
   }
