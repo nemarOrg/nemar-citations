@@ -12,8 +12,8 @@ are discovered by `backends/accession_search.py` and folded into the same
                         IsDerivedFrom / IsDescribedBy)
 
 `IsDescribedBy` (a data paper that describes the dataset, e.g. the on000117
-data paper) is intentionally NOT in `_DATASET_RELATIONS`: its citations are
-citations of the data paper, not of the dataset record itself.
+data paper) is intentionally NOT in `DATASET_RECORD_RELATIONS`: its citations
+are citations of the data paper, not of the dataset record itself.
 
 This module is pure (no network / I/O) and deterministic so repeated runs are
 content-idempotent (issue #165). Issue #169.
@@ -24,16 +24,12 @@ from __future__ import annotations
 from datetime import UTC, datetime
 from typing import Any
 
+from dataset_citations.core.anchor_gate import DATASET_RECORD_RELATIONS
 from dataset_citations.core.citation_identity import (
     base_doi,
     normalize_title,
 )
 from dataset_citations.sources.doi import NEMAR_DOI_PREFIX, is_openneuro_dataset_doi
-
-# Intentional subset of RelationType: only the relations whose anchor IS the
-# dataset record (vs a paper about it). IsDescribedBy/References/IsDerivedFrom
-# denote papers, so they stay out.
-_DATASET_RELATIONS = frozenset({"IsVersionOf", "IsIdenticalTo"})
 
 
 def _ids(citation: dict[str, Any]) -> list[str]:
@@ -70,12 +66,17 @@ def _title_key(citation: dict[str, Any]) -> str:
 
 
 def cites_dataset(citation: dict[str, Any]) -> bool:
-    """True if `citation` belongs in the 'cites dataset' bucket."""
+    """True if `citation` belongs in the 'cites dataset' bucket.
+
+    Any dataset record counts, not only this dataset's own: a citer reached
+    through another NEMAR or OpenNeuro dataset's DOI (a parent dataset the
+    anchor gate kept) cited a dataset record, not a paper.
+    """
     if citation.get("discovery_method") == "accession_mention":
         return True
     if citation.get("mentions_accession"):
         return True
-    if citation.get("source_relation") in _DATASET_RELATIONS:
+    if citation.get("source_relation") in DATASET_RECORD_RELATIONS:
         return True
     # The dataset's own concept DOI is seeded with relation `References`, so the
     # relation alone would bucket its citers as "cites a paper".
