@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
-# Manual rerun helper for the hallu nightly pipeline. Same steps as
-# scripts/hallu_cron_pipeline.sh but without the flock/PR/auto-merge
-# scaffolding so an operator can iterate on a single stage.
+# Manual rerun helper for the hallu nightly pipeline. The core steps of
+# scripts/hallu_cron_pipeline.sh (it omits prune-mirrored, find-mentions, and
+# dedupe) without the flock/PR/auto-merge scaffolding, so an operator can
+# iterate on a single stage.
 #
 # Usage:
 #   scripts/hallu_rerun.sh                   # full pipeline (no lock, no PR)
@@ -36,7 +37,7 @@ for arg in "$@"; do
     --analysis-only) MODE="analysis" ;;
     --dry-run) DRY_RUN=1 ;;
     -h|--help)
-      sed -n '2,18p' "$0"
+      sed -n '2,22p' "$0"
       exit 0
       ;;
     *)
@@ -94,6 +95,7 @@ judge_anchors() {
     --dataset-list-file "$DATASETS_LIST" \
     --output-dir citations/anchor_judgments \
     --citations-dir citations/json_opencite \
+    --datasets-dir datasets \
     --skip-existing || {
     echo "ERROR: dataset-citations-judge-anchors failed; aborting." >&2
     exit 2
@@ -104,7 +106,11 @@ update_citations() {
   run env OPENCITE_CONCURRENCY=4 \
     uv run dataset-citations-update \
       --dataset-list-file "$DATASETS_LIST" \
-      --output-dir citations/
+      --output-dir citations/ \
+      --datasets-dir datasets || {
+    echo "ERROR: dataset-citations-update failed; aborting." >&2
+    exit 2
+  }
   gate_anchors
 }
 

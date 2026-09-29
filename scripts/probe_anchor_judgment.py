@@ -62,15 +62,14 @@ logger = logging.getLogger("probe_anchor_judgment")
 #     the dataset preprint.
 #   - ds000246: methodology anchor (Brainstorm / similar EEG/MEG tool).
 #   - ds002034: clean dataset whose anchor is its own data paper.
-# `ds002718` is intentionally absent: it is the dataset_id used in the
-# few-shot Example 2 inside build_anchor_prompt, so including it here
-# would let the model echo the example instead of judging the case.
+# The dataset_ids used in the few-shot examples inside build_anchor_prompt
+# (ds004186, ds002718, ds000117, ds004362) are intentionally absent: including
+# one would let the model echo the example instead of judging the case.
 # nm-/on- slots use real catalog IDs from api.nemar.org/datasets so the
 # nemar metadata source has something to extract.
 PROBE_DATASETS: tuple[str, ...] = (
     "ds005505",
     "ds005516",
-    "ds000117",
     "ds000246",
     "ds002034",
     "ds001785",

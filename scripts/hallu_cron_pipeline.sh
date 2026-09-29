@@ -136,43 +136,48 @@ uv run dataset-citations-retrieve-metadata \
 # Ollama/Gemma judge, which silently errored on every anchor once the shared
 # host lost its models. No separate preflight: the judge CLI runs one real
 # judgment as its health check and exits 2 when the CLI is missing, logged
-# out, or the model is unknown. Keep in sync with llm_client._DEFAULT_MODEL.
+# out, or the model is unknown. Keep in sync with llm_client._DEFAULT_MODEL:
+# the pipeline and the gate sweep only trust sidecars written by this model.
 export ANCHOR_JUDGE_MODEL="${ANCHOR_JUDGE_MODEL:-claude-sonnet-5-5}"
 
 # 3a. Anchor adjudication: classify each anchor DOI as data_paper / umbrella /
 # methodology / related_work / irrelevant and write sidecars under
 # citations/anchor_judgments/. `--skip-existing` keeps steady-state runs cheap:
-# only datasets with a new, errored, or other-model judgment are re-judged, and
-# within those only the anchors that need it. A judge switch re-judges every
-# anchor once (~1,700 calls, about an hour with 4 workers).
+# only datasets with a new or relabeled anchor, a transient error, or a
+# judgment from another model or prompt version are re-judged, and within
+# those only the anchors that need it; an anchor opencite cannot resolve is
+# retried monthly. A judge or prompt switch re-judges every anchor once
+# (on the order of a thousand calls).
 # The cron uses `set -uo pipefail` (no -e), so a non-zero exit from the CLI
 # does NOT halt the script by default; the explicit `|| { exit; }` guard
-# below stops a broken judge (health check failed, or most calls failing)
-# before `update`. The anchor gate fails closed, so an unjudged anchor never
-# contributes citations either way.
+# below stops before `update` when the judge failed its health check, tripped
+# its circuit breaker, a sidecar write failed, or the judge, opencite, or the
+# anchor source failed on more than 10% of calls. The anchor gate fails
+# closed, so an unjudged anchor never contributes citations either way.
 echo "--- judge-anchors (claude) ---"
 #     --citations-dir makes --skip-existing coverage-aware (#180): a dataset
 #     whose citation JSON records an anchor the sidecar has no judgment for is
-#     re-judged rather than skipped.
+#     re-judged rather than skipped. --datasets-dir judges against the dataset
+#     description retrieve-metadata cached above, not a fresh GitHub fetch.
 uv run dataset-citations-judge-anchors \
   --dataset-list-file "$DATASETS_LIST" \
   --output-dir citations/anchor_judgments \
   --citations-dir citations/json_opencite \
+  --datasets-dir datasets \
   --skip-existing || {
   echo "ERROR: dataset-citations-judge-anchors failed; aborting before update." >&2
   exit 2
 }
 
-# 3b. Fetch citations via opencite. Phase 3 (#87) made this CLI consume the
-# sidecars from step 3a transparently; the invocation is unchanged from the
-# pre-phase-4 script. Skip-existing (7d) keeps the run cheap.
+# 3b. Fetch citations via opencite. The pipeline reads the step 3a sidecars and
+# applies the anchor gate at fetch time. Skip-existing (7d) keeps the run cheap.
 #
 # OPERATIONAL NOTE: `--max-age-days 7` (the `update` CLI default) skips
-# citation JSONs fetched within the window. Anchors a new judgment REMOVES are
-# applied to every file the same night by the gate step below. Anchors a new
-# judgment ADDS (e.g. a data paper the enrichment used to label `References`)
-# only get their citers fetched when the dataset falls out of the window; to
-# apply them at once, re-run `dataset-citations-update --max-age-days 0` once.
+# citation JSONs fetched within the window, with one exception: a dataset with
+# an anchor a new judgment ADDS (e.g. a data paper the enrichment used to label
+# `References`, or one a failed judgment had left unjudged) is refetched the
+# same night. Anchors a new judgment REMOVES are applied to every file the same
+# night by the gate step below.
 echo "--- update (skip-existing default 7d) ---"
 # --datasets-dir lets ds-* DOI extraction reuse the dataset_description cached
 # by retrieve-metadata above instead of refetching it from GitHub, which on a
@@ -384,7 +389,8 @@ if git diff --quiet citations/ datasets/ embeddings/ dashboard_data/; then
   exit 0
 fi
 
-# Commit + push to a timestamped branch; open a PR (manual merge gates the deploy).
+# Commit + push to a timestamped branch; open a PR that auto-merges on green CI
+# (see below), which fires the deploy.
 BRANCH="auto-update/$TS"
 git checkout -b "$BRANCH"
 git add citations/ datasets/ embeddings/ dashboard_data/
@@ -393,7 +399,7 @@ git commit -m "data: hallu nightly pipeline ($TS)
 
 GPU semantic scoring + embeddings on RTX 4090. Pipeline:
   catalog discover -> metadata -> judge-anchors -> opencite fetch
-  -> prune-mirrored -> find-mentions -> dedupe -> score-confidence
+  -> gate-anchors -> prune-mirrored -> find-mentions -> dedupe -> score-confidence
   -> generate-embeddings
 
 $(echo "$DIFFSTAT")"

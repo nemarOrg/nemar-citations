@@ -8,7 +8,10 @@ judge model, abort with exit 2 when the judge step fails, and never reference
 the retired Ollama preflight again: that probe passed while every judgment
 failed, which is how the September 2026 inflation happened.
 
-No mocks: the syntax checks run the real `bash -n`.
+The syntax checks run the real `bash -n`. The cron script itself cannot run in
+a test (it resets a checkout under $HOME and takes a lock), so its failure
+guards are checked structurally; the rerun helper runs for real against a
+stand-in `uv` on PATH that fails a chosen step.
 """
 
 from __future__ import annotations
@@ -20,13 +23,29 @@ CRON_SCRIPT = Path(__file__).parent.parent / "scripts" / "hallu_cron_pipeline.sh
 RERUN_SCRIPT = Path(__file__).parent.parent / "scripts" / "hallu_rerun.sh"
 
 
+def _command_block(text: str, command: str) -> str:
+    """The shell statement that runs `uv run <command>`, up to its blank line."""
+    start = text.index(f"uv run {command}")
+    end = text.find("\n\n", start)
+    return text[start : end if end != -1 else len(text)]
+
+
+def _assert_fatal(text: str, command: str) -> None:
+    """The step is OR-ed with an explicit `exit 2`: the scripts use
+    `set -uo pipefail` (no -e), so without it a failure would not stop them."""
+    block = _command_block(text, command)
+    assert "|| {" in block, f"{command} lost its failure guard"
+    assert "exit 2" in block.split("|| {", 1)[1], f"{command} guard does not exit 2"
+
+
 def test_cron_script_pins_the_claude_judge() -> None:
     text = CRON_SCRIPT.read_text()
     assert 'ANCHOR_JUDGE_MODEL="${ANCHOR_JUDGE_MODEL:-claude-sonnet-5-5}"' in text
-    assert "dataset-citations-judge-anchors" in text, (
-        "judge-anchors step missing from hallu_cron_pipeline.sh"
+    _assert_fatal(text, "dataset-citations-judge-anchors")
+    # The judge must run before the fetch that reads its sidecars.
+    assert text.index("uv run dataset-citations-judge-anchors") < text.index(
+        "uv run dataset-citations-update"
     )
-    assert "aborting before update." in text, "judge step lost its exit-2 guard"
 
 
 def test_gate_runs_right_after_update_and_is_fatal() -> None:
@@ -37,8 +56,58 @@ def test_gate_runs_right_after_update_and_is_fatal() -> None:
     gate_idx = text.index("uv run dataset-citations-gate-anchors")
     score_idx = text.index("uv run dataset-citations-score-confidence")
     assert update_idx < gate_idx < score_idx
-    assert "dataset-citations-gate-anchors failed; aborting before score." in text
-    assert "gate_anchors" in RERUN_SCRIPT.read_text()
+    for command in ("dataset-citations-update", "dataset-citations-gate-anchors"):
+        _assert_fatal(text, command)
+
+
+def _rerun(tmp_path: Path, mode: str, failing: str) -> subprocess.CompletedProcess:
+    """Run the rerun helper with a stand-in `uv` that fails on `failing`."""
+    bin_dir = tmp_path / "bin"
+    bin_dir.mkdir()
+    uv = bin_dir / "uv"
+    uv.write_text(
+        '#!/bin/sh\ncase "$*" in *"$FAIL_CMD"*) exit 1 ;; esac\nexit 0\n', "utf-8"
+    )
+    uv.chmod(0o755)
+    (tmp_path / "ids.txt").write_text("nm000275\n", "utf-8")
+    env = {
+        "PATH": f"{bin_dir}:/usr/bin:/bin",
+        "HOME": str(tmp_path),
+        "REPO_DIR": str(tmp_path),
+        "DATASETS_LIST": str(tmp_path / "ids.txt"),
+        "GITHUB_TOKEN": "unused",
+        "FAIL_CMD": failing,
+    }
+    return subprocess.run(
+        ["bash", str(RERUN_SCRIPT), mode],
+        capture_output=True,
+        text=True,
+        env=env,
+        check=False,  # the tests assert on returncode themselves
+        timeout=30,
+    )
+
+
+def test_rerun_stops_on_a_failed_judge(tmp_path: Path) -> None:
+    result = _rerun(tmp_path, "--judge-only", "dataset-citations-judge-anchors")
+    assert result.returncode == 2, result.stderr
+
+
+def test_rerun_stops_before_the_gate_when_update_fails(tmp_path: Path) -> None:
+    result = _rerun(tmp_path, "--update-only", "dataset-citations-update")
+    assert result.returncode == 2, result.stderr
+    assert "dataset-citations-gate-anchors" not in result.stdout
+
+
+def test_rerun_stops_on_a_failed_gate(tmp_path: Path) -> None:
+    result = _rerun(tmp_path, "--update-only", "dataset-citations-gate-anchors")
+    assert result.returncode == 2, result.stderr
+    assert "dataset-citations-gate-anchors" in result.stdout
+
+
+def test_rerun_update_only_succeeds_when_every_step_does(tmp_path: Path) -> None:
+    result = _rerun(tmp_path, "--update-only", "no-such-step")
+    assert result.returncode == 0, result.stderr
 
 
 def test_scripts_no_longer_probe_ollama() -> None:
