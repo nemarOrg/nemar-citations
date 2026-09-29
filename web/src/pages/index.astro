@@ -1,5 +1,6 @@
 ---
 import BarChart from "../components/BarChart.astro";
+import DatasetId from "../components/DatasetId.astro";
 import DonutChart from "../components/DonutChart.astro";
 import StatCard from "../components/StatCard.astro";
 import Base from "../layouts/Base.astro";
@@ -154,7 +155,7 @@ const modSlices =
             <a class="ds__name" href={datasetLink(d.id)}>
               {d.name}
             </a>
-            <span class="ds__id">{d.id}</span>
+            <DatasetId id={d.id} class="ds__id" />
             <span class="ds__count">{fmt(d.numCitations)}</span>
           </li>
         ))
@@ -169,7 +170,7 @@ const modSlices =
               <a class="ds__name" href={datasetLink(d.id)}>
                 {d.name}
               </a>
-              <span class="ds__id">{d.id}</span>
+              <DatasetId id={d.id} class="ds__id" />
               <span class="ds__count">{fmt(d.numDatasetCitations)}</span>
             </li>
           ))
@@ -190,7 +191,7 @@ const modSlices =
               <a class="ds__name" href={datasetLink(d.id)}>
                 {d.name}
               </a>
-              <span class="ds__id">{d.id}</span>
+              <DatasetId id={d.id} class="ds__id" />
               <span class="ds__count">{fmt(d.numDataPaperCitations)}</span>
             </li>
           ))

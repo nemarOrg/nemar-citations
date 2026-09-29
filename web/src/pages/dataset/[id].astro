@@ -1,5 +1,6 @@
 ---
 import CitationItem from "../../components/CitationItem.astro";
+import DatasetId from "../../components/DatasetId.astro";
 import Base from "../../layouts/Base.astro";
 import { type DatasetDetail, loadAll } from "../../lib/data";
 
@@ -21,7 +22,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   <p class="back"><a href={`${base}/`}>← All datasets</a></p>
   <h1 class="ds-title">{dataset.name}</h1>
   <p class="ds-sub">
-    <span class="ds-sub__id">{dataset.id}</span> · {fmt(dataset.numCitations)} high-confidence citations
+    <DatasetId id={dataset.id} class="ds-sub__id" /> · {fmt(dataset.numCitations)} high-confidence citations
     {dataset.excludedByAnchor > 0 && (
       <span class="ds-sub__excl">· {fmt(dataset.excludedByAnchor)} refs excluded (anchor is not the data paper)</span>
     )}
@@ -119,6 +120,7 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   }
   .ds-sub__id {
     font-family: var(--font-mono);
+    color: inherit;
   }
   .ds-sub__excl {
     color: var(--color-fg-subtle);
