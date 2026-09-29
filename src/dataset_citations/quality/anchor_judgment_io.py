@@ -4,9 +4,9 @@ Phase 2 (#86) writes a per-dataset JSON file at
 `citations/anchor_judgments/<dataset_id>.json` describing the LLM's
 classification of every DOI/PMID/arXiv anchor the pipeline extracts. Phase 3
 (this module + `core/opencite_pipeline.py`) reads those judgments and uses
-them to bucket anchors into "fetch citations from this anchor" (the single
-`data_paper` per dataset) vs "record as context only" (umbrella, methodology,
-related_work, irrelevant).
+them to bucket anchors into "fetch citations from this anchor" (the own
+concept DOI plus each `data_paper`, see `core.anchor_gate`) vs "record as
+context only" (everything else).
 
 Why a separate file from phase 2's writer:
   * Phase 2 ships its own `quality/anchor_judgment.py` module that owns the
@@ -17,7 +17,8 @@ Why a separate file from phase 2's writer:
   * The locked sidecar schema (documented inline below) is the contract; this
     module never talks to the judge and never mutates anything on disk.
 
-The single public function `load_judgment_lookup` returns a mapping from
+`load_judgment_sidecar` is the primary API (`load_judgment_lookup` and
+`canonical_anchor_key` are thin helpers); its `lookup` maps
 canonicalized anchor identifier (DOI/PMID/arXiv in the same shape used by
 `DoiReference.identifier`) to one of the five classifications in
 `llm_client.ALLOWED_CLASSIFICATIONS`. Anchors with a non-null `error` field
@@ -44,6 +45,12 @@ logger = logging.getLogger(__name__)
 
 DEFAULT_JUDGMENTS_DIR = Path("citations/anchor_judgments")
 
+# Why a sidecar is or is not usable (`JudgmentSidecar.status`).
+SIDECAR_OK = "ok"
+SIDECAR_MISSING = "missing"
+SIDECAR_UNREADABLE = "unreadable"
+SIDECAR_UNTRUSTED = "untrusted_model"
+
 
 @dataclass(frozen=True, slots=True)
 class JudgmentSidecar:
@@ -56,28 +63,35 @@ class JudgmentSidecar:
     each call. `context_details` carries the per-anchor metadata
     (paper_title, reason, source_relation, identifier_type) that the
     pipeline folds into schema-v2.1's `metadata.anchors[]` (every anchor,
-    with a `kept` flag). `present` distinguishes "sidecar exists and
-    parsed cleanly" from "sidecar missing"; the pipeline names the missing
-    sidecar in its per-dataset unjudged-anchor warning.
+    with a `kept` flag). `present` is True only for a usable sidecar;
+    `status` says why one is not: `missing`, `unreadable` (corrupt JSON or
+    wrong shape; callers must not read that as "everything unjudged" and
+    wipe the dataset), or `untrusted_model` (judged by a model other than the
+    expected one; its verdicts are dropped so a retired judge never keeps
+    counting, issue #241).
     """
 
     present: bool
     model: str | None = None
     lookup: dict[str, str] = field(default_factory=dict)
     context_details: dict[str, dict[str, Any]] = field(default_factory=dict)
+    status: str = SIDECAR_OK
 
 
 def load_judgment_sidecar(
     dataset_id: str,
     *,
     judgments_dir: Path | str = DEFAULT_JUDGMENTS_DIR,
+    expected_model: str | None = None,
 ) -> JudgmentSidecar:
     """Read the sidecar for `dataset_id`; return an empty record on miss.
 
-    Returns a `JudgmentSidecar` with `present=False` and empty fields when:
-      * the sidecar file does not exist
-      * the file exists but does not parse as JSON
-      * the file parses but lacks the expected top-level shape
+    Returns a `JudgmentSidecar` with `present=False` and empty verdicts when:
+      * the sidecar file does not exist (`status="missing"`)
+      * the file does not parse as JSON or lacks the expected top-level shape
+        (`status="unreadable"`)
+      * `expected_model` is given and the sidecar was judged by another model
+        (`status="untrusted_model"`, logged at WARN)
 
     Out-of-taxonomy classifications are dropped with a WARN; the rest of the
     sidecar still applies. Anchors with `error != null` are similarly
@@ -85,7 +99,7 @@ def load_judgment_sidecar(
     """
     path = Path(judgments_dir) / f"{dataset_id}.json"
     if not path.exists():
-        return JudgmentSidecar(present=False)
+        return JudgmentSidecar(present=False, status=SIDECAR_MISSING)
 
     try:
         with path.open(encoding="utf-8") as f:
@@ -97,7 +111,7 @@ def load_judgment_sidecar(
             path,
             exc,
         )
-        return JudgmentSidecar(present=False)
+        return JudgmentSidecar(present=False, status=SIDECAR_UNREADABLE)
 
     if not isinstance(raw, dict):
         logger.warning(
@@ -105,7 +119,7 @@ def load_judgment_sidecar(
             dataset_id,
             path,
         )
-        return JudgmentSidecar(present=False)
+        return JudgmentSidecar(present=False, status=SIDECAR_UNREADABLE)
 
     model = (
         raw.get("judgment_model")
@@ -119,7 +133,16 @@ def load_judgment_sidecar(
             dataset_id,
             path,
         )
-        return JudgmentSidecar(present=False, model=model)
+        return JudgmentSidecar(present=False, model=model, status=SIDECAR_UNREADABLE)
+    if expected_model is not None and model != expected_model:
+        logger.warning(
+            "anchor-judgment sidecar for %s was judged by %r, not the trusted "
+            "judge %r; treating its anchors as unjudged",
+            dataset_id,
+            model,
+            expected_model,
+        )
+        return JudgmentSidecar(present=False, model=model, status=SIDECAR_UNTRUSTED)
 
     lookup: dict[str, str] = {}
     context_details: dict[str, dict[str, Any]] = {}
@@ -192,6 +215,7 @@ def load_judgment_lookup(
     dataset_id: str,
     *,
     judgments_dir: Path | str = DEFAULT_JUDGMENTS_DIR,
+    expected_model: str | None = None,
 ) -> dict[str, str]:
     """Return `{canonical_anchor_identifier: classification}` for `dataset_id`.
 
@@ -199,7 +223,9 @@ def load_judgment_lookup(
     the spec-requested signature; callers that also need the model name or
     the per-anchor context detail should use `load_judgment_sidecar`.
     """
-    return load_judgment_sidecar(dataset_id, judgments_dir=judgments_dir).lookup
+    return load_judgment_sidecar(
+        dataset_id, judgments_dir=judgments_dir, expected_model=expected_model
+    ).lookup
 
 
 def canonical_anchor_key(identifier: str, identifier_type: str) -> str | None:
