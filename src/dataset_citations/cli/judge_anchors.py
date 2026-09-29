@@ -10,8 +10,9 @@ concept DOI) contribute citations; everything else, including an anchor with
 no successful judgment, is context only.
 
 Exit codes: 0 ok; 1 empty dataset list; 2 the judge is unusable (failed health
-check, circuit breaker tripped, or a dependency failing on more than 10% of
-its calls) or a sidecar could not be written. A 2 stops the cron before
+check, circuit breaker tripped, or a dependency failing on at least 5 and more
+than `--max-failure-share`, default 10%, of its fresh calls) or a sidecar could
+not be written. A 2 stops the cron before
 `update`, so nothing built on a broken judge is published.
 
 Copyright (c) 2026 Seyed Yahya Shirazi (neuromechanist)
@@ -54,11 +55,14 @@ logger = logging.getLogger(__name__)
 
 # A dependency (the judge, opencite lookups, the anchor source) is treated as
 # down when at least this many of its calls failed AND they are more than
-# `_MAX_FAILURE_SHARE` of its calls. The floor keeps a couple of flaky calls on
+# `--max-failure-share` of its calls. The floor keeps a couple of flaky calls on
 # a quiet night from stalling the pipeline; the share catches an outage that
 # starts late in a long run, which a "more failures than successes" rule misses.
+# Anchors that failed the same way on their previous run are left out of both
+# counts: on a quiet night they can be the only calls made, and a few anchors
+# that always fail would otherwise stop the cron every night.
 _MIN_FAILURES = 5
-_MAX_FAILURE_SHARE = 0.10
+_DEFAULT_MAX_FAILURE_SHARE = 0.10
 # Consecutive failed judge calls (across datasets) that stop the run at once,
 # leaving the remaining sidecars untouched instead of writing error records
 # over them.
@@ -241,8 +245,8 @@ def _summarize_judgments(payload: dict) -> str:
     )
 
 
-def _unhealthy(failures: int, attempts: int) -> bool:
-    return failures >= _MIN_FAILURES and failures > _MAX_FAILURE_SHARE * attempts
+def _unhealthy(failures: int, attempts: int, max_share: float) -> bool:
+    return failures >= _MIN_FAILURES and failures > max_share * attempts
 
 
 @dataclass
@@ -257,6 +261,7 @@ class _Tally:
     failed: int = 0
     lookup_failed: int = 0
     unresolvable: int = 0
+    repeat_failures: int = 0
     reused: int = 0
 
 
@@ -339,6 +344,7 @@ def run(
         tally.failed += result.failed
         tally.lookup_failed += result.lookup_failed
         tally.unresolvable += result.unresolvable
+        tally.repeat_failures += result.repeat_failures
         tally.reused += result.reused
         streak = 0 if result.judged else streak + result.failed
         if streak >= _CIRCUIT_BREAKER:
@@ -366,7 +372,8 @@ def run(
         "anchor judgment run complete: %d dataset(s) processed, %d skipped, "
         "%d sidecars written, %d unchanged, %d source failures (sidecar left "
         "untouched), %d write failures; judge calls: %d ok, %d failed; lookups: "
-        "%d transient failures, %d unresolvable; %d verdicts reused",
+        "%d failed, %d still unresolvable; %d anchors failed again as on their "
+        "previous run; %d verdicts reused",
         tally.processed,
         tally.skipped,
         tally.written,
@@ -377,21 +384,29 @@ def run(
         tally.failed,
         tally.lookup_failed,
         tally.unresolvable,
+        tally.repeat_failures,
         tally.reused,
     )
-    return _exit_code(tally, tripped=tripped)
+    return _exit_code(tally, tripped=tripped, max_share=args.max_failure_share)
 
 
-def _exit_code(tally: _Tally, *, tripped: bool) -> int:
-    """2 when the run cannot be trusted to feed `update`, else 0."""
+def _exit_code(tally: _Tally, *, tripped: bool, max_share: float) -> int:
+    """2 when the run cannot be trusted to feed `update`, else 0.
+
+    Only fresh attempts count: repeats of an anchor's previous failure and
+    anchors still unresolvable after their back-off are left out of both the
+    failures and the attempts.
+    """
     calls = tally.judged + tally.failed
-    lookups = calls + tally.lookup_failed + tally.unresolvable
+    lookups = calls + tally.lookup_failed
     problems = {
         "circuit breaker tripped": tripped,
         "sidecar writes failed": tally.write_failures > 0,
-        "judge calls failing": _unhealthy(tally.failed, calls),
-        "paper lookups failing": _unhealthy(tally.lookup_failed, lookups),
-        "anchor source failing": _unhealthy(tally.source_failures, tally.processed),
+        "judge calls failing": _unhealthy(tally.failed, calls, max_share),
+        "paper lookups failing": _unhealthy(tally.lookup_failed, lookups, max_share),
+        "anchor source failing": _unhealthy(
+            tally.source_failures, tally.processed, max_share
+        ),
     }
     down = [name for name, bad in problems.items() if bad]
     if down:
@@ -479,6 +494,17 @@ def build_parser() -> argparse.ArgumentParser:
         help=(
             "Dataset metadata cached by retrieve-metadata, read for the dataset "
             "description instead of refetching it from GitHub (default: datasets)."
+        ),
+    )
+    parser.add_argument(
+        "--max-failure-share",
+        type=float,
+        default=_DEFAULT_MAX_FAILURE_SHARE,
+        help=(
+            "Exit 2 when the judge, paper lookups, or the anchor source fail on "
+            "at least 5 fresh attempts and more than this share of them "
+            f"(default: {_DEFAULT_MAX_FAILURE_SHARE}). Raise it to push a run "
+            "past a known, contained failure."
         ),
     )
     parser.add_argument(

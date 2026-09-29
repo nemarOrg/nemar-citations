@@ -339,8 +339,10 @@ class JudgeDatasetAnchorsTests(TestCase):
     def test_paper_lookup_failure_records_error(self) -> None:
         """A DOI opencite has no record of is unresolvable (retried on a
         back-off); any other lookup error is transient (retried nightly)."""
+        # A first miss of either kind counts as a failed lookup; only a
+        # not_found already on record is `unresolvable` (see the next test).
         for reason, counts in (
-            ("not_found", (0, 0, 0, 1)),
+            ("not_found", (0, 0, 1, 0)),
             ("network", (0, 0, 1, 0)),
         ):
             with self.subTest(reason):
@@ -593,10 +595,8 @@ class ReuseAndCarryForwardTests(TestCase):
         self.assertEqual(judgment["classification"], "data_paper")
         self.assertEqual(judgment["source_relation"], "References")
 
-    def test_an_unchanged_error_keeps_its_record(self) -> None:
-        """A DOI that stays unresolvable does not rewrite its sidecar nightly."""
-        ref = _ref("10.1234/missing")
-        error = JudgmentRecord(
+    def _error(self, ref: DoiReference, error: str) -> JudgmentRecord:
+        return JudgmentRecord(
             anchor_identifier=ref.identifier,
             anchor_identifier_type="doi",
             source_relation="References",
@@ -606,8 +606,29 @@ class ReuseAndCarryForwardTests(TestCase):
             paper_year=None,
             paper_venue=None,
             judged_at="2026-09-01T00:00:00+00:00",
-            error="paper_lookup_failed:not_found:openalex 404",
+            error=error,
         )
+
+    def test_an_unchanged_transient_error_keeps_its_record(self) -> None:
+        """An anchor retried nightly does not rewrite its sidecar nightly, and a
+        repeat of its failure is not counted as a new one."""
+        ref = _ref("10.1234/flaky")
+        error = self._error(ref, "paper_lookup_failed:network:openalex 503")
+        run = _judge(
+            FetchSuccess([ref]),
+            _StubBackend({ref.identifier: FetchError("network", "openalex 503")}),
+            _NeverCalledClient(),
+            previous=_previous("test-model", error),
+        )
+        assert run is not None
+        self.assertEqual(run.payload["judgments"], [error.to_dict()])
+        self.assertEqual((run.lookup_failed, run.repeat_failures), (0, 1))
+
+    def test_a_repeated_miss_re_arms_its_back_off(self) -> None:
+        """New-2: the retry stamps a fresh judged_at, so the next retry is a
+        month away instead of every night."""
+        ref = _ref("10.1234/missing")
+        error = self._error(ref, "paper_lookup_failed:not_found:openalex 404")
         run = _judge(
             FetchSuccess([ref]),
             _StubBackend({ref.identifier: FetchError("not_found", "openalex 404")}),
@@ -615,7 +636,31 @@ class ReuseAndCarryForwardTests(TestCase):
             previous=_previous("test-model", error),
         )
         assert run is not None
-        self.assertEqual(run.payload["judgments"], [error.to_dict()])
+        [judgment] = run.payload["judgments"]
+        self.assertEqual(judgment["error"], error.error)
+        self.assertGreater(judgment["judged_at"], error.judged_at)
+        self.assertEqual((run.unresolvable, run.lookup_failed), (1, 0))
+
+    def test_a_repeated_judge_failure_is_not_a_new_one(self) -> None:
+        ref = _ref("10.1234/A")
+        previous = _previous(
+            "test-model",
+            self._error(ref, "llm_judgment_failed:classification 'x' not in taxonomy"),
+        )
+        run = _judge(
+            FetchSuccess([ref]),
+            _papers(ref),
+            _FakeClient("garbage_label"),
+            previous=previous,
+        )
+        assert run is not None
+        self.assertEqual((run.failed, run.repeat_failures), (0, 1))
+
+    def test_the_own_doi_is_never_judged(self) -> None:
+        own = _ref("10.82901/nemar.nm000104")
+        run = _judge(FetchSuccess([own]), _papers(own), _NeverCalledClient())
+        assert run is not None
+        self.assertEqual(run.payload["judgments"], [])
 
     def test_an_older_prompts_verdicts_are_not_reused(self) -> None:
         ref = _ref("10.1234/A")

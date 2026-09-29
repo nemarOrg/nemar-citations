@@ -42,6 +42,7 @@ Email: shirazi@ieee.org
 from __future__ import annotations
 
 import contextlib
+import dataclasses
 import json
 import logging
 import os
@@ -73,6 +74,7 @@ from dataset_citations.sources import (
     FetchSuccess,
     NemarMetadataSource,
 )
+from dataset_citations.sources.doi import is_own_dataset_doi
 from dataset_citations.sources.models import DoiReference
 
 logger = logging.getLogger(__name__)
@@ -140,11 +142,13 @@ def _utcnow_iso() -> str:
     return datetime.now(UTC).isoformat()
 
 
-# A lookup error that will not clear on tomorrow's retry: opencite has no
-# record of the anchor DOI (unindexed, or a typo such as `10.38119/openneuro.*`).
-# The judge CLI retries these on a back-off instead of nightly, and they never
-# count toward its judge-health exit code.
+# A lookup error that will not clear on tomorrow's retry: OpenAlex answered 404
+# for the anchor DOI (unindexed, or a typo such as `10.38119/openneuro.*`; the
+# backend reports every other failure as transient). The judge CLI retries these
+# on a 30-day back-off instead of nightly; a repeat of one is `unresolvable` and
+# never counts toward the judge-health exit code, a first one does.
 PERMANENT_LOOKUP_ERROR_PREFIX = "paper_lookup_failed:not_found:"
+LLM_ERROR_PREFIX = "llm_judgment_failed:"
 # The dataset's description and README could not be read (a rate-limited
 # GitHub call returns an empty shell). Judging without them would bias every
 # verdict toward related_work and then reuse that verdict forever, so the
@@ -156,12 +160,16 @@ METADATA_UNAVAILABLE_ERROR = "dataset_metadata_unavailable"
 class DatasetJudgmentRun:
     """Outcome of judging one dataset.
 
-    `payload` is the sidecar dict to write. `judged` / `failed` count the LLM
-    calls made in this run. `lookup_failed` counts anchors that could not be
-    judged for a transient reason (an opencite error other than not_found, or
-    unreadable dataset metadata); `unresolvable` counts anchors opencite has no
-    record of; `reused` counts anchors whose previous verdict was kept without
-    a call.
+    `payload` is the sidecar dict to write. `judged` counts successful LLM
+    calls; `failed` counts failed ones. `lookup_failed` counts anchors that
+    could not be judged because the paper lookup failed (a transient opencite
+    error or a first not_found) or the dataset metadata was unreadable.
+    `unresolvable` counts anchors that were already recorded as not_found and
+    still are. `repeat_failures` counts LLM and transient lookup failures on
+    anchors whose previous record failed the same way: a handful of anchors
+    that fail every night are not evidence of an outage, so the CLI's health
+    check leaves them out. `reused` counts anchors whose previous verdict was
+    kept without a call.
     """
 
     payload: dict[str, Any]
@@ -170,6 +178,7 @@ class DatasetJudgmentRun:
     lookup_failed: int
     unresolvable: int
     reused: int
+    repeat_failures: int = 0
 
 
 def _error_record(
@@ -249,17 +258,33 @@ def _previous_records(
     return out
 
 
-def _unique_doi_refs(refs: list[DoiReference]) -> list[DoiReference]:
-    """DOI anchors, one per identifier (first wins, like the pipeline's merge).
+def _error_kind(error: str | None) -> str | None:
+    """Group an error string: `permanent`, `llm`, `lookup`, or None."""
+    if not error:
+        return None
+    if error.startswith(PERMANENT_LOOKUP_ERROR_PREFIX):
+        return "permanent"
+    if error.startswith(LLM_ERROR_PREFIX):
+        return "llm"
+    return "lookup"
+
+
+def _unique_doi_refs(refs: list[DoiReference], dataset_id: str) -> list[DoiReference]:
+    """DOI anchors to judge, one per identifier (first wins, like the pipeline).
 
     A DOI listed under two relations would otherwise be judged twice, and the
     copy whose relation did not match the reused record would be re-judged
-    every night.
+    every night. The dataset's own concept DOI is skipped: the gate keeps it
+    without a judgment. Non-DOI anchors are skipped too (opencite resolves
+    papers by DOI); the gate drops them unless their relation says they are
+    another record of the same data.
     """
     seen: set[str] = set()
     out: list[DoiReference] = []
     for ref in refs:
-        if ref.identifier_type != "doi":
+        if ref.identifier_type != "doi" or is_own_dataset_doi(
+            ref.identifier, dataset_id
+        ):
             continue
         key = canonical_anchor_key(ref.identifier, "doi")
         if key is None or key in seen:
@@ -350,7 +375,7 @@ def judge_dataset_anchors(
         )
         return None
     assert isinstance(refs_result, FetchSuccess)  # noqa: S101 - upstream contract guard
-    refs = _unique_doi_refs(refs_result.value)
+    refs = _unique_doi_refs(refs_result.value, dataset_id)
     prior = _previous_records(previous, client.model)
     if not refs and previous and prior:
         # A stale or partial metadata read can list no anchors for a moment.
@@ -370,6 +395,7 @@ def judge_dataset_anchors(
             lookup_failed=0,
             unresolvable=0,
             reused=len(prior),
+            repeat_failures=0,
         )
 
     records: list[JudgmentRecord | None] = [None] * len(refs)
@@ -386,17 +412,32 @@ def judge_dataset_anchors(
             todo.append(i)
     reused = len(refs) - len(todo)
 
+    def _prior_kind(i: int) -> str | None:
+        record = prior.get(canonical_anchor_key(refs[i].identifier, "doi") or "")
+        return _error_kind(record.error) if record is not None else None
+
     def _unjudged(i: int, error: str, judged_at: str, paper: Any = None):
-        """A previous success if any, else an unchanged previous error, else new."""
+        """A previous success if any, else the previous error, else a new one.
+
+        An unchanged transient error keeps its old record so the sidecar does
+        not churn nightly. An unchanged permanent error gets this attempt's
+        timestamp, which re-arms the CLI's 30-day back-off; keeping the old one
+        would make it due again every night after the first month.
+        """
         ref = refs[i]
         record = prior.get(canonical_anchor_key(ref.identifier, "doi") or "")
-        if record is not None and (not record.error or record.error == error):
+        if record is not None and not record.error:
+            return record
+        if record is not None and record.error == error:
+            if _error_kind(error) == "permanent":
+                return dataclasses.replace(record, judged_at=judged_at)
             return record
         return _error_record(ref, judged_at=judged_at, error=error, paper=paper)
 
     prompts: dict[int, tuple[Any, str, str]] = {}
     lookup_failed = 0
     unresolvable = 0
+    repeat_failures = 0
     if todo:
         metadata = _dataset_metadata(dataset_id, metadata_retriever, datasets_dir)
         if metadata is None:
@@ -407,8 +448,11 @@ def judge_dataset_anchors(
                 len(todo),
             )
             for i in todo:
+                if _prior_kind(i) == "lookup":
+                    repeat_failures += 1
+                else:
+                    lookup_failed += 1
                 records[i] = _unjudged(i, METADATA_UNAVAILABLE_ERROR, _utcnow_iso())
-            lookup_failed += len(todo)
             todo = []
         else:
             dataset_description = extract_dataset_text(metadata)
@@ -420,9 +464,14 @@ def judge_dataset_anchors(
                 error = (
                     f"paper_lookup_failed:{paper_result.reason}:{paper_result.detail}"
                 )
-                if error.startswith(PERMANENT_LOOKUP_ERROR_PREFIX):
+                kind, prior_kind = _error_kind(error), _prior_kind(i)
+                if kind == prior_kind == "permanent":
                     unresolvable += 1
+                elif kind == prior_kind == "lookup":
+                    repeat_failures += 1
                 else:
+                    # A first not_found counts too: if OpenAlex ever misreports
+                    # an outage as a miss, the CLI's health check still sees it.
                     lookup_failed += 1
                 records[i] = _unjudged(i, error, judged_at)
                 continue
@@ -454,7 +503,10 @@ def judge_dataset_anchors(
             paper, _, judged_at = prompts[i]
             verdict = future.result()
             if isinstance(verdict, LlmJudgmentError):
-                failed += 1
+                if _prior_kind(i) == "llm":
+                    repeat_failures += 1
+                else:
+                    failed += 1
                 logger.warning(
                     "LLM judgment failed for %s / %s: %s",
                     dataset_id,
@@ -462,7 +514,7 @@ def judge_dataset_anchors(
                     verdict,
                 )
                 records[i] = _unjudged(
-                    i, f"llm_judgment_failed:{verdict}", judged_at, paper
+                    i, f"{LLM_ERROR_PREFIX}{verdict}", judged_at, paper
                 )
                 continue
             judged += 1
@@ -504,6 +556,7 @@ def judge_dataset_anchors(
         lookup_failed=lookup_failed,
         unresolvable=unresolvable,
         reused=reused,
+        repeat_failures=repeat_failures,
     )
 
 

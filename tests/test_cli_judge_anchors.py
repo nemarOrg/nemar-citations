@@ -426,10 +426,53 @@ class CliExitPolicy(TestCase):
             rc = self._rc({"nm000001": _dois(5) + bad}, backend=backend)
         self.assertEqual(rc, 2)
 
-    def test_unresolvable_anchors_do_not_count(self) -> None:
+    def test_a_first_wave_of_misses_counts(self) -> None:
+        """New-1: a first not_found counts, so an outage OpenAlex misreports as
+        a miss still stops the run instead of locking anchors out."""
         bad = _dois(8, "10.9/typo")
         backend = _Papers({d: FetchError("not_found", "404") for d in bad})
-        self.assertEqual(self._rc({"nm000001": bad}, backend=backend), 0)
+        with self.assertLogs("dataset_citations", "ERROR"):
+            self.assertEqual(self._rc({"nm000001": bad}, backend=backend), 2)
+
+    def _seeded_rc(self, error: str, **kwargs) -> int:
+        """Run once more over anchors whose previous record carries `error`."""
+        bad = _dois(8, "10.9/known")
+        with tempfile.TemporaryDirectory() as tmp:
+            h = _Harness(Path(tmp), ["nm000001"])
+            h.output_dir.mkdir()
+            h.sidecar("nm000001").write_text(
+                json.dumps(
+                    _payload(
+                        judgments=[
+                            _judgment(
+                                d, error=error, judged_at="2026-01-01T00:00:00+00:00"
+                            )
+                            for d in bad
+                        ]
+                    )
+                )
+            )
+            return h.run({"nm000001": bad}, **kwargs)
+
+    def test_known_misses_do_not_count(self) -> None:
+        backend = _Papers(
+            {d: FetchError("not_found", "404") for d in _dois(8, "10.9/known")}
+        )
+        rc = self._seeded_rc("paper_lookup_failed:not_found:404", backend=backend)
+        self.assertEqual(rc, 0)
+
+    def test_anchors_that_always_fail_do_not_wedge_the_cron(self) -> None:
+        """New-3: on a quiet night the repeat failures are the only calls."""
+        client = _ScriptedClient(fail_all=True)
+        rc = self._seeded_rc("llm_judgment_failed:claude CLI exited 1", client=client)
+        self.assertEqual(rc, 0)
+
+    def test_max_failure_share_pushes_past_a_contained_failure(self) -> None:
+        bad = _dois(6, "10.9/bad")
+        client = _ScriptedClient(fail_dois=set(bad))
+        anchors = {"nm000001": _dois(50) + bad}
+        rc = self._rc(anchors, client=client, extra=("--max-failure-share", "0.2"))
+        self.assertEqual(rc, 0)
 
     def test_widespread_source_failures_exit_two(self) -> None:
         anchors: dict[str, list[str] | FetchError] = {
