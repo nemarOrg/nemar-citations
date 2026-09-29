@@ -14,7 +14,7 @@ from __future__ import annotations
 import asyncio
 import logging
 from dataclasses import dataclass
-from typing import Any
+from typing import Any, ClassVar
 
 import httpx
 from opencite.clients.openalex import OpenAlexClient
@@ -123,7 +123,8 @@ async def _search_term(client: OpenAlexClient, term: str) -> list[dict[str, Any]
     deterministically; truncation happens after a stable sort in `search`. The
     loop terminates on a falsy cursor, on an empty results page (OpenAlex index
     lag can return `results: []` with `next_cursor` still set), or at the
-    `_MAX_PAGES` safety bound.
+    `_MAX_PAGES` safety bound. A page that is not a JSON object raises
+    TypeError.
     """
     out: list[dict[str, Any]] = []
     cursor: str | None = "*"
@@ -138,6 +139,13 @@ async def _search_term(client: OpenAlexClient, term: str) -> list[dict[str, Any]
             },
         )
         data = resp.json()
+        if not isinstance(data, dict):
+            # An upstream contract break, not a transient failure, so it
+            # escapes instead of being recorded as a failed term.
+            raise TypeError(
+                f"OpenAlex search for {term} returned a {type(data).__name__}, "
+                "not a results page"
+            )
         results = data.get("results", [])
         if not results:
             break
@@ -180,8 +188,9 @@ class AccessionSearchBackend:
     """Sync facade: search OpenAlex full text for dataset accession mentions."""
 
     # The OpenAlex client class `search` opens; a test points a subclass at a
-    # local HTTP server to exercise the real paging and error handling.
-    _openalex_client_cls: type[OpenAlexClient] = OpenAlexClient
+    # local HTTP server to exercise the real requests, paging, and error
+    # handling.
+    _openalex_client_cls: ClassVar[type[OpenAlexClient]] = OpenAlexClient
 
     def __init__(self, config: Config | None = None, *, max_results: int = 200) -> None:
         self._config = config or Config.from_env()

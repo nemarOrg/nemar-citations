@@ -3,9 +3,10 @@
 No Mocks and no internet. An empty catalog cache file short-circuits the
 catalog fetch, and the real `AccessionSearchBackend` searches a local HTTP
 server that answers `/works?filter=fulltext.search:<term>` the way OpenAlex
-does: a page of works, an empty page, a 429, or a body of the wrong shape. Only
-the base URL differs from production. Real files on disk. The live OpenAlex
-round trip is gated behind RUN_INTEGRATION_TESTS=1.
+does: pages of works, an empty page, a 429, or a body that is not a results
+page. Two things differ from production: the base URL, and a single attempt per
+request, so a 429 fails at once instead of sleeping through retries. Real files
+on disk. The live OpenAlex round trip is gated behind RUN_INTEGRATION_TESTS=1.
 """
 
 from __future__ import annotations
@@ -22,7 +23,7 @@ from collections.abc import Callable
 from datetime import UTC, datetime, timedelta
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
-from typing import Any
+from typing import Any, Self
 from unittest import TestCase
 from urllib.parse import parse_qs, urlsplit
 
@@ -32,81 +33,120 @@ from opencite.config import Config
 from dataset_citations.backends.accession_search import AccessionSearchBackend
 from dataset_citations.cli import find_mentions as cli
 
-# One reply from the local server: an HTTP status and a body.
+# One answer from the local server: an HTTP status and a body.
 Reply = tuple[int, bytes]
+# Decides the answer to a search from its term and its paging cursor.
+ReplyFn = Callable[[str, str], Reply]
 
 
-def _page(works: list[dict[str, Any]]) -> Reply:
-    return 200, json.dumps({"meta": {"next_cursor": None}, "results": works}).encode()
+def _page(works: list[dict[str, Any]], next_cursor: str | None = None) -> Reply:
+    body = {"meta": {"next_cursor": next_cursor}, "results": works}
+    return 200, json.dumps(body).encode()
 
 
 EMPTY = _page([])
 # OpenAlex's answer once the budget is spent. The server sends Retry-After: 0,
-# so opencite's single attempt gives up at once instead of sleeping.
+# and opencite makes a single attempt here, so the term fails at once.
 RATE_LIMITED: Reply = (429, b'{"error": "Rate limit exceeded"}')
-# Valid JSON of the wrong shape (a list, not a results page): an upstream
-# contract break, which the backend lets escape instead of recording a failed
-# term.
-WRONG_SHAPE: Reply = (200, b"[]")
-
-_FOUND_WORK: dict[str, Any] = {
-    "id": "https://openalex.org/W1",
-    "doi": "https://doi.org/10.1/found",
-    "title": "A paper naming the dataset",
-    "publication_year": 2026,
-    "cited_by_count": 0,
-    "authorships": [{"author": {"display_name": "Someone"}}],
-    "primary_location": {"source": {"display_name": "A Journal"}},
-    "ids": {"openalex": "https://openalex.org/W1"},
-}
+# Valid JSON that is not a results page: an upstream contract break.
+NOT_A_PAGE: Reply = (200, b"[]")
 
 
-def _serve(
-    test: TestCase, reply: Callable[[str], Reply] = lambda _term: EMPTY
-) -> tuple[AccessionSearchBackend, list[str]]:
-    """Start a local OpenAlex-like server for `test`.
+def _work(openalex_id: str, doi: str) -> dict[str, Any]:
+    """One OpenAlex work, in the shape the API returns."""
+    return {
+        "id": f"https://openalex.org/{openalex_id}",
+        "doi": f"https://doi.org/{doi}",
+        "title": "A paper naming the dataset",
+        "publication_year": 2026,
+        "cited_by_count": 0,
+        "authorships": [{"author": {"display_name": "Someone"}}],
+        "primary_location": {"source": {"display_name": "A Journal"}},
+        "ids": {"openalex": f"https://openalex.org/{openalex_id}"},
+    }
 
-    Returns a real `AccessionSearchBackend` pointed at it and the list of terms
-    the server has been asked to search, in order.
+
+def _bypass_proxies_for_loopback(test: TestCase) -> None:
+    """httpx honors HTTP(S)_PROXY and ALL_PROXY and does not exempt loopback,
+    so a developer's proxy would swallow the requests meant for the local
+    server. Restored at cleanup.
     """
-    searched: list[str] = []
+    for var in ("NO_PROXY", "no_proxy"):
+        previous = os.environ.get(var)
+        os.environ[var] = "127.0.0.1"
+        if previous is None:
+            test.addCleanup(os.environ.pop, var, None)
+        else:
+            test.addCleanup(os.environ.__setitem__, var, previous)
 
-    class Handler(BaseHTTPRequestHandler):
-        def do_GET(self) -> None:
-            query = parse_qs(urlsplit(self.path).query)
-            term = query["filter"][0].removeprefix("fulltext.search:")
-            searched.append(term)
-            status, body = reply(term)
-            self.send_response(status)
-            self.send_header("Content-Type", "application/json")
-            self.send_header("Content-Length", str(len(body)))
-            if status == 429:
-                self.send_header("Retry-After", "0")
-            self.end_headers()
-            self.wfile.write(body)
 
-        def log_message(self, format: str, *args: object) -> None:
-            """Keep the test output quiet."""
+class _OpenAlexServer:
+    """A local HTTP server answering OpenAlex full-text searches for one test.
 
-    server = ThreadingHTTPServer(("127.0.0.1", 0), Handler)
-    # A short poll interval keeps shutdown (run at cleanup) fast.
-    threading.Thread(
-        target=server.serve_forever, kwargs={"poll_interval": 0.05}, daemon=True
-    ).start()
-    test.addCleanup(server.server_close)
-    test.addCleanup(server.shutdown)
-    base_url = f"http://127.0.0.1:{server.server_port}"
+    `reply` decides each answer and may be swapped mid-test; `searched` logs
+    the term of every search request, in order; `backend` is a real
+    `AccessionSearchBackend` pointed here.
+    """
 
-    class LocalOpenAlex(OpenAlexClient):
-        def __init__(self, config: Config) -> None:
-            super().__init__(config)
-            self.base_url = base_url
-            self.max_retries = 1
+    def __init__(self, test: TestCase) -> None:
+        self.reply: ReplyFn = lambda _term, _cursor: EMPTY
+        self.searched: list[str] = []
+        _bypass_proxies_for_loopback(test)
+        server = ThreadingHTTPServer(("127.0.0.1", 0), self._handler())
+        # A short poll interval keeps shutdown (run at cleanup) fast.
+        threading.Thread(
+            target=server.serve_forever, kwargs={"poll_interval": 0.05}, daemon=True
+        ).start()
+        test.addCleanup(server.server_close)
+        test.addCleanup(server.shutdown)
+        self.backend = self._backend(f"http://127.0.0.1:{server.server_port}")
 
-    class LocalBackend(AccessionSearchBackend):
-        _openalex_client_cls = LocalOpenAlex
+    def _handler(self) -> type[BaseHTTPRequestHandler]:
+        outer = self
 
-    return LocalBackend(max_results=0), searched
+        class Handler(BaseHTTPRequestHandler):
+            def do_GET(self) -> None:
+                url = urlsplit(self.path)
+                query = parse_qs(url.query)
+                if url.path == "/works":
+                    term = query["filter"][0].removeprefix("fulltext.search:")
+                    outer.searched.append(term)
+                    status, body = outer.reply(term, query["cursor"][0])
+                else:
+                    status, body = 404, b'{"error": "Not Found"}'
+                self.send_response(status)
+                self.send_header("Content-Type", "application/json")
+                self.send_header("Content-Length", str(len(body)))
+                if status == 429:
+                    self.send_header("Retry-After", "0")
+                self.end_headers()
+                self.wfile.write(body)
+
+            def log_message(self, format: str, *args: object) -> None:
+                """Keep the test output quiet."""
+
+        return Handler
+
+    @staticmethod
+    def _backend(base_url: str) -> AccessionSearchBackend:
+        class LocalOpenAlex(OpenAlexClient):
+            def __init__(self, config: Config) -> None:
+                super().__init__(config)
+                self.base_url = base_url
+                self.max_retries = 1
+
+            async def __aenter__(self) -> Self:
+                entered = await super().__aenter__()
+                # If opencite stopped honoring base_url, these tests would
+                # quietly search live OpenAlex again (#246); fail instead.
+                assert self._client is not None
+                assert str(self._client.base_url).startswith(base_url)
+                return entered
+
+        class LocalBackend(AccessionSearchBackend):
+            _openalex_client_cls = LocalOpenAlex
+
+        return LocalBackend(max_results=0)
 
 
 def _args(
@@ -156,7 +196,8 @@ def _state(citations_dir: Path) -> dict[str, str]:
 
 class RunFindMentionsTests(TestCase):
     def setUp(self) -> None:
-        self.backend, self.searched = _serve(self)
+        self.openalex = _OpenAlexServer(self)
+        self.backend = self.openalex.backend
 
     def test_processes_valid_datasets_via_glob(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -164,7 +205,7 @@ class RunFindMentionsTests(TestCase):
             _seed(cdir, "ds002718")
             _seed(cdir, "nm000207")
             cli.run_find_mentions(_args(cdir), self.backend)
-            self.assertEqual(self.searched, ["ds002718", "nm000207"])
+            self.assertEqual(self.openalex.searched, ["ds002718", "nm000207"])
             # Processed datasets gain the searched_accessions marker.
             for did, acc in (("ds002718", "ds002718"), ("nm000207", "nm000207")):
                 data = json.loads((cdir / f"{did}_citations.json").read_text())
@@ -180,7 +221,7 @@ class RunFindMentionsTests(TestCase):
             cli.run_find_mentions(
                 _args(cdir, dataset_list_file=str(list_file)), self.backend
             )
-            self.assertEqual(self.searched, ["ds002718"])
+            self.assertEqual(self.openalex.searched, ["ds002718"])
             listed = json.loads((cdir / "ds002718_citations.json").read_text())
             self.assertIn("searched_accessions", listed["metadata"])
             unlisted = json.loads((cdir / "ds000247_citations.json").read_text())
@@ -197,7 +238,7 @@ class RunFindMentionsTests(TestCase):
                 _args(cdir, dataset_list_file=str(list_file)), self.backend
             )
             self.assertFalse((cdir / "ds999999_citations.json").exists())
-            self.assertEqual(self.searched, [])
+            self.assertEqual(self.openalex.searched, [])
 
     def test_skips_dataset_with_no_valid_accession(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -207,7 +248,7 @@ class RunFindMentionsTests(TestCase):
             data = json.loads((cdir / "experiment-1_citations.json").read_text())
             # Skipped before merge -> no marker written, no search made.
             self.assertNotIn("searched_accessions", data["metadata"])
-            self.assertEqual(self.searched, [])
+            self.assertEqual(self.openalex.searched, [])
 
     def test_all_writes_fail_exits_2(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -233,21 +274,18 @@ class RunFindMentionsTests(TestCase):
     def test_real_mention_advances_date_last_updated_on_disk(self) -> None:
         """End-to-end regression guard for issue #229.
 
-        The default server answers an empty page, so none of the other tests in
-        this file exercise a real content change through `run_find_mentions`
-        -> `merge_accession_mentions(..., when=...)` ->
-        `write_citation_json_if_changed`. Without this, a regression that
-        dropped the `when=` argument at the call site (find_mentions.py) would
-        pass every other test here.
+        A real content change must reach disk with a new `date_last_updated`.
+        The default reply is an empty page, so no other test here writes a
+        changed citation list through `run_find_mentions` ->
+        `merge_accession_mentions` -> `write_citation_json_if_changed`.
         """
-        backend, _ = _serve(
-            self,
-            lambda term: _page([_FOUND_WORK]) if term == "ds002718" else EMPTY,
+        self.openalex.reply = lambda term, _cursor: (
+            _page([_work("W1", "10.1/found")]) if term == "ds002718" else EMPTY
         )
         with tempfile.TemporaryDirectory() as tmp:
             cdir = Path(tmp) / "json_opencite"
             path = _seed(cdir, "ds002718")
-            cli.run_find_mentions(_args(cdir), backend)
+            cli.run_find_mentions(_args(cdir), self.backend)
             data = json.loads(path.read_text())
             self.assertEqual(data["num_citations"], 1)
             found = data["citation_details"][0]
@@ -256,6 +294,23 @@ class RunFindMentionsTests(TestCase):
             self.assertNotEqual(data["date_last_updated"], "2026-06-18T00:00:00+00:00")
             stamped = datetime.fromisoformat(data["date_last_updated"])
             self.assertGreater(stamped, datetime(2026, 6, 18, tzinfo=UTC))
+
+    def test_follows_the_cursor_across_pages(self) -> None:
+        pages = {
+            "*": _page([_work("W1", "10.1/one")], next_cursor="c2"),
+            "c2": _page([_work("W2", "10.1/two")]),
+        }
+        self.openalex.reply = lambda _term, cursor: pages[cursor]
+        with tempfile.TemporaryDirectory() as tmp:
+            cdir = Path(tmp) / "json_opencite"
+            path = _seed(cdir, "ds002718")
+            cli.run_find_mentions(_args(cdir), self.backend)
+            data = json.loads(path.read_text())
+            self.assertEqual(
+                [c["doi"] for c in data["citation_details"]],
+                ["10.1/one", "10.1/two"],
+            )
+            self.assertEqual(self.openalex.searched, ["ds002718", "ds002718"])
 
 
 class FreshnessGateTests(TestCase):
@@ -266,7 +321,8 @@ class FreshnessGateTests(TestCase):
     """
 
     def setUp(self) -> None:
-        self.backend, self.searched = _serve(self)
+        self.openalex = _OpenAlexServer(self)
+        self.backend = self.openalex.backend
 
     def test_state_file_written_and_gitignored_name(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -285,7 +341,7 @@ class FreshnessGateTests(TestCase):
 
             # Second run inside the window must not re-search or re-stamp.
             cli.run_find_mentions(_args(cdir, max_age_days=7), self.backend)
-            self.assertEqual(self.searched, ["ds002718"])
+            self.assertEqual(self.openalex.searched, ["ds002718"])
             self.assertEqual(_state(cdir), state)
 
     def test_stale_dataset_is_reprocessed(self) -> None:
@@ -295,7 +351,7 @@ class FreshnessGateTests(TestCase):
             stale = (datetime.now(UTC) - timedelta(days=30)).isoformat()
             (cdir / ".mention_state.json").write_text(json.dumps({"ds002718": stale}))
             cli.run_find_mentions(_args(cdir, max_age_days=7), self.backend)
-            self.assertEqual(self.searched, ["ds002718"])
+            self.assertEqual(self.openalex.searched, ["ds002718"])
             self.assertNotEqual(_state(cdir)["ds002718"], stale)
 
     def test_max_datasets_caps_the_run_and_rolls_over(self) -> None:
@@ -313,7 +369,9 @@ class FreshnessGateTests(TestCase):
             cli.run_find_mentions(args, self.backend)
             self.assertEqual(len(_state(cdir)), 5)
             # Each dataset was searched exactly once across the three runs.
-            self.assertCountEqual(self.searched, [f"ds00271{i}" for i in range(5)])
+            self.assertCountEqual(
+                self.openalex.searched, [f"ds00271{i}" for i in range(5)]
+            )
 
     def test_max_age_zero_disables_the_gate(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
@@ -323,7 +381,7 @@ class FreshnessGateTests(TestCase):
             first = _state(cdir)
             cli.run_find_mentions(_args(cdir, max_age_days=0), self.backend)
             # Gate off -> searched again -> stamp advances.
-            self.assertEqual(self.searched, ["ds002718", "ds002718"])
+            self.assertEqual(self.openalex.searched, ["ds002718", "ds002718"])
             self.assertNotEqual(first["ds002718"], _state(cdir)["ds002718"])
 
     def test_state_persists_when_the_search_raises(self) -> None:
@@ -331,15 +389,15 @@ class FreshnessGateTests(TestCase):
         made, or the next run redoes everything.
         """
         calls = itertools.count()
-        backend, _ = _serve(
-            self, lambda _term: EMPTY if next(calls) == 0 else WRONG_SHAPE
+        self.openalex.reply = lambda _term, _cursor: (
+            EMPTY if next(calls) == 0 else NOT_A_PAGE
         )
         with tempfile.TemporaryDirectory() as tmp:
             cdir = Path(tmp) / "json_opencite"
             for i in range(3):
                 _seed(cdir, f"ds00271{i}")
-            with self.assertRaises(AttributeError):
-                cli.run_find_mentions(_args(cdir, max_age_days=7), backend)
+            with self.assertRaisesRegex(TypeError, "not a results page"):
+                cli.run_find_mentions(_args(cdir, max_age_days=7), self.backend)
             self.assertEqual(list(_state(cdir)), ["ds002710"])  # the one that succeeded
 
     def test_write_failure_does_not_stamp_and_retries_next_run(self) -> None:
@@ -394,7 +452,7 @@ class FreshnessGateTests(TestCase):
             # And is therefore filtered out as fresh on the next run.
             cli.run_find_mentions(_args(cdir, max_age_days=7), self.backend)
             self.assertEqual(_state(cdir), state)
-            self.assertEqual(self.searched, [])
+            self.assertEqual(self.openalex.searched, [])
 
 
 class DegradedSearchTests(TestCase):
@@ -405,51 +463,56 @@ class DegradedSearchTests(TestCase):
     Stamping on a degraded search would hide the dataset for a full
     --max-age-days window with no citation coverage and no error anywhere.
     The server answers 429: exactly what an exhausted OpenAlex budget produces
-    once opencite's retries are used up.
+    once opencite's attempts are used up.
     """
 
+    SEARCH_LOGGER = "dataset_citations.backends.accession_search"
+
     def setUp(self) -> None:
-        self.limited = True
-        self.backend, self.searched = _serve(
-            self, lambda _term: RATE_LIMITED if self.limited else EMPTY
-        )
+        self.openalex = _OpenAlexServer(self)
+        self.openalex.reply = lambda _term, _cursor: RATE_LIMITED
+        self.backend = self.openalex.backend
 
     def test_degraded_search_is_not_stamped(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             cdir = Path(tmp) / "json_opencite"
             _seed(cdir, "ds002718")
-            with self.assertLogs("dataset_citations", "WARNING"):
+            with self.assertLogs(self.SEARCH_LOGGER, "WARNING") as logs:
                 cli.run_find_mentions(_args(cdir, max_age_days=7), self.backend)
-            self.assertEqual(self.searched, ["ds002718"])
+            self.assertIn("accession search failed for ds002718", logs.output[0])
+            self.assertEqual(self.openalex.searched, ["ds002718"])
             self.assertEqual(_state(cdir), {})
 
     def test_degraded_dataset_is_retried_next_run(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             cdir = Path(tmp) / "json_opencite"
             _seed(cdir, "ds002718")
-            with self.assertLogs("dataset_citations", "WARNING"):
+            with self.assertLogs(self.SEARCH_LOGGER, "WARNING") as logs:
                 cli.run_find_mentions(_args(cdir, max_age_days=7), self.backend)
+            self.assertIn("accession search failed for ds002718", logs.output[0])
             # OpenAlex recovers; the dataset is still stale so it gets searched.
-            self.limited = False
+            self.openalex.reply = lambda _term, _cursor: EMPTY
             cli.run_find_mentions(_args(cdir, max_age_days=7), self.backend)
-            self.assertEqual(self.searched, ["ds002718", "ds002718"])
+            self.assertEqual(self.openalex.searched, ["ds002718", "ds002718"])
             self.assertIn("ds002718", _state(cdir))
 
     def test_partial_term_failure_also_withholds_the_stamp(self) -> None:
         # An on-* dataset is searched under its own id and its OpenNeuro
         # source id; only the second is rate limited.
-        backend, searched = _serve(
-            self, lambda term: RATE_LIMITED if term == "ds005964" else EMPTY
+        self.openalex.reply = lambda term, _cursor: (
+            RATE_LIMITED if term == "ds005964" else EMPTY
         )
         catalog = [{"dataset_id": "on005964", "source_id": "ds005964"}]
         with tempfile.TemporaryDirectory() as tmp:
             cdir = Path(tmp) / "json_opencite"
             _seed(cdir, "on005964")
-            with self.assertLogs("dataset_citations", "WARNING"):
+            with self.assertLogs(self.SEARCH_LOGGER, "WARNING") as logs:
                 cli.run_find_mentions(
-                    _args(cdir, max_age_days=7, catalog=catalog), backend
+                    _args(cdir, max_age_days=7, catalog=catalog), self.backend
                 )
-            self.assertEqual(searched, ["on005964", "ds005964"])
+            self.assertEqual(len(logs.output), 1)
+            self.assertIn("accession search failed for ds005964", logs.output[0])
+            self.assertEqual(self.openalex.searched, ["on005964", "ds005964"])
             self.assertNotIn("on005964", _state(cdir))
 
 
@@ -458,6 +521,8 @@ class DegradedSearchTests(TestCase):
     "live OpenAlex call; set RUN_INTEGRATION_TESTS=1 to enable",
 )
 class LiveFindMentionsTests(TestCase):
+    """Not in any CI job; run by hand before changing the search request."""
+
     def test_live_search_is_merged_and_stamped(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             cdir = Path(tmp) / "json_opencite"
