@@ -18,6 +18,7 @@ from pathlib import Path
 from unittest import TestCase
 
 from dataset_citations.cli import update as cli_update
+from dataset_citations.sources.doi import is_own_dataset_doi
 
 
 def _make_args(
@@ -65,6 +66,7 @@ def _make_args(
         catalog_cache_max_age=3600,
         max_age_days=max_age_days,
         github_token=github_token,
+        judgments_dir=os.path.join(out_dir, "anchor_judgments"),
     )
 
 
@@ -873,3 +875,142 @@ class GithubTokenPassthroughTests(TestCase):
     def test_absent_token_passes_none(self) -> None:
         seen = self._capture_token({})
         self.assertEqual(seen, [None])
+
+
+class ConceptDoiMapTests(TestCase):
+    """A3: the catalog map carries the concept DOI, the one anchor the gate
+    keeps as the dataset itself; a versioned DOI would gate as unjudged."""
+
+    def _map(self, rows: list[dict]) -> dict[str, str]:
+        with tempfile.TemporaryDirectory() as tmp:
+            cache = Path(tmp) / "catalog.json"
+            cache.write_text(json.dumps(rows))
+            return cli_update._load_catalog_doi_map(cache, 3600)
+
+    def _row(self, dataset_id: str, doi: str | None, concept: str | None) -> dict:
+        return {
+            "dataset_id": dataset_id,
+            "doi": doi,
+            "concept_doi": concept,
+            "source": "nemar",
+            "source_id": None,
+            "github_repo": f"nemarDatasets/{dataset_id}",
+            "modalities": "eeg",
+            "name": None,
+            "visibility": "public",
+        }
+
+    def test_concept_doi_not_the_versioned_doi(self) -> None:
+        mapping = self._map(
+            [
+                self._row(
+                    "nm000275",
+                    "10.82901/nemar.nm000275.v1.0.0",
+                    "10.82901/NEMAR.nm000275",
+                ),
+                self._row("nm000276", "10.82901/nemar.nm000276.v1.0.0", None),
+            ]
+        )
+        self.assertEqual(mapping, {"nm000275": "10.82901/nemar.nm000275"})
+        self.assertTrue(is_own_dataset_doi(mapping["nm000275"], "nm000275"))
+
+
+class AnchorsAwaitingFetchTests(TestCase):
+    """#241 review: a file whose anchor was unjudged (or judged otherwise) when
+    it was fetched is refetched as soon as the judge keeps that anchor."""
+
+    def setUp(self) -> None:
+        self.root = Path(self.enterContext(tempfile.TemporaryDirectory()))
+        self.path = self.root / "nm000275_citations.json"
+        self.path.write_text(
+            json.dumps(
+                {
+                    "dataset_id": "nm000275",
+                    "metadata": {
+                        "fetch_status": "no_data_paper_anchor",
+                        "anchors": [
+                            {
+                                "identifier": "10.1038/s41597-019-0027-4",
+                                "identifier_type": "doi",
+                                "source_relation": "IsDescribedBy",
+                                "kept": False,
+                                "kept_reason": "unjudged",
+                            },
+                            {
+                                "identifier": "10.82901/nemar.nm000275",
+                                "identifier_type": "doi",
+                                "source_relation": "References",
+                                "kept": True,
+                                "kept_reason": "own_doi",
+                            },
+                        ],
+                    },
+                    "citation_details": [],
+                }
+            )
+        )
+        self.judgments = self.root / "anchor_judgments"
+        self.judgments.mkdir()
+
+    def _sidecar(self, classification: str, model: str = "claude-sonnet-5-5"):
+        (self.judgments / "nm000275.json").write_text(
+            json.dumps(
+                {
+                    "dataset_id": "nm000275",
+                    "judgment_model": model,
+                    "judgments": [
+                        {
+                            "anchor_identifier": "10.1038/s41597-019-0027-4",
+                            "anchor_identifier_type": "doi",
+                            "source_relation": "IsDescribedBy",
+                            "classification": classification,
+                            "paper_title": "Multi-channel EEG recordings",
+                            "error": None,
+                        }
+                    ],
+                }
+            )
+        )
+
+    def _awaiting(self) -> list[str]:
+        return cli_update._anchors_awaiting_fetch(
+            str(self.path), "nm000275", str(self.judgments), "claude-sonnet-5-5"
+        )
+
+    def test_a_new_data_paper_verdict_triggers_a_refetch(self) -> None:
+        self._sidecar("data_paper")
+        self.assertEqual(self._awaiting(), ["10.1038/s41597-019-0027-4"])
+
+    def test_nothing_new_means_no_refetch(self) -> None:
+        self.assertEqual(self._awaiting(), [])
+        self._sidecar("related_work")
+        self.assertEqual(self._awaiting(), [])
+
+    def test_a_retired_judge_does_not_trigger_one(self) -> None:
+        self._sidecar("data_paper", model="gemma4:e4b")
+        with self.assertLogs("dataset_citations", "WARNING"):
+            self.assertEqual(self._awaiting(), [])
+
+
+class FailureStubTests(TestCase):
+    """A failed fetch never replaces a file that has citations with zeros."""
+
+    def _stub(self, status: str) -> dict:
+        return {"num_citations": 0, "metadata": {"fetch_status": status}}
+
+    def test_failure_stubs_keep_the_existing_file(self) -> None:
+        existing = {"num_citations": 12, "metadata": {"fetch_status": "success"}}
+        for status in ("rate_limit", "network", "judgment_unreadable"):
+            self.assertTrue(
+                cli_update._keeps_existing_file(self._stub(status), existing), status
+            )
+
+    def test_outcomes_and_first_writes_are_written(self) -> None:
+        existing = {"num_citations": 12, "metadata": {"fetch_status": "success"}}
+        for status in ("success", "no_data_paper_anchor", "not_found"):
+            self.assertFalse(
+                cli_update._keeps_existing_file(self._stub(status), existing), status
+            )
+        self.assertFalse(
+            cli_update._keeps_existing_file(self._stub("rate_limit"), None)
+        )
