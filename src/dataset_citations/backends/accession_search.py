@@ -179,6 +179,10 @@ def dedup_citations(hit_lists: list[list[dict[str, Any]]]) -> list[dict[str, Any
 class AccessionSearchBackend:
     """Sync facade: search OpenAlex full text for dataset accession mentions."""
 
+    # The OpenAlex client class `search` opens; a test points a subclass at a
+    # local HTTP server to exercise the real paging and error handling.
+    _openalex_client_cls: type[OpenAlexClient] = OpenAlexClient
+
     def __init__(self, config: Config | None = None, *, max_results: int = 200) -> None:
         self._config = config or Config.from_env()
         self._max_results = max_results
@@ -206,7 +210,7 @@ class AccessionSearchBackend:
     ) -> tuple[list[dict[str, Any]], list[str]]:
         hit_lists: list[list[dict[str, Any]]] = []
         failed: list[str] = []
-        async with OpenAlexClient(self._config) as client:
+        async with self._openalex_client_cls(self._config) as client:
             assert isinstance(client, OpenAlexClient), (  # noqa: S101 - upstream contract guard
                 "opencite changed OpenAlexClient.__aenter__ return type; "
                 f"got {type(client).__name__}"
