@@ -1,7 +1,7 @@
 """Tests for `dataset_citations.quality.anchor_judgment`.
 
-No mocks. The LLM and opencite layers are replaced with real subclasses that
-return hand-built records (the pattern used by
+Test doubles at the network boundary only: the LLM and opencite layers are
+replaced with real subclasses that return hand-built records (the pattern used by
 `tests/test_quality_llm_client.py::_RecordedClient` and
 `tests/test_core_opencite_pipeline.py::_StubBackend`). The fake judge answers
 in the real `claude -p --output-format json` shape, recorded on hallu.
@@ -16,6 +16,7 @@ import json
 import os
 import tempfile
 import threading
+import time
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from unittest import TestCase, skipUnless
@@ -30,7 +31,10 @@ from dataset_citations.quality.anchor_judgment import (
     save_judgment_sidecar,
 )
 from dataset_citations.quality.dataset_metadata import DatasetMetadataRetriever
-from dataset_citations.quality.llm_client import ClaudeCliJudgmentClient
+from dataset_citations.quality.llm_client import (
+    PROMPT_VERSION,
+    ClaudeCliJudgmentClient,
+)
 from dataset_citations.sources.models import (
     Author,
     CitingWork,
@@ -46,10 +50,12 @@ _RECORDED_OK = json.loads(
 )
 
 
-def _cli_output(classification: str, reason: str = "ok") -> str:
-    """The recorded CLI success output carrying the given verdict."""
+def _cli_output(classification: str, model: str, reason: str = "ok") -> str:
+    """The recorded CLI success output carrying the given verdict, re-keyed so
+    its `modelUsage` names `model` (the client checks the serving model)."""
     payload = dict(_RECORDED_OK)
     payload["structured_output"] = {"classification": classification, "reason": reason}
+    payload["modelUsage"] = {model: next(iter(_RECORDED_OK["modelUsage"].values()))}
     return json.dumps(payload)
 
 
@@ -79,8 +85,43 @@ class _FakeClient(ClaudeCliJudgmentClient):
         with self._lock:
             self.calls.append(doi or "?")
         return _cli_output(
-            self._verdicts.get(doi, self._default) if doi else self._default
+            self._verdicts.get(doi, self._default) if doi else self._default,
+            self.model,
         )
+
+
+class _BarrierClient(_FakeClient):
+    """Every call waits on a shared barrier, so the calls must overlap."""
+
+    def __init__(self, barrier: threading.Barrier) -> None:
+        super().__init__("data_paper")
+        self._barrier = barrier
+
+    def _run_cli(self, prompt: str) -> str:
+        self._barrier.wait()
+        return super()._run_cli(prompt)
+
+
+class _SlowClient(_FakeClient):
+    """Sleeps per anchor (default 0.05 s) and records peak concurrency."""
+
+    def __init__(self, delays: dict[str, float], verdicts=None) -> None:
+        super().__init__("data_paper", verdicts=verdicts)
+        self._delays = delays
+        self._in_flight = 0
+        self.peak = 0
+
+    def _run_cli(self, prompt: str) -> str:
+        doi = next((d for d in self._delays if f"DOI: {d}" in prompt), None)
+        with self._lock:
+            self._in_flight += 1
+            self.peak = max(self.peak, self._in_flight)
+        try:
+            time.sleep(self._delays.get(doi, 0.05) if doi else 0.05)
+            return super()._run_cli(prompt)
+        finally:
+            with self._lock:
+                self._in_flight -= 1
 
 
 class _NeverCalledClient(_FakeClient):
@@ -124,6 +165,19 @@ class _StubMetadataRetriever:
             "dataset_description": {"Name": self._text},
             "readme_content": None,
             "github_info": {"description": None},
+        }
+
+
+class _EmptyMetadataRetriever(_StubMetadataRetriever):
+    """What `get_dataset_metadata` returns when GitHub rate-limits it."""
+
+    def get_dataset_metadata(self, dataset_id: str) -> dict:
+        return {
+            "dataset_id": dataset_id,
+            "dataset_description": None,
+            "readme_content": None,
+            "github_info": {"description": None},
+            "retrieval_status": {"repository": "error: 403"},
         }
 
 
@@ -179,25 +233,31 @@ def _judge(
     dataset_id: str = "nm000104",
     previous: dict | None = None,
     max_workers: int = 1,
+    retriever=None,
+    datasets_dir: Path | None = None,
 ) -> DatasetJudgmentRun | None:
     source = _StubSource(refs_outcome)
     return judge_dataset_anchors(
         dataset_id,
         nemar_source=source,  # type: ignore[arg-type]
         bids_source=source,  # type: ignore[arg-type]
-        metadata_retriever=_StubMetadataRetriever(),  # type: ignore[arg-type]
+        metadata_retriever=retriever or _StubMetadataRetriever(),  # type: ignore[arg-type]
         backend=backend,
         client=client,
         previous=previous,
         max_workers=max_workers,
+        datasets_dir=datasets_dir,
     )
 
 
-def _previous(model: str, *records: JudgmentRecord) -> dict:
+def _previous(
+    model: str, *records: JudgmentRecord, prompt_version: int = PROMPT_VERSION
+) -> dict:
     return {
         "dataset_id": "nm000104",
         "judged_at": "2026-09-01T00:00:00+00:00",
         "judgment_model": model,
+        "prompt_version": prompt_version,
         "judgments": [r.to_dict() for r in records],
     }
 
@@ -277,18 +337,95 @@ class JudgeDatasetAnchorsTests(TestCase):
         self.assertEqual(run.payload["judgments"], [])
 
     def test_paper_lookup_failure_records_error(self) -> None:
-        ref = _ref("10.1234/missing")
+        """A DOI opencite has no record of is unresolvable (retried on a
+        back-off); any other lookup error is transient (retried nightly)."""
+        for reason, counts in (
+            ("not_found", (0, 0, 0, 1)),
+            ("network", (0, 0, 1, 0)),
+        ):
+            with self.subTest(reason):
+                ref = _ref("10.1234/missing")
+                run = _judge(
+                    FetchSuccess([ref]),
+                    _StubBackend({ref.identifier: FetchError(reason, "openalex")}),  # type: ignore[arg-type]
+                    _NeverCalledClient(),
+                )
+                assert run is not None
+                self.assertEqual(
+                    (run.judged, run.failed, run.lookup_failed, run.unresolvable),
+                    counts,
+                )
+                judgment = run.payload["judgments"][0]
+                self.assertTrue(
+                    judgment["error"].startswith(f"paper_lookup_failed:{reason}:")
+                )
+                self.assertIsNone(judgment["paper_title"])
+                self.assertEqual(judgment["classification"], "")
+
+    def test_duplicate_anchor_is_judged_once(self) -> None:
+        """A DOI listed under two relations is one anchor (first wins), as in
+        the pipeline's merge; it used to be re-judged every night."""
+        first, second = _ref("10.1234/A", "IsDescribedBy"), _ref("10.1234/a")
+        client = _FakeClient("data_paper")
+        run = _judge(FetchSuccess([first, second]), _papers(first), client)
+        assert run is not None
+        self.assertEqual(len(client.calls), 1)
+        [judgment] = run.payload["judgments"]
+        self.assertEqual(judgment["source_relation"], "IsDescribedBy")
+
+    def test_no_description_means_no_blind_verdicts(self) -> None:
+        """A rate-limited GitHub read returns an empty shell; judging against
+        it would bias every verdict toward related_work, so it is an error."""
+        ref = _ref("10.1234/A")
+        with self.assertLogs("dataset_citations.quality.anchor_judgment", "WARNING"):
+            run = _judge(
+                FetchSuccess([ref]),
+                _papers(ref),
+                _NeverCalledClient(),
+                retriever=_EmptyMetadataRetriever(),
+            )
+        assert run is not None
+        self.assertEqual(run.lookup_failed, 1)
+        self.assertEqual(
+            run.payload["judgments"][0]["error"], "dataset_metadata_unavailable"
+        )
+
+    def test_cached_dataset_metadata_is_preferred(self) -> None:
+        ref = _ref("10.1234/A")
+        with tempfile.TemporaryDirectory() as tmp:
+            (Path(tmp) / "nm000104_datasets.json").write_text(
+                json.dumps({"dataset_description": {"Name": "Cached name"}}), "utf-8"
+            )
+            client = _FakeClient("data_paper")
+            run = _judge(
+                FetchSuccess([ref]),
+                _papers(ref),
+                client,
+                retriever=_EmptyMetadataRetriever(),
+                datasets_dir=Path(tmp),
+            )
+        assert run is not None
+        self.assertEqual((run.judged, run.lookup_failed), (1, 0))
+
+    def test_an_empty_anchor_read_keeps_trusted_judgments(self) -> None:
+        previous = _previous("test-model", _record("10.1234/A", "data_paper"))
+        with self.assertLogs("dataset_citations.quality.anchor_judgment", "WARNING"):
+            run = _judge(
+                FetchSuccess([]),
+                _StubBackend({}),
+                _NeverCalledClient(),
+                previous=previous,
+            )
+        assert run is not None
+        self.assertEqual(run.payload, previous)
+
+    def test_empty_sidecar_keeps_its_timestamp(self) -> None:
+        previous = _previous("test-model")
         run = _judge(
-            FetchSuccess([ref]),
-            _StubBackend({ref.identifier: FetchError("not_found", "openalex 404")}),
-            _NeverCalledClient(),
+            FetchSuccess([]), _StubBackend({}), _NeverCalledClient(), previous=previous
         )
         assert run is not None
-        self.assertEqual((run.judged, run.failed, run.lookup_failed), (0, 0, 1))
-        judgment = run.payload["judgments"][0]
-        self.assertIn("paper_lookup_failed", judgment["error"])
-        self.assertIsNone(judgment["paper_title"])
-        self.assertEqual(judgment["classification"], "")
+        self.assertEqual(run.payload["judged_at"], previous["judged_at"])
 
     def test_llm_judgment_failure_records_error(self) -> None:
         """An out-of-taxonomy answer records `error` but keeps the paper bib
@@ -325,6 +462,43 @@ class JudgeDatasetAnchorsTests(TestCase):
             [j["classification"] for j in run.payload["judgments"]],
             ["methodology", "methodology", "data_paper", "methodology", "methodology"],
         )
+
+
+class ConcurrencyTests(TestCase):
+    """B6: `max_workers` is honored and results land in anchor order."""
+
+    def test_workers_run_judgments_in_parallel(self) -> None:
+        refs = [_ref(f"10.1234/{c}") for c in "AB"]
+        client = _BarrierClient(threading.Barrier(2, timeout=5))
+        run = _judge(FetchSuccess(refs), _papers(*refs), client, max_workers=4)
+        assert run is not None
+        # Both calls had to be in flight at once to pass the barrier.
+        self.assertEqual((run.judged, run.failed), (2, 0))
+
+    def test_one_worker_runs_one_judgment_at_a_time(self) -> None:
+        refs = [_ref(f"10.1234/{c}") for c in "ABC"]
+        client = _SlowClient({})
+        run = _judge(FetchSuccess(refs), _papers(*refs), client, max_workers=1)
+        assert run is not None
+        self.assertEqual(client.peak, 1)
+
+    def test_order_is_anchor_order_whatever_finishes_first(self) -> None:
+        refs = [_ref(f"10.1234/{c}") for c in "ABCD"]
+        # The first anchor is the slowest, so it finishes last.
+        client = _SlowClient(
+            {refs[0].identifier: 0.3},
+            verdicts={refs[1].identifier: "garbage_label"},
+        )
+        run = _judge(FetchSuccess(refs), _papers(*refs), client, max_workers=4)
+        assert run is not None
+        self.assertGreater(client.peak, 1)
+        self.assertEqual(
+            [j["anchor_identifier"] for j in run.payload["judgments"]],
+            [r.identifier for r in refs],
+        )
+        # One bad answer among several: the rest are still recorded.
+        self.assertEqual((run.judged, run.failed), (3, 1))
+        self.assertIn("llm_judgment_failed", run.payload["judgments"][1]["error"])
 
 
 class ReuseAndCarryForwardTests(TestCase):
@@ -395,6 +569,66 @@ class ReuseAndCarryForwardTests(TestCase):
         judgment = run.payload["judgments"][0]
         self.assertIsNone(judgment["error"])
         self.assertEqual(judgment["classification"], "data_paper")
+
+    def test_failed_lookup_keeps_the_previous_verdict_and_its_relation(self) -> None:
+        """B5: a relabeled anchor whose paper lookup fails keeps its old verdict
+        under the OLD relation, so the next run still sees it as changed and
+        retries it."""
+        ref = _ref("10.1234/A", "IsDescribedBy")
+        previous = _previous(
+            "test-model", _record(ref.identifier, "data_paper", relation="References")
+        )
+        run = _judge(
+            FetchSuccess([ref]),
+            _StubBackend({ref.identifier: FetchError("network", "timeout")}),
+            _NeverCalledClient(),
+            previous=previous,
+        )
+        assert run is not None
+        self.assertEqual(
+            (run.judged, run.failed, run.lookup_failed, run.reused), (0, 0, 1, 0)
+        )
+        [judgment] = run.payload["judgments"]
+        self.assertIsNone(judgment["error"])
+        self.assertEqual(judgment["classification"], "data_paper")
+        self.assertEqual(judgment["source_relation"], "References")
+
+    def test_an_unchanged_error_keeps_its_record(self) -> None:
+        """A DOI that stays unresolvable does not rewrite its sidecar nightly."""
+        ref = _ref("10.1234/missing")
+        error = JudgmentRecord(
+            anchor_identifier=ref.identifier,
+            anchor_identifier_type="doi",
+            source_relation="References",
+            classification="",
+            reason="",
+            paper_title=None,
+            paper_year=None,
+            paper_venue=None,
+            judged_at="2026-09-01T00:00:00+00:00",
+            error="paper_lookup_failed:not_found:openalex 404",
+        )
+        run = _judge(
+            FetchSuccess([ref]),
+            _StubBackend({ref.identifier: FetchError("not_found", "openalex 404")}),
+            _NeverCalledClient(),
+            previous=_previous("test-model", error),
+        )
+        assert run is not None
+        self.assertEqual(run.payload["judgments"], [error.to_dict()])
+
+    def test_an_older_prompts_verdicts_are_not_reused(self) -> None:
+        ref = _ref("10.1234/A")
+        previous = _previous(
+            "test-model",
+            _record(ref.identifier, "data_paper"),
+            prompt_version=PROMPT_VERSION - 1,
+        )
+        client = _FakeClient("related_work")
+        run = _judge(FetchSuccess([ref]), _papers(ref), client, previous=previous)
+        assert run is not None
+        self.assertEqual((run.judged, run.reused), (1, 0))
+        self.assertEqual(run.payload["prompt_version"], PROMPT_VERSION)
 
     def test_failed_judge_does_not_resurrect_another_models_verdict(self) -> None:
         ref = _ref("10.1234/A")
@@ -492,6 +726,19 @@ class IsJudgmentFreshTests(TestCase):
             "judged_at": datetime.now(UTC).isoformat(),
         }
         self.assertTrue(is_judgment_fresh(payload, max_age_days=7))
+
+    def test_window_edges(self) -> None:
+        # Just past the window is stale, just inside is fresh. (The exact
+        # boundary is strict, like run_state.checked_within since #80, but the
+        # function reads the clock, so it is not pinned to the microsecond.)
+        edge = datetime.now(UTC) - timedelta(days=7, seconds=1)
+        self.assertFalse(
+            is_judgment_fresh({"judged_at": edge.isoformat()}, max_age_days=7)
+        )
+        inside = datetime.now(UTC) - timedelta(days=7) + timedelta(minutes=1)
+        self.assertTrue(
+            is_judgment_fresh({"judged_at": inside.isoformat()}, max_age_days=7)
+        )
 
     def test_stale_payload_returns_false(self) -> None:
         stale = datetime.now(UTC) - timedelta(days=30)

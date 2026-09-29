@@ -10,6 +10,7 @@ Sidecar schema (locked; phase 3 reads this):
     "dataset_id": "<id>",
     "judged_at": "<ISO-8601 UTC, most recent judgment in this file>",
     "judgment_model": "<judge model id, e.g. claude-sonnet-5-5>",
+    "prompt_version": 2,
     "judgments": [
       {
         "anchor_identifier": "10.xxxx/yyyy",
@@ -57,9 +58,11 @@ from dataset_citations.quality.dataset_metadata import (
     DatasetMetadataRetriever,
     _org_for_dataset,
     extract_dataset_text,
+    load_dataset_metadata,
 )
 from dataset_citations.quality.llm_client import (
     ALLOWED_CLASSIFICATIONS,
+    PROMPT_VERSION,
     ClaudeCliJudgmentClient,
     LlmJudgmentError,
     build_anchor_prompt,
@@ -137,20 +140,35 @@ def _utcnow_iso() -> str:
     return datetime.now(UTC).isoformat()
 
 
+# A lookup error that will not clear on tomorrow's retry: opencite has no
+# record of the anchor DOI (unindexed, or a typo such as `10.38119/openneuro.*`).
+# The judge CLI retries these on a back-off instead of nightly, and they never
+# count toward its judge-health exit code.
+PERMANENT_LOOKUP_ERROR_PREFIX = "paper_lookup_failed:not_found:"
+# The dataset's description and README could not be read (a rate-limited
+# GitHub call returns an empty shell). Judging without them would bias every
+# verdict toward related_work and then reuse that verdict forever, so the
+# anchors are recorded as errored and retried instead.
+METADATA_UNAVAILABLE_ERROR = "dataset_metadata_unavailable"
+
+
 @dataclass(frozen=True, slots=True)
 class DatasetJudgmentRun:
     """Outcome of judging one dataset.
 
     `payload` is the sidecar dict to write. `judged` / `failed` count the LLM
-    calls made in this run, `lookup_failed` the anchors opencite could not
-    resolve (no call made), and `reused` the anchors whose previous same-model
-    judgment was kept without a call.
+    calls made in this run. `lookup_failed` counts anchors that could not be
+    judged for a transient reason (an opencite error other than not_found, or
+    unreadable dataset metadata); `unresolvable` counts anchors opencite has no
+    record of; `reused` counts anchors whose previous verdict was kept without
+    a call.
     """
 
     payload: dict[str, Any]
     judged: int
     failed: int
     lookup_failed: int
+    unresolvable: int
     reused: int
 
 
@@ -190,35 +208,104 @@ _RECORD_FIELDS = (
 )
 
 
-def _reusable_judgments(
+def _previous_records(
     previous: dict[str, Any] | None, model: str
 ) -> dict[str, JudgmentRecord]:
-    """Successful judgments from the previous sidecar made by `model`.
+    """Records from the previous sidecar that this run may build on, by anchor.
 
-    Judgments by any other model are never reused: switching the judge (gemma
-    to Claude, issue #241) must re-judge every anchor rather than let the old
-    model's verdicts keep counting.
+    Only a sidecar written by `model` under the current `PROMPT_VERSION`
+    counts: switching the judge (Gemma to Claude, issue #241) or revising the
+    prompt must re-judge every anchor rather than let old verdicts keep
+    counting. Both successes and errors are returned; the caller reuses a
+    success and uses an unchanged error to avoid rewriting it every night.
     """
-    if not previous or previous.get("judgment_model") != model:
+    if (
+        not previous
+        or previous.get("judgment_model") != model
+        or previous.get("prompt_version") != PROMPT_VERSION
+    ):
         return {}
     out: dict[str, JudgmentRecord] = {}
     for entry in previous.get("judgments") or []:
-        if not isinstance(entry, dict) or entry.get("error"):
+        if not isinstance(entry, dict):
             continue
-        if entry.get("classification") not in ALLOWED_CLASSIFICATIONS:
+        if not entry.get("error") and (
+            entry.get("classification") not in ALLOWED_CLASSIFICATIONS
+        ):
             continue
         identifier = entry.get("anchor_identifier")
         identifier_type = entry.get("anchor_identifier_type")
         if not isinstance(identifier, str) or not isinstance(identifier_type, str):
             continue
         key = canonical_anchor_key(identifier, identifier_type)
-        if key is None:
+        if key is None or not isinstance(entry.get("judged_at"), str):
             continue
         try:
-            out[key] = JudgmentRecord(**{f: entry.get(f) for f in _RECORD_FIELDS})
+            out.setdefault(
+                key, JudgmentRecord(**{f: entry.get(f) for f in _RECORD_FIELDS})
+            )
         except TypeError:
             continue
     return out
+
+
+def _unique_doi_refs(refs: list[DoiReference]) -> list[DoiReference]:
+    """DOI anchors, one per identifier (first wins, like the pipeline's merge).
+
+    A DOI listed under two relations would otherwise be judged twice, and the
+    copy whose relation did not match the reused record would be re-judged
+    every night.
+    """
+    seen: set[str] = set()
+    out: list[DoiReference] = []
+    for ref in refs:
+        if ref.identifier_type != "doi":
+            continue
+        key = canonical_anchor_key(ref.identifier, "doi")
+        if key is None or key in seen:
+            continue
+        seen.add(key)
+        out.append(ref)
+    return out
+
+
+def _usable_metadata(metadata: Any) -> bool:
+    """True when the metadata carries a dataset name or a README to judge by."""
+    if not isinstance(metadata, dict):
+        return False
+    description = metadata.get("dataset_description")
+    name = description.get("Name") if isinstance(description, dict) else None
+    readme = metadata.get("readme_content")
+    return bool(
+        (isinstance(name, str) and name.strip())
+        or (isinstance(readme, str) and readme.strip())
+    )
+
+
+def _dataset_metadata(
+    dataset_id: str,
+    retriever: DatasetMetadataRetriever,
+    datasets_dir: Path | str | None,
+) -> dict[str, Any] | None:
+    """The dataset's description and README, or None when neither is readable.
+
+    Prefers the copy `retrieve-metadata` cached in `datasets_dir` earlier in the
+    same run (no GitHub call, issue #95), and falls back to a live fetch.
+    """
+    if datasets_dir is not None:
+        path = Path(datasets_dir) / f"{dataset_id}_datasets.json"
+        if path.exists():
+            try:
+                cached = load_dataset_metadata(str(path))
+            except (OSError, ValueError) as exc:
+                logger.warning(
+                    "%s: unreadable cached metadata %s: %s", dataset_id, path, exc
+                )
+            else:
+                if _usable_metadata(cached):
+                    return cached
+    fetched = retriever.get_dataset_metadata(dataset_id)
+    return fetched if _usable_metadata(fetched) else None
 
 
 def judge_dataset_anchors(
@@ -231,21 +318,24 @@ def judge_dataset_anchors(
     client: ClaudeCliJudgmentClient,
     previous: dict[str, Any] | None = None,
     max_workers: int = 1,
+    datasets_dir: Path | str | None = None,
 ) -> DatasetJudgmentRun | None:
     """Judge one dataset's DOI anchors; return the run, or None on source failure.
 
     None means "do not touch the sidecar": when the anchor source cannot be
     read (rate limit, outage) there is nothing to judge, and overwriting the
     existing sidecar with an empty one would silently discard good judgments
-    (301 datasets lost theirs this way on 2026-09-26, issue #241).
+    (issue #241).
 
     `previous` is the sidecar currently on disk. An anchor whose previous
-    judgment is a success by the same model under the same `source_relation`
-    is reused without a call. When a new call fails, a previous same-model
-    success for that anchor is kept instead of the error, so a flaky night
-    never downgrades an anchor that was already judged. Paper lookups run
-    sequentially (opencite shares one rate limiter per process); the LLM calls
-    run on up to `max_workers` threads.
+    verdict (same model, same prompt version) was made under the same
+    `source_relation` is reused without a call. When an anchor cannot be judged
+    now, its previous verdict is kept instead of an error, so a flaky night
+    never downgrades an anchor that was already judged; an unchanged error
+    keeps its old record so the sidecar does not churn. Anchors are not judged
+    at all when the dataset's description and README are unavailable. Paper
+    lookups run sequentially (opencite shares one rate limiter per process);
+    the LLM calls run on up to `max_workers` threads.
     """
     source = _pick_source(
         dataset_id, nemar_source=nemar_source, bids_source=bids_source
@@ -260,54 +350,81 @@ def judge_dataset_anchors(
         )
         return None
     assert isinstance(refs_result, FetchSuccess)  # noqa: S101 - upstream contract guard
-    refs: list[DoiReference] = [
-        r for r in refs_result.value if r.identifier_type == "doi"
-    ]
-    if not refs:
-        logger.info("%s: no DOI anchors; writing empty judgments sidecar", dataset_id)
+    refs = _unique_doi_refs(refs_result.value)
+    prior = _previous_records(previous, client.model)
+    if not refs and previous and prior:
+        # A stale or partial metadata read can list no anchors for a moment.
+        # Verdicts for anchors that are not listed are never consulted by the
+        # gate, so keeping them costs nothing, while dropping them would force
+        # a full re-judge when the anchors reappear.
+        logger.warning(
+            "%s: the source lists no DOI anchors but the sidecar holds %d "
+            "trusted judgment(s); keeping them",
+            dataset_id,
+            len(prior),
+        )
         return DatasetJudgmentRun(
-            payload={
-                "dataset_id": dataset_id,
-                "judged_at": _utcnow_iso(),
-                "judgment_model": client.model,
-                "judgments": [],
-            },
+            payload=previous,
             judged=0,
             failed=0,
             lookup_failed=0,
-            reused=0,
+            unresolvable=0,
+            reused=len(prior),
         )
 
-    reusable = _reusable_judgments(previous, client.model)
     records: list[JudgmentRecord | None] = [None] * len(refs)
-    fallback: dict[int, JudgmentRecord] = {}
     todo: list[int] = []
     for i, ref in enumerate(refs):
-        prior = reusable.get(canonical_anchor_key(ref.identifier, "doi") or "")
-        if prior is not None and prior.source_relation == ref.relation_type:
-            records[i] = prior
+        record = prior.get(canonical_anchor_key(ref.identifier, "doi") or "")
+        if (
+            record is not None
+            and not record.error
+            and record.source_relation == ref.relation_type
+        ):
+            records[i] = record
         else:
             todo.append(i)
-            if prior is not None:
-                fallback[i] = prior
     reused = len(refs) - len(todo)
+
+    def _unjudged(i: int, error: str, judged_at: str, paper: Any = None):
+        """A previous success if any, else an unchanged previous error, else new."""
+        ref = refs[i]
+        record = prior.get(canonical_anchor_key(ref.identifier, "doi") or "")
+        if record is not None and (not record.error or record.error == error):
+            return record
+        return _error_record(ref, judged_at=judged_at, error=error, paper=paper)
 
     prompts: dict[int, tuple[Any, str, str]] = {}
     lookup_failed = 0
+    unresolvable = 0
     if todo:
-        metadata = metadata_retriever.get_dataset_metadata(dataset_id)
-        dataset_description = extract_dataset_text(metadata)
+        metadata = _dataset_metadata(dataset_id, metadata_retriever, datasets_dir)
+        if metadata is None:
+            logger.warning(
+                "%s: dataset description and README unavailable; %d anchor(s) "
+                "left for a later run instead of being judged blind",
+                dataset_id,
+                len(todo),
+            )
+            for i in todo:
+                records[i] = _unjudged(i, METADATA_UNAVAILABLE_ERROR, _utcnow_iso())
+            lookup_failed += len(todo)
+            todo = []
+        else:
+            dataset_description = extract_dataset_text(metadata)
         for i in todo:
             ref = refs[i]
             judged_at = _utcnow_iso()
             paper_result = backend.get_paper(ref.identifier)
             if isinstance(paper_result, FetchError):
-                lookup_failed += 1
-                records[i] = fallback.get(i) or _error_record(
-                    ref,
-                    judged_at=judged_at,
-                    error=f"paper_lookup_failed:{paper_result.reason}:{paper_result.detail}",
+                error = (
+                    f"paper_lookup_failed:{paper_result.reason}:{paper_result.detail}"
                 )
+                if error.startswith(PERMANENT_LOOKUP_ERROR_PREFIX):
+                    unresolvable += 1
+                else:
+                    lookup_failed += 1
+                records[i] = _unjudged(i, error, judged_at)
                 continue
             assert isinstance(paper_result, FetchSuccess)  # noqa: S101 - upstream contract guard
             paper = paper_result.value
@@ -344,11 +461,8 @@ def judge_dataset_anchors(
                     ref.identifier,
                     verdict,
                 )
-                records[i] = fallback.get(i) or _error_record(
-                    ref,
-                    judged_at=judged_at,
-                    error=f"llm_judgment_failed:{verdict}",
-                    paper=paper,
+                records[i] = _unjudged(
+                    i, f"llm_judgment_failed:{verdict}", judged_at, paper
                 )
                 continue
             judged += 1
@@ -366,17 +480,29 @@ def judge_dataset_anchors(
             )
 
     final = [r for r in records if r is not None]
+    judged_at_latest = max((r.judged_at for r in final), default=None)
+    if judged_at_latest is None:
+        # No anchors: keep the previous timestamp for an unchanged empty sidecar.
+        judged_at_latest = (
+            previous.get("judged_at")
+            if previous
+            and not previous.get("judgments")
+            and isinstance(previous.get("judged_at"), str)
+            else _utcnow_iso()
+        )
     return DatasetJudgmentRun(
         payload={
             "dataset_id": dataset_id,
             # The most recent judgment in the file, reused ones included.
-            "judged_at": max(r.judged_at for r in final),
+            "judged_at": judged_at_latest,
             "judgment_model": client.model,
+            "prompt_version": PROMPT_VERSION,
             "judgments": [r.to_dict() for r in final],
         },
         judged=judged,
         failed=failed,
         lookup_failed=lookup_failed,
+        unresolvable=unresolvable,
         reused=reused,
     )
 
@@ -400,7 +526,7 @@ def save_judgment_sidecar(path: str | Path, payload: dict[str, Any]) -> None:
     """
     target = Path(path)
     target.parent.mkdir(parents=True, exist_ok=True)
-    # delete=False so we can close and rename; we clean up on failure below.
+    # mkstemp leaves the file for us to close and rename; we clean up on failure below.
     tmp_fd, tmp_path = tempfile.mkstemp(
         prefix=".judgment-",
         suffix=".json.tmp",
@@ -435,11 +561,9 @@ def load_judgment_sidecar(path: str | Path) -> dict[str, Any]:
 def is_judgment_fresh(payload: dict[str, Any], *, max_age_days: int) -> bool:
     """Return True iff the sidecar's `judged_at` is within `max_age_days`.
 
-    Mirrors the freshness semantics from `core/run_state.py::checked_within`
-    (which currently uses `<=`; issue #80 tracks the off-by-one fix). We
-    keep `<=` here so phase-2 freshness behaves identically to the existing
-    citation freshness gate; once #80 lands, both gates should be updated
-    together.
+    Strict (`<`), like `core/run_state.py::checked_within` since #80: a
+    sidecar exactly `max_age_days` old is stale, so a cron whose period equals
+    the window does not land on the boundary and skip forever.
 
     Robust against missing fields and unparseable timestamps: any failure
     to determine freshness returns False (re-judge).
@@ -456,4 +580,4 @@ def is_judgment_fresh(payload: dict[str, Any], *, max_age_days: int) -> bool:
     if when.tzinfo is None:
         when = when.replace(tzinfo=UTC)
     age = datetime.now(UTC) - when
-    return age <= timedelta(days=max_age_days)
+    return age < timedelta(days=max_age_days)
