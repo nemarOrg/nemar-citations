@@ -8,18 +8,21 @@ interface Props {
 }
 
 // `rest` carries the parent's scoped-style attribute, so the parent's class
-// rules (e.g. `.ds__id`) still apply to the element rendered here.
+// rules (e.g. `.ds__id`) still apply to the element rendered here. It is spread
+// first so it cannot override the link's own attributes. The aria-label tells
+// a screen reader this link leaves for NEMAR, unlike the dataset name beside
+// it, which opens the dataset's citations page here.
 const { id, class: className, ...rest } = Astro.props;
 const url = nemarDatasetUrl(id);
 ---
 
 {
   url ? (
-    <a class={className} href={url} title={`Open ${id} on NEMAR`} {...rest}>
+    <a {...rest} class={className} href={url} title={`Open ${id} on NEMAR`} aria-label={`Open ${id} on NEMAR`}>
       {id}
     </a>
   ) : (
-    <span class={className} {...rest}>
+    <span {...rest} class={className}>
       {id}
     </span>
   )
