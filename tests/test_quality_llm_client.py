@@ -43,7 +43,8 @@ class _RecordedClient(ClaudeCliJudgmentClient):
     """Real subclass that returns a recorded CLI stdout instead of a process."""
 
     def __init__(self, stdout: str) -> None:
-        super().__init__(model="test-model", claude_bin="unused", timeout=5)
+        # The recorded outputs were served by claude-sonnet-5-5.
+        super().__init__(model="claude-sonnet-5-5", claude_bin="unused", timeout=5)
         self._stdout = stdout
 
     def _run_cli(self, prompt: str) -> str:
@@ -141,6 +142,28 @@ class BuildAnchorPromptTests(TestCase):
         self.assertNotIn("x" * 5000, prompt)
         self.assertIn("…", prompt)
 
+    def test_authors_trim_after_five_names(self) -> None:
+        def prompt_authors(names: list[str]) -> str:
+            prompt = build_anchor_prompt(
+                dataset_id="ds000999",
+                dataset_description="d",
+                anchor_doi="10.0000/none",
+                anchor_relation="References",
+                paper_title="t",
+                paper_abstract="a",
+                paper_authors=names,
+            )
+            return next(
+                line for line in prompt.splitlines() if line.startswith("authors:")
+            )
+
+        five = [f"A{i}" for i in range(5)]
+        self.assertEqual(prompt_authors(five), "authors: A0, A1, A2, A3, A4")
+        self.assertEqual(
+            prompt_authors([*five, "A5"]), "authors: A0, A1, A2, A3, A4, et al."
+        )
+        self.assertEqual(prompt_authors([]), "authors: [unavailable]")
+
 
 class JudgeAnchorParseTests(TestCase):
     """Validate CLI output parsing without spawning a process."""
@@ -149,7 +172,7 @@ class JudgeAnchorParseTests(TestCase):
         out = _RecordedClient(_OK_OUTPUT).judge_anchor("prompt")
         self.assertEqual(out["classification"], "methodology")
         self.assertIn("PREP", out["reason"])
-        self.assertEqual(out["model"], "test-model")
+        self.assertEqual(out["model"], "claude-sonnet-5-5")
         self.assertEqual(out["raw_response"], _OK_OUTPUT)
 
     def test_not_logged_in_raises_with_cli_message(self) -> None:
@@ -182,6 +205,15 @@ class JudgeAnchorParseTests(TestCase):
             with self.assertRaises(LlmJudgmentError, msg=repr(verdict)):
                 _RecordedClient(_with_verdict(verdict)).judge_anchor("prompt")
 
+    def test_output_served_by_another_model_raises(self) -> None:
+        # The sidecar would record this client's model as the judge, so a call
+        # the CLI served with a different model must not count as a verdict.
+        client = _RecordedClient(_OK_OUTPUT)
+        client.model = "claude-opus-5-5"
+        with self.assertRaises(LlmJudgmentError) as ctx:
+            client.judge_anchor("prompt")
+        self.assertIn("instead of 'claude-opus-5-5'", str(ctx.exception))
+
     def test_non_json_output_raises(self) -> None:
         with self.assertRaises(LlmJudgmentError) as ctx:
             _RecordedClient("this is not json at all").judge_anchor("prompt")
@@ -200,7 +232,9 @@ class RunCliProcessTests(TestCase):
         recorded = self.dir / "out.json"
         recorded.write_text(_OK_OUTPUT, "utf-8")
         claude = _stand_in(self.dir, f'grep -q "the prompt" && cat "{recorded}"')
-        client = ClaudeCliJudgmentClient(model="m", claude_bin=claude, timeout=10)
+        client = ClaudeCliJudgmentClient(
+            model="claude-sonnet-5-5", claude_bin=claude, timeout=10
+        )
         self.assertEqual(
             client.judge_anchor("the prompt")["classification"], "methodology"
         )
@@ -231,7 +265,9 @@ class RunCliProcessTests(TestCase):
         recorded = self.dir / "out.json"
         recorded.write_text(_OK_OUTPUT, "utf-8")
         healthy = ClaudeCliJudgmentClient(
-            claude_bin=_stand_in(self.dir, f'cat "{recorded}"'), timeout=5
+            model="claude-sonnet-5-5",
+            claude_bin=_stand_in(self.dir, f'cat "{recorded}"'),
+            timeout=5,
         )
         self.assertTrue(healthy.health_check())
 
@@ -243,6 +279,99 @@ class RunCliProcessTests(TestCase):
         )
         with self.assertLogs("dataset_citations.quality.llm_client", "ERROR"):
             self.assertFalse(broken.health_check())
+
+    def test_argv_and_cwd_contract(self) -> None:
+        """The flags that make the call safe and pinned must reach the CLI."""
+        argv_file = self.dir / "argv.txt"
+        cwd_file = self.dir / "cwd.txt"
+        recorded = self.dir / "out.json"
+        recorded.write_text(_OK_OUTPUT, "utf-8")
+        claude = _stand_in(
+            self.dir,
+            f'for a in "$@"; do printf "%s\\n" "$a"; done > "{argv_file}"; '
+            f'pwd -P > "{cwd_file}"; cat "{recorded}"',
+        )
+        cache = Path(self.enterContext(TemporaryDirectory())).resolve()
+        prior = os.environ.get("XDG_CACHE_HOME")
+        os.environ["XDG_CACHE_HOME"] = str(cache)
+        try:
+            ClaudeCliJudgmentClient(
+                model="claude-sonnet-5-5", claude_bin=claude, timeout=10
+            ).judge_anchor("prompt")
+        finally:
+            if prior is None:
+                os.environ.pop("XDG_CACHE_HOME", None)
+            else:
+                os.environ["XDG_CACHE_HOME"] = prior
+        argv = argv_file.read_text("utf-8").split("\n")[:-1]
+        self.assertEqual(argv[argv.index("--model") + 1], "claude-sonnet-5-5")
+        self.assertEqual(argv[argv.index("--tools") + 1], "")
+        self.assertEqual(argv[argv.index("--setting-sources") + 1], "project")
+        schema = json.loads(argv[argv.index("--json-schema") + 1])
+        self.assertEqual(
+            schema["properties"]["classification"]["enum"],
+            sorted(ALLOWED_CLASSIFICATIONS),
+        )
+        for flag in ("-p", "--no-session-persistence", "--strict-mcp-config"):
+            self.assertIn(flag, argv)
+        # A private 0700 directory under the user's cache, never a shared /tmp
+        # where another user could plant project settings (review of #243).
+        workdir = cache / "dataset-citations" / "anchor-judge"
+        self.assertEqual(cwd_file.read_text("utf-8").strip(), str(workdir))
+        self.assertEqual(stat.S_IMODE(workdir.stat().st_mode), 0o700)
+
+    def test_logged_out_exit_one_surfaces_the_cli_message(self) -> None:
+        # The real logged-out shape: is_error JSON on stdout AND a non-zero exit.
+        logged_out = self.dir / "logged_out.json"
+        logged_out.write_text(_NOT_LOGGED_IN_OUTPUT, "utf-8")
+        claude = _stand_in(self.dir, f'cat "{logged_out}"; exit 1')
+        client = ClaudeCliJudgmentClient(claude_bin=claude, timeout=5)
+        with self.assertRaises(LlmJudgmentError) as ctx:
+            client.judge_anchor("prompt")
+        self.assertIn("exited 1: Not logged in", str(ctx.exception))
+
+    def test_nonzero_exit_with_a_success_payload_still_raises(self) -> None:
+        recorded = self.dir / "out.json"
+        recorded.write_text(_OK_OUTPUT, "utf-8")
+        claude = _stand_in(self.dir, f'cat "{recorded}"; exit 1')
+        client = ClaudeCliJudgmentClient(
+            model="claude-sonnet-5-5", claude_bin=claude, timeout=5
+        )
+        with self.assertRaises(LlmJudgmentError):
+            client.judge_anchor("prompt")
+
+    def test_unrunnable_binaries_raise_and_fail_the_health_check(self) -> None:
+        not_executable = self.dir / "claude-0644"
+        not_executable.write_text("#!/bin/sh\necho hi\n", "utf-8")
+        garbage = self.dir / "claude-garbage"
+        garbage.write_bytes(b"\x7fELF-not-really\x00\x01")
+        garbage.chmod(0o755)
+        for binary in (not_executable, garbage):
+            client = ClaudeCliJudgmentClient(claude_bin=str(binary), timeout=5)
+            with self.assertRaises(LlmJudgmentError, msg=binary.name):
+                client.judge_anchor("prompt")
+            with self.assertLogs("dataset_citations.quality.llm_client", "ERROR"):
+                self.assertFalse(client.health_check())
+
+    def test_undecodable_output_is_a_judgment_error(self) -> None:
+        claude = _stand_in(self.dir, "printf '\\377\\376 not json'")
+        client = ClaudeCliJudgmentClient(claude_bin=claude, timeout=5)
+        with self.assertRaises(LlmJudgmentError):
+            client.judge_anchor("prompt")
+
+    def test_lone_surrogate_in_the_prompt_does_not_raise(self) -> None:
+        # OpenAlex abstracts can carry unpaired surrogates; they must be
+        # replaced, not crash the worker thread.
+        recorded = self.dir / "out.json"
+        recorded.write_text(_OK_OUTPUT, "utf-8")
+        claude = _stand_in(self.dir, f'cat > /dev/null; cat "{recorded}"')
+        client = ClaudeCliJudgmentClient(
+            model="claude-sonnet-5-5", claude_bin=claude, timeout=5
+        )
+        self.assertEqual(
+            client.judge_anchor("abstract \ud83d here")["classification"],
+            "methodology",
+        )
 
 
 class EnvDefaultsTests(TestCase):
@@ -274,6 +403,12 @@ class EnvDefaultsTests(TestCase):
             (client.model, client.claude_bin, client.timeout),
             ("env-model", "/opt/claude", 99),
         )
+
+    def test_bad_timeout_env_names_the_variable(self) -> None:
+        os.environ["ANCHOR_JUDGE_TIMEOUT_SECONDS"] = "three minutes"
+        with self.assertRaises(ValueError) as ctx:
+            ClaudeCliJudgmentClient()
+        self.assertIn("ANCHOR_JUDGE_TIMEOUT_SECONDS", str(ctx.exception))
 
     def test_explicit_args_win(self) -> None:
         os.environ["ANCHOR_JUDGE_MODEL"] = "env-model"

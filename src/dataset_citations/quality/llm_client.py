@@ -44,15 +44,15 @@ import json
 import logging
 import os
 import subprocess
-import tempfile
 from collections.abc import Iterable
+from pathlib import Path
 from typing import Any
 
 logger = logging.getLogger(__name__)
 
-# The five-class taxonomy is the contract phase 2's sidecar schema and
-# phase 3's pipeline filter both depend on. Adding or removing a class is a
-# cross-phase change; doc the rationale before edits.
+# The five-class taxonomy is the contract the sidecar schema and the anchor
+# gate (`core.anchor_gate`) both depend on. Adding or removing a class is a
+# cross-module change; doc the rationale before edits.
 ALLOWED_CLASSIFICATIONS: frozenset[str] = frozenset(
     {"data_paper", "umbrella", "methodology", "related_work", "irrelevant"}
 )
@@ -61,12 +61,22 @@ _ENV_MODEL = "ANCHOR_JUDGE_MODEL"
 _ENV_BIN = "CLAUDE_BIN"
 _ENV_TIMEOUT = "ANCHOR_JUDGE_TIMEOUT_SECONDS"
 
-# Single source of truth for the judge model; the cron pins the same value.
-# A sidecar judged by any other model is re-judged (cli.judge_anchors).
+# Default judge model. The cron and rerun scripts pin the same value; keep them
+# in sync. Must be a full model id: the client rejects a call the CLI served
+# with any other model. A sidecar judged by any other model is re-judged
+# (cli.judge_anchors) and ignored by the anchor gate (`trusted_judge_model`).
 _DEFAULT_MODEL = "claude-sonnet-5-5"
 _DEFAULT_BIN = "claude"
 # A judgment takes ~4s on hallu; the ceiling only guards a hung CLI.
 _DEFAULT_TIMEOUT = 180
+# Health-check attempts before the judge is declared unusable; one transient
+# failure of a single call must not abort the whole night.
+_HEALTH_CHECK_ATTEMPTS = 3
+
+# Bump when the prompt or taxonomy changes in a way that should re-judge every
+# anchor. Sidecars record it, and a verdict is reused only under the same model
+# AND prompt version (quality.anchor_judgment, cli.judge_anchors).
+PROMPT_VERSION = 2
 
 # Structured output: the CLI validates the model's answer against this schema
 # and returns it as `structured_output`, so there is no free-text JSON to parse.
@@ -84,6 +94,18 @@ _OUTPUT_SCHEMA = json.dumps(
         "additionalProperties": False,
     }
 )
+
+
+def trusted_judge_model() -> str:
+    """The judge model whose verdicts count: ANCHOR_JUDGE_MODEL, else the default.
+
+    The producer (`cli.judge_anchors`) re-judges sidecars from any other model,
+    and the consumers (the fetch-time gate and the gate sweep) treat such a
+    sidecar as absent, so a retired judge's verdicts never keep counting.
+    """
+    return os.environ.get(_ENV_MODEL) or _DEFAULT_MODEL
+
+
 _SYSTEM_PROMPT = (
     "You are a careful research librarian who decides whether a paper is the "
     "data paper of a specific neuroscience dataset. Answer only through the "
@@ -97,11 +119,14 @@ _ABSTRACT_CHAR_LIMIT = 2000
 
 
 class LlmJudgmentError(RuntimeError):
-    """Raised when the LLM returns malformed JSON or an out-of-taxonomy label.
+    """Raised when a judgment cannot be obtained or validated.
 
-    The probe and the phase 2 CLI catch this so a single bad anchor doesn't
-    abort a batch run. The detail string carries the raw response for
-    auditing.
+    The CLI is missing, cannot run, times out, exits non-zero, reports
+    `is_error`, or was served by another model; or its output is not JSON,
+    has no `structured_output`, or carries an out-of-taxonomy label. The judge
+    and probe catch this so a single bad anchor doesn't abort a batch.
+    `raw_response` holds the CLI's stdout when it printed any (None for
+    process-level failures).
     """
 
     def __init__(self, message: str, *, raw_response: str | None = None) -> None:
@@ -118,16 +143,16 @@ def _truncate(text: str | None, limit: int) -> str:
 
 
 def _format_authors(authors: Iterable[Any]) -> str:
-    """Render a small authors list for the prompt. Trims at 5 names."""
-    names: list[str] = []
-    for author in authors:
-        name = getattr(author, "name", None) or str(author)
-        if name:
-            names.append(name)
-        if len(names) >= 5:
-            names.append("et al.")
-            break
-    return ", ".join(names) if names else "[unavailable]"
+    """Render a small authors list for the prompt: up to 5 names, then "et al."."""
+    names = [
+        name
+        for author in authors
+        if (name := getattr(author, "name", None) or str(author))
+    ]
+    if not names:
+        return "[unavailable]"
+    shown = ", ".join(names[:5])
+    return f"{shown}, et al." if len(names) > 5 else shown
 
 
 def build_anchor_prompt(
@@ -221,9 +246,13 @@ class ClaudeCliJudgmentClient:
     persistence, only project-level settings (so user hooks and plugins stay
     out), and a JSON schema that makes the CLI return the verdict as
     `structured_output`. The CLI uses whatever login the host already has;
-    hallu runs it under the pipeline user's Claude account. The subprocess
-    runs from the system temp dir so no repository `CLAUDE.md` is loaded into
-    every call.
+    hallu runs it under the pipeline user's Claude account.
+
+    The subprocess runs from a private directory owned by the pipeline user
+    (`_private_workdir`), so no repository `CLAUDE.md` is loaded into every
+    call and no shared directory is involved: with project settings enabled, a
+    world-writable cwd such as /tmp would let another user on the shared host
+    plant `.claude/settings.json` hooks that run as the pipeline user.
 
     Thread-safe: `judge_anchor` only spawns a subprocess, so callers may run
     several judgments concurrently.
@@ -236,13 +265,19 @@ class ClaudeCliJudgmentClient:
         claude_bin: str | None = None,
         timeout: int | None = None,
     ) -> None:
-        self.model = model or os.environ.get(_ENV_MODEL) or _DEFAULT_MODEL
+        self.model = model or trusted_judge_model()
         self.claude_bin = claude_bin or os.environ.get(_ENV_BIN) or _DEFAULT_BIN
         timeout_env = os.environ.get(_ENV_TIMEOUT)
         if timeout is not None:
             self.timeout = timeout
         elif timeout_env:
-            self.timeout = int(timeout_env)
+            try:
+                self.timeout = int(timeout_env)
+            except ValueError as exc:
+                raise ValueError(
+                    f"{_ENV_TIMEOUT} must be a whole number of seconds, "
+                    f"got {timeout_env!r}"
+                ) from exc
         else:
             self.timeout = _DEFAULT_TIMEOUT
 
@@ -253,6 +288,7 @@ class ClaudeCliJudgmentClient:
         its `/api/tags` probe while every judgment 404ed because the model was
         gone (issue #241). This runs one real, tiny judgment instead, so a
         logged-out CLI, a missing binary, or an unknown model all fail here.
+        Retried a few times so one transient failure does not abort a night.
         """
         prompt = build_anchor_prompt(
             dataset_id="healthcheck",
@@ -263,12 +299,19 @@ class ClaudeCliJudgmentClient:
             paper_abstract="Describes the MNE-Python software package.",
             paper_year=2013,
         )
-        try:
-            self.judge_anchor(prompt)
-        except LlmJudgmentError as exc:
-            logger.error("anchor judge health check failed: %s", exc)
-            return False
-        return True
+        for attempt in range(1, _HEALTH_CHECK_ATTEMPTS + 1):
+            try:
+                self.judge_anchor(prompt)
+            except LlmJudgmentError as exc:
+                logger.error(
+                    "anchor judge health check failed (attempt %d/%d): %s",
+                    attempt,
+                    _HEALTH_CHECK_ATTEMPTS,
+                    exc,
+                )
+                continue
+            return True
+        return False
 
     def judge_anchor(self, prompt: str) -> dict[str, Any]:
         """Run one judgment and validate it.
@@ -280,7 +323,8 @@ class ClaudeCliJudgmentClient:
           - model (str)
 
         Raises LlmJudgmentError on any CLI failure (missing binary, timeout,
-        non-zero exit, `is_error` result such as "Not logged in") or when the
+        non-zero exit, `is_error` result such as "Not logged in"), when the
+        call was served by a model other than `self.model`, or when the
         structured output is missing or outside the taxonomy.
         """
         raw = self._run_cli(prompt)
@@ -298,6 +342,16 @@ class ClaudeCliJudgmentClient:
         if payload.get("is_error"):
             raise LlmJudgmentError(
                 f"claude CLI reported an error: {payload.get('result')!r}",
+                raw_response=raw,
+            )
+        # The sidecar records `self.model` as the judge, so a call the CLI
+        # served with any other model (an alias that resolved elsewhere, a
+        # silent fallback) must not be recorded as a verdict by this model.
+        served = payload.get("modelUsage")
+        if isinstance(served, dict) and served and self.model not in served:
+            raise LlmJudgmentError(
+                f"claude CLI served {sorted(served)} instead of {self.model!r}; "
+                f"set {_ENV_MODEL} to a full model id",
                 raw_response=raw,
             )
 
@@ -351,19 +405,24 @@ class ClaudeCliJudgmentClient:
     def _run_cli(self, prompt: str) -> str:
         """Run the CLI with `prompt` on stdin and return its stdout.
 
-        Split out so tests can subclass the client and return a recorded CLI
-        output instead of spawning a process (the no-mocks pattern used across
-        this repo). Every process-level failure becomes `LlmJudgmentError`, so
-        one bad anchor never aborts a batch.
+        Split out so tests can subclass the client and return a recorded real
+        CLI output (`tests/test_data/claude_cli_*.json`) instead of spawning a
+        process. Every process-level failure (missing or non-executable
+        binary, exec error, timeout, non-zero exit) becomes `LlmJudgmentError`,
+        so one bad anchor never aborts a batch. Text that cannot be encoded
+        (a lone surrogate in an OpenAlex abstract) is replaced, not raised.
         """
+        safe_prompt = prompt.encode("utf-8", "replace").decode("utf-8")
         try:
             proc = subprocess.run(  # noqa: S603 - fixed argv, no shell
                 self._command(),
-                input=prompt,
+                input=safe_prompt,
                 capture_output=True,
                 text=True,
+                encoding="utf-8",
+                errors="replace",
                 timeout=self.timeout,
-                cwd=tempfile.gettempdir(),
+                cwd=_private_workdir(),
                 check=False,
             )
         except FileNotFoundError as exc:
@@ -374,10 +433,38 @@ class ClaudeCliJudgmentClient:
             raise LlmJudgmentError(
                 f"claude CLI timed out after {self.timeout}s"
             ) from exc
-        if proc.returncode != 0 and not proc.stdout.strip():
+        except OSError as exc:
             raise LlmJudgmentError(
-                f"claude CLI exited {proc.returncode}: {proc.stderr.strip()[:500]}"
+                f"claude CLI at {self.claude_bin!r} could not run: {exc}"
+            ) from exc
+        if proc.returncode != 0:
+            detail = _cli_error_result(proc.stdout) or proc.stderr.strip()[:500]
+            raise LlmJudgmentError(
+                f"claude CLI exited {proc.returncode}: {detail}",
+                raw_response=proc.stdout,
             )
-        # A non-zero exit that still printed a JSON result (e.g. is_error) is
-        # parsed by the caller, which surfaces the CLI's own message.
         return proc.stdout
+
+
+def _private_workdir() -> Path:
+    """A directory only the pipeline user can write, used as the CLI's cwd.
+
+    Lives under the user's cache dir so no parent directory is shared either.
+    Created 0700 and re-tightened if it already exists with looser bits.
+    """
+    base = Path(os.environ.get("XDG_CACHE_HOME") or Path.home() / ".cache")
+    workdir = base / "dataset-citations" / "anchor-judge"
+    workdir.mkdir(mode=0o700, parents=True, exist_ok=True)
+    workdir.chmod(0o700)
+    return workdir
+
+
+def _cli_error_result(stdout: str) -> str | None:
+    """The CLI's own `result` message from an `is_error` JSON output, if any."""
+    try:
+        payload = json.loads(stdout)
+    except (json.JSONDecodeError, ValueError):
+        return None
+    if isinstance(payload, dict) and payload.get("is_error"):
+        return str(payload.get("result"))
+    return None
