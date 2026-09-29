@@ -17,10 +17,17 @@ IdentifierType = Literal["doi", "pmid", "arxiv"]
 SourceKind = Literal["nemar_metadata", "openneuro_description", "nemar_catalog"]
 # DataCite relation types we read anchors from. IsDescribedBy is how a data
 # paper is linked from .nemar/metadata.json (e.g. 10.1038/sdata.2015.1 describes
-# on000117). The relation alone never makes an anchor count: the anchor
-# judgment and gate (`core.anchor_gate`) then decide which anchors count.
+# on000117); older enrichments linked some data papers as IsSupplementTo (the
+# dataset supplements the paper, e.g. on007615). The relation alone never makes
+# an anchor count: the anchor judgment and gate (`core.anchor_gate`) then decide
+# which anchors count.
 RelationType = Literal[
-    "References", "IsDerivedFrom", "IsIdenticalTo", "IsVersionOf", "IsDescribedBy"
+    "References",
+    "IsDerivedFrom",
+    "IsIdenticalTo",
+    "IsVersionOf",
+    "IsDescribedBy",
+    "IsSupplementTo",
 ]
 FetchErrorReason = Literal[
     "not_found", "auth", "network", "parse", "rate_limit", "other"

@@ -2,7 +2,8 @@
 
 The file follows a DataCite-style schema (v2.0) with a `related_identifiers`
 block. We read anchors from a fixed allow-list of `relation_type` values:
-References, IsDerivedFrom, IsIdenticalTo, IsVersionOf, IsDescribedBy.
+References, IsDerivedFrom, IsIdenticalTo, IsVersionOf, IsDescribedBy,
+IsSupplementTo.
 `IsDescribedBy` is how a data paper is linked (e.g. 10.1038/sdata.2015.1
 describes on000117). The relation is only a hint; the anchor judgment and gate
 (`core.anchor_gate`) decide which anchors count. We skip URL-typed identifiers
