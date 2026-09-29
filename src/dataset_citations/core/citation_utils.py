@@ -15,10 +15,12 @@ GitHub: https://github.com/neuromechanist
 Email: shirazi@ieee.org
 """
 
+import contextlib
 import copy
 import json
 import logging
 import os
+import tempfile
 from typing import Any, Literal
 
 logger = logging.getLogger(__name__)
@@ -93,6 +95,31 @@ def write_citation_json_if_changed(filepath: str, payload: dict[str, Any]) -> bo
     return True
 
 
+def write_json_atomic(path: str | os.PathLike[str], payload: dict[str, Any]) -> None:
+    """Write `payload` as pretty JSON (trailing newline) without a torn file.
+
+    Writes a sibling temp file, fsyncs it, then `os.replace`s it into place, so
+    a crash or a full disk leaves the previous file intact instead of a
+    truncated one. Raises OSError on failure after removing the temp file.
+    """
+    target = os.fspath(path)
+    fd, tmp_path = tempfile.mkstemp(
+        prefix=f".{os.path.basename(target)}.",
+        suffix=".tmp",
+        dir=os.path.dirname(target) or ".",
+    )
+    try:
+        with os.fdopen(fd, "w", encoding="utf-8") as fh:
+            fh.write(json.dumps(payload, indent=2, ensure_ascii=False) + "\n")
+            fh.flush()
+            os.fsync(fh.fileno())
+        os.replace(tmp_path, target)
+    except BaseException:
+        with contextlib.suppress(FileNotFoundError):
+            os.unlink(tmp_path)
+        raise
+
+
 def add_discovery_provenance(
     citation_json: dict[str, Any],
     *,
@@ -119,19 +146,23 @@ def add_discovery_provenance(
     per-citation `discovery_backend` label.
 
     Phase 3 (#87) extends the schema with anchor-adjudication provenance:
-      * `metadata.anchor_judgment_model` carries the LLM name from phase 2's
-        sidecar (e.g. ``"gemma4:31b"``) so consumers can tell which model
-        bucketed each dataset's anchors. Falsy values are normalized to
-        ``None`` and persisted, since "no sidecar" is itself a meaningful
-        signal for downstream code.
+      * `metadata.anchor_judgment_model` carries the judge model from the
+        sidecar (e.g. ``"claude-sonnet-5-5"``) so consumers can tell which model
+        judged each dataset's anchors. Falsy values are normalized to ``None``
+        and persisted, since "no usable sidecar" is itself a meaningful signal
+        for downstream code.
       * `metadata.anchors` (schema v2.1, epic #180) is the list of EVERY anchor
         extracted for the dataset, kept or not. Each entry is a dict with
         ``identifier``, ``identifier_type``, ``source_relation``,
-        ``classification`` (gemma; ``None`` if unjudged), ``kept`` (``True`` =
-        fetched for citations, ``False`` = context-only), ``paper_title``,
-        ``paper_year``, ``paper_venue``, ``reason``, and ``judgment_model``.
-        This REPLACES the v2.0 ``context_anchors`` key (which was only the
-        ``kept=False`` subset); consumers select context anchors via
+        ``classification`` (the judge's verdict; ``None`` if unjudged),
+        ``kept`` (``True`` = fetched for citations, ``False`` = context-only),
+        ``kept_reason`` (the anchor gate's reason: ``own_doi`` /
+        ``dataset_record`` / ``judged_data_paper`` / ``judged_not_data_paper``
+        / ``never_anchor`` / ``unjudged`` / ``awaiting_fetch``, see
+        `core.anchor_gate`), ``paper_title``, ``paper_year``, ``paper_venue``,
+        ``reason``, and ``judgment_model``. This REPLACES the v2.0
+        ``context_anchors`` key (which was only the ``kept=False`` subset);
+        consumers select context anchors via
         ``[a for a in anchors if not a["kept"]]``.
       * `metadata.searched_dois` (schema v2.1) is the flat list of DOI anchors
         actually sent to the citation backend (the ``kept`` DOIs), the citation

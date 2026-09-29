@@ -14,8 +14,8 @@ This CLI rewrites those files in place using the same `dedupe_citations` rules
 the pipeline applies, so the corpus converges without waiting for every dataset
 to fall out of its freshness window. Idempotent: a second run is a no-op.
 
-`num_citations` and `metadata.total_cumulative_citations` are recomputed from
-the surviving records. When a file loses records its stale `confidence_scoring`
+Every count derived from `citation_details` is recomputed from the surviving
+records (`refresh_derived_counts`). When a file loses records its stale `confidence_scoring`
 block is dropped, mirroring `merge_accession_mentions`, so the next
 `score-confidence --skip-existing` re-scores it instead of keeping scores that
 refer to citations that no longer exist.
@@ -32,6 +32,7 @@ from typing import Any
 
 from dataset_citations.core.accession_mentions import refresh_derived_counts
 from dataset_citations.core.citation_identity import dedupe_citations
+from dataset_citations.core.citation_utils import write_json_atomic
 
 logging.basicConfig(
     level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
@@ -84,9 +85,7 @@ def dedupe_citation_file(
     payload["date_last_updated"] = (when or datetime.now(UTC)).isoformat()
 
     if not dry_run:
-        path.write_text(
-            json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
-        )
+        write_json_atomic(path, payload)
     logger.info("%s: merged %d duplicate(s)", path.name, dropped)
     return dropped
 
