@@ -102,6 +102,9 @@ class SpecTitleTests(TestCase):
             "and facilitating their analysis",
             "BIDS apps: Improving ease of use, accessibility, and reproducibility "
             "of neuroimaging data analysis methods",
+            # The spec wording with no name prefix.
+            "An extension to the brain imaging data structure for "
+            "near-infrared spectroscopy",
             # A future extension nobody has added to the DOI list yet.
             "NIRS-BIDS: an extension to the brain imaging data structure for "
             "near-infrared spectroscopy",
@@ -124,6 +127,7 @@ class SpecTitleTests(TestCase):
             "Data Structure (BIDS)",
             "A multi-subject EEG dataset organized following the Brain Imaging Data "
             "Structure extension for EEG",
+            "A dataset extending the Brain Imaging Data Structure with HED annotations",
             # Tool names outside the title rule; PyBIDS is caught by its DOI
             # (see test_pybids_is_caught_by_its_doi).
             "PyBIDS: Python tools for BIDS datasets",

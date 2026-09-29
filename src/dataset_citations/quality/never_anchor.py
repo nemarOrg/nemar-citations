@@ -20,10 +20,11 @@ Two checks, either one is enough:
   module, so the dashboard build in `web/src/lib/data.ts` reads the same file);
 * the resolved title reads like a BIDS specification paper, which catches
   future `<Modality>-BIDS` extensions before anyone adds them to the list. The
-  pattern is deliberately narrow: the spec wording ("an extension to the brain
-  imaging data structure", "... extended to ...") must sit next to the phrase,
-  so a data paper that merely says its data follow BIDS, or calls itself an
-  "extended dataset ... in the Brain Imaging Data Structure", does not match.
+  pattern is deliberately narrow: the title must open with a `<Name>-BIDS,` or
+  `<Name>-BIDS:` name, or with the spec wording itself ("An extension to the
+  brain imaging data structure ..."), so a data paper that merely says its
+  data follow BIDS, or calls itself an "extended dataset ... in the Brain
+  Imaging Data Structure", does not match.
 """
 
 from __future__ import annotations
@@ -42,10 +43,13 @@ _LIST_FILE = "never_anchor_dois.json"
 # starts with "BIDS-formatted ..." does not match: the name must be followed
 # by the comma or colon that spec and tool papers use.
 _BIDS_NAME_TITLE = re.compile(r"^(?:[\w]+-)?bids(?:\s+apps)?\s*[,:]", re.IGNORECASE)
+# A spec paper without a `<Name>-BIDS` prefix opens with the spec wording, so
+# the phrases are anchored at the start: "A dataset extending the Brain Imaging
+# Data Structure with ..." is a data paper, not a spec.
 _BIDS_SPEC_PHRASE = re.compile(
-    r"\b(?:extension to|extending) the brain imaging data structure"
-    r"|\bbrain imaging data structure extended to\b"
-    r"|^the brain imaging data structure, a format for organizing",
+    r"^(?:the brain imaging data structure, a format for organizing"
+    r"|(?:an? )?extension (?:to|of) the brain imaging data structure"
+    r"|extending the brain imaging data structure)",
     re.IGNORECASE,
 )
 
