@@ -18,7 +18,7 @@ Each NEMAR-managed dataset repo (`github.com/nemarDatasets/<id>/`) carries `.nem
 **DOI-bearing fields we consume:**
 - `related_identifiers[]` — array of `{ identifier, identifier_type, relation_type }`.
   - `identifier_type` accepted: `"DOI"` only (PMID / arXiv / URL / handle are skipped by the parser today; widen here if you start needing them).
-  - `relation_type` accepted: `References`, `IsDerivedFrom`, `IsIdenticalTo`, `IsVersionOf`. These are the four DataCite kernel-4.6 values we surface in citation JSON as `source_relation`. The producer (`nemar-cli`) emits a wider set — `IsDescribedBy` and `IsSupplementedBy` also appear in real payloads but are deliberately filtered out by the parser today because they point at human-navigation targets (the GitHub repo, the NEMAR landing page) rather than citation-worthy works. Note: `IsDescribedBy` entries are sometimes DOI-typed and may carry arXiv preprints; widening the parser to include them is a known gap, not an oversight to leave silent.
+  - `relation_type` accepted: `References`, `IsDerivedFrom`, `IsIdenticalTo`, `IsVersionOf`, `IsDescribedBy`. These are the DataCite values we surface in citation JSON as `source_relation`. `IsDescribedBy` is how a data paper is linked, but the producer (`nemar-cli`) also uses it for landing pages; those are URL-typed and the parser skips every URL-typed identifier, so only DOI-typed entries become anchors. `IsSupplementedBy` is not read.
 - The specific relation-type mix varies per dataset. Reference dataset `nm000104` carries `IsVersionOf`, `IsIdenticalTo`, and `IsDescribedBy` in its live payload; other datasets (e.g. `nm000103`) carry `References` and `IsDerivedFrom`. Don't assume all four accepted types are present on any single dataset.
 - OpenNeuro dataset DOIs are deduplicated; do not double-count when a dataset is mirrored under multiple IDs.
 
@@ -43,10 +43,10 @@ Path: `citations/json_opencite/<id>_citations.json`. Schema v2 (see `AGENTS.md` 
 Downstream consumers of this artifact should treat:
 - `metadata.schema_version` as the version gate. Bump it on any breaking shape change.
 - `metadata.discovery_backend == "opencite"` as confirmation of provenance. Legacy `"scholarly"` files (under `citations/json/`) are read-only history.
-- `citation_details[].source_doi` + `source_relation` as required fields; they tell the website which DOI anchor surfaced the citation and what kind of link it is (`References` = "uses this dataset"; `IsDerivedFrom` / `IsIdenticalTo` / `IsVersionOf` = "related work via the dataset's own DOI graph").
+- `citation_details[].source_doi` + `source_relation` as required fields; they tell the website which DOI anchor surfaced the citation. `source_relation` is the DataCite label of that anchor and only a hint; whether an anchor contributed citations is `metadata.anchors[].kept` / `kept_reason` (the fail-closed anchor gate, #241).
 
 ## Deploy targets
-- `dashboard.nemar.org/citations/` — Cloudflare Pages project `nemar-dashboard`. Canonical citation surface. Deployed from `.github/workflows/update_citations.yml` (and `deploy-dashboard.yml` for manual rebuilds).
+- `dashboard.nemar.org/citations/` — Cloudflare Pages project `nemar-dashboard`. Canonical citation surface. Deployed by `.github/workflows/deploy-dashboard.yml` when the hallu cron's auto-update PR (or a `web/` change) lands on `main`.
 - `nemar.org` — Cloudflare Pages project owned by `nemar/website`. Does not embed citation data today.
 - `api.nemar.org` / `data.nemar.org` — Cloudflare Worker owned by `nemar/nemar-cli/backend/`.
 

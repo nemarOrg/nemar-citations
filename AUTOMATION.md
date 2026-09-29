@@ -44,8 +44,9 @@ Requirements on the host:
   than storing a token on disk; an empty token aborts the run with exit 2.
 - The `claude` CLI, installed in `~/.local/bin` (on the crontab PATH) and
   logged in as the pipeline user, for anchor adjudication. The judge is Claude
-  Sonnet 5.5 (`ANCHOR_JUDGE_MODEL`, default `claude-sonnet-5-5`); a full
-  re-judge is ~1,700 calls, about an hour and about $12.
+  Sonnet 5.5 (`ANCHOR_JUDGE_MODEL`, default `claude-sonnet-5-5`). A judge or
+  prompt change re-judges every anchor once, on the order of a thousand calls;
+  steady-state nights judge only new, relabeled, or failed anchors.
 - **No HuggingFace credential.** Both sentence-transformer checkpoints are
   public and cached locally, and `utils/model_loading.py` loads them with the
   network disabled before it will consider the Hub. Do not set `HF_TOKEN` here
@@ -111,11 +112,23 @@ CI runs are at https://github.com/nemarOrg/nemar-citations/actions.
 
 **Judge unavailable.** `judge-anchors` runs one real judgment as its health
 check and exits 2 if the `claude` CLI is missing, logged out, or rejects the
-model, and again if most judgments in a run fail; the cron then stops before
-`update`, so yesterday's data stays live. Fix the login (`claude` on hallu) and
-wait for the next night, or run the script by hand. Even if a judgment is
-missing, nothing inflates: the anchor gate fails closed, so an unjudged anchor
-never contributes citations (issue #241).
+model. It also exits 2 when 10 judgments fail in a row, a sidecar cannot be
+written, or the judge, opencite, or the anchor source fails on more than 10% of
+its calls; the cron then stops before `update`, so yesterday's data stays live.
+Fix the login (`claude` on hallu) and wait for the next night, or run the
+script by hand. Even if a judgment is missing, nothing inflates: the anchor
+gate fails closed, so an unjudged anchor never contributes citations (issue
+#241). A dataset that lost citations to a judgment failed below those
+thresholds recovers on its own: once the anchor is judged a data paper, the
+next `update` refetches that dataset without waiting for its 7-day window.
+
+**Gate sweep aborted.** `gate-anchors` writes nothing and exits 1 when a
+citation file or a sidecar is unreadable (a merge conflict, a truncated
+write), when `--judgments-dir` is missing or empty, or when more than half of
+the datasets that need a judgment have no sidecar from the trusted judge (the
+judge did not run, or ran as another model). Repair the file, or confirm the
+judge ran, then rerun; `--max-missing-share 1` overrides the last check for a
+deliberate run.
 
 **Manual run.** Safe to invoke directly; the lock prevents overlap with cron:
 
