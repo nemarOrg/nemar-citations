@@ -19,8 +19,10 @@ import os
 from pathlib import Path
 
 from dataset_citations.backends import OpenCiteBackend
+from dataset_citations.core.anchor_gate import newly_kept_anchors
 from dataset_citations.core.citation_utils import strip_volatile_timestamps
 from dataset_citations.core.opencite_pipeline import (
+    JUDGMENT_UNREADABLE,
     fetch_dataset_citations_via_opencite,
 )
 from dataset_citations.core.run_state import (
@@ -29,6 +31,11 @@ from dataset_citations.core.run_state import (
     save_state,
     stamp_checked,
 )
+from dataset_citations.quality.anchor_judgment_io import (
+    DEFAULT_JUDGMENTS_DIR,
+    load_judgment_sidecar,
+)
+from dataset_citations.quality.llm_client import trusted_judge_model
 from dataset_citations.sources.doi import normalize_doi
 from dataset_citations.sources.models import FetchSuccess
 from dataset_citations.sources.nemar_catalog import get_or_fetch_catalog
@@ -42,7 +49,9 @@ logger = logging.getLogger(__name__)
 # Statuses that indicate a genuine API failure rather than a stable outcome.
 # A file carrying one of these should be re-fetched on the next run (retry);
 # any other status (success, partial, no_doi_references, no_data_paper_anchor,
-# unsupported_prefix:*) is stable and safe to skip within the freshness window.
+# unsupported_prefix:*) is stable and safe to skip within the freshness window,
+# unless a new judgment makes an anchor the file never fetched through count
+# (`_anchors_awaiting_fetch`).
 #
 # `not_found` is deliberately NOT here (issue #217). It means the anchor DOI
 # resolved no record in OpenAlex -- a property of the DOI, not of the API. Some
@@ -57,6 +66,12 @@ logger = logging.getLogger(__name__)
 # aborted the run at exit 3 before scoring, embeddings or the commit. Treating
 # it as a stable outcome lets it retry once per freshness window instead.
 _API_FAILURE_STATUSES = frozenset({"rate_limit", "auth", "network", "parse", "other"})
+
+# Stubs that say nothing about the dataset's citations, only that this run could
+# not fetch them. They never overwrite an existing file: publishing zero
+# citations for a night because of a rate limit or a corrupt sidecar is a wrong
+# count, and the file is retried on the next run instead.
+_KEEP_EXISTING_STATUSES = _API_FAILURE_STATUSES | {JUDGMENT_UNREADABLE}
 
 # Per-output-dir cache of the last time each dataset was fetched. Kept OUT of
 # the committed citation JSON (and gitignored) so the freshness gate has a
@@ -94,8 +109,10 @@ def _read_json_or_none(filepath: str) -> dict | None:
 def _has_stable_status(filepath: str) -> bool:
     """Return True if the on-disk citation JSON has a non-transient status.
 
-    A missing/unparseable file, or one whose `metadata.fetch_status` is a
-    transient API failure, returns False so the dataset is re-fetched.
+    A missing/unparseable file, or one whose `metadata.fetch_status` says this
+    run could not fetch (an API failure, or `judgment_unreadable` written for a
+    new dataset while its sidecar was corrupt), returns False so the dataset is
+    re-fetched.
     """
     payload = _read_json_or_none(filepath)
     if payload is None:
@@ -104,13 +121,39 @@ def _has_stable_status(filepath: str) -> bool:
     if not isinstance(metadata, dict):
         return False
     status = metadata.get("fetch_status")
-    return isinstance(status, str) and status not in _API_FAILURE_STATUSES
+    return isinstance(status, str) and status not in _KEEP_EXISTING_STATUSES
+
+
+def _keeps_existing_file(payload: dict, existing: dict | None) -> bool:
+    """True when `payload` is a failure stub that must not replace `existing`."""
+    metadata = payload.get("metadata")
+    status = metadata.get("fetch_status") if isinstance(metadata, dict) else None
+    return existing is not None and status in _KEEP_EXISTING_STATUSES
+
+
+def _anchors_awaiting_fetch(
+    filepath: str, dataset_id: str, judgments_dir: str, judge_model: str
+) -> list[str]:
+    """Anchors the on-disk file never fetched through that now qualify.
+
+    Non-empty after the judge newly classifies an anchor as the data paper, or
+    after a transient failure left it unjudged when the file was fetched (the
+    gate sweep only removes, so it cannot restore those citers). Such a file is
+    refetched at once instead of waiting out the freshness window (#241).
+    """
+    payload = _read_json_or_none(filepath)
+    if payload is None:
+        return []
+    sidecar = load_judgment_sidecar(
+        dataset_id, judgments_dir=judgments_dir, expected_model=judge_model
+    )
+    return newly_kept_anchors(payload, sidecar, dataset_id)
 
 
 def _load_catalog_doi_map(
     cache_path: Path | None, max_age_seconds: int
 ) -> dict[str, str]:
-    """Return a {dataset_id: catalog_doi} map for catalog-indexed datasets.
+    """Return a {dataset_id: concept_doi} map for catalog-indexed datasets.
 
     The catalog is fetched from `api.nemar.org/datasets` (or reused from the
     shared cache populated by the discover step earlier in the same workflow
@@ -134,7 +177,13 @@ def _load_catalog_doi_map(
             result.detail,
         )
         return {}
-    return {row.dataset_id: normalize_doi(row.doi) for row in result.value if row.doi}
+    # The concept DOI always resolves to the latest version on NEMAR, so it is
+    # the one anchor that stands for the dataset itself.
+    return {
+        row.dataset_id: normalize_doi(row.concept_doi)
+        for row in result.value
+        if row.concept_doi
+    }
 
 
 def run_opencite_backend(args: argparse.Namespace) -> None:
@@ -209,6 +258,7 @@ def run_opencite_backend(args: argparse.Namespace) -> None:
     # value (and nothing was written) exits non-zero below, so automation can
     # detect a fully-degraded run instead of silently shipping empty JSONs.
     max_age_seconds = args.max_age_days * 86400 if args.max_age_days > 0 else None
+    judge_model = trusted_judge_model()
     fetch_state_path = os.path.join(args.output_dir, _FETCH_STATE_FILENAME)
     fetch_state = load_state(fetch_state_path)
     successes = 0
@@ -218,10 +268,12 @@ def run_opencite_backend(args: argparse.Namespace) -> None:
     not_found_failures = 0
     skipped_fresh = 0
     unchanged = 0
+    kept_existing = 0
     for dataset_id in dataset_ids:
         filepath = os.path.join(json_dir, f"{dataset_id}_citations.json")
         # Freshness gate: skip a re-fetch when the on-disk result is stable
-        # (not a transient API failure) AND we checked it within the window.
+        # (not a transient API failure) AND we checked it within the window,
+        # unless an anchor it never fetched through now qualifies.
         # The last-checked signal comes from the gitignored fetch-state cache,
         # NOT date_last_updated, which now only advances on real content change.
         if (
@@ -229,13 +281,24 @@ def run_opencite_backend(args: argparse.Namespace) -> None:
             and _has_stable_status(filepath)
             and checked_within(dataset_id, fetch_state, max_age_seconds)
         ):
-            logger.info(
-                "%s: skipping (checked within %d days, stable status)",
-                dataset_id,
-                args.max_age_days,
+            awaiting = _anchors_awaiting_fetch(
+                filepath, dataset_id, args.judgments_dir, judge_model
             )
-            skipped_fresh += 1
-            continue
+            if not awaiting:
+                logger.info(
+                    "%s: skipping (checked within %d days, stable status)",
+                    dataset_id,
+                    args.max_age_days,
+                )
+                skipped_fresh += 1
+                continue
+            logger.info(
+                "%s: refetching inside the freshness window; %d anchor(s) now "
+                "qualify: %s",
+                dataset_id,
+                len(awaiting),
+                ", ".join(awaiting),
+            )
         payload = fetch_dataset_citations_via_opencite(
             dataset_id,
             backend=backend,
@@ -243,6 +306,8 @@ def run_opencite_backend(args: argparse.Namespace) -> None:
             use_checkpoint=True,
             local_metadata_dir=args.datasets_dir,
             github_token=github_token,
+            judgments_dir=args.judgments_dir,
+            judge_model=judge_model,
         )
         # Content-idempotent write. The opencite payload never carries the
         # confidence_scoring block (the separate score step adds it), so we
@@ -253,6 +318,19 @@ def run_opencite_backend(args: argparse.Namespace) -> None:
         # the score step re-scores it (its --skip-existing skips files that
         # already have confidence_scoring). See issue #165.
         existing = _read_json_or_none(filepath)
+        status = payload.get("metadata", {}).get("fetch_status", "empty")
+        if _keeps_existing_file(payload, existing):
+            # Not stamped either, so the dataset is retried on the next run.
+            logger.warning(
+                "%s: fetch failed (%s); keeping the existing file and retrying "
+                "next run",
+                dataset_id,
+                status,
+            )
+            kept_existing += 1
+            stub_only += 1
+            api_failures += 1
+            continue
         compare = payload
         if existing is not None and "confidence_scoring" in existing:
             compare = {**payload, "confidence_scoring": existing["confidence_scoring"]}
@@ -274,8 +352,7 @@ def run_opencite_backend(args: argparse.Namespace) -> None:
             successes += 1
         else:
             stub_only += 1
-            status = payload.get("metadata", {}).get("fetch_status", "empty")
-            if status in _API_FAILURE_STATUSES:
+            if status in _KEEP_EXISTING_STATUSES:
                 api_failures += 1
             if status == "not_found":
                 not_found_failures += 1
@@ -284,11 +361,12 @@ def run_opencite_backend(args: argparse.Namespace) -> None:
     save_state(fetch_state_path, fetch_state)
     logger.info(
         "opencite run complete: %d with citations, %d empty/stub "
-        "(%d API-failure), %d write failures, %d unchanged, %d skipped (fresh), "
-        "%d total.",
+        "(%d API-failure, %d of them leaving the existing file in place), "
+        "%d write failures, %d unchanged, %d skipped (fresh), %d total.",
         successes,
         stub_only,
         api_failures,
+        kept_existing,
         write_failures,
         unchanged,
         skipped_fresh,
@@ -395,9 +473,19 @@ def main():
         help=(
             "Skip a re-fetch when the existing JSON has a stable (non-transient) "
             "fetch_status AND the dataset was last fetched within this many days, "
-            "per the gitignored .fetch_state.json cache (default: 7, matching the "
-            "weekly cron cadence). Set to 0 to force re-fetch every dataset on "
-            "every invocation."
+            "per the gitignored .fetch_state.json cache (default: 7, so the "
+            "nightly cron refreshes each dataset about weekly). A dataset with an "
+            "anchor that newly qualifies is refetched regardless. Set to 0 to "
+            "force re-fetch every dataset on every invocation."
+        ),
+    )
+    parser.add_argument(
+        "--judgments-dir",
+        default=str(DEFAULT_JUDGMENTS_DIR),
+        help=(
+            "Anchor-judgment sidecars the anchor gate reads (default: "
+            f"{DEFAULT_JUDGMENTS_DIR}). Only sidecars judged by ANCHOR_JUDGE_MODEL "
+            "(else claude-sonnet-5-5) count."
         ),
     )
 

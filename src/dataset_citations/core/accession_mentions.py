@@ -5,13 +5,15 @@ are discovered by `backends/accession_search.py` and folded into the same
 `citation_details[]` list as anchor-based citations, each tagged
 `discovery_method="accession_mention"`. The toggle (#169) buckets:
   - "cites dataset"   = accession mentions + anchor citations whose
-                        source_relation is IsVersionOf / IsIdenticalTo
+                        source_relation is IsVersionOf / IsIdenticalTo, or
+                        whose source anchor is a dataset DOI (NEMAR
+                        `10.82901/`, OpenNeuro `10.18112/openneuro.`)
   - "cites data paper"= the remaining anchor citations (References /
                         IsDerivedFrom / IsDescribedBy)
 
 `IsDescribedBy` (a data paper that describes the dataset, e.g. the on000117
-data paper) is intentionally NOT in `_DATASET_RELATIONS`: its citations are
-citations of the data paper, not of the dataset record itself.
+data paper) is intentionally NOT in `DATASET_RECORD_RELATIONS`: its citations
+are citations of the data paper, not of the dataset record itself.
 
 This module is pure (no network / I/O) and deterministic so repeated runs are
 content-idempotent (issue #165). Issue #169.
@@ -22,15 +24,12 @@ from __future__ import annotations
 from datetime import UTC, datetime
 from typing import Any
 
+from dataset_citations.core.anchor_gate import DATASET_RECORD_RELATIONS
 from dataset_citations.core.citation_identity import (
     base_doi,
     normalize_title,
 )
-
-# Intentional subset of RelationType: only the relations whose anchor IS the
-# dataset record (vs a paper about it). IsDescribedBy/References/IsDerivedFrom
-# denote papers, so they stay out.
-_DATASET_RELATIONS = frozenset({"IsVersionOf", "IsIdenticalTo"})
+from dataset_citations.sources.doi import NEMAR_DOI_PREFIX, is_openneuro_dataset_doi
 
 
 def _ids(citation: dict[str, Any]) -> list[str]:
@@ -67,12 +66,52 @@ def _title_key(citation: dict[str, Any]) -> str:
 
 
 def cites_dataset(citation: dict[str, Any]) -> bool:
-    """True if `citation` belongs in the 'cites dataset' bucket."""
+    """True if `citation` belongs in the 'cites dataset' bucket.
+
+    Any dataset record counts, not only this dataset's own: a citer reached
+    through another NEMAR or OpenNeuro dataset's DOI (a parent dataset the
+    anchor gate kept) cited a dataset record, not a paper.
+    """
     if citation.get("discovery_method") == "accession_mention":
         return True
     if citation.get("mentions_accession"):
         return True
-    return citation.get("source_relation") in _DATASET_RELATIONS
+    if citation.get("source_relation") in DATASET_RECORD_RELATIONS:
+        return True
+    # The dataset's own concept DOI is seeded with relation `References`, so the
+    # relation alone would bucket its citers as "cites a paper".
+    source = base_doi(citation.get("source_doi"))
+    return source.startswith(NEMAR_DOI_PREFIX) or is_openneuro_dataset_doi(source)
+
+
+def refresh_derived_counts(payload: dict[str, Any]) -> None:
+    """Recompute every count derived from `citation_details`, in place.
+
+    For sweeps that remove records (dedupe, the anchor gate): `num_citations`
+    and `metadata.total_cumulative_citations` always; the accession-mention
+    and toggle-bucket counters only when the file already carries them, so a
+    file that never went through find-mentions does not acquire them. The
+    dashboard keys on the bucket counters rather than recomputing them, so
+    they must never go stale after a sweep.
+    """
+    details = payload.get("citation_details") or []
+    payload["num_citations"] = len(details)
+    metadata = payload.get("metadata")
+    if not isinstance(metadata, dict):
+        return
+    metadata["total_cumulative_citations"] = sum(
+        int(c.get("cited_by") or 0) for c in details
+    )
+    if "num_accession_mentions" in metadata:
+        metadata["num_accession_mentions"] = sum(
+            1 for c in details if c.get("discovery_method") == "accession_mention"
+        )
+    if "num_dataset_citations" in metadata:
+        metadata["num_dataset_citations"] = sum(1 for c in details if cites_dataset(c))
+    if "num_datapaper_citations" in metadata:
+        metadata["num_datapaper_citations"] = sum(
+            1 for c in details if not cites_dataset(c)
+        )
 
 
 def merge_accession_mentions(

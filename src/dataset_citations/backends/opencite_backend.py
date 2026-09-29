@@ -26,13 +26,14 @@ from __future__ import annotations
 import asyncio
 import logging
 from collections.abc import Iterable
-from typing import Any
+from typing import Any, ClassVar
 
 import httpx
 from opencite.citations import CitationExplorer
+from opencite.clients import openalex as _openalex
 from opencite.clients.openalex import OpenAlexClient
 from opencite.config import Config
-from opencite.exceptions import APIKeyError, RateLimitError
+from opencite.exceptions import APIError, APIKeyError, RateLimitError
 
 from dataset_citations.sources.models import (
     Author,
@@ -45,9 +46,16 @@ from dataset_citations.sources.models import (
 
 logger = logging.getLogger(__name__)
 
+# The field list opencite's own DOI lookup requests; None asks for the full work.
+_OPENALEX_WORK_FIELDS: str | None = getattr(_openalex, "_WORK_FIELDS", None)
+
 
 class OpenCiteBackend:
     """Resolve `DoiReference` anchors into lists of `CitingWork` via opencite."""
+
+    # The OpenAlex client class `get_paper` opens; a test points a subclass at a
+    # local HTTP server to exercise the real error handling.
+    _openalex_client_cls: ClassVar[type[OpenAlexClient]] = OpenAlexClient
 
     def __init__(
         self,
@@ -84,7 +92,11 @@ class OpenCiteBackend:
 
         Used by epic #76's anchor adjudication path (probe + judge-anchors
         CLI) to assemble the candidate paper context for the LLM prompt.
-        Sync facade over opencite's async `OpenAlexClient.lookup_doi`.
+
+        Only an OpenAlex 404 (or a record without a title) is `not_found`; the
+        judge treats that as permanent and retries it monthly. Any other
+        failure is transient: a 429 is `rate_limit`, and a 5xx or network
+        error that outlasts opencite's retries is `network`.
         """
         return asyncio.run(self._get_paper_async(doi))
 
@@ -97,13 +109,34 @@ class OpenCiteBackend:
         # FetchError("other", ...). Mirror this list against the existing
         # _lookup branch's handling if it widens in the future.
         try:
-            async with OpenAlexClient(self._config) as openalex_base:
+            async with self._openalex_client_cls(self._config) as openalex_base:
                 assert isinstance(openalex_base, OpenAlexClient), (  # noqa: S101 - upstream contract guard
                     "opencite changed OpenAlexClient.__aenter__ return type; "
                     "expected an OpenAlexClient bound, got "
                     f"{type(openalex_base).__name__}"
                 )
-                paper = await openalex_base.lookup_doi(doi)
+                # Not `lookup_doi`: it swallows every error and returns None,
+                # so an OpenAlex outage would read as an unindexed DOI and the
+                # judge would lock the anchor out for a month (#241 review).
+                params = (
+                    {"select": _OPENALEX_WORK_FIELDS} if _OPENALEX_WORK_FIELDS else None
+                )
+                try:
+                    resp = await openalex_base.get(f"/works/doi:{doi}", params=params)
+                except APIError as exc:
+                    status = _status_code_of(exc)
+                    if status == 404:
+                        return FetchError(
+                            "not_found",
+                            f"{doi}: not found in OpenAlex (anchor self-lookup)",
+                        )
+                    if status is None and not isinstance(
+                        exc, (RateLimitError, APIKeyError)
+                    ):
+                        # opencite gave up after retrying a 5xx or a network error.
+                        return FetchError("network", f"{doi}: {exc}")
+                    return classify_error(exc, doi)
+                paper = openalex_base._parse_work(resp.json())
         except (TimeoutError, httpx.HTTPError, OSError) as exc:
             return classify_error(exc, doi)
 

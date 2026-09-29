@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
-# Manual rerun helper for the hallu nightly pipeline. Same steps as
-# scripts/hallu_cron_pipeline.sh but without the flock/PR/auto-merge
-# scaffolding so an operator can iterate on a single stage.
+# Manual rerun helper for the hallu nightly pipeline. The core steps of
+# scripts/hallu_cron_pipeline.sh (it omits prune-mirrored, find-mentions, and
+# dedupe) without the flock/PR/auto-merge scaffolding, so an operator can
+# iterate on a single stage.
 #
 # Usage:
 #   scripts/hallu_rerun.sh                   # full pipeline (no lock, no PR)
 #   scripts/hallu_rerun.sh --judge-only      # just step 3a (anchor adjudication)
-#   scripts/hallu_rerun.sh --update-only     # just step 3b (opencite fetch)
+#   scripts/hallu_rerun.sh --update-only     # just step 3b (opencite fetch + anchor gate)
 #   scripts/hallu_rerun.sh --score-only      # just step 4 (GPU scoring)
 #   scripts/hallu_rerun.sh --embeddings-only # just step 5a (GPU embeddings)
 #   scripts/hallu_rerun.sh --umap-only       # just step 5b (UMAP on embeddings)
@@ -16,12 +17,9 @@
 # Assumes:
 #   - cwd is the repo root (or $REPO_DIR is exported).
 #   - `uv` and `gh` are on PATH.
-#   - For --judge-only: an Ollama daemon is reachable at
-#     $OLLAMA_BASE_URL (default http://localhost:11434). On hallu the
-#     daemon is local; from a workstation, set up an ssh tunnel per
-#     scripts/probe_anchor_judgment.py's docstring and point
-#     OLLAMA_BASE_URL at the forwarded port (NOT 11434, which collides
-#     with a workstation-local ollama serve).
+#   - For --judge-only: the `claude` CLI is on PATH and logged in (the
+#     judge is Claude Sonnet 5.5 in headless mode, #241). The judge CLI
+#     health-checks it with one real judgment and exits 2 if it cannot.
 set -uo pipefail
 
 REPO_DIR="${REPO_DIR:-$PWD}"
@@ -39,7 +37,7 @@ for arg in "$@"; do
     --analysis-only) MODE="analysis" ;;
     --dry-run) DRY_RUN=1 ;;
     -h|--help)
-      sed -n '2,18p' "$0"
+      sed -n '2,22p' "$0"
       exit 0
       ;;
     *)
@@ -89,25 +87,15 @@ retrieve_metadata() {
     --max-failures 10
 }
 
-preflight_ollama() {
-  if [ "$DRY_RUN" -eq 1 ]; then
-    echo "+ curl -s --max-time 5 ${OLLAMA_BASE_URL:-http://localhost:11434}/api/tags >/dev/null"
-    return 0
-  fi
-  curl -s --max-time 5 "${OLLAMA_BASE_URL:-http://localhost:11434}/api/tags" >/dev/null || {
-    echo "ERROR: Ollama daemon at ${OLLAMA_BASE_URL:-http://localhost:11434} not reachable; aborting." >&2
-    exit 2
-  }
-}
-
 judge_anchors() {
-  preflight_ollama
   # `set -uo pipefail` does not abort on non-zero exit; explicit guard
-  # so a partial judgment run does not let `update_citations` proceed
-  # with a half-written sidecar tree.
-  run uv run dataset-citations-judge-anchors \
+  # so a broken judge does not let `update_citations` proceed.
+  run env ANCHOR_JUDGE_MODEL="${ANCHOR_JUDGE_MODEL:-claude-sonnet-5-5}" \
+    uv run dataset-citations-judge-anchors \
     --dataset-list-file "$DATASETS_LIST" \
     --output-dir citations/anchor_judgments \
+    --citations-dir citations/json_opencite \
+    --datasets-dir datasets \
     --skip-existing || {
     echo "ERROR: dataset-citations-judge-anchors failed; aborting." >&2
     exit 2
@@ -118,7 +106,23 @@ update_citations() {
   run env OPENCITE_CONCURRENCY=4 \
     uv run dataset-citations-update \
       --dataset-list-file "$DATASETS_LIST" \
-      --output-dir citations/
+      --output-dir citations/ \
+      --datasets-dir datasets || {
+    echo "ERROR: dataset-citations-update failed; aborting." >&2
+    exit 2
+  }
+  gate_anchors
+}
+
+gate_anchors() {
+  # Mirrors the cron's 3b-gate step (#241): re-apply the fail-closed anchor
+  # gate to every citation file after a fetch.
+  run uv run dataset-citations-gate-anchors \
+    --citations-dir citations/json_opencite \
+    --judgments-dir citations/anchor_judgments || {
+    echo "ERROR: dataset-citations-gate-anchors failed; aborting." >&2
+    exit 2
+  }
 }
 
 score_confidence() {
@@ -240,7 +244,7 @@ case "$MODE" in
     embeddings
     ;;
   umap)
-    # UMAP only needs the embeddings directory; no GitHub / opencite / Ollama
+    # UMAP only needs the embeddings directory; no GitHub / opencite / judge
     # traffic. Assumes step 5a (embeddings) has populated `embeddings/`;
     # the analyze-umap CLI logs a clear error if the directory is missing.
     umap_analysis
@@ -248,7 +252,7 @@ case "$MODE" in
   analysis)
     # Theme/network/temporal only; reads citations/json_opencite and writes
     # the three dashboard_data/ subdirs deploy-dashboard.yml verifies. No
-    # GitHub / opencite / Ollama traffic.
+    # GitHub / opencite / judge traffic.
     themes_analysis
     network_analysis
     temporal_analysis

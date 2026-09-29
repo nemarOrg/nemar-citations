@@ -1,29 +1,34 @@
 """
-Ollama-backed LLM client for anchor adjudication.
+Claude-backed LLM client for anchor adjudication.
 
-Epic #76 fixes citation inflation by asking a local LLM (the largest local
-Gemma checkpoint served by Ollama on the hallu RTX 4090; see _DEFAULT_MODEL)
-to classify each DOI anchor in a dataset's metadata as one of five buckets.
-Phase 1 (#85) stands up the client + the prompt + a throwaway probe script;
-phase 2 (#86) productizes the storage.
+Epic #76 fixes citation inflation by asking an LLM to classify each DOI anchor
+in a dataset's metadata as one of five buckets. Since issue #241 the judge is
+Claude Sonnet 5.5 driven through the `claude` CLI in headless mode on hallu
+(the previous Ollama/Gemma judge on the shared GPU host lost its models and
+silently errored on every anchor). opencite still resolves each anchor's
+title / abstract / venue / year before the call; the model judges resolved
+metadata, never a bare DOI.
 
 This module is the single place where the prompt + classification taxonomy
-live. Phases 2, 3, and 4 all import from here so a prompt revision is a
-single-file change, not a sweep.
+live, so a prompt revision is a single-file change, not a sweep.
 
 The classification schema is:
 
   - data_paper:    the paper IS the data paper for this dataset (or the
-                   dataset's preprint / curation paper).
+                   dataset's preprint / curation paper / a deposit of the
+                   same data).
   - umbrella:      the paper is a multi-dataset / multi-study initiative
                    (HBN, UK Biobank, ABCD) that contains this dataset but
                    is not its data paper.
-  - methodology:   the paper is a software / method / analysis tool the
-                   dataset's protocol uses (MNE-Python, BIDS-EEG spec).
+  - methodology:   the paper is a software / method / analysis tool or a
+                   standard the dataset's protocol uses (MNE-Python,
+                   EEG-BIDS spec).
   - related_work:  the paper is topically related but does not describe
                    this dataset specifically.
   - irrelevant:    the paper has no meaningful relationship to this
-                   dataset (mis-attached anchor, token collision, etc.).
+                   dataset (mis-attached anchor, typo'd DOI, etc.).
+
+Only `data_paper` lets an anchor contribute citations (`core.anchor_gate`).
 
 Copyright (c) 2026 Seyed Yahya Shirazi (neuromechanist)
 All rights reserved.
@@ -38,70 +43,90 @@ from __future__ import annotations
 import json
 import logging
 import os
+import subprocess
 from collections.abc import Iterable
-from types import TracebackType
-from typing import Any, Self
-
-import httpx
+from pathlib import Path
+from typing import Any
 
 logger = logging.getLogger(__name__)
 
-# The five-class taxonomy is the contract phase 2's sidecar schema and
-# phase 3's pipeline filter both depend on. Adding or removing a class is a
-# cross-phase change; doc the rationale before edits.
+# The five-class taxonomy is the contract the sidecar schema and the anchor
+# gate (`core.anchor_gate`) both depend on. Adding or removing a class is a
+# cross-module change; doc the rationale before edits.
 ALLOWED_CLASSIFICATIONS: frozenset[str] = frozenset(
     {"data_paper", "umbrella", "methodology", "related_work", "irrelevant"}
 )
 
-# Env vars + defaults. The default base URL is localhost so the production
-# cron path (which runs on hallu next to the Ollama daemon) needs no
-# overrides. Developer workstations reach the daemon either by ssh-ing
-# directly to hallu and running there, OR by forwarding a *non-default*
-# local port (e.g. `ssh -fN -L 21434:localhost:11434 hallu`) and setting
-# OLLAMA_BASE_URL=http://localhost:21434. Using 11434 for the tunnel
-# collides with a workstation-local `ollama serve` and silently routes
-# the request to the wrong daemon. See scripts/probe_anchor_judgment.py
-# docstring for the canonical workflow.
-# Default model tracks the largest Gemma checkpoint currently pulled on
-# hallu; epic #76 spec'd Gemma 3 27B, but the live deployment is the
-# next-generation model. Update the constant when the pulled model
-# changes.
-_ENV_BASE_URL = "OLLAMA_BASE_URL"
-_ENV_MODEL = "OLLAMA_MODEL"
-_ENV_TIMEOUT = "OLLAMA_TIMEOUT_SECONDS"
+_ENV_MODEL = "ANCHOR_JUDGE_MODEL"
+_ENV_BIN = "CLAUDE_BIN"
+_ENV_TIMEOUT = "ANCHOR_JUDGE_TIMEOUT_SECONDS"
 
-_DEFAULT_BASE_URL = "http://localhost:11434"
-# Single source of truth for the deployed model. Bump this one constant
-# (and re-run scripts/probe_anchor_judgment.py) when the pulled model changes.
-#
-# Trade-off (2026-06-13): the larger 31B checkpoint discriminates
-# methodology-vs-data_paper best (26B once confused a Brainstorm-tools anchor
-# for a data paper), but 31B (19GB) OOMs / blocks other GPU jobs on the shared
-# hallu host, so it is not a viable steady-state default. gemma4:e4b (9.6GB)
-# is the resource-fit choice that still emits clean JSON under format=json
-# (qwen3.5:9b does not). Net guardrail against any weaker-judge umbrella
-# leakage: the cross-dataset attribution audit (dataset-citations-audit-attribution)
-# flags anchors fanned across many datasets regardless of judgment quality.
-# Override with OLLAMA_MODEL=gemma4:31b on a dedicated host.
-_DEFAULT_MODEL = "gemma4:e4b"
-# Per-judgment timeout: most calls return in 3-10s, but cold loads + long
-# prompts on the 26B checkpoint have been observed at ~150s. 300s gives
-# headroom without hanging the probe forever on a stuck request.
-_DEFAULT_TIMEOUT = 300
+# Default judge model. The cron and rerun scripts pin the same value; keep them
+# in sync. Must be a full model id: the client rejects a call the CLI served
+# with any other model. A sidecar judged by any other model is re-judged
+# (cli.judge_anchors) and ignored by the anchor gate (`trusted_judge_model`).
+_DEFAULT_MODEL = "claude-sonnet-5-5"
+_DEFAULT_BIN = "claude"
+# A judgment takes ~4s on hallu; the ceiling only guards a hung CLI.
+_DEFAULT_TIMEOUT = 180
+# Health-check attempts before the judge is declared unusable; one transient
+# failure of a single call must not abort the whole night.
+_HEALTH_CHECK_ATTEMPTS = 3
 
-# Truncate long dataset descriptions to keep the prompt under the model's
-# practical context budget while leaving room for the candidate paper. The
-# probe script's hand-picked datasets all fit comfortably under this.
+# Bump when the prompt or taxonomy changes in a way that should re-judge every
+# anchor. Sidecars record it, and a verdict is reused only under the same model
+# AND prompt version (quality.anchor_judgment, cli.judge_anchors).
+PROMPT_VERSION = 2
+
+# Structured output: the CLI validates the model's answer against this schema
+# and returns it as `structured_output`, so there is no free-text JSON to parse.
+_OUTPUT_SCHEMA = json.dumps(
+    {
+        "type": "object",
+        "properties": {
+            "classification": {
+                "type": "string",
+                "enum": sorted(ALLOWED_CLASSIFICATIONS),
+            },
+            "reason": {"type": "string"},
+        },
+        "required": ["classification", "reason"],
+        "additionalProperties": False,
+    }
+)
+
+
+def trusted_judge_model() -> str:
+    """The judge model whose verdicts count: ANCHOR_JUDGE_MODEL, else the default.
+
+    The producer (`cli.judge_anchors`) re-judges sidecars from any other model,
+    and the consumers (the fetch-time gate and the gate sweep) treat such a
+    sidecar as absent, so a retired judge's verdicts never keep counting.
+    """
+    return os.environ.get(_ENV_MODEL) or _DEFAULT_MODEL
+
+
+_SYSTEM_PROMPT = (
+    "You are a careful research librarian who decides whether a paper is the "
+    "data paper of a specific neuroscience dataset. Answer only through the "
+    "structured output."
+)
+
+# Truncate long dataset descriptions to keep the prompt small while leaving
+# room for the candidate paper.
 _DATASET_DESCRIPTION_CHAR_LIMIT = 1500
 _ABSTRACT_CHAR_LIMIT = 2000
 
 
 class LlmJudgmentError(RuntimeError):
-    """Raised when the LLM returns malformed JSON or an out-of-taxonomy label.
+    """Raised when a judgment cannot be obtained or validated.
 
-    The probe and the phase 2 CLI catch this so a single bad anchor doesn't
-    abort a batch run. The detail string carries the raw response for
-    auditing.
+    The CLI is missing, cannot run, times out, exits non-zero, reports
+    `is_error`, or was served by another model; or its output is not JSON,
+    has no `structured_output`, or carries an out-of-taxonomy label. The judge
+    and probe catch this so a single bad anchor doesn't abort a batch.
+    `raw_response` holds the CLI's stdout when it printed any (None for
+    process-level failures).
     """
 
     def __init__(self, message: str, *, raw_response: str | None = None) -> None:
@@ -118,16 +143,16 @@ def _truncate(text: str | None, limit: int) -> str:
 
 
 def _format_authors(authors: Iterable[Any]) -> str:
-    """Render a small authors list for the prompt. Trims at 5 names."""
-    names: list[str] = []
-    for author in authors:
-        name = getattr(author, "name", None) or str(author)
-        if name:
-            names.append(name)
-        if len(names) >= 5:
-            names.append("et al.")
-            break
-    return ", ".join(names) if names else "[unavailable]"
+    """Render a small authors list for the prompt: up to 5 names, then "et al."."""
+    names = [
+        name
+        for author in authors
+        if (name := getattr(author, "name", None) or str(author))
+    ]
+    if not names:
+        return "[unavailable]"
+    shown = ", ".join(names[:5])
+    return f"{shown}, et al." if len(names) > 5 else shown
 
 
 def build_anchor_prompt(
@@ -142,15 +167,16 @@ def build_anchor_prompt(
     paper_authors: Iterable[Any] | None = None,
     paper_year: int | None = None,
 ) -> str:
-    """Return the full Ollama prompt for one (dataset, anchor) judgment.
+    """Return the full prompt for one (dataset, anchor) judgment.
 
-    Kept as a module-level pure function so phases 2/3/4 all build identical
+    Kept as a module-level pure function so every caller builds identical
     prompts. The opening lays out the taxonomy with one-line definitions,
     then hands the model the dataset description + candidate paper + the
     DataCite `source_relation` value, then four few-shot examples (HBN
     umbrella, dataset preprint, MNE-Python methodology, and a journal
-    analysis-method paper added for issue #131 to stop e4b misclassifying
-    method papers as data_paper).
+    analysis-method paper added for issue #131 so method papers are not
+    mistaken for data papers). `data_paper` is the only class that counts
+    citations, so the prompt asks for concrete evidence before choosing it.
     """
     description = _truncate(dataset_description, _DATASET_DESCRIPTION_CHAR_LIMIT)
     abstract = _truncate(paper_abstract, _ABSTRACT_CHAR_LIMIT)
@@ -163,11 +189,13 @@ def build_anchor_prompt(
 
 Choose exactly one class from this taxonomy:
 
-- data_paper: the paper IS this dataset's data paper, dataset preprint, or curation paper. It introduces, describes, or releases the data in this specific dataset.
+- data_paper: the paper IS this dataset's data paper, dataset preprint, or curation paper. It introduces, describes, or releases the data in this specific dataset: a data descriptor, the study paper that reports recording exactly this data, or another deposit of the same data (for example its figshare or Zenodo record). Choose it only on concrete evidence (matching title, task, participants, or authors); a different study by the same lab on a similar task is related_work.
 - umbrella: the paper is a multi-dataset / multi-study initiative (e.g. HBN, UK Biobank, ABCD) that this dataset belongs to, but the paper is NOT this specific dataset's data paper.
-- methodology: the paper is a software tool, analysis method, algorithm, or technical specification that this dataset's protocol or a downstream analysis uses (e.g. MNE-Python, EEGLAB, BIDS-EEG spec, FieldTrip, or an analysis-method paper in a journal such as NeuroImage). A peer-reviewed method/algorithm paper is methodology, NOT data_paper, even when it reads like a normal research article: it describes a technique reused across many studies, it does not introduce THIS dataset.
+- methodology: the paper is a software tool, analysis method, algorithm, or technical specification that this dataset's protocol or a downstream analysis uses (e.g. MNE-Python, EEGLAB, FieldTrip, a standard or specification such as BIDS, EEG-BIDS, or HED, a data platform such as OpenNeuro or NEMAR, or an analysis-method paper in a journal such as NeuroImage). A peer-reviewed method/algorithm paper is methodology, NOT data_paper, even when it reads like a normal research article: it describes a technique reused across many studies, it does not introduce THIS dataset.
 - related_work: the paper is topically related (same brain region, task, modality) but does not describe this dataset specifically.
-- irrelevant: the paper has no meaningful relationship to this dataset (mis-attached anchor, token-collision false positive).
+- irrelevant: the paper has no meaningful relationship to this dataset (mis-attached anchor, a typo'd DOI that resolves to an unrelated paper, token-collision false positive).
+
+Only data_paper makes the candidate's citations count as citations of this dataset, so when the evidence is ambiguous prefer related_work.
 
 Respond with strict JSON only, no prose, no markdown:
 {{"classification": "<one of the five labels>", "reason": "<one sentence, <= 200 chars, citing concrete evidence from the title or abstract>"}}
@@ -204,112 +232,139 @@ Example 3 (methodology tool):
   Correct output: {{"classification": "methodology", "reason": "Describes the MNE-Python analysis library; tool used in the protocol, not a paper about this dataset."}}
 
 Example 4 (analysis-method paper in a journal -> methodology, NOT data_paper):
-  dataset_id: ds004362 (anchor DOI 10.1016/j.neuroimage.2020.117465)
+  dataset_id: ds004362
   candidate paper: "An automated pipeline for EEG artifact rejection and independent component analysis" (NeuroImage)
   Correct output: {{"classification": "methodology", "reason": "Describes a general EEG analysis method reused across many studies; a journal method paper, not a description of this dataset."}}
 
-Now classify the candidate paper for dataset {dataset_id}. Respond with the JSON object only."""
+Now classify the candidate paper for dataset {dataset_id}."""
 
 
-class OllamaJudgmentClient:
-    """Sync HTTP client for Ollama's `/api/generate` JSON-mode endpoint.
+class ClaudeCliJudgmentClient:
+    """Judge anchors with Claude through the `claude` CLI in headless mode.
 
-    One client per process is fine; httpx.Client handles connection pooling.
-    Phase 4's cron preflight uses `health_check()` to fail fast if the GPU
-    host is unreachable.
+    Each judgment is one `claude -p` call with tools disabled, no session
+    persistence, only project-level settings (so user hooks and plugins stay
+    out), and a JSON schema that makes the CLI return the verdict as
+    `structured_output`. The CLI uses whatever login the host already has;
+    hallu runs it under the pipeline user's Claude account.
+
+    The subprocess runs from a private directory owned by the pipeline user
+    (`_private_workdir`), so no repository `CLAUDE.md` is loaded into every
+    call and no shared directory is involved: with project settings enabled, a
+    world-writable cwd such as /tmp would let another user on the shared host
+    plant `.claude/settings.json` hooks that run as the pipeline user.
+
+    Thread-safe: `judge_anchor` only spawns a subprocess, so callers may run
+    several judgments concurrently.
     """
 
     def __init__(
         self,
-        base_url: str | None = None,
         *,
         model: str | None = None,
+        claude_bin: str | None = None,
         timeout: int | None = None,
     ) -> None:
-        self.base_url = (
-            base_url or os.environ.get(_ENV_BASE_URL) or _DEFAULT_BASE_URL
-        ).rstrip("/")
-        self.model = model or os.environ.get(_ENV_MODEL) or _DEFAULT_MODEL
+        self.model = model or trusted_judge_model()
+        self.claude_bin = claude_bin or os.environ.get(_ENV_BIN) or _DEFAULT_BIN
         timeout_env = os.environ.get(_ENV_TIMEOUT)
         if timeout is not None:
             self.timeout = timeout
         elif timeout_env:
-            self.timeout = int(timeout_env)
+            try:
+                self.timeout = int(timeout_env)
+            except ValueError as exc:
+                raise ValueError(
+                    f"{_ENV_TIMEOUT} must be a whole number of seconds, "
+                    f"got {timeout_env!r}"
+                ) from exc
         else:
             self.timeout = _DEFAULT_TIMEOUT
-        self._client = httpx.Client(timeout=self.timeout)
-        logger.debug(
-            "OllamaJudgmentClient ready (base_url=%s, model=%s, timeout=%ds)",
-            self.base_url,
-            self.model,
-            self.timeout,
-        )
-
-    def close(self) -> None:
-        self._client.close()
-
-    def __enter__(self) -> Self:
-        return self
-
-    def __exit__(
-        self,
-        exc_type: type[BaseException] | None,
-        exc_val: BaseException | None,
-        exc_tb: TracebackType | None,
-    ) -> None:
-        del exc_type, exc_val, exc_tb
-        self.close()
 
     def health_check(self) -> bool:
-        """Return True iff the Ollama daemon answers `/api/tags`.
+        """Return True iff a real judgment round-trips through the CLI.
 
-        Used by phase 4's cron preflight so a down GPU host aborts the run
-        cleanly instead of writing empty judgments.
+        A cheap liveness probe is not enough: the retired Ollama judge passed
+        its `/api/tags` probe while every judgment 404ed because the model was
+        gone (issue #241). This runs one real, tiny judgment instead, so a
+        logged-out CLI, a missing binary, or an unknown model all fail here.
+        Retried a few times so one transient failure does not abort a night.
         """
-        try:
-            resp = self._post_health()
-        except httpx.HTTPError as exc:
-            logger.warning("ollama health_check failed: %s", exc)
-            return False
-        return resp.status_code == 200
-
-    def _post_health(self) -> httpx.Response:
-        return self._client.get(f"{self.base_url}/api/tags", timeout=5)
+        prompt = build_anchor_prompt(
+            dataset_id="healthcheck",
+            dataset_description="Dataset Name: EEG recordings during a visual task",
+            anchor_doi="10.3389/fnins.2013.00267",
+            anchor_relation="References",
+            paper_title="MEG and EEG data analysis with MNE-Python",
+            paper_abstract="Describes the MNE-Python software package.",
+            paper_year=2013,
+        )
+        for attempt in range(1, _HEALTH_CHECK_ATTEMPTS + 1):
+            try:
+                self.judge_anchor(prompt)
+            except LlmJudgmentError as exc:
+                logger.error(
+                    "anchor judge health check failed (attempt %d/%d): %s",
+                    attempt,
+                    _HEALTH_CHECK_ATTEMPTS,
+                    exc,
+                )
+                continue
+            return True
+        return False
 
     def judge_anchor(self, prompt: str) -> dict[str, Any]:
-        """Send `prompt` to Ollama, parse the JSON response, validate.
+        """Run one judgment and validate it.
 
         Returns a dict with keys:
           - classification (str, one of ALLOWED_CLASSIFICATIONS)
           - reason (str, non-empty)
-          - raw_response (str, the model's verbatim output)
+          - raw_response (str, the CLI's verbatim stdout)
           - model (str)
 
-        Raises LlmJudgmentError if the response is not parseable JSON, is
-        missing required keys, or has an out-of-taxonomy classification.
+        Raises LlmJudgmentError on any CLI failure (missing binary, timeout,
+        non-zero exit, `is_error` result such as "Not logged in"), when the
+        call was served by a model other than `self.model`, or when the
+        structured output is missing or outside the taxonomy.
         """
-        raw = self._generate(prompt)
+        raw = self._run_cli(prompt)
         try:
-            parsed = json.loads(raw)
+            payload = json.loads(raw)
         except json.JSONDecodeError as exc:
             raise LlmJudgmentError(
-                f"ollama returned non-JSON content: {exc}",
-                raw_response=raw,
+                f"claude CLI printed non-JSON output: {exc}", raw_response=raw
             ) from exc
-
-        if not isinstance(parsed, dict):
+        if not isinstance(payload, dict):
             raise LlmJudgmentError(
-                f"ollama JSON root is not an object (got {type(parsed).__name__})",
+                f"claude CLI output root is not an object ({type(payload).__name__})",
+                raw_response=raw,
+            )
+        if payload.get("is_error"):
+            raise LlmJudgmentError(
+                f"claude CLI reported an error: {payload.get('result')!r}",
+                raw_response=raw,
+            )
+        # The sidecar records `self.model` as the judge, so a call the CLI
+        # served with any other model (an alias that resolved elsewhere, a
+        # silent fallback) must not be recorded as a verdict by this model.
+        served = payload.get("modelUsage")
+        if isinstance(served, dict) and served and self.model not in served:
+            raise LlmJudgmentError(
+                f"claude CLI served {sorted(served)} instead of {self.model!r}; "
+                f"set {_ENV_MODEL} to a full model id",
                 raw_response=raw,
             )
 
-        classification = parsed.get("classification")
-        reason = parsed.get("reason")
-
+        verdict = payload.get("structured_output")
+        if not isinstance(verdict, dict):
+            raise LlmJudgmentError(
+                "claude CLI returned no structured_output", raw_response=raw
+            )
+        classification = verdict.get("classification")
+        reason = verdict.get("reason")
         if not isinstance(classification, str):
             raise LlmJudgmentError(
-                "missing or non-string 'classification' field",
-                raw_response=raw,
+                "missing or non-string 'classification' field", raw_response=raw
             )
         if classification not in ALLOWED_CLASSIFICATIONS:
             raise LlmJudgmentError(
@@ -318,10 +373,7 @@ class OllamaJudgmentClient:
                 raw_response=raw,
             )
         if not isinstance(reason, str) or not reason.strip():
-            raise LlmJudgmentError(
-                "missing or empty 'reason' field",
-                raw_response=raw,
-            )
+            raise LlmJudgmentError("missing or empty 'reason' field", raw_response=raw)
 
         return {
             "classification": classification,
@@ -330,73 +382,89 @@ class OllamaJudgmentClient:
             "model": self.model,
         }
 
-    def _generate(self, prompt: str) -> str:
-        """POST `/api/generate` with format=json, return the `response` field.
+    def _command(self) -> list[str]:
+        return [
+            self.claude_bin,
+            "-p",
+            "--model",
+            self.model,
+            "--output-format",
+            "json",
+            "--json-schema",
+            _OUTPUT_SCHEMA,
+            "--system-prompt",
+            _SYSTEM_PROMPT,
+            "--tools",
+            "",
+            "--setting-sources",
+            "project",
+            "--strict-mcp-config",
+            "--no-session-persistence",
+        ]
 
-        Split out so tests can subclass the client and override the HTTP step
-        with a hand-built response (matches the no-mocks pattern used by
-        `tests/test_core_opencite_pipeline.py`).
+    def _run_cli(self, prompt: str) -> str:
+        """Run the CLI with `prompt` on stdin and return its stdout.
 
-        All httpx-level failures (timeout, connect, non-2xx) are wrapped in
-        `LlmJudgmentError` so the caller's per-anchor try/except catches them
-        uniformly and one slow / failed anchor doesn't abort a batch run.
-        Ollama's error JSON (when present) is surfaced in the message so the
-        operator sees, e.g., "model not found" instead of a generic 500.
+        Split out so tests can subclass the client and return a recorded real
+        CLI output (`tests/test_data/claude_cli_*.json`) instead of spawning a
+        process. Every process-level failure (missing or non-executable
+        binary, exec error, timeout, non-zero exit) becomes `LlmJudgmentError`,
+        so one bad anchor never aborts a batch. Text that cannot be encoded
+        (a lone surrogate in an OpenAlex abstract) is replaced, not raised.
         """
+        safe_prompt = prompt.encode("utf-8", "replace").decode("utf-8")
         try:
-            resp = self._client.post(
-                f"{self.base_url}/api/generate",
-                json={
-                    "model": self.model,
-                    "prompt": prompt,
-                    "format": "json",
-                    "stream": False,
-                    "options": {"temperature": 0.0},
-                },
+            proc = subprocess.run(  # noqa: S603 - fixed argv, no shell
+                self._command(),
+                input=safe_prompt,
+                capture_output=True,
+                text=True,
+                encoding="utf-8",
+                errors="replace",
+                timeout=self.timeout,
+                cwd=_private_workdir(),
+                check=False,
             )
-            resp.raise_for_status()
-            payload = resp.json()
-        except httpx.HTTPStatusError as exc:
-            body_error = self._extract_ollama_error(exc.response)
+        except FileNotFoundError as exc:
             raise LlmJudgmentError(
-                f"ollama HTTP {exc.response.status_code}"
-                + (f": {body_error}" if body_error else ""),
-                raw_response=exc.response.text,
+                f"claude CLI not found at {self.claude_bin!r}; set {_ENV_BIN}"
             ) from exc
-        except httpx.HTTPError as exc:
+        except subprocess.TimeoutExpired as exc:
             raise LlmJudgmentError(
-                f"ollama HTTP transport error ({type(exc).__name__}): {exc}"
+                f"claude CLI timed out after {self.timeout}s"
             ) from exc
-
-        if not isinstance(payload, dict):
+        except OSError as exc:
             raise LlmJudgmentError(
-                f"ollama payload is not a JSON object: {type(payload).__name__}"
-            )
-        upstream_err = payload.get("error")
-        if upstream_err:
-            raise LlmJudgmentError(f"ollama returned error: {upstream_err!r}")
-        response_text = payload.get("response")
-        if not isinstance(response_text, str):
+                f"claude CLI at {self.claude_bin!r} could not run: {exc}"
+            ) from exc
+        if proc.returncode != 0:
+            detail = _cli_error_result(proc.stdout) or proc.stderr.strip()[:500]
             raise LlmJudgmentError(
-                f"ollama payload missing 'response' string field: {payload!r}"
+                f"claude CLI exited {proc.returncode}: {detail}",
+                raw_response=proc.stdout,
             )
-        return response_text
+        return proc.stdout
 
-    @staticmethod
-    def _extract_ollama_error(response: httpx.Response) -> str | None:
-        """Return Ollama's `error` field from a non-2xx response body, if any.
 
-        Ollama serves JSON error bodies like `{"error": "model 'foo' not
-        found, try pulling it first"}` for many failure modes. Surface that
-        string in `LlmJudgmentError` so the operator's debug loop is one
-        step shorter.
-        """
-        try:
-            body = response.json()
-        except ValueError:
-            return None
-        if isinstance(body, dict):
-            err = body.get("error")
-            if isinstance(err, str) and err:
-                return err
+def _private_workdir() -> Path:
+    """A directory only the pipeline user can write, used as the CLI's cwd.
+
+    Lives under the user's cache dir so no parent directory is shared either.
+    Created 0700 and re-tightened if it already exists with looser bits.
+    """
+    base = Path(os.environ.get("XDG_CACHE_HOME") or Path.home() / ".cache")
+    workdir = base / "dataset-citations" / "anchor-judge"
+    workdir.mkdir(mode=0o700, parents=True, exist_ok=True)
+    workdir.chmod(0o700)
+    return workdir
+
+
+def _cli_error_result(stdout: str) -> str | None:
+    """The CLI's own `result` message from an `is_error` JSON output, if any."""
+    try:
+        payload = json.loads(stdout)
+    except (json.JSONDecodeError, ValueError):
         return None
+    if isinstance(payload, dict) and payload.get("is_error"):
+        return str(payload.get("result"))
+    return None

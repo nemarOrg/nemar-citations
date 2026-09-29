@@ -3,7 +3,8 @@
 Surfaces the inflation caused by shared umbrella / methods anchors leaking
 their citers onto every dataset that lists them. Run report-only in CI to keep
 the true number visible; pass ``--fail-on-violation`` to use it as a deploy
-guard once the anchor-judgment backfill is complete.
+guard. Now that the fail-closed anchor gate (#241) keeps such anchors out, a
+violation means a gate regression.
 """
 
 from __future__ import annotations

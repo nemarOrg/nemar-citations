@@ -11,14 +11,18 @@ RUN_INTEGRATION_TESTS=1.
 
 from __future__ import annotations
 
+import json
 import os
 from datetime import UTC, datetime
+from pathlib import Path
+from tempfile import TemporaryDirectory
 from unittest import TestCase, skipUnless
 
 from dataset_citations.backends.opencite_backend import OpenCiteBackend
 from dataset_citations.core.opencite_pipeline import (
     fetch_dataset_citations_via_opencite,
 )
+from dataset_citations.quality.llm_client import trusted_judge_model
 from dataset_citations.sources.models import (
     Author,
     CitingWork,
@@ -79,6 +83,46 @@ class _StubSource:
 WHEN = datetime(2026, 5, 18, tzinfo=UTC)
 
 
+def _judged(
+    test: TestCase,
+    dataset_id: str,
+    refs: list[DoiReference],
+    *,
+    paper_year: int | None = None,
+) -> Path:
+    """Write a sidecar judging every ref `data_paper`; return its directory.
+
+    The anchor gate fails closed (#241): only an anchor with a successful
+    `data_paper` judgment is fetched, so tests that exercise the fetch path
+    have to supply one. The tempdir also keeps the test off the repo's real
+    `citations/anchor_judgments/`.
+    """
+    directory = Path(test.enterContext(TemporaryDirectory()))
+    judgments = [
+        {
+            "anchor_identifier": ref.identifier,
+            "anchor_identifier_type": ref.identifier_type,
+            "source_relation": ref.relation_type,
+            "classification": "data_paper",
+            "reason": "test fixture",
+            "paper_title": f"Data paper {ref.identifier}",
+            "paper_year": paper_year,
+            "paper_venue": None,
+            "judged_at": WHEN.isoformat(),
+            "error": None,
+        }
+        for ref in refs
+    ]
+    payload = {
+        "dataset_id": dataset_id,
+        "judged_at": WHEN.isoformat(),
+        "judgment_model": trusted_judge_model(),
+        "judgments": judgments,
+    }
+    (directory / f"{dataset_id}.json").write_text(json.dumps(payload), "utf-8")
+    return directory
+
+
 class FetchViaOpenCiteTests(TestCase):
     def test_unsupported_prefix_returns_stub(self) -> None:
         out = fetch_dataset_citations_via_opencite(
@@ -135,6 +179,7 @@ class FetchViaOpenCiteTests(TestCase):
             backend=backend,
             bids_source=bids,
             fetch_date=WHEN,
+            judgments_dir=_judged(self, "ds000117", [ref]),
         )
         self.assertEqual(out["dataset_id"], "ds000117")
         self.assertEqual(out["num_citations"], 1)
@@ -147,7 +192,10 @@ class FetchViaOpenCiteTests(TestCase):
         # Schema v2.1: anchors[] superset + searched_dois present.
         self.assertEqual(len(out["metadata"]["anchors"]), 1)
         self.assertTrue(out["metadata"]["anchors"][0]["kept"])
-        self.assertIsNone(out["metadata"]["anchors"][0]["classification"])
+        self.assertEqual(out["metadata"]["anchors"][0]["classification"], "data_paper")
+        self.assertEqual(
+            out["metadata"]["anchors"][0]["kept_reason"], "judged_data_paper"
+        )
         self.assertEqual(out["metadata"]["searched_dois"], ["10.1038/sdata.2015.1"])
         # Legacy ds-* (BIDS source) has no rich metadata -> empty keys present.
         self.assertEqual(out["metadata"]["keywords"], [])
@@ -190,6 +238,7 @@ class FetchViaOpenCiteTests(TestCase):
             backend=backend,
             nemar_source=nemar,
             fetch_date=WHEN,
+            judgments_dir=_judged(self, "nm000103", [ref_a, ref_b]),
         )
         self.assertEqual(out["num_citations"], 2)
         titles = {c["title"] for c in out["citation_details"]}
@@ -211,6 +260,7 @@ class FetchViaOpenCiteTests(TestCase):
             backend=backend,
             nemar_source=nemar,
             fetch_date=WHEN,
+            judgments_dir=_judged(self, "nm000103", [ref]),
         )
         self.assertEqual(out["metadata"]["fetch_status"], "rate_limit")
         self.assertEqual(
@@ -251,6 +301,7 @@ class FetchViaOpenCiteTests(TestCase):
             backend=backend,
             nemar_source=nemar,
             fetch_date=WHEN,
+            judgments_dir=_judged(self, "nm000103", [ref_ok, ref_bad]),
         )
         self.assertEqual(out["num_citations"], 1)
         self.assertEqual(out["metadata"]["fetch_status"], "partial")
@@ -283,6 +334,7 @@ class FetchViaOpenCiteTests(TestCase):
             backend=backend,
             nemar_source=nemar,
             fetch_date=WHEN,
+            judgments_dir=_judged(self, "nm000103", refs),
         )
         # Two rate_limit vs one not_found; dominant should win.
         self.assertEqual(out["metadata"]["fetch_status"], "rate_limit")
@@ -348,8 +400,18 @@ class CatalogDoiSeeding(TestCase):
             nemar_source=nemar,
             catalog_doi=catalog_doi,
             fetch_date=WHEN,
+            # Only the source ref is judged: the catalog DOI is the dataset's
+            # own concept DOI, which the gate keeps without a judgment.
+            judgments_dir=_judged(self, "nm000999", [ref]),
         )
         self.assertEqual(out["metadata"]["anchor_count"], 2)
+        reasons = {
+            a["identifier"]: a["kept_reason"] for a in out["metadata"]["anchors"]
+        }
+        self.assertEqual(
+            reasons,
+            {ref.identifier: "judged_data_paper", catalog_doi: "own_doi"},
+        )
         titles = {c["title"] for c in out["citation_details"]}
         self.assertIn("Paper citing the dataset", titles)
         self.assertIn("Paper citing methods", titles)
@@ -391,8 +453,12 @@ class CatalogDoiSeeding(TestCase):
             nemar_source=nemar,
             catalog_doi="not-a-doi",
             fetch_date=WHEN,
+            judgments_dir=_judged(self, "nm000999", []),
         )
-        self.assertEqual(out["metadata"]["anchor_count"], 1)
+        # Only the source anchor was recorded; the malformed DOI never was.
+        self.assertEqual(
+            [a["identifier"] for a in out["metadata"]["anchors"]], [ref.identifier]
+        )
 
 
 class CheckpointResume(TestCase):
@@ -440,6 +506,7 @@ class CheckpointResume(TestCase):
             fetch_date=WHEN,
             checkpoint_store=self.store,
             use_checkpoint=True,
+            judgments_dir=_judged(self, "nm000001", [ref]),
         )
         # On full success, the checkpoint file is removed.
         self.assertEqual(out["metadata"]["fetch_status"], "success")
@@ -474,6 +541,7 @@ class CheckpointResume(TestCase):
             fetch_date=WHEN,
             checkpoint_store=self.store,
             use_checkpoint=True,
+            judgments_dir=_judged(self, "nm000001", [ref_ok, ref_fail]),
         )
         self.assertEqual(out["metadata"]["fetch_status"], "partial")
         # The successful anchor must be recorded so the next run skips it.
@@ -515,6 +583,7 @@ class CheckpointResume(TestCase):
             fetch_date=WHEN,
             checkpoint_store=self.store,
             use_checkpoint=True,
+            judgments_dir=_judged(self, "nm000001", [ref]),
         )
         self.assertEqual(out["num_citations"], 1)
         self.assertEqual(out["citation_details"][0]["title"], "Cached")

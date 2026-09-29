@@ -131,57 +131,53 @@ uv run dataset-citations-retrieve-metadata \
   exit 2
 }
 
-# Pin the anchor-judgment model. gemma4:e4b (9.6GB) is used instead of the
-# larger gemma4:31b (19GB) because hallu is a shared host and 31B OOMs /
-# blocks other GPU jobs. Honors an explicit OLLAMA_MODEL override for a
-# dedicated host. Keep in sync with llm_client._DEFAULT_MODEL.
-export OLLAMA_MODEL="${OLLAMA_MODEL:-gemma4:e4b}"
-
-# 3. Preflight: Ollama must be reachable for anchor adjudication. If the
-# daemon is down, abort cleanly instead of producing a citation update
-# with stale judgments. Exit 2 mirrors the contract documented for
-# `dataset-citations-judge-anchors` (phase 2, #86). Honors
-# $OLLAMA_BASE_URL so a non-default daemon URL is probed at the same
-# host the CLI ends up calling.
-OLLAMA_PROBE_URL="${OLLAMA_BASE_URL:-http://localhost:11434}"
-curl -s --max-time 5 "${OLLAMA_PROBE_URL}/api/tags" >/dev/null || {
-  echo "ERROR: Ollama daemon at ${OLLAMA_PROBE_URL} not reachable; aborting." >&2
-  exit 2
-}
+# 3. Pin the anchor judge (#241): Claude Sonnet 5.5 through the `claude` CLI
+# (~/.local/bin, on the crontab PATH), logged in as this user. It replaced the
+# Ollama/Gemma judge, which silently errored on every anchor once the shared
+# host lost its models. No separate preflight: the judge CLI runs one real
+# judgment as its health check and exits 2 when the CLI is missing, logged
+# out, or the model is unknown. Keep in sync with llm_client._DEFAULT_MODEL:
+# the pipeline and the gate sweep only trust sidecars written by this model.
+export ANCHOR_JUDGE_MODEL="${ANCHOR_JUDGE_MODEL:-claude-sonnet-5-5}"
 
 # 3a. Anchor adjudication: classify each anchor DOI as data_paper / umbrella /
 # methodology / related_work / irrelevant and write sidecars under
-# citations/anchor_judgments/. `--skip-existing` keeps steady-state runs cheap;
-# the full ~3000-anchor backfill happens on first run after the epic merges.
+# citations/anchor_judgments/. `--skip-existing` keeps steady-state runs cheap:
+# only datasets with a new or relabeled anchor, a transient error, or a
+# judgment from another model or prompt version are re-judged, and within
+# those only the anchors that need it; an anchor opencite cannot resolve is
+# retried monthly. A judge or prompt switch re-judges every anchor once
+# (on the order of a thousand calls).
 # The cron uses `set -uo pipefail` (no -e), so a non-zero exit from the CLI
 # does NOT halt the script by default; the explicit `|| { exit; }` guard
-# below ensures a partial judgment run does not feed downstream `update`
-# with a half-written sidecar tree.
-echo "--- judge-anchors (gpu, ollama) ---"
+# below stops before `update` when the judge failed its health check, tripped
+# its circuit breaker, a sidecar write failed, or the judge, opencite, or the
+# anchor source failed on more than 10% of fresh calls. The anchor gate fails
+# closed, so an unjudged anchor never contributes citations either way.
+echo "--- judge-anchors (claude) ---"
 #     --citations-dir makes --skip-existing coverage-aware (#180): a dataset
 #     whose citation JSON records an anchor the sidecar has no judgment for is
-#     re-judged rather than skipped. Without it a sidecar froze at whatever
-#     anchor set existed the first time it was written, and anchors added later
-#     fell through the pipeline's "fetch all when unjudged" path.
+#     re-judged rather than skipped. --datasets-dir judges against the dataset
+#     description retrieve-metadata cached above, not a fresh GitHub fetch.
 uv run dataset-citations-judge-anchors \
   --dataset-list-file "$DATASETS_LIST" \
   --output-dir citations/anchor_judgments \
   --citations-dir citations/json_opencite \
+  --datasets-dir datasets \
   --skip-existing || {
   echo "ERROR: dataset-citations-judge-anchors failed; aborting before update." >&2
   exit 2
 }
 
-# 3b. Fetch citations via opencite. Phase 3 (#87) made this CLI consume the
-# sidecars from step 3a transparently; the invocation is unchanged from the
-# pre-phase-4 script. Skip-existing (7d) keeps the run cheap.
+# 3b. Fetch citations via opencite. The pipeline reads the step 3a sidecars and
+# applies the anchor gate at fetch time. Skip-existing (7d) keeps the run cheap.
 #
-# OPERATIONAL NOTE: on the first run after a fresh anchor-judgment backfill,
-# `--max-age-days 7` (the `update` CLI default) will keep existing citation
-# JSONs "fresh" and skip them, so the new bucketing does not take effect on
-# already-cached datasets until the freshness window expires. To apply the
-# new judgments immediately, manually re-run `dataset-citations-update`
-# with `--max-age-days 0` once, then resume the normal weekly cron.
+# OPERATIONAL NOTE: `--max-age-days 7` (the `update` CLI default) skips
+# citation JSONs fetched within the window, with one exception: a dataset with
+# an anchor a new judgment ADDS (e.g. a data paper the enrichment used to label
+# `References`, or one a failed judgment had left unjudged) is refetched the
+# same night. Anchors a new judgment REMOVES are applied to every file the same
+# night by the gate step below.
 echo "--- update (skip-existing default 7d) ---"
 # --datasets-dir lets ds-* DOI extraction reuse the dataset_description cached
 # by retrieve-metadata above instead of refetching it from GitHub, which on a
@@ -192,6 +188,20 @@ OPENCITE_CONCURRENCY=4 \
     --output-dir citations/ \
     --datasets-dir datasets || {
   echo "ERROR: dataset-citations-update failed; aborting before score." >&2
+  exit 2
+}
+
+# 3b-gate. Re-apply the fail-closed anchor gate (#241) to EVERY citation file,
+#     not just the ones `update` refetched inside its freshness window: drop
+#     citations surfaced only through anchors that are not the dataset's judged
+#     data paper (related work, methods, standards, unjudged) and citing works
+#     older than their anchor. Offline and idempotent, so a steady-state night
+#     writes nothing. Fatal: skipping it would publish ungated counts.
+echo "--- gate-anchors (fail-closed anchor gate) ---"
+uv run dataset-citations-gate-anchors \
+  --citations-dir citations/json_opencite \
+  --judgments-dir citations/anchor_judgments || {
+  echo "ERROR: dataset-citations-gate-anchors failed; aborting before score." >&2
   exit 2
 }
 
@@ -379,7 +389,8 @@ if git diff --quiet citations/ datasets/ embeddings/ dashboard_data/; then
   exit 0
 fi
 
-# Commit + push to a timestamped branch; open a PR (manual merge gates the deploy).
+# Commit + push to a timestamped branch; open a PR that auto-merges on green CI
+# (see below), which fires the deploy.
 BRANCH="auto-update/$TS"
 git checkout -b "$BRANCH"
 git add citations/ datasets/ embeddings/ dashboard_data/
@@ -388,7 +399,7 @@ git commit -m "data: hallu nightly pipeline ($TS)
 
 GPU semantic scoring + embeddings on RTX 4090. Pipeline:
   catalog discover -> metadata -> judge-anchors -> opencite fetch
-  -> prune-mirrored -> find-mentions -> dedupe -> score-confidence
+  -> gate-anchors -> prune-mirrored -> find-mentions -> dedupe -> score-confidence
   -> generate-embeddings
 
 $(echo "$DIFFSTAT")"

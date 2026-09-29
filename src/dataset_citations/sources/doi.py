@@ -27,6 +27,9 @@ _ARXIV_DOI = re.compile(r"10\.48550/arxiv\.(\S+)", re.IGNORECASE)
 
 _OPENNEURO_DOI = re.compile(r"^10\.18112/openneuro\.", re.IGNORECASE)
 
+# DataCite prefix NEMAR mints dataset DOIs under (`10.82901/nemar.<id>`).
+NEMAR_DOI_PREFIX = "10.82901/"
+
 _CONTROL_CHARS = re.compile(r"[\x00-\x1f\x7f]")
 
 
@@ -78,6 +81,16 @@ def validate_identifier(identifier: str) -> bool:
         return bool(re.fullmatch(r"\d{4}\.\d{4,5}(?:v\d+)?", suffix))
     # Otherwise treat as DOI shape.
     return bool(re.fullmatch(r"10\.\d{4,9}/\S+", identifier))
+
+
+def is_own_dataset_doi(identifier: str, dataset_id: str) -> bool:
+    """True when `identifier` is `dataset_id`'s own NEMAR concept DOI.
+
+    Only the concept DOI (`10.82901/nemar.<id>`) is recognized: it always
+    resolves to the latest version on NEMAR, and it is the DOI the catalog
+    publishes, so versioned DOIs never reach the pipeline as anchors.
+    """
+    return normalize_doi(identifier) == f"{NEMAR_DOI_PREFIX}nemar.{dataset_id.lower()}"
 
 
 def is_openneuro_dataset_doi(identifier: str) -> bool:

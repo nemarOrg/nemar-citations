@@ -14,8 +14,8 @@ This CLI rewrites those files in place using the same `dedupe_citations` rules
 the pipeline applies, so the corpus converges without waiting for every dataset
 to fall out of its freshness window. Idempotent: a second run is a no-op.
 
-`num_citations` and `metadata.total_cumulative_citations` are recomputed from
-the surviving records. When a file loses records its stale `confidence_scoring`
+Every count derived from `citation_details` is recomputed from the surviving
+records (`refresh_derived_counts`). When a file loses records its stale `confidence_scoring`
 block is dropped, mirroring `merge_accession_mentions`, so the next
 `score-confidence --skip-existing` re-scores it instead of keeping scores that
 refer to citations that no longer exist.
@@ -30,8 +30,9 @@ from datetime import UTC, datetime
 from pathlib import Path
 from typing import Any
 
-from dataset_citations.core.accession_mentions import cites_dataset
+from dataset_citations.core.accession_mentions import refresh_derived_counts
 from dataset_citations.core.citation_identity import dedupe_citations
+from dataset_citations.core.citation_utils import write_json_atomic
 
 logging.basicConfig(
     level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s"
@@ -77,37 +78,14 @@ def dedupe_citation_file(
         return 0
 
     payload["citation_details"] = kept
-    payload["num_citations"] = len(kept)
-    metadata = payload.get("metadata")
-    if isinstance(metadata, dict):
-        metadata["total_cumulative_citations"] = sum(
-            int(c.get("cited_by") or 0) for c in kept
-        )
-        if "num_accession_mentions" in metadata:
-            metadata["num_accession_mentions"] = sum(
-                1 for c in kept if c.get("discovery_method") == "accession_mention"
-            )
-        # The two toggle-bucket counters must be re-derived from the surviving
-        # records too. AGENTS.md says the dashboard keys on these rather than
-        # recomputing them, so leaving them stale after a merge publishes
-        # buckets that no longer sum to num_citations. Recompute only when the
-        # keys already exist, so a file that never went through find-mentions
-        # does not acquire them here.
-        if "num_dataset_citations" in metadata:
-            metadata["num_dataset_citations"] = sum(1 for c in kept if cites_dataset(c))
-        if "num_datapaper_citations" in metadata:
-            metadata["num_datapaper_citations"] = sum(
-                1 for c in kept if not cites_dataset(c)
-            )
+    refresh_derived_counts(payload)
     # Scores were computed against the pre-merge citation list; drop them so the
     # scoring step recomputes rather than trusting a stale block.
     payload.pop("confidence_scoring", None)
     payload["date_last_updated"] = (when or datetime.now(UTC)).isoformat()
 
     if not dry_run:
-        path.write_text(
-            json.dumps(payload, indent=2, ensure_ascii=False) + "\n", encoding="utf-8"
-        )
+        write_json_atomic(path, payload)
     logger.info("%s: merged %d duplicate(s)", path.name, dropped)
     return dropped
 

@@ -1,505 +1,643 @@
 """Tests for `dataset-citations-judge-anchors`.
 
-Uses real subclasses for the LLM client + opencite backend (matching the
-no-mocks rule). The pipeline-level orchestration is substituted via setattr
-so the CLI path can be exercised without the network.
+No mocks. `run()` drives the real per-dataset loop, the real
+`judge_dataset_anchors`, the skip logic, and the exit policy; only the network
+boundary is replaced, by real subclasses of the client, the anchor source, the
+metadata retriever, and the opencite backend. The judge answers in the real
+`claude -p --output-format json` shape recorded on hallu.
 """
 
 from __future__ import annotations
 
+import argparse
+import io
 import json
 import os
 import stat
-import sys
 import tempfile
+import threading
+from contextlib import redirect_stdout
 from datetime import UTC, datetime, timedelta
 from pathlib import Path
 from unittest import TestCase
 
+from dataset_citations.backends import OpenCiteBackend
 from dataset_citations.cli import judge_anchors as cli_judge
+from dataset_citations.quality.dataset_metadata import DatasetMetadataRetriever
+from dataset_citations.quality.llm_client import (
+    PROMPT_VERSION,
+    ClaudeCliJudgmentClient,
+    LlmJudgmentError,
+)
+from dataset_citations.sources import BidsMetadataSource, NemarMetadataSource
+from dataset_citations.sources.models import (
+    Author,
+    CitingWork,
+    DoiReference,
+    FetchError,
+    FetchSuccess,
+)
 
-
-def _write_list(tmp: Path, ids: list[str]) -> Path:
-    path = tmp / "datasets.txt"
-    path.write_text("\n".join(ids) + "\n")
-    return path
-
-
-def _seed_sidecar(
-    output_dir: Path,
-    dataset_id: str,
-    *,
-    judged_at: str,
-    judgments: list | None = None,
-) -> Path:
-    """Write a minimal sidecar to disk and return its path."""
-    output_dir.mkdir(parents=True, exist_ok=True)
-    path = output_dir / f"{dataset_id}.json"
-    path.write_text(
-        json.dumps(
-            {
-                "dataset_id": dataset_id,
-                "judged_at": judged_at,
-                "judgment_model": "preexisting",
-                "judgments": judgments or [],
-            }
-        )
+_MODEL = "claude-sonnet-5-5"
+_RECORDED_OK = json.loads(
+    (Path(__file__).parent / "test_data" / "claude_cli_judgment_ok.json").read_text(
+        "utf-8"
     )
-    return path
+)
 
 
-class CliHelpAndParser(TestCase):
-    def test_help_text_documents_required_flags(self) -> None:
-        import io
-        from contextlib import redirect_stdout
+def _cli_output(classification: str, model: str) -> str:
+    """The recorded CLI success output carrying `classification`, served by `model`."""
+    payload = dict(_RECORDED_OK)
+    payload["structured_output"] = {"classification": classification, "reason": "ok"}
+    payload["modelUsage"] = {model: next(iter(_RECORDED_OK["modelUsage"].values()))}
+    return json.dumps(payload)
 
+
+class _ScriptedClient(ClaudeCliJudgmentClient):
+    """Real client whose process step answers from a script.
+
+    Every judgment returns `default`, except anchors whose DOI is in
+    `fail_dois` (or every anchor when `fail_all`), which fail the way a
+    non-zero CLI exit does. The health check always passes.
+    """
+
+    def __init__(
+        self,
+        *,
+        default: str = "data_paper",
+        fail_dois: set[str] | None = None,
+        fail_all: bool = False,
+        model: str = _MODEL,
+    ) -> None:
+        super().__init__(model=model, claude_bin="unused", timeout=5)
+        self._default = default
+        self._fail_dois = fail_dois or set()
+        self._fail_all = fail_all
+        self._lock = threading.Lock()
+        self.calls = 0
+
+    def _run_cli(self, prompt: str) -> str:
+        if "healthcheck" not in prompt:
+            with self._lock:
+                self.calls += 1
+            if self._fail_all or any(f"DOI: {d}" in prompt for d in self._fail_dois):
+                raise LlmJudgmentError("claude CLI exited 1: stand-in failure")
+        return _cli_output(self._default, self.model)
+
+
+class _MapSource(NemarMetadataSource):
+    """Anchor source answering from a dataset id -> DOI list (or FetchError) map."""
+
+    def __init__(self, anchors: dict[str, list[str] | FetchError]) -> None:
+        super().__init__(prefer_data_api=False)
+        self._anchors = anchors
+        self.calls: list[str] = []
+
+    def get_doi_references(self, dataset_id: str):  # type: ignore[override]
+        self.calls.append(dataset_id)
+        outcome = self._anchors[dataset_id]
+        if isinstance(outcome, FetchError):
+            return outcome
+        return FetchSuccess(
+            [
+                DoiReference(
+                    identifier=doi,
+                    identifier_type="doi",
+                    relation_type="IsDescribedBy",
+                    source="nemar_metadata",
+                )
+                for doi in outcome
+            ]
+        )
+
+
+class _Retriever(DatasetMetadataRetriever):
+    """Retriever returning a canned description, or failing the test if called."""
+
+    def __init__(self, *, forbidden: bool = False) -> None:
+        super().__init__()
+        self._forbidden = forbidden
+
+    def get_dataset_metadata(self, dataset_id: str) -> dict:
+        if self._forbidden:
+            raise AssertionError("the cached metadata should have been used")
+        return {
+            "dataset_id": dataset_id,
+            "dataset_description": {"Name": "EEG during a driving task"},
+            "readme_content": None,
+            "github_info": {"description": None},
+        }
+
+
+class _Papers(OpenCiteBackend):
+    """opencite backend answering `get_paper` from a DOI -> FetchError map.
+
+    Any DOI not in `errors` resolves to a small paper record.
+    """
+
+    def __init__(self, errors: dict[str, FetchError] | None = None) -> None:
+        # Skip parent init so we don't read OPENCITE config.
+        self._errors = errors or {}
+        self._config = None  # type: ignore[assignment]
+        self._max_results_per_doi = 1
+        self._concurrency = 1
+
+    def get_paper(self, doi: str):  # type: ignore[override]
+        if doi in self._errors:
+            return self._errors[doi]
+        return FetchSuccess(
+            CitingWork(
+                title=f"Paper {doi}",
+                doi=doi,
+                pmid=None,
+                openalex_id=None,
+                year=2019,
+                authors=(Author(name="A. Researcher"),),
+                venue="Scientific Data",
+                abstract="A data descriptor.",
+                citation_count=10,
+                source_doi=doi,
+                source_relation="IsDescribedBy",
+            )
+        )
+
+
+def _dois(n: int, prefix: str = "10.1/a") -> list[str]:
+    return [f"{prefix}{i}" for i in range(n)]
+
+
+class _Harness:
+    """Temp dirs, a dataset list, and a `run()` call with the given doubles."""
+
+    def __init__(self, root: Path, ids: list[str]) -> None:
+        self.root = root
+        self.output_dir = root / "anchor_judgments"
+        self.citations_dir = root / "json_opencite"
+        self.datasets_dir = root / "datasets"
+        self.list_file = root / "datasets.txt"
+        self.list_file.write_text("\n".join(ids) + "\n", encoding="utf-8")
+        self.source = _MapSource({})
+
+    def args(self, *extra: str) -> argparse.Namespace:
+        return cli_judge.build_parser().parse_args(
+            [
+                "--dataset-list-file",
+                str(self.list_file),
+                "--output-dir",
+                str(self.output_dir),
+                "--citations-dir",
+                str(self.citations_dir),
+                "--datasets-dir",
+                str(self.datasets_dir),
+                "--workers",
+                "1",
+                *extra,
+            ]
+        )
+
+    def run(
+        self,
+        anchors: dict[str, list[str] | FetchError],
+        *,
+        client: ClaudeCliJudgmentClient | None = None,
+        backend: OpenCiteBackend | None = None,
+        retriever: DatasetMetadataRetriever | None = None,
+        extra: tuple[str, ...] = (),
+    ) -> int:
+        source = _MapSource(anchors)
+        self.source = source
+        return cli_judge.run(
+            self.args(*extra),
+            client=client or _ScriptedClient(),
+            nemar_source=source,
+            bids_source=BidsMetadataSource(),
+            metadata_retriever=retriever or _Retriever(),
+            backend=backend or _Papers(),
+        )
+
+    def sidecar(self, dataset_id: str) -> Path:
+        return self.output_dir / f"{dataset_id}.json"
+
+
+def _payload(
+    *,
+    judgments: list[dict] | None = None,
+    model: str = _MODEL,
+    prompt_version: int | None = PROMPT_VERSION,
+    judged_at: str | None = None,
+) -> dict:
+    payload = {
+        "dataset_id": "on000001",
+        "judged_at": judged_at or datetime.now(UTC).isoformat(),
+        "judgment_model": model,
+        "judgments": judgments or [],
+    }
+    if prompt_version is not None:
+        payload["prompt_version"] = prompt_version
+    return payload
+
+
+def _judgment(
+    doi: str,
+    *,
+    relation: str = "IsDescribedBy",
+    error: str | None = None,
+    judged_at: str | None = None,
+) -> dict:
+    return {
+        "anchor_identifier": doi,
+        "anchor_identifier_type": "doi",
+        "source_relation": relation,
+        "classification": "" if error else "data_paper",
+        "reason": "" if error else "ok",
+        "judged_at": judged_at or datetime.now(UTC).isoformat(),
+        "error": error,
+    }
+
+
+class CliParserAndMain(TestCase):
+    def test_help_text_documents_the_flags(self) -> None:
         buf = io.StringIO()
-        old_argv = sys.argv
-        sys.argv = ["dataset-citations-judge-anchors", "--help"]
-        try:
-            with self.assertRaises(SystemExit), redirect_stdout(buf):
-                cli_judge.main()
-        finally:
-            sys.argv = old_argv
+        with self.assertRaises(SystemExit), redirect_stdout(buf):
+            cli_judge.main(["--help"])
         help_text = buf.getvalue()
-        self.assertIn("--dataset-list-file", help_text)
-        self.assertIn("--output-dir", help_text)
-        self.assertIn("--skip-existing", help_text)
-        self.assertIn("--max-age-days", help_text)
-        self.assertIn("--ollama-base-url", help_text)
-        self.assertIn("--ollama-model", help_text)
+        for flag in (
+            "--dataset-list-file",
+            "--output-dir",
+            "--skip-existing",
+            "--max-age-days",
+            "--model",
+            "--claude-bin",
+            "--workers",
+            "--citations-dir",
+            "--datasets-dir",
+        ):
+            self.assertIn(flag, help_text)
+        self.assertNotIn("ollama", help_text.lower())
 
     def test_empty_dataset_list_exits_one(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             list_file = Path(tmp) / "empty.txt"
             list_file.write_text("")
-            old_argv = sys.argv
-            sys.argv = [
-                "dataset-citations-judge-anchors",
-                "--dataset-list-file",
-                str(list_file),
-                "--output-dir",
-                str(Path(tmp) / "out"),
-            ]
-            try:
-                rc = cli_judge.main()
-            finally:
-                sys.argv = old_argv
+            with self.assertLogs("dataset_citations", "ERROR"):
+                rc = cli_judge.main(
+                    [
+                        "--dataset-list-file",
+                        str(list_file),
+                        "--output-dir",
+                        str(Path(tmp) / "out"),
+                    ]
+                )
             self.assertEqual(rc, 1)
 
-
-class CliOllamaPreflight(TestCase):
-    """A down Ollama daemon must abort with exit 2 before any sidecar is touched."""
-
-    def test_ollama_unreachable_returns_two(self) -> None:
-        class _DeadClient:
-            base_url = "http://dead-host:11434"
-            model = "dead-model"
-
-            def __init__(self, base_url=None, model=None):
-                pass
-
-            def __enter__(self):
-                return self
-
-            def __exit__(self, *args):
-                return None
-
-            def health_check(self):
-                return False
-
-        original = cli_judge.OllamaJudgmentClient
-        cli_judge.OllamaJudgmentClient = _DeadClient  # type: ignore[assignment]
+    def test_unusable_judge_returns_two_before_any_sidecar(self) -> None:
+        """The real client pointed at a binary that does not exist, and at one
+        that exists but cannot be executed (a 0644 file)."""
         with tempfile.TemporaryDirectory() as tmp:
-            list_file = _write_list(Path(tmp), ["nm000104"])
+            list_file = Path(tmp) / "ids.txt"
+            list_file.write_text("nm000104\n")
             output_dir = Path(tmp) / "out"
-            old_argv = sys.argv
-            sys.argv = [
-                "dataset-citations-judge-anchors",
-                "--dataset-list-file",
-                str(list_file),
-                "--output-dir",
-                str(output_dir),
-            ]
+            not_executable = Path(tmp) / "claude"
+            not_executable.write_text("#!/bin/sh\necho {}\n")
+            not_executable.chmod(0o644)
+            for binary in (Path(tmp) / "no-such-claude", not_executable):
+                with self.subTest(binary.name):
+                    with self.assertLogs("dataset_citations", "ERROR"):
+                        rc = cli_judge.main(
+                            [
+                                "--dataset-list-file",
+                                str(list_file),
+                                "--output-dir",
+                                str(output_dir),
+                                "--claude-bin",
+                                str(binary),
+                            ]
+                        )
+                    self.assertEqual(rc, 2)
+                    self.assertFalse(any(output_dir.rglob("*.json")))
+
+
+class CliRunWritesSidecars(TestCase):
+    def test_judged_and_unresolvable_anchors_are_written(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            h = _Harness(Path(tmp), ["nm000275"])
+            rc = h.run(
+                {"nm000275": ["10.1/ok", "10.38119/typo"]},
+                backend=_Papers({"10.38119/typo": FetchError("not_found", "404")}),
+            )
+            self.assertEqual(rc, 0)
+            payload = json.loads(h.sidecar("nm000275").read_text())
+            self.assertEqual(payload["judgment_model"], _MODEL)
+            self.assertEqual(payload["prompt_version"], PROMPT_VERSION)
+            by_doi = {j["anchor_identifier"]: j for j in payload["judgments"]}
+            self.assertEqual(by_doi["10.1/ok"]["classification"], "data_paper")
+            self.assertIsNone(by_doi["10.1/ok"]["error"])
+            self.assertTrue(
+                by_doi["10.38119/typo"]["error"].startswith(
+                    cli_judge.PERMANENT_LOOKUP_ERROR_PREFIX
+                )
+            )
+
+    def test_cached_dataset_metadata_is_used(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            h = _Harness(Path(tmp), ["nm000275"])
+            h.datasets_dir.mkdir()
+            (h.datasets_dir / "nm000275_datasets.json").write_text(
+                json.dumps(
+                    {
+                        "dataset_id": "nm000275",
+                        "dataset_description": {"Name": "Driving EEG"},
+                        "readme_content": None,
+                    }
+                )
+            )
+            rc = h.run({"nm000275": ["10.1/ok"]}, retriever=_Retriever(forbidden=True))
+            self.assertEqual(rc, 0)
+            self.assertTrue(h.sidecar("nm000275").exists())
+
+    def test_unchanged_sidecar_is_not_rewritten(self) -> None:
+        """A second night with nothing new reuses every verdict and writes nothing."""
+        with tempfile.TemporaryDirectory() as tmp:
+            h = _Harness(Path(tmp), ["nm000275"])
+            anchors: dict[str, list[str] | FetchError] = {"nm000275": ["10.1/ok"]}
+            self.assertEqual(h.run(anchors), 0)
+            before = h.sidecar("nm000275").stat().st_mtime_ns
+            os.utime(h.sidecar("nm000275"), ns=(before - 10**9, before - 10**9))
+            client = _ScriptedClient()
+            self.assertEqual(h.run(anchors, client=client), 0)
+            self.assertEqual(client.calls, 0)
+            self.assertEqual(h.sidecar("nm000275").stat().st_mtime_ns, before - 10**9)
+
+    def test_source_failure_leaves_the_sidecar_untouched(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            h = _Harness(Path(tmp), ["nm000275"])
+            h.output_dir.mkdir()
+            h.sidecar("nm000275").write_text(json.dumps(_payload(model="gemma4:e4b")))
+            before = h.sidecar("nm000275").read_text()
+            rc = h.run({"nm000275": FetchError("rate_limit", "403")})
+            self.assertEqual(rc, 0)
+            self.assertEqual(h.source.calls, ["nm000275"])
+            self.assertEqual(h.sidecar("nm000275").read_text(), before)
+
+    def test_write_failure_exits_two(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            h = _Harness(Path(tmp), ["nm000275"])
+            h.output_dir.mkdir()
             try:
-                rc = cli_judge.main()
+                os.chmod(h.output_dir, stat.S_IRUSR | stat.S_IXUSR)
+                with self.assertLogs("dataset_citations.cli.judge_anchors", "ERROR"):
+                    rc = h.run({"nm000275": ["10.1/ok"]})
             finally:
-                cli_judge.OllamaJudgmentClient = original  # type: ignore[assignment]
-                sys.argv = old_argv
-            self.assertEqual(rc, 2)
-            # No sidecar should have been written.
-            self.assertFalse(any(output_dir.rglob("*.json")))
-
-
-class _UpClient:
-    """Test double for OllamaJudgmentClient with a healthy daemon."""
-
-    base_url = "http://test"
-    model = "test-model"
-
-    def __init__(self, base_url=None, model=None):
-        pass
-
-    def __enter__(self):
-        return self
-
-    def __exit__(self, *args):
-        return None
-
-    def health_check(self):
-        return True
-
-
-class CliSkipExistingAndMaxAge(TestCase):
-    """Verify the skip-existing and max-age-days gating."""
-
-    def _run_with_substitutes(
-        self,
-        *,
-        list_file: Path,
-        output_dir: Path,
-        cli_args: list[str],
-        judge_recorder: list[str],
-        judge_payload_factory,
-    ) -> int:
-        """Run cli_judge.main with substituted client + judge function.
-
-        `judge_payload_factory(dataset_id)` returns the payload the CLI
-        will save. `judge_recorder` is appended with each dataset_id the
-        substituted function sees.
-        """
-
-        def fake_judge(dataset_id, **_):
-            judge_recorder.append(dataset_id)
-            return judge_payload_factory(dataset_id)
-
-        original_client = cli_judge.OllamaJudgmentClient
-        original_judge = cli_judge.judge_dataset_anchors
-        cli_judge.OllamaJudgmentClient = _UpClient  # type: ignore[assignment]
-        cli_judge.judge_dataset_anchors = fake_judge  # type: ignore[assignment]
-        old_argv = sys.argv
-        sys.argv = [
-            "dataset-citations-judge-anchors",
-            "--dataset-list-file",
-            str(list_file),
-            "--output-dir",
-            str(output_dir),
-            *cli_args,
-        ]
-        try:
-            return cli_judge.main()
-        finally:
-            cli_judge.OllamaJudgmentClient = original_client  # type: ignore[assignment]
-            cli_judge.judge_dataset_anchors = original_judge  # type: ignore[assignment]
-            sys.argv = old_argv
-
-    def test_skip_existing_skips_when_sidecar_present(self) -> None:
-        with tempfile.TemporaryDirectory() as tmp:
-            tmp_path = Path(tmp)
-            output_dir = tmp_path / "out"
-            # Pre-create one sidecar; that dataset must be skipped.
-            _seed_sidecar(
-                output_dir,
-                "nm000104",
-                judged_at=datetime.now(UTC).isoformat(),
-            )
-            list_file = _write_list(tmp_path, ["nm000104", "nm000999"])
-
-            recorded: list[str] = []
-            rc = self._run_with_substitutes(
-                list_file=list_file,
-                output_dir=output_dir,
-                cli_args=["--skip-existing"],
-                judge_recorder=recorded,
-                judge_payload_factory=lambda did: {
-                    "dataset_id": did,
-                    "judged_at": datetime.now(UTC).isoformat(),
-                    "judgment_model": "test-model",
-                    "judgments": [],
-                },
-            )
-            self.assertEqual(rc, 0)
-            # Only the non-existing dataset was judged.
-            self.assertEqual(recorded, ["nm000999"])
-            # Pre-existing sidecar is untouched.
-            payload = json.loads((output_dir / "nm000104.json").read_text())
-            self.assertEqual(payload["judgment_model"], "preexisting")
-
-    def test_max_age_days_re_runs_stale_sidecar(self) -> None:
-        with tempfile.TemporaryDirectory() as tmp:
-            tmp_path = Path(tmp)
-            output_dir = tmp_path / "out"
-            # Stale: judged 30 days ago. Fresh threshold is 7 days.
-            stale = datetime.now(UTC) - timedelta(days=30)
-            _seed_sidecar(output_dir, "nm000104", judged_at=stale.isoformat())
-            list_file = _write_list(tmp_path, ["nm000104"])
-
-            recorded: list[str] = []
-            rc = self._run_with_substitutes(
-                list_file=list_file,
-                output_dir=output_dir,
-                cli_args=["--max-age-days", "7"],
-                judge_recorder=recorded,
-                judge_payload_factory=lambda did: {
-                    "dataset_id": did,
-                    "judged_at": datetime.now(UTC).isoformat(),
-                    "judgment_model": "test-model",
-                    "judgments": [],
-                },
-            )
-            self.assertEqual(rc, 0)
-            # Stale sidecar triggered a re-run.
-            self.assertEqual(recorded, ["nm000104"])
-            payload = json.loads((output_dir / "nm000104.json").read_text())
-            self.assertEqual(payload["judgment_model"], "test-model")
-
-    def test_max_age_days_skips_fresh_sidecar(self) -> None:
-        with tempfile.TemporaryDirectory() as tmp:
-            tmp_path = Path(tmp)
-            output_dir = tmp_path / "out"
-            fresh = datetime.now(UTC) - timedelta(days=2)
-            _seed_sidecar(output_dir, "nm000104", judged_at=fresh.isoformat())
-            list_file = _write_list(tmp_path, ["nm000104"])
-
-            recorded: list[str] = []
-            rc = self._run_with_substitutes(
-                list_file=list_file,
-                output_dir=output_dir,
-                cli_args=["--max-age-days", "7"],
-                judge_recorder=recorded,
-                judge_payload_factory=lambda did: {
-                    "dataset_id": did,
-                    "judged_at": datetime.now(UTC).isoformat(),
-                    "judgment_model": "test-model",
-                    "judgments": [],
-                },
-            )
-            self.assertEqual(rc, 0)
-            # Fresh sidecar means we never invoked the judge function.
-            self.assertEqual(recorded, [])
-
-
-class CliWritesJudgmentRecords(TestCase):
-    """End-to-end CLI path: substitute the judge function with a real one
-    that returns hand-built records (including one with `error`), confirm
-    the sidecar on disk matches."""
-
-    def test_judgment_with_error_field_is_written(self) -> None:
-        with tempfile.TemporaryDirectory() as tmp:
-            tmp_path = Path(tmp)
-            output_dir = tmp_path / "out"
-            list_file = _write_list(tmp_path, ["nm000104"])
-
-            def fake_judge(dataset_id, **_):
-                return {
-                    "dataset_id": dataset_id,
-                    "judged_at": datetime.now(UTC).isoformat(),
-                    "judgment_model": "test-model",
-                    "judgments": [
-                        {
-                            "anchor_identifier": "10.1234/ok",
-                            "anchor_identifier_type": "doi",
-                            "source_relation": "References",
-                            "classification": "data_paper",
-                            "reason": "matches",
-                            "paper_title": "A paper",
-                            "paper_year": 2020,
-                            "paper_venue": "Venue",
-                            "judged_at": datetime.now(UTC).isoformat(),
-                            "error": None,
-                        },
-                        {
-                            "anchor_identifier": "10.1234/bad",
-                            "anchor_identifier_type": "doi",
-                            "source_relation": "IsDerivedFrom",
-                            "classification": "",
-                            "reason": "",
-                            "paper_title": None,
-                            "paper_year": None,
-                            "paper_venue": None,
-                            "judged_at": datetime.now(UTC).isoformat(),
-                            "error": "paper_lookup_failed:not_found:404",
-                        },
-                    ],
-                }
-
-            # All rebinds + sys.argv mutation go inside the try block so a
-            # failure anywhere after the first assignment still triggers
-            # the restore in finally. Otherwise a single bad chmod/assign
-            # leaks substitutes across tests.
-            original_client = cli_judge.OllamaJudgmentClient
-            original_judge = cli_judge.judge_dataset_anchors
-            old_argv = sys.argv
-            try:
-                cli_judge.OllamaJudgmentClient = _UpClient  # type: ignore[assignment]
-                cli_judge.judge_dataset_anchors = fake_judge  # type: ignore[assignment]
-                sys.argv = [
-                    "dataset-citations-judge-anchors",
-                    "--dataset-list-file",
-                    str(list_file),
-                    "--output-dir",
-                    str(output_dir),
-                ]
-                rc = cli_judge.main()
-            finally:
-                cli_judge.OllamaJudgmentClient = original_client  # type: ignore[assignment]
-                cli_judge.judge_dataset_anchors = original_judge  # type: ignore[assignment]
-                sys.argv = old_argv
-            self.assertEqual(rc, 0)
-            payload = json.loads((output_dir / "nm000104.json").read_text())
-            self.assertEqual(payload["dataset_id"], "nm000104")
-            self.assertEqual(len(payload["judgments"]), 2)
-            self.assertIsNone(payload["judgments"][0]["error"])
-            self.assertIn("paper_lookup_failed", payload["judgments"][1]["error"])
-
-    def test_write_failure_returns_two_when_zero_judged(self) -> None:
-        """A read-only output dir makes every save fail; with zero successful
-        writes the CLI exits 2 (matches `cli/update.py` semantics)."""
-        with tempfile.TemporaryDirectory() as tmp:
-            tmp_path = Path(tmp)
-            output_dir = tmp_path / "out"
-            output_dir.mkdir()
-            list_file = _write_list(tmp_path, ["nm000104"])
-
-            def fake_judge(dataset_id, **_):
-                return {
-                    "dataset_id": dataset_id,
-                    "judged_at": datetime.now(UTC).isoformat(),
-                    "judgment_model": "test-model",
-                    "judgments": [],
-                }
-
-            # All mutation (rebinds, sys.argv, chmod) goes inside try so a
-            # failing chmod can't leak the rebinds to subsequent tests.
-            original_client = cli_judge.OllamaJudgmentClient
-            original_judge = cli_judge.judge_dataset_anchors
-            old_argv = sys.argv
-            try:
-                cli_judge.OllamaJudgmentClient = _UpClient  # type: ignore[assignment]
-                cli_judge.judge_dataset_anchors = fake_judge  # type: ignore[assignment]
-                sys.argv = [
-                    "dataset-citations-judge-anchors",
-                    "--dataset-list-file",
-                    str(list_file),
-                    "--output-dir",
-                    str(output_dir),
-                ]
-                os.chmod(output_dir, stat.S_IRUSR | stat.S_IXUSR)
-                rc = cli_judge.main()
-            finally:
-                # Restore write so tempfile cleanup works regardless of result.
-                os.chmod(output_dir, stat.S_IRWXU)
-                cli_judge.OllamaJudgmentClient = original_client  # type: ignore[assignment]
-                cli_judge.judge_dataset_anchors = original_judge  # type: ignore[assignment]
-                sys.argv = old_argv
+                os.chmod(h.output_dir, stat.S_IRWXU)
             self.assertEqual(rc, 2)
 
 
-class SkipExistingRespectsAnchorCoverage(TestCase):
-    """`--skip-existing` must not freeze a sidecar at its first anchor set.
+class CliExitPolicy(TestCase):
+    """Exit 2 when a dependency fails on at least 5 calls AND over 10% of them."""
 
-    Regression for #180. Skipping on mere file existence meant an anchor added
-    after the sidecar was first written never got judged; it fell through the
-    pipeline's "fetch all when unjudged" path and pulled in the citers of
-    BIDS/methods papers. Measured on the committed corpus, that left 851 of
-    1,642 recorded anchors (52%) with a null classification even though every
-    dataset had a sidecar.
-    """
+    def _rc(self, anchors: dict, **kwargs) -> int:
+        with tempfile.TemporaryDirectory() as tmp:
+            return _Harness(Path(tmp), list(anchors)).run(anchors, **kwargs)
 
-    def _fixture(self, tmp: Path, judged: list[str], recorded: list[str]) -> Path:
-        sidecar_dir = tmp / "anchor_judgments"
-        sidecar_dir.mkdir(parents=True)
-        (sidecar_dir / "on000001.json").write_text(
-            json.dumps(
-                {
-                    "dataset_id": "on000001",
-                    "judged_at": "2026-09-01T00:00:00+00:00",
-                    "judgment_model": "gemma4:e4b",
-                    "judgments": [
-                        {"anchor_identifier": a, "classification": "data_paper"}
-                        for a in judged
-                    ],
-                }
-            ),
-            encoding="utf-8",
+    def test_a_few_failed_judge_calls_do_not_stall_the_pipeline(self) -> None:
+        dois = _dois(4)
+        client = _ScriptedClient(fail_dois=set(dois))
+        self.assertEqual(self._rc({"nm000001": dois}, client=client), 0)
+
+    def test_judge_failures_over_ten_percent_exit_two(self) -> None:
+        # 6 failed of 56 calls (10.7%).
+        bad = _dois(6, "10.9/bad")
+        client = _ScriptedClient(fail_dois=set(bad))
+        with self.assertLogs("dataset_citations", "ERROR"):
+            rc = self._rc({"nm000001": _dois(50) + bad}, client=client)
+        self.assertEqual(rc, 2)
+
+    def test_judge_failures_under_ten_percent_pass(self) -> None:
+        # 6 failed of 66 calls (9.1%).
+        bad = _dois(6, "10.9/bad")
+        client = _ScriptedClient(fail_dois=set(bad))
+        self.assertEqual(self._rc({"nm000001": _dois(60) + bad}, client=client), 0)
+
+    def test_transient_lookup_failures_exit_two(self) -> None:
+        bad = _dois(5, "10.9/bad")
+        backend = _Papers({d: FetchError("network", "timeout") for d in bad})
+        with self.assertLogs("dataset_citations", "ERROR"):
+            rc = self._rc({"nm000001": _dois(5) + bad}, backend=backend)
+        self.assertEqual(rc, 2)
+
+    def test_a_first_wave_of_misses_counts(self) -> None:
+        """New-1: a first not_found counts, so an outage OpenAlex misreports as
+        a miss still stops the run instead of locking anchors out."""
+        bad = _dois(8, "10.9/typo")
+        backend = _Papers({d: FetchError("not_found", "404") for d in bad})
+        with self.assertLogs("dataset_citations", "ERROR"):
+            self.assertEqual(self._rc({"nm000001": bad}, backend=backend), 2)
+
+    def _seeded_rc(self, error: str, **kwargs) -> int:
+        """Run once more over anchors whose previous record carries `error`."""
+        bad = _dois(8, "10.9/known")
+        with tempfile.TemporaryDirectory() as tmp:
+            h = _Harness(Path(tmp), ["nm000001"])
+            h.output_dir.mkdir()
+            h.sidecar("nm000001").write_text(
+                json.dumps(
+                    _payload(
+                        judgments=[
+                            _judgment(
+                                d, error=error, judged_at="2026-01-01T00:00:00+00:00"
+                            )
+                            for d in bad
+                        ]
+                    )
+                )
+            )
+            return h.run({"nm000001": bad}, **kwargs)
+
+    def test_known_misses_do_not_count(self) -> None:
+        backend = _Papers(
+            {d: FetchError("not_found", "404") for d in _dois(8, "10.9/known")}
         )
-        citations_dir = tmp / "json_opencite"
-        citations_dir.mkdir(parents=True)
+        rc = self._seeded_rc("paper_lookup_failed:not_found:404", backend=backend)
+        self.assertEqual(rc, 0)
+
+    def test_anchors_that_always_fail_do_not_wedge_the_cron(self) -> None:
+        """New-3: on a quiet night the repeat failures are the only calls."""
+        client = _ScriptedClient(fail_all=True)
+        rc = self._seeded_rc("llm_judgment_failed:claude CLI exited 1", client=client)
+        self.assertEqual(rc, 0)
+
+    def test_max_failure_share_pushes_past_a_contained_failure(self) -> None:
+        bad = _dois(6, "10.9/bad")
+        client = _ScriptedClient(fail_dois=set(bad))
+        anchors = {"nm000001": _dois(50) + bad}
+        rc = self._rc(anchors, client=client, extra=("--max-failure-share", "0.2"))
+        self.assertEqual(rc, 0)
+
+    def test_widespread_source_failures_exit_two(self) -> None:
+        anchors: dict[str, list[str] | FetchError] = {
+            f"nm00000{i}": FetchError("rate_limit", "403") for i in range(5)
+        }
+        anchors["nm000009"] = ["10.1/ok"]
+        with self.assertLogs("dataset_citations", "ERROR"):
+            self.assertEqual(self._rc(anchors), 2)
+
+    def test_circuit_breaker_stops_the_run(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            ids = ["nm000001", "nm000002", "nm000003", "nm000004"]
+            h = _Harness(Path(tmp), ids)
+            anchors: dict[str, list[str] | FetchError] = {
+                did: _dois(4, f"10.1/{did}-") for did in ids
+            }
+            with self.assertLogs("dataset_citations.cli.judge_anchors", "ERROR"):
+                rc = h.run(anchors, client=_ScriptedClient(fail_all=True))
+            self.assertEqual(rc, 2)
+            # 4 + 4 failures, then the third dataset reaches 12 and trips it.
+            self.assertTrue(h.sidecar("nm000002").exists())
+            self.assertFalse(h.sidecar("nm000003").exists())
+            self.assertEqual(h.source.calls, ["nm000001", "nm000002", "nm000003"])
+
+
+class ShouldSkip(TestCase):
+    """`_should_skip` decisions on a sidecar payload (#180, #241)."""
+
+    def _skip(self, payload: dict | None, root: Path | None = None, **kw) -> bool:
+        skip, _ = cli_judge._should_skip(
+            payload,
+            skip_existing=kw.pop("skip_existing", True),
+            max_age_days=kw.pop("max_age_days", 0),
+            model=_MODEL,
+            citations_dir=str(root / "json_opencite") if root else None,
+            dataset_id="on000001",
+        )
+        return skip
+
+    def _record(self, root: Path, anchors: list[dict]) -> None:
+        citations_dir = root / "json_opencite"
+        citations_dir.mkdir(parents=True, exist_ok=True)
         (citations_dir / "on000001_citations.json").write_text(
-            json.dumps(
-                {
-                    "dataset_id": "on000001",
-                    "metadata": {"anchors": [{"identifier": a} for a in recorded]},
-                    "citation_details": [],
-                }
-            ),
-            encoding="utf-8",
+            json.dumps({"dataset_id": "on000001", "metadata": {"anchors": anchors}})
         )
-        return sidecar_dir / "on000001.json"
+
+    def test_missing_sidecar_is_judged(self) -> None:
+        self.assertFalse(self._skip(None))
+
+    def test_other_model_or_prompt_is_rejudged(self) -> None:
+        self.assertFalse(self._skip(_payload(model="gemma4:e4b")))
+        self.assertFalse(self._skip(_payload(prompt_version=None)))
+        self.assertFalse(self._skip(_payload(prompt_version=PROMPT_VERSION - 1)))
+        self.assertTrue(self._skip(_payload()))
+
+    def test_transient_error_is_retried(self) -> None:
+        judgments = [_judgment("10.1/a", error="llm_judgment_failed:timeout")]
+        self.assertFalse(self._skip(_payload(judgments=judgments)))
+
+    def test_unresolvable_anchor_waits_for_its_back_off(self) -> None:
+        error = f"{cli_judge.PERMANENT_LOOKUP_ERROR_PREFIX}404"
+        recent = datetime.now(UTC) - timedelta(days=3)
+        old = datetime.now(UTC) - timedelta(days=31)
+        self.assertTrue(
+            self._skip(
+                _payload(
+                    judgments=[
+                        _judgment("10.1/a", error=error, judged_at=recent.isoformat())
+                    ]
+                )
+            )
+        )
+        self.assertFalse(
+            self._skip(
+                _payload(
+                    judgments=[
+                        _judgment("10.1/a", error=error, judged_at=old.isoformat())
+                    ]
+                )
+            )
+        )
 
     def test_uncovered_anchor_forces_a_rejudge(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
-            sidecar = self._fixture(
+            self._record(
                 root,
-                judged=["10.1038/sdata.2015.1"],
-                recorded=["10.1038/sdata.2015.1", "10.21105/joss.01896"],
+                [
+                    {"identifier": "10.1/a", "source_relation": "IsDescribedBy"},
+                    {"identifier": "10.1/b", "source_relation": "IsDescribedBy"},
+                ],
             )
-            skip, _ = cli_judge._should_skip(
-                sidecar,
-                skip_existing=True,
-                max_age_days=0,
-                citations_dir=str(root / "json_opencite"),
-                dataset_id="on000001",
+            self.assertFalse(
+                self._skip(_payload(judgments=[_judgment("10.1/a")]), root)
             )
-            self.assertFalse(skip)
 
-    def test_full_coverage_still_skips(self) -> None:
+    def test_full_coverage_skips_case_insensitively(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
-            sidecar = self._fixture(
+            self._record(
                 root,
-                judged=["10.1038/sdata.2015.1", "10.21105/joss.01896"],
-                recorded=["10.1038/sdata.2015.1", "10.21105/joss.01896"],
+                [
+                    {
+                        "identifier": "10.1038/sdata.2015.1",
+                        "source_relation": "IsDescribedBy",
+                    }
+                ],
             )
+            payload = _payload(judgments=[_judgment("10.1038/SData.2015.1")])
             skip, reason = cli_judge._should_skip(
-                sidecar,
+                payload,
                 skip_existing=True,
                 max_age_days=0,
+                model=_MODEL,
                 citations_dir=str(root / "json_opencite"),
                 dataset_id="on000001",
             )
             self.assertTrue(skip)
-            self.assertEqual(reason, "exists")
+            self.assertEqual(reason, "covered")
 
-    def test_coverage_match_is_case_insensitive(self) -> None:
-        """DOIs are case-insensitive; a case difference is not a missing anchor."""
+    def test_relabeled_anchor_is_rejudged(self) -> None:
+        """An enrichment sweep relabeling References to IsDescribedBy."""
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
-            sidecar = self._fixture(
+            self._record(
+                root, [{"identifier": "10.1/a", "source_relation": "IsDescribedBy"}]
+            )
+            payload = _payload(judgments=[_judgment("10.1/a", relation="References")])
+            self.assertFalse(self._skip(payload, root))
+
+    def test_own_doi_and_non_doi_anchors_need_no_judgment(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            self._record(
                 root,
-                judged=["10.1038/SData.2015.1"],
-                recorded=["10.1038/sdata.2015.1"],
+                [
+                    {"identifier": "10.1/a", "source_relation": "IsDescribedBy"},
+                    {
+                        "identifier": "10.82901/nemar.on000001",
+                        "source_relation": "References",
+                    },
+                    {
+                        "identifier": "12345678",
+                        "identifier_type": "pmid",
+                        "source_relation": "References",
+                    },
+                ],
             )
-            skip, _ = cli_judge._should_skip(
-                sidecar,
-                skip_existing=True,
-                max_age_days=0,
-                citations_dir=str(root / "json_opencite"),
-                dataset_id="on000001",
-            )
-            self.assertTrue(skip)
+            self.assertTrue(self._skip(_payload(judgments=[_judgment("10.1/a")]), root))
 
-    def test_missing_citation_json_falls_back_to_file_exists(self) -> None:
-        """No citation JSON means nothing to compare; keep the old behavior."""
+    def test_missing_citation_json_skips_a_trusted_sidecar(self) -> None:
         with tempfile.TemporaryDirectory() as tmp:
-            root = Path(tmp)
-            sidecar = self._fixture(root, judged=["10.1/a"], recorded=["10.1/a"])
-            skip, _ = cli_judge._should_skip(
-                sidecar,
-                skip_existing=True,
-                max_age_days=0,
-                citations_dir=str(root / "does-not-exist"),
-                dataset_id="on000001",
+            self.assertTrue(
+                self._skip(_payload(judgments=[_judgment("10.1/a")]), Path(tmp))
             )
-            self.assertTrue(skip)
+
+    def test_max_age_days(self) -> None:
+        fresh = (datetime.now(UTC) - timedelta(days=2)).isoformat()
+        stale = (datetime.now(UTC) - timedelta(days=30)).isoformat()
+        self.assertTrue(
+            self._skip(_payload(judged_at=fresh), skip_existing=False, max_age_days=7)
+        )
+        self.assertFalse(
+            self._skip(_payload(judged_at=stale), skip_existing=False, max_age_days=7)
+        )
+        self.assertFalse(
+            self._skip(_payload(judged_at=fresh), skip_existing=False, max_age_days=0)
+        )

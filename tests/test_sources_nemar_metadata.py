@@ -104,6 +104,7 @@ class RelationTypeMembers(TestCase):
                 "IsIdenticalTo",
                 "IsVersionOf",
                 "IsDescribedBy",
+                "IsSupplementTo",
             },
         )
 
@@ -441,3 +442,16 @@ class GetDatasetMetadataFallback(TestCase):
         self.assertEqual(
             src.get_dataset_metadata("nm000104"), EMPTY_NEMAR_DATASET_METADATA
         )
+
+
+class ParseOn007615(TestCase):
+    """on007615 links its data paper as `IsSupplementTo` (the dataset supplements
+    the paper), the relation older enrichments used. The anchor must reach the
+    judge; a live data.nemar.org snapshot recorded 2026-09-29."""
+
+    def test_supplement_to_data_paper_is_an_anchor(self) -> None:
+        refs = parse_nemar_metadata(load_fixture("on007615.metadata.json"))
+        by_doi = {r.identifier: r.relation_type for r in refs}
+        self.assertEqual(by_doi.get("10.3389/fnhum.2025.1647425"), "IsSupplementTo")
+        # URL-typed landing pages under IsDescribedBy are still skipped.
+        self.assertFalse(any(r.identifier.startswith("http") for r in refs))

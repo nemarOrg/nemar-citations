@@ -1,94 +1,120 @@
-"""Verify the hallu cron script's Ollama preflight short-circuits cleanly.
+"""Static and syntax checks on the hallu cron and rerun scripts.
 
-Phase 4 (#88) wires `dataset-citations-judge-anchors` into the nightly
-pipeline. If the Ollama daemon on hallu is down, the cron must abort BEFORE
-running `dataset-citations-update` — otherwise the auto-update PR would land
-citation data with stale (or missing) anchor judgments.
+Phase 4 (#88) wired `dataset-citations-judge-anchors` into the nightly
+pipeline. Since #241 the judge is Claude Sonnet 5.5 through the `claude` CLI,
+and the judge CLI health-checks it with one real judgment (exit 2 on failure;
+covered by tests/test_cli_judge_anchors.py). The scripts must therefore pin the
+judge model, abort with exit 2 when the judge step fails, and never reference
+the retired Ollama preflight again: that probe passed while every judgment
+failed, which is how the September 2026 inflation happened.
 
-The preflight contract:
-  curl -s --max-time 5 http://localhost:11434/api/tags >/dev/null || exit 2
-
-This test extracts the preflight block from the production script and runs
-it against a port that is guaranteed unreachable on the test host. It must
-exit with status 2 (not 0, not 1) so the cron `set -uo pipefail` shell
-treats it as a hard abort.
-
-No mocks: we run real `curl` against a real (closed) port. Mirrors the
-NO-MOCKS rule in .rules/testing.md.
+The syntax checks run the real `bash -n`. The cron script itself cannot run in
+a test (it resets a checkout under $HOME and takes a lock), so its failure
+guards are checked structurally; the rerun helper runs for real against a
+stand-in `uv` on PATH that fails a chosen step.
 """
 
 from __future__ import annotations
 
-import shutil
-import socket
 import subprocess
 from pathlib import Path
-
-import pytest
 
 CRON_SCRIPT = Path(__file__).parent.parent / "scripts" / "hallu_cron_pipeline.sh"
 RERUN_SCRIPT = Path(__file__).parent.parent / "scripts" / "hallu_rerun.sh"
 
 
-def _unused_tcp_port() -> int:
-    """Return a port that is closed at call time.
-
-    We bind, read the assigned port, then release. There is a tiny race
-    window before the test runs `curl`, but the kernel will not reassign
-    the port immediately and the test cares only that `curl` fails — any
-    non-200 / connection-refused outcome is acceptable.
-    """
-    with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
-        sock.bind(("127.0.0.1", 0))
-        return sock.getsockname()[1]
+def _command_block(text: str, command: str) -> str:
+    """The shell statement that runs `uv run <command>`, up to its blank line."""
+    start = text.index(f"uv run {command}")
+    end = text.find("\n\n", start)
+    return text[start : end if end != -1 else len(text)]
 
 
-@pytest.mark.skipif(shutil.which("curl") is None, reason="curl not installed")
-def test_preflight_exits_2_when_ollama_unreachable() -> None:
-    """The exact preflight snippet from the cron script must exit with 2."""
-    closed_port = _unused_tcp_port()
-    snippet = (
-        f"curl -s --max-time 5 http://localhost:{closed_port}/api/tags "
-        ">/dev/null || {\n"
-        '  echo "ERROR: Ollama daemon not reachable; aborting." >&2\n'
-        "  exit 2\n"
-        "}\n"
-        'echo "would not reach here"\n'
+def _assert_fatal(text: str, command: str) -> None:
+    """The step is OR-ed with an explicit `exit 2`: the scripts use
+    `set -uo pipefail` (no -e), so without it a failure would not stop them."""
+    block = _command_block(text, command)
+    assert "|| {" in block, f"{command} lost its failure guard"
+    assert "exit 2" in block.split("|| {", 1)[1], f"{command} guard does not exit 2"
+
+
+def test_cron_script_pins_the_claude_judge() -> None:
+    text = CRON_SCRIPT.read_text()
+    assert 'ANCHOR_JUDGE_MODEL="${ANCHOR_JUDGE_MODEL:-claude-sonnet-5-5}"' in text
+    _assert_fatal(text, "dataset-citations-judge-anchors")
+    # The judge must run before the fetch that reads its sidecars.
+    assert text.index("uv run dataset-citations-judge-anchors") < text.index(
+        "uv run dataset-citations-update"
     )
-    result = subprocess.run(
-        ["bash", "-c", snippet],
+
+
+def test_gate_runs_right_after_update_and_is_fatal() -> None:
+    """The anchor gate must run on every file before anything scores or
+    publishes them, and a failure must abort rather than publish ungated."""
+    text = CRON_SCRIPT.read_text()
+    update_idx = text.index("uv run dataset-citations-update")
+    gate_idx = text.index("uv run dataset-citations-gate-anchors")
+    score_idx = text.index("uv run dataset-citations-score-confidence")
+    assert update_idx < gate_idx < score_idx
+    for command in ("dataset-citations-update", "dataset-citations-gate-anchors"):
+        _assert_fatal(text, command)
+
+
+def _rerun(tmp_path: Path, mode: str, failing: str) -> subprocess.CompletedProcess:
+    """Run the rerun helper with a stand-in `uv` that fails on `failing`."""
+    bin_dir = tmp_path / "bin"
+    bin_dir.mkdir()
+    uv = bin_dir / "uv"
+    uv.write_text(
+        '#!/bin/sh\ncase "$*" in *"$FAIL_CMD"*) exit 1 ;; esac\nexit 0\n', "utf-8"
+    )
+    uv.chmod(0o755)
+    (tmp_path / "ids.txt").write_text("nm000275\n", "utf-8")
+    env = {
+        "PATH": f"{bin_dir}:/usr/bin:/bin",
+        "HOME": str(tmp_path),
+        "REPO_DIR": str(tmp_path),
+        "DATASETS_LIST": str(tmp_path / "ids.txt"),
+        "GITHUB_TOKEN": "unused",
+        "FAIL_CMD": failing,
+    }
+    return subprocess.run(
+        ["bash", str(RERUN_SCRIPT), mode],
         capture_output=True,
         text=True,
-        check=False,  # the test asserts on returncode itself
-        timeout=15,
+        env=env,
+        check=False,  # the tests assert on returncode themselves
+        timeout=30,
     )
-    assert result.returncode == 2, (
-        f"expected exit 2 when ollama is down, got {result.returncode}; "
-        f"stdout={result.stdout!r}, stderr={result.stderr!r}"
-    )
-    assert "would not reach here" not in result.stdout
-    assert "ERROR: Ollama daemon" in result.stderr
 
 
-def test_cron_script_has_preflight_block() -> None:
-    """Catch accidental removal of the preflight in future edits.
+def test_rerun_stops_on_a_failed_judge(tmp_path: Path) -> None:
+    result = _rerun(tmp_path, "--judge-only", "dataset-citations-judge-anchors")
+    assert result.returncode == 2, result.stderr
 
-    The preflight URL is built from $OLLAMA_BASE_URL with a localhost
-    fallback so the cron probes the same daemon the CLI ends up calling;
-    we check for the shape rather than a literal URL.
-    """
-    text = CRON_SCRIPT.read_text()
-    assert "curl -s --max-time 5" in text, (
-        "preflight curl missing from hallu_cron_pipeline.sh"
-    )
-    assert "OLLAMA_BASE_URL" in text, (
-        "preflight should honor $OLLAMA_BASE_URL so probe + CLI agree"
-    )
-    assert "/api/tags" in text, "preflight is not hitting /api/tags"
-    assert "exit 2" in text, "preflight exit-2 missing from hallu_cron_pipeline.sh"
-    assert "dataset-citations-judge-anchors" in text, (
-        "judge-anchors step missing from hallu_cron_pipeline.sh"
-    )
+
+def test_rerun_stops_before_the_gate_when_update_fails(tmp_path: Path) -> None:
+    result = _rerun(tmp_path, "--update-only", "dataset-citations-update")
+    assert result.returncode == 2, result.stderr
+    assert "dataset-citations-gate-anchors" not in result.stdout
+
+
+def test_rerun_stops_on_a_failed_gate(tmp_path: Path) -> None:
+    result = _rerun(tmp_path, "--update-only", "dataset-citations-gate-anchors")
+    assert result.returncode == 2, result.stderr
+    assert "dataset-citations-gate-anchors" in result.stdout
+
+
+def test_rerun_update_only_succeeds_when_every_step_does(tmp_path: Path) -> None:
+    result = _rerun(tmp_path, "--update-only", "no-such-step")
+    assert result.returncode == 0, result.stderr
+
+
+def test_scripts_no_longer_probe_ollama() -> None:
+    for script in (CRON_SCRIPT, RERUN_SCRIPT):
+        text = script.read_text()
+        assert "/api/tags" not in text, f"{script.name} still probes Ollama"
+        assert "OLLAMA_" not in text, f"{script.name} still reads OLLAMA_* vars"
 
 
 def test_cron_script_bash_syntax_clean() -> None:

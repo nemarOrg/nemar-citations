@@ -27,8 +27,8 @@ from .dataset_metadata import (
 )
 from .llm_client import (
     ALLOWED_CLASSIFICATIONS,
+    ClaudeCliJudgmentClient,
     LlmJudgmentError,
-    OllamaJudgmentClient,
     build_anchor_prompt,
 )
 
@@ -58,10 +58,10 @@ def batch_score_citations(*args, **kwargs):
 __all__ = [
     "ALLOWED_CLASSIFICATIONS",
     "DEFAULT_JUDGMENTS_DIR",
+    "ClaudeCliJudgmentClient",
     "DatasetMetadataRetriever",
     "JudgmentSidecar",
     "LlmJudgmentError",
-    "OllamaJudgmentClient",
     "batch_score_citations",
     "build_anchor_prompt",
     "canonical_anchor_key",

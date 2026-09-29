@@ -70,6 +70,16 @@ class CitesDatasetBucketTests(TestCase):
         a["mentions_accession"] = True
         self.assertTrue(cites_dataset(a))
 
+    def test_dataset_doi_anchor_is_dataset_despite_references(self) -> None:
+        # The catalog seeds the own concept DOI with relation References (#241).
+        for source_doi in (
+            "10.82901/nemar.nm000275",
+            "10.18112/openneuro.ds002718.v1.0.5",
+        ):
+            a = _anchor("10.1/a", "References")
+            a["source_doi"] = source_doi
+            self.assertTrue(cites_dataset(a), source_doi)
+
 
 class MergeAccessionMentionsTests(TestCase):
     def test_appends_new_mention(self) -> None:
