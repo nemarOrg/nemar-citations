@@ -1,10 +1,10 @@
 {
   "dataset_id": "on004796",
   "num_citations": 34,
-  "date_last_updated": "2026-09-22T11:45:28.100373+00:00",
+  "date_last_updated": "2026-09-29T11:19:30.937852+00:00",
   "metadata": {
-    "total_cumulative_citations": 101,
-    "fetch_date": "2026-09-22T11:18:32.989002+00:00",
+    "total_cumulative_citations": 96,
+    "fetch_date": "2026-09-29T11:19:30.937852+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -58,14 +58,7 @@
         "funder_name": "Polish National Science Center (NCN)",
         "award_number": "2018/31/N/HS6/03551"
       }
-    ],
-    "searched_accessions": [
-      "on004796",
-      "ds004796"
-    ],
-    "num_accession_mentions": 5,
-    "num_dataset_citations": 7,
-    "num_datapaper_citations": 27
+    ]
   },
   "citation_details": [
     {
@@ -98,19 +91,16 @@
       "year": 2025,
       "url": "n/a",
       "cited_by": 18,
-      "abstract": "Electroencephalography (EEG) provides a non-invasive, highly accessible, and cost-effective approach for detecting Alzheimer's disease (AD). However, existing methods, whether based on handcrafted feature engineering or standard deep learning, face three major challenges: 1) the lack of large-scale EEG-based AD datasets for robust representation learning; 2) limited generalizability across subjects; and 3) difficulty in adapting to highly heterogeneous data. To address these challenges, we curate the world's largest EEG-AD corpus to date, comprising 2,238 subjects. Leveraging this unique resource, we propose LEAD, the first large-scale foundation model for EEG-based AD detection. Specifically, we design a gated temporal-spatial Transformer that can adapt to EEG recordings with arbitrary lengths, channel configurations, and sampling rates. In addition, we introduce a subject-regularized training strategy to enhance subject-level feature learning. We further employ medical contrastive le",
+      "abstract": "Electroencephalography (EEG) provides a non-invasive, highly accessible, and cost-effective approach for detecting Alzheimer's disease (AD). However, existing methods, whether based on handcrafted feature engineering or standard deep learning, face three major challenges: 1) the lack of large-scale EEG-based AD datasets for robust representation learning and evaluation; 2) limited cross-subject generalizability; and 3) difficulty in adapting to highly heterogeneous data. To address these challenges, we curate the world's largest EEG-AD corpus to date, comprising 2,238 subjects. Leveraging this unique resource, we propose LEAD, the first foundation model for EEG-based AD detection. Specifically, we design a gated temporal-spatial Transformer that can adapt to EEG recordings with diverse lengths, channel configurations, and sampling rates. In addition, we introduce a subject-regularized training strategy to enhance end-to-end subject-level detection. We further employ medical contrastive",
       "doi": null,
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1038/s41597-024-03106-5",
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
-      "superseded_dois": [
-        "10.48550/arxiv.2502.01678"
-      ],
       "confidence_scoring": {
-        "confidence_score": 0.5888163346052171,
-        "similarity_score": 0.5097976922988892,
+        "confidence_score": 0.5965272045135499,
+        "similarity_score": 0.5164737701416016,
         "citation_text_length": 1161,
         "dataset_text_length": 2336,
         "scoring_method": "sentence_transformers",
@@ -123,7 +113,7 @@
       "venue": "Biomedical Signal Processing and Control",
       "year": 2025,
       "url": "https://doi.org/10.1016/j.bspc.2025.108390",
-      "cited_by": 9,
+      "cited_by": 10,
       "abstract": "Accurate and efficient detection of Alzheimer’s Disease (AD) and Frontotemporal Dementia (FTD) poses significant challenges in neuroscience and healthcare. Our proposed AI framework, Dual-Transformer Cross-Attention Network (DTCA-Net), combines deep learning and directed Phase Transfer Entropy (dPTE) to optimize channel selection crucial for the detection of AD and FTD. Our method identified six critical EEG channels (F7, F8, T3, T4, O1, and O2) through dPTE analysis. We propose the DTCA-Net architecture, which fuses dPTE and differential entropy (DE) features via a multi-head cross-attention layer, projecting dPTE into queries and DE into keys/values over the temporal dimension, so that connectivity (dPTE) shifts are explicitly aligned with spectral complexity (DE), yielding richer spatiotemporal representations. By leveraging a reduced set of EEG channels identified via dPTE, DTCA-Net performance is comparable to previous state-of-the-art models. Additionally, we introduce an adaptiv",
       "doi": "10.1016/j.bspc.2025.108390",
       "pmid": null,
@@ -135,6 +125,29 @@
         "confidence_score": 0.5238724645972253,
         "similarity_score": 0.453569233417511,
         "citation_text_length": 1290,
+        "dataset_text_length": 2336,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "OmniEEG-Bench: A Standardized Evaluation Benchmark for EEG Foundation Models",
+      "author": "Zilin Lu, Zong-Sheng Li, Xin-Ke Shen, Kexin Lou, Ying Xin, Xiao-Qi Chen, Shi-Nan Wang, Xiang Chen, Jiahao Fan, Chen-Yu Huang, Xin Xu, Zhoujie Hou, Chen Wei, Quanying Liu",
+      "venue": "ArXiv",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arXiv.2606.00815",
+      "cited_by": 9,
+      "abstract": "Electroencephalography (EEG) supports a variety of brain-computer interface (BCI) tasks ranging from brain-state monitoring to human-LLM interactions. EEG foundation models are emerging, but evaluation remains fragmented due to heterogeneous datasets and nconsistent task protocols. Here, we introduce OmniEEG-Bench, a unified benchmark and downstream task roadmap for EEG foundation models (FMs). It organizes evaluation of EEG FMs into six task families spanning (i) signal reliability, (ii) biometrics and disease, (iii) consciousness and state, (iv) cognition and emotion, (v) naturalistic stimulus decoding, and (vi) motor and interaction, introducing a new generation of tasks not systematically benchmarked in prior EEG FM work. OmniEEG-Bench standardizes model deployment, task definitions, and metrics through a task-card specification, and unifies 54 EEG datasets with consistent evaluation protocols. We benchmark 10 representative EEG foundation models and report a leaderboard that cover",
+      "doi": "10.48550/arXiv.2606.00815",
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.1038/s41597-024-03106-5",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5515360347926617,
+        "similarity_score": 0.4775203764438629,
+        "citation_text_length": 1289,
         "dataset_text_length": 2336,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -164,31 +177,8 @@
       }
     },
     {
-      "title": "OmniEEG-Bench: A Standardized Evaluation Benchmark for EEG Foundation Models",
-      "author": "Zilin Lu, Zong-Sheng Li, Xin-Ke Shen, Kexin Lou, Ying Xin, Xiao-Qi Chen, Shi-Nan Wang, Xiang Chen, Jiahao Fan, Chen-Yu Huang, Xin Xu, Zhoujie Hou, Chen Wei, Quanying Liu",
-      "venue": "ArXiv",
-      "year": 2026,
-      "url": "https://doi.org/10.48550/arXiv.2606.00815",
-      "cited_by": 8,
-      "abstract": "Electroencephalography (EEG) supports a variety of brain-computer interface (BCI) tasks ranging from brain-state monitoring to human-LLM interactions. EEG foundation models are emerging, but evaluation remains fragmented due to heterogeneous datasets and nconsistent task protocols. Here, we introduce OmniEEG-Bench, a unified benchmark and downstream task roadmap for EEG foundation models (FMs). It organizes evaluation of EEG FMs into six task families spanning (i) signal reliability, (ii) biometrics and disease, (iii) consciousness and state, (iv) cognition and emotion, (v) naturalistic stimulus decoding, and (vi) motor and interaction, introducing a new generation of tasks not systematically benchmarked in prior EEG FM work. OmniEEG-Bench standardizes model deployment, task definitions, and metrics through a task-card specification, and unifies 54 EEG datasets with consistent evaluation protocols. We benchmark 10 representative EEG foundation models and report a leaderboard that cover",
-      "doi": "10.48550/arXiv.2606.00815",
-      "pmid": null,
-      "openalex_id": null,
-      "source_doi": "10.1038/s41597-024-03106-5",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5515360347926617,
-        "similarity_score": 0.4775203764438629,
-        "citation_text_length": 1289,
-        "dataset_text_length": 2336,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Exploring Task-Related EEG for Cross-Subject Early Alzheimer’s Disease Susceptibility Prediction in Middle-Aged Adults Using Multitaper Spectral Analysis",
-      "author": "Ziyang Li, Hong Wang, Jia-Ning Song, Jiale Gong",
+      "author": "Ziyang Li, Hong Wang, Jianing Song, Jiale Gong",
       "venue": "Sensors",
       "year": 2024,
       "url": "https://doi.org/10.3390/s25010052",
@@ -201,9 +191,9 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.622624209523201,
-        "similarity_score": 0.5390685796737671,
-        "citation_text_length": 1246,
+        "confidence_score": 0.6255025506019593,
+        "similarity_score": 0.5415606498718262,
+        "citation_text_length": 1245,
         "dataset_text_length": 2336,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -441,7 +431,7 @@
     },
     {
       "title": "Large-Scale AI and Foundation Models for Neuroscience: A Comprehensive Review",
-      "author": "Shihao Yang, Xi-Ying Huang, Danilo Bernardo, Jun-En Ding, Andrew Michael, Guoan Wang, Jingmei Yang, Alison Anderson, D. Giritharan, P. Kwan, A. Raj, Yu Zhang, Feng Liu",
+      "author": "Shihao Yang, Xi-Ying Huang, Danilo Bernardo, Jun-En Ding, Andrew Michael, Guo-An Wang, Jingmei Yang, Alison Anderson, D. Giritharan, P. Kwan, A. Raj, Yu Zhang, Feng Liu",
       "venue": "Meta-Radiology",
       "year": 2026,
       "url": "https://doi.org/10.1016/j.metrad.2026.100224",
@@ -454,9 +444,101 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.4180935457348824,
-        "similarity_score": 0.39818432927131653,
-        "citation_text_length": 285,
+        "confidence_score": 0.41718690991401675,
+        "similarity_score": 0.39732086658477783,
+        "citation_text_length": 286,
+        "dataset_text_length": 2336,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "UniFCHarm: Unified Prompt-Guided Harmonization of fMRI Functional Connectivity Across Scanners and Atlases",
+      "author": "Xin Lin, Yuxiao Liu, Yulin Wang, Lin Teng, Long Yang, Shilun Zhao, Kai Zhang, Zhiming Cui, Dinggang Shen",
+      "venue": "Lecture notes in computer science",
+      "year": 2026,
+      "url": "https://doi.org/10.1007/978-3-032-38072-2_58",
+      "cited_by": 0,
+      "abstract": null,
+      "doi": "10.1007/978-3-032-38072-2_58",
+      "pmid": null,
+      "openalex_id": "W7214335144",
+      "source_doi": "10.1038/s41597-024-03106-5",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.4029261946678162,
+        "similarity_score": 0.3837392330169678,
+        "citation_text_length": 270,
+        "dataset_text_length": 2336,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "SA-CFM: Structure-Aware Continuous Flow Matching for Normative Modeling of EEG Microstate",
+      "author": "Shiang Hu, Yifan Hu, Zhuofan Shi, Zhao Lv",
+      "venue": "Lecture notes in computer science",
+      "year": 2026,
+      "url": "https://doi.org/10.1007/978-3-032-38239-9_49",
+      "cited_by": 0,
+      "abstract": null,
+      "doi": "10.1007/978-3-032-38239-9_49",
+      "pmid": null,
+      "openalex_id": "W7214336658",
+      "source_doi": "10.1038/s41597-024-03106-5",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.4048531830310822,
+        "similarity_score": 0.38557446002960205,
+        "citation_text_length": 190,
+        "dataset_text_length": 2336,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Bridging EEG to fMRI: Semi-supervised Functional Connectivity Translation via Latent Alignment",
+      "author": "Xiaoye Li, Weiqi Li, Jia Mi, Shijie Huang, Ye He, Xin Lin, Zhiming Cui, Dinggang Shen",
+      "venue": "Lecture notes in computer science",
+      "year": 2026,
+      "url": "https://doi.org/10.1007/978-3-032-38239-9_12",
+      "cited_by": 0,
+      "abstract": null,
+      "doi": "10.1007/978-3-032-38239-9_12",
+      "pmid": null,
+      "openalex_id": "W7214366967",
+      "source_doi": "10.1038/s41597-024-03106-5",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.46681530922651293,
+        "similarity_score": 0.44458600878715515,
+        "citation_text_length": 239,
+        "dataset_text_length": 2336,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "CMD-AD: Cross-Modality Distillation from fMRI-EEG for Single-Modality Alzheimer’s Disease Diagnosis",
+      "author": "Xin Lin, Yuxiao Liu, Wenfei Yu, Yulong Dou, Weiqi Li, Minhui Tan, Ye He, Zhiming Cui, Dinggang Shen",
+      "venue": "Lecture notes in computer science",
+      "year": 2026,
+      "url": "https://doi.org/10.1007/978-3-032-38098-2_17",
+      "cited_by": 0,
+      "abstract": null,
+      "doi": "10.1007/978-3-032-38098-2_17",
+      "pmid": null,
+      "openalex_id": "W7214216077",
+      "source_doi": "10.1038/s41597-024-03106-5",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5450111389160156,
+        "similarity_score": 0.5190582275390625,
+        "citation_text_length": 258,
         "dataset_text_length": 2336,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -556,7 +638,7 @@
     },
     {
       "title": "Exploring the interaction of APOE- ε 4 and PICALM rs3851179 with dynamic functional connectivity in healthy middle-aged adults at risk for Alzheimer’s disease",
-      "author": "Shyamal Y. Dharia, Camilo E. Valderrama, Qian Liu, Stephen D Smith",
+      "author": "Shyamal Y. Dharia, Camilo E. Valderrama, Qian Liu, Stephen Dale Smith",
       "venue": "Journal of Neural Engineering",
       "year": 2026,
       "url": "https://doi.org/10.1088/1741-2552/ae4926",
@@ -569,9 +651,9 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.698029241859913,
-        "similarity_score": 0.6043543219566345,
-        "citation_text_length": 1292,
+        "confidence_score": 0.6978169977664948,
+        "similarity_score": 0.604170560836792,
+        "citation_text_length": 1295,
         "dataset_text_length": 2336,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -591,8 +673,6 @@
       "source_doi": "10.1038/s41597-024-03106-5",
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
-      "mentions_accession": true,
-      "matched_accession": "ds004796",
       "confidence_scoring": {
         "confidence_score": 0.769946118593216,
         "similarity_score": 0.6666200160980225,
@@ -604,7 +684,7 @@
     },
     {
       "title": "Non-Parametric Spectral Analysis of Slow Wave Activity in Resting-State EEG as a Biomarker of Dementia Risk",
-      "author": "Waldemar Bauer, Mariusz Pelc, Katarzyna Bialas, Tomasz Jan Kajdanowicz, Aleksandra Kawala-Sterniuk",
+      "author": "Waldemar Bauer, Mariusz Pelc, Katarzyna Bialas, Tomasz Jan Kajdanowicz, Aleksandra Kawala‐Sterniuk",
       "venue": "2025 IEEE International Conference on Data Mining Workshops (ICDMW)",
       "year": 2025,
       "url": "https://doi.org/10.1109/icdmw69685.2025.00218",
@@ -617,8 +697,8 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6442341417074203,
-        "similarity_score": 0.5577784776687622,
+        "confidence_score": 0.6432918137311936,
+        "similarity_score": 0.5569626092910767,
         "citation_text_length": 1311,
         "dataset_text_length": 2336,
         "scoring_method": "sentence_transformers",
@@ -627,7 +707,7 @@
     },
     {
       "title": "ERP-based cognitive load decoding in middle-aged adults: effects of Alzheimer’s risk",
-      "author": "Ziyang Li, Jia-Ning Song, Hong Wang, T. Z. Li, Mohamed Amin Gouda, Jiale Gong",
+      "author": "Ziyang Li, Jianing Song, Hong Wang, T. Z. Li, Mohamed Amin Gouda, Jiale Gong",
       "venue": "Medical & Biological Engineering & Computing",
       "year": 2025,
       "url": "https://doi.org/10.1007/s11517-025-03424-9",
@@ -640,9 +720,9 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6119402199983597,
-        "similarity_score": 0.5828002095222473,
-        "citation_text_length": 232,
+        "confidence_score": 0.6158827543258667,
+        "similarity_score": 0.586555004119873,
+        "citation_text_length": 231,
         "dataset_text_length": 2336,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -662,8 +742,6 @@
       "source_doi": "10.1038/s41597-024-03106-5",
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
-      "mentions_accession": true,
-      "matched_accession": "ds004796",
       "confidence_scoring": {
         "confidence_score": 0.6657906514406204,
         "similarity_score": 0.5764421224594116,
@@ -675,7 +753,7 @@
     },
     {
       "title": "Augmenting Spline Interpolated Dementia EEG Data with Deep Learning for Improved Multi-Centric Data Harmonization",
-      "author": "Matthew Chen, Benoit Louis Marteau, Micky C. Nnamdi, Junior Ben Tamo, May Dongmei Wang",
+      "author": "Matthew Chen, Benoit Louis Marteau, Micky C. Nnamdi, J. Ben Tamo, May Dongmei Wang",
       "venue": "2025 IEEE 22nd International Symposium on Biomedical Imaging (ISBI)",
       "year": 2025,
       "url": "https://doi.org/10.1109/isbi60581.2025.10981278",
@@ -688,9 +766,9 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5117224368453026,
-        "similarity_score": 0.44304972887039185,
-        "citation_text_length": 1305,
+        "confidence_score": 0.5116196192800999,
+        "similarity_score": 0.4429607093334198,
+        "citation_text_length": 1301,
         "dataset_text_length": 2336,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -698,27 +776,22 @@
     },
     {
       "title": "A Granularity-Aware EEG Feature Framework for Psychopathology Dimension Prediction",
-      "author": "Haofan Cheng, Jingjing Hu, Jingrong Pei, Shuaiqi Fu, Meilun Shen, Shuai Fang, M Wang, Dan Guo, Jie M. Zhang",
-      "venue": "arXiv (Cornell University)",
+      "author": "Haofan Cheng, Jingjing Hu, Jingrong Pei, Shuaiqi Fu, Meilun Shen, Shuaiwen Fang, Meng Wang, Dan Guo, Jie Zhang",
+      "venue": "ArXiv",
       "year": 2026,
-      "url": "https://openalex.org/W7167748092",
+      "url": "https://doi.org/10.48550/arXiv.2607.02670",
       "cited_by": 0,
-      "abstract": "Electroencephalography (EEG) offers a noninvasive approach for examining neurophysiological correlates of dimensional psychopathology, yet systematic evidence across EEG paradigms and feature granularities remains limited. Here, we develop a granularity-aware EEG feature pipeline that organizes multi-scale descriptors into global, regional, and channel levels. Using the Healthy Brain Network (HBN) cohort, we evaluate the prediction of four psychopathology dimensions: p-factor, internalizing, externalizing, and attention problems, across four EEG paradigms. Given the heterogeneity of pediatric psychopathology and the moderate reliability of questionnaire-derived scores, this setting represents a challenging feasibility test rather than a clinical screening scenario. Tree-based models and granularity-balanced feature selection showed promising improvements over conventional approaches in selected conditions, although effect sizes remained modest. Visualization of selected markers revealed dimension-specific spatial and spectral patterns that were broadly aligned with existing neurophysiological knowledge. An exploratory cross-dataset sanity check on the independent PEARL cohort suggested that the proposed selection principle remains technically feasible under protocol shifts, without claiming cross-dataset generalizability. Overall, multi-scale EEG features contain weak but detectable signals related to dimensional psychopathology, and granularity-aware selection may serve as a useful feature-reduction strategy for future EEG-based phenotyping studies.",
-      "doi": null,
+      "abstract": "Electroencephalography (EEG) offers a noninvasive approach for examining neurophysiological correlates of dimensional psychopathology, yet systematic evidence across EEG paradigms and feature granularities remains limited. Here, we develop a granularity-aware EEG feature pipeline that organizes multi-scale descriptors into global, regional, and channel levels. Using the Healthy Brain Network (HBN) cohort, we evaluate the prediction of four psychopathology dimensions: p-factor, internalizing, externalizing, and attention problems, across four EEG paradigms. Given the heterogeneity of pediatric psychopathology and the moderate reliability of questionnaire-derived scores, this setting represents a challenging feasibility test rather than a clinical screening scenario. Tree-based models and granularity-balanced feature selection showed promising improvements over conventional approaches in selected conditions, although effect sizes remained modest. Visualization of selected markers reveale",
+      "doi": "10.48550/arXiv.2607.02670",
       "pmid": null,
-      "openalex_id": "W7167748092",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004796",
-      "superseded_dois": [
-        "10.48550/arxiv.2607.02670"
-      ],
+      "openalex_id": null,
+      "source_doi": "10.1038/s41597-024-03106-5",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5195595654845239,
-        "similarity_score": 0.4498351216316223,
-        "citation_text_length": 1754,
+        "confidence_score": 0.5247473949193955,
+        "similarity_score": 0.4543267488479614,
+        "citation_text_length": 1236,
         "dataset_text_length": 2336,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -769,124 +842,21 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
-    },
-    {
-      "title": "Joint Generative Modeling of EEG and fMRI for Cognitive Task Simulation Using Adversarial Learning",
-      "author": "Nirmal Sukumaran Nair, Ravi Prakash B",
-      "venue": "Research Square",
-      "year": 2026,
-      "url": "https://doi.org/10.21203/rs.3.rs-9897980/v1",
-      "cited_by": 0,
-      "abstract": null,
-      "doi": "10.21203/rs.3.rs-9897980/v1",
-      "pmid": null,
-      "openalex_id": "W7166243167",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004796",
-      "confidence_scoring": {
-        "confidence_score": 0.4391387432813645,
-        "similarity_score": 0.4182273745536804,
-        "citation_text_length": 177,
-        "dataset_text_length": 2336,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Task-Related EEG as a Biomarker for Preclinical Alzheimer’s Disease: An Explainable Deep Learning Approach",
-      "author": "Ziyang Li, Hong Wang, Lei Li",
-      "venue": "Biomimetics",
-      "year": 2025,
-      "url": "https://doi.org/10.3390/biomimetics10070468",
-      "cited_by": 7,
-      "abstract": "The early detection of Alzheimer's disease (AD) in cognitively healthy individuals remains a major preclinical challenge. EEG is a promising tool that has shown effectiveness in detecting AD risk. Task-related EEG has been rarely used in Alzheimer's disease research, as most studies have focused on resting-state EEG. An interpretable deep learning framework-Interpretable Convolutional Neural Network (InterpretableCNN)-was utilized to identify AD-related EEG features. EEG data were recorded during three cognitive task conditions, and samples were labeled based on APOE genotype and polygenic risk scores. A 100-fold leave-p%-subjects-out cross-validation (LPSO-CV) was used to evaluate model performance and generalizability. The model achieved an ROC AUC of 60.84% across the tasks and subjects, with a Kappa value of 0.22, indicating fair agreement. Interpretation revealed a consistent focus on theta and alpha activity in the parietal and temporal regions-areas commonly associated with AD pathology. Task-related EEG combined with interpretable deep learning can reveal early AD risk signatures in healthy individuals. InterpretableCNN enhances transparency in feature identification, offering a valuable tool for preclinical screening.",
-      "doi": "10.3390/biomimetics10070468",
-      "pmid": "40710281",
-      "openalex_id": "W4412474434",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004796",
-      "confidence_scoring": {
-        "confidence_score": 0.6615884524583817,
-        "similarity_score": 0.5728038549423218,
-        "citation_text_length": 1430,
-        "dataset_text_length": 2336,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "NS-Copilot: An LLM-Driven Agent System for Autonomous Neuroscience Analysis",
-      "author": "Wuche Liu, Yiran Qiao, Linlin Hou, Rui Yang, Shusen Pu, Song Wang, Jing Ma",
-      "venue": "arXiv (Cornell University)",
-      "year": 2026,
-      "url": "https://doi.org/10.48550/arxiv.2609.01971",
-      "cited_by": 0,
-      "abstract": "AI is rapidly advancing neuroscience, yet many laboratories fail to fully unleash its potential due to significant interdisciplinary barriers. While pre-trained neural models for physiological data are progressing quickly, their heterogeneous architectures and modality-specific constraints hinder systematic integration, selection, and evaluation. Despite recent advances in large language model (LLM)-based agent systems for intelligent scientific applications, existing approaches often still lack the domain expertise required to effectively select and coordinate diverse neuroscience pre-trained models and handle unique data types in this domain. We present NS-Copilot, an LLM-driven multi-agent system for neuroscience analysis that autonomously supports end-to-end workflows for diverse professional tasks. It unifies domain-specific pre-trained models and supports key neuroscience modalities, including EEG and extracellular spike data, through a natural-language interface. Given raw data and a task description, NS-Copilot orchestrates agents with specialized roles for planning, adaptive control, code generation, and result synthesis, enabling analysis without dataset-specific heuristics. We evaluate NS-Copilot on neuroscience benchmarks spanning Alzheimer's disease, Parkinson's disease, and working memory spike decoding. Across 8 trials per task, the system consistently outperforms strong baselines on the primary metric, demonstrating the ability of NS-Copilot for effective and scalable neuroscience analysis. Our code is publicly available at https://github.com/FrankLiu1102/ns-copilot.",
-      "doi": "10.48550/arxiv.2609.01971",
-      "pmid": null,
-      "openalex_id": "W7207743228",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004796",
-      "confidence_scoring": {
-        "confidence_score": 0.45217602431774145,
-        "similarity_score": 0.39149439334869385,
-        "citation_text_length": 1714,
-        "dataset_text_length": 2336,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Preclinical Neural Divergence associated with Genetic Risk for Alzheimer's Disease: A Multimodal Resting-State EEG and Neuroimaging Study",
-      "author": "Shlok Khare",
-      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
-      "year": 2026,
-      "url": "https://doi.org/10.5281/zenodo.19562976",
-      "cited_by": 0,
-      "abstract": "Pre-symptomatic Alzheimer’s risk detection is difficult precisely because genetically at-risk individuals look neurologically normal for years before any clinical presentation. This paper presents a multimodal neurophysiological framework distinguishing two biologically distinct risk pathways, APOE ε4 (N = 48) and PICALM rs3851179 (N = 30), using resting-state EEG and fMRI in a pre-symptomatic cohort (µage ≈55 years) from the PEARL-Neuro dataset (OpenNeuro ds004796). EEGNet trained under leave-one-subject-out cross-validation reveals a bimodal fold structure in which 57.8% of APOE e3/e4 carriers and 80.0% of PICALM carriers are correctly classified at the subject level, with no intermediate folds between near-perfect (F1 = 1.0, 50/77) and near-chance (F1 ≈0.47–0.50, 27/77) performance. This structure reflects genuine individual variability in pre-symptomatic EEG divergence onset, with age confirmed as non-explanatory (Mann-Whitney U, p>.05). SHAP analysis and EEGNet’s learned spatial filters converge independently on bilateral temporal and frontal channels as the primary discriminating anatomy. Default Mode Network (DMN) connectivity is the single most discriminative individual feature (mean |SHAP|= 0.038) despite showing no linear correlation with any EEG measure (r < 0.17, all p > .16, N = 68), indicating the two modalities access distinct biological aspects of the same risk process. Late fusion demonstrates a ceiling effect consistent with EEGNet’s near-perfect unimodal performance, but within the 24 maximally uncertain subjects, DMN provides genuine probability calibration improvement of approximately 0.20–0.25 in P(PICALM risk). A companion ResNet18 analysis on OASIS-2 (N = 150 baseline sessions) contributes neuroanatomical grounding through Grad-CAM, identifying posterior-inferior atrophy as the primary CDR-based MCI discriminator. Together, these results suggest the preclinical Alzheimer’s neural phenotype is modality-specific, pathway-dependent, and individually variable in its timing of emergence.",
-      "doi": "10.5281/zenodo.19562976",
-      "pmid": null,
-      "openalex_id": "W7154238673",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004796",
-      "superseded_dois": [
-        "10.5281/zenodo.19562977"
-      ],
-      "confidence_scoring": {
-        "confidence_score": 0.8062752440571787,
-        "similarity_score": 0.6980738043785095,
-        "citation_text_length": 1743,
-        "dataset_text_length": 2336,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-22T13:14:38.298494+00:00",
+    "scoring_date": "2026-09-29T12:13:49.201030+00:00",
     "dataset_text_length": 2336,
     "num_citations_scored": 34,
     "summary_stats": {
-      "mean_confidence": 0.5790416681854164,
-      "median_confidence": 0.5633111040294172,
-      "std_confidence": 0.11280973755377602,
-      "min_confidence": 0.4169780986011029,
+      "mean_confidence": 0.5636882243919022,
+      "median_confidence": 0.5498915389180183,
+      "std_confidence": 0.10926936182887466,
+      "min_confidence": 0.4029261946678162,
       "max_confidence": 0.8096334922313692,
-      "high_confidence_count": 5,
-      "medium_confidence_count": 29,
+      "high_confidence_count": 4,
+      "medium_confidence_count": 30,
       "low_confidence_count": 0
     }
   }
