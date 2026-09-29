@@ -167,12 +167,12 @@ uv run dataset-citations-judge-anchors \
 # sidecars from step 3a transparently; the invocation is unchanged from the
 # pre-phase-4 script. Skip-existing (7d) keeps the run cheap.
 #
-# OPERATIONAL NOTE: on the first run after a fresh anchor-judgment backfill,
-# `--max-age-days 7` (the `update` CLI default) will keep existing citation
-# JSONs "fresh" and skip them, so the new bucketing does not take effect on
-# already-cached datasets until the freshness window expires. To apply the
-# new judgments immediately, manually re-run `dataset-citations-update`
-# with `--max-age-days 0` once, then resume the normal weekly cron.
+# OPERATIONAL NOTE: `--max-age-days 7` (the `update` CLI default) skips
+# citation JSONs fetched within the window. Anchors a new judgment REMOVES are
+# applied to every file the same night by the gate step below. Anchors a new
+# judgment ADDS (e.g. a data paper the enrichment used to label `References`)
+# only get their citers fetched when the dataset falls out of the window; to
+# apply them at once, re-run `dataset-citations-update --max-age-days 0` once.
 echo "--- update (skip-existing default 7d) ---"
 # --datasets-dir lets ds-* DOI extraction reuse the dataset_description cached
 # by retrieve-metadata above instead of refetching it from GitHub, which on a
@@ -183,6 +183,20 @@ OPENCITE_CONCURRENCY=4 \
     --output-dir citations/ \
     --datasets-dir datasets || {
   echo "ERROR: dataset-citations-update failed; aborting before score." >&2
+  exit 2
+}
+
+# 3b-gate. Re-apply the fail-closed anchor gate (#241) to EVERY citation file,
+#     not just the ones `update` refetched inside its freshness window: drop
+#     citations surfaced only through anchors that are not the dataset's judged
+#     data paper (related work, methods, standards, unjudged) and citing works
+#     older than their anchor. Offline and idempotent, so a steady-state night
+#     writes nothing. Fatal: skipping it would publish ungated counts.
+echo "--- gate-anchors (fail-closed anchor gate) ---"
+uv run dataset-citations-gate-anchors \
+  --citations-dir citations/json_opencite \
+  --judgments-dir citations/anchor_judgments || {
+  echo "ERROR: dataset-citations-gate-anchors failed; aborting before score." >&2
   exit 2
 }
 

@@ -83,6 +83,36 @@ def cites_dataset(citation: dict[str, Any]) -> bool:
     return source.startswith(NEMAR_DOI_PREFIX) or is_openneuro_dataset_doi(source)
 
 
+def refresh_derived_counts(payload: dict[str, Any]) -> None:
+    """Recompute every count derived from `citation_details`, in place.
+
+    For sweeps that remove records (dedupe, the anchor gate): `num_citations`
+    and `metadata.total_cumulative_citations` always; the accession-mention
+    and toggle-bucket counters only when the file already carries them, so a
+    file that never went through find-mentions does not acquire them. The
+    dashboard keys on the bucket counters rather than recomputing them, so
+    they must never go stale after a sweep.
+    """
+    details = payload.get("citation_details") or []
+    payload["num_citations"] = len(details)
+    metadata = payload.get("metadata")
+    if not isinstance(metadata, dict):
+        return
+    metadata["total_cumulative_citations"] = sum(
+        int(c.get("cited_by") or 0) for c in details
+    )
+    if "num_accession_mentions" in metadata:
+        metadata["num_accession_mentions"] = sum(
+            1 for c in details if c.get("discovery_method") == "accession_mention"
+        )
+    if "num_dataset_citations" in metadata:
+        metadata["num_dataset_citations"] = sum(1 for c in details if cites_dataset(c))
+    if "num_datapaper_citations" in metadata:
+        metadata["num_datapaper_citations"] = sum(
+            1 for c in details if not cites_dataset(c)
+        )
+
+
 def merge_accession_mentions(
     citation_json: dict[str, Any],
     mentions: list[dict[str, Any]],

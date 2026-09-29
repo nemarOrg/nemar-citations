@@ -29,6 +29,18 @@ def test_cron_script_pins_the_claude_judge() -> None:
     assert "aborting before update." in text, "judge step lost its exit-2 guard"
 
 
+def test_gate_runs_right_after_update_and_is_fatal() -> None:
+    """The anchor gate must run on every file before anything scores or
+    publishes them, and a failure must abort rather than publish ungated."""
+    text = CRON_SCRIPT.read_text()
+    update_idx = text.index("uv run dataset-citations-update")
+    gate_idx = text.index("uv run dataset-citations-gate-anchors")
+    score_idx = text.index("uv run dataset-citations-score-confidence")
+    assert update_idx < gate_idx < score_idx
+    assert "dataset-citations-gate-anchors failed; aborting before score." in text
+    assert "gate_anchors" in RERUN_SCRIPT.read_text()
+
+
 def test_scripts_no_longer_probe_ollama() -> None:
     for script in (CRON_SCRIPT, RERUN_SCRIPT):
         text = script.read_text()

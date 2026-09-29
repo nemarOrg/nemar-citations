@@ -6,7 +6,7 @@
 # Usage:
 #   scripts/hallu_rerun.sh                   # full pipeline (no lock, no PR)
 #   scripts/hallu_rerun.sh --judge-only      # just step 3a (anchor adjudication)
-#   scripts/hallu_rerun.sh --update-only     # just step 3b (opencite fetch)
+#   scripts/hallu_rerun.sh --update-only     # just step 3b (opencite fetch + anchor gate)
 #   scripts/hallu_rerun.sh --score-only      # just step 4 (GPU scoring)
 #   scripts/hallu_rerun.sh --embeddings-only # just step 5a (GPU embeddings)
 #   scripts/hallu_rerun.sh --umap-only       # just step 5b (UMAP on embeddings)
@@ -105,6 +105,18 @@ update_citations() {
     uv run dataset-citations-update \
       --dataset-list-file "$DATASETS_LIST" \
       --output-dir citations/
+  gate_anchors
+}
+
+gate_anchors() {
+  # Mirrors the cron's 3b-gate step (#241): re-apply the fail-closed anchor
+  # gate to every citation file after a fetch.
+  run uv run dataset-citations-gate-anchors \
+    --citations-dir citations/json_opencite \
+    --judgments-dir citations/anchor_judgments || {
+    echo "ERROR: dataset-citations-gate-anchors failed; aborting." >&2
+    exit 2
+  }
 }
 
 score_confidence() {
