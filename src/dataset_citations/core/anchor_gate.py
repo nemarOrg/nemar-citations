@@ -40,7 +40,11 @@ from dataset_citations.quality.anchor_judgment_io import (
     canonical_anchor_key,
 )
 from dataset_citations.quality.never_anchor import is_never_anchor, is_spec_title
-from dataset_citations.sources.doi import NEMAR_DOI_PREFIX, is_own_dataset_doi
+from dataset_citations.sources.doi import (
+    NEMAR_DOI_PREFIX,
+    is_openneuro_dataset_doi,
+    is_own_dataset_doi,
+)
 
 logger = logging.getLogger(__name__)
 
@@ -227,16 +231,24 @@ def predates_anchor(year: Any, anchor_year: int | None) -> bool:
     )
 
 
-def drop_self_citations(
-    details: list[dict[str, Any]], dataset_id: str
-) -> tuple[list[dict[str, Any]], int]:
-    """Drop records whose citing work is the dataset's own DOI record.
+def is_dataset_record_doi(doi: Any) -> bool:
+    """True for a NEMAR (`10.82901/`) or OpenNeuro (`10.18112/openneuro.`) DOI."""
+    base = base_doi(doi)
+    return base.startswith(NEMAR_DOI_PREFIX) or is_openneuro_dataset_doi(base)
 
-    OpenAlex indexes the dataset's DataCite record (e.g.
-    `10.82901/nemar.on004554.v1.0.0`) as a work that "cites" the papers in its
-    related identifiers, so without this the dataset counts itself as a citer
-    of its own data paper. Returns (kept, dropped_count).
+
+def drop_dataset_record_citers(
+    details: list[dict[str, Any]],
+) -> tuple[list[dict[str, Any]], int]:
+    """Drop records whose citing work is a NEMAR or OpenNeuro dataset record.
+
+    OpenAlex indexes dataset DataCite records as works that "cite" the papers
+    in their related identifiers. Without this a dataset counts itself (e.g.
+    `10.82901/nemar.on004554.v1.0.0`) or its own OpenNeuro mirror
+    (`10.18112/openneuro.ds005555.v1.1.2` on on005555) as a citer of its own
+    data paper, and sibling releases that share one data paper count each
+    other. A dataset record is not a publication, so none of these count.
+    Returns (kept, dropped_count).
     """
-    own = f"{NEMAR_DOI_PREFIX}nemar.{dataset_id.lower()}"
-    kept = [r for r in details if base_doi(r.get("doi")) != own]
+    kept = [r for r in details if not is_dataset_record_doi(r.get("doi"))]
     return kept, len(details) - len(kept)

@@ -230,7 +230,7 @@ class GateCitationFileTests(TestCase):
         self._edit(lambda p: p["citation_details"].append(own_record))
         self._judged()
         outcome = self._gate()
-        self.assertEqual(outcome.dropped_self, 1)
+        self.assertEqual(outcome.dropped_records, 1)
 
     def test_no_judgments_keeps_only_mentions_and_own_doi(self) -> None:
         """Fail closed: with no sidecar nothing but the dataset itself counts."""

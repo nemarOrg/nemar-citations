@@ -17,7 +17,7 @@ current judgments without touching the network:
    citations that also name the dataset accession are never dropped: they cite
    the dataset regardless of which anchor surfaced them.
 3. Drop citing works published before their anchor (mentions exempt again),
-   and the dataset's own DOI record listed as its own citer.
+   and citing works that are NEMAR or OpenNeuro dataset records.
 4. Recompute every derived count.
 
 The sweep only ever removes. An anchor the file did not fetch through that now
@@ -57,8 +57,8 @@ from dataset_citations.core.accession_mentions import refresh_derived_counts
 from dataset_citations.core.anchor_gate import (
     AWAITING_FETCH,
     NO_DATA_PAPER_ANCHOR,
+    drop_dataset_record_citers,
     drop_pre_anchor_citations,
-    drop_self_citations,
     gate_against_sidecar,
     surfaced_by_mention,
 )
@@ -94,7 +94,7 @@ class GateOutcome:
     """What the sweep did (or, in a dry run, would do) to one file.
 
     `dropped` counts all removed citations; `dropped_unkept`, `dropped_early`,
-    and `dropped_self` split it by cause. `sidecar_status` is the trusted
+    and `dropped_records` split it by cause. `sidecar_status` is the trusted
     sidecar's `JudgmentSidecar.status`; `needs_judgment` is True when the file
     has an anchor that only a judgment can keep (anything but the dataset's
     own DOI). A file whose sidecar is unreadable is left untouched.
@@ -104,7 +104,7 @@ class GateOutcome:
     dropped: int
     dropped_unkept: int
     dropped_early: int
-    dropped_self: int
+    dropped_records: int
     sidecar_status: str
     needs_judgment: bool
 
@@ -241,8 +241,8 @@ def gate_citation_file(
     ]
     dropped_unkept = len(details_in) - len(kept)
     kept, dropped_early = drop_pre_anchor_citations(kept, anchor_years)
-    kept, dropped_self = drop_self_citations(kept, dataset_id)
-    dropped = dropped_unkept + dropped_early + dropped_self
+    kept, dropped_records = drop_dataset_record_citers(kept)
+    dropped = dropped_unkept + dropped_early + dropped_records
 
     kept_anchors = [a for a in anchors if a.get("kept")]
     metadata["anchors"] = anchors
@@ -268,20 +268,20 @@ def gate_citation_file(
     if dropped and not quiet:
         logger.info(
             "%s: %s %d citation(s): %d through anchors that are not kept, %d "
-            "older than their anchor, %d self-citation(s)",
+            "older than their anchor, %d dataset record(s)",
             path.name,
             "would drop" if dry_run else "dropped",
             dropped,
             dropped_unkept,
             dropped_early,
-            dropped_self,
+            dropped_records,
         )
     return GateOutcome(
         changed=changed,
         dropped=dropped,
         dropped_unkept=dropped_unkept,
         dropped_early=dropped_early,
-        dropped_self=dropped_self,
+        dropped_records=dropped_records,
         sidecar_status=sidecar.status,
         needs_judgment=needs_judgment,
     )

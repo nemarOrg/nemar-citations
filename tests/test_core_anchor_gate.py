@@ -12,8 +12,8 @@ from dataset_citations.core.anchor_gate import (
     KEPT_DATASET_RECORD,
     KEPT_OWN_DOI,
     GateDecision,
+    drop_dataset_record_citers,
     drop_pre_anchor_citations,
-    drop_self_citations,
     gate_anchor,
 )
 from dataset_citations.sources.doi import is_own_dataset_doi
@@ -157,19 +157,21 @@ class DropPreAnchorCitationsTests(TestCase):
         )
 
 
-class DropSelfCitationsTests(TestCase):
-    def test_the_datasets_own_record_is_not_its_citer(self) -> None:
+class DropDatasetRecordCitersTests(TestCase):
+    def test_dataset_records_are_not_citing_works(self) -> None:
         details = [
             {"title": "own record", "doi": "10.82901/nemar.on004554.v1.0.0"},
             {"title": "own concept", "doi": "10.82901/NEMAR.ON004554"},
-            {"title": "another dataset", "doi": "10.82901/nemar.on004555"},
+            {"title": "sibling release", "doi": "10.82901/nemar.on004555"},
+            {"title": "OpenNeuro mirror", "doi": "10.18112/openneuro.ds004554.v1.1.2"},
             {"title": "a paper", "doi": "10.3934/mbe.2023507"},
+            {"title": "similar prefix", "doi": "10.18112/openneurox.1"},
             {"title": "no doi", "doi": None},
         ]
-        kept, dropped = drop_self_citations(details, "on004554")
-        self.assertEqual(dropped, 2)
+        kept, dropped = drop_dataset_record_citers(details)
+        self.assertEqual(dropped, 4)
         self.assertEqual(
-            [d["title"] for d in kept], ["another dataset", "a paper", "no doi"]
+            [d["title"] for d in kept], ["a paper", "similar prefix", "no doi"]
         )
 
 

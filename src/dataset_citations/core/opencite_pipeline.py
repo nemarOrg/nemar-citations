@@ -31,7 +31,7 @@ from dataset_citations.core.anchor_gate import (
     DROPPED_UNJUDGED,
     NO_DATA_PAPER_ANCHOR,
     GateDecision,
-    drop_self_citations,
+    drop_dataset_record_citers,
     gate_against_sidecar,
     predates_anchor,
 )
@@ -124,8 +124,9 @@ def fetch_dataset_citations_via_opencite(
       8. Aggregate works across all anchors (checkpointed + freshly fetched),
          skipping a work published before the anchor it came through (so a
          work citing two kept anchors is judged against the one it can cite),
-         dedupe by (normalized DOI || title), and drop the dataset's own DOI
-         record listed as a citer of its own anchors.
+         dedupe by (normalized DOI || title), and drop citing works that are
+         NEMAR or OpenNeuro dataset records (the dataset itself, its mirror,
+         or a sibling release), which are not publications.
       9. Build the JSON dict with discovery provenance fields. On full
          success the checkpoint file is removed.
 
@@ -273,11 +274,12 @@ def fetch_dataset_citations_via_opencite(
             dataset_id,
             duplicates_dropped,
         )
-    citation_details, self_dropped = drop_self_citations(citation_details, dataset_id)
-    if self_dropped:
+    citation_details, records_dropped = drop_dataset_record_citers(citation_details)
+    if records_dropped:
         logger.info(
-            "%s: dropped the dataset's own DOI record listed as its citer",
+            "%s: dropped %d dataset record(s) listed as citing works",
             dataset_id,
+            records_dropped,
         )
     # Counts must come from the deduped list, not `citing_works`, or the
     # cumulative total keeps counting a preprint and its published version.
