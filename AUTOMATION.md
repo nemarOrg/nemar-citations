@@ -13,6 +13,7 @@ hallu cron (03:00 PDT, nightly)
   -> gate-anchors -> prune-mirrored -> find-mentions -> dedupe -> score-confidence
   -> generate-embeddings -> analyze-umap -> themes / network / temporal
   -> commit to auto-update/<timestamp> -> PR -> auto-merge on green CI
+  -> close older open nightly PRs (superseded)
        |
        v
   push to main triggers .github/workflows/deploy-dashboard.yml
@@ -93,8 +94,9 @@ CI runs are at https://github.com/nemarOrg/nemar-citations/actions.
 
 ## Monitoring
 
-- Merged `auto-update/<timestamp>` PRs. A gap longer than a day or two means the
-  cron is aborting before its commit.
+- Merged `auto-update/<timestamp>` PRs.
+  A gap longer than a day or two means the cron is aborting before its commit,
+  or its PRs are not merging (see Troubleshooting).
 - `dashboard.nemar.org/citations/` for the deployed result.
 
 ## Troubleshooting
@@ -130,6 +132,24 @@ the datasets that need a judgment have no sidecar from the trusted judge (the
 judge did not run, or ran as another model). Repair the file, or confirm the
 judge ran, then rerun; `--max-missing-share 1` overrides the last check for a
 deliberate run.
+**A nightly PR is open but not merging.**
+Its CI failed, or the cron could not enable auto-merge
+(the log shows `ERROR: could not enable auto-merge`).
+Fix the cause on `main`; the PR does not need rescuing.
+Each nightly run starts from `main`, so the next night's PR carries the full state of a fresh run,
+and once it is open the cron closes every older open nightly PR as superseded.
+That cleanup runs only on a night that reaches PR creation,
+so an aborted night or one with no data changes leaves older PRs open.
+Branches not in the cron's `auto-update/<UTC timestamp>` form are never closed.
+
+**Exit codes.** The script exits 0 on success, when there is nothing to commit, or when another run holds the lock.
+It exits 2 when a pipeline step, the push, or PR creation fails,
+and also when tonight's PR is open but enabling auto-merge or closing a superseded PR failed;
+in that case it finishes the cleanup first, and the last log line says `published ... with errors`.
+
+**Ollama unreachable.** The preflight aborts with exit 2 before any judging, so
+no run publishes stale judgments. Restart the daemon and wait for the next
+night, or run the script by hand.
 
 **Manual run.** Safe to invoke directly; the lock prevents overlap with cron:
 

@@ -79,14 +79,16 @@ def _dataset_ids(args: argparse.Namespace, json_dir: str) -> list[str]:
     )
 
 
-def run_find_mentions(args: argparse.Namespace) -> None:
+def run_find_mentions(
+    args: argparse.Namespace, backend: AccessionSearchBackend
+) -> None:
     """Merge accession-mention citations into each dataset's citation JSON.
 
+    `backend` runs the OpenAlex full-text search for each dataset's terms.
     Raises SystemExit(2) if every processed dataset failed to write.
     """
     json_dir = args.citations_dir
     source_ids = _load_source_id_map(args.catalog_cache, args.catalog_cache_max_age)
-    backend = AccessionSearchBackend(max_results=args.max_results)
 
     dataset_ids = _dataset_ids(args, json_dir)
     total_candidates = len(dataset_ids)
@@ -205,7 +207,7 @@ def run_find_mentions(args: argparse.Namespace) -> None:
         # after its retries are exhausted, a KeyboardInterrupt) still keeps the
         # datasets already completed. Without this the whole run's progress
         # would be discarded and the next run would redo every dataset, which
-        # is the exact behaviour issue #197 removes.
+        # is the exact behavior issue #197 removes.
         save_state(state_path, mention_state)
 
     logger.info(
@@ -279,7 +281,7 @@ def main() -> None:
         ),
     )
     args = parser.parse_args()
-    run_find_mentions(args)
+    run_find_mentions(args, AccessionSearchBackend(max_results=args.max_results))
 
 
 if __name__ == "__main__":

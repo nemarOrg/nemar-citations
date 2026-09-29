@@ -1,10 +1,10 @@
 {
   "dataset_id": "on003061",
   "num_citations": 7,
-  "date_last_updated": "2026-09-22T11:45:26.141359+00:00",
+  "date_last_updated": "2026-09-29T11:44:31.148716+00:00",
   "metadata": {
     "total_cumulative_citations": 34,
-    "fetch_date": "2026-09-22T11:05:09.049651+00:00",
+    "fetch_date": "2026-09-29T11:07:25.893532+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 1,
@@ -100,6 +100,56 @@
       }
     },
     {
+      "title": "EEGPrep: a validated Python implementation of the EEGLAB preprocessing pipeline",
+      "author": "Arnaud Delorme, Suraj Ranganath, Christian Kothe, Aman Jaiswal, Scott Makeig, Bruno Aristimunha",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2607.16647",
+      "cited_by": 0,
+      "abstract": "Objective. Automated EEG preprocessing is common in research and clinical work, but few pipelines have been tested systematically. In a recent benchmark, the default EEGLAB pipeline was the only pipeline that significantly outperformed simple high pass filtering. Its MATLAB implementation, however, complicates deployment in Python and cloud workflows. We developed EEGPrep to reproduce this pipeline in Python while supporting BIDS data. The main technical problem was numerical: small floating point differences can accumulate during recursive filtering and ICA. Approach. EEGPrep covers the default EEGLAB workflow: average rereferencing, artifact removal with the clean rawdata plugin, Picard ICA, ICLabel component classification, channel interpolation, and epoching. We compared each stage with MATLAB reference output on ARM arm64, the primary analysis, and Intel x86 64, the supplementary analysis. The test dataset contained 64 channel P300 auditory oddball recordings from 13 participants. We measured maximum absolute difference, RMS error, AMARI distance for ICA, and agreement between ICLabel decisions. Main Results. On ARM arm64, import and rereferencing matched exactly for all 12 analysed subjects. The clean rawdata and Picard ICA stages remained at numerical zero, with maximum RMS equal to 1.5 x 10^-12 microvolts, AMARI distance less than or equal to 0.000001, and mean correlation equal to 1.000. ICLabel neural network inference introduced the only measurable difference, with maximum RMS equal to 2.0 x 10^-5 microvolts. Rejection decisions nevertheless agreed for every subject, and the difference did not increase through interpolation and epoching, with end to end maximum RMS less than or equal to 2.1 x 10^-5 microvolts. The Intel x86 64 analysis matched to the same precision. Significance. EEGPrep reproduces the validated EEGLAB pipeline and can be installed from PyPI or run in Docker.",
+      "doi": "10.48550/arxiv.2607.16647",
+      "pmid": null,
+      "openalex_id": "W7169837262",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds003061",
+      "confidence_scoring": {
+        "confidence_score": 0.6016813695430756,
+        "similarity_score": 0.5209362506866455,
+        "citation_text_length": 1739,
+        "dataset_text_length": 1508,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "CogEEGAgent: Toward Autonomous Cognitive EEG Analysis with Grounded Execution and Selection-Aware Verification",
+      "author": "Dengzhe Hou, Lingyu Jiang, Fangzhou Lin, Kazunori D. Yamada",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2607.25045",
+      "cited_by": 0,
+      "abstract": "Electroencephalography (EEG) analysis in cognitive studies requires specialized expertise and involves many defensible choices over contrasts, channels, time windows, and statistical tests. LLM agents can translate varied natural-language questions into analysis choices, offering a flexible interface for automation. Yet fluent reports alone cannot establish that an agent selected the requested analysis or evaluated a confirmatory claim independently of adaptive search. We present CogEEGAgent, a cognitive-EEG analysis agent grounded in MNE-Python. Its EEG-specific scientific harness separates semantic from scientific authority. The LLM interprets intent and proposes registered analyses, while deterministic components validate typed contracts, control confirmation access, and authorize evidence-bound release. On a prespecified routing benchmark, CogEEGAgent maps language to registered analyses more accurately than a matched deterministic router, while matched preflight makes both systems abstain whenever required. In an externally model-authored, outcome-blind campaign, the complete system releases supported analyses with participant-disjoint confirmation and blocks prespecified capability hazards and lifecycle-reuse requests. Policy stress testing shows that held-out confirmation curbs false positives from uncorrected adaptive search. Together, these studies establish bounded autonomy and an auditable automation framework for cognitive-EEG workflows. More broadly, they show how scientific agents can combine flexible language understanding with fail-closed control over inference and release.",
+      "doi": "10.48550/arxiv.2607.25045",
+      "pmid": null,
+      "openalex_id": "W7171651505",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds003061",
+      "confidence_scoring": {
+        "confidence_score": 0.5153078337013722,
+        "similarity_score": 0.4461539685726166,
+        "citation_text_length": 1734,
+        "dataset_text_length": 1508,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Hallucinatory Domestication Theory (HDT): From In Silico Mechanism to In Vivo EEG Validation — Reproducible Package",
       "author": "Najih Salhab",
       "venue": "Zenodo (CERN European Organization for Nuclear Research)",
@@ -176,67 +226,17 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
-    },
-    {
-      "title": "EEGPrep: a validated Python implementation of the EEGLAB preprocessing pipeline",
-      "author": "Arnaud Delorme, Suraj Ranganath, Christian Kothe, Aman Jaiswal, Scott Makeig, Bruno Aristimunha",
-      "venue": "arXiv (Cornell University)",
-      "year": 2026,
-      "url": "https://openalex.org/W7170112565",
-      "cited_by": 0,
-      "abstract": "Objective. Automated EEG preprocessing is common in research and clinical work, but few pipelines have been tested systematically. In a recent benchmark, the default EEGLAB pipeline was the only pipeline that significantly outperformed simple high pass filtering. Its MATLAB implementation, however, complicates deployment in Python and cloud workflows. We developed EEGPrep to reproduce this pipeline in Python while supporting BIDS data. The main technical problem was numerical: small floating point differences can accumulate during recursive filtering and ICA. Approach. EEGPrep covers the default EEGLAB workflow: average rereferencing, artifact removal with the clean rawdata plugin, Picard ICA, ICLabel component classification, channel interpolation, and epoching. We compared each stage with MATLAB reference output on ARM arm64, the primary analysis, and Intel x86 64, the supplementary analysis. The test dataset contained 64 channel P300 auditory oddball recordings from 13 participants. We measured maximum absolute difference, RMS error, AMARI distance for ICA, and agreement between ICLabel decisions. Main Results. On ARM arm64, import and rereferencing matched exactly for all 12 analysed subjects. The clean rawdata and Picard ICA stages remained at numerical zero, with maximum RMS equal to 1.5 x 10^-12 microvolts, AMARI distance less than or equal to 0.000001, and mean correlation equal to 1.000. ICLabel neural network inference introduced the only measurable difference, with maximum RMS equal to 2.0 x 10^-5 microvolts. Rejection decisions nevertheless agreed for every subject, and the difference did not increase through interpolation and epoching, with end to end maximum RMS less than or equal to 2.1 x 10^-5 microvolts. The Intel x86 64 analysis matched to the same precision. Significance. EEGPrep reproduces the validated EEGLAB pipeline and can be installed from PyPI or run in Docker.",
-      "doi": null,
-      "pmid": null,
-      "openalex_id": "W7170112565",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds003061",
-      "confidence_scoring": {
-        "confidence_score": 0.6016813695430756,
-        "similarity_score": 0.5209362506866455,
-        "citation_text_length": 1739,
-        "dataset_text_length": 1508,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "CogEEGAgent: Toward Autonomous Cognitive EEG Analysis with Grounded Execution and Selection-Aware Verification",
-      "author": "Dengzhe Hou, Lingyu Jiang, Fangzhou Lin, Kazunori D. Yamada",
-      "venue": "arXiv (Cornell University)",
-      "year": 2026,
-      "url": "https://openalex.org/W7171902880",
-      "cited_by": 0,
-      "abstract": "Electroencephalography (EEG) analysis in cognitive studies requires specialized expertise and involves many defensible choices over contrasts, channels, time windows, and statistical tests. LLM agents can translate varied natural-language questions into analysis choices, offering a flexible interface for automation. Yet fluent reports alone cannot establish that an agent selected the requested analysis or evaluated a confirmatory claim independently of adaptive search. We present CogEEGAgent, a cognitive-EEG analysis agent grounded in MNE-Python. Its EEG-specific scientific harness separates semantic from scientific authority. The LLM interprets intent and proposes registered analyses, while deterministic components validate typed contracts, control confirmation access, and authorize evidence-bound release. On a prespecified routing benchmark, CogEEGAgent maps language to registered analyses more accurately than a matched deterministic router, while matched preflight makes both systems abstain whenever required. In an externally model-authored, outcome-blind campaign, the complete system releases supported analyses with participant-disjoint confirmation and blocks prespecified capability hazards and lifecycle-reuse requests. Policy stress testing shows that held-out confirmation curbs false positives from uncorrected adaptive search. Together, these studies establish bounded autonomy and an auditable automation framework for cognitive-EEG workflows. More broadly, they show how scientific agents can combine flexible language understanding with fail-closed control over inference and release.",
-      "doi": null,
-      "pmid": null,
-      "openalex_id": "W7171902880",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds003061",
-      "confidence_scoring": {
-        "confidence_score": 0.5153078337013722,
-        "similarity_score": 0.4461539685726166,
-        "citation_text_length": 1734,
-        "dataset_text_length": 1508,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-22T12:56:22.017330+00:00",
+    "scoring_date": "2026-09-29T12:07:19.465549+00:00",
     "dataset_text_length": 1508,
     "num_citations_scored": 7,
     "summary_stats": {
       "mean_confidence": 0.5498889501392842,
       "median_confidence": 0.5291776719689371,
-      "std_confidence": 0.0767005029652869,
+      "std_confidence": 0.07670050296528691,
       "min_confidence": 0.42308502137660986,
       "max_confidence": 0.6903634643554688,
       "high_confidence_count": 0,
