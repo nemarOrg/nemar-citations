@@ -19,6 +19,8 @@ on:
       - "datasets/**"
       - "dashboard_data/**"
       - "web/**"
+      # The never-anchor list the build reads (web/src/lib/data.ts).
+      - "src/dataset_citations/quality/never_anchor_dois.json"
       - ".github/workflows/deploy-dashboard.yml"
 
 jobs:
@@ -37,6 +39,10 @@ jobs:
       - name: Install dependencies
         working-directory: web
         run: bun install --frozen-lockfile
+
+      - name: Test the counting rules
+        working-directory: web
+        run: bun test
 
       - name: Build Astro dashboard
         working-directory: web
