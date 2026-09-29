@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000133",
-  "num_citations": 7,
-  "date_last_updated": "2026-09-25T10:32:43.346221+00:00",
+  "num_citations": 6,
+  "date_last_updated": "2026-09-29T10:39:28.756142+00:00",
   "metadata": {
-    "total_cumulative_citations": 91,
-    "fetch_date": "2026-09-22T10:35:46.142186+00:00",
+    "total_cumulative_citations": 92,
+    "fetch_date": "2026-09-29T10:39:28.756142+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -16,7 +16,7 @@
       {
         "identifier": "10.48550/arxiv.2404.05553",
         "identifier_type": "doi",
-        "source_relation": "References",
+        "source_relation": "IsDescribedBy",
         "classification": "data_paper",
         "kept": true,
         "paper_title": "Alljoined1 -- A dataset for EEG-to-Image decoding",
@@ -44,26 +44,17 @@
     ],
     "keywords": [
       "EEG",
-      "visual perception",
-      "image decoding",
-      "rapid serial visual presentation",
+      "Visual Perception",
       "natural images",
-      "oddball detection",
-      "neural responses",
-      "BioSemi",
-      "independent component analysis",
-      "artifact rejection",
+      "EEG-to-image decoding",
+      "rapid serial visual presentation",
       "Natural Scenes Dataset",
+      "BioSemi ActiveTwo",
+      "oddball detection",
       "MS-COCO"
     ],
-    "methods_description": "EEG was recorded using a 64-channel BioSemi ActiveTwo system (Ag/AgCl sintered electrodes, International 10-20 montage) at 512 Hz sampling rate with 24-bit A/D conversion. Participants performed an RSVP oddball detection task with 300 ms image presentations followed by 300 ms black screen plus 0-50 ms jitter. Preprocessing included 0.5-125 Hz band-pass filtering, 60 Hz notch filtering, FastICA (95% variance retained), -50 to 600 ms epoching, AutoReject artifact rejection, baseline correction, and average re-referencing.",
-    "funding": [],
-    "searched_accessions": [
-      "nm000133"
-    ],
-    "num_accession_mentions": 1,
-    "num_dataset_citations": 1,
-    "num_datapaper_citations": 6
+    "methods_description": "EEG was recorded using a 64-channel BioSemi ActiveTwo system (Ag/AgCl sintered electrodes, International 10-20 system) at 512 Hz, referenced to CMS/DRL with average reference applied during preprocessing. Participants viewed images for 300 ms followed by 300 ms black screen with jitter, performing an oddball detection task. Preprocessing by original authors included 0.5-125 Hz band-pass filtering, 60 Hz notch filtering, FastICA (95% variance retained), epoching (-50 to 600 ms), AutoReject artifact rejection, baseline correction, and average re-referencing.",
+    "funding": []
   },
   "citation_details": [
     {
@@ -72,13 +63,13 @@
       "venue": "Neural Networks",
       "year": 2025,
       "url": "https://doi.org/10.1016/j.neunet.2025.107515",
-      "cited_by": 38,
+      "cited_by": 39,
       "abstract": "Advances in brain decoding, particularly in visual image reconstruction, have sparked discussions about the societal implications and ethical considerations of neurotechnology. As reconstruction methods aim to recover visual experiences from brain activity and achieve prediction beyond training samples (zero-shot prediction), it is crucial to assess their capabilities and limitations to inform public expectations and regulations. Our case study of recent text-guided reconstruction methods, which leverage a large-scale dataset (Natural Scenes Dataset, NSD) and text-to-image diffusion models, reveals critical limitations in their generalizability, demonstrated by poor reconstructions on a different dataset. UMAP visualization of the text features from NSD images shows limited diversity with overlapping semantic and visual clusters between training and test sets. We identify that clustered training samples can lead to \"output dimension collapse,\" restricting predictable output feature dim",
       "doi": "10.1016/j.neunet.2025.107515",
       "pmid": "40499302",
       "openalex_id": "W4410762829",
       "source_doi": "10.48550/arxiv.2404.05553",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.5135555635392667,
@@ -101,7 +92,7 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.48550/arxiv.2404.05553",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.5941097009181977,
@@ -114,7 +105,7 @@
     },
     {
       "title": "A Survey on Bridging EEG Signals and Generative AI: From Image and Text to Beyond",
-      "author": "Shreya Shukla, Jose Torres, Abhijit Mishra, Jacek Gwizdka, Shounak Roychowdhury",
+      "author": "Shreya Shukla, Jose Torres, Akshaj Murhekar, Christine Liu, Abhijit Mishra, Jacek Gwizdka, Shounak Roychowdhury",
       "venue": "ArXiv",
       "year": 2025,
       "url": "https://doi.org/10.48550/arXiv.2502.12048",
@@ -124,12 +115,12 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.48550/arxiv.2404.05553",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6486973947286607,
-        "similarity_score": 0.5616427659988403,
-        "citation_text_length": 1204,
+        "confidence_score": 0.6446354985237122,
+        "similarity_score": 0.5581259727478027,
+        "citation_text_length": 1236,
         "dataset_text_length": 2185,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -137,7 +128,7 @@
     },
     {
       "title": "CrossPT-EEG: A Benchmark for Cross-Participant and Cross-Time Generalization of EEG-based Visual Decoding",
-      "author": "Shu-Qi Zhu, Ziyi Ye, Qingyao Ai, Yiqun Liu",
+      "author": "Shu-Qi Zhu, Ziyi Ye, Qing-Yao Ai, Yi-Qun Liu",
       "venue": "n/a",
       "year": 2024,
       "url": "n/a",
@@ -147,12 +138,12 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.48550/arxiv.2404.05553",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.7232639837265016,
-        "similarity_score": 0.6262025833129883,
-        "citation_text_length": 1189,
+        "confidence_score": 0.7240055644512178,
+        "similarity_score": 0.6268446445465088,
+        "citation_text_length": 1191,
         "dataset_text_length": 2185,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -160,7 +151,7 @@
     },
     {
       "title": "EIT-1M: One Million EEG-Image-Text Pairs for Human Visual-textual Recognition and More",
-      "author": "Xueye Zheng, Ling Wang, Kanghao Chen, Yuanhuiyi Lyu, Jiazhou Zhou, Lin Wang",
+      "author": "Xueye Zheng, Ling Wang, Kanghao Chen, Yuanhuiyi Lyu, Jia-Zhou Zhou, Lin Wang",
       "venue": "ArXiv",
       "year": 2024,
       "url": "https://doi.org/10.48550/arXiv.2407.01884",
@@ -170,12 +161,12 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.48550/arxiv.2404.05553",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.7269168126583101,
-        "similarity_score": 0.6293652057647705,
-        "citation_text_length": 1205,
+        "confidence_score": 0.7249038326740266,
+        "similarity_score": 0.6276223659515381,
+        "citation_text_length": 1206,
         "dataset_text_length": 2185,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -183,7 +174,7 @@
     },
     {
       "title": "Alljoined1",
-      "author": "Jonathan Xu, Si Kai Lee, Wangshu Jiang",
+      "author": "Jonathan Xu, Bruno Aristimunha, Max Emanuel Feucht, Emma Qian, Charles Liu, Tazik Shahjahan, Martyna Spyra, Steven Zifan Zhang, Nicholas Short, Jioh Kim, Paula Perdomo, Ricky Renfeng Mao, Yashvir Sabharwal, Michael Ahedor, Moaz Shoura, Adrian Nestor",
       "venue": "UC San Diego",
       "year": 2026,
       "url": "https://doi.org/10.82901/nemar.nm000133",
@@ -193,37 +184,12 @@
       "pmid": null,
       "openalex_id": "W7137881305",
       "source_doi": "10.48550/arxiv.2404.05553",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 1.0,
-        "similarity_score": 0.8806754350662231,
-        "citation_text_length": 635,
-        "dataset_text_length": 2185,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Characterization of the Mutations Causing Hemophilia B in 2 Domestic Cats",
-      "author": "Michelle Goree, James L. Catalfamo, Shelly Aber, Mary Keller Boudreaux",
-      "venue": "Journal of Veterinary Internal Medicine",
-      "year": 2005,
-      "url": "https://doi.org/10.1892/0891-6640(2005)19<200:cotmch>2.0.co;2",
-      "cited_by": 19,
-      "abstract": "The purpose of the present study was to determine the normal sequence for the gene encoding factor IX in cats and to characterize the genetic basis for hemophilia B in 2 unrelated male, domestic, mixed-breed cats. Genomic DNA sequence for the entire coding region of the factor IX gene was determined in the affected cats and compared to the sequence obtained from a healthy cat. The factor IX gene in cats encodes a mature protein consisting of 420 amino acids, unlike genes in humans and dogs that encode 415 and 413 amino acid proteins, respectively. Affected cat 1 had a single nucleotide change in exon 8 at the 1st nucleotide position of the codon encoding an arginine (CGA to TGA) at amino acid position 338. This mutation would be predicted to result in the appearance of a premature stop codon in the portion of the gene encoding much of the catalytic domain of the protein. Affected cat 2 had a single nucleotide change in exon 4 at the 2nd nucleotide position of the codon encoding amino acid 82 (TGT to TAT), which would be predicted to result in the substitution of a tyrosine for a cysteine. This substitution would likely result in disruption of a disulfide bond crucial to normal protein structure and function. This study represents the 1st time hemophilia B has been characterized at the molecular level in cats.",
-      "doi": "10.1892/0891-6640(2005)19<200:cotmch>2.0.co;2",
-      "pmid": "15822564",
-      "openalex_id": "W2129004252",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "nm000133",
-      "confidence_scoring": {
-        "confidence_score": 0.13388570696115495,
-        "similarity_score": 0.1217142790555954,
-        "citation_text_length": 1551,
+        "similarity_score": 0.8861532807350159,
+        "citation_text_length": 846,
         "dataset_text_length": 2185,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -232,18 +198,18 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-25T10:35:37.476907+00:00",
+    "scoring_date": "2026-09-29T11:49:05.342456+00:00",
     "dataset_text_length": 2185,
-    "num_citations_scored": 7,
+    "num_citations_scored": 6,
     "summary_stats": {
-      "mean_confidence": 0.620061308933156,
-      "median_confidence": 0.6486973947286607,
-      "std_confidence": 0.24367015200689385,
-      "min_confidence": 0.13388570696115495,
+      "mean_confidence": 0.7002016933510701,
+      "median_confidence": 0.684320531487465,
+      "std_confidence": 0.15288107321037822,
+      "min_confidence": 0.5135555635392667,
       "max_confidence": 1.0,
       "high_confidence_count": 3,
       "medium_confidence_count": 3,
-      "low_confidence_count": 1
+      "low_confidence_count": 0
     }
   }
 }
