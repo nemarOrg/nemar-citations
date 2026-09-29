@@ -1005,6 +1005,14 @@ class FailureStubTests(TestCase):
                 cli_update._keeps_existing_file(self._stub(status), existing), status
             )
 
+    def test_a_judgment_unreadable_stub_is_retried(self) -> None:
+        """New-4: a new dataset's stub written while its sidecar was corrupt
+        must not count as a stable outcome for a week."""
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "nm000999_citations.json"
+            path.write_text(json.dumps(self._stub("judgment_unreadable")))
+            self.assertFalse(cli_update._has_stable_status(str(path)))
+
     def test_outcomes_and_first_writes_are_written(self) -> None:
         existing = {"num_citations": 12, "metadata": {"fetch_status": "success"}}
         for status in ("success", "no_data_paper_anchor", "not_found"):

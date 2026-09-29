@@ -109,8 +109,10 @@ def _read_json_or_none(filepath: str) -> dict | None:
 def _has_stable_status(filepath: str) -> bool:
     """Return True if the on-disk citation JSON has a non-transient status.
 
-    A missing/unparseable file, or one whose `metadata.fetch_status` is a
-    transient API failure, returns False so the dataset is re-fetched.
+    A missing/unparseable file, or one whose `metadata.fetch_status` says this
+    run could not fetch (an API failure, or `judgment_unreadable` written for a
+    new dataset while its sidecar was corrupt), returns False so the dataset is
+    re-fetched.
     """
     payload = _read_json_or_none(filepath)
     if payload is None:
@@ -119,7 +121,7 @@ def _has_stable_status(filepath: str) -> bool:
     if not isinstance(metadata, dict):
         return False
     status = metadata.get("fetch_status")
-    return isinstance(status, str) and status not in _API_FAILURE_STATUSES
+    return isinstance(status, str) and status not in _KEEP_EXISTING_STATUSES
 
 
 def _keeps_existing_file(payload: dict, existing: dict | None) -> bool:
