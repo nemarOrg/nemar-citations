@@ -110,7 +110,7 @@ def _has_stable_status(filepath: str) -> bool:
 def _load_catalog_doi_map(
     cache_path: Path | None, max_age_seconds: int
 ) -> dict[str, str]:
-    """Return a {dataset_id: catalog_doi} map for catalog-indexed datasets.
+    """Return a {dataset_id: concept_doi} map for catalog-indexed datasets.
 
     The catalog is fetched from `api.nemar.org/datasets` (or reused from the
     shared cache populated by the discover step earlier in the same workflow
@@ -134,7 +134,13 @@ def _load_catalog_doi_map(
             result.detail,
         )
         return {}
-    return {row.dataset_id: normalize_doi(row.doi) for row in result.value if row.doi}
+    # The concept DOI always resolves to the latest version on NEMAR, so it is
+    # the one anchor that stands for the dataset itself.
+    return {
+        row.dataset_id: normalize_doi(row.concept_doi)
+        for row in result.value
+        if row.concept_doi
+    }
 
 
 def run_opencite_backend(args: argparse.Namespace) -> None:

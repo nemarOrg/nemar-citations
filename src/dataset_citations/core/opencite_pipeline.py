@@ -26,6 +26,12 @@ from pathlib import Path
 from typing import Any
 
 from dataset_citations.backends import OpenCiteBackend
+from dataset_citations.core.anchor_gate import (
+    DROPPED_UNJUDGED,
+    GateDecision,
+    drop_pre_anchor_citations,
+    gate_anchor,
+)
 from dataset_citations.core.checkpoint import (
     DEFAULT_CHECKPOINT_DIR,
     CheckpointStore,
@@ -62,11 +68,6 @@ from dataset_citations.sources.doi import (
 
 logger = logging.getLogger(__name__)
 
-# The single classification that survives the partition into "fetch citations
-# from this anchor". Everything else (umbrella, methodology, related_work,
-# irrelevant) is recorded as context only.
-_FETCH_CLASSIFICATION = "data_paper"
-
 
 def fetch_dataset_citations_via_opencite(
     dataset_id: str,
@@ -90,15 +91,13 @@ def fetch_dataset_citations_via_opencite(
       3. If `catalog_doi` is set, add it as an extra anchor with
          `relation_type=References` and `source=nemar_catalog`.
       4. Dedupe anchors by normalized identifier.
-      4a. *Anchor judgment* (epic #76 phase 3): load
-          `citations/anchor_judgments/<id>.json`. Anchors classified as
-          `data_paper` are kept for the backend call; everything else
-          (umbrella / methodology / related_work / irrelevant) becomes
-          context-only. Every anchor (kept or not) is recorded in
-          `metadata.anchors[]` with a `kept` flag (schema v2.1). When the
-          sidecar is missing (or an anchor has no entry) the pipeline falls
-          back to its pre-phase-3 behavior and fetches that anchor — phase 4
-          flips this to mandatory once the backfill is complete.
+      4a. *Anchor gate* (`core.anchor_gate`, issue #241): load
+          `citations/anchor_judgments/<id>.json` and keep only the dataset's
+          own concept DOI plus anchors a successful judgment classified as
+          `data_paper` that are not standards/software papers. The gate
+          fails closed: an anchor with no successful judgment is context
+          only, never fetched. Every anchor (kept or not) is recorded in
+          `metadata.anchors[]` with `kept` and `kept_reason`.
       5. If `use_checkpoint=True`, consult the checkpoint store for any
          anchors already fetched successfully on a previous run; skip them
          in the backend call. (Default is off so unit tests aren't surprised
@@ -106,7 +105,8 @@ def fetch_dataset_citations_via_opencite(
       6. Ask `OpenCiteBackend.get_citing_works_batch` for the remaining anchors.
       7. Persist each new anchor outcome to the checkpoint as it lands.
       8. Aggregate works across all anchors (checkpointed + freshly fetched),
-         dedupe by (normalized DOI || title).
+         dedupe by (normalized DOI || title), and drop works published
+         before the anchor they cite.
       9. Build the JSON dict with discovery provenance fields. On full
          success the checkpoint file is removed.
 
@@ -167,9 +167,8 @@ def fetch_dataset_citations_via_opencite(
         )
 
     sidecar = load_judgment_sidecar(dataset_id, judgments_dir=sidecar_dir)
-    fetch_refs = _partition_by_judgment(refs, sidecar, dataset_id)
-    fetch_ids = {ref.identifier for ref in fetch_refs}
-    anchors = _build_anchor_records(refs, fetch_ids, sidecar)
+    fetch_refs, decisions = _gate_anchors(refs, sidecar, dataset_id)
+    anchors = _build_anchor_records(refs, decisions, sidecar)
     searched_dois = [
         ref.identifier for ref in fetch_refs if ref.identifier_type == "doi"
     ]
@@ -227,6 +226,15 @@ def fetch_dataset_citations_via_opencite(
             "%s: merged %d duplicate citing work(s) (version/preprint variants)",
             dataset_id,
             duplicates_dropped,
+        )
+    citation_details, pre_anchor_dropped = drop_pre_anchor_citations(
+        citation_details, _kept_anchor_years(fetch_refs, sidecar)
+    )
+    if pre_anchor_dropped:
+        logger.info(
+            "%s: dropped %d citing work(s) published before their anchor",
+            dataset_id,
+            pre_anchor_dropped,
         )
     # Counts must come from the deduped list, not `citing_works`, or the
     # cumulative total keeps counting a preprint and its published version.
@@ -513,81 +521,75 @@ def _fetch_dataset_metadata(source: Any, dataset_id: str) -> NemarDatasetMetadat
         return EMPTY_NEMAR_DATASET_METADATA
 
 
-def _partition_by_judgment(
+def _gate_anchors(
     refs: list[DoiReference],
     sidecar: JudgmentSidecar,
     dataset_id: str,
-) -> list[DoiReference]:
-    """Return the anchors to fetch citations from, per phase 2's sidecar.
+) -> tuple[list[DoiReference], dict[str, GateDecision]]:
+    """Run every anchor through `anchor_gate.gate_anchor`.
 
-    Rules:
-      * Sidecar missing entirely: log a single INFO line and fetch all anchors
-        (the legacy-compatible fallback while the backfill is still in flight).
-      * Sidecar present, anchor classified `data_paper`: fetch.
-      * Sidecar present, anchor classified anything else: skip. It still lands
-        in `metadata.anchors[]` (with `kept=False`), built separately by
-        `_build_anchor_records`.
-      * Sidecar present but anchor has no entry: fetch (fall back to fetching);
-        surfaced via a single WARN per dataset until phase 4 makes judgment
-        mandatory.
+    Returns (anchors to fetch, decision per identifier). An errored judgment
+    is absent from `sidecar.lookup`, so it gates exactly like a missing one:
+    context only. The gap is logged once per dataset so an operator can see
+    how many anchors are waiting on the judge.
     """
-    if not sidecar.present:
-        logger.info(
-            "%s: anchor-judgment sidecar missing; fetching all %d anchors (fallback)",
-            dataset_id,
-            len(refs),
-        )
-        return list(refs)
-
     fetch_refs: list[DoiReference] = []
-    unjudged_count = 0
-
+    decisions: dict[str, GateDecision] = {}
     for ref in refs:
         key = canonical_anchor_key(ref.identifier, ref.identifier_type)
-        classification = sidecar.lookup.get(key) if key is not None else None
-        if classification is None:
-            # Anchor not present in sidecar -> fall back to fetching it.
-            # Phase 4 will make judgment mandatory once the backfill is
-            # complete; until then we surface the drift via a single WARN
-            # per dataset so operators can see at-a-glance how many
-            # anchors slipped past the judgment step.
-            fetch_refs.append(ref)
-            unjudged_count += 1
-            continue
-        if classification == _FETCH_CLASSIFICATION:
-            fetch_refs.append(ref)
-
-    if unjudged_count:
-        logger.warning(
-            "%s: %d/%d anchors in this dataset have no judgment in the sidecar; "
-            "they will be fetched as fallback. Re-run dataset-citations-judge-anchors "
-            "to close the gap.",
-            dataset_id,
-            unjudged_count,
-            len(refs),
+        details = sidecar.context_details.get(key) if key is not None else None
+        decision = gate_anchor(
+            dataset_id=dataset_id,
+            identifier=ref.identifier,
+            identifier_type=ref.identifier_type,
+            classification=sidecar.lookup.get(key) if key is not None else None,
+            paper_title=details.get("paper_title") if details else None,
         )
+        decisions[ref.identifier] = decision
+        if decision.kept:
+            fetch_refs.append(ref)
 
-    return fetch_refs
+    unjudged = sum(1 for d in decisions.values() if d.reason == DROPPED_UNJUDGED)
+    if unjudged:
+        logger.warning(
+            "%s: %d/%d anchors have no successful judgment%s; they are context "
+            "only until dataset-citations-judge-anchors classifies them",
+            dataset_id,
+            unjudged,
+            len(refs),
+            "" if sidecar.present else " (no sidecar)",
+        )
+    return fetch_refs, decisions
+
+
+def _kept_anchor_years(
+    fetch_refs: list[DoiReference], sidecar: JudgmentSidecar
+) -> dict[str, int]:
+    """Publication year of each kept anchor, where the judgment recorded one."""
+    years: dict[str, int] = {}
+    for ref in fetch_refs:
+        key = canonical_anchor_key(ref.identifier, ref.identifier_type)
+        details = sidecar.context_details.get(key) if key is not None else None
+        year = details.get("paper_year") if details else None
+        if isinstance(year, int) and year > 0:
+            years[ref.identifier] = year
+    return years
 
 
 def _build_anchor_records(
     refs: list[DoiReference],
-    fetch_ids: set[str],
+    decisions: dict[str, GateDecision],
     sidecar: JudgmentSidecar,
 ) -> list[dict[str, Any]]:
     """Build `metadata.anchors[]`: every anchor, kept or context (schema v2.1).
 
-    `kept` is membership in `fetch_ids` (the identifiers the pipeline actually
-    sent to the backend), so unjudged-fallback anchors correctly show
-    `kept=True` with a `None` classification. `classification` / `paper_*` /
-    `reason` come from phase 2's sidecar (`context_details` is populated for
-    `data_paper` anchors too, so kept anchors carry their own paper title).
-    `judgment_model` mirrors `metadata.anchor_judgment_model` for per-anchor
-    self-description. `identifier` stays the pipeline's canonical form so it
-    matches `searched_dois` and each citation's `source_doi`.
-
-    Replaces the v2.0 `context_anchors[]`; that key was just the `kept=False`
-    subset, which a consumer now derives via `[a for a in anchors if not a["kept"]]`.
+    `kept` / `kept_reason` come from the anchor gate, so the file says both
+    whether an anchor contributed citations and why. `classification` /
+    `paper_*` / `reason` come from the judgment sidecar (null when there is no
+    successful judgment). `judgment_model` mirrors
+    `metadata.anchor_judgment_model` for per-anchor self-description.
+    `identifier` stays the pipeline's canonical form so it matches
+    `searched_dois` and each citation's `source_doi`.
     """
     model = sidecar.model if sidecar.present else None
     records: list[dict[str, Any]] = []
@@ -595,13 +597,15 @@ def _build_anchor_records(
         key = canonical_anchor_key(ref.identifier, ref.identifier_type)
         classification = sidecar.lookup.get(key) if key is not None else None
         details = sidecar.context_details.get(key) if key is not None else None
+        decision = decisions[ref.identifier]
         records.append(
             {
                 "identifier": ref.identifier,
                 "identifier_type": ref.identifier_type,
                 "source_relation": ref.relation_type,
                 "classification": classification,
-                "kept": ref.identifier in fetch_ids,
+                "kept": decision.kept,
+                "kept_reason": decision.reason,
                 "paper_title": details.get("paper_title") if details else None,
                 "paper_year": details.get("paper_year") if details else None,
                 "paper_venue": details.get("paper_venue") if details else None,

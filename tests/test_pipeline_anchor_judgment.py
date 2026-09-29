@@ -49,13 +49,14 @@ def _make_work(
     source_doi: str,
     source_relation: str = "References",
     citation_count: int = 7,
+    year: int = 2024,
 ) -> CitingWork:
     return CitingWork(
         title=title,
         doi=doi,
         pmid=None,
         openalex_id=None,
-        year=2024,
+        year=year,
         authors=(Author(name="A. Researcher"),),
         venue="Journal of Tests",
         abstract=None,
@@ -146,6 +147,7 @@ def _judgment(
     source_relation: str = "IsDerivedFrom",
     reason: str = "stub reason",
     paper_title: str | None = "stub title",
+    paper_year: int | None = 2024,
     error: str | None = None,
 ) -> dict:
     return {
@@ -155,7 +157,7 @@ def _judgment(
         "classification": classification,
         "reason": reason,
         "paper_title": paper_title,
-        "paper_year": 2024,
+        "paper_year": paper_year,
         "paper_venue": "Journal of Stubs",
         "judged_at": "2026-05-22T00:00:00Z",
         "error": error,
@@ -322,8 +324,12 @@ class PipelineBucketingTests(TestCase):
         self.assertIsNone(out["metadata"]["methods_description"])
         self.assertEqual(out["metadata"]["funding"], [])
 
-    def test_no_sidecar_falls_back_to_fetch_all(self) -> None:
-        """Without a sidecar, all anchors get fetched (legacy behavior)."""
+    def test_no_sidecar_fetches_nothing(self) -> None:
+        """Without a sidecar no anchor is fetched: the gate fails closed (#241).
+
+        The pre-#241 fallback fetched every anchor here, which is how a dead
+        judge turned each related-work paper's citers into citations.
+        """
         ref_a = DoiReference(
             identifier="10.1234/a",
             identifier_type="doi",
@@ -337,45 +343,28 @@ class PipelineBucketingTests(TestCase):
             source="nemar_metadata",
         )
         nemar = _StubSource(FetchSuccess([ref_a, ref_b]))
-        backend = _StubBackend(
-            {
-                ref_a.identifier: FetchSuccess(
-                    [_make_work("W1", doi="10.5/w1", source_doi=ref_a.identifier)]
-                ),
-                ref_b.identifier: FetchSuccess(
-                    [_make_work("W2", doi="10.5/w2", source_doi=ref_b.identifier)]
-                ),
-            }
-        )
         with self.assertLogs(
-            "dataset_citations.core.opencite_pipeline", level="INFO"
+            "dataset_citations.core.opencite_pipeline", level="WARNING"
         ) as logs:
             out = fetch_dataset_citations_via_opencite(
                 "nm000011",
-                backend=backend,
+                backend=_ExplodingBackend(),
                 nemar_source=nemar,
                 fetch_date=WHEN,
                 judgments_dir=self.judgments_dir,  # empty tempdir
             )
-        # Single INFO log for the fallback path.
-        fallback_logs = [r for r in logs.records if "sidecar missing" in r.getMessage()]
-        self.assertEqual(len(fallback_logs), 1)
-        # Both anchors went to the backend; both citations are present.
-        self.assertEqual(backend.calls, [[ref_a.identifier, ref_b.identifier]])
-        self.assertEqual(out["num_citations"], 2)
-        self.assertEqual(out["metadata"]["anchor_count"], 2)
+        warns = [r.getMessage() for r in logs.records]
+        self.assertEqual(len(warns), 1)
+        self.assertIn("2/2 anchors have no successful judgment (no sidecar)", warns[0])
+        self.assertEqual(out["num_citations"], 0)
+        self.assertEqual(out["metadata"]["fetch_status"], "no_data_paper_anchor")
         self.assertIsNone(out["metadata"]["anchor_judgment_model"])
-        # No sidecar -> every anchor is kept, with a null classification and
-        # null judgment_model; nothing is bucketed to context.
         anchors = out["metadata"]["anchors"]
         self.assertEqual(len(anchors), 2)
-        self.assertTrue(all(a["kept"] for a in anchors))
+        self.assertTrue(all(not a["kept"] for a in anchors))
+        self.assertTrue(all(a["kept_reason"] == "unjudged" for a in anchors))
         self.assertTrue(all(a["classification"] is None for a in anchors))
-        self.assertTrue(all(a["judgment_model"] is None for a in anchors))
-        self.assertEqual(_context_anchors(out), [])
-        self.assertEqual(
-            out["metadata"]["searched_dois"], [ref_a.identifier, ref_b.identifier]
-        )
+        self.assertEqual(out["metadata"]["searched_dois"], [])
 
     def test_out_of_taxonomy_entry_dropped_with_warning(self) -> None:
         """One bad entry doesn't sink the rest of the sidecar."""
@@ -409,17 +398,6 @@ class PipelineBucketingTests(TestCase):
                         )
                     ]
                 ),
-                # broken_ref will fall through to legacy fetch because it's
-                # dropped from the lookup; backend must answer it.
-                broken_ref.identifier: FetchSuccess(
-                    [
-                        _make_work(
-                            "broken-fallback",
-                            doi="10.5/broken",
-                            source_doi=broken_ref.identifier,
-                        )
-                    ]
-                ),
             }
         )
         _write_sidecar(
@@ -443,23 +421,21 @@ class PipelineBucketingTests(TestCase):
                 judgments_dir=self.judgments_dir,
             )
         self.assertTrue(any("out-of-taxonomy" in r.getMessage() for r in logs.records))
-        # Data paper + dropped-fallback both fetch; umbrella becomes context.
+        # Only the data paper is fetched. The garbage_label entry is dropped
+        # from the lookup, so that anchor gates as unjudged: context only.
+        self.assertEqual(backend.calls, [[data_paper_ref.identifier]])
+        self.assertEqual(out["num_citations"], 1)
+        reasons = {
+            a["identifier"]: a["kept_reason"] for a in out["metadata"]["anchors"]
+        }
         self.assertEqual(
-            sorted(backend.calls[0]),
-            sorted([data_paper_ref.identifier, broken_ref.identifier]),
+            reasons,
+            {
+                data_paper_ref.identifier: "judged_data_paper",
+                umbrella_ref.identifier: "judged_not_data_paper",
+                broken_ref.identifier: "unjudged",
+            },
         )
-        self.assertEqual(out["num_citations"], 2)
-        # umbrella is the only context (kept=False); the dropped garbage_label
-        # anchor fell through to fetch (kept=True, classification None).
-        classifications = {c["classification"] for c in _context_anchors(out)}
-        self.assertEqual(classifications, {"umbrella"})
-        broken = next(
-            a
-            for a in out["metadata"]["anchors"]
-            if a["identifier"] == broken_ref.identifier
-        )
-        self.assertTrue(broken["kept"])
-        self.assertIsNone(broken["classification"])
 
     def test_all_anchors_non_data_paper_zero_citations(self) -> None:
         """Every anchor classified as non-data_paper -> backend never called."""
@@ -564,8 +540,8 @@ class PipelineBucketingTests(TestCase):
 
     def test_partial_sidecar_warns_per_dataset(self) -> None:
         """When the sidecar covers some but not all anchors, the uncovered
-        anchors fall through to fetch AND a single per-dataset WARN logs
-        the gap so operators see the drift."""
+        anchors stay context only AND a single per-dataset WARN logs the gap
+        so operators see the drift."""
         judged_ref = DoiReference(
             identifier="10.1038/judged-paper",
             identifier_type="doi",
@@ -590,15 +566,6 @@ class PipelineBucketingTests(TestCase):
                         )
                     ]
                 ),
-                unjudged_ref.identifier: FetchSuccess(
-                    [
-                        _make_work(
-                            "Cites unjudged",
-                            doi="10.5/cu",
-                            source_doi=unjudged_ref.identifier,
-                        )
-                    ]
-                ),
             }
         )
         _write_sidecar(
@@ -616,26 +583,150 @@ class PipelineBucketingTests(TestCase):
                 fetch_date=WHEN,
                 judgments_dir=self.judgments_dir,
             )
-        # Both anchors went to the backend (the judged one explicitly,
-        # the unjudged one as fallback).
-        self.assertEqual(
-            sorted(backend.calls[0]),
-            sorted([judged_ref.identifier, unjudged_ref.identifier]),
-        )
+        # Only the judged data paper reached the backend.
+        self.assertEqual(backend.calls, [[judged_ref.identifier]])
         # Exactly one WARN per dataset, naming the gap count.
         warns = [
-            r
-            for r in logs.records
-            if "have no judgment in the sidecar" in r.getMessage()
+            r for r in logs.records if "have no successful judgment" in r.getMessage()
         ]
         self.assertEqual(len(warns), 1)
         self.assertIn("1/2 anchors", warns[0].getMessage())
-        # Nothing bucketed to context: everything was fetched (both kept).
-        self.assertEqual(_context_anchors(out), [])
-        self.assertEqual(
-            sorted(out["metadata"]["searched_dois"]),
-            sorted([judged_ref.identifier, unjudged_ref.identifier]),
+        context = _context_anchors(out)
+        self.assertEqual([a["identifier"] for a in context], [unjudged_ref.identifier])
+        self.assertEqual(out["metadata"]["searched_dois"], [judged_ref.identifier])
+
+    def test_never_anchor_blocks_a_judged_data_paper(self) -> None:
+        """A standards paper judged `data_paper` is still never fetched (#241).
+
+        Both routes: a DOI on the curated list (EEG-BIDS, which gemma really
+        did call a data paper) and a BIDS-spec title on an unlisted DOI.
+        """
+        eeg_bids = DoiReference(
+            identifier="10.1038/s41597-019-0104-8",
+            identifier_type="doi",
+            relation_type="IsDescribedBy",
+            source="nemar_metadata",
         )
+        future_spec = DoiReference(
+            identifier="10.9999/nirs-bids",
+            identifier_type="doi",
+            relation_type="IsDescribedBy",
+            source="nemar_metadata",
+        )
+        nemar = _StubSource(FetchSuccess([eeg_bids, future_spec]))
+        _write_sidecar(
+            self.judgments_dir,
+            "nm000030",
+            [
+                _judgment(eeg_bids.identifier, "data_paper"),
+                _judgment(
+                    future_spec.identifier,
+                    "data_paper",
+                    paper_title="NIRS-BIDS: an extension to the brain imaging "
+                    "data structure for near-infrared spectroscopy",
+                ),
+            ],
+        )
+        out = fetch_dataset_citations_via_opencite(
+            "nm000030",
+            backend=_ExplodingBackend(),
+            nemar_source=nemar,
+            fetch_date=WHEN,
+            judgments_dir=self.judgments_dir,
+        )
+        self.assertEqual(out["num_citations"], 0)
+        for anchor in out["metadata"]["anchors"]:
+            self.assertFalse(anchor["kept"])
+            self.assertEqual(anchor["kept_reason"], "never_anchor")
+            # The judge's verdict is still recorded for auditing.
+            self.assertEqual(anchor["classification"], "data_paper")
+
+    def test_own_concept_doi_is_kept_without_judgment(self) -> None:
+        """The dataset's own NEMAR concept DOI needs no judgment: citing it is
+        citing the dataset. Other anchors still need one."""
+        own = "10.82901/nemar.nm000031"
+        related = DoiReference(
+            identifier="10.1016/related.2014",
+            identifier_type="doi",
+            relation_type="References",
+            source="nemar_metadata",
+        )
+        nemar = _StubSource(FetchSuccess([related]))
+        backend = _StubBackend(
+            {
+                own: FetchSuccess(
+                    [_make_work("Uses the data", doi="10.5/u", source_doi=own)]
+                )
+            }
+        )
+        out = fetch_dataset_citations_via_opencite(
+            "nm000031",
+            backend=backend,
+            nemar_source=nemar,
+            catalog_doi=own,
+            fetch_date=WHEN,
+            judgments_dir=self.judgments_dir,  # no sidecar at all
+        )
+        self.assertEqual(backend.calls, [[own]])
+        self.assertEqual(out["num_citations"], 1)
+        reasons = {
+            a["identifier"]: a["kept_reason"] for a in out["metadata"]["anchors"]
+        }
+        self.assertEqual(reasons, {related.identifier: "unjudged", own: "own_doi"})
+
+    def test_citations_older_than_their_anchor_are_dropped(self) -> None:
+        """nm000275's failure mode: a 2015 paper cannot cite a 2019 data paper.
+
+        Works with an unknown year (0) are kept; there is nothing to compare.
+        """
+        data_paper = DoiReference(
+            identifier="10.1038/s41597-019-0027-4",
+            identifier_type="doi",
+            relation_type="IsDescribedBy",
+            source="nemar_metadata",
+        )
+        nemar = _StubSource(FetchSuccess([data_paper]))
+        backend = _StubBackend(
+            {
+                data_paper.identifier: FetchSuccess(
+                    [
+                        _make_work(
+                            "The PREP pipeline",
+                            doi="10.3389/fninf.2015.00016",
+                            source_doi=data_paper.identifier,
+                            year=2015,
+                        ),
+                        _make_work(
+                            "Same-year citer",
+                            doi="10.5/same",
+                            source_doi=data_paper.identifier,
+                            year=2019,
+                        ),
+                        _make_work(
+                            "Unknown year",
+                            doi="10.5/unknown",
+                            source_doi=data_paper.identifier,
+                            year=0,
+                        ),
+                    ]
+                )
+            }
+        )
+        _write_sidecar(
+            self.judgments_dir,
+            "nm000032",
+            [_judgment(data_paper.identifier, "data_paper", paper_year=2019)],
+        )
+        out = fetch_dataset_citations_via_opencite(
+            "nm000032",
+            backend=backend,
+            nemar_source=nemar,
+            fetch_date=WHEN,
+            judgments_dir=self.judgments_dir,
+        )
+        titles = sorted(c["title"] for c in out["citation_details"])
+        self.assertEqual(titles, ["Same-year citer", "Unknown year"])
+        self.assertEqual(out["num_citations"], 2)
 
     def test_rich_metadata_capability_lands_in_metadata(self) -> None:
         """A source exposing get_dataset_metadata populates the v2.1 keys."""
