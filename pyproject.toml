@@ -103,6 +103,9 @@ dataset-citations-export-modalities = "dataset_citations.cli.export_modalities:m
 [tool.setuptools.packages.find]
 where = ["src"]
 
+[tool.setuptools.package-data]
+"dataset_citations.quality" = ["never_anchor_dois.json"]
+
 [tool.ruff]
 line-length = 88
 target-version = "py313"
@@ -173,4 +176,4 @@ testpaths = [
 ]
 python_files = "test_*.py"
 python_classes = "Test*"
-python_functions = "test_*" 
+python_functions = "test_*"
