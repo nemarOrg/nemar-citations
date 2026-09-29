@@ -22,6 +22,7 @@ from dataset_citations.backends.opencite_backend import OpenCiteBackend
 from dataset_citations.core.opencite_pipeline import (
     fetch_dataset_citations_via_opencite,
 )
+from dataset_citations.quality.llm_client import trusted_judge_model
 from dataset_citations.sources.models import (
     Author,
     CitingWork,
@@ -115,7 +116,7 @@ def _judged(
     payload = {
         "dataset_id": dataset_id,
         "judged_at": WHEN.isoformat(),
-        "judgment_model": "test-judge",
+        "judgment_model": trusted_judge_model(),
         "judgments": judgments,
     }
     (directory / f"{dataset_id}.json").write_text(json.dumps(payload), "utf-8")
@@ -452,8 +453,12 @@ class CatalogDoiSeeding(TestCase):
             nemar_source=nemar,
             catalog_doi="not-a-doi",
             fetch_date=WHEN,
+            judgments_dir=_judged(self, "nm000999", []),
         )
-        self.assertEqual(out["metadata"]["anchor_count"], 1)
+        # Only the source anchor was recorded; the malformed DOI never was.
+        self.assertEqual(
+            [a["identifier"] for a in out["metadata"]["anchors"]], [ref.identifier]
+        )
 
 
 class CheckpointResume(TestCase):
