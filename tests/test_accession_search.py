@@ -121,7 +121,8 @@ class LiveAccessionSearchTests(TestCase):
     def test_finds_known_accession(self) -> None:
         from dataset_citations.backends.accession_search import AccessionSearchBackend
 
-        results = AccessionSearchBackend(max_results=5).search(["ds002718"])
-        self.assertGreater(len(results), 0)
-        for c in results:
+        result = AccessionSearchBackend(max_results=5).search(["ds002718"])
+        self.assertEqual(result.failed_terms, [])
+        self.assertGreater(len(result.citations), 0)
+        for c in result.citations:
             self.assertEqual(c["discovery_method"], "accession_mention")

@@ -64,11 +64,14 @@ const fmt = (n: number) => n.toLocaleString("en-US");
       <p class="imap__d-label" data-imap-label></p>
       <p class="imap__d-sub" data-imap-sub></p>
       <a class="imap__d-link" data-imap-link target="_blank" rel="noopener" hidden>View →</a>
+      <a class="imap__d-link" data-imap-nemar hidden>Open on NEMAR →</a>
     </div>
   </div>
 </section>
 
 <script>
+  import { nemarDatasetUrl } from "../lib/nemar";
+
   interface RawDataset {
     id: string;
     x: number;
@@ -90,6 +93,9 @@ const fmt = (n: number) => n.toLocaleString("en-US");
     sub: string;
     href: string;
     external: boolean;
+    // The dataset's nemar.org page; empty for citing papers and for datasets
+    // NEMAR does not serve.
+    nemarHref: string;
   }
 
   function readColors() {
@@ -114,6 +120,7 @@ const fmt = (n: number) => n.toLocaleString("en-US");
     const labelEl = root.querySelector<HTMLElement>("[data-imap-label]");
     const subEl = root.querySelector<HTMLElement>("[data-imap-sub]");
     const linkEl = root.querySelector<HTMLAnchorElement>("[data-imap-link]");
+    const nemarEl = root.querySelector<HTMLAnchorElement>("[data-imap-nemar]");
     const ctx = canvas?.getContext("2d");
     if (!canvas || !stage || !ctx || count === 0) {
       return;
@@ -235,6 +242,10 @@ const fmt = (n: number) => n.toLocaleString("en-US");
         } else {
           linkEl.hidden = true;
         }
+      }
+      if (nemarEl) {
+        nemarEl.href = n.nemarHref;
+        nemarEl.hidden = !n.nemarHref;
       }
       if (details) details.hidden = false;
       schedule();
@@ -381,6 +392,7 @@ const fmt = (n: number) => n.toLocaleString("en-US");
             sub: `${d.id} · ${d.count.toLocaleString("en-US")} high-confidence citations`,
             href: `${base}/dataset/${d.id}`,
             external: false,
+            nemarHref: nemarDatasetUrl(d.id) ?? "",
           }));
         } else {
           nodes = (data.citations ?? []).map((c: RawCitation) => ({
@@ -393,6 +405,7 @@ const fmt = (n: number) => n.toLocaleString("en-US");
               ? `https://scholar.google.com/scholar?q=${encodeURIComponent(c.title)}`
               : "",
             external: true,
+            nemarHref: "",
           }));
         }
         resize();
@@ -558,5 +571,8 @@ const fmt = (n: number) => n.toLocaleString("en-US");
     margin-top: var(--space-2);
     font-size: var(--fs-sm);
     font-weight: var(--fw-medium);
+  }
+  .imap__d-link + .imap__d-link {
+    margin-left: var(--space-3);
   }
 </style>
