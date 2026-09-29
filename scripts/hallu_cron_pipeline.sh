@@ -152,7 +152,7 @@ export ANCHOR_JUDGE_MODEL="${ANCHOR_JUDGE_MODEL:-claude-sonnet-5-5}"
 # does NOT halt the script by default; the explicit `|| { exit; }` guard
 # below stops before `update` when the judge failed its health check, tripped
 # its circuit breaker, a sidecar write failed, or the judge, opencite, or the
-# anchor source failed on more than 10% of calls. The anchor gate fails
+# anchor source failed on more than 10% of fresh calls. The anchor gate fails
 # closed, so an unjudged anchor never contributes citations either way.
 echo "--- judge-anchors (claude) ---"
 #     --citations-dir makes --skip-existing coverage-aware (#180): a dataset

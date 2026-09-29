@@ -113,8 +113,9 @@ CI runs are at https://github.com/nemarOrg/nemar-citations/actions.
 **Judge unavailable.** `judge-anchors` runs one real judgment as its health
 check and exits 2 if the `claude` CLI is missing, logged out, or rejects the
 model. It also exits 2 when 10 judgments fail in a row, a sidecar cannot be
-written, or the judge, opencite, or the anchor source fails on more than 10% of
-its calls; the cron then stops before `update`, so yesterday's data stays live.
+written, or the judge, opencite, or the anchor source fails on more than 10%
+(`--max-failure-share`) of its fresh calls (anchors failing again as on their
+previous run do not count); the cron then stops before `update`, so yesterday's data stays live.
 Fix the login (`claude` on hallu) and wait for the next night, or run the
 script by hand. Even if a judgment is missing, nothing inflates: the anchor
 gate fails closed, so an unjudged anchor never contributes citations (issue

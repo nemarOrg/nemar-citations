@@ -18,7 +18,7 @@ Each NEMAR-managed dataset repo (`github.com/nemarDatasets/<id>/`) carries `.nem
 **DOI-bearing fields we consume:**
 - `related_identifiers[]` — array of `{ identifier, identifier_type, relation_type }`.
   - `identifier_type` accepted: `"DOI"` only (PMID / arXiv / URL / handle are skipped by the parser today; widen here if you start needing them).
-  - `relation_type` accepted: `References`, `IsDerivedFrom`, `IsIdenticalTo`, `IsVersionOf`, `IsDescribedBy`. These are the DataCite values we surface in citation JSON as `source_relation`. `IsDescribedBy` is how a data paper is linked, but the producer (`nemar-cli`) also uses it for landing pages; those are URL-typed and the parser skips every URL-typed identifier, so only DOI-typed entries become anchors. `IsSupplementedBy` is not read.
+  - `relation_type` accepted: `References`, `IsDerivedFrom`, `IsIdenticalTo`, `IsVersionOf`, `IsDescribedBy`, `IsSupplementTo` (older enrichments linked some data papers this way). These are the DataCite values we surface in citation JSON as `source_relation`. `IsDescribedBy` is how a data paper is linked, but the producer (`nemar-cli`) also uses it for landing pages; those are URL-typed and the parser skips every URL-typed identifier, so only DOI-typed entries become anchors. `IsSupplementedBy` is not read.
 - The specific relation-type mix varies per dataset. Reference dataset `nm000104` carries `IsVersionOf`, `IsIdenticalTo`, and `IsDescribedBy` in its live payload; other datasets (e.g. `nm000103`) carry `References` and `IsDerivedFrom`. Don't assume all four accepted types are present on any single dataset.
 - OpenNeuro dataset DOIs are deduplicated; do not double-count when a dataset is mirrored under multiple IDs.
 
@@ -46,7 +46,7 @@ Downstream consumers of this artifact should treat:
 - `citation_details[].source_doi` + `source_relation` as required fields; they tell the website which DOI anchor surfaced the citation. `source_relation` is the DataCite label of that anchor and only a hint; whether an anchor contributed citations is `metadata.anchors[].kept` / `kept_reason` (the fail-closed anchor gate, #241).
 
 ## Deploy targets
-- `dashboard.nemar.org/citations/` — Cloudflare Pages project `nemar-dashboard`. Canonical citation surface. Deployed by `.github/workflows/deploy-dashboard.yml` when the hallu cron's auto-update PR (or a `web/` change) lands on `main`.
+- `dashboard.nemar.org/citations/`: Cloudflare Pages project `nemar-dashboard`. Canonical citation surface. Deployed by `.github/workflows/deploy-dashboard.yml` when the hallu cron's auto-update PR (or a `web/` change) lands on `main`.
 - `nemar.org` — Cloudflare Pages project owned by `nemar/website`. Does not embed citation data today.
 - `api.nemar.org` / `data.nemar.org` — Cloudflare Worker owned by `nemar/nemar-cli/backend/`.
 
