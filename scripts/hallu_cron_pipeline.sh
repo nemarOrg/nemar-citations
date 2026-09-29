@@ -406,11 +406,54 @@ $DIFFSTAT
 \`\`\`
 
 Auto-merging on green CI. Cloudflare deploy fires via deploy-dashboard.yml's push trigger.")
+if [[ -z "$PR_URL" ]]; then
+  echo "ERROR: gh pr create failed; $BRANCH is pushed but has no PR" >&2
+  exit 1
+fi
 echo "PR: $PR_URL"
 
 # Auto-merge once CI is green. Data PRs have no human-reviewable
 # content; CI is the only gate. --merge preserves commit history
 # (no squash), --delete-branch keeps the remote tidy.
-gh pr merge --auto --merge --delete-branch "$PR_URL"
-echo "auto-merge enabled on $PR_URL"
+AUTO_MERGE_OK=1
+if gh pr merge --auto --merge --delete-branch "$PR_URL"; then
+  echo "auto-merge enabled on $PR_URL"
+else
+  echo "ERROR: could not enable auto-merge on $PR_URL; it needs a manual merge" >&2
+  AUTO_MERGE_OK=0
+fi
+
+# Every nightly branch starts from `git reset --hard origin/main`, so tonight's
+# PR carries the whole pipeline state and supersedes any older nightly PR still
+# open (its CI failed, or it now conflicts with main). Close those so a stale
+# one cannot merge later on top of newer data. Housekeeping only: tonight's PR
+# is already open, so a failure here is logged, not fatal.
+
+# Print the numbers of the nightly PRs older than branch $1, reading
+# "<number> <head branch>" lines on stdin. Branch names embed a UTC timestamp,
+# so string order is age order. The `|| [[ -n ... ]]` keeps a last line that
+# has no trailing newline.
+superseded_nightly_prs() {
+  local num head
+  while read -r num head || [[ -n "$num" ]]; do
+    if [[ "$head" == auto-update/* && "$head" < "$1" ]]; then
+      echo "$num"
+    fi
+  done
+}
+
+if OPEN_PRS=$(gh pr list --state open --base main --limit 100 \
+    --json number,headRefName --jq '.[] | "\(.number) \(.headRefName)"'); then
+  for OLD_PR in $(superseded_nightly_prs "$BRANCH" <<< "$OPEN_PRS"); do
+    if gh pr close "$OLD_PR" --delete-branch \
+        --comment "Superseded by $PR_URL, which carries the full nightly state against main."; then
+      echo "closed superseded nightly PR #$OLD_PR"
+    else
+      echo "WARNING: could not close superseded nightly PR #$OLD_PR" >&2
+    fi
+  done
+else
+  echo "WARNING: could not list open PRs; superseded nightly PRs left open" >&2
+fi
 echo "=== hallu-cron $TS done ==="
+[[ "$AUTO_MERGE_OK" == 1 ]] || exit 1

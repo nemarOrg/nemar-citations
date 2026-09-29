@@ -13,6 +13,7 @@ hallu cron (03:00 PDT, nightly)
   -> prune-mirrored -> find-mentions -> dedupe -> score-confidence
   -> generate-embeddings -> analyze-umap -> themes / network / temporal
   -> commit to auto-update/<timestamp> -> PR -> auto-merge on green CI
+  -> close older open nightly PRs (superseded)
        |
        v
   push to main triggers .github/workflows/deploy-dashboard.yml
@@ -93,7 +94,9 @@ CI runs are at https://github.com/nemarOrg/nemar-citations/actions.
 ## Monitoring
 
 - Merged `auto-update/<timestamp>` PRs. A gap longer than a day or two means the
-  cron is aborting before its commit.
+  cron is aborting before its commit, or its PRs are failing CI. A PR whose CI
+  failed stays open until the next night's PR closes it as superseded; each
+  nightly branch starts from `main`, so the newest one carries the full state.
 - `dashboard.nemar.org/citations/` for the deployed result.
 
 ## Troubleshooting
