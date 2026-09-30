@@ -132,6 +132,9 @@ export interface ChartData {
 export interface LoadedData {
   overview: Overview;
   datasets: DatasetDetail[];
+  /** The id of every dataset that has a citation file, with or without
+   * citations left to count (the counts manifest lists the latter as zeros). */
+  datasetIds: string[];
   charts: ChartData;
 }
 
@@ -315,6 +318,7 @@ export function loadAll(): LoadedData {
       lastUpdated: null,
     },
     datasets: [],
+    datasetIds: [],
     charts: { temporal: [], confidence: { high: 0, low: 0 } },
   };
 
@@ -429,6 +433,7 @@ export function loadAll(): LoadedData {
       lastUpdated,
     },
     datasets,
+    datasetIds: entries.map((e) => e.id),
     charts: {
       temporal,
       confidence: { high: totalCitations, low: lowConfidenceTotal },

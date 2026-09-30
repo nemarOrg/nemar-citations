@@ -37,15 +37,15 @@ Public, no token required for any of these. Routes are mounted by `nemar-cli/bac
 
 ## Manifests we publish (nemar-cli pulls them)
 Static files built with the dashboard and served without auth from `dashboard.nemar.org/citations/api/`.
-nemar-cli's Worker already pulls the counts manifest once a day (03:00 UTC on production, 04:00 UTC on dev and staging) into D1.
-It **will** pull `data-papers.json` the same way; that sync is planned and not built yet (nemarOrg/nemar-citations#250).
+nemar-cli's Worker pulls both manifests once a day (03:00 UTC on production, 04:00 UTC on dev and staging) into D1: the counts since #804, `data-papers.json` with nemar-cli 0.10.11 (ADR 0077; its first production run is the 03:00 UTC cron on 2026-10-01).
 We never push, and nemar-cli needs no citations endpoint or credential for this.
-Once the sync exists, the lag from the nightly run to a served `metadata.json` is about 15 to 17 hours.
+The expected lag from the nightly run to a served `metadata.json` is about 15 to 17 hours.
+The counts sync only UPDATEs the datasets it finds in `index.json` and never resets one that is missing, so `index.json` lists every catalog-served (nm and on) dataset that has a citation file, with explicit zeros when nothing is left to count; a dataset dropped from the file would keep its old count in the catalog (`lib/counts-manifest.ts`).
 
 | File | Schema | Content | Consumer |
 |---|---|---|---|
 | `index.json` | `nemar-citations/counts@1` | `{schema, last_updated, datasets: [{dataset_id, num_citations, num_dataset_citations, num_datapaper_citations}]}` | `nemar-cli/backend/src/services/citation-counts-sync.ts` writes the D1 count columns |
-| `data-papers.json` | `nemar-citations/data-papers@1` | `{schema, last_updated, description, datasets: [{dataset_id, data_papers: [{doi, title, year, venue, judge_model}]}]}` | Planned (#250): a nemar-cli sync will store it and serve `data_papers` in `data.nemar.org/<id>/metadata.json` |
+| `data-papers.json` | `nemar-citations/data-papers@1` | `{schema, last_updated, description, datasets: [{dataset_id, data_papers: [{doi, title, year, venue, judge_model}]}]}` | `nemar-cli/backend/src/services/data-papers-sync.ts` stores it and serves `data_papers` in `data.nemar.org/<id>/metadata.json` |
 | `dataset/<id>.json` | none | The counted citations of one dataset | The website's citations modal, fetched lazily |
 
 `data-papers.json` rules (`web/src/lib/data-papers.ts`; the same contract is embedded in the file's `description`):
