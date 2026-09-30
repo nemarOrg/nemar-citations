@@ -41,14 +41,14 @@ interface Loaded {
   manifest: DataPapersManifest;
 }
 
-function load(): Loaded {
+function load(cwd: string = root): Loaded {
   const script = `import { loadAll, loadDataPapers } from ${JSON.stringify(DATA_MODULE)};
 console.log(JSON.stringify({
   pages: loadAll().datasets.map((d) => ({ id: d.id, dataPapers: d.dataPapers })),
   manifest: loadDataPapers(new Date("2026-09-30T12:00:00.000Z")),
 }));`;
   const result = Bun.spawnSync([process.execPath, "-e", script], {
-    cwd: root,
+    cwd,
     env: { ...process.env, CITATIONS_ALLOW_EMPTY: "" },
   });
   if (result.exitCode !== 0) {
@@ -75,7 +75,14 @@ beforeAll(() => {
       a.kept_reason = "judged_not_data_paper";
     }
   }
+  // One citation is pointed at the dataset's own DOI (edited), so the dataset
+  // still has a page: it is low-confidence (0.35), not excluded by its anchor.
+  (none.citation_details as Array<{ source_doi: string }>)[0].source_doi =
+    "10.82901/nemar.nm000275";
   write("nm000300", none);
+  // ds000778: the gated fixture under a legacy id (id edited): it has a page,
+  // but NEMAR does not serve ds* ids and the manifest gives them no row.
+  write("ds000778", gated);
   // nm000301: the real pre-gate fixture under another id (id edited): the gate
   // has not decided its anchors, so there is nothing to list.
   write("nm000301", fixture("gate_nm000275_citations.json"));
@@ -116,8 +123,19 @@ describe("the data papers of a dataset page, through the real loader", () => {
 
   test("lists nothing when the gate decided there is no data paper, or has not decided", () => {
     const pages = new Map(load().pages.map((p) => [p.id, p.dataPapers]));
-    expect(pages.get("nm000300") ?? []).toEqual([]);
-    expect(pages.get("nm000301") ?? []).toEqual([]);
+    // Both have a page, so these assert the list is empty, not that it is missing.
+    expect(pages.has("nm000300")).toBe(true);
+    expect(pages.get("nm000300")).toEqual([]);
+    expect(pages.has("nm000301")).toBe(true);
+    expect(pages.get("nm000301")).toEqual([]);
+  });
+
+  test("lists nothing for an id NEMAR does not serve, as the manifest has no row for it", () => {
+    const { pages, manifest } = load();
+    const page = pages.find((p) => p.id === "ds000778");
+    expect(page).toBeDefined();
+    expect(page?.dataPapers).toEqual([]);
+    expect(manifest.datasets.map((r) => r.dataset_id)).not.toContain("ds000778");
   });
 
   test("never lists a standards paper, even one a stale file marks as a data paper", () => {
@@ -140,6 +158,23 @@ describe("the data papers of a dataset page, through the real loader", () => {
   });
 });
 
+describe("the committed corpus", () => {
+  test("every page's box equals its data-papers.json row", () => {
+    const { pages, manifest } = load(REPO);
+    const rows = new Map(manifest.datasets.map((r) => [r.dataset_id, r.data_papers]));
+    expect(pages.length).toBeGreaterThan(0);
+    const differing = pages
+      .filter((p) => rows.has(p.id))
+      .filter((p) => JSON.stringify(p.dataPapers) !== JSON.stringify(rows.get(p.id)))
+      .map((p) => p.id);
+    expect(differing).toEqual([]);
+    // A page without a row (a legacy id, or a dataset the gate has not decided) shows no box.
+    for (const page of pages.filter((p) => !rows.has(p.id))) {
+      expect(page.dataPapers).toEqual([]);
+    }
+  });
+});
+
 describe("the dataset page template", () => {
   const source = readFileSync(PAGE, "utf-8");
   const markup = source.slice(0, source.indexOf("<style>"));
@@ -155,14 +190,28 @@ describe("the dataset page template", () => {
     expect(markup).toMatch(/dataset\.dataPapers\.length\s*>\s*0\s*&&/);
   });
 
-  test("links each paper to its DOI in a new tab, safely", () => {
-    expect(markup).toMatch(/href=\{`https:\/\/doi\.org\/\$\{encodeURI\(paper\.doi\)\}`\}/);
+  test("links each paper through the tested view, in a new tab, safely", () => {
+    expect(markup).toContain("dataPaperView(paper)");
+    expect(markup).toMatch(/href=\{view\.href\}/);
     expect(markup).toContain('target="_blank"');
     expect(markup).toContain('rel="noopener noreferrer"');
   });
 
-  test("says what the tags mean", () => {
-    expect(markup).toContain('counted under "Cites a paper"');
-    expect(markup).toContain('counted under "Cites dataset"');
+  test("says what the tags mean, only when the tags are on the page", () => {
+    expect(markup).toContain('count under "Cites a paper"');
+    expect(markup).toContain('count under "Cites dataset"');
+    expect(markup).toMatch(/dataset\.citations\.length\s*>\s*0\s*&&\s*['"`]/);
+  });
+
+  test("keeps the small meta text at AA contrast in the light theme", () => {
+    // `--color-fg-subtle` on the box's background is 4.2:1 (AA needs 4.5:1).
+    const style = source.slice(source.indexOf("<style>"));
+    const meta = /\.papers__meta\s*\{([^}]*)\}/.exec(style)?.[1] ?? "";
+    expect(meta).toMatch(/color:\s*var\(--color-fg-muted\)/);
+  });
+
+  test("is a labelled section with a heading from the tested helper", () => {
+    expect(markup).toMatch(/<section class="papers" aria-labelledby="data-papers-title">/);
+    expect(markup).toContain("dataPapersHeading(dataset.dataPapers.length)");
   });
 });

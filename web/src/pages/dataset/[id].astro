@@ -3,6 +3,7 @@ import CitationItem from "../../components/CitationItem.astro";
 import DatasetId from "../../components/DatasetId.astro";
 import Base from "../../layouts/Base.astro";
 import { type DatasetDetail, loadAll } from "../../lib/data";
+import { dataPaperView, dataPapersHeading } from "../../lib/data-paper-view";
 
 export function getStaticPaths() {
   const { datasets } = loadAll();
@@ -30,35 +31,29 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
 
   {
     dataset.dataPapers.length > 0 && (
-      <aside class="papers" aria-labelledby="data-papers-title">
+      <section class="papers" aria-labelledby="data-papers-title">
         <h2 class="papers__title" id="data-papers-title">
-          {dataset.dataPapers.length === 1 ? "Data paper" : "Data papers"}
+          {dataPapersHeading(dataset.dataPapers.length)}
         </h2>
         <p class="papers__note">
-          {dataset.dataPapers.length === 1 ? "The paper" : "The papers"} that describe{dataset.dataPapers.length === 1 ? "s" : ""} this
-          dataset. Citations of {dataset.dataPapers.length === 1 ? "it are" : "them are"} counted under "Cites a paper"; papers that cite the
-          dataset itself are counted under "Cites dataset".
+          Papers and records that describe this dataset.
+          {dataset.citations.length > 0 &&
+            ' Citations of them count under "Cites a paper", except citations of a copy of the dataset itself (for example a PhysioNet record) and of its own DOI, which count under "Cites dataset".'}
         </p>
         <ul class="papers__list" role="list">
-          {dataset.dataPapers.map((paper) => (
-            <li class="papers__item">
-              <a
-                class="papers__link"
-                href={`https://doi.org/${encodeURI(paper.doi)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                {paper.title ?? paper.doi}
-              </a>
-              <span class="papers__meta">
-                {[paper.venue, paper.year === null ? null : String(paper.year), `doi:${paper.doi}`]
-                  .filter((part) => part)
-                  .join(" · ")}
-              </span>
-            </li>
-          ))}
+          {dataset.dataPapers.map((paper) => {
+            const view = dataPaperView(paper);
+            return (
+              <li class="papers__item">
+                <a class="papers__link" href={view.href} target="_blank" rel="noopener noreferrer">
+                  {view.text}
+                </a>
+                {view.meta && <span class="papers__meta">{view.meta}</span>}
+              </li>
+            );
+          })}
         </ul>
-      </aside>
+      </section>
     )
   }
 
@@ -198,7 +193,8 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
     display: block;
     margin-top: 2px;
     font-size: var(--fs-xs);
-    color: var(--color-fg-subtle);
+    /* Muted, not subtle: subtle on this background is 4.2:1 in the light theme. */
+    color: var(--color-fg-muted);
     overflow-wrap: anywhere;
   }
   .filter {

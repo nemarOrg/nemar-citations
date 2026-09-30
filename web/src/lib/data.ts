@@ -23,6 +23,7 @@ import { join } from "node:path";
 import {
   type DataPaper,
   type DataPapersManifest,
+  SERVED_ID,
   buildDataPapersManifest,
   dataPapersOf,
 } from "./data-papers";
@@ -99,10 +100,12 @@ export interface DatasetDetail {
   /** Citations excluded because their source anchor is not kept (not the
    * dataset's data paper or record: methods, standards, related work, unjudged). */
   excludedByAnchor: number;
-  /** The papers the trusted judge confirmed as this dataset's data paper (and
-   * the gate kept), which the "Cites a paper" citations came through: the same
-   * set api/data-papers.json publishes. May include deposits of the same data.
-   * Empty when none is confirmed (or the gate has not decided yet). */
+  /** The papers and records the trusted judge confirmed as this dataset's data
+   * paper (and the gate kept): the same set api/data-papers.json publishes, and
+   * only for the catalog-served ids (nm, on) that manifest covers. May include
+   * deposits or copies of the same data: citations through a copy that is an
+   * identity record count as "Cites dataset", through the others as "Cites a
+   * paper". Empty when none is confirmed (or the gate has not decided yet). */
   dataPapers: DataPaper[];
 }
 
@@ -402,7 +405,7 @@ export function loadAll(): LoadedData {
         citations: counted,
         lowConfCitations: lowConf,
         excludedByAnchor,
-        dataPapers: dataPapersOf(anchors, neverAnchors) ?? [],
+        dataPapers: SERVED_ID.test(id) ? (dataPapersOf(anchors, neverAnchors) ?? []) : [],
       });
     }
   }
