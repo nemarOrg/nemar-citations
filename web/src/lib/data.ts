@@ -20,7 +20,12 @@
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 
-import { type DataPapersManifest, buildDataPapersManifest } from "./data-papers";
+import {
+  type DataPaper,
+  type DataPapersManifest,
+  buildDataPapersManifest,
+  dataPapersOf,
+} from "./data-papers";
 import {
   type AnchorVerdict,
   type RawAnchor,
@@ -94,6 +99,11 @@ export interface DatasetDetail {
   /** Citations excluded because their source anchor is not kept (not the
    * dataset's data paper or record: methods, standards, related work, unjudged). */
   excludedByAnchor: number;
+  /** The papers the trusted judge confirmed as this dataset's data paper (and
+   * the gate kept), which the "Cites a paper" citations came through: the same
+   * set api/data-papers.json publishes. May include deposits of the same data.
+   * Empty when none is confirmed (or the gate has not decided yet). */
+  dataPapers: DataPaper[];
 }
 
 export interface Overview {
@@ -349,7 +359,7 @@ export function loadAll(): LoadedData {
   let datasetsWithCitations = 0;
   const datasets: DatasetDetail[] = [];
 
-  for (const { id, details, verdicts } of entries) {
+  for (const { id, details, verdicts, anchors } of entries) {
     const counted: Citation[] = [];
     const lowConf: Citation[] = [];
     let excludedByAnchor = 0;
@@ -392,6 +402,7 @@ export function loadAll(): LoadedData {
         citations: counted,
         lowConfCitations: lowConf,
         excludedByAnchor,
+        dataPapers: dataPapersOf(anchors, neverAnchors) ?? [],
       });
     }
   }

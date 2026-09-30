@@ -29,6 +29,40 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   </p>
 
   {
+    dataset.dataPapers.length > 0 && (
+      <aside class="papers" aria-labelledby="data-papers-title">
+        <h2 class="papers__title" id="data-papers-title">
+          {dataset.dataPapers.length === 1 ? "Data paper" : "Data papers"}
+        </h2>
+        <p class="papers__note">
+          {dataset.dataPapers.length === 1 ? "The paper" : "The papers"} that describe{dataset.dataPapers.length === 1 ? "s" : ""} this
+          dataset. Citations of {dataset.dataPapers.length === 1 ? "it are" : "them are"} counted under "Cites a paper"; papers that cite the
+          dataset itself are counted under "Cites dataset".
+        </p>
+        <ul class="papers__list" role="list">
+          {dataset.dataPapers.map((paper) => (
+            <li class="papers__item">
+              <a
+                class="papers__link"
+                href={`https://doi.org/${encodeURI(paper.doi)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {paper.title ?? paper.doi}
+              </a>
+              <span class="papers__meta">
+                {[paper.venue, paper.year === null ? null : String(paper.year), `doi:${paper.doi}`]
+                  .filter((part) => part)
+                  .join(" · ")}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </aside>
+    )
+  }
+
+  {
     dataset.citations.length > 0 && (
       <div class="filter" role="group" aria-label="Filter citations by what they reference">
         <button type="button" class="filter__btn is-active" data-filter="all" aria-pressed="true">
@@ -124,6 +158,48 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   }
   .ds-sub__excl {
     color: var(--color-fg-subtle);
+  }
+  /* The dataset's data paper(s), at the top of the page: what the "Cites a
+     paper" tag below refers to. */
+  .papers {
+    margin-top: var(--space-6);
+    padding: var(--space-4) var(--space-5);
+    border: 1px solid var(--color-border);
+    border-inline-start: 3px solid var(--brand-teal);
+    border-radius: var(--radius-sm, 4px);
+    background: var(--color-bg-subtle);
+  }
+  .papers__title {
+    font-size: var(--fs-base);
+    font-weight: var(--fw-semibold);
+    color: var(--color-fg);
+  }
+  .papers__note {
+    margin-top: var(--space-1);
+    font-size: var(--fs-sm);
+    color: var(--color-fg-muted);
+  }
+  .papers__list {
+    list-style: none;
+    margin-top: var(--space-3);
+    display: grid;
+    gap: var(--space-3);
+  }
+  .papers__link {
+    display: block;
+    font-weight: var(--fw-medium);
+    color: var(--color-link);
+    overflow-wrap: anywhere;
+  }
+  .papers__link:hover {
+    color: var(--color-link-hover);
+  }
+  .papers__meta {
+    display: block;
+    margin-top: 2px;
+    font-size: var(--fs-xs);
+    color: var(--color-fg-subtle);
+    overflow-wrap: anywhere;
   }
   .filter {
     display: flex;
