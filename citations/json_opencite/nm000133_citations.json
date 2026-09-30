@@ -1,7 +1,7 @@
 {
   "dataset_id": "nm000133",
-  "num_citations": 6,
-  "date_last_updated": "2026-09-29T10:39:28.756142+00:00",
+  "num_citations": 5,
+  "date_last_updated": "2026-09-30T10:44:24.214537+00:00",
   "metadata": {
     "total_cumulative_citations": 92,
     "fetch_date": "2026-09-29T10:39:28.756142+00:00",
@@ -11,7 +11,7 @@
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:31b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.48550/arxiv.2404.05553",
@@ -22,20 +22,22 @@
         "paper_title": "Alljoined1 -- A dataset for EEG-to-Image decoding",
         "paper_year": 2024,
         "paper_venue": "arXiv (Cornell University)",
-        "reason": "The paper title 'Alljoined1 -- A dataset for EEG-to-Image decoding' and abstract explicitly state they are presenting and releasing the Alljoined1 dataset.",
-        "judgment_model": "gemma4:31b"
+        "reason": "Alljoined1 paper introduces this dataset: 8 participants, 10,000 natural images, 64-channel EEG; matches the README's cited reference and title.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.82901/nemar.nm000133",
         "identifier_type": "doi",
         "source_relation": "IsVersionOf",
-        "classification": "data_paper",
+        "classification": null,
         "kept": true,
         "paper_title": "Alljoined1",
         "paper_year": 2026,
         "paper_venue": "UC San Diego",
-        "reason": "The candidate paper's title and abstract explicitly describe the release of the Alljoined1 EEG dataset, matching the dataset's description and participants.",
-        "judgment_model": "gemma4:31b"
+        "reason": null,
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -171,43 +173,20 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
-    },
-    {
-      "title": "Alljoined1",
-      "author": "Jonathan Xu, Bruno Aristimunha, Max Emanuel Feucht, Emma Qian, Charles Liu, Tazik Shahjahan, Martyna Spyra, Steven Zifan Zhang, Nicholas Short, Jioh Kim, Paula Perdomo, Ricky Renfeng Mao, Yashvir Sabharwal, Michael Ahedor, Moaz Shoura, Adrian Nestor",
-      "venue": "UC San Diego",
-      "year": 2026,
-      "url": "https://doi.org/10.82901/nemar.nm000133",
-      "cited_by": 0,
-      "abstract": "Alljoined1 is a 64-channel EEG dataset comprising neural responses from eight healthy adults viewing 10,000 natural images each during rapid serial visual presentation (RSVP) with an oddball detection task. The dataset contains approximately 46,080 epochs across 13 sessions, with stimuli drawn from the Natural Scenes Dataset and MS-COCO. Raw data are preserved in 24-bit BioSemi BDF format, and preprocessed epoched derivatives in MNE-Python FIF format are provided, enabling research in EEG-to-image decoding and visual neuroscience.",
-      "doi": "10.82901/nemar.nm000133",
-      "pmid": null,
-      "openalex_id": "W7137881305",
-      "source_doi": "10.48550/arxiv.2404.05553",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 1.0,
-        "similarity_score": 0.8861532807350159,
-        "citation_text_length": 846,
-        "dataset_text_length": 2185,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T11:49:05.342456+00:00",
+    "scoring_date": "2026-09-30T10:49:33.055966+00:00",
     "dataset_text_length": 2185,
-    "num_citations_scored": 6,
+    "num_citations_scored": 5,
     "summary_stats": {
-      "mean_confidence": 0.7002016933510701,
-      "median_confidence": 0.684320531487465,
-      "std_confidence": 0.15288107321037822,
+      "mean_confidence": 0.6402420320212842,
+      "median_confidence": 0.6446354985237122,
+      "std_confidence": 0.08047472357487562,
       "min_confidence": 0.5135555635392667,
-      "max_confidence": 1.0,
-      "high_confidence_count": 3,
+      "max_confidence": 0.7249038326740266,
+      "high_confidence_count": 2,
       "medium_confidence_count": 3,
       "low_confidence_count": 0
     }

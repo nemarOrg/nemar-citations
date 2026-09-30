@@ -1,7 +1,7 @@
 {
   "dataset_id": "nm000225",
-  "num_citations": 101,
-  "date_last_updated": "2026-09-29T10:52:26.172916+00:00",
+  "num_citations": 100,
+  "date_last_updated": "2026-09-30T10:44:26.204543+00:00",
   "metadata": {
     "total_cumulative_citations": 4706,
     "fetch_date": "2026-09-29T10:52:26.172916+00:00",
@@ -11,31 +11,33 @@
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.13026/6phb-r450",
         "identifier_type": "doi",
         "source_relation": "IsDerivedFrom",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "You Snooze You Win: The PhysioNet/Computing in Cardiology Challenge 2018",
+        "paper_year": 2022,
+        "paper_venue": "PhysioNet",
+        "reason": "The PhysioNet record 'You Snooze You Win: The PhysioNet/CinC Challenge 2018' is the original release of this PSG arousal dataset, with matching title and authors (Ghassemi et al.).",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.22489/cinc.2018.049",
         "identifier_type": "doi",
         "source_relation": "References",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "You Snooze, You Win: The PhysioNet/Computing in Cardiology Challenge 2018",
+        "paper_year": 2018,
+        "paper_venue": "Computing in cardiology",
+        "reason": "The Challenge overview paper by the same authors describes the 1,983 PSG recordings (994 training, 989 test) that make up this dataset, which was created for that Challenge.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.82901/nemar.nm000225",
@@ -47,7 +49,8 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -79,29 +82,6 @@
     ]
   },
   "citation_details": [
-    {
-      "title": "PhysioNet 2018 Challenge: Sleep Arousal Detection PSG (Training)",
-      "author": "Mohammad M. Ghassemi, Benjamin E. Moody, Li-wei H. Lehman, Christopher Song, Qiao Li, Haoqi Sun, Roger G. Mark, M. Brandon Westover, Gari D. Clifford",
-      "venue": "UC San Diego",
-      "year": 2026,
-      "url": "https://doi.org/10.82901/nemar.nm000225",
-      "cited_by": 0,
-      "abstract": "A polysomnographic dataset comprising 1,983 overnight sleep recordings from Massachusetts General Hospital, including 994 training subjects with expert annotations and 989 test subjects. The dataset was created for the PhysioNet/Computing in Cardiology Challenge 2018 on automatic arousal detection and includes 13 physiological channels (EEG, EOG, EMG, respiratory, SpO2, ECG) sampled at 200 Hz, with annotations for sleep stages, respiratory events, and arousal types following AASM standards.",
-      "doi": "10.82901/nemar.nm000225",
-      "pmid": null,
-      "openalex_id": "W7163392348",
-      "source_doi": "10.13026/6phb-r450",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 1.0,
-        "similarity_score": 0.9249199628829956,
-        "citation_text_length": 759,
-        "dataset_text_length": 2431,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
     {
       "title": "Opportunities and challenges of deep learning methods for electrocardiogram data: A systematic review",
       "author": "Shenda Hong, Yuxi Zhou, Junyuan Shang, Cao Xiao, Jimeng Sun",
@@ -2405,16 +2385,16 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T11:58:23.199185+00:00",
+    "scoring_date": "2026-09-30T10:52:43.915756+00:00",
     "dataset_text_length": 2431,
-    "num_citations_scored": 101,
+    "num_citations_scored": 100,
     "summary_stats": {
-      "mean_confidence": 0.5999411386789957,
-      "median_confidence": 0.6041268923878671,
-      "std_confidence": 0.1352660427553035,
+      "mean_confidence": 0.5959405500657857,
+      "median_confidence": 0.6015738706290723,
+      "std_confidence": 0.1298591379589425,
       "min_confidence": 0.2380852592736483,
-      "max_confidence": 1.0,
-      "high_confidence_count": 24,
+      "max_confidence": 0.84877438724041,
+      "high_confidence_count": 23,
       "medium_confidence_count": 68,
       "low_confidence_count": 9
     }

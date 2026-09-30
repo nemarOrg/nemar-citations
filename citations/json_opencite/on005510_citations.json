@@ -1,7 +1,7 @@
 {
   "dataset_id": "on005510",
-  "num_citations": 19,
-  "date_last_updated": "2026-09-29T11:27:26.369394+00:00",
+  "num_citations": 18,
+  "date_last_updated": "2026-09-30T10:44:32.337247+00:00",
   "metadata": {
     "total_cumulative_citations": 139,
     "fetch_date": "2026-09-29T11:27:26.369394+00:00",
@@ -11,7 +11,7 @@
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:31b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.1101/2024.10.03.615261",
@@ -22,8 +22,9 @@
         "paper_title": "HBN-EEG: The FAIR implementation of the Healthy Brain Network (HBN) electroencephalography dataset",
         "paper_year": 2024,
         "paper_venue": "bioRxiv (Cold Spring Harbor Laboratory)",
-        "reason": "The paper title 'HBN-EEG: The FAIR implementation of the Healthy Brain Network (HBN) electroencephalography dataset' and abstract explicitly describe the release of the HBN-EEG BIDS dataset.",
-        "judgment_model": "gemma4:31b"
+        "reason": "HBN-EEG preprint by the same authors describes the BIDS/HED-formatted HBN EEG releases, including this Release 6; it is the dataset's data descriptor.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.1038/sdata.2017.181",
@@ -34,32 +35,35 @@
         "paper_title": "An open resource for transdiagnostic research in pediatric mental health and learning disorders",
         "paper_year": 2017,
         "paper_venue": "Scientific Data",
-        "reason": "The paper describes the Healthy Brain Network (HBN) as an ongoing initiative to create a biobank, rather than this specific EEG Release 6 dataset.",
-        "judgment_model": "gemma4:31b"
+        "reason": "Alexander et al. 2017 describes the overall Healthy Brain Network biobank initiative, which this HBN-EEG Release 6 belongs to, not this specific release.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "never_anchor"
       },
       {
         "identifier": "10.1038/sdata.2017.40",
         "identifier_type": "doi",
         "source_relation": "References",
-        "classification": "umbrella",
+        "classification": "related_work",
         "kept": false,
         "paper_title": "A resource for assessing information processing in the developing brain using EEG and eye tracking",
         "paper_year": 2017,
         "paper_venue": "Scientific Data",
-        "reason": "The paper describes a resource for the developing brain using EEG and eye tracking, which is the broader HBN project initiative that this dataset belongs to.",
-        "judgment_model": "gemma4:31b"
+        "reason": "Langer et al. 2017 describes a separate 126-participant EEG/eye-tracking resource (ages 6-44), a predecessor to HBN-EEG, not HBN Release 6 itself or the HBN umbrella paper.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_not_data_paper"
       },
       {
         "identifier": "10.82901/nemar.on005510",
         "identifier_type": "doi",
         "source_relation": "References",
-        "classification": "data_paper",
+        "classification": null,
         "kept": true,
         "paper_title": "Healthy Brain Network (HBN) EEG - Release 6",
         "paper_year": 2026,
         "paper_venue": null,
-        "reason": "The paper's title and abstract explicitly describe the release of the Healthy Brain Network (HBN) EEG - Release 6 dataset.",
-        "judgment_model": "gemma4:31b"
+        "reason": null,
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -308,29 +312,6 @@
       }
     },
     {
-      "title": "Healthy Brain Network (HBN) EEG - Release 10",
-      "author": "Seyed Yahya Shirazi, Alexandre Franco, Maurício Scopel Hoffmann, Nathália Bianchini Esper, Dung Truong, Arnaud Delorme, Michael Milham, Scott Makeig",
-      "venue": "UC San Diego",
-      "year": 2026,
-      "url": "https://doi.org/10.82901/nemar.on005515",
-      "cited_by": 0,
-      "abstract": "The Healthy Brain Network (HBN) EEG Release 2 dataset comprises high-resolution electroencephalogram recordings from 152 children and adolescents (ages 5-21 years) performing six distinct cognitive and perceptual tasks, including resting state, passive viewing tasks (surround suppression, movie watching), and active tasks (contrast change detection, sequence learning, symbol search). The dataset includes behavioral responses, hierarchical event descriptors (HED) for systematic meta-analysis, psychopathology measures (P-Factor, Attention, Internalization, Externalization) derived from the Child Behavior Checklist, and personalized electrode locations, providing a rich resource for investigating neural correlates of typical and atypical development. This Release 2 represents a subset of the larger Healthy Brain Network project.",
-      "doi": "10.82901/nemar.on005515",
-      "pmid": null,
-      "openalex_id": "W7133523179",
-      "source_doi": "10.1101/2024.10.03.615261",
-      "source_relation": "References",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 1.0,
-        "similarity_score": 0.8851746916770935,
-        "citation_text_length": 1080,
-        "dataset_text_length": 2351,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Explainable Cognitive Task Classification in Pediatric EEG Using CPCC-Based Functional Connectivity Images",
       "author": "Jinkwon Lee, Seohyeon Hong, Hayoung Oh",
       "venue": "Lecture notes in computer science",
@@ -540,16 +521,16 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T12:16:41.958846+00:00",
+    "scoring_date": "2026-09-30T11:01:56.588087+00:00",
     "dataset_text_length": 2351,
-    "num_citations_scored": 19,
+    "num_citations_scored": 18,
     "summary_stats": {
-      "mean_confidence": 0.6080494517323218,
-      "median_confidence": 0.5827925401926042,
-      "std_confidence": 0.11934709056753791,
+      "mean_confidence": 0.5862744212730066,
+      "median_confidence": 0.5799172970652582,
+      "std_confidence": 0.07762834000593191,
       "min_confidence": 0.3805741059780121,
-      "max_confidence": 1.0,
-      "high_confidence_count": 3,
+      "max_confidence": 0.7168833053112031,
+      "high_confidence_count": 2,
       "medium_confidence_count": 15,
       "low_confidence_count": 1
     }

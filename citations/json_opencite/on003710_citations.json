@@ -1,41 +1,43 @@
 {
   "dataset_id": "on003710",
-  "num_citations": 14,
-  "date_last_updated": "2026-09-29T11:11:06.352301+00:00",
+  "num_citations": 2,
+  "date_last_updated": "2026-09-30T10:47:15.262328+00:00",
   "metadata": {
-    "total_cumulative_citations": 157,
+    "total_cumulative_citations": 86,
     "fetch_date": "2026-09-29T11:11:06.352301+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
-    "anchor_count": 3,
+    "anchor_count": 2,
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.1101/2021.07.10.450198",
         "identifier_type": "doi",
         "source_relation": "IsDescribedBy",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "The Automated Preprocessing Pipe-Line for the Estimation of Scale-wise Entropy from EEG Data (APPLESEED): Development and validation for use in pediatric populations",
+        "paper_year": 2021,
+        "paper_venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+        "reason": "README states the dataset accompanies this APPLESEED paper (Puglia, Slobin, Williams), which used these infant EEG recordings for development/validation; this is its bioRxiv preprint.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.1016/j.dcn.2022.101163",
         "identifier_type": "doi",
         "source_relation": "IsDescribedBy",
         "classification": null,
-        "kept": true,
+        "kept": false,
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "unjudged"
       },
       {
         "identifier": "10.82901/nemar.on003710",
@@ -47,12 +49,12 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
       "10.1101/2021.07.10.450198",
-      "10.1016/j.dcn.2022.101163",
       "10.82901/nemar.on003710"
     ],
     "keywords": [
@@ -66,7 +68,14 @@
       "APPLESEED"
     ],
     "methods_description": "Longitudinal EEG recordings were collected from infants at multiple timepoints: sessions 1 and 2 at 4 months of age (within 1 week for test-retest reliability assessment), session 3 at 8 months of age, and session 4 at 12 months of age. Complete longitudinal data (sessions 1-4) were obtained from 11 infants (6 female), while 2 additional infants contributed reliability data only (sessions 1-2). Channel location files and bin files for analysis are provided.",
-    "funding": []
+    "funding": [],
+    "searched_accessions": [
+      "on003710",
+      "ds003710"
+    ],
+    "num_accession_mentions": 1,
+    "num_dataset_citations": 1,
+    "num_datapaper_citations": 1
   },
   "citation_details": [
     {
@@ -93,299 +102,28 @@
       }
     },
     {
-      "title": "Maximizing the potential of EEG as a developmental neuroscience tool",
-      "author": "George Arthur Buzzell, Santiago Morales, Emilio A. Valadez, Sabine Hunnius, Nathan A. Fox",
+      "title": "The automated preprocessing pipe-line for the estimation of scale-wise entropy from EEG data (APPLESEED): Development and validation for use in pediatric populations",
+      "author": "Meghan H. Puglia, Jacqueline S. Slobin, Cabell L. Williams",
       "venue": "Developmental Cognitive Neuroscience",
-      "year": 2023,
-      "url": "https://doi.org/10.1016/j.dcn.2023.101201",
-      "cited_by": 30,
-      "abstract": "EEG) is a relatively low-cost and non-invasive method for directly measuring brain activity, well-suited for capturing real-time neural information across the lifespan. EEG has been central to the discovery of fundamental developmental phenomena",
-      "doi": "10.1016/j.dcn.2023.101201",
-      "pmid": "36732112",
-      "openalex_id": "W4318204050",
-      "source_doi": "10.1016/j.dcn.2022.101163",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
+      "year": 2022,
+      "url": "https://doi.org/10.1016/j.dcn.2022.101163",
+      "cited_by": 16,
+      "abstract": "It is increasingly understood that moment-to-moment brain signal variability - traditionally modeled out of analyses as mere \"noise\" - serves a valuable functional role related to development, cognitive processing, and psychopathology. Multiscale entropy (MSE) - a measure of signal irregularity across temporal scales - is an increasingly popular analytic technique in human neuroscience calculated from time series such as electroencephalography (EEG) signals. MSE provides insight into the time-structure and (non)linearity of fluctuations in neural activity and network dynamics, capturing the brain's moment-to-moment complexity as it operates on multiple time scales. MSE is emerging as a powerful predictor of developmental processes and outcomes. However, differences in data preprocessing and MSE computation make it challenging to compare results across studies. Here, we (1) provide an introduction to MSE for developmental researchers, (2) demonstrate the effect of preprocessing procedures on scale-wise entropy estimates, and (3) establish a standardized EEG preprocessing and entropy estimation pipeline that adapts a critical modification to the original MSE algorithm, and generates reliable scale-wise entropy estimates capable of differentiating developmental stages and cognitive states. This novel pipeline - the Automated Preprocessing Pipe-Line for the Estimation of Scale-wise Entropy from EEG Data (APPLESEED) is fully automated, customizable, and freely available for download from https://github.com/mhpuglia/APPLESEED.",
+      "doi": "10.1016/j.dcn.2022.101163",
+      "pmid": "36270100",
+      "openalex_id": "W4306393212",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds003710",
+      "superseded_dois": [
+        "10.1101/2021.07.10.450198"
+      ],
       "confidence_scoring": {
-        "confidence_score": 0.6818019658327102,
-        "similarity_score": 0.5903047323226929,
-        "citation_text_length": 477,
-        "dataset_text_length": 1977,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "A review study on the mechanical behaviour of natural fibre-reinforced epoxy composite",
-      "author": "Vikash Chandra Dinkar, Vikash Kumar",
-      "venue": "Polymer Bulletin",
-      "year": 2025,
-      "url": "https://doi.org/10.1007/s00289-025-05902-4",
-      "cited_by": 21,
-      "abstract": null,
-      "doi": "10.1007/s00289-025-05902-4",
-      "pmid": null,
-      "openalex_id": "W4412617639",
-      "source_doi": "10.1016/j.dcn.2022.101163",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.259718681126833,
-        "similarity_score": 0.24735112488269806,
-        "citation_text_length": 164,
-        "dataset_text_length": 1977,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Preterm birth accelerates the maturation of spontaneous and resting activity in the visual cortex",
-      "author": "Isabelle Witteveen, E. McCoy, Troy D. Holsworth, Catherine Z. Shen, Winnie, Chang, M. G. Nance, Allison R. Belkowitz, Avery Douglad, M. Puglia, Adema Ribic",
-      "venue": "Frontiers in Integrative Neuroscience",
-      "year": 2023,
-      "url": "https://doi.org/10.3389/fnint.2023.1149159",
-      "cited_by": 13,
-      "abstract": "Prematurity is among the leading risks for poor neurocognitive outcomes. The brains of preterm infants show alterations in structure and electrical activity, but the underlying circuit mechanisms are unclear. To address this, we performed a cross-species study of the electrophysiological activity in the visual cortices of prematurely born infants and mice. Using electroencephalography (EEG) in a sample of healthy preterm ( N = 29) and term ( N = 28) infants, we found that the maturation of the aperiodic EEG component was accelerated in the preterm cohort, with a significantly flatter 1/f slope when compared to the term infants. The flatter slope was a result of decreased spectral power in the theta and alpha bands and was correlated with the degree of prematurity. To determine the circuit and cellular changes that potentially mediate the changes in 1/f slope after preterm birth, we used in vivo electrophysiology in preterm mice and found that, similar to infants, preterm birth results ",
-      "doi": "10.3389/fnint.2023.1149159",
-      "pmid": "37255843",
-      "openalex_id": "W4378782160",
-      "source_doi": "10.1016/j.dcn.2022.101163",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5256254920363427,
-        "similarity_score": 0.45508700609207153,
-        "citation_text_length": 1328,
-        "dataset_text_length": 1977,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Cortical changes associated with an anterior cruciate ligament injury may retrograde skilled kicking in football: preliminary EEG findings",
-      "author": "Daghan Piskin, Gjergji Cobani, Tim Lehmann, Daniel Büchel, Jochen Baumeister",
-      "venue": "Scientific Reports",
-      "year": 2025,
-      "url": "https://doi.org/10.1038/s41598-025-86196-4",
-      "cited_by": 7,
-      "abstract": "Anterior cruciate ligament injuries (ACLi) impact football players substantially leading to performance declines and premature career endings. Emerging evidence suggests that ACLi should be viewed not merely as peripheral injuries but as complex conditions with neurophysiological aspects. The objective of the present study was to compare kicking performance and associated cortical activity between injured and healthy players. Ten reconstructed and 15 healthy players performed a kicking task. Kicking biomechanics were recorded using wearable inertial measurement unit sensors. Cortical activity was captured with a 64-electrode mobile electroencephalography. Multiscale entropy (MSE) analysis of biomechanics revealed increased variability in foot external rotation among injured players. Source-derived event-related spectral perturbations indicated significant differences in posterior alpha and frontal theta oscillations between the two groups. Furthermore, kick-related complexity of these ",
-      "doi": "10.1038/s41598-025-86196-4",
-      "pmid": "39820802",
-      "openalex_id": "W4406456508",
-      "source_doi": "10.1016/j.dcn.2022.101163",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.44053939595818525,
-        "similarity_score": 0.3814193904399872,
-        "citation_text_length": 1271,
-        "dataset_text_length": 1977,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Infant neural sensitivity to affective touch is associated with maternal postpartum depression",
-      "author": "Madelyn G. Nance, Zackary T. Landsman, Gregory J. Gerling, Meghan H. Puglia",
-      "venue": "Infant Behavior and Development",
-      "year": 2024,
-      "url": "https://doi.org/10.1016/j.infbeh.2024.101980",
-      "cited_by": 6,
-      "abstract": "Classic attachment theory emphasizes the sensitivity of the parent to perceive and appropriately respond to the infant's cues. However, parent-child attachment is a dyadic interaction that is also dependent upon the sensitivity of the child to the early caregiving environment. Individual differences in infant sensitivity to parental cues is likely shaped by both the early caregiving environment as well as the infant's neurobiology, such as perceptual sensitivity to social stimuli. Here, we investigated associations between maternal postpartum depression and infant neurological sensitivity to affective touch using brain signal entropy - a metric of the brain's moment-to-moment variability related to signal processing. We recruited two independent samples of infants aged 0-5 months. In Sample 1 (n=79), we found increased levels of maternal postpartum depression were associated with diminished perceptual sensitivity - i.e. lower entropy - to affective tactile stimulation specifically with",
-      "doi": "10.1016/j.infbeh.2024.101980",
-      "pmid": "39181012",
-      "openalex_id": "W4401838029",
-      "source_doi": "10.1016/j.dcn.2022.101163",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.4497602418065072,
-        "similarity_score": 0.3894028067588806,
-        "citation_text_length": 1239,
-        "dataset_text_length": 1977,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Structural determinants of signal speed: Estimated axonal latency and its multimodal validation during face processing in autism",
-      "author": "Campbell R Coleman, Madelyn G. Nance, Zachary Jacokes, T. Jason Druzgal, Vardan Arutiunian, Anna Kresse, Catherine A. W. Sullivan, Megha Santhosh, Emily Neuhaus, Heather Borland, Raphael Bernier, Susan Y. Bookheimer, Mirella Dapretto, Allison Jack, Natalia M. Kleinhans, Shafali Jeste, James C. McPartland, Adam J. Naples, Daniel H. Geschwind, Abha R. Gupta, Sara Jane Webb, Kevin Archer Pelphrey, John D. Van Horn, Benjamin T. Newman, Meghan H. Puglia",
-      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
-      "year": 2025,
-      "url": "https://doi.org/10.1101/2025.03.19.644214",
-      "cited_by": 4,
-      "abstract": "Abstract It has not previously been possible to investigate the fundamental relationship between axonal structure – which dictates action potential transmission – and human neuronal function in vivo . Here, we introduce a novel metric of axonal signal speed, estimated axonal latency (EAL), derived from the relationship between axonal diameter, myelination, and length measured via MRI. We validate EAL along two pathways of the face processing network by relating it to N170 latency, an electrophysiological marker of face processing speed measured via EEG. Our results show that EAL along these pathways predicts N170 latency specifically during face processing. Moreover, we demonstrate that individuals with and without autism rely upon different pathways, potentially providing a structural account for autism-related face processing differences. By establishing this relationship between EEG-based electrical function and MRI-based axonal microstructure, we provide a non-invasive, spatially d",
-      "doi": "10.1101/2025.03.19.644214",
-      "pmid": "40166310",
-      "openalex_id": "W4408727370",
-      "source_doi": "10.1016/j.dcn.2022.101163",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5185312865674496,
-        "similarity_score": 0.4489448368549347,
-        "citation_text_length": 1658,
-        "dataset_text_length": 1977,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "From Breath to Brain: NICU respiratory interventions and bedside brain signal entropy predict later autism risk",
-      "author": "Madelyn G. Nance, Winnie Chang, Chad Aldridge, Jennifer C. Burnsed, Kevin Pelphrey, Santina A. Zanelli, Meghan H. Puglia",
-      "venue": "Developmental Cognitive Neuroscience",
-      "year": 2026,
-      "url": "https://doi.org/10.1016/j.dcn.2026.101679",
-      "cited_by": 2,
-      "abstract": "Premature infants often experience hypoxia and require prolonged ventilation, which can trigger systemic inflammation, damage the developing brain, and increase the risk of neurodevelopmental disorders such as Autism Spectrum Disorder (ASD). Early intervention is key for ensuring optimal outcomes for those with ASD; thus emphasizing the critical importance of accurately identifying infants at risk as early as possible. Here, infants underwent electroencephalography during social (held) and nonsocial (not held) resting state conditions to assess brain signal variability, saliva collection to determine inflammation, calculation of a novel Prognostic Respiratory Intensity Scoring Metric (PRISM) to assess the burden of respiratory support, and ASD testing in toddlerhood. Higher PRISM scores were associated with increased brain signal entropy during the nonsocial resting state. However, this association was not observed in the social resting state condition - particularly for male babies. I",
-      "doi": "10.1016/j.dcn.2026.101679",
-      "pmid": "41576766",
-      "openalex_id": "W7124442261",
-      "source_doi": "10.1016/j.dcn.2022.101163",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5302172067761423,
-        "similarity_score": 0.45906251668930054,
-        "citation_text_length": 1306,
-        "dataset_text_length": 1977,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Parent attention‐orienting behavior is associated with neural entropy in infancy",
-      "author": "Cabell L. Williams, Allison R. Belkowitz, Madelyn G. Nance, Emily T. Mortman, Sonie Bae, Sheher‐Bano Ahmed, Meghan H. Puglia",
-      "venue": "Infancy",
-      "year": 2024,
-      "url": "https://doi.org/10.1111/infa.12595",
-      "cited_by": 2,
-      "abstract": "Parents play a significant role in directing infant's attention to environmental stimuli via joint attention. We hypothesized that infants whose parents provide more bids for joint attention will display a more complex neural response when viewing social scenes. Sixty-one 8-month-old infants underwent electroencephalography (EEG) while viewing videos of joint- and parallel-play and participated in a parent-infant free play interaction. EEG data was analyzed using multiscale entropy, which quantifies moment-to-moment neural variability. Free play interactions were coded for parent alternating gaze, a behavioral mechanism for directing attention to environmental cues. We found a significant positive association between parent alternating gaze and neural entropy in frontal and central brain regions. These results suggest a relationship between parent behavior and infant neural mechanisms that regulate social attention, underlying the importance of parent cues in the formation of neural ne",
-      "doi": "10.1111/infa.12595",
-      "pmid": "38676934",
-      "openalex_id": "W4395689242",
-      "source_doi": "10.1016/j.dcn.2022.101163",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5940317702293396,
-        "similarity_score": 0.5143132209777832,
-        "citation_text_length": 1250,
-        "dataset_text_length": 1977,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Age-Related Changes in EEG Signal Complexity and Behavioral Variability from Childhood to Adulthood: A Multiscale Entropy Approach",
-      "author": "Brenda Y. Angulo-Ruíz, Vanesa Muñoz, Elena Rodriguez-Martinez, Carlos M. Gómez",
-      "venue": "Entropy",
-      "year": 2026,
-      "url": "https://doi.org/10.3390/e28040390",
-      "cited_by": 1,
-      "abstract": "The complexity of physiological signals provides insight into the maturation and functional organization of the developing brain. This study investigated age-related changes in electroencephalographic (EEG) signal complexity and their association with behavioral variability in 240 participants aged 6 to 29 years. EEG signals were recorded during the resting state, and Multiscale Entropy (MSE) was computed across 34 temporal scales, grouped into fine, medium, and coarse scales. Behavioral variability was assessed using measures from Oddball and Delayed Match-to-Sample tasks. Quadratic regression analyses characterized age-related changes in MSE across scalp regions, and Pearson correlations evaluated associations between age-adjusted residuals of MSE and behavioral variability. The results showed that MSE changed with age across temporal scales in all cortical regions. Developmentally, MSE showed a significant age-related increase at fine scales across the entire scalp, region-specific ",
-      "doi": "10.3390/e28040390",
-      "pmid": "42072514",
-      "openalex_id": "W7147405625",
-      "source_doi": "10.1016/j.dcn.2022.101163",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.700848308801651,
-        "similarity_score": 0.606795072555542,
-        "citation_text_length": 1254,
-        "dataset_text_length": 1977,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Brain complexity in motion: Multiscale entropy analysis on mobile EEG data to assess motor performance",
-      "author": "Daghan Piskin, Gjergji Cobani, Daniel Büchel, Tim Lehmann, Jochen Baumeister",
-      "venue": "Brain Research Bulletin",
-      "year": 2026,
-      "url": "https://doi.org/10.1016/j.brainresbull.2026.111769",
-      "cited_by": 1,
-      "abstract": "Multiscale entropy (MSE) as a measure of brain complexity provides substantial insights into the adaptability of the brain. However, it is often applied to resting-state electroencephalography (EEG) or in static tasks. The current study assessed the reliability, validity and classification accuracy of MSE computed on mobile EEG data for linking brain complexity to motor performance within a kicking task. Eleven novice participants underwent repeated measurements to assess test-retest reliability, while the data from 15 novices and 15 football players were used to evaluate known-groups validity, convergent validity and classification accuracy. EEG data were recorded using 65 active electrodes and MSE estimates were computed for 64 time scales on preprocessed data. Results showed poor to excellent reliability for MSE estimates, exhibiting channel- and scale-specific variations, with reliability generally higher at fine-to-mid scales. Experts exhibited significantly lower entropy at coars",
-      "doi": "10.1016/j.brainresbull.2026.111769",
-      "pmid": "41667015",
-      "openalex_id": "W7128399523",
-      "source_doi": "10.1016/j.dcn.2022.101163",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.6729397594928742,
-        "similarity_score": 0.5826318264007568,
-        "citation_text_length": 1240,
-        "dataset_text_length": 1977,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Infant EEG preprocessing pipelines: A capability framework and current gaps in practice",
-      "author": "Efthymios Papatzikis",
-      "venue": "Journal of Neuroscience Methods",
-      "year": 2026,
-      "url": "https://doi.org/10.1016/j.jneumeth.2026.110840",
-      "cited_by": 0,
-      "abstract": "Infant electroencephalography (EEG) is essential for understanding early brain development, yet presents unique challenges including frequent movement artifacts, low signal-to-noise ratio, and rapid developmental changes. Specialized preprocessing pipelines have been developed to address these issues, but no structured cross-pipeline evaluation of their capabilities currently exists. This article presents a capability framework for ten prominent infant EEG preprocessing tools - nine infant-specific tools (APICE, Adjusted-ADJUST, GADS, NEAR, HAPPE, HAPPE+ER, HAPPILEE, BEAPP, and MADE) and the Modular pipeline, a general-purpose approach scalable to infant data - organized around five capability dimensions: artifact handling, automation and scalability, flexibility and adaptability, developmental sensitivity, and validation against empirical data. The framework is proposed as an exploratory evaluative heuristic, not a definitive taxonomy. For each dimension, each pipeline was assigned a ",
-      "doi": "10.1016/j.jneumeth.2026.110840",
-      "pmid": "42361912",
-      "openalex_id": "W7166087305",
-      "source_doi": "10.1016/j.dcn.2022.101163",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.6676318672299386,
-        "similarity_score": 0.5780362486839294,
-        "citation_text_length": 1177,
-        "dataset_text_length": 1977,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Rewiring the aging brain: exergaming modulates brain complexity in older adults",
-      "author": "Daghan Piskin, Helen Müller, Nina Skjæret-Maroni, Beatrix Vereijken, Jochen Baumeister",
-      "venue": "Frontiers in Aging Neuroscience",
-      "year": 2026,
-      "url": "https://doi.org/10.3389/fnagi.2025.1748274",
-      "cited_by": 0,
-      "abstract": "Introduction: Age-related changes in brain signal complexity are associated with cognitive decline and reduced neural adaptivity in older adults. Exergaming offers a promising prophylactic intervention combining physical and cognitive training. The aim of the present study was to assess how exergaming alters the temporal trajectory of brain signal complexity at rest and during gameplay in older adults. Methods: Twenty-eight healthy older adults participated in a 4-week exergaming intervention. Electroencephalography was recorded using 64 electrodes at rest (pre- and post-intervention) and during exergaming (pre-, mid-, and post-intervention). Brain signal complexity was quantified using multiscale entropy across 64 time scales on preprocessed signals. Results: Post-intervention resting-state analysis revealed significant reductions at fine and increases at coarse scales in frontal, central, and posterior entropy. During gameplay, entropy declined widespread by mid-intervention, particu",
-      "doi": "10.3389/fnagi.2025.1748274",
-      "pmid": "41601592",
-      "openalex_id": "W7122722915",
-      "source_doi": "10.1016/j.dcn.2022.101163",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5171484643220902,
-        "similarity_score": 0.4477475881576538,
-        "citation_text_length": 1235,
-        "dataset_text_length": 1977,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Structural Determinants of Signal Speed: A Multimodal Investigation of Face Processing in Autism Spectrum Disorder",
-      "author": "Campbell R. Coleman, M. G. Nance, Z. Jacokes, T. Druzgal, V. Arutiunian, Anna Kresse, Catherine A. W. Sullivan, Megha Santhosh, E. Neuhaus, Heather Borland, Raphael A. Bernier, S. Bookheimer, M. Dapretto, A. Jack, S. Jeste, James C. McPartland, A. Naples, D. Geschwind, Abha R. Gupta, S. Webb, K. Pelphrey, J. V. Van Horn, B. Newman, M. Puglia",
-      "venue": "n/a",
-      "year": 0,
-      "url": "n/a",
-      "cited_by": 0,
-      "abstract": null,
-      "doi": null,
-      "pmid": null,
-      "openalex_id": null,
-      "source_doi": "10.1016/j.dcn.2022.101163",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.3940485119819641,
-        "similarity_score": 0.3940485119819641,
-        "citation_text_length": 487,
+        "confidence_score": 0.8102586588263513,
+        "similarity_score": 0.7015226483345032,
+        "citation_text_length": 1798,
         "dataset_text_length": 1977,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -394,18 +132,18 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T12:09:09.366371+00:00",
+    "scoring_date": "2026-09-30T10:57:00.411786+00:00",
     "dataset_text_length": 1977,
-    "num_citations_scored": 14,
+    "num_citations_scored": 2,
     "summary_stats": {
-      "mean_confidence": 0.5502782690418618,
-      "median_confidence": 0.5279213494062425,
-      "std_confidence": 0.13231647142723296,
-      "min_confidence": 0.259718681126833,
-      "max_confidence": 0.751052814424038,
+      "mean_confidence": 0.7806557366251947,
+      "median_confidence": 0.7806557366251947,
+      "std_confidence": 0.029602922201156623,
+      "min_confidence": 0.751052814424038,
+      "max_confidence": 0.8102586588263513,
       "high_confidence_count": 2,
-      "medium_confidence_count": 10,
-      "low_confidence_count": 2
+      "medium_confidence_count": 0,
+      "low_confidence_count": 0
     }
   }
 }

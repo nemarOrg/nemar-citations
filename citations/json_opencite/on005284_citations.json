@@ -1,7 +1,7 @@
 {
   "dataset_id": "on005284",
-  "num_citations": 0,
-  "date_last_updated": "2026-09-22T11:23:11.577161+00:00",
+  "num_citations": 1,
+  "date_last_updated": "2026-09-30T10:47:09.280389+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
     "fetch_date": "2026-09-22T11:23:11.577161+00:00",
@@ -11,7 +11,7 @@
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.82901/nemar.on005284",
@@ -23,7 +23,8 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -38,13 +39,56 @@
       "BioSemi"
     ],
     "methods_description": "Participants underwent laser stimulation at individually calibrated fixed intensity, with stimuli presented approximately every 20 seconds for 16 trials. EEG was recorded using a BioSemi system during the task. Following each laser stimulus, participants provided pain intensity ratings (0-10 scale) via computer mouse within a 3-5 second window, with inter-trial intervals of 1-3 seconds.",
-    "funding": []
+    "funding": [],
+    "searched_accessions": [
+      "on005284",
+      "ds005284"
+    ],
+    "num_accession_mentions": 1,
+    "num_dataset_citations": 1,
+    "num_datapaper_citations": 0
   },
-  "citation_details": [],
+  "citation_details": [
+    {
+      "title": "The Deep-Match Framework for Event-Related Potential Detection in EEG",
+      "author": "Marek Żyliński, B.T. Śmigielski, Gerard Cybulski",
+      "venue": "Sensors",
+      "year": 2026,
+      "url": "https://doi.org/10.3390/s26175444",
+      "cited_by": 0,
+      "abstract": "Reliable detection of event-related potentials (ERPs) at the single-trial level remains a challenge due to low signal-to-noise ratio and high variability in electroencephalography (EEG) recordings. This work investigates the use of the Deep-Match framework (Deep-MF) for ERP detection. We examine whether incorporating prior knowledge of an ERP template into deep learning models improves detection performance. As a proof-of-concept study, the framework was evaluated on a single dataset with multi-channel EEG recordings during laser stimulation. The model was trained in two stages. First, an encoder-decoder architecture was trained to reconstruct input EEG signals in order to learn compact signal representations. In the second stage, the decoder was replaced with a detection module and the network was fine-tuned for ERP identification. Two model variants were evaluated: a standard model with randomly initialized filters and a Deep-MF model in which input kernels were initialized using ERP templates. Models performance was assessed on a single-trial ERP detection task during leave-one-out validation, and then compared with matched filter detector. The neural network models outperformed the matched filter detector and proposed that the Deep-MF model slightly outperformed the detector with standard kernel initialization for the majority of held-out subjects. Although both approaches exhibited substantial inter-subject variability, Deep-MF achieved a higher average F1-score (0.37) compared to the standard network (0.34), indicating improved robustness to cross-subject differences. Performance varied considerably across participants. The best performance obtained by Deep-MF reached an F1-score of 0.71, exceeding the maximum score achieved by the standard model (0.59). These results showed that ERP-informed kernel initialization provides improvements in single-trial ERP detection under subject-independent evaluation. These findings demonstrate that integrating domain knowledge with deep learning architectures can improve single-trial ERP detection. The proposed approach provides a step towards practical wearable EEG and passive brain-computer interface applications, as well as towards real-time monitoring of cognitive processes.",
+      "doi": "10.3390/s26175444",
+      "pmid": "42740064",
+      "openalex_id": "W7140198178",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds005284",
+      "confidence_scoring": {
+        "confidence_score": 0.34525040343403823,
+        "similarity_score": 0.29891809821128845,
+        "citation_text_length": 1663,
+        "dataset_text_length": 1851,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    }
+  ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-22T13:22:03.358619+00:00",
+    "scoring_date": "2026-09-30T11:01:29.443919+00:00",
     "dataset_text_length": 1851,
-    "num_citations_scored": 0
+    "num_citations_scored": 1,
+    "summary_stats": {
+      "mean_confidence": 0.34525040343403823,
+      "median_confidence": 0.34525040343403823,
+      "std_confidence": 0.0,
+      "min_confidence": 0.34525040343403823,
+      "max_confidence": 0.34525040343403823,
+      "high_confidence_count": 0,
+      "medium_confidence_count": 0,
+      "low_confidence_count": 1
+    }
   }
 }

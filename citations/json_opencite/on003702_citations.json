@@ -1,7 +1,7 @@
 {
   "dataset_id": "on003702",
   "num_citations": 4,
-  "date_last_updated": "2026-09-29T11:10:47.351094+00:00",
+  "date_last_updated": "2026-09-30T10:44:54.177245+00:00",
   "metadata": {
     "total_cumulative_citations": 16,
     "fetch_date": "2026-09-29T11:10:47.351094+00:00",
@@ -11,19 +11,20 @@
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.31234/osf.io/mkags",
         "identifier_type": "doi",
         "source_relation": "References",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
+        "paper_title": "EEG alpha and theta signatures of socially and non-socially cued working memory in virtual reality",
+        "paper_year": 2021,
         "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "reason": "The preprint is the study paper for this EEG/VR social vs non-social cued working memory task. The authors (Gregory, Wang, Kessler) match, and the README says a preprint is to be added.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.82901/nemar.on003702",
@@ -35,7 +36,8 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -57,7 +59,14 @@
         "award_number": "ECF-2018-130",
         "award_title": "Early Career Fellowship"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "on003702",
+      "ds003702"
+    ],
+    "num_accession_mentions": 1,
+    "num_dataset_citations": 2,
+    "num_datapaper_citations": 2
   },
   "citation_details": [
     {
@@ -81,7 +90,9 @@
         "dataset_text_length": 2180,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
+      },
+      "mentions_accession": true,
+      "matched_accession": "ds003702"
     },
     {
       "title": "Assessing the impact of virtual workplaces on collaboration and learning",
@@ -130,23 +141,25 @@
       }
     },
     {
-      "title": "Social Memory cuing",
-      "author": "Samantha E. A. Gregory, Hongfang Wang, Klaus Kessler",
-      "venue": "UC San Diego",
-      "year": 2026,
-      "url": "https://doi.org/10.82901/nemar.on003702.v1.0.0",
+      "title": "Memory Retrieval Cue: A Framework for Preserving and Enhancing Memory for the Future",
+      "author": "Akki Aryan, Thenmozhi M, Swayam Singal",
+      "venue": "Cureus Journal of Computer Science.",
+      "year": 2025,
+      "url": "https://doi.org/10.7759/s44389-025-03357-2",
       "cited_by": 0,
-      "abstract": "This dataset comprises EEG recordings from a visual working memory task presented in virtual reality, where participants remembered object details cued by either a social (avatar) or non-social (stick) agent. The study investigates how social versus non-social cues modulate neural signatures of working memory, with cue validity (congruent vs. incongruent) manipulated across trials. Raw and preprocessed EEG data are provided alongside behavioral performance metrics and detailed event codes for memory encoding, maintenance, and retrieval phases.",
-      "doi": "10.82901/nemar.on003702.v1.0.0",
+      "abstract": "Memory retrieval poses a persistent challenge for individuals with cognitive impairments, particularly those affected by neurodegenerative disorders. This paper proposes a Memory Retrieval Cue (MRC) system - an EEG-driven framework that utilizes signal decomposition, vectorization, reinforcement learning, and retrieval-augmented generation to facilitate structured memory reconstruction. The system extracts neural activation patterns from vectorized EEG signals, segments them contextually, and adaptively refines retrieval strategies in real-time based on user brainwave activity. By preserving semantic integrity and adjusting to individual cognitive states, MRC enhances recall accuracy and coherence. Preliminary validation using simulated EEG trials demonstrates effective classification and meaningful memory reconstruction, laying the groundwork for future clinical application. This research contributes to the growing intersection of neuroscience and artificial intelligence for cognitive rehabilitation.",
+      "doi": "10.7759/s44389-025-03357-2",
       "pmid": null,
-      "openalex_id": "W7165572863",
-      "source_doi": "10.31234/osf.io/mkags",
-      "source_relation": "References",
-      "discovery_backend": "opencite",
+      "openalex_id": "W4411885365",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds003702",
       "confidence_scoring": {
-        "confidence_score": 0.9333483231067659,
-        "similarity_score": 0.808093786239624,
-        "citation_text_length": 671,
+        "confidence_score": 0.6144348782300949,
+        "similarity_score": 0.5319782495498657,
+        "citation_text_length": 1212,
         "dataset_text_length": 2180,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -155,17 +168,17 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T12:09:01.602190+00:00",
+    "scoring_date": "2026-09-30T10:56:55.781130+00:00",
     "dataset_text_length": 2180,
     "num_citations_scored": 4,
     "summary_stats": {
-      "mean_confidence": 0.6829596428945661,
-      "median_confidence": 0.691966671422124,
-      "std_confidence": 0.25022780638181724,
+      "mean_confidence": 0.6032312816753984,
+      "median_confidence": 0.5330139168351888,
+      "std_confidence": 0.20434684130771538,
       "min_confidence": 0.41455690562725067,
-      "max_confidence": 0.9333483231067659,
-      "high_confidence_count": 2,
-      "medium_confidence_count": 2,
+      "max_confidence": 0.9323403874039651,
+      "high_confidence_count": 1,
+      "medium_confidence_count": 3,
       "low_confidence_count": 0
     }
   }

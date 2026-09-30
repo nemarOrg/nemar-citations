@@ -1,7 +1,7 @@
 {
   "dataset_id": "nm000149",
-  "num_citations": 101,
-  "date_last_updated": "2026-09-29T10:41:48.961520+00:00",
+  "num_citations": 100,
+  "date_last_updated": "2026-09-30T10:44:24.726739+00:00",
   "metadata": {
     "total_cumulative_citations": 2439,
     "fetch_date": "2026-09-29T10:41:48.961520+00:00",
@@ -11,31 +11,33 @@
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.1038/s41598-019-43594-9",
         "identifier_type": "doi",
         "source_relation": "IsDerivedFrom",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "Attempted Arm and Hand Movements can be Decoded from Low-Frequency EEG from Persons with Spinal Cord Injury",
+        "paper_year": 2019,
+        "paper_venue": "Scientific Reports",
+        "reason": "The paper reports the recording of this exact data: 10 persons with cervical SCI attempting hand open, palmar/lateral grasp, pronation and supination. The authors and DOI match the dataset.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.5281/zenodo.2222268",
         "identifier_type": "doi",
         "source_relation": "References",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "Attempted Arm and Hand Movements can be Decoded from Low-Frequency EEG from Persons with Spinal Cord Injury",
+        "paper_year": 2018,
+        "paper_venue": "Figshare",
+        "reason": "Figshare/Zenodo deposit of the Ofner et al. SCI study: 10 cervical SCI persons, five attempted movements (hand open, palmar/lateral grasp, pronation, supination), matching this dataset's events and authors.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.82901/nemar.nm000149",
@@ -47,7 +49,8 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -2373,43 +2376,20 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
-    },
-    {
-      "title": "BNCI 2019-001 Motor Imagery dataset for Spinal Cord Injury patients",
-      "author": "Patrick Ofner, Andreas Schwarz, Joana Pereira, Daniela Wyss, Renate Wildburger, Gernot R Muller-Putz",
-      "venue": "UC San Diego",
-      "year": 2026,
-      "url": "https://doi.org/10.82901/nemar.nm000149",
-      "cited_by": 0,
-      "abstract": "This dataset comprises EEG recordings from 10 patients with spinal cord injury performing five distinct hand and arm motor imagery tasks: hand open, palmar grasp, lateral grasp, pronation, and supination. The study investigates the decoding of attempted movements from low-frequency EEG signals (movement-related cortical potentials) to support neuroprosthetic applications for upper limb control. The dataset includes 360 trials (72 per class) acquired at 256 Hz with 61 EEG channels and 3 EOG channels, along with preprocessing details and classification performance metrics.",
-      "doi": "10.82901/nemar.nm000149",
-      "pmid": null,
-      "openalex_id": "W7157773470",
-      "source_doi": "10.5281/zenodo.2222268",
-      "source_relation": "References",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 1.0,
-        "similarity_score": 0.8966097235679626,
-        "citation_text_length": 795,
-        "dataset_text_length": 2363,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T11:50:56.109072+00:00",
+    "scoring_date": "2026-09-30T10:50:13.185316+00:00",
     "dataset_text_length": 2363,
-    "num_citations_scored": 101,
+    "num_citations_scored": 100,
     "summary_stats": {
-      "mean_confidence": 0.5766608893399192,
-      "median_confidence": 0.5747258189320565,
-      "std_confidence": 0.1083834035235317,
+      "mean_confidence": 0.5724274982333184,
+      "median_confidence": 0.5725170390307903,
+      "std_confidence": 0.10027138253027142,
       "min_confidence": 0.3369030421972275,
-      "max_confidence": 1.0,
-      "high_confidence_count": 12,
+      "max_confidence": 0.7899844944477082,
+      "high_confidence_count": 11,
       "medium_confidence_count": 85,
       "low_confidence_count": 4
     }

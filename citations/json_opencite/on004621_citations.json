@@ -1,7 +1,7 @@
 {
   "dataset_id": "on004621",
-  "num_citations": 13,
-  "date_last_updated": "2026-09-29T11:18:07.520109+00:00",
+  "num_citations": 17,
+  "date_last_updated": "2026-09-30T10:47:15.910473+00:00",
   "metadata": {
     "total_cumulative_citations": 57,
     "fetch_date": "2026-09-29T11:18:07.520109+00:00",
@@ -11,19 +11,20 @@
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.1093/gigascience/giac015",
         "identifier_type": "doi",
         "source_relation": "IsDescribedBy",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "The Nencki-Symfonia electroencephalography/event-related potential dataset: Multiple cognitive tasks and resting-state data collected in a sample of healthy adults",
+        "paper_year": 2022,
+        "paper_venue": "GigaScience",
+        "reason": "GigaScience data descriptor by the same authors describing this Nencki-Symfonia EEG/ERP dataset (MSIT+, oddball, SRT, resting-state, 42 adults), and it is the first reference the dataset asks users to cite.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.82901/nemar.on004621",
@@ -35,7 +36,8 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -56,7 +58,14 @@
         "funder_name": "Polish National Science Center (NCN)",
         "award_number": "2016/20/W/NZ4/00354"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "on004621",
+      "ds004621"
+    ],
+    "num_accession_mentions": 4,
+    "num_dataset_citations": 5,
+    "num_datapaper_citations": 12
   },
   "citation_details": [
     {
@@ -149,7 +158,9 @@
         "dataset_text_length": 2249,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
+      },
+      "mentions_accession": true,
+      "matched_accession": "ds004621"
     },
     {
       "title": "Benchmarking ERP Analysis: Manual Features, Deep Learning, and Foundation Models",
@@ -357,21 +368,127 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "Gemini Exchange v2.0.0: Empirical Validation of Dynamic Information–Energy Coupling in Cortical EEG Activity",
+      "author": "Esposito, Giovanni",
+      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "year": 2025,
+      "url": "https://doi.org/10.5281/zenodo.17567434",
+      "cited_by": 0,
+      "abstract": "This archive provides the complete reproducible dataset and analysis materials for the Anti-Congruent Law (ACL) Framework, validating three fundamental semantic operators — composition (∘), recursion (↻), and paradox (⊗) — using real EEG data from OpenNeuro ds004621. The dataset contains 450 fully preprocessed EEG trials (10 participants × 15 trials × 3 operators), each annotated with derived metrics describing symbolic energetics in the ψ-metric space: Variable Meaning Derivation ψ Mean ERP power (300–800 ms, FCz/Cz) mean(V²) ψ′ Theta-band curvature log(1 + varM Semantic variance 1000 / ψ⁴ dψ₍imm₎ / dψ₍del₎ Immediate / delayed modulation z-scored reaction times Preprocessing was performed in MNE-Python v1.7 following BIDS-EEG standards.Statistical analyses were implemented in R (lme4) and Python (Pingouin), with mixed-effects and mediation models confirming all four preregistered hypotheses: Operator-dependent differences in ψ. Time-shifted modulation (dψ₍imm₎ > dψ₍del₎). Mediation of ψ → dψ₍imm₎ through varM. Quartic scaling law varM ∝ ψ⁻⁴ (R² = 0.93). All figures (PNG + PDF + EPS) and scripts (Python, R) are included for direct reproducibility.The repository is journal-neutral, open-license (CC BY 4.0), and version-controlled for archival citation.",
+      "doi": "10.5281/zenodo.17567434",
+      "pmid": null,
+      "openalex_id": "W7104701520",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004621",
+      "superseded_dois": [
+        "10.5281/zenodo.17576092"
+      ],
+      "confidence_scoring": {
+        "confidence_score": 0.6914552512764932,
+        "similarity_score": 0.5986625552177429,
+        "citation_text_length": 1492,
+        "dataset_text_length": 2249,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "ACL Framework: Real EEG Validation of Semantic Operators (∘, ⊗, ↻) — Derived Metrics and Reproducible Analysis Package",
+      "author": "Esposito, Giovanni",
+      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "year": 2025,
+      "url": "https://doi.org/10.5281/zenodo.17567435",
+      "cited_by": 0,
+      "abstract": "This archive provides the complete reproducible dataset and analysis materials for the Anti-Congruent Law (ACL) Framework, validating three fundamental semantic operators — composition (∘), recursion (↻), and paradox (⊗) — using real EEG data from OpenNeuro ds004621. The dataset contains 450 fully preprocessed EEG trials (10 participants × 15 trials × 3 operators), each annotated with derived metrics describing symbolic energetics in the ψ-metric space: Variable Meaning Derivation ψ Mean ERP power (300–800 ms, FCz/Cz) mean(V²) ψ′ Theta-band curvature log(1 + varM Semantic variance 1000 / ψ⁴ dψ₍imm₎ / dψ₍del₎ Immediate / delayed modulation z-scored reaction times Preprocessing was performed in MNE-Python v1.7 following BIDS-EEG standards.Statistical analyses were implemented in R (lme4) and Python (Pingouin), with mixed-effects and mediation models confirming all four preregistered hypotheses: Operator-dependent differences in ψ. Time-shifted modulation (dψ₍imm₎ > dψ₍del₎). Mediation of ψ → dψ₍imm₎ through varM. Quartic scaling law varM ∝ ψ⁻⁴ (R² = 0.93). All figures (PNG + PDF + EPS) and scripts (Python, R) are included for direct reproducibility.The repository is journal-neutral, open-license (CC BY 4.0), and version-controlled for archival citation.",
+      "doi": "10.5281/zenodo.17567435",
+      "pmid": null,
+      "openalex_id": "W7104701692",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004621",
+      "superseded_dois": [
+        "10.5281/zenodo.17567974"
+      ],
+      "confidence_scoring": {
+        "confidence_score": 0.6728165298700333,
+        "similarity_score": 0.5825251340866089,
+        "citation_text_length": 1502,
+        "dataset_text_length": 2249,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "The Anti-Congruent Law (Version 3): Empirical Validation of ψ-Scaling in Human Semantic EEG Dynamics",
+      "author": "Esposito, Giovanni",
+      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "year": 2025,
+      "url": "https://doi.org/10.5281/zenodo.17568168",
+      "cited_by": 0,
+      "abstract": "This archive provides the complete reproducible dataset and analysis materials for the Anti-Congruent Law (ACL) Framework, validating three fundamental semantic operators — composition (∘), recursion (↻), and paradox (⊗) — using real EEG data from OpenNeuro ds004621. The dataset contains 450 fully preprocessed EEG trials (10 participants × 15 trials × 3 operators), each annotated with derived metrics describing symbolic energetics in the ψ-metric space: Variable Meaning Derivation ψ Mean ERP power (300–800 ms, FCz/Cz) mean(V²) ψ′ Theta-band curvature log(1 + varM Semantic variance 1000 / ψ⁴ dψ₍imm₎ / dψ₍del₎ Immediate / delayed modulation z-scored reaction times Preprocessing was performed in MNE-Python v1.7 following BIDS-EEG standards.Statistical analyses were implemented in R (lme4) and Python (Pingouin), with mixed-effects and mediation models confirming all four preregistered hypotheses: Operator-dependent differences in ψ. Time-shifted modulation (dψ₍imm₎ > dψ₍del₎). Mediation of ψ → dψ₍imm₎ through varM. Quartic scaling law varM ∝ ψ⁻⁴ (R² = 0.93). All figures (PNG + PDF + EPS) and scripts (Python, R) are included for direct reproducibility.The repository is journal-neutral, open-license (CC BY 4.0), and version-controlled for archival citation.",
+      "doi": "10.5281/zenodo.17568168",
+      "pmid": null,
+      "openalex_id": "W7104602071",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004621",
+      "confidence_scoring": {
+        "confidence_score": 0.6107341343164445,
+        "similarity_score": 0.5287741422653198,
+        "citation_text_length": 1484,
+        "dataset_text_length": 2249,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "The Anti-Congruent Law (ACL) — Boundary Test v3.1.0: Empirical Falsification of ψ⁻⁴ Scaling in OpenNeuro EEG",
+      "author": "Esposito, Giovanni",
+      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "year": 2025,
+      "url": "https://doi.org/10.5281/zenodo.17570742",
+      "cited_by": 0,
+      "abstract": "This archive provides the complete reproducible dataset and analysis materials for the Anti-Congruent Law (ACL) Framework, validating three fundamental semantic operators — composition (∘), recursion (↻), and paradox (⊗) — using real EEG data from OpenNeuro ds004621. The dataset contains 450 fully preprocessed EEG trials (10 participants × 15 trials × 3 operators), each annotated with derived metrics describing symbolic energetics in the ψ-metric space: Variable Meaning Derivation ψ Mean ERP power (300–800 ms, FCz/Cz) mean(V²) ψ′ Theta-band curvature log(1 + varM Semantic variance 1000 / ψ⁴ dψ₍imm₎ / dψ₍del₎ Immediate / delayed modulation z-scored reaction times Preprocessing was performed in MNE-Python v1.7 following BIDS-EEG standards.Statistical analyses were implemented in R (lme4) and Python (Pingouin), with mixed-effects and mediation models confirming all four preregistered hypotheses: Operator-dependent differences in ψ. Time-shifted modulation (dψ₍imm₎ > dψ₍del₎). Mediation of ψ → dψ₍imm₎ through varM. Quartic scaling law varM ∝ ψ⁻⁴ (R² = 0.93). All figures (PNG + PDF + EPS) and scripts (Python, R) are included for direct reproducibility.The repository is journal-neutral, open-license (CC BY 4.0), and version-controlled for archival citation.",
+      "doi": "10.5281/zenodo.17570742",
+      "pmid": null,
+      "openalex_id": "W7104621124",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004621",
+      "confidence_scoring": {
+        "confidence_score": 0.6253440731763841,
+        "similarity_score": 0.5414234399795532,
+        "citation_text_length": 1492,
+        "dataset_text_length": 2249,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T12:13:04.294412+00:00",
+    "scoring_date": "2026-09-30T10:59:57.757911+00:00",
     "dataset_text_length": 2249,
-    "num_citations_scored": 13,
+    "num_citations_scored": 17,
     "summary_stats": {
-      "mean_confidence": 0.5506396809449563,
-      "median_confidence": 0.5565513771772385,
-      "std_confidence": 0.19250057298202863,
+      "mean_confidence": 0.574039167113164,
+      "median_confidence": 0.5808427584171295,
+      "std_confidence": 0.17428413302035223,
       "min_confidence": 0.16794404223561288,
       "max_confidence": 0.9877206748723985,
       "high_confidence_count": 2,
-      "medium_confidence_count": 9,
+      "medium_confidence_count": 13,
       "low_confidence_count": 2
     }
   }

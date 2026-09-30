@@ -1,7 +1,7 @@
 {
   "dataset_id": "on004837",
-  "num_citations": 9,
-  "date_last_updated": "2026-09-29T11:20:08.376796+00:00",
+  "num_citations": 11,
+  "date_last_updated": "2026-09-30T10:46:35.139383+00:00",
   "metadata": {
     "total_cumulative_citations": 22,
     "fetch_date": "2026-09-29T11:20:08.376796+00:00",
@@ -11,19 +11,20 @@
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.1111/ejn.16107",
         "identifier_type": "doi",
         "source_relation": "IsDescribedBy",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "Is source‐resolved magnetoencephalographic mismatch negativity a viable biomarker for early psychosis?",
+        "paper_year": 2023,
+        "paper_venue": "European Journal of Neuroscience",
+        "reason": "Same authors as the dataset. The paper reports MEG pitch and duration MMN in first-episode schizophrenia and controls, and the dataset description names it as the extended description.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.82901/nemar.on004837",
@@ -35,7 +36,8 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -61,7 +63,14 @@
         "funder_name": "NIH",
         "award_number": "R01 MH113533"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "on004837",
+      "ds004837"
+    ],
+    "num_accession_mentions": 2,
+    "num_dataset_citations": 2,
+    "num_datapaper_citations": 9
   },
   "citation_details": [
     {
@@ -270,21 +279,71 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "Schizophrenia: temporal imprecision in phase, time, and frequency domains",
+      "author": "Saeid Kholghi, Georg Northoff",
+      "venue": "Schizophrenia",
+      "year": 2026,
+      "url": "https://doi.org/10.1038/s41537-026-00792-5",
+      "cited_by": 0,
+      "abstract": "Schizophrenia is associated with deficits in input processing, but the underlying neural dynamics of this deficit remain unclear. A recent model proposes temporal imprecision as a basic disturbance driving the input processing deficit. To address the question of whether temporal imprecision affects all three domains of the brain's signal (e.g., phase, time, and frequency) as early as first episode schizophrenia, we analyzed magnetoencephalography (MEG) data from 25 first-episode schizophrenia (FESZ) participants and 24 healthy controls (HC) during a passive auditory oddball task with standard, pitch deviant, and duration deviant tones while watching a silent movie. We quantified temporal precision via (i) intertrial phase coherence (ITPC), (ii) intrinsic neural timescale (INT), and (iii) power spectral density (PSD) heterogeneity. For all three signal domains, we also calculated their temporal variability in sliding windows over the MEG recording. FESZ showed reduced intertrial phase coherence to both deviant tones, with a broader time and frequency range for the duration deviant ITPC reduction. Intrinsic neural timescales were prolonged in FESZ subjects. PSD profiles were more heterogeneous and broader during the auditory task in the FESZ group. FESZ subjects also showed increased temporal variability in all three signal domains across sliding windows. Finally, significant associations were observed between temporal variability in all three signal domains, including their association to impaired duration deviant mismatch negativity amplitude in first episode schizophrenia, whereas these associations were largely absent for healthy participants. We conclude that first-episode schizophrenia shows convergent temporal imprecision at specific time points as well as between time points in all three signal domains including phase, time, and frequency; this is consistent with temporal imprecision as a domain-general basic disturbance of input processing in schizophrenia.",
+      "doi": "10.1038/s41537-026-00792-5",
+      "pmid": "42791260",
+      "openalex_id": "W7202264416",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004837",
+      "confidence_scoring": {
+        "confidence_score": 0.7611703795194626,
+        "similarity_score": 0.6590219736099243,
+        "citation_text_length": 1654,
+        "dataset_text_length": 1204,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "The Thermodynamics of the Self: A Proof of Concept Based on Real Data Preliminary Empirical Evidence of Entropic Rigidity and Neural Disintegration",
+      "author": "Romero Felipe",
+      "venue": "PhilPapers (PhilPapers Foundation)",
+      "year": 2026,
+      "url": "https://openalex.org/W7128149547",
+      "cited_by": 0,
+      "abstract": "This technical report presents a proof of concept for the \"Self as a Dissipative Structure\" model. Using Magnetoencephalography (MEG) data, we mapped brain dynamics across two axes: Lempel-Ziv Complexity (LZc) and Global Phase Synchrony. While this pilot study utilizes a limited sample (N=1 per group), the results demonstrate robust distinctions between Major Depression (Q2), characterized by entropic rigidity (LZc ≈ 0.05), and high-complexity states. The inclusion of phase synchrony allowed for the differentiation of functional health from psychotic disintegration, suggesting that the two-dimensional model can provide physical signatures for subjective mental states.",
+      "doi": null,
+      "pmid": null,
+      "openalex_id": "W7128149547",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004837",
+      "confidence_scoring": {
+        "confidence_score": 0.5567890244722368,
+        "similarity_score": 0.48206841945648193,
+        "citation_text_length": 909,
+        "dataset_text_length": 1204,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T12:14:03.207053+00:00",
+    "scoring_date": "2026-09-30T11:00:26.940699+00:00",
     "dataset_text_length": 1204,
-    "num_citations_scored": 9,
+    "num_citations_scored": 11,
     "summary_stats": {
-      "mean_confidence": 0.7202500045299531,
+      "mean_confidence": 0.7091099495237526,
       "median_confidence": 0.6988635545969011,
-      "std_confidence": 0.10813543594305239,
+      "std_confidence": 0.10965578895679308,
       "min_confidence": 0.4861086434125901,
       "max_confidence": 0.8649823182821275,
-      "high_confidence_count": 4,
-      "medium_confidence_count": 5,
+      "high_confidence_count": 5,
+      "medium_confidence_count": 6,
       "low_confidence_count": 0
     }
   }

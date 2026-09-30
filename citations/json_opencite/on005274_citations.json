@@ -1,7 +1,7 @@
 {
   "dataset_id": "on005274",
-  "num_citations": 0,
-  "date_last_updated": "2026-09-22T11:23:04.754959+00:00",
+  "num_citations": 2,
+  "date_last_updated": "2026-09-30T10:47:07.651355+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
     "fetch_date": "2026-09-22T11:23:04.754959+00:00",
@@ -11,7 +11,7 @@
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.82901/nemar.on005274",
@@ -23,7 +23,8 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -35,13 +36,81 @@
       "neuroimaging"
     ],
     "methods_description": null,
-    "funding": []
+    "funding": [],
+    "searched_accessions": [
+      "on005274",
+      "ds005274"
+    ],
+    "num_accession_mentions": 2,
+    "num_dataset_citations": 2,
+    "num_datapaper_citations": 0
   },
-  "citation_details": [],
+  "citation_details": [
+    {
+      "title": "Croissant Baker: Metadata Generation for Discoverable, Governable, and Reusable ML Datasets",
+      "author": "Rafi Al Attrach, Rajna Fani, Sebastian Lobentanzer, Joan Giner-Miguelez, Debanshu Das, Varuni H. K., Nobin Sarwar, Rajat Ghosh, Anwai Archit, Surbhi Motghare, Christina Conrad Parry, Luis Oala, Lara Grosso, Joaquin Vanschoren, Steffen Vogler, Sujata Goswami, Eric S. Rosenthal, Marzyeh Ghassemi, Matthew McDermott, tom pollard",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2605.15079",
+      "cited_by": 0,
+      "abstract": "Croissant has emerged as the metadata standard for machine learning datasets, providing a structured, JSON-LD-based format that makes dataset discovery, automated ingestion, and reproducible analysis machine-checkable across ML platforms. Adoption has accelerated, and NeurIPS now requires Croissant metadata in every submission to its dataset tracks. Yet in practice Croissant generation usually starts with uploading data to a public platform, a path infeasible for governed and large local repositories that hold much of the high-value data ML increasingly relies on. We release Croissant Baker, a local-first, open-source command-line tool that generates validated Croissant metadata directly from a dataset directory through a modular handler registry. We evaluate Croissant Baker on over 140 datasets, scaling to MIMIC-IV at 886 million rows and 374 Parquet files. On held-out comparisons against producer-authored or standards-derived ground truth, Croissant Baker reaches 97-100% agreement across multiple domains.",
+      "doi": "10.48550/arxiv.2605.15079",
+      "pmid": null,
+      "openalex_id": "W7161232897",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds005274",
+      "confidence_scoring": {
+        "confidence_score": 0.45222493752837184,
+        "similarity_score": 0.39153674244880676,
+        "citation_text_length": 1504,
+        "dataset_text_length": 484,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "UV_EEG",
+      "author": "Yukako Ito",
+      "venue": "UC San Diego",
+      "year": 2026,
+      "url": "https://doi.org/10.82901/nemar.on005274.v1.0.0",
+      "cited_by": 0,
+      "abstract": "UV_EEG is an EEG dataset containing electroencephalography recordings mirrored from OpenNeuro (ds005274). The dataset includes raw EEG data in multiple formats (.eeg, .vhdr, .vmrk) along with associated metadata files (.json, .tsv) and documentation (.md). This is an unmodified mirror of the source dataset and provides neuroimaging data suitable for EEG analysis and research applications.",
+      "doi": "10.82901/nemar.on005274.v1.0.0",
+      "pmid": null,
+      "openalex_id": "W7166097317",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds005274",
+      "confidence_scoring": {
+        "confidence_score": 0.9677197498083115,
+        "similarity_score": 0.8378525972366333,
+        "citation_text_length": 458,
+        "dataset_text_length": 484,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    }
+  ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-22T13:21:52.383945+00:00",
+    "scoring_date": "2026-09-30T11:01:26.475788+00:00",
     "dataset_text_length": 484,
-    "num_citations_scored": 0
+    "num_citations_scored": 2,
+    "summary_stats": {
+      "mean_confidence": 0.7099723436683417,
+      "median_confidence": 0.7099723436683417,
+      "std_confidence": 0.2577474061399698,
+      "min_confidence": 0.45222493752837184,
+      "max_confidence": 0.9677197498083115,
+      "high_confidence_count": 1,
+      "medium_confidence_count": 1,
+      "low_confidence_count": 0
+    }
   }
 }

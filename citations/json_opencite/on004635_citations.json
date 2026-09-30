@@ -1,7 +1,7 @@
 {
   "dataset_id": "on004635",
-  "num_citations": 21,
-  "date_last_updated": "2026-09-29T11:18:23.354427+00:00",
+  "num_citations": 23,
+  "date_last_updated": "2026-09-30T10:46:21.741203+00:00",
   "metadata": {
     "total_cumulative_citations": 114,
     "fetch_date": "2026-09-29T11:18:23.354427+00:00",
@@ -11,19 +11,20 @@
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.1007/s10548-024-01043-5",
         "identifier_type": "doi",
         "source_relation": "IsDescribedBy",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "Microstate Analysis of Continuous Infant EEG: Tutorial and Reliability",
+        "paper_year": 2024,
+        "paper_venue": "Brain Topography",
+        "reason": "Bagdasarov & Gaffrey (dataset authors) paper on infant microstate tutorial and reliability uses this 128-channel infant EEG dataset; DataCite marks IsDescribedBy.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.82901/nemar.on004635",
@@ -35,7 +36,8 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -55,7 +57,14 @@
       {
         "funder_name": "Charles Lafitte Foundation"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "on004635",
+      "ds004635"
+    ],
+    "num_accession_mentions": 2,
+    "num_dataset_citations": 2,
+    "num_datapaper_citations": 21
   },
   "citation_details": [
     {
@@ -540,20 +549,70 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "Microstate Analysis of Continuous Infant EEG: Tutorial and Reliability",
+      "author": "Armen Bagdasarov, Denis Brunet, Christoph Martin Michel, Michael Santo Gaffrey",
+      "venue": "Brain Topography",
+      "year": 2024,
+      "url": "https://doi.org/10.1007/s10548-024-01043-5",
+      "cited_by": 23,
+      "abstract": "Microstate analysis of resting-state EEG is a unique data-driven method for identifying patterns of scalp potential topographies, or microstates, that reflect stable but transient periods of synchronized neural activity evolving dynamically over time. During infancy - a critical period of rapid brain development and plasticity - microstate analysis offers a unique opportunity for characterizing the spatial and temporal dynamics of brain activity. However, whether measurements derived from this approach (e.g., temporal properties, transition probabilities, neural sources) show strong psychometric properties (i.e., reliability) during infancy is unknown and key information for advancing our understanding of how microstates are shaped by early life experiences and whether they relate to individual differences in infant abilities. A lack of methodological resources for performing microstate analysis of infant EEG has further hindered adoption of this cutting-edge approach by infant researchers. As a result, in the current study, we systematically addressed these knowledge gaps and report that most microstate-based measurements of brain organization and functioning except for transition probabilities were stable with four minutes of video-watching resting-state data and highly internally consistent with just one minute. In addition to these results, we provide a step-by-step tutorial, accompanying website, and open-access data for performing microstate analysis using a free, user-friendly software called Cartool. Taken together, the current study supports the reliability and feasibility of using EEG microstate analysis to study infant brain development and increases the accessibility of this approach for the field of developmental neuroscience.",
+      "doi": "10.1007/s10548-024-01043-5",
+      "pmid": "38430283",
+      "openalex_id": "W4392347765",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004635",
+      "confidence_scoring": {
+        "confidence_score": 0.8161536473035814,
+        "similarity_score": 0.7066265344619751,
+        "citation_text_length": 1703,
+        "dataset_text_length": 2216,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Microstate Analysis of Infant EEG: Tutorial and Reliability",
+      "author": "Armen Bagdasarov, Denis Brunet, Christoph Martin Michel, Michael Santo Gaffrey",
+      "venue": "Research Square",
+      "year": 2023,
+      "url": "https://doi.org/10.21203/rs.3.rs-3164735/v1",
+      "cited_by": 3,
+      "abstract": "Abstract Microstate analysis of resting-state EEG is a unique data-driven method for identifying patterns of scalp potential topographies, or microstates, that reflect stable but transient periods of synchronized neural activity evolving dynamically over time. During infancy – a critical period of rapid brain development and brain plasticity – microstate analysis offers a unique opportunity for characterizing the spatial and temporal dynamics of brain activity. However, whether measurements derived from this approach (e.g., temporal properties, transition probabilities, neural sources) show strong psychometric properties (i.e., reliability) during infancy is unknown and key information for advancing our understanding of how microstates are shaped by early life experiences and whether they relate to individual differences in infant abilities. A lack of methodological resources for performing microstate analysis of infant EEG has further hindered adoption of this cutting-edge approach by infant researchers. As a result, in the current study, we systematically addressed these knowledge gaps and report that all microstate-based measurements of brain organization and functioning except for transition probabilities were highly stable and reliable with as little as 2–3 minutes of video-watching resting-state data and provide a step-by-step tutorial, accompanying website, and open-access data for performing microstate analysis using a free, user-friendly software called Cartool. Taken together, the current study supports the reliability and feasibility of using EEG microstate analysis to study infant brain development and increases the accessibility of this approach for the field of developmental neuroscience.",
+      "doi": "10.21203/rs.3.rs-3164735/v1",
+      "pmid": null,
+      "openalex_id": "W4384498669",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004635",
+      "confidence_scoring": {
+        "confidence_score": 0.8191252022981645,
+        "similarity_score": 0.7091993093490601,
+        "citation_text_length": 1691,
+        "dataset_text_length": 2216,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T12:13:13.201353+00:00",
+    "scoring_date": "2026-09-30T11:00:04.270964+00:00",
     "dataset_text_length": 2216,
-    "num_citations_scored": 21,
+    "num_citations_scored": 23,
     "summary_stats": {
-      "mean_confidence": 0.5609091001749039,
-      "median_confidence": 0.5450904715061189,
-      "std_confidence": 0.09051947484418343,
+      "mean_confidence": 0.5832334762293361,
+      "median_confidence": 0.5831154155731202,
+      "std_confidence": 0.11275828851420319,
       "min_confidence": 0.42327378988266,
-      "max_confidence": 0.7677394822239877,
-      "high_confidence_count": 2,
+      "max_confidence": 0.8191252022981645,
+      "high_confidence_count": 4,
       "medium_confidence_count": 19,
       "low_confidence_count": 0
     }

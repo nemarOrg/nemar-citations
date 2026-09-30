@@ -1,7 +1,7 @@
 {
   "dataset_id": "on005106",
-  "num_citations": 8,
-  "date_last_updated": "2026-09-29T11:22:50.231157+00:00",
+  "num_citations": 7,
+  "date_last_updated": "2026-09-30T10:44:31.311591+00:00",
   "metadata": {
     "total_cumulative_citations": 61,
     "fetch_date": "2026-09-29T11:22:50.231157+00:00",
@@ -11,31 +11,33 @@
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.31234/osf.io/dzrkq",
         "identifier_type": "doi",
         "source_relation": "References",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
+        "paper_title": "Human infant EEG recordings for 200 object images presented in rapid visual streams.",
+        "paper_year": 2024,
         "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "reason": "PsyArXiv preprint with the same title and authors as the Scientific Data paper named in the README. It describes the 42-infant EEG dataset for 200 object images in rapid visual streams.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.1038/s41597-025-04744-z",
         "identifier_type": "doi",
         "source_relation": "IsDescribedBy",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "Human infant EEG recordings for 200 object images presented in rapid visual streams",
+        "paper_year": 2025,
+        "paper_venue": "Scientific Data",
+        "reason": "The dataset README names this Scientific Data paper (same authors and title, 200 object images in rapid streams, infant EEG) as the paper for the data and code.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.82901/nemar.on005106",
@@ -47,7 +49,8 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -64,32 +67,16 @@
       "object recognition"
     ],
     "methods_description": "Infants' EEG was recorded while they viewed 200 object images presented in rapid visual streams using PsychoPy. Data were preprocessed and epoched, and representational dissimilarity matrices (RDMs) were computed for representational similarity analysis (RSA) using FieldTrip and CoSMoMVPA toolboxes.",
-    "funding": []
+    "funding": [],
+    "searched_accessions": [
+      "on005106",
+      "ds005106"
+    ],
+    "num_accession_mentions": 0,
+    "num_dataset_citations": 0,
+    "num_datapaper_citations": 7
   },
   "citation_details": [
-    {
-      "title": "200 Objects Infants EEG",
-      "author": "Tijl Grootswagers, Genevieve L. Quek, Zhen Zeng, Manuel Varlet",
-      "venue": "UC San Diego",
-      "year": 2026,
-      "url": "https://doi.org/10.82901/nemar.on005106",
-      "cited_by": 0,
-      "abstract": "This dataset comprises electroencephalography (EEG) recordings from human infants viewing 200 object images presented in rapid visual streams. The study investigates neural responses to visual object categories in developing brains, providing insights into early visual processing and object recognition mechanisms in infancy. Raw EEG data are accompanied by preprocessing scripts and representational similarity analysis code for reproducible analysis.",
-      "doi": "10.82901/nemar.on005106",
-      "pmid": null,
-      "openalex_id": "W7166036202",
-      "source_doi": "10.31234/osf.io/dzrkq",
-      "source_relation": "References",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.9487569826841356,
-        "similarity_score": 0.8214346170425415,
-        "citation_text_length": 589,
-        "dataset_text_length": 1305,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
     {
       "title": "How EEG preprocessing shapes decoding performance",
       "author": "Roman Kessler, Alexander Enge, Michael A. Skeide",
@@ -254,16 +241,16 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T12:15:19.027246+00:00",
+    "scoring_date": "2026-09-30T11:01:09.085845+00:00",
     "dataset_text_length": 1305,
-    "num_citations_scored": 8,
+    "num_citations_scored": 7,
     "summary_stats": {
-      "mean_confidence": 0.6091432975418867,
-      "median_confidence": 0.5919364535808564,
-      "std_confidence": 0.14559954856957294,
+      "mean_confidence": 0.5606270568072798,
+      "median_confidence": 0.5828122982382775,
+      "std_confidence": 0.0734648544818546,
       "min_confidence": 0.4456092967092991,
-      "max_confidence": 0.9487569826841356,
-      "high_confidence_count": 1,
+      "max_confidence": 0.657715393602848,
+      "high_confidence_count": 0,
       "medium_confidence_count": 7,
       "low_confidence_count": 0
     }

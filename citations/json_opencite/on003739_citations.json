@@ -1,9 +1,9 @@
 {
   "dataset_id": "on003739",
   "num_citations": 169,
-  "date_last_updated": "2026-09-29T11:11:13.841986+00:00",
+  "date_last_updated": "2026-09-30T10:47:15.272885+00:00",
   "metadata": {
-    "total_cumulative_citations": 3030,
+    "total_cumulative_citations": 3033,
     "fetch_date": "2026-09-29T11:11:13.841986+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
@@ -11,31 +11,33 @@
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.1016/j.neuroimage.2019.05.038",
         "identifier_type": "doi",
         "source_relation": "References",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "Group-level cortical and muscular connectivity during perturbations to walking and standing balance",
+        "paper_year": 2019,
+        "paper_venue": "NeuroImage",
+        "reason": "Peterson & Ferris study of the same walking/standing balance experiment with visual and pull perturbations (29 subjects); matches this dataset's task, authors and participants.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.1523/eneuro.0207-18.2018",
         "identifier_type": "doi",
         "source_relation": "References",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "Differentiation in Theta and Beta Electrocortical Activity between Visual and Physical Perturbations to Walking and Standing Balance",
+        "paper_year": 2018,
+        "paper_venue": "eNeuro",
+        "reason": "The eNeuro paper by Peterson & Ferris reports this exact data: 30 subjects, 4 10-min beam-walking trials with visual rotation or waist-pull perturbations, and 128-channel EEG, EMG and motion capture.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.82901/nemar.on003739",
@@ -47,7 +49,8 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -78,7 +81,14 @@
         "funder_name": "National Institutes of Health",
         "award_number": "R01 NS104772"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "on003739",
+      "ds003739"
+    ],
+    "num_accession_mentions": 1,
+    "num_dataset_citations": 2,
+    "num_datapaper_citations": 167
   },
   "citation_details": [
     {
@@ -1830,29 +1840,6 @@
       }
     },
     {
-      "title": "Perturbed beam-walking task",
-      "author": "Steven M. Peterson, Daniel Ferris",
-      "venue": "UC San Diego",
-      "year": 2026,
-      "url": "https://doi.org/10.82901/nemar.on003739.v1.0.0",
-      "cited_by": 0,
-      "abstract": "This dataset comprises synchronized multimodal neurophysiological and biomechanical recordings from 128-channel EEG, electromyography (EMG), electrooculography (EOG), and motion capture during a perturbed beam-walking task. Participants performed four 10-minute sessions of standing or walking on a narrow balance beam while exposed to sensorimotor perturbations (visual field rotations or waist pulls). The dataset includes preprocessed EEG data with identified good channels and independent component analysis results, enabling investigation of cortical mechanisms underlying balance control and responses to perturbations.",
-      "doi": "10.82901/nemar.on003739.v1.0.0",
-      "pmid": null,
-      "openalex_id": "W7165397339",
-      "source_doi": "10.1016/j.neuroimage.2019.05.038",
-      "source_relation": "References",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 1.0,
-        "similarity_score": 0.880296528339386,
-        "citation_text_length": 736,
-        "dataset_text_length": 1541,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Perturbation-evoked cortical responses and altered causal information flow reflect more effortful but less efficient postural control in patients after ACLR",
       "author": "Tim Lehmann, Gjergji Cobani, Romina Müller, Jochen Baumeister",
       "venue": "Scientific Reports",
@@ -3184,7 +3171,12 @@
         "dataset_text_length": 1541,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
+      },
+      "mentions_accession": true,
+      "matched_accession": "ds003739",
+      "superseded_dois": [
+        "10.1101/2021.09.10.459775"
+      ]
     },
     {
       "title": "Posture‐Dependent Modulation of Interoceptive Processing in Young Male Participants: A Heartbeat‐Evoked Potential Study",
@@ -3967,19 +3959,44 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "Human electrocortical, electromyographical, ocular, and kinematic data during perturbed walking and standing",
+      "author": "Steven M. Peterson, Daniel Perry Ferris",
+      "venue": "Data in Brief",
+      "year": 2021,
+      "url": "https://doi.org/10.1016/j.dib.2021.107635",
+      "cited_by": 3,
+      "abstract": "Active balance control is critical for performing many of our everyday activities. Our nervous systems rely on multiple sensory inputs to inform cortical processing, leading to coordinated muscle actions that maintain balance. However, such cortical processing can be challenging to record during mobile balance tasks due to limitations in noninvasive neuroimaging and motion artifact contamination. Here, we present a synchronized, multi-modal dataset from 30 healthy, young human participants during standing and walking while undergoing brief sensorimotor perturbations. Our dataset includes 20 total hours of high-density electroencephalography (EEG) recorded from 128 scalp electrodes, along with surface electromyography (EMG) from 10 neck and leg electrodes, electrooculography (EOG) recorded from 3 electrodes, and 3D body position from 2 sensors. In addition, we include ∼18000 total balance perturbation events across participants. To facilitate data reuse, we share this dataset in the Brain Imaging Data Structure (BIDS) data standard and publicly release code that replicates our previous event-related findings.",
+      "doi": "10.1016/j.dib.2021.107635",
+      "pmid": "34988270",
+      "openalex_id": "W3216614040",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds003739",
+      "confidence_scoring": {
+        "confidence_score": 0.8167450806498529,
+        "similarity_score": 0.7071385979652405,
+        "citation_text_length": 1324,
+        "dataset_text_length": 1541,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T12:09:11.246233+00:00",
+    "scoring_date": "2026-09-30T10:57:01.946557+00:00",
     "dataset_text_length": 1541,
     "num_citations_scored": 169,
     "summary_stats": {
-      "mean_confidence": 0.5464096940198594,
+      "mean_confidence": 0.5453253453846515,
       "median_confidence": 0.5411252658069134,
-      "std_confidence": 0.08536501004186398,
+      "std_confidence": 0.08062891101032603,
       "min_confidence": 0.29244079604744916,
-      "max_confidence": 1.0,
+      "max_confidence": 0.8167450806498529,
       "high_confidence_count": 2,
       "medium_confidence_count": 159,
       "low_confidence_count": 8

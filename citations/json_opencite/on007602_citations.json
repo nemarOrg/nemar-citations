@@ -1,29 +1,30 @@
 {
   "dataset_id": "on007602",
-  "num_citations": 3,
-  "date_last_updated": "2026-09-29T11:40:07.255787+00:00",
+  "num_citations": 0,
+  "date_last_updated": "2026-09-30T10:44:34.116962+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
     "fetch_date": "2026-09-29T11:40:07.255787+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
-    "anchor_count": 2,
+    "anchor_count": 1,
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.1088/1741-2552/ae54d0",
         "identifier_type": "doi",
         "source_relation": "IsDescribedBy",
-        "classification": null,
-        "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "classification": "related_work",
+        "kept": false,
+        "paper_title": "Large-scale training data enhances silent speech decoding with around-ear EEG",
+        "paper_year": 2026,
+        "paper_venue": "Journal of Neural Engineering",
+        "reason": "The paper studies silent speech decoding with around-ear EEG from 24 participants. The dataset has overt speech EEG (speechopen task) from authors who overlap, so the paper is probably related but doesn't clearly describe this dataset.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_not_data_paper"
       },
       {
         "identifier": "10.82901/nemar.on007602",
@@ -35,11 +36,11 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
-      "10.1088/1741-2552/ae54d0",
       "10.82901/nemar.on007602"
     ],
     "keywords": [
@@ -59,91 +60,11 @@
       }
     ]
   },
-  "citation_details": [
-    {
-      "title": "Bio-integrated systems for silent speech recognition: from advanced bioplatforms to machine learning-assisted biosignal decoding",
-      "author": "Penghao Dong, Yuanqing Song, Yizong Li, Petar M. Djurić, Shanshan Yao",
-      "venue": "Soft Science",
-      "year": 2026,
-      "url": "https://doi.org/10.20517/ss.2026.38",
-      "cited_by": 0,
-      "abstract": "Silent speech interfaces decode intended speech from physiological signals without the need for vocalized sound. These systems provide an alternative modality to voice-based spoken communication, addressing limitations posed by physiological constraints and environmental interferences. This review presents a comprehensive overview of bio-integrated systems for silent speech recognition, with emphasis on their physiological relevance, state-of-the-art hardware designs, signal characteristics, and machine learning (ML)-assisted speech decoding pipelines. Based on the level of physical intrusion into the body, bio-integrated speech interfaces can be categorized into epidermal, intraoral, and surgically embedded systems. Each modality captures distinct physiological signals involved in speech production. The design of bio-integrated systems involves critical trade-offs among recognition accuracy, invasiveness, portability, and robustness. Recent advances in flexible and stretchable electro",
-      "doi": "10.20517/ss.2026.38",
-      "pmid": null,
-      "openalex_id": "W7165633514",
-      "source_doi": "10.1088/1741-2552/ae54d0",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5307463368773462,
-        "similarity_score": 0.4595206379890442,
-        "citation_text_length": 1248,
-        "dataset_text_length": 2321,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Silent speech recognition and interaction via surface electromyography: A review",
-      "author": "Yakun Zhang, Xinyue Zhang, Liang Xie, Xingyu Zhang, Changyan Zheng, Erwei Yin",
-      "venue": "Journal of Applied Biomedicine",
-      "year": 2026,
-      "url": "https://doi.org/10.1016/j.bbe.2026.05.002",
-      "cited_by": 0,
-      "abstract": null,
-      "doi": "10.1016/j.bbe.2026.05.002",
-      "pmid": null,
-      "openalex_id": "W7160715687",
-      "source_doi": "10.1088/1741-2552/ae54d0",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5738993793725967,
-        "similarity_score": 0.5465708374977112,
-        "citation_text_length": 214,
-        "dataset_text_length": 2321,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "AESSI: An Around-Ear Silent Speech Interface for Cross-Day Online Reuse without Test-Day Calibration",
-      "author": "Xi-Ran Xu, Mo-Chu Dong, Yu-Jie Yan, Chen-Xi Wang, Yu Jiao, Jing Chen",
-      "venue": "n/a",
-      "year": 2026,
-      "url": "n/a",
-      "cited_by": 0,
-      "abstract": "Silent speech interfaces (SSIs) enable private communication without audible speech and may support people with post-stroke dysarthria. Everyday reuse requires articulation-related representations that generalize across days despite sensor repositioning and physiological changes. We present AESSI, an around-ear SSI using masked-context representation pretraining (MCRP): a student predicts teacher representations from masked time-frequency inputs to encourage robustness to recording variability. We collected 44 electrophysiological recordings from 24 participants for 25 everyday Mandarin sentences. With six participants'complete final recordings held out, AESSI achieved 92.24 percent mean accuracy without test-day calibration. AESSI exceeded the best adapted baseline by 50.57 percentage points. At least 21 days after each participant's last recording, five participants each completed 50 independently randomized online tests without calibration, achieving 98.0 percent overall accuracy. M",
-      "doi": null,
-      "pmid": null,
-      "openalex_id": null,
-      "source_doi": "10.1088/1741-2552/ae54d0",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.6499709969758989,
-        "similarity_score": 0.5627454519271851,
-        "citation_text_length": 1210,
-        "dataset_text_length": 2321,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    }
-  ],
+  "citation_details": [],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T12:21:09.202998+00:00",
+    "scoring_date": "2026-09-30T11:03:44.696214+00:00",
     "dataset_text_length": 2321,
-    "num_citations_scored": 3,
-    "summary_stats": {
-      "mean_confidence": 0.5848722377419473,
-      "median_confidence": 0.5738993793725967,
-      "std_confidence": 0.04928781194507236,
-      "min_confidence": 0.5307463368773462,
-      "max_confidence": 0.6499709969758989,
-      "high_confidence_count": 0,
-      "medium_confidence_count": 3,
-      "low_confidence_count": 0
-    }
+    "num_citations_scored": 0
   }
 }

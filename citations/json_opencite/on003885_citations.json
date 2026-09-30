@@ -1,7 +1,7 @@
 {
   "dataset_id": "on003885",
-  "num_citations": 17,
-  "date_last_updated": "2026-09-29T11:12:32.738566+00:00",
+  "num_citations": 18,
+  "date_last_updated": "2026-09-30T10:45:08.822929+00:00",
   "metadata": {
     "total_cumulative_citations": 170,
     "fetch_date": "2026-09-29T11:12:32.738566+00:00",
@@ -11,19 +11,20 @@
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.31234/osf.io/3x2qh",
         "identifier_type": "doi",
         "source_relation": "IsDescribedBy",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
+        "paper_title": "Capacity for movement is an organisational principle in object representations",
+        "paper_year": 2021,
         "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "reason": "The preprint has the same title, authors and abstract as the dataset README, which names it as the source paper for Experiment 1 (EEG, aliveness).",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.82901/nemar.on003885",
@@ -35,7 +36,8 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -60,7 +62,14 @@
         "funder_name": "ARC",
         "award_number": "DP200101787"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "on003885",
+      "ds003885"
+    ],
+    "num_accession_mentions": 1,
+    "num_dataset_citations": 1,
+    "num_datapaper_citations": 17
   },
   "citation_details": [
     {
@@ -453,20 +462,45 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "Capacity for movement is an organisational principle in object representations",
+      "author": "Sophia M. Shatek, Amanda K. Robinson, Tijl Grootswagers, Thomas A. Carlson",
+      "venue": "n/a",
+      "year": 2021,
+      "url": "https://doi.org/10.31234/osf.io/3x2qh",
+      "cited_by": 2,
+      "abstract": "The ability to perceive moving objects is crucial for threat identification and survival. Recent neuroimaging evidence has shown that goal-directed movement is an important element of object processing in the brain. However, prior work has primarily used moving stimuli that are also animate, making it difficult to disentangle the effect of movement from aliveness or animacy in representational categorisation. In the current study, we investigated the relationship between how the brain processes movement and aliveness by including stimuli that are alive but still (e.g., plants), and stimuli that are not alive but move (e.g., waves). We examined electroencephalographic (EEG) data recorded while participants viewed static images of moving or non-moving objects that were either natural or artificial. Participants classified the images according to aliveness, or according to capacity for movement. Movement explained significant variance in the neural data over and above that of aliveness, showing that capacity for movement is an important dimension in the representation of visual objects in humans.",
+      "doi": "10.31234/osf.io/3x2qh",
+      "pmid": null,
+      "openalex_id": "W4200500804",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds003885",
+      "confidence_scoring": {
+        "confidence_score": 0.9992749321460725,
+        "similarity_score": 0.8651731014251709,
+        "citation_text_length": 1304,
+        "dataset_text_length": 2405,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T12:09:50.393663+00:00",
+    "scoring_date": "2026-09-30T10:57:26.946438+00:00",
     "dataset_text_length": 2405,
-    "num_citations_scored": 17,
+    "num_citations_scored": 18,
     "summary_stats": {
-      "mean_confidence": 0.5375330902811359,
-      "median_confidence": 0.553412670493126,
-      "std_confidence": 0.09118181187063157,
+      "mean_confidence": 0.5631854148291879,
+      "median_confidence": 0.5628863780200483,
+      "std_confidence": 0.13798165433936027,
       "min_confidence": 0.3616639696061612,
-      "max_confidence": 0.7129122823476791,
-      "high_confidence_count": 1,
+      "max_confidence": 0.9992749321460725,
+      "high_confidence_count": 2,
       "medium_confidence_count": 14,
       "low_confidence_count": 2
     }

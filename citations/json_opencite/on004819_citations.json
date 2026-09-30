@@ -1,7 +1,7 @@
 {
   "dataset_id": "on004819",
-  "num_citations": 3,
-  "date_last_updated": "2026-09-29T11:20:05.716438+00:00",
+  "num_citations": 4,
+  "date_last_updated": "2026-09-30T10:46:34.354831+00:00",
   "metadata": {
     "total_cumulative_citations": 104,
     "fetch_date": "2026-09-29T11:20:05.716438+00:00",
@@ -13,19 +13,20 @@
     },
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.1101/2022.11.08.515705",
         "identifier_type": "doi",
         "source_relation": "References",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "Flexible, Scalable, High Channel Count Stereo-Electrode for Recording in the Human Brain",
+        "paper_year": 2022,
+        "paper_venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+        "reason": "Candidate title and authors match the dataset exactly; README says the data are for the Lee et al. publication (bioRxiv preprint of this study).",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.82901/nemar.on004819",
@@ -37,7 +38,8 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -121,7 +123,14 @@
         "funder_name": "NSF",
         "award_number": "ECCS1542148"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "on004819",
+      "ds004819"
+    ],
+    "num_accession_mentions": 1,
+    "num_dataset_citations": 1,
+    "num_datapaper_citations": 3
   },
   "citation_details": [
     {
@@ -192,20 +201,45 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "Flexible, scalable, high channel count stereo-electrode for recording in the human brain",
+      "author": "Keundong Lee, Angelique C. Paulk, Yun Goo Ro, Daniel R. Cleary, Karen J. Tonsfeldt, Yoav Kfir, John S. Pezaris, Youngbin Tchoe, Jihwan Lee, Andrew M. Bourhis, Ritwik Vatsyayan, Joel R. Martin, Samantha M. Russman, Jimmy Chen Yang, Amy Baohan, Robert Mark Richardson, Ziv M. Williams, Shelley I. Fried, U. Hoi Sang, Ahmed M. T. Raslan, Sharona Ben‐Haim, Eric Halgren, Sydney S. Cash, Shadi A. Dayeh",
+      "venue": "Nature Communications",
+      "year": 2024,
+      "url": "https://doi.org/10.1038/s41467-023-43727-9",
+      "cited_by": 64,
+      "abstract": "Over the past decade, stereotactically placed electrodes have become the gold standard for deep brain recording and stimulation for a wide variety of neurological and psychiatric diseases. Current electrodes, however, are limited in their spatial resolution and ability to record from small populations of neurons, let alone individual neurons. Here, we report on an innovative, customizable, monolithically integrated human-grade flexible depth electrode capable of recording from up to 128 channels and able to record at a depth of 10 cm in brain tissue. This thin, stylet-guided depth electrode is capable of recording local field potentials and single unit neuronal activity (action potentials), validated across species. This device represents an advance in manufacturing and design approaches which extends the capabilities of a mainstay technology in clinical neurology.",
+      "doi": "10.1038/s41467-023-43727-9",
+      "pmid": "38233418",
+      "openalex_id": "W4390954508",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004819",
+      "confidence_scoring": {
+        "confidence_score": 0.8663010129332543,
+        "similarity_score": 0.7500441670417786,
+        "citation_text_length": 1422,
+        "dataset_text_length": 1372,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T12:14:01.614104+00:00",
+    "scoring_date": "2026-09-30T11:00:25.419934+00:00",
     "dataset_text_length": 1372,
-    "num_citations_scored": 3,
+    "num_citations_scored": 4,
     "summary_stats": {
-      "mean_confidence": 0.6220888397097588,
-      "median_confidence": 0.6147677421569825,
-      "std_confidence": 0.07972759037706498,
+      "mean_confidence": 0.6831418830156327,
+      "median_confidence": 0.6689785154163839,
+      "std_confidence": 0.12629247321684114,
       "min_confidence": 0.5283094882965088,
-      "max_confidence": 0.7231892886757851,
-      "high_confidence_count": 1,
+      "max_confidence": 0.8663010129332543,
+      "high_confidence_count": 2,
       "medium_confidence_count": 2,
       "low_confidence_count": 0
     }

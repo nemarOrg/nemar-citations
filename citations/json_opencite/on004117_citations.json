@@ -1,9 +1,9 @@
 {
   "dataset_id": "on004117",
-  "num_citations": 100,
-  "date_last_updated": "2026-09-29T11:13:15.836378+00:00",
+  "num_citations": 103,
+  "date_last_updated": "2026-09-30T10:47:15.579666+00:00",
   "metadata": {
-    "total_cumulative_citations": 38245,
+    "total_cumulative_citations": 38246,
     "fetch_date": "2026-09-29T11:13:15.836378+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
@@ -11,19 +11,20 @@
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.1016/j.neuroimage.2005.04.014",
         "identifier_type": "doi",
         "source_relation": "References",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "Frontal midline EEG dynamics during working memory",
+        "paper_year": 2005,
+        "paper_venue": "NeuroImage",
+        "reason": "Onton, Delorme & Makeig 2005 reports the modified Sternberg working memory EEG study (2004-05, same authors) whose data this dataset releases; DataCite marks IsDescribedBy.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.82901/nemar.on004117",
@@ -35,7 +36,8 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -60,7 +62,14 @@
         "funder_name": "National Institutes of Health",
         "award_number": "NS047293"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "on004117",
+      "ds004117"
+    ],
+    "num_accession_mentions": 3,
+    "num_dataset_citations": 3,
+    "num_datapaper_citations": 100
   },
   "citation_details": [
     {
@@ -2362,21 +2371,102 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "End-to-End Processing of M/EEG Data with BIDS, HED, and EEGLAB",
+      "author": "Dung Truong, Kay A. Robbins, Arnaud Delorme, Scott Makeig",
+      "venue": "Neuromethods",
+      "year": 2024,
+      "url": "https://doi.org/10.1007/978-1-0716-4260-3_6",
+      "cited_by": 1,
+      "abstract": "Abstract Reliable and reproducible machine-learning enabled neuroscience research requires large-scale data sharing and analysis. Essential for the effective and efficient analysis of shared datasets are standardized data and metadata organization and formatting, a well-documented, automated analysis pipeline, a comprehensive software framework, and a compute environment that can adequately support the analysis process. In this chapter, we introduce the combined Brain Imaging Data Structure (BIDS) and Hierarchical Event Descriptors (HED) frameworks and illustrate their example use through the organization and time course annotation of a publicly shared EEG (electroencephalography) dataset. We show how the open-source software EEGLAB can operate on data formatted using these standards to perform EEG analysis using a variety of techniques including group-based statistical analysis. Finally, we present a way to exploit freely available high-performance computing resources that allows the application of computationally intensive learning methods to ever larger and more diverse data collections.",
+      "doi": "10.1007/978-1-0716-4260-3_6",
+      "pmid": null,
+      "openalex_id": "W4405194326",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004117",
+      "superseded_dois": [
+        "10.31219/osf.io/h7puk"
+      ],
+      "confidence_scoring": {
+        "confidence_score": 0.5813471049070359,
+        "similarity_score": 0.5033308267593384,
+        "citation_text_length": 1277,
+        "dataset_text_length": 2280,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Conflict Delays, Load Creates Tail Risk: Distributional Signatures Across Two Cognitive Paradigms",
+      "author": "Thomas S. Mitchell",
+      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "year": 2026,
+      "url": "https://doi.org/10.5281/zenodo.19932823",
+      "cited_by": 0,
+      "abstract": "We analyze reaction-time (RT) distributions across two cognitive paradigms—Eriksen Flanker (response conflict) and Sternberg working memory (load)—to determine how different constraints reshape behavioral structure. Results show two distinct distributional regimes. In the Flanker task, incongruent trials produce a near-uniform shift across quantiles, consistent with additive delay. In contrast, increasing working-memory load (5→7 items) produces a selective expansion of the upper tail (P90), with P90 shifts (~+234 ms) far exceeding lower-quantile shifts (~+47 ms at P10). This upper-tail emergence is robust to outlier removal, confirmed by bootstrap confidence intervals, and captured by a significant increase in the Tail Risk Index (TRI = P90 − P50). Subjects exhibiting stronger tail expansion show lower accuracy (p = 0.043), indicating that tail risk identifies performance-relevant structure. Pupil-linked physiology shows no detectable association with these distributional metrics. These findings demonstrate that cognitive constraint operates in at least two regimes: translation under response conflict and upper-tail risk emergence under memory load. Behavioral distribution shape provides a low-cost, physiology-independent marker of cognitive constraint beyond mean RT or variance. Data sources: OpenNeuro ds000102 (Flanker) and ds004117 (Sternberg). Cross-task generalization beyond these paradigms remains to be tested.",
+      "doi": "10.5281/zenodo.19932823",
+      "pmid": null,
+      "openalex_id": "W7158798426",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004117",
+      "superseded_dois": [
+        "10.5281/zenodo.19932824"
+      ],
+      "confidence_scoring": {
+        "confidence_score": 0.6149776393175126,
+        "similarity_score": 0.5324481725692749,
+        "citation_text_length": 1651,
+        "dataset_text_length": 2280,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Decoding Working Memory Load from EEG and Behavioral Dynamics",
+      "author": "Xiaoyu Ye",
+      "venue": "International Journal of Biology and Life Sciences",
+      "year": 2026,
+      "url": "https://doi.org/10.54097/y2c4fp94",
+      "cited_by": 0,
+      "abstract": "Working memory (WM) is critical for cognitive tasks such as reasoning and problem-solving, and its performance is heavily influenced by cognitive load. This study explores the use of EEG, combined with Common Spatial Pattern (CSP) and Support Vector Machine (SVM) classification, to predict cog- nitive states under different memory load conditions (easy, medium, and hard). Behavioral performance, including accuracy and reaction time (RT), was assessed across memory load levels, with RT increasing and accuracy decreasing as memory load became more difficult. EEG data were preprocessed to isolate probe-related activity, and CSP was employed for spatial feature extraction, followed by SVM classifica- tion to decode cognitive states. Our results demonstrated robust binary and multi-class classification per- formance, with average test accuracies consistently exceeding 80% across subjects. Notably, the model achieved high accuracy in distinguishing between memory load conditions, with minimal misclassifi- cations and strong consistency between test and cross-validation results. These findings highlight the potential of the CSP-SVM framework for real-time cognitive state monitoring, offering a non-invasive method for tracking cognitive load in both healthy and clinical populations. Future work will explore further applications in neuroadaptive technologies and cognitive impairment monitoring.",
+      "doi": "10.54097/y2c4fp94",
+      "pmid": null,
+      "openalex_id": "W7125986414",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004117",
+      "confidence_scoring": {
+        "confidence_score": 0.69978357732296,
+        "similarity_score": 0.6058732271194458,
+        "citation_text_length": 1567,
+        "dataset_text_length": 2280,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T12:10:18.027440+00:00",
+    "scoring_date": "2026-09-30T10:58:04.821926+00:00",
     "dataset_text_length": 2280,
-    "num_citations_scored": 100,
+    "num_citations_scored": 103,
     "summary_stats": {
-      "mean_confidence": 0.5008941071644426,
-      "median_confidence": 0.4969857141375542,
-      "std_confidence": 0.09585542149879067,
+      "mean_confidence": 0.5047137770678812,
+      "median_confidence": 0.4972775220870972,
+      "std_confidence": 0.09736171094627065,
       "min_confidence": 0.2756935805082321,
       "max_confidence": 0.7091440916061402,
       "high_confidence_count": 1,
-      "medium_confidence_count": 82,
+      "medium_confidence_count": 85,
       "low_confidence_count": 17
     }
   }

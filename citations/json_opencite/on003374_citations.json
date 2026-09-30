@@ -1,7 +1,7 @@
 {
   "dataset_id": "on003374",
-  "num_citations": 28,
-  "date_last_updated": "2026-09-29T11:44:07.240831+00:00",
+  "num_citations": 27,
+  "date_last_updated": "2026-09-30T10:44:28.581875+00:00",
   "metadata": {
     "total_cumulative_citations": 255,
     "fetch_date": "2026-09-29T11:07:57.178238+00:00",
@@ -11,19 +11,20 @@
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.1016/j.neuroimage.2020.116705",
         "identifier_type": "doi",
         "source_relation": "References",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "The relation between neuronal firing, local field potentials and hemodynamic activity in the human amygdala in response to aversive dynamic visual stimuli",
+        "paper_year": 2020,
+        "paper_venue": "NeuroImage",
+        "reason": "Study paper reporting the same recordings (iEEG and single neurons from amygdala of epilepsy patients, fearful faces vs neutral landscapes); same authors (Fedele et al.), source_relation IsDescribedBy.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.82901/nemar.on003374",
@@ -35,7 +36,8 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -77,7 +79,7 @@
     ],
     "num_accession_mentions": 1,
     "num_dataset_citations": 1,
-    "num_datapaper_citations": 27
+    "num_datapaper_citations": 26
   },
   "citation_details": [
     {
@@ -495,29 +497,6 @@
       }
     },
     {
-      "title": "Dataset of neurons and intracranial EEG from human amygdala during aversive dynamic visual stimulation",
-      "author": "Tommaso Fedele, Ece Boran, Valeri Chirkov, Peter Hilfiker, Thomas Grunwald, Lennart Henning Stieglitz, Hennric Jokeit, Johannes Sarnthein",
-      "venue": "UC San Diego",
-      "year": 2026,
-      "url": "https://doi.org/10.82901/nemar.on003374",
-      "cited_by": 0,
-      "abstract": "This dataset comprises intracranial EEG recordings and single-unit neuronal activity from the human amygdala of nine epilepsy patients during exposure to dynamic visual stimuli with aversive (fearful faces) and neutral (landscape) content. The recordings enable investigation of amygdalar responses to emotional stimuli across multiple spatial scales, from macroscopic field potentials to microscopic neuronal firing patterns. Data are provided in BIDS format with extended neuronal spike data available in NIX standard.",
-      "doi": "10.82901/nemar.on003374",
-      "pmid": null,
-      "openalex_id": "W7165473382",
-      "source_doi": "10.1016/j.neuroimage.2020.116705",
-      "source_relation": "References",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 1.0,
-        "similarity_score": 0.9259308576583862,
-        "citation_text_length": 810,
-        "dataset_text_length": 2448,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Quantifying Correlogram Shape to Analyze Neuronal Firing Dynamics Recorded in TBI-on-a-Chip",
       "author": "Casey Erin Adam, Shatha J. Mufti, Jhon Martinez, Edmond A. Rogers, Martina Dalolio, Nikita Krishnan, Timothy Beauclair, Riyi Shi",
       "venue": "Neuroinformatics",
@@ -729,16 +708,16 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T12:07:35.334846+00:00",
+    "scoring_date": "2026-09-30T10:56:06.440649+00:00",
     "dataset_text_length": 2448,
-    "num_citations_scored": 28,
+    "num_citations_scored": 27,
     "summary_stats": {
-      "mean_confidence": 0.5885741207482559,
-      "median_confidence": 0.5755460704118014,
-      "std_confidence": 0.14440807735136002,
+      "mean_confidence": 0.5733361252204136,
+      "median_confidence": 0.5746704000234605,
+      "std_confidence": 0.12298190753637545,
       "min_confidence": 0.3379672229290009,
       "max_confidence": 1.0,
-      "high_confidence_count": 3,
+      "high_confidence_count": 2,
       "medium_confidence_count": 22,
       "low_confidence_count": 3
     }

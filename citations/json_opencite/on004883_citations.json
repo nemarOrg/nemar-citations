@@ -1,41 +1,43 @@
 {
   "dataset_id": "on004883",
-  "num_citations": 20,
-  "date_last_updated": "2026-09-29T11:21:08.072345+00:00",
+  "num_citations": 10,
+  "date_last_updated": "2026-09-30T10:44:30.742397+00:00",
   "metadata": {
-    "total_cumulative_citations": 98,
+    "total_cumulative_citations": 84,
     "fetch_date": "2026-09-29T11:21:08.072345+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
-    "anchor_count": 3,
+    "anchor_count": 2,
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.1111/psyp.14607",
         "identifier_type": "doi",
         "source_relation": "IsDescribedBy",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "A registered report of a two‐site study of variations of the flanker task: ERN experimental effects and data quality",
+        "paper_year": 2024,
+        "paper_venue": "Psychophysiology",
+        "reason": "The dataset README names this registered report (Psychophysiology 2024) as its publication. The paper has the same authors and reports ERN recorded during three flanker task versions, which matches the dataset title.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.1111/psyp.14731",
         "identifier_type": "doi",
         "source_relation": "References",
-        "classification": null,
-        "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "classification": "related_work",
+        "kept": false,
+        "paper_title": "Stability of performance monitoring with prolonged task performance: A study of error‐related negativity and error positivity",
+        "paper_year": 2024,
+        "paper_venue": "Psychophysiology",
+        "reason": "Different Clayson/Baldwin/Larson preregistered study on ERN/Pe stability across two task batteries; the dataset's own paper is the registered report (psyp.14607), not this one.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_not_data_paper"
       },
       {
         "identifier": "10.82901/nemar.on004883",
@@ -47,12 +49,12 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
       "10.1111/psyp.14607",
-      "10.1111/psyp.14731",
       "10.82901/nemar.on004883"
     ],
     "keywords": [
@@ -64,7 +66,14 @@
       "error monitoring"
     ],
     "methods_description": "Raw EGI MFF files were imported with EEGLAB, task-specific events were recoded into response-locked and stimulus-locked ERN-relevant event labels, and then exported to BIDS format.",
-    "funding": []
+    "funding": [],
+    "searched_accessions": [
+      "on004883",
+      "ds004883"
+    ],
+    "num_accession_mentions": 0,
+    "num_dataset_citations": 0,
+    "num_datapaper_citations": 10
   },
   "citation_details": [
     {
@@ -296,252 +305,22 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
-    },
-    {
-      "title": "Beyond classical metrics: Generalizability theory across psychophysiological modalities",
-      "author": "Harold A. Rocha, Amanda Holbrook, Greg Hajcak, Andreas Keil, Philippe Rast, Julian Francis Thayer, Edelyn Verona, Walter Peter Vispoel, Peter Eugene Clayson",
-      "venue": "International Journal of Psychophysiology",
-      "year": 2026,
-      "url": "https://doi.org/10.1016/j.ijpsycho.2026.113321",
-      "cited_by": 4,
-      "abstract": "Psychophysiological research relies on biological measures to understand cognitive, affective, and behavioral processes, but the utility of these measures for studying individual differences depends on their psychometric reliability. Traditional reliability methods, such as classical test theory, often fail to account for the multiple sources of variance inherent in psychophysiological data. Generalizability theory (GT) provides a robust, multifaceted approach to reliability estimation by decomposing variance across multiple facets, such as trials, tasks, and sessions. This article introduces GT to psychophysiological researchers, detailing its advantages over classical approaches and demonstrating its application to a variety of psychophysiological modalities: event-related potentials (ERPs), electroencephalography (EEG), electrodermal activity (EDA), electromyography (EMG), and electrocardiography (ECG). We outline the two-phase process of GT: generalizability (G) studies, which quan",
-      "doi": "10.1016/j.ijpsycho.2026.113321",
-      "pmid": "41520835",
-      "openalex_id": "W7119512758",
-      "source_doi": "10.1111/psyp.14731",
-      "source_relation": "References",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.3989658173918724,
-        "similarity_score": 0.34542495012283325,
-        "citation_text_length": 1323,
-        "dataset_text_length": 703,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Single‐Trial Relationships Between the Error‐Related Negativity, Pe, Error‐Related Pupillary Dilation Response, and Post‐Error Behavior",
-      "author": "Sara B. LoTemplio, Jack W. Silcox, David L. Strayer, Brennan R. Payne",
-      "venue": "Psychophysiology",
-      "year": 2026,
-      "url": "https://doi.org/10.1111/psyp.70216",
-      "cited_by": 3,
-      "abstract": "The amplitude of the error-related negativity (ERN) is known to be correlated with attention to task and general cognitive control abilities. However, previous research has struggled to consistently link ERN amplitude with behavioral accuracy or reaction time in the task from which the ERN is being measured. This lack of relationship could be due to many factors that are difficult to control for, so explorations of other converging measures to understand error-processing and subsequent behavior adjustment are warranted. The current study examines how two other physiological markers of error-processing-the phasic pupillary dilation response (PDR) and the positivity following an error (Pe)-relate to post-error behavior. Additionally, we also examine relationships between the three physiological indices of error-processing. In the study, EEG and pupillometry were simultaneously recorded while participants completed 24 blocks (50 trials each) of an Ericksen Flanker task. For post-error acc",
-      "doi": "10.1111/psyp.70216",
-      "pmid": "41514179",
-      "openalex_id": "W7119631220",
-      "source_doi": "10.1111/psyp.14731",
-      "source_relation": "References",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.6276687759160997,
-        "similarity_score": 0.5434361696243286,
-        "citation_text_length": 1259,
-        "dataset_text_length": 703,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Enhancing generalizability theory with mixed‐effects models for heteroscedasticity in psychological measurement: A theoretical introduction with an application from EEG data",
-      "author": "Philippe Rast, Peter Eugene Clayson",
-      "venue": "British Journal of Mathematical and Statistical Psychology",
-      "year": 2026,
-      "url": "https://doi.org/10.1111/bmsp.70026",
-      "cited_by": 3,
-      "abstract": "Abstract Generalizability theory (G‐theory) defines a statistical framework for assessing measurement reliability by decomposing observed variance into meaningful components attributable to persons, facets, and error. Classic G‐theory assumes homoscedastic residual variances across measurement conditions, an assumption that is often violated in psychological and behavioural data. The main focus of this work is to extend G‐theory using a mixed‐effects location‐scale model (MELSM) that allows residual error variance to vary systematically across conditions and persons. By modeling heteroscedasticity, we can extend the computation of condition‐specific generalizability () and dependability () coefficients to reflect local reliability under varying degrees of measurement precision. As an illustration, we apply the model to empirical data from an EEG experiment and show that failing to account for variance heterogeneity can mask meaningful differences in measurement quality. A simulation‐ba",
-      "doi": "10.1111/bmsp.70026",
-      "pmid": "41549064",
-      "openalex_id": "W7124727942",
-      "source_doi": "10.1111/psyp.14731",
-      "source_relation": "References",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.41680182516574865,
-        "similarity_score": 0.36086738109588623,
-        "citation_text_length": 1305,
-        "dataset_text_length": 703,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Mapping the Digital Mind: A Meta-Analysis of EEG Biomarkers in Cognition, Emotion, and Mental Health",
-      "author": "Constantinos Halkiopoulos, Evgenia Gkintoni, Basilis Boutsinas",
-      "venue": "Brain Sciences",
-      "year": 2026,
-      "url": "https://doi.org/10.3390/brainsci16040368",
-      "cited_by": 2,
-      "abstract": "Background: Electroencephalography (EEG) provides millisecond-resolution measurements of neural activity, offering a unique potential to identify biomarkers of cognition, emotion, and mental health. However, the proliferation of methodologically diverse studies necessitates systematic synthesis to establish the reliability and clinical utility of proposed EEG biomarkers. Methods: Following PRISMA 2020 guidelines, we systematically searched PubMed, PsycINFO, Web of Science, and Scopus for studies published 2015–2025 examining EEG correlates of cognitive control, learning, emotion regulation, and mental health. From 3847 initial records, k = 210 unique studies (estimated n ≈ 9935 participants across 38 countries; see Methods for sample size derivation) met the inclusion criteria. Random-effects meta-analyses estimated pooled effect sizes for primary EEG markers across five research domains. Results: Frontal-midline theta demonstrated robust effects for cognitive control (k = 12; d = 0.89",
-      "doi": "10.3390/brainsci16040368",
-      "pmid": "42041779",
-      "openalex_id": "W7143293385",
-      "source_doi": "10.1111/psyp.14731",
-      "source_relation": "References",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.530340333133936,
-        "similarity_score": 0.4591691195964813,
-        "citation_text_length": 1215,
-        "dataset_text_length": 703,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Cerebellar Single‐Pulse TMS Differentially Affects Early and Late Error Processing in Reinforcement Learning",
-      "author": "Dana Maria Huvermann, Adam Michael Berlijn, Stefan Jun Groiss, Manfred Mittelstaedt, Alfons Schnitzler, Christian Bellebaum, Martina Minnerop, Dagmar Timmann, Jutta Peterburs",
-      "venue": "Psychophysiology",
-      "year": 2025,
-      "url": "https://doi.org/10.1111/psyp.70178",
-      "cited_by": 2,
-      "abstract": "There is increasing evidence that the cerebellum contributes to feedback processing in reinforcement learning. As yet, it has not been investigated whether the cerebellum also contributes to error processing in reinforcement learning. Studies have shown, however, that the cerebellum is involved in the processing of response errors in non-reinforcement learning contexts, for example, in response conflict tasks. In the present study, we aimed to extend these findings to the processing of response errors, which slowly emerges as a result of reinforcement learning. To this end, we inhibited the cerebellum via single-pulse transcranial magnetic stimulation (spTMS) and recorded cerebral electroencephalography (EEG) measures associated with error processing. If input from the cerebellum is required for error processing, error-correct differentiation should be decreased for cerebellar compared to vertex (control) stimulation. Cerebellar spTMS was applied and EEG was recorded while healthy adul",
-      "doi": "10.1111/psyp.70178",
-      "pmid": "41174359",
-      "openalex_id": "W4415758821",
-      "source_doi": "10.1111/psyp.14731",
-      "source_relation": "References",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.47744370773434647,
-        "similarity_score": 0.41337117552757263,
-        "citation_text_length": 1337,
-        "dataset_text_length": 703,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Reliability of Outcome Monitoring Indices After Effort Exertion: A Psychometric Evaluation of the Effort‐Doors Task for the Study of Individual Differences",
-      "author": "Gavin Heindorf, Harold A. Rocha, Tingting Chen, Walter Peter Vispoel, Peter Eugene Clayson",
-      "venue": "Psychophysiology",
-      "year": 2026,
-      "url": "https://doi.org/10.1111/psyp.70372",
-      "cited_by": 0,
-      "abstract": "The effort-doors task was developed to advance the study of individual differences in effort-reward dynamics by eliciting neural indices across multiple stages of outcome monitoring. The task's suitability for between-person inferences depends on the psychometric reliability of the scores it produces. Generalizability theory was used to evaluate the psychometric properties of the raw event-related brain potential (ERP) scores and their subtraction-based composites that are obtained from an extended version of the effort-doors task. An equation for estimating the reliability of a difference-of-differences score was derived and applied to estimate reliability and trial-count requirements at prespecified thresholds in a sample of 160 participants. The raw scores of cue-P3, reward positivity (RewP), and feedback-P3 (fb-P3) all achieved the recommended reliability threshold for between-person analyses. However, an effect of effort was observed only for cue-P3 (i.e., cue reactivity). The sti",
-      "doi": "10.1111/psyp.70372",
-      "pmid": "42634175",
-      "openalex_id": "W7204074261",
-      "source_doi": "10.1111/psyp.14731",
-      "source_relation": "References",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5473061607778074,
-        "similarity_score": 0.47385814785957336,
-        "citation_text_length": 1300,
-        "dataset_text_length": 703,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Dissociable Patterns of Atypical Error Monitoring in Developmental Dyslexia and Attention Deficit Hyperactivity Disorder",
-      "author": "Xueqing Wang, Yi-Xiang Wang, Jiaqi Cao, Zi Wang, Jing Zhao",
-      "venue": "Brain Sciences",
-      "year": 2026,
-      "url": "https://doi.org/10.3390/brainsci16070669",
-      "cited_by": 0,
-      "abstract": "This study investigated whether alterations in error monitoring constitute shared risk factors for developmental dyslexia (DD) and attention deficit hyperactivity disorder (ADHD). A total of 148 children were recruited and categorized into four groups, including 37 children with DD only, 37 with ADHD only, 40 with comorbid DD + ADHD, and 34 typically developing (TD) controls. Participants completed a combined Flanker-No-Go task to assess error monitoring, utilizing post-error slowing (PES) and post-error accuracy (PEA) to index error detection and error regulation, respectively. Results of linear mixed-effects models showed a significant main effect of DD_status on PES, indicating that children with DD (including the DD-only and comorbid DD + ADHD groups) exhibited significantly shorter PES than their non-DD counterparts. Conversely, a significant main effect of ADHD_status was observed on PEA, where children with ADHD showed lower PEA relative to those without ADHD. Notably, there wer",
-      "doi": "10.3390/brainsci16070669",
-      "pmid": "42512444",
-      "openalex_id": "W7166720265",
-      "source_doi": "10.1111/psyp.14731",
-      "source_relation": "References",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.47879520624876026,
-        "similarity_score": 0.4145413041114807,
-        "citation_text_length": 1231,
-        "dataset_text_length": 703,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Rigidity in error monitoring: Altered oscillatory dynamics under speed and accuracy instructions in obsessive-compulsive disorder",
-      "author": "Alexander Dolge, Julia Klawohn, Norbert Kathmann, Anja Riesel",
-      "venue": "International Journal of Psychophysiology",
-      "year": 2026,
-      "url": "https://doi.org/10.1016/j.ijpsycho.2026.113413",
-      "cited_by": 0,
-      "abstract": "The ability to detect errors and adjust one's own behavior accordingly is fundamental to successful adaptations in dynamic environments. Errors elicit a negative frontocentral deflection in the event-related potential, i.e., error-related negativity (ERN). Moreover, they lead to an oscillatory burst in theta and delta ranges. Theta has been proposed to reflect a mechanism communicating the need for cognitive control across prefrontal brain regions. Error processing and theta and delta power have been repeatedly shown to be increased in patients with obsessive-compulsive disorder (OCD). In addition, OCD patients show reduced adjustments in error monitoring under speed and accuracy instructions. However, it remains unclear to what extent this finding is associated with altered theta and delta dynamics. Therefore, this study aims to analyze error-related oscillatory brain activity and behavioral adaptation in OCD patients under speed and accuracy instructions. We analyzed data from 25 hea",
-      "doi": "10.1016/j.ijpsycho.2026.113413",
-      "pmid": "42173200",
-      "openalex_id": "W7161991012",
-      "source_doi": "10.1111/psyp.14731",
-      "source_relation": "References",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5045444834232331,
-        "similarity_score": 0.43683505058288574,
-        "citation_text_length": 1270,
-        "dataset_text_length": 703,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Conflict and control in error monitoring during sustained visual discrimination",
-      "author": "Taylor M. Curley, L. Jack Rhodes, Lorraine Borghetti, Megan B. Morris",
-      "venue": "Frontiers in Cognition",
-      "year": 2026,
-      "url": "https://doi.org/10.3389/fcogn.2026.1565885",
-      "cited_by": 0,
-      "abstract": "Increases in response errors across time-on-task are ubiquitous in vigilance research, particularly for tasks that require visual operations. An important aspect of vigilance tasks is response monitoring, particularly when a prepotent response must be inhibited. Neural indices of performance monitoring, such as the error-related negativity (ERN), provide strong evidence for changes in response conflict across time during vigilance tasks; however, it is unclear whether the allocation of additional cognitive resources (i.e., working memory) during such tasks leads to differences in response errors and performance monitoring. To examine this relationship, we employed a visual discrimination task in which participants must compare pairs of lines either to each other (simultaneous discrimination) or to a template held in working memory (successive discrimination) and decide whether to withhold or provide a response across 4 blocks of trials. We predicted lower ERN amplitudes and greater fal",
-      "doi": "10.3389/fcogn.2026.1565885",
-      "pmid": "42338779",
-      "openalex_id": "W7147600109",
-      "source_doi": "10.1111/psyp.14731",
-      "source_relation": "References",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5942783671617509,
-        "similarity_score": 0.5145267248153687,
-        "citation_text_length": 1209,
-        "dataset_text_length": 703,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Social observation influences the trajectory of performance monitoring across trials: evidence from single-trial estimates of the ERN and CRN",
-      "author": "Yanbin Niu, Kianoosh Hosseini, Andy Pena, Carlos J. Rodríguez, George Arthur Buzzell",
-      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
-      "year": 2025,
-      "url": "https://doi.org/10.1101/2025.09.16.676498",
-      "cited_by": 0,
-      "abstract": "The error-related negativity (ERN) and correct-related negativity (CRN) are event-related potentials (ERPs) that reflect performance monitoring following error and correct responses, respectively. Prior work demonstrates the ERN is sensitive to the motivational significance of errors, which increases under social observation. However, most studies testing how social observation impacts performance monitoring rely on trial-averaged ERPs, potentially obscuring meaningful fluctuations in ERN/CRN over time. Here, we had participants complete a Flanker task twice (social observation vs. alone) and employed mixed-effects modeling of single-trial ERPs to test if social observation impacts ERN/CRN trajectories over short (within blocks) or long (between blocks) timescales. We found that social observation selectively influenced ERN/CRN trajectories over short timescales: for blocks performed under social observation (but not alone), ERN magnitudes increased across trials and CRN magnitudes dec",
-      "doi": "10.1101/2025.09.16.676498",
-      "pmid": "41000922",
-      "openalex_id": "W4414370764",
-      "source_doi": "10.1111/psyp.14731",
-      "source_relation": "References",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.622553300857544,
-        "similarity_score": 0.5390071868896484,
-        "citation_text_length": 1303,
-        "dataset_text_length": 703,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T12:14:31.097842+00:00",
+    "scoring_date": "2026-09-30T11:00:45.151617+00:00",
     "dataset_text_length": 703,
-    "num_citations_scored": 20,
+    "num_citations_scored": 10,
     "summary_stats": {
-      "mean_confidence": 0.5210842344760895,
-      "median_confidence": 0.5174424082785846,
-      "std_confidence": 0.10617612746644149,
+      "mean_confidence": 0.5222986711710692,
+      "median_confidence": 0.5180334801971913,
+      "std_confidence": 0.1295807165565047,
       "min_confidence": 0.34383126944303516,
       "max_confidence": 0.6894791024923326,
       "high_confidence_count": 0,
-      "medium_confidence_count": 16,
-      "low_confidence_count": 4
+      "medium_confidence_count": 7,
+      "low_confidence_count": 3
     }
   }
 }

@@ -1,31 +1,44 @@
 {
   "dataset_id": "nm000120",
-  "judged_at": "2026-09-29T10:01:45.428732+00:00",
-  "judgment_model": "gemma4:e4b",
+  "judged_at": "2026-09-30T10:02:56.595085+00:00",
+  "judgment_model": "claude-sonnet-5-5",
+  "prompt_version": 2,
   "judgments": [
     {
       "anchor_identifier": "10.48550/arxiv.1602.00904",
       "anchor_identifier_type": "doi",
       "source_relation": "IsDerivedFrom",
-      "classification": "",
-      "reason": "",
+      "classification": "data_paper",
+      "reason": "The dataset's own DOI is this arXiv report, and its authors match. The report introduces the MAMEM SSVEP EEG dataset and uses it for a comparative evaluation of algorithms.",
       "paper_title": "Comparative evaluation of state-of-the-art algorithms for SSVEP-based BCIs",
       "paper_year": 2016,
       "paper_venue": "arXiv (Cornell University)",
-      "judged_at": "2026-09-29T10:01:44.659853+00:00",
-      "error": "llm_judgment_failed:ollama HTTP 404: model 'gemma4:e4b' not found"
+      "judged_at": "2026-09-30T10:02:55.976965+00:00",
+      "error": null
     },
     {
       "anchor_identifier": "10.21105/joss.01896",
       "anchor_identifier_type": "doi",
       "source_relation": "References",
-      "classification": "",
-      "reason": "",
+      "classification": "methodology",
+      "reason": "MNE-BIDS is a software tool for organizing electrophysiology data into BIDS, used to format this dataset, not a paper describing the MAMEM2 SSVEP recordings.",
       "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
       "paper_year": 2019,
       "paper_venue": "The Journal of Open Source Software",
-      "judged_at": "2026-09-29T10:01:45.428732+00:00",
-      "error": "llm_judgment_failed:ollama HTTP 404: model 'gemma4:e4b' not found"
+      "judged_at": "2026-09-30T10:02:56.270859+00:00",
+      "error": null
+    },
+    {
+      "anchor_identifier": "10.1038/s41597-019-0104-8",
+      "anchor_identifier_type": "doi",
+      "source_relation": "References",
+      "classification": "methodology",
+      "reason": "EEG-BIDS is a specification/standard extension to BIDS for EEG data, used to organize this dataset; it does not describe the MAMEM2 SSVEP recordings.",
+      "paper_title": "EEG-BIDS, an extension to the brain imaging data structure for electroencephalography",
+      "paper_year": 2019,
+      "paper_venue": "Scientific Data",
+      "judged_at": "2026-09-30T10:02:56.595085+00:00",
+      "error": null
     }
   ]
 }

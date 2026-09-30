@@ -11,19 +11,20 @@
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.1016/j.clinph.2023.07.002",
         "identifier_type": "doi",
         "source_relation": "IsDescribedBy",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "Low impedance electrodes improve detection of high frequency oscillations in the intracranial EEG",
+        "paper_year": 2023,
+        "paper_venue": "Clinical Neurophysiology",
+        "reason": "Dataset README says the data was first analyzed in this publication (LoZ vs HiZ ECoG, 10 patients, medianus SEP); same authors and design, so it is the study paper for this data.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.82901/nemar.on004642",
@@ -35,7 +36,8 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -62,7 +64,14 @@
       {
         "funder_name": "Alexander S. Onassis Public Benefit Foundation"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "on004642",
+      "ds004642"
+    ],
+    "num_accession_mentions": 0,
+    "num_dataset_citations": 0,
+    "num_datapaper_citations": 9
   },
   "citation_details": [
     {

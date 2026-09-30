@@ -1,7 +1,7 @@
 {
   "dataset_id": "on003655",
-  "num_citations": 24,
-  "date_last_updated": "2026-09-29T11:10:16.205961+00:00",
+  "num_citations": 23,
+  "date_last_updated": "2026-09-30T10:47:15.232789+00:00",
   "metadata": {
     "total_cumulative_citations": 245,
     "fetch_date": "2026-09-29T11:10:16.205961+00:00",
@@ -11,19 +11,20 @@
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.1038/s41598-020-72940-5",
         "identifier_type": "doi",
         "source_relation": "References",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "The electrophysiological underpinnings of variation in verbal working memory capacity",
+        "paper_year": 2020,
+        "paper_venue": "Scientific Reports",
+        "reason": "Same author (Pavlov); the study reports EEG from storage-only and manipulation (alphabetization) verbal WM tasks in 156 participants, matching the dataset's Sternberg paradigm.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.82901/nemar.on003655",
@@ -35,7 +36,8 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -59,7 +61,14 @@
       {
         "funder_name": "Unknown"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "on003655",
+      "ds003655"
+    ],
+    "num_accession_mentions": 0,
+    "num_dataset_citations": 1,
+    "num_datapaper_citations": 22
   },
   "citation_details": [
     {
@@ -290,7 +299,9 @@
         "dataset_text_length": 470,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
+      },
+      "mentions_accession": true,
+      "matched_accession": "ds003655"
     },
     {
       "title": "On the feasibility of an online brain-computer interface-based neurofeedback game for enhancing attention and working memory in stroke and mild cognitive impairment patients",
@@ -520,30 +531,10 @@
         "dataset_text_length": 470,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "VerbalWorkingMemory",
-      "author": "Yuri G. Pavlov",
-      "venue": "UC San Diego",
-      "year": 2026,
-      "url": "https://doi.org/10.82901/nemar.on003655.v1.0.0",
-      "cited_by": 0,
-      "abstract": "This dataset comprises EEG recordings from a modified Sternberg working memory task designed to dissociate neural mechanisms of verbal information retention from those supporting active manipulation. Participants performed two task types—simple retention and alphabetization—across three memory loads (5, 6, or 7 letters), enabling investigation of temporally distinct oscillatory signatures underlying different working memory processes. Please cite: Pavlov, Y. G., & Kotchoubey, B. (2021). Temporally distinct oscillatory codes of retention and manipulation of verbal working memory. Scientific Reports, 11, 11230. https://doi.org/10.1038/s41598-020-72940-5",
-      "doi": "10.82901/nemar.on003655.v1.0.0",
-      "pmid": null,
-      "openalex_id": "W7165537701",
-      "source_doi": "10.1038/s41598-020-72940-5",
-      "source_relation": "References",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.9369700348377229,
-        "similarity_score": 0.8112294673919678,
-        "citation_text_length": 743,
-        "dataset_text_length": 470,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
+      },
+      "superseded_dois": [
+        "10.48550/arxiv.2404.19467"
+      ]
     },
     {
       "title": "Balancing Efficiency and Compensation: Age-related Theta and Alpha Dynamics in High-load Working Memory",
@@ -617,16 +608,16 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T12:08:51.763744+00:00",
+    "scoring_date": "2026-09-30T10:56:45.386221+00:00",
     "dataset_text_length": 470,
-    "num_citations_scored": 24,
+    "num_citations_scored": 23,
     "summary_stats": {
-      "mean_confidence": 0.602295378688723,
-      "median_confidence": 0.600266294181347,
-      "std_confidence": 0.13006490675338075,
+      "mean_confidence": 0.5877443066822446,
+      "median_confidence": 0.6001102262735367,
+      "std_confidence": 0.1121195244916851,
       "min_confidence": 0.24890624865889552,
-      "max_confidence": 0.9369700348377229,
-      "high_confidence_count": 4,
+      "max_confidence": 0.7699554812908174,
+      "high_confidence_count": 3,
       "medium_confidence_count": 19,
       "low_confidence_count": 1
     }

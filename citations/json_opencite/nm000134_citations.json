@@ -1,7 +1,7 @@
 {
   "dataset_id": "nm000134",
-  "num_citations": 1,
-  "date_last_updated": "2026-09-29T10:39:38.439286+00:00",
+  "num_citations": 0,
+  "date_last_updated": "2026-09-30T10:44:24.352721+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
     "fetch_date": "2026-09-29T10:39:38.439286+00:00",
@@ -11,7 +11,7 @@
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:31b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.48550/arxiv.2508.18571",
@@ -22,20 +22,22 @@
         "paper_title": "Alljoined-1.6M: A Million-Trial EEG-Image Dataset for Evaluating Affordable Brain-Computer Interfaces",
         "paper_year": 2025,
         "paper_venue": "arXiv (Cornell University)",
-        "reason": "The paper title and abstract explicitly introduce and describe the release of the 'Alljoined-1.6M' EEG dataset.",
-        "judgment_model": "gemma4:31b"
+        "reason": "The paper's title, authors, 20 participants, 1.6M trials and 32-channel consumer EEG match the dataset README's own reference, so it is this dataset's data paper.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.82901/nemar.nm000134",
         "identifier_type": "doi",
         "source_relation": "IsVersionOf",
-        "classification": "data_paper",
+        "classification": null,
         "kept": true,
         "paper_title": "Alljoined-1.6M",
         "paper_year": 2026,
         "paper_venue": "UC San Diego",
-        "reason": "The paper's title and abstract explicitly describe the release and characteristics of the Alljoined-1.6M dataset, matching the dataset description.",
-        "judgment_model": "gemma4:31b"
+        "reason": null,
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -54,45 +56,11 @@
     "methods_description": "EEG was recorded with a 32-channel EMOTIV FLEX2 system (sintered Ag/AgCl gel electrodes, wireless Bluetooth 5.2) at 256 Hz, using an extended 10-20 montage focused on occipital/visual regions, with built-in dual 50/60 Hz notch filtering. Participants viewed a rapid serial visual presentation paradigm (100 ms image, 100 ms blank) drawn from 16,740 THINGS database images, performing an orthogonal oddball detection task (button press for Woody character catch trials, ~6% of sequences) across four sessions of 19 runs each.",
     "funding": []
   },
-  "citation_details": [
-    {
-      "title": "Alljoined-1.6M",
-      "author": "Jonathan Xu, Ugo Bruzadin Nunes, Wangshu Jiang, Samuel Ryther, Jordan Pringle, Paul S. Scotti, Arnaud Delorme, Reese Kneeland",
-      "venue": "UC San Diego",
-      "year": 2026,
-      "url": "https://doi.org/10.82901/nemar.nm000134",
-      "cited_by": 0,
-      "abstract": "Alljoined-1.6M is a large-scale EEG dataset comprising over 1.6 million trials of neural responses to rapid serial visual presentation (RSVP) of natural images from the THINGS database. Recorded from 20 healthy adult participants using a consumer-grade 32-channel EMOTIV FLEX2 system across four sessions each, the dataset was designed to evaluate whether deep neural network-based brain-computer interface and semantic decoding methods can be effectively conducted with affordable EEG hardware (~$2.2k) compared to research-grade systems. The dataset includes continuous EEG recordings at 256 Hz (resampled to 250 Hz), behavioral oddball detection responses, and comprehensive electrode position information.",
-      "doi": "10.82901/nemar.nm000134",
-      "pmid": null,
-      "openalex_id": "W7138156223",
-      "source_doi": "10.48550/arxiv.2508.18571",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 1.0,
-        "similarity_score": 0.8754981160163879,
-        "citation_text_length": 899,
-        "dataset_text_length": 2280,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    }
-  ],
+  "citation_details": [],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T11:49:07.905645+00:00",
+    "scoring_date": "2026-09-30T10:49:34.654059+00:00",
     "dataset_text_length": 2280,
-    "num_citations_scored": 1,
-    "summary_stats": {
-      "mean_confidence": 1.0,
-      "median_confidence": 1.0,
-      "std_confidence": 0.0,
-      "min_confidence": 1.0,
-      "max_confidence": 1.0,
-      "high_confidence_count": 1,
-      "medium_confidence_count": 0,
-      "low_confidence_count": 0
-    }
+    "num_citations_scored": 0
   }
 }

@@ -1,7 +1,7 @@
 {
   "dataset_id": "on003766",
   "num_citations": 8,
-  "date_last_updated": "2026-09-29T11:11:30.816371+00:00",
+  "date_last_updated": "2026-09-30T10:44:58.456670+00:00",
   "metadata": {
     "total_cumulative_citations": 98,
     "fetch_date": "2026-09-29T11:11:30.816371+00:00",
@@ -13,19 +13,20 @@
     },
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.1038/s41597-022-01538-5",
         "identifier_type": "doi",
         "source_relation": "References",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "A resource for assessing dynamic binary choices in the adult brain using EEG and mouse-tracking",
+        "paper_year": 2022,
+        "paper_venue": "Scientific Data",
+        "reason": "Title, authors, and abstract match the dataset: 128-channel HD-EEG plus mouse-tracking, 31 participants aged 18-33, food preference and semantic tasks; it is the Scientific Data descriptor.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.82901/nemar.on003766",
@@ -37,7 +38,8 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -63,7 +65,14 @@
         "funder_name": "National Natural Science Foundation of China",
         "award_number": "82071935"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "on003766",
+      "ds003766"
+    ],
+    "num_accession_mentions": 0,
+    "num_dataset_citations": 1,
+    "num_datapaper_citations": 7
   },
   "citation_details": [
     {
@@ -202,7 +211,9 @@
         "dataset_text_length": 2381,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
+      },
+      "mentions_accession": true,
+      "matched_accession": "ds003766"
     },
     {
       "title": "Towards advanced decision-making support for shipping safety: A functional connectivity analysis",

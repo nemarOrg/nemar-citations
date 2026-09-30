@@ -1,10 +1,10 @@
 {
   "dataset_id": "on006468",
-  "num_citations": 1,
-  "date_last_updated": "2026-08-19T10:01:52.754992+00:00",
+  "num_citations": 0,
+  "date_last_updated": "2026-09-30T10:43:33.726065+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
-    "fetch_date": "2026-08-19T10:01:52.754992+00:00",
+    "fetch_date": "2026-09-30T10:43:33.726065+00:00",
     "processing_version": "1.0",
     "fetch_status": "not_found",
     "anchor_count": 2,
@@ -13,7 +13,7 @@
     },
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.1038/s41597-025-06397-4",
@@ -21,11 +21,12 @@
         "source_relation": "IsDescribedBy",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "MEG-SCANS - A comprehensive magnetoencephalography speech dataset with Stories, Chirps and Noisy Sentences",
         "paper_year": 2025,
         "paper_venue": "Scientific Data",
-        "reason": "The candidate paper title and abstract explicitly describe the release and contents of the MEG-SCANS dataset, making it the primary data paper.",
-        "judgment_model": "gemma4:e4b"
+        "reason": "Title matches the dataset name exactly; the abstract describes MEG-SCANS with 24 German-speaking participants, audiobooks, OLSA and chirps, and the authors overlap (Habersetzer, Meyer).",
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.21105/joss.01896",
@@ -33,11 +34,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
         "paper_year": 2019,
         "paper_venue": "The Journal of Open Source Software",
-        "reason": "The paper describes MNE-BIDS, a general standard for organizing electrophysiological data into the BIDS format, which is a technical specification/tool, not a paper introducing the MEG-SCANS dataset.",
-        "judgment_model": "gemma4:e4b"
+        "reason": "MNE-BIDS is a software tool for organizing electrophysiological data into BIDS, used to curate this dataset, not a paper describing the MEG-SCANS data.",
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1038/sdata.2018.110",
@@ -45,11 +47,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MEG-BIDS, the brain imaging data structure extended to magnetoencephalography",
         "paper_year": 2018,
         "paper_venue": "Scientific Data",
-        "reason": "The paper proposes MEG-BIDS, a data structure standard for organizing MEG data, which is a technical specification/methodology used for data sharing, not a paper introducing the MEG-SCANS dataset.",
-        "judgment_model": "gemma4:e4b"
+        "reason": "MEG-BIDS is a data-organization standard specification used to format this dataset, not a paper describing the MEG-SCANS recordings.",
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on006468",
@@ -57,11 +60,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -86,56 +90,13 @@
         "funder_name": "Carl von Ossietzky University Oldenburg",
         "award_number": "PB mHealth 2020-13"
       }
-    ],
-    "searched_accessions": [
-      "on006468",
-      "ds006468"
-    ],
-    "num_accession_mentions": 1,
-    "num_dataset_citations": 1,
-    "num_datapaper_citations": 0
+    ]
   },
-  "citation_details": [
-    {
-      "title": "MEG-SCANS - A comprehensive magnetoencephalography speech dataset with Stories, Chirps and Noisy Sentences",
-      "author": "Till Habersetzer, Svea Steuer, Andreas Radeloff, Bernd T. Meyer",
-      "venue": "Scientific Data",
-      "year": 2025,
-      "url": "https://doi.org/10.1038/s41597-025-06397-4",
-      "cited_by": 1,
-      "abstract": "Stories, Chirps, And Noisy Sentences (MEG-SCANS) is a dataset that provides raw magnetoencephalography (MEG) recordings from 24 German-speaking subjects. Each subject listened to approximately one hour of stimuli, including two audiobooks, sentences from the Oldenburger Matrix Sentence Test (OLSA) for Speech Reception Threshold (SRT) assessment, and short up-chirps used to assess MEG signal quality. The dataset includes MEG data, structural MRI (Magnetic Resonance Imaging) scans of the head, corresponding audio material (audiobooks, OLSA envelopes, and chirp stimuli), and behavioral audiogram and SRT results from hearing screenings. Organized according to the Brain Imaging Data Structure (BIDS), this resource offers a robust benchmark for large-scale encoding/decoding analyses of temporally-resolved brain responses to speech. Comprehensive Matlab and Python code are included to replicate key data validations, ensuring transparency and reproducibility.",
-      "doi": "10.1038/s41597-025-06397-4",
-      "pmid": "41366218",
-      "openalex_id": "W4417167534",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds006468",
-      "confidence_scoring": {
-        "confidence_score": 1.0,
-        "similarity_score": 0.9429949522018433,
-        "citation_text_length": 1188,
-        "dataset_text_length": 2361,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    }
-  ],
+  "citation_details": [],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-08-26T10:16:55.002944+00:00",
+    "scoring_date": "2026-09-30T11:02:47.540221+00:00",
     "dataset_text_length": 2361,
-    "num_citations_scored": 1,
-    "summary_stats": {
-      "mean_confidence": 1.0,
-      "median_confidence": 1.0,
-      "std_confidence": 0.0,
-      "min_confidence": 1.0,
-      "max_confidence": 1.0,
-      "high_confidence_count": 1,
-      "medium_confidence_count": 0,
-      "low_confidence_count": 0
-    }
+    "num_citations_scored": 0
   }
 }

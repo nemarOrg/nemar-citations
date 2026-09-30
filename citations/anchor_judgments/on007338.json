@@ -1,43 +1,56 @@
 {
   "dataset_id": "on007338",
-  "judged_at": "2026-09-29T10:34:20.310295+00:00",
-  "judgment_model": "gemma4:e4b",
+  "judged_at": "2026-09-30T10:38:28.650340+00:00",
+  "judgment_model": "claude-sonnet-5-5",
+  "prompt_version": 2,
   "judgments": [
     {
       "anchor_identifier": "10.17605/osf.io/ktv7m",
       "anchor_identifier_type": "doi",
       "source_relation": "IsDerivedFrom",
-      "classification": "",
-      "reason": "",
+      "classification": "data_paper",
+      "reason": "The OSF record 10.17605/osf.io/ktv7m is the original EEGEyeNet deposit by the same authors, and this BIDS dataset is a subject subset derived from it.",
       "paper_title": "EEGEyeNet",
       "paper_year": 2021,
       "paper_venue": null,
-      "judged_at": "2026-09-29T10:34:19.671828+00:00",
-      "error": "llm_judgment_failed:ollama HTTP 404: model 'gemma4:e4b' not found"
+      "judged_at": "2026-09-30T10:38:27.733538+00:00",
+      "error": null
+    },
+    {
+      "anchor_identifier": "10.48550/arxiv.2111.05100",
+      "anchor_identifier_type": "doi",
+      "source_relation": "IsSupplementTo",
+      "classification": "data_paper",
+      "reason": "The EEGEyeNet paper presents the dataset itself (simultaneous EEG and eye-tracking); the BIDS version is a one-subject subset of it, with matching authors (Płomecka, Kastrati).",
+      "paper_title": "EEGEyeNet: a Simultaneous Electroencephalography and Eye-tracking Dataset and Benchmark for Eye Movement Prediction",
+      "paper_year": 2021,
+      "paper_venue": "arXiv (Cornell University)",
+      "judged_at": "2026-09-30T10:38:28.040215+00:00",
+      "error": null
     },
     {
       "anchor_identifier": "10.21105/joss.01896",
       "anchor_identifier_type": "doi",
       "source_relation": "References",
-      "classification": "",
-      "reason": "",
+      "classification": "methodology",
+      "reason": "MNE-BIDS is a software tool for organizing data into BIDS, used to convert this dataset; it does not describe the EEGEyeNet data itself.",
       "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
       "paper_year": 2019,
       "paper_venue": "The Journal of Open Source Software",
-      "judged_at": "2026-09-29T10:34:19.985236+00:00",
-      "error": "llm_judgment_failed:ollama HTTP 404: model 'gemma4:e4b' not found"
+      "judged_at": "2026-09-30T10:38:28.328241+00:00",
+      "error": null
     },
     {
       "anchor_identifier": "10.1038/s41597-019-0104-8",
       "anchor_identifier_type": "doi",
       "source_relation": "References",
-      "classification": "",
-      "reason": "",
+      "classification": "methodology",
+      "reason": "EEG-BIDS is a specification/standard extension used to format this dataset, not a paper describing the EEGEyeNet data itself.",
       "paper_title": "EEG-BIDS, an extension to the brain imaging data structure for electroencephalography",
       "paper_year": 2019,
       "paper_venue": "Scientific Data",
-      "judged_at": "2026-09-29T10:34:20.310295+00:00",
-      "error": "llm_judgment_failed:ollama HTTP 404: model 'gemma4:e4b' not found"
+      "judged_at": "2026-09-30T10:38:28.650340+00:00",
+      "error": null
     }
   ]
 }

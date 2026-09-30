@@ -1,53 +1,56 @@
 {
   "dataset_id": "nm000214",
-  "num_citations": 72,
-  "date_last_updated": "2026-09-29T10:50:45.930605+00:00",
+  "num_citations": 66,
+  "date_last_updated": "2026-09-30T10:44:26.015866+00:00",
   "metadata": {
-    "total_cumulative_citations": 719,
+    "total_cumulative_citations": 548,
     "fetch_date": "2026-09-29T10:50:45.930605+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
-    "anchor_count": 4,
+    "anchor_count": 3,
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.34973/9txv-z787",
         "identifier_type": "doi",
         "source_relation": "IsDerivedFrom",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "From full calibration to zero training for a code-modulated visual evoked potentials brain computer interface",
+        "paper_year": 2020,
+        "paper_venue": "Radboud Repository (Radboud University)",
+        "reason": "The candidate's DOI 10.34973/9txv-z787 is the dataset's own Radboud repository DOI. The paper is by Thielen, Marsman, Farquhar and Desain and describes the cVEP BCI study that recorded this data.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.1088/1741-2552/ab4057",
         "identifier_type": "doi",
         "source_relation": "References",
-        "classification": null,
-        "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "classification": "related_work",
+        "kept": false,
+        "paper_title": "Low channel count montages using sensor tying for VEP-based BCI",
+        "paper_year": 2019,
+        "paper_venue": "Journal of Neural Engineering",
+        "reason": "Ahmadi et al. 2019 proposes sensor-tying low-channel montages using recorded 256-channel VEP EEG, a different dataset from the 30-subject 8-channel Thielen2021 c-VEP data.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_not_data_paper"
       },
       {
         "identifier": "10.1088/1741-2552/abecef",
         "identifier_type": "doi",
         "source_relation": "IsDescribedBy",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "From full calibration to zero training for a code-modulated visual evoked potentials brain computer interface",
+        "paper_year": 2021,
+        "paper_venue": "Journal of Neural Engineering",
+        "reason": "Thielen et al. 2021 J Neural Eng is the study paper reporting the cVEP recordings (same authors, MindAffect/Radboud) that constitute this dataset (Thielen2021).",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.82901/nemar.nm000214",
@@ -59,12 +62,12 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
       "10.34973/9txv-z787",
-      "10.1088/1741-2552/ab4057",
       "10.1088/1741-2552/abecef",
       "10.82901/nemar.nm000214"
     ],
@@ -95,144 +98,6 @@
     ]
   },
   "citation_details": [
-    {
-      "title": "c-VEP dataset from Thielen et al. (2021)",
-      "author": "J Thielen, P Marsman, J Farquhar, P Desain",
-      "venue": "UC San Diego",
-      "year": 2026,
-      "url": "https://doi.org/10.82901/nemar.nm000214",
-      "cited_by": 0,
-      "abstract": "A code-modulated visual evoked potential (cVEP) brain-computer interface dataset from 30 healthy participants performing offline and online spelling tasks. This derivative dataset demonstrates a calibration-free BCI approach using an encoding model that systematically reduces training data requirements, ultimately achieving high communication rates without any user-specific calibration data. The study validates neural encoding models as an alternative to traditional event-related potential templates for practical plug-and-play BCI applications.",
-      "doi": "10.82901/nemar.nm000214",
-      "pmid": null,
-      "openalex_id": "W7163404900",
-      "source_doi": "10.34973/9txv-z787",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.9037513214349748,
-        "similarity_score": 0.7824686765670776,
-        "citation_text_length": 683,
-        "dataset_text_length": 2248,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Brain–computer interfaces based on code-modulated visual evoked potentials (c-VEP): a literature review",
-      "author": "Víctor Martínez-Cagigal, Jordy Thielen, Eduardo Santamaría-Vázquez, Sergio Pérez-Velasco, Peter Desain, Roberto Hornero",
-      "venue": "Journal of Neural Engineering",
-      "year": 2021,
-      "url": "https://doi.org/10.1088/1741-2552/ac38cf",
-      "cited_by": 100,
-      "abstract": "Abstract Objective. Code-modulated visual evoked potentials (c-VEP) have been consolidated in recent years as robust control signals capable of providing non-invasive brain–computer interfaces (BCIs) for reliable, high-speed communication. Their usefulness for communication and control purposes has been reflected in an exponential increase of related articles in the last decade. The aim of this review is to provide a comprehensive overview of the literature to gain understanding of the existing research on c-VEP-based BCIs, since its inception (1984) until today (2021), as well as to identify promising future research lines. Approach. The literature review was conducted according to the Preferred Reporting Items for Systematic reviews and Meta-Analysis guidelines. After assessing the eligibility of journal manuscripts, conferences, book chapters and non-indexed documents, a total of 70 studies were included. A comprehensive analysis of the main characteristics and design choices of c-V",
-      "doi": "10.1088/1741-2552/ac38cf",
-      "pmid": "34763331",
-      "openalex_id": "W3213822876",
-      "source_doi": "10.1088/1741-2552/ab4057",
-      "source_relation": "References",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.769813732802868,
-        "similarity_score": 0.6665053963661194,
-        "citation_text_length": 1290,
-        "dataset_text_length": 2248,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "From full calibration to zero training for a code-modulated visual evoked potentials brain computer interface",
-      "author": "Jordy Thielen, P Marsman, Jason D. R. Farquhar, Peter Desain",
-      "venue": "Journal of Neural Engineering",
-      "year": 2021,
-      "url": "https://doi.org/10.1088/1741-2552/abecef",
-      "cited_by": 63,
-      "abstract": "Objective. Typically, a brain–computer interface (BCI) is calibrated using user- and session-specific data because of the individual idiosyncrasies and the non-stationary signal properties of the electroencephalogram (EEG). Therefore, it is normal for BCIs to undergo a time-consuming passive training stage that prevents users from directly operating them. In this study, we systematically reduce the training data set in a stepwise fashion, to ultimately arrive at a calibration-free method for a code-modulated visually evoked potential (cVEP)-based BCI to fully eliminate the tedious training stage. Approach. In an extensive offline analysis, we compare our sophisticated encoding model with a traditional event-related potential (ERP) technique. We calibrate the encoding model in a standard way, with data limited to a single class while generalizing to all others and without any data. In addition, we investigate the feasibility of the zero-training cVEP BCI in an online setting. Main resul",
-      "doi": "10.1088/1741-2552/abecef",
-      "pmid": "33690182",
-      "openalex_id": "W3134488891",
-      "source_doi": "10.1088/1741-2552/ab4057",
-      "source_relation": "References",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.7034019845724107,
-        "similarity_score": 0.6090060472488403,
-        "citation_text_length": 1237,
-        "dataset_text_length": 2248,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Streamlining cVEP Paradigms: Effects of a Minimized Electrode Montage on Brain–Computer Interface Performance",
-      "author": "Milán András Fodor, Atilla Cantürk, Gernot Heisenberg, Ivan Volosyak",
-      "venue": "Brain Sciences",
-      "year": 2025,
-      "url": "https://doi.org/10.3390/brainsci15060549",
-      "cited_by": 6,
-      "abstract": "(1) Background: Brain-computer interfaces (BCIs) enable direct communication between the brain and external devices using electroencephalography (EEG) signals, offering potential applications in assistive technology and neurorehabilitation. Code-modulated visual evoked potential (cVEP)-based BCIs employ code-pattern-based stimulation to evoke neural responses, which can then be classified to infer user intent. While increasing the number of EEG electrodes across the visual cortex enhances classification accuracy, it simultaneously reduces user comfort and increases setup complexity, duration, and hardware costs. (2) Methods: This online BCI study, involving thirty-eight able-bodied participants, investigated how reducing the electrode count from 16 to 6 affected performance. Three experimental conditions were tested: a baseline 16-electrode configuration, a reduced 6-electrode setup without retraining, and a reduced 6-electrode setup with retraining. (3) Results: Our results indicate t",
-      "doi": "10.3390/brainsci15060549",
-      "pmid": "40563723",
-      "openalex_id": "W4410695820",
-      "source_doi": "10.1088/1741-2552/ab4057",
-      "source_relation": "References",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.7439095580577851,
-        "similarity_score": 0.6440775394439697,
-        "citation_text_length": 1230,
-        "dataset_text_length": 2248,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "The impact of electrode shifts on BCI classifier accuracy",
-      "author": "Juliane Pawlitzki, Laurens R. Krol, Thorsten O. Zander",
-      "venue": "Elsevier eBooks",
-      "year": 2021,
-      "url": "https://doi.org/10.1016/b978-0-12-821413-8.00016-6",
-      "cited_by": 2,
-      "abstract": "We investigated electrode shifts of the recording EEG (electroencephalogram) on the scalp. We used simulated data to assess the influence of electrode shifting on the classification accuracy of a Brain-Computer Interface (BCI, [1])",
-      "doi": "10.1016/b978-0-12-821413-8.00016-6",
-      "pmid": null,
-      "openalex_id": "W3214963371",
-      "source_doi": "10.1088/1741-2552/ab4057",
-      "source_relation": "References",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.529480238556862,
-        "similarity_score": 0.45842444896698,
-        "citation_text_length": 396,
-        "dataset_text_length": 2248,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Beyond flickering: introducing code-modulated motion visual evoked potentials for brain-computer interfacing",
-      "author": "Hanneke A. Scheppink, Rainer Herpers, Jordy Thielen, Ivan Volosyak",
-      "venue": "Frontiers in Neuroergonomics",
-      "year": 2026,
-      "url": "https://doi.org/10.3389/fnrgo.2026.1884144",
-      "cited_by": 0,
-      "abstract": "This study presents a novel code-modulated motion visual evoked potential (c-MVEP) paradigm for brain-computer interfacing (BCI). To avoid the visual discomfort and fatigue often associated with traditional flickering stimuli, this paradigm uses pseudo-random sequences to visually stimulate objects using motion. We conducted offline and online experiments, to investigate signal characteristics and evaluate practical feasibility, respectively. In the offline experiment, EEG data were recorded and compared during sequential stimulation of a single target under four conditions: c-MVEP, code-modulated visual evoked potential (c-VEP), steady-state motion visual evoked potential (SSMVEP), and steady-state visual evoked potential (SSVEP). The c-MVEP evoked similar temporal and broadband spectral responses as c-VEP, with a comparable signal-to-noise ratio (SNR), although c-MVEP responses were more focused in the lower frequency range. While SSMVEP and SSVEP both showed clear harmonic oscillati",
-      "doi": "10.3389/fnrgo.2026.1884144",
-      "pmid": "42694198",
-      "openalex_id": "W7161586519",
-      "source_doi": "10.1088/1741-2552/ab4057",
-      "source_relation": "References",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.7032015126943589,
-        "similarity_score": 0.6088324785232544,
-        "citation_text_length": 1241,
-        "dataset_text_length": 2248,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
     {
       "title": "The largest EEG-based BCI reproducibility study for open science: the MOABB benchmark",
       "author": "Sylvain Chevallier, Igor Carrara, B. Aristimunha, Pierre Guetschel, Sara Sedlar, Bruna J. Lopes, Sébastien Velut, Salim Khazem, Thomas Moreau",
@@ -1754,17 +1619,17 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T11:57:16.298627+00:00",
+    "scoring_date": "2026-09-30T10:52:21.347470+00:00",
     "dataset_text_length": 2248,
-    "num_citations_scored": 72,
+    "num_citations_scored": 66,
     "summary_stats": {
-      "mean_confidence": 0.5896661215482487,
-      "median_confidence": 0.5778891715407373,
-      "std_confidence": 0.12277877081387102,
+      "mean_confidence": 0.5773091273235553,
+      "median_confidence": 0.5754543898254634,
+      "std_confidence": 0.11618643833290149,
       "min_confidence": 0.32360147148370744,
-      "max_confidence": 0.9037513214349748,
-      "high_confidence_count": 16,
-      "medium_confidence_count": 52,
+      "max_confidence": 0.8102260270714761,
+      "high_confidence_count": 11,
+      "medium_confidence_count": 51,
       "low_confidence_count": 4
     }
   }

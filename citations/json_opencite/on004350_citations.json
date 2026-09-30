@@ -1,7 +1,7 @@
 {
   "dataset_id": "on004350",
-  "num_citations": 58,
-  "date_last_updated": "2026-09-29T11:13:45.221410+00:00",
+  "num_citations": 59,
+  "date_last_updated": "2026-09-30T10:45:45.536510+00:00",
   "metadata": {
     "total_cumulative_citations": 626,
     "fetch_date": "2026-09-29T11:13:45.221410+00:00",
@@ -11,19 +11,20 @@
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.3389/fnhum.2020.00246",
         "identifier_type": "doi",
         "source_relation": "IsDescribedBy",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "Closed-Loop Frontal Midlineθ Neurofeedback: A Novel Approach for Training Focused-Attention Meditation",
+        "paper_year": 2020,
+        "paper_venue": "Frontiers in Human Neuroscience",
+        "reason": "README says the data come from the neurofeedback experiment in this paper (Brandmeyer & Delorme 2020), same authors, 24 participants; the executive function battery was recorded within that study.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.82901/nemar.on004350",
@@ -35,7 +36,8 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -54,7 +56,14 @@
       "Local Global"
     ],
     "methods_description": "EEG data were collected during three cognitive tasks: N-Back (working memory, 1-3 back conditions), Sustained Attention to Response Task (sustained attention, ~10 minutes), and Local Global (selective attention, local/global conditions). Data were acquired at 2048 Hz, then preprocessed including average referencing, downsampling to 256 Hz, and high-pass filtering at 1 Hz using an elliptical non-linear filter. Two sessions were conducted on the first and last days of the neurofeedback experiment.",
-    "funding": []
+    "funding": [],
+    "searched_accessions": [
+      "on004350",
+      "ds004350"
+    ],
+    "num_accession_mentions": 1,
+    "num_dataset_citations": 1,
+    "num_datapaper_citations": 58
   },
   "citation_details": [
     {
@@ -1390,21 +1399,46 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "Events in context—The HED framework for the study of brain, experience and behavior",
+      "author": "Scott Makeig, Kay A. Robbins",
+      "venue": "Frontiers in Neuroinformatics",
+      "year": 2024,
+      "url": "https://doi.org/10.3389/fninf.2024.1292667",
+      "cited_by": 1,
+      "abstract": "The brain is a complex dynamic system whose current state is inextricably coupled to awareness of past, current, and anticipated future threats and opportunities that continually affect awareness and behavioral goals and decisions. Brain activity is driven on multiple time scales by an ever-evolving flow of sensory, proprioceptive, and idiothetic experience. Neuroimaging experiments seek to isolate and focus on some aspect of these complex dynamics to better understand how human experience, cognition, behavior, and health are supported by brain activity. Here we consider an event-related data modeling approach that seeks to parse experience and behavior into a set of time-delimited events. We distinguish between event processes themselves, that unfold through time, and event markers that record the experiment timeline latencies of event onset, offset, and any other event phase transitions. Precise descriptions of experiment events (sensory, motor, or other) allow participant experience and behavior to be interpreted in the context either of the event itself or of all or any experiment events. We discuss how events in neuroimaging experiments have been, are currently, and should best be identified and represented with emphasis on the importance of modeling both events and event context for meaningful interpretation of relationships between brain dynamics, experience, and behavior. We show how text annotation of time series neuroimaging data using the system of Hierarchical Event Descriptors (HED; https://www.hedtags.org ) can more adequately model the roles of both events and their ever-evolving context than current data annotation practice and can thereby facilitate data analysis, meta-analysis, and mega-analysis. Finally, we discuss ways in which the HED system must continue to expand to serve the evolving needs of neuroimaging research.",
+      "doi": "10.3389/fninf.2024.1292667",
+      "pmid": "38846339",
+      "openalex_id": "W4398254846",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004350",
+      "confidence_scoring": {
+        "confidence_score": 0.5298714409768582,
+        "similarity_score": 0.45876315236091614,
+        "citation_text_length": 1679,
+        "dataset_text_length": 2269,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T12:10:51.505882+00:00",
+    "scoring_date": "2026-09-30T10:58:52.928055+00:00",
     "dataset_text_length": 2269,
-    "num_citations_scored": 58,
+    "num_citations_scored": 59,
     "summary_stats": {
-      "mean_confidence": 0.5095232001614982,
-      "median_confidence": 0.5033382444083692,
-      "std_confidence": 0.12334824945934417,
+      "mean_confidence": 0.5098680855990467,
+      "median_confidence": 0.5037185007333757,
+      "std_confidence": 0.12232665982164102,
       "min_confidence": 0.21257280483841898,
       "max_confidence": 0.7225569623708726,
       "high_confidence_count": 3,
-      "medium_confidence_count": 47,
+      "medium_confidence_count": 48,
       "low_confidence_count": 8
     }
   }

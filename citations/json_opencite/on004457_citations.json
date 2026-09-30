@@ -1,7 +1,7 @@
 {
   "dataset_id": "on004457",
-  "num_citations": 14,
-  "date_last_updated": "2026-09-29T11:15:17.301081+00:00",
+  "num_citations": 15,
+  "date_last_updated": "2026-09-30T10:45:56.602292+00:00",
   "metadata": {
     "total_cumulative_citations": 88,
     "fetch_date": "2026-09-29T11:15:17.301081+00:00",
@@ -13,19 +13,20 @@
     },
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.1101/2022.07.06.498994",
         "identifier_type": "doi",
         "source_relation": "References",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "Electrical stimulation of temporal and limbic circuitry produces distinct responses in human ventral temporal cortex",
+        "paper_year": 2022,
+        "paper_venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+        "reason": "Title and authors match the dataset README's cited paper (Huang et al. 2022), which reports the iEEG single-pulse stimulation recordings in this dataset.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.82901/nemar.on004457",
@@ -37,7 +38,8 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -72,7 +74,14 @@
         "award_number": "T32GM065841",
         "award_title": "Medical Scientist Training Program at Mayo Clinic"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "on004457",
+      "ds004457"
+    ],
+    "num_accession_mentions": 1,
+    "num_dataset_citations": 1,
+    "num_datapaper_citations": 14
   },
   "citation_details": [
     {
@@ -396,20 +405,45 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "Electrical Stimulation of Temporal and Limbic Circuitry Produces Distinct Responses in Human Ventral Temporal Cortex",
+      "author": "Harvey Huang, Nicholas Miller Gregg, Gabriela Ojeda Valencia, Benjamin H. Brinkmann, Brian N. Lundstrom, Gregory A. Worrell, Kai Joshua Miller, Dora Hermes",
+      "venue": "Journal of Neuroscience",
+      "year": 2023,
+      "url": "https://doi.org/10.1523/jneurosci.1325-22.2023",
+      "cited_by": 21,
+      "abstract": "The human ventral temporal cortex (VTC) is highly connected to integrate visual perceptual inputs with feedback from cognitive and emotional networks. In this study, we used electrical brain stimulation to understand how different inputs from multiple brain regions drive unique electrophysiological responses in the VTC. We recorded intracranial EEG data in 5 patients (3 female) implanted with intracranial electrodes for epilepsy surgery evaluation. Pairs of electrodes were stimulated with single-pulse electrical stimulation, and corticocortical evoked potential responses were measured at electrodes in the collateral sulcus and lateral occipitotemporal sulcus of the VTC. Using a novel unsupervised machine learning method, we uncovered 2-4 distinct response shapes, termed basis profile curves (BPCs), at each measurement electrode in the 11-500 ms after stimulation interval. Corticocortical evoked potentials of unique shape and high amplitude were elicited following stimulation of several regions and classified into a set of four consensus BPCs across subjects. One of the consensus BPCs was primarily elicited by stimulation of the hippocampus; another by stimulation of the amygdala; a third by stimulation of lateral cortical sites, such as the middle temporal gyrus; and the final one by stimulation of multiple distributed sites. Stimulation also produced sustained high-frequency power decreases and low-frequency power increases that spanned multiple BPC categories. Characterizing distinct shapes in stimulation responses provides a novel description of connectivity to the VTC and reveals significant differences in input from cortical and limbic structures. SIGNIFICANCE STATEMENT Disentangling the numerous input influences on highly connected areas in the brain is a critical step toward understanding how brain networks work together to coordinate human behavior. Single-pulse electrical stimulation is an effective tool to accomplish this goal because the shapes and amplitudes of signals recorded from electrodes are informative of the synaptic physiology of the stimulation-driven inputs. We focused on targets in the ventral temporal cortex, an area strongly implicated in visual object perception. By using a data-driven clustering algorithm, we identified anatomic regions with distinct input connectivity profiles to the ventral temporal cortex. Examining high-frequency power changes revealed possible modulation of excitability at the recording site induced by electrical stimulation of connected regions.",
+      "doi": "10.1523/jneurosci.1325-22.2023",
+      "pmid": "37188514",
+      "openalex_id": "W4376603855",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004457",
+      "confidence_scoring": {
+        "confidence_score": 0.9628877717256548,
+        "similarity_score": 0.8336690664291382,
+        "citation_text_length": 1833,
+        "dataset_text_length": 2421,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T12:11:32.430068+00:00",
+    "scoring_date": "2026-09-30T10:59:12.161475+00:00",
     "dataset_text_length": 2421,
-    "num_citations_scored": 14,
+    "num_citations_scored": 15,
     "summary_stats": {
-      "mean_confidence": 0.6385981906950474,
-      "median_confidence": 0.6297455048561097,
-      "std_confidence": 0.09892264209030105,
+      "mean_confidence": 0.6602174960970879,
+      "median_confidence": 0.6303287458419801,
+      "std_confidence": 0.1252071522258926,
       "min_confidence": 0.4779461547732353,
-      "max_confidence": 0.8530372372269631,
-      "high_confidence_count": 3,
+      "max_confidence": 0.9628877717256548,
+      "high_confidence_count": 4,
       "medium_confidence_count": 11,
       "low_confidence_count": 0
     }

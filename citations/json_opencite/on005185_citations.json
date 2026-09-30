@@ -1,7 +1,7 @@
 {
   "dataset_id": "on005185",
   "num_citations": 100,
-  "date_last_updated": "2026-09-29T11:23:27.369354+00:00",
+  "date_last_updated": "2026-09-30T10:47:03.479344+00:00",
   "metadata": {
     "total_cumulative_citations": 3768,
     "fetch_date": "2026-09-29T11:23:27.369354+00:00",
@@ -11,19 +11,20 @@
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.1038/s41598-019-53115-3",
         "identifier_type": "doi",
         "source_relation": "IsDescribedBy",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "Accurate whole-night sleep monitoring with dry-contact ear-EEG",
+        "paper_year": 2019,
+        "paper_venue": "Scientific Reports",
+        "reason": "README cites this paper as the first EESM19 publication; abstract reports 20 subjects, 80 nights of PSG plus ear-EEG, matching part a; authors overlap.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.82901/nemar.on005185",
@@ -35,7 +36,8 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -51,7 +53,14 @@
       "wearable sensors"
     ],
     "methods_description": "Subjects slept at home wearing ear-EEG electrodes alongside partial PSG (EEG, EOG, chin EMG) for the first four nights, and a subset continued for twelve additional nights with ear-EEG, actigraphy, and a single EOG electrode. Actigraphy was recorded with wrist-worn GENEactiv devices measuring 3-axis acceleration, temperature, light, and button presses. Each night, participants completed a comfort questionnaire and a sleep diary, and performed an electrode quality test involving jaw clenching, eye movements, and open/closed eyes. Data were minimally preprocessed; faulty electrodes with signal leakage were identified and set to NaN in the .set files.",
-    "funding": []
+    "funding": [],
+    "searched_accessions": [
+      "on005185",
+      "ds005185"
+    ],
+    "num_accession_mentions": 0,
+    "num_dataset_citations": 1,
+    "num_datapaper_citations": 99
   },
   "citation_details": [
     {
@@ -1593,7 +1602,9 @@
         "dataset_text_length": 2246,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
+      },
+      "mentions_accession": true,
+      "matched_accession": "ds005185"
     },
     {
       "title": "High-density ear-EEG for understanding ear-centered EEG",

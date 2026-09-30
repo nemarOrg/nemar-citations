@@ -1,7 +1,7 @@
 {
   "dataset_id": "on005087",
   "num_citations": 11,
-  "date_last_updated": "2026-09-29T11:22:39.818459+00:00",
+  "date_last_updated": "2026-09-30T10:46:56.978636+00:00",
   "metadata": {
     "total_cumulative_citations": 9,
     "fetch_date": "2026-09-29T11:22:39.818459+00:00",
@@ -11,31 +11,33 @@
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.31234/osf.io/a3bpd",
         "identifier_type": "doi",
         "source_relation": "IsDescribedBy",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
+        "paper_title": "Dynamics of visual object coding within and across the hemispheres: Objects in the periphery",
+        "paper_year": 2024,
         "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "reason": "OSF preprint of the same study (identical title and authors) as the Science Advances paper the dataset cites; it reports the lateralised-object EEG data in this dataset.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.1126/sciadv.adq0889",
         "identifier_type": "doi",
         "source_relation": "IsDescribedBy",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "Dynamics of visual object coding within and across the hemispheres: Objects in the periphery",
+        "paper_year": 2025,
+        "paper_venue": "Science Advances",
+        "reason": "Dataset's listed publication with identical authors; the EEG study of lateralized object images reports this hemifield data (IsDescribedBy).",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.82901/nemar.on005087",
@@ -47,7 +49,8 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -64,32 +67,16 @@
       "rapid serial visual presentation"
     ],
     "methods_description": "Object and word stimuli were presented at a rapid rate of 5Hz in the left or right visual field or centrally, while participants performed an orthogonal red target detection task, with EEG recorded throughout.",
-    "funding": []
+    "funding": [],
+    "searched_accessions": [
+      "on005087",
+      "ds005087"
+    ],
+    "num_accession_mentions": 1,
+    "num_dataset_citations": 1,
+    "num_datapaper_citations": 10
   },
   "citation_details": [
-    {
-      "title": "rapid-hemifield-object-eeg",
-      "author": "Amanda K. Robinson, Tijl Grootswagers, Sophia M. Shatek, Marlene Behrmann, Thomas A. Carlson",
-      "venue": "UC San Diego",
-      "year": 2026,
-      "url": "https://doi.org/10.82901/nemar.on005087",
-      "cited_by": 0,
-      "abstract": "This EEG dataset investigates the neural dynamics of visual object coding across cerebral hemispheres using rapid serial visual presentation. Participants viewed object and word stimuli presented at 5 Hz to the left visual field, right visual field, or central location while performing an orthogonal red target detection task. The dataset provides insights into how visual information is processed and integrated within and across hemispheric regions during peripheral and central vision.",
-      "doi": "10.82901/nemar.on005087",
-      "pmid": null,
-      "openalex_id": "W7166161656",
-      "source_doi": "10.31234/osf.io/a3bpd",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 1.0,
-        "similarity_score": 0.8779373168945312,
-        "citation_text_length": 658,
-        "dataset_text_length": 771,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
     {
       "title": "Spatial reorganization of object representations in high-level visual cortex distinguishes working memory from perception",
       "author": "Wanru Li, Jia Yang, Pinglei Bao",
@@ -319,21 +306,46 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "Dynamics of visual object coding within and across the hemispheres: Objects in the periphery",
+      "author": "Amanda K. Robinson, Tijl Grootswagers, Sophia M. Shatek, Marlene Behrmann, Thomas A. Carlson",
+      "venue": "Science Advances",
+      "year": 2025,
+      "url": "https://doi.org/10.1126/sciadv.adq0889",
+      "cited_by": 10,
+      "abstract": "The human brain continuously integrates information across its two hemispheres to construct a coherent representation of the perceptual world. Characterizing how visual information is represented in each hemisphere over time is crucial for understanding how hemispheric transfer contributes to perception. Here, we investigated information processing within each hemisphere over time and the degree to which it is distinct or duplicated across hemispheres. We presented participants with object images lateralized to the left or right visual fields while measuring their brain activity with electroencephalography. Stimulus coding was more robust and emerged earlier in the contralateral than the ipsilateral hemisphere. Presentation of two stimuli, one to each hemifield, reduced the fidelity of representations in both hemispheres relative to one stimulus alone, signifying hemispheric interference. Last, we found that processing within the contralateral, but not ipsilateral, hemisphere was biased to image-related over concept-related information. Together, these results suggest that hemispheric transfer operates to filter irrelevant information and efficiently prioritize processing of meaning.",
+      "doi": "10.1126/sciadv.adq0889",
+      "pmid": "39742491",
+      "openalex_id": "W4405967785",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds005087",
+      "confidence_scoring": {
+        "confidence_score": 0.6412954249978067,
+        "similarity_score": 0.5552341341972351,
+        "citation_text_length": 1441,
+        "dataset_text_length": 771,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T12:15:17.204668+00:00",
+    "scoring_date": "2026-09-30T11:01:05.944127+00:00",
     "dataset_text_length": 771,
     "num_citations_scored": 11,
     "summary_stats": {
-      "mean_confidence": 0.5877170633998785,
+      "mean_confidence": 0.5551075565814972,
       "median_confidence": 0.5615570814907551,
-      "std_confidence": 0.15051274633797002,
+      "std_confidence": 0.07999499793893887,
       "min_confidence": 0.3548968733847142,
-      "max_confidence": 1.0,
-      "high_confidence_count": 1,
-      "medium_confidence_count": 9,
+      "max_confidence": 0.6532873195409775,
+      "high_confidence_count": 0,
+      "medium_confidence_count": 10,
       "low_confidence_count": 1
     }
   }

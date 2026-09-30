@@ -1,10 +1,10 @@
 {
   "dataset_id": "on001785",
   "num_citations": 0,
-  "date_last_updated": "2026-08-24T10:00:41.413033+00:00",
+  "date_last_updated": "2026-09-30T10:41:18.975446+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
-    "fetch_date": "2026-08-24T10:00:41.413033+00:00",
+    "fetch_date": "2026-09-30T10:41:18.975446+00:00",
     "processing_version": "1.0",
     "fetch_status": "not_found",
     "anchor_count": 1,
@@ -13,31 +13,20 @@
     },
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
-      {
-        "identifier": "10.1038/s41467-021-22510-8",
-        "identifier_type": "doi",
-        "source_relation": "IsDescribedBy",
-        "classification": "irrelevant",
-        "kept": false,
-        "paper_title": "Diet and gut microbiome enterotype are associated at the population level in African buffalo",
-        "paper_year": 2021,
-        "paper_venue": "Nature Communications",
-        "reason": "The dataset concerns EEG recordings of perceptual consciousness, while the paper discusses gut microbiome enterotypes in African buffalo.",
-        "judgment_model": "gemma4:e4b"
-      },
       {
         "identifier": "10.82901/nemar.on001785",
         "identifier_type": "doi",
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -45,14 +34,14 @@
     ],
     "keywords": [
       "EEG",
-      "electrocorticography",
-      "tactile perception",
-      "Consciousness",
+      "ECoG",
+      "perceptual consciousness",
+      "evidence accumulation",
       "metacognition",
-      "Decision Making",
-      "evidence accumulation"
+      "tactile detection",
+      "confidence"
     ],
-    "methods_description": "EEG data were acquired from 62 active electrodes (10-20 montage) using a WaveGuard cap and amplifier (ANTNeuro) at 1024 Hz sampling rate, with bipolar EOG recordings. Vibrotactile stimuli (230 Hz sinusoid, 100 ms duration) were applied to the right wrist using an MMC3 Haptuator device. Individual detection thresholds were established using an adaptive staircase procedure. The main experiment consisted of 500 trials across 10 blocks (~2 hours), with participants reporting stimulus detection and confidence on a visual analog scale. For the patient, ECoG data were recorded from a 24-electrode grid covering left hemisphere premotor to superior parietal regions at 2048 Hz sampling rate.",
+    "methods_description": "Near-threshold 230 Hz, 100 ms vibrotactile stimuli were applied to the right wrist, with intensity set by an adaptive staircase seeded from an individual threshold estimate. Participants reported detection and then confidence on a visual analog scale. EEG was recorded from 62 active electrodes (ANT Neuro WaveGuard) at 1024 Hz with EOG and an audio channel for stimulus realignment. The patient's ECoG was recorded from a 24-electrode grid at 2048 Hz.",
     "funding": [
       {
         "funder_name": "Bertarelli Foundation"
@@ -66,14 +55,7 @@
       {
         "funder_name": "European Research Council"
       }
-    ],
-    "searched_accessions": [
-      "on001785",
-      "ds001785"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 0
+    ]
   },
   "citation_details": []
 }

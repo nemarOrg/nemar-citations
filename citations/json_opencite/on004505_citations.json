@@ -1,7 +1,7 @@
 {
   "dataset_id": "on004505",
-  "num_citations": 28,
-  "date_last_updated": "2026-09-29T11:16:09.769372+00:00",
+  "num_citations": 27,
+  "date_last_updated": "2026-09-30T10:46:02.929475+00:00",
   "metadata": {
     "total_cumulative_citations": 412,
     "fetch_date": "2026-09-29T11:16:09.769372+00:00",
@@ -11,19 +11,20 @@
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.3390/s22155867",
         "identifier_type": "doi",
         "source_relation": "References",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "Characterizing and Removing Artifacts Using Dual-Layer EEG during Table Tennis",
+        "paper_year": 2022,
+        "paper_venue": "Sensors",
+        "reason": "Same authors (Studnicki, Ferris) and the paper reports dual-layer EEG recorded during real-world table tennis, matching this dataset's participants and task; DataCite marks it IsDescribedBy.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.82901/nemar.on004505",
@@ -35,7 +36,8 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -57,7 +59,14 @@
         "funder_name": "National Science Foundation",
         "award_number": "BCS-1835317"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "on004505",
+      "ds004505"
+    ],
+    "num_accession_mentions": 0,
+    "num_dataset_citations": 1,
+    "num_datapaper_citations": 26
   },
   "citation_details": [
     {
@@ -449,7 +458,9 @@
         "dataset_text_length": 1156,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
+      },
+      "mentions_accession": true,
+      "matched_accession": "ds004505"
     },
     {
       "title": "Age differences in electrocortical dynamics during uneven terrain walking",
@@ -636,29 +647,6 @@
       }
     },
     {
-      "title": "Real World Table Tennis",
-      "author": "Amanda Studnicki, Daniel Perry Ferris",
-      "venue": "UC San Diego",
-      "year": 2026,
-      "url": "https://doi.org/10.82901/nemar.on004505",
-      "cited_by": 0,
-      "abstract": "This dataset comprises multimodal neurophysiological and kinematic recordings from 25 participants engaged in real-world table tennis gameplay. The collection includes high-density dual-layer electroencephalography, cervical electromyography, inertial measurement unit acceleration data, structural MRI, and synchronized video recordings. Participants completed 60 minutes of table tennis play against both a ball machine and human opponent, with 10 minutes of standing baseline recording. Processed data include independent component analysis decomposition and dipole modeling for EEG signals.",
-      "doi": "10.82901/nemar.on004505",
-      "pmid": null,
-      "openalex_id": "W7165727017",
-      "source_doi": "10.3390/s22155867",
-      "source_relation": "References",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 1.0,
-        "similarity_score": 0.9053359627723694,
-        "citation_text_length": 705,
-        "dataset_text_length": 1156,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Suppressing Non-Stationary Motion Artefacts in Mobile EEG Using Generalized Eigenvalue Decomposition",
       "author": "Mohammad Khazaei, Khadijeh Raeisi, Patrique Fiedler, Pierpaolo Croce, Filippo Zappasodi, Silvia Comani",
       "venue": "Sensors",
@@ -707,16 +695,16 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T12:12:00.211476+00:00",
+    "scoring_date": "2026-09-30T10:59:28.768031+00:00",
     "dataset_text_length": 1156,
-    "num_citations_scored": 28,
+    "num_citations_scored": 27,
     "summary_stats": {
-      "mean_confidence": 0.5586465587147645,
-      "median_confidence": 0.5244764102250339,
-      "std_confidence": 0.15908290565165747,
+      "mean_confidence": 0.5423001349634595,
+      "median_confidence": 0.5098149937391282,
+      "std_confidence": 0.13697782651953286,
       "min_confidence": 0.3728037209808827,
-      "max_confidence": 1.0,
-      "high_confidence_count": 4,
+      "max_confidence": 0.9536127805709841,
+      "high_confidence_count": 3,
       "medium_confidence_count": 22,
       "low_confidence_count": 2
     }

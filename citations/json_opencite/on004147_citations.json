@@ -1,7 +1,7 @@
 {
   "dataset_id": "on004147",
-  "num_citations": 5,
-  "date_last_updated": "2026-09-24T10:32:34.027521+00:00",
+  "num_citations": 4,
+  "date_last_updated": "2026-09-30T10:44:29.452434+00:00",
   "metadata": {
     "total_cumulative_citations": 5,
     "fetch_date": "2026-09-24T10:32:34.027521+00:00",
@@ -11,19 +11,20 @@
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.1101/2021.09.16.460600",
         "identifier_type": "doi",
         "source_relation": "IsDescribedBy",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "Task-Level Value Affects Trial-Level Reward Processing",
+        "paper_year": 2021,
+        "paper_venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+        "reason": "Dataset README cites this preprint; it reports the same three-task average-value study (RewP, gambling tasks) by the same authors.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.82901/nemar.on004147",
@@ -35,7 +36,8 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -51,7 +53,14 @@
       "probabilistic learning"
     ],
     "methods_description": "Participants performed 144 trials each of three learning tasks in which they learned cue-response mappings for six colored shape cues, responding with left ('d') or right ('k') key presses. Feedback validity differed across tasks: low-value cues had 0.5 validity, high-value cues had 0.8 validity, and a mid-value task combined three of each cue type.",
-    "funding": []
+    "funding": [],
+    "searched_accessions": [
+      "on004147",
+      "ds004147"
+    ],
+    "num_accession_mentions": 0,
+    "num_dataset_citations": 0,
+    "num_datapaper_citations": 4
   },
   "citation_details": [
     {
@@ -124,29 +133,6 @@
       }
     },
     {
-      "title": "Average Task Value",
-      "author": "Cameron Dale Hassall, Laurence Tudor Hunt, Clay B. Holroyd",
-      "venue": "UC San Diego",
-      "year": 2026,
-      "url": "https://doi.org/10.82901/nemar.on004147",
-      "cited_by": 0,
-      "abstract": "This dataset contains EEG recordings from twelve participants who each completed three probabilistic learning tasks involving cue-response mappings with varying feedback validity (low, high, and mixed value cues). The study investigates how average task value modulates learning and neural correlates of feedback processing. Data were collected to test computational and physiological hypotheses regarding reinforcement learning and reward valuation.",
-      "doi": "10.82901/nemar.on004147",
-      "pmid": null,
-      "openalex_id": "W7165630292",
-      "source_doi": "10.1101/2021.09.16.460600",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.8628301370143892,
-        "similarity_score": 0.7470390796661377,
-        "citation_text_length": 577,
-        "dataset_text_length": 1109,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "The Effects of Learnability and Reward Responsiveness on Reward Processing",
       "author": "Abigail Oloriz, Olav E. Krigolson, C. Hassall",
       "venue": "bioRxiv",
@@ -172,16 +158,16 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-24T10:37:36.811231+00:00",
+    "scoring_date": "2026-09-30T10:58:21.129014+00:00",
     "dataset_text_length": 1109,
-    "num_citations_scored": 5,
+    "num_citations_scored": 4,
     "summary_stats": {
-      "mean_confidence": 0.5289088937044144,
-      "median_confidence": 0.4780631947517396,
-      "std_confidence": 0.19132990668826483,
+      "mean_confidence": 0.4454285828769208,
+      "median_confidence": 0.43843234151601795,
+      "std_confidence": 0.10447059400807658,
       "min_confidence": 0.3104399281740189,
-      "max_confidence": 0.8628301370143892,
-      "high_confidence_count": 1,
+      "max_confidence": 0.5944097203016282,
+      "high_confidence_count": 0,
       "medium_confidence_count": 2,
       "low_confidence_count": 2
     }

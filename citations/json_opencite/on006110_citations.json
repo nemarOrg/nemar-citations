@@ -7,37 +7,39 @@
     "fetch_date": "2026-09-22T11:31:18.321101+00:00",
     "processing_version": "1.0",
     "fetch_status": "partial",
-    "anchor_count": 3,
+    "anchor_count": 2,
     "anchor_errors": {
       "10.1101/2025.03.09.642197": "not_found"
     },
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.1101/2025.04.11.643415",
         "identifier_type": "doi",
         "source_relation": "IsDescribedBy",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "PsiConnect: A Multimodal Neuroimaging Study of Psilocybin-Induced Changes in Brain and Behaviour",
+        "paper_year": 2025,
+        "paper_venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+        "reason": "Title and abstract match the dataset README (PsiConnect, 62 participants, 19 mg psilocybin, multimodal MRI+EEG, meditation/music/movie conditions), so it is the dataset's preprint.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.1101/2025.03.09.642197",
         "identifier_type": "doi",
         "source_relation": "IsDescribedBy",
         "classification": null,
-        "kept": true,
+        "kept": false,
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "unjudged"
       },
       {
         "identifier": "10.82901/nemar.on006110",
@@ -49,12 +51,12 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
       "10.1101/2025.04.11.643415",
-      "10.1101/2025.03.09.642197",
       "10.82901/nemar.on006110"
     ],
     "keywords": [

@@ -1,7 +1,7 @@
 {
   "dataset_id": "on004398",
   "num_citations": 3,
-  "date_last_updated": "2026-09-29T11:14:42.997458+00:00",
+  "date_last_updated": "2026-09-30T10:45:53.070373+00:00",
   "metadata": {
     "total_cumulative_citations": 78,
     "fetch_date": "2026-09-29T11:14:42.997458+00:00",
@@ -11,19 +11,20 @@
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.1101/2021.11.08.467745",
         "identifier_type": "doi",
         "source_relation": "IsDescribedBy",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "Distinct replay signatures for prospective decision-making and memory preservation",
+        "paper_year": 2021,
+        "paper_venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+        "reason": "Same authors (Wimmer, Liu, McNamee, Dolan) as the dataset; the MEG planning/memory replay reward-learning task study matches \"planmemreplay\" and reports this data.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.82901/nemar.on004398",
@@ -35,7 +36,8 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -86,7 +88,14 @@
       {
         "funder_name": "Max Planck Society"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "on004398",
+      "ds004398"
+    ],
+    "num_accession_mentions": 0,
+    "num_dataset_citations": 1,
+    "num_datapaper_citations": 2
   },
   "citation_details": [
     {
@@ -110,7 +119,9 @@
         "dataset_text_length": 816,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
+      },
+      "mentions_accession": true,
+      "matched_accession": "ds004398"
     },
     {
       "title": "Revisiting the role of computational neuroimaging in the era of integrative neuroscience",

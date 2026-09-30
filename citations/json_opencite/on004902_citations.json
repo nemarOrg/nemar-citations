@@ -1,9 +1,9 @@
 {
   "dataset_id": "on004902",
-  "num_citations": 37,
-  "date_last_updated": "2026-09-29T11:21:15.554800+00:00",
+  "num_citations": 44,
+  "date_last_updated": "2026-09-30T10:47:15.979842+00:00",
   "metadata": {
-    "total_cumulative_citations": 242,
+    "total_cumulative_citations": 243,
     "fetch_date": "2026-09-29T11:21:15.554800+00:00",
     "processing_version": "1.0",
     "fetch_status": "partial",
@@ -13,19 +13,20 @@
     },
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.1038/s41597-024-03268-2",
         "identifier_type": "doi",
         "source_relation": "IsDescribedBy",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "A resting-state EEG dataset for sleep deprivation",
+        "paper_year": 2024,
+        "paper_venue": "Scientific Data",
+        "reason": "Title, authors, and abstract (71 participants, sleep deprivation vs normal sleep, eyes-open resting EEG) match this dataset exactly; it is the Scientific Data descriptor.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.82901/nemar.on004902",
@@ -37,7 +38,8 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -57,7 +59,14 @@
         "funder_name": "National Key Research and Development Program of China",
         "award_number": "2021YFC2501500"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "on004902",
+      "ds004902"
+    ],
+    "num_accession_mentions": 7,
+    "num_dataset_citations": 9,
+    "num_datapaper_citations": 35
   },
   "citation_details": [
     {
@@ -173,7 +182,10 @@
         "dataset_text_length": 2261,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
+      },
+      "superseded_dois": [
+        "10.48550/arxiv.2411.18392"
+      ]
     },
     {
       "title": "A Simple Review of EEG Foundation Models: Datasets, Advancements and Future Perspectives",
@@ -495,7 +507,9 @@
         "dataset_text_length": 2261,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
+      },
+      "mentions_accession": true,
+      "matched_accession": "ds004902"
     },
     {
       "title": "Sleep deprivation alters utilization of negative feedback in risky decision-making",
@@ -610,7 +624,9 @@
         "dataset_text_length": 2261,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
+      },
+      "mentions_accession": true,
+      "matched_accession": "ds004902"
     },
     {
       "title": "Dynamic neural activity and vigilance impairment during prolonged wakefulness: A resting-state EEG study",
@@ -910,22 +926,200 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "Structural Limits and Observable Benchmarks for Ganzfeld-tACS Computational Modeling: A Preregistered Boundary-Setting Study",
+      "author": "Ke Wan",
+      "venue": "Research Square",
+      "year": 2026,
+      "url": "https://doi.org/10.21203/rs.3.rs-10890554/v1",
+      "cited_by": 0,
+      "abstract": null,
+      "doi": "10.21203/rs.3.rs-10890554/v1",
+      "pmid": null,
+      "openalex_id": "W7206205243",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004902",
+      "confidence_scoring": {
+        "confidence_score": 0.3981144815683365,
+        "similarity_score": 0.3791566491127014,
+        "citation_text_length": 172,
+        "dataset_text_length": 2261,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Real-Time BCI-Generated Ethnic-Inspired Music Based on Orff Principles: Effects on Relaxation and Potential Support for Language Development in Children with Autism Spectrum Disorder",
+      "author": "Miao Wang, Yi Shen, Hsianghoo Steve Ching",
+      "venue": "Research Square",
+      "year": 2026,
+      "url": "https://doi.org/10.21203/rs.3.rs-8883336/v1",
+      "cited_by": 0,
+      "abstract": null,
+      "doi": "10.21203/rs.3.rs-8883336/v1",
+      "pmid": null,
+      "openalex_id": "W7148850319",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004902",
+      "confidence_scoring": {
+        "confidence_score": 0.4055430874228478,
+        "similarity_score": 0.38623151183128357,
+        "citation_text_length": 265,
+        "dataset_text_length": 2261,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Exploring the differences in neural oscillation mechanisms before and after sleep deprivation",
+      "author": "Zitong Cui, Tiantian Xie, Yueying Zhou, Peiliang Gong, Xiaorui Zhang, Pengpai Wang",
+      "venue": "Frontiers in Neuroscience",
+      "year": 2026,
+      "url": "https://doi.org/10.3389/fnins.2026.1910878",
+      "cited_by": 0,
+      "abstract": "Introduction: Sleep deprivation is widespread in modern society and can impair cognitive function and behavioral performance. However, the neural changes associated with individual differences in vulnerability to sleep loss remain unclear, particularly whether temporal fluctuations in neural oscillations provide information beyond conventional mean spectral measures. Methods: We analyzed a publicly available resting-state electroencephalogram (EEG) dataset comprising 64 participants assessed under normal sleep and sleep deprivation conditions, including 28 participants with psychomotor vigilance task (PVT) data. Two oscillatory feature families, mean relative power and the across-epoch variability of relative power, were quantified in the theta, alpha, and beta bands, primarily at the regional level, with channel-level analyses used to further characterize their spatial distribution. Results: Theta-band features showed the most pronounced changes after sleep deprivation. In particular, theta power variability increased across widespread scalp regions, whereas changes in mean theta relative power were more spatially restricted. Greater increases in theta power variability in the frontal and centro-temporal regions were associated with greater slowing in PVT median reaction time, and the principal association pattern remained evident in sensitivity analyses. Exploratory sex-related analyses identified a significant sex-by-EEG interaction in the centro-temporal region, indicating different linear EEG-PVT slopes between males and females, although the corresponding difference in Spearman correlation strength was not significant. Discussion: Overall, theta power variability may provide complementary information beyond conventional mean spectral measures and may help characterize individual differences in vigilance decline after sleep deprivation.",
+      "doi": "10.3389/fnins.2026.1910878",
+      "pmid": "42609404",
+      "openalex_id": "W7172263925",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004902",
+      "confidence_scoring": {
+        "confidence_score": 0.6733749872446061,
+        "similarity_score": 0.5830086469650269,
+        "citation_text_length": 1739,
+        "dataset_text_length": 2261,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Aperiodic-Aware EEG Features for Cross-Subject Acute Sleep Deprivation Detection",
+      "author": "Zhuoyan Li",
+      "venue": "n/a",
+      "year": 2026,
+      "url": "https://doi.org/10.4108/eai.22-5-2026.2365220",
+      "cited_by": 0,
+      "abstract": "Acute sleep deprivation impairs vigilance and cognitive stability.Resting-state electroencephalography (EEG) is a potential approach, although traditional bandpower features may be confounded by broadband aperiodic activity.In this study, the authors assessed whether aperiodic-aware EEG characteristics could serve as useful indicators for detecting acute sleep deprivation across subjects.Eyes-open resting-state EEG recordings from the OpenNeuro ds004902 dataset were analyzed.Within-subject statistical tests demonstrated that the aperiodic exponent increased under sleep deprivation in both reduced-channel and all-channels configurations and that this trend persisted in a strict sensitivity subset.Neither session order nor age was significantly associated with the primary exponent change.By contrast, crosssubject discrimination with lightweight classifiers was only moderate, implying that generalization remains difficult despite the repeatability of the physiological change.These results provide a feasible basis for future EEG-based monitoring analyses.",
+      "doi": "10.4108/eai.22-5-2026.2365220",
+      "pmid": null,
+      "openalex_id": "W7213547735",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004902",
+      "confidence_scoring": {
+        "confidence_score": 0.7702395290136339,
+        "similarity_score": 0.6668740510940552,
+        "citation_text_length": 1199,
+        "dataset_text_length": 2261,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "The role of data partitioning on the performance of EEG-based deep learning models in supervised cross-subject analysis: a preliminary study",
+      "author": "Federico Del Pup, Andrea Zanola, Louis Fabrice Tshimanga, Alessandra Bertoldo, Livio Finos, Manfredo Atzori",
+      "venue": "arXiv (Cornell University)",
+      "year": 2025,
+      "url": "https://doi.org/10.48550/arxiv.2505.13021",
+      "cited_by": 1,
+      "abstract": "Deep learning is significantly advancing the analysis of electroencephalography (EEG) data by effectively discovering highly nonlinear patterns within the signals. Data partitioning and cross-validation are crucial for assessing model performance and ensuring study comparability, as they can produce varied results and data leakage due to specific signal properties (e.g., biometric). Such variability leads to incomparable studies and, increasingly, overestimated performance claims, which are detrimental to the field. Nevertheless, no comprehensive guidelines for proper data partitioning and cross-validation exist in the domain, nor is there a quantitative evaluation of their impact on model accuracy, reliability, and generalizability. To assist researchers in identifying optimal experimental strategies, this paper thoroughly investigates the role of data partitioning and cross-validation in evaluating EEG deep learning models. Five cross-validation settings are compared across three supervised cross-subject classification tasks (BCI, Parkinson's, and Alzheimer's disease detection) and four established architectures of increasing complexity (ShallowConvNet, EEGNet, DeepConvNet, and Temporal-based ResNet). The comparison of over 100,000 trained models underscores, first, the importance of using subject-based cross-validation strategies for evaluating EEG deep learning models, except when within-subject analyses are acceptable (e.g., BCI). Second, it highlights the greater reliability of nested approaches (N-LNSO) compared to non-nested counterparts, which are prone to data leakage and favor larger models overfitting to validation data. In conclusion, this work provides EEG deep learning researchers with an analysis of data partitioning and cross-validation and offers guidelines to avoid data leakage, currently undermining the domain with potentially overestimated performance claims.",
+      "doi": "10.48550/arxiv.2505.13021",
+      "pmid": null,
+      "openalex_id": "W4417287170",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004902",
+      "confidence_scoring": {
+        "confidence_score": 0.550613533705473,
+        "similarity_score": 0.4767216742038727,
+        "citation_text_length": 1812,
+        "dataset_text_length": 2261,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "The Relational Foundation V2",
+      "author": "Daniel O'Keeffe",
+      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "year": 2026,
+      "url": "https://doi.org/10.5281/zenodo.19051613",
+      "cited_by": 0,
+      "abstract": "Abstract Relativity describes the structure of a world once definite reality is in play. This paper proposes a complementary shift in perspective: that definite reality itself is constituted by physical encounter at the quantum boundary. Where Einstein showed that properties are relative to a frame of reference, this framework proposes that existence is relational—forged through interaction, not given in advance. The paper advances two claims of differing epistemic weight. The first is ontological: that relatedness is fundamental, meaning definiteness arises through encounter, not prior to it. The second is a metaphysical proposal: that consciousness, as known in integrated biological organisms, is best understood as the intrinsic interior of recursively organised relational actualisation. An empirical programme is proposed, centred on the Integration-Dissipation Ratio (RID = Sprod / CL), with explicit failure conditions. Independent computational validation on real human EEG (OpenNeuro ds005620, Bajwa et al. 2024, 21 subjects, propofol sedation) confirms the framework’s central prediction: RID is statistically invariant between wakefulness and light propofol sedation with preserved dreaming (p = 0.48, BF = 178.60), and collapses significantly under deep propofol where consciousness is abolished (p = 0.0065). The scalar proxy does not recover window-level linear coupling (r = 0.003); this is expected, as the proxy compresses spatially distributed, directed tensor structure into a single undirected scalar. Cross-species validation on rat neocortical LFP (DANDI 000041, Watson et al.) confirms magnitude consistency with human values (KR1–KR4 all pass). Human sleep deprivation EEG (OpenNeuro ds004902, 21 paired subjects) confirms elevated waking RID under homeostatic debt (p = 0.033). Overnight polysomnography (Sleep-EDF, 152 recordings) reveals a methodological boundary of the histogram-based entropy production proxy, suggesting that the thermodynamic signature of consciousness may require multi-dimensional operationalisation. Four datasets, two species, and three recording modalities are reported with full transparency. The scalar proxy analysis was not designed to test the full tensor equation; its role was to test whether an aggregate projection of the framework carried empirical signal. It did (p = 0.48, BF = 178.60). The framework’s fundamental equation, derived from a Nakajima-Zwanzig coarse-graining of quantum relative entropy (Appendix F), is the Relational Tensor: Σμν(t) = Π ∫ K(t−τ) (dCμν/dτ) dτ + Λμμδμν, where Σμν is the directed thermodynamic flux tensor, Cμν is the directed relational complexity tensor (identified as classical transfer entropy under decoherence), Π = αkBln 2 is the Landauer-bounded thermodynamic cost constant (α ≥ 1), K is a causal memory kernel, and Λμμδμν is the strictly diagonal local bath dissipation baseline. The empirical RID is formally recovered as the macroscopic scalar projection (global spatial summation) of this tensor. The proper test of the elementwise equation requires spatially resolved, directed, temporally filtered network analysis on high-density data. PC algorithm causal discovery confirms three robust causal edges (Sprod–CL, Sprod–Conscious, CL–Conscious), with the Sprod–CLcoupling persisting within conscious and unconscious states independently (r ≥ 0.995). A formal coarse-graining reduction establishes the mathematical chain from quantum relational entropy to macroscopic transfer entropy via the Nakajima-Zwanzig formalism, diagonal trapping of bath correlations, and decoherence-induced projection, with full dimensional consistency against the Landauer bound. The thermodynamic structure of the tensor equation is shown to belong to the same family as emergent gravity: when evaluated on a Bekenstein-saturating system at a local Rindler horizon, it reproduces both inputs to Jacobson’s (1995) thermodynamic derivation of Einstein’s field equations, establishing the framework as a specific instance of the information-geometry correspondence. The core theorems have been independently verified by two formally distinct proof kernels: Lean 4 (v4.14.0) and Rocq/Coq (v9.1.1), with zero placeholders in either verification. A matrix of sixteen falsifiable predictions defines the precise conditions under which the framework would be disconfirmed. Keywords: Relational Ontology, Quantum Decoherence, Consciousness, Ontological Resolution, Thermodynamic Irreversibility, Hard Problem of Consciousness, Integration-Dissipation Ratio, Relational Tensor, Nonequilibrium Brain Dynamics, Quantum Darwinism, Pixel Tax, Causal Discovery, Bayesian Model Comparison, Dual Formal Verification, EEG Validation",
+      "doi": "10.5281/zenodo.19051613",
+      "pmid": null,
+      "openalex_id": "W7137246536",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004902",
+      "superseded_dois": [
+        "10.5281/zenodo.19051614"
+      ],
+      "confidence_scoring": {
+        "confidence_score": 0.4685498678684235,
+        "similarity_score": 0.4056708812713623,
+        "citation_text_length": 1638,
+        "dataset_text_length": 2261,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Scalp EEG reveals functional dissociable aperiodic timescales in divergence of mental health",
+      "author": "Yuhan Lu, Hangze Mao, Xing Tian",
+      "venue": "medRxiv",
+      "year": 2026,
+      "url": "https://doi.org/10.64898/2026.06.27.26355457",
+      "cited_by": 0,
+      "abstract": "Abstract Understanding the divergence of mental health requires recognizing the brain’s real-time information processing. For example, aperiodic neural activity characterizing intrinsic brain dynamics is increasingly used as a biomarker in mental health, yet how its temporal complexity relates to mental deviations in ageing and disorders remains unknown. Here, using resting-state electroencephalography from approximately 1,700 participants across healthy, neurological and psychiatric disorders and chronic-pain cohorts, we show that the knee-like frequency structure recovered from individual spectra of neural activity converges into two reproducible, population-level temporal components. These slow and fast aperiodic timescales showed distinct functional profiles: the slow component remained stable across all states of mental health, whereas the fast component increased with healthy ageing, decreased in mental disorders and was unchanged in chronic pain. These findings establish that scalp EEG preserves functionally dissociable aperiodic timescales, possibly reflecting body-mind interactions, offering scalable, non-invasive temporal markers for quantifying divergent states of mental health.",
+      "doi": "10.64898/2026.06.27.26355457",
+      "pmid": null,
+      "openalex_id": "W7166728303",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004902",
+      "confidence_scoring": {
+        "confidence_score": 0.5595410379767419,
+        "similarity_score": 0.4844511151313782,
+        "citation_text_length": 1377,
+        "dataset_text_length": 2261,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T12:14:33.108071+00:00",
+    "scoring_date": "2026-09-30T11:00:46.729066+00:00",
     "dataset_text_length": 2261,
-    "num_citations_scored": 37,
+    "num_citations_scored": 44,
     "summary_stats": {
-      "mean_confidence": 0.5995886701949547,
-      "median_confidence": 0.5913194793462755,
-      "std_confidence": 0.12060039980220516,
+      "mean_confidence": 0.5911535755003041,
+      "median_confidence": 0.5845537255704404,
+      "std_confidence": 0.12330666403887465,
       "min_confidence": 0.29466839522123345,
       "max_confidence": 0.970292082130909,
-      "high_confidence_count": 7,
-      "medium_confidence_count": 28,
-      "low_confidence_count": 2
+      "high_confidence_count": 8,
+      "medium_confidence_count": 33,
+      "low_confidence_count": 3
     }
   }
 }

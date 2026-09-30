@@ -1,7 +1,7 @@
 {
   "dataset_id": "on004357",
-  "num_citations": 28,
-  "date_last_updated": "2026-09-29T11:13:53.761810+00:00",
+  "num_citations": 29,
+  "date_last_updated": "2026-09-30T10:45:46.729079+00:00",
   "metadata": {
     "total_cumulative_citations": 56,
     "fetch_date": "2026-09-29T11:13:53.761810+00:00",
@@ -11,19 +11,20 @@
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.1371/journal.pcbi.1011760",
         "identifier_type": "doi",
         "source_relation": "IsDescribedBy",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "Mapping the dynamics of visual feature coding: Insights into perception and integration",
+        "paper_year": 2024,
+        "paper_venue": "PLoS Computational Biology",
+        "reason": "Dataset README cites this paper; it reports the EEG recordings (N=16, 256 grating stimuli) with matching authors, so it is the study paper for this data.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.82901/nemar.on004357",
@@ -35,7 +36,8 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -51,7 +53,14 @@
       "event-related potentials"
     ],
     "methods_description": "Electroencephalography recordings were collected from 16 subjects during presentation of gabor-like stimuli in rapid serial visual presentation streams at 6.67 Hz and 20 Hz rates. Participants performed an orthogonal fixation color change detection task. Total experiment duration was approximately 1 hour per subject.",
-    "funding": []
+    "funding": [],
+    "searched_accessions": [
+      "on004357",
+      "ds004357"
+    ],
+    "num_accession_mentions": 1,
+    "num_dataset_citations": 1,
+    "num_datapaper_citations": 28
   },
   "citation_details": [
     {
@@ -697,20 +706,45 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "Mapping the dynamics of visual feature coding: Insights into perception and integration",
+      "author": "Tijl Grootswagers, Amanda K. Robinson, Sophia M. Shatek, Thomas A. Carlson",
+      "venue": "PLoS Computational Biology",
+      "year": 2024,
+      "url": "https://doi.org/10.1371/journal.pcbi.1011760",
+      "cited_by": 27,
+      "abstract": "The basic computations performed in the human early visual cortex are the foundation for visual perception. While we know a lot about these computations, a key missing piece is how the coding of visual features relates to our perception of the environment. To investigate visual feature coding, interactions, and their relationship to human perception, we investigated neural responses and perceptual similarity judgements to a large set of visual stimuli that varied parametrically along four feature dimensions. We measured neural responses using electroencephalography (N = 16) to 256 grating stimuli that varied in orientation, spatial frequency, contrast, and colour. We then mapped the response profiles of the neural coding of each visual feature and their interactions, and related these to independently obtained behavioural judgements of stimulus similarity. The results confirmed fundamental principles of feature coding in the visual system, such that all four features were processed simultaneously but differed in their dynamics, and there was distinctive conjunction coding for different combinations of features in the neural responses. Importantly, modelling of the behaviour revealed that every stimulus feature contributed to perceptual judgements, despite the untargeted nature of the behavioural task. Further, the relationship between neural coding and behaviour was evident from initial processing stages, signifying that the fundamental features, not just their interactions, contribute to perception. This study highlights the importance of understanding how feature coding progresses through the visual hierarchy and the relationship between different stages of processing and perception.",
+      "doi": "10.1371/journal.pcbi.1011760",
+      "pmid": "38190390",
+      "openalex_id": "W4390660265",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004357",
+      "confidence_scoring": {
+        "confidence_score": 0.7149879097938537,
+        "similarity_score": 0.6190371513366699,
+        "citation_text_length": 1726,
+        "dataset_text_length": 871,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T12:10:56.298015+00:00",
+    "scoring_date": "2026-09-30T10:58:57.596638+00:00",
     "dataset_text_length": 871,
-    "num_citations_scored": 28,
+    "num_citations_scored": 29,
     "summary_stats": {
-      "mean_confidence": 0.5862242153473199,
-      "median_confidence": 0.5931254129111767,
-      "std_confidence": 0.12748052289835263,
+      "mean_confidence": 0.5906643427420281,
+      "median_confidence": 0.6066747164726258,
+      "std_confidence": 0.1274476641628744,
       "min_confidence": 0.18375917024910451,
       "max_confidence": 0.8004054522514344,
-      "high_confidence_count": 6,
+      "high_confidence_count": 7,
       "medium_confidence_count": 20,
       "low_confidence_count": 2
     }

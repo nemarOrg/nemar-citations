@@ -1,43 +1,56 @@
 {
   "dataset_id": "on003029",
-  "judged_at": "2026-09-29T10:18:01.973662+00:00",
-  "judgment_model": "gemma4:e4b",
+  "judged_at": "2026-09-30T10:19:39.652176+00:00",
+  "judgment_model": "claude-sonnet-5-5",
+  "prompt_version": 2,
   "judgments": [
     {
       "anchor_identifier": "10.1101/862797",
       "anchor_identifier_type": "doi",
       "source_relation": "IsDescribedBy",
-      "classification": "",
-      "reason": "",
+      "classification": "related_work",
+      "reason": "The 2019 neural fragility preprint (91 patients) is a subset study the README says was \"featured\"; the dataset's own paper is Bernabei & Li et al. (in preparation), so it isn't the data paper.",
       "paper_title": "Neural Fragility as an EEG Marker of the Seizure Onset Zone",
       "paper_year": 2019,
       "paper_venue": "bioRxiv (Cold Spring Harbor Laboratory)",
-      "judged_at": "2026-09-29T10:18:00.953933+00:00",
-      "error": "llm_judgment_failed:ollama HTTP 404: model 'gemma4:e4b' not found"
+      "judged_at": "2026-09-30T10:19:38.568041+00:00",
+      "error": null
     },
     {
       "anchor_identifier": "10.21105/joss.01896",
       "anchor_identifier_type": "doi",
       "source_relation": "References",
-      "classification": "",
-      "reason": "",
+      "classification": "methodology",
+      "reason": "MNE-BIDS is a software tool for organizing electrophysiological data into BIDS, used to prepare the dataset, not a paper describing this iEEG dataset.",
       "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
       "paper_year": 2019,
       "paper_venue": "The Journal of Open Source Software",
-      "judged_at": "2026-09-29T10:18:01.653389+00:00",
-      "error": "llm_judgment_failed:ollama HTTP 404: model 'gemma4:e4b' not found"
+      "judged_at": "2026-09-30T10:19:38.936342+00:00",
+      "error": null
     },
     {
       "anchor_identifier": "10.1038/s41597-019-0105-7",
       "anchor_identifier_type": "doi",
       "source_relation": "References",
-      "classification": "",
-      "reason": "",
+      "classification": "methodology",
+      "reason": "iEEG-BIDS is a specification for organizing intracranial EEG data, which this BIDS-formatted iEEG dataset uses; it does not describe this dataset itself.",
       "paper_title": "iEEG-BIDS, extending the Brain Imaging Data Structure specification to human intracranial electrophysiology",
       "paper_year": 2019,
       "paper_venue": "Scientific Data",
-      "judged_at": "2026-09-29T10:18:01.973662+00:00",
-      "error": "llm_judgment_failed:ollama HTTP 404: model 'gemma4:e4b' not found"
+      "judged_at": "2026-09-30T10:19:39.259933+00:00",
+      "error": null
+    },
+    {
+      "anchor_identifier": "10.1038/s41597-019-0104-8",
+      "anchor_identifier_type": "doi",
+      "source_relation": "References",
+      "classification": "methodology",
+      "reason": "EEG-BIDS is a data-organization standard extending BIDS that this dataset's format follows; it does not describe the epilepsy iEEG multicenter data.",
+      "paper_title": "EEG-BIDS, an extension to the brain imaging data structure for electroencephalography",
+      "paper_year": 2019,
+      "paper_venue": "Scientific Data",
+      "judged_at": "2026-09-30T10:19:39.652176+00:00",
+      "error": null
     }
   ]
 }

@@ -1,31 +1,56 @@
 {
   "dataset_id": "nm000344",
-  "judged_at": "2026-09-29T10:15:32.466919+00:00",
-  "judgment_model": "gemma4:e4b",
+  "judged_at": "2026-09-30T10:16:15.360867+00:00",
+  "judgment_model": "claude-sonnet-5-5",
+  "prompt_version": 2,
   "judgments": [
     {
       "anchor_identifier": "10.1016/j.neuroimage.2023.120446",
       "anchor_identifier_type": "doi",
       "source_relation": "IsDerivedFrom",
-      "classification": "",
-      "reason": "",
+      "classification": "data_paper",
+      "reason": "Dataset is derived from Castillos et al. 2023 Burst c-VEP study; matching authors, 12 participants, 32-ch LiveAmp EEG and c-VEP paradigm indicate this is the study paper reporting this data.",
       "paper_title": "Burst c-VEP Based BCI: Optimizing stimulus design for enhanced classification with minimal calibration data and improved user experience",
       "paper_year": 2023,
       "paper_venue": "NeuroImage",
-      "judged_at": "2026-09-29T10:15:32.162720+00:00",
-      "error": "llm_judgment_failed:ollama HTTP 404: model 'gemma4:e4b' not found"
+      "judged_at": "2026-09-30T10:16:14.408451+00:00",
+      "error": null
     },
     {
       "anchor_identifier": "10.5281/zenodo.8255618",
       "anchor_identifier_type": "doi",
       "source_relation": "IsVersionOf",
-      "classification": "",
-      "reason": "",
+      "classification": "data_paper",
+      "reason": "Zenodo deposit of the same 12-participant c-VEP EEG data (BrainProducts LiveAmp 32, FCz ref, mean age 30.6, SD 7.1) by Castillos, matching this dataset.",
       "paper_title": "4-class code-VEP EEG data",
       "paper_year": 2023,
       "paper_venue": "Zenodo (CERN European Organization for Nuclear Research)",
-      "judged_at": "2026-09-29T10:15:32.466919+00:00",
-      "error": "llm_judgment_failed:ollama HTTP 404: model 'gemma4:e4b' not found"
+      "judged_at": "2026-09-30T10:16:14.746044+00:00",
+      "error": null
+    },
+    {
+      "anchor_identifier": "10.21105/joss.01896",
+      "anchor_identifier_type": "doi",
+      "source_relation": "References",
+      "classification": "methodology",
+      "reason": "MNE-BIDS is a software tool for organizing electrophysiology data into BIDS, used in dataset conversion, not a paper describing the Castillos c-VEP dataset.",
+      "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
+      "paper_year": 2019,
+      "paper_venue": "The Journal of Open Source Software",
+      "judged_at": "2026-09-30T10:16:15.034334+00:00",
+      "error": null
+    },
+    {
+      "anchor_identifier": "10.1038/s41597-019-0104-8",
+      "anchor_identifier_type": "doi",
+      "source_relation": "References",
+      "classification": "methodology",
+      "reason": "EEG-BIDS is a data-organization standard extension to BIDS, used to format this dataset, not a paper describing the Castillos c-VEP/burst-VEP data.",
+      "paper_title": "EEG-BIDS, an extension to the brain imaging data structure for electroencephalography",
+      "paper_year": 2019,
+      "paper_venue": "Scientific Data",
+      "judged_at": "2026-09-30T10:16:15.360867+00:00",
+      "error": null
     }
   ]
 }

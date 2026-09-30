@@ -1,10 +1,10 @@
 {
   "dataset_id": "on004166",
   "num_citations": 1,
-  "date_last_updated": "2026-09-22T11:44:15.240942+00:00",
+  "date_last_updated": "2026-09-30T10:45:32.869286+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
-    "fetch_date": "2026-08-26T10:02:26.396436+00:00",
+    "fetch_date": "2026-09-30T10:42:29.483742+00:00",
     "processing_version": "1.0",
     "fetch_status": "not_found",
     "anchor_count": 1,
@@ -13,19 +13,72 @@
     },
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
+      {
+        "identifier": "10.1016/j.jad.2015.09.022",
+        "identifier_type": "doi",
+        "source_relation": "References",
+        "classification": "related_work",
+        "kept": false,
+        "kept_reason": "judged_not_data_paper",
+        "paper_title": "Computerized cognitive training and functional recovery in major depressive disorder: A meta-analysis",
+        "paper_year": 2015,
+        "paper_venue": "Journal of Affective Disorders",
+        "reason": "A 2015 meta-analysis of computerized cognitive training in depression is topically related to cognitive training but does not describe this working memory span training ERP dataset.",
+        "judgment_model": "claude-sonnet-5-5"
+      },
+      {
+        "identifier": "10.1176/appi.ajp.161.4.745",
+        "identifier_type": "doi",
+        "source_relation": "References",
+        "classification": "related_work",
+        "kept": false,
+        "kept_reason": "judged_not_data_paper",
+        "paper_title": "Plasticity of Cortical Activation Related to Working Memory During Training",
+        "paper_year": 2004,
+        "paper_venue": "American Journal of Psychiatry",
+        "reason": "2004 fMRI study of working memory training in nine subjects; topically related to WM training but not this ERP randomized trial dataset.",
+        "judgment_model": "claude-sonnet-5-5"
+      },
+      {
+        "identifier": "10.1111/j.1467-8624.2009.01282.x",
+        "identifier_type": "doi",
+        "source_relation": "References",
+        "classification": "related_work",
+        "kept": false,
+        "kept_reason": "judged_not_data_paper",
+        "paper_title": "The Cognitive and Behavioral Characteristics of Children With Low Working Memory",
+        "paper_year": 2009,
+        "paper_venue": "Child Development",
+        "reason": "Paper studies cognitive/behavioral profiles of children with low working memory; topically related to working memory but not this ERP span-training RCT dataset.",
+        "judgment_model": "claude-sonnet-5-5"
+      },
+      {
+        "identifier": "10.1016/j.jecp.2003.10.002",
+        "identifier_type": "doi",
+        "source_relation": "References",
+        "classification": "related_work",
+        "kept": false,
+        "kept_reason": "judged_not_data_paper",
+        "paper_title": "A structural analysis of working memory and related cognitive skills in young children",
+        "paper_year": 2003,
+        "paper_venue": "Journal of Experimental Child Psychology",
+        "reason": "2003 study of working memory structure in young children; topically related to working memory but does not describe this ERP training RCT dataset.",
+        "judgment_model": "claude-sonnet-5-5"
+      },
       {
         "identifier": "10.82901/nemar.on004166",
         "identifier_type": "doi",
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -33,13 +86,14 @@
     ],
     "keywords": [
       "EEG",
+      "event-related potentials",
       "working memory",
-      "Event-Related Potentials, P300",
       "cognitive training",
-      "change detection task",
-      "Randomized Controlled Trial"
+      "randomized controlled trial",
+      "contralateral delay activity",
+      "change detection task"
     ],
-    "methods_description": "EEG signals were recorded at pre-, mid-, and post-test time points using a 64-channel Synamps RT system (Neuroscan, El Paso, USA). Participants sat in a comfortable chair inside a darkened, electrically shielded recording chamber. Electrode impedance was kept below 5kΩ, with the reference electrode on the left mastoid. Vertical EOG was recorded via electrodes above and below the right eye, and horizontal EOG via electrodes at the outer canthi of each eye.",
+    "methods_description": "EEG was recorded with a 64-channel Synamps RT system (Neuroscan) at pre-, mid-, and post-test sessions. Participants sat in a darkened, electrically shielded chamber with impedance below 5 kΩ and the reference on the left mastoid. Vertical and horizontal EOG were recorded. The task was a distractor version of change detection with 2T0D, 4T0D, and 2T2D conditions.",
     "funding": [
       {
         "funder_name": "National Natural Science Foundation of China",
@@ -83,7 +137,7 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-22T13:05:52.433047+00:00",
+    "scoring_date": "2026-09-30T10:58:25.979084+00:00",
     "dataset_text_length": 2610,
     "num_citations_scored": 1,
     "summary_stats": {

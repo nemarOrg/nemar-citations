@@ -1,31 +1,56 @@
 {
   "dataset_id": "nm000189",
-  "judged_at": "2026-09-29T10:06:42.655389+00:00",
-  "judgment_model": "gemma4:e4b",
+  "judged_at": "2026-09-30T10:08:21.376304+00:00",
+  "judgment_model": "claude-sonnet-5-5",
+  "prompt_version": 2,
   "judgments": [
     {
       "anchor_identifier": "10.1016/j.neulet.2009.06.045",
       "anchor_identifier_type": "doi",
       "source_relation": "IsDerivedFrom",
-      "classification": "",
-      "reason": "",
+      "classification": "related_work",
+      "reason": "Guger et al. 2009 is a P300 BCI study of 100 subjects. This dataset has 10 subjects, a BrainAmp amplifier and Schreuder/Tangermann as authors, so it is topically related but not the data paper.",
       "paper_title": "How many people are able to control a P300-based brain–computer interface (BCI)?",
       "paper_year": 2009,
       "paper_venue": "Neuroscience Letters",
-      "judged_at": "2026-09-29T10:06:42.317148+00:00",
-      "error": "llm_judgment_failed:ollama HTTP 404: model 'gemma4:e4b' not found"
+      "judged_at": "2026-09-30T10:08:20.361051+00:00",
+      "error": null
     },
     {
       "anchor_identifier": "10.3389/fnins.2011.00112",
       "anchor_identifier_type": "doi",
-      "source_relation": "References",
-      "classification": "",
-      "reason": "",
+      "source_relation": "IsDescribedBy",
+      "classification": "related_work",
+      "reason": "Same authors and auditory ERP speller topic, but this study has N=21 subjects. The dataset has 10 subjects and cites a different DOI (Neurosci Lett 2009), so it is not clearly this dataset's paper.",
       "paper_title": "Listen, You are Writing! Speeding up Online Spelling with a Dynamic Auditory BCI",
       "paper_year": 2011,
       "paper_venue": "Frontiers in Neuroscience",
-      "judged_at": "2026-09-29T10:06:42.655389+00:00",
-      "error": "llm_judgment_failed:ollama HTTP 404: model 'gemma4:e4b' not found"
+      "judged_at": "2026-09-30T10:08:20.725950+00:00",
+      "error": null
+    },
+    {
+      "anchor_identifier": "10.21105/joss.01896",
+      "anchor_identifier_type": "doi",
+      "source_relation": "References",
+      "classification": "methodology",
+      "reason": "MNE-BIDS is a software tool for organizing electrophysiological data into BIDS, used for dataset conversion, not a paper describing the BNCI 2015-003 P300 data.",
+      "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
+      "paper_year": 2019,
+      "paper_venue": "The Journal of Open Source Software",
+      "judged_at": "2026-09-30T10:08:21.049792+00:00",
+      "error": null
+    },
+    {
+      "anchor_identifier": "10.1038/s41597-019-0104-8",
+      "anchor_identifier_type": "doi",
+      "source_relation": "References",
+      "classification": "methodology",
+      "reason": "EEG-BIDS is a data-organization standard/specification used to format the dataset, not a paper describing this BNCI 2015-003 P300 dataset.",
+      "paper_title": "EEG-BIDS, an extension to the brain imaging data structure for electroencephalography",
+      "paper_year": 2019,
+      "paper_venue": "Scientific Data",
+      "judged_at": "2026-09-30T10:08:21.376304+00:00",
+      "error": null
     }
   ]
 }

@@ -1,43 +1,45 @@
 {
   "dataset_id": "on006466",
-  "num_citations": 2,
-  "date_last_updated": "2026-09-29T11:33:34.101235+00:00",
+  "num_citations": 1,
+  "date_last_updated": "2026-09-30T10:44:33.309771+00:00",
   "metadata": {
     "total_cumulative_citations": 8,
     "fetch_date": "2026-09-29T11:33:34.101235+00:00",
     "processing_version": "1.0",
     "fetch_status": "partial",
-    "anchor_count": 3,
+    "anchor_count": 2,
     "anchor_errors": {
       "10.1186/s13063-024-08036-4": "not_found"
     },
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.1101/2025.10.02.680040",
         "identifier_type": "doi",
         "source_relation": "References",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "Electroencephalography, pupillometry, and behavioral evidence for locus coeruleus-noradrenaline system related tonic hyperactivity in older adults",
+        "paper_year": 2025,
+        "paper_venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+        "reason": "Same authors as the dataset; the study reports EEG from older adults during passive/active auditory oddball under threat of shock (control vs arousal), matching this dataset's design.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.1186/s13063-024-08036-4",
         "identifier_type": "doi",
         "source_relation": "IsDerivedFrom",
         "classification": null,
-        "kept": true,
+        "kept": false,
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "unjudged"
       },
       {
         "identifier": "10.82901/nemar.on006466",
@@ -49,12 +51,12 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
       "10.1101/2025.10.02.680040",
-      "10.1186/s13063-024-08036-4",
       "10.82901/nemar.on006466"
     ],
     "keywords": [
@@ -100,43 +102,20 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
-    },
-    {
-      "title": "Young Adult Resting State and Auditory Oddball Task EEG Data",
-      "author": "Andy Jeesu Kim, Mara Mather, Santiago Morales, Joshua Senior",
-      "venue": "Open MIND",
-      "year": 2026,
-      "url": "https://doi.org/10.82901/nemar.on006480",
-      "cited_by": 0,
-      "abstract": "This dataset comprises electroencephalography (EEG) recordings from young adult participants during resting state and auditory oddball task conditions. Data were collected under two experimental conditions: a control condition and a shock threat condition involving threat of unpredictable shock. The dataset includes both passive and active variants of the auditory oddball task, as well as resting state recordings with eyes open and closed, designed to investigate locus coeruleus-noradrenaline system function and its relationship to attention and arousal.",
-      "doi": "10.82901/nemar.on006480",
-      "pmid": null,
-      "openalex_id": "W7166505936",
-      "source_doi": "10.1101/2025.10.02.680040",
-      "source_relation": "References",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.9587730038166048,
-        "similarity_score": 0.8301064968109131,
-        "citation_text_length": 728,
-        "dataset_text_length": 2298,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T12:18:49.426526+00:00",
+    "scoring_date": "2026-09-30T11:02:46.069771+00:00",
     "dataset_text_length": 2298,
-    "num_citations_scored": 2,
+    "num_citations_scored": 1,
     "summary_stats": {
-      "mean_confidence": 0.7124381236732007,
-      "median_confidence": 0.7124381236732007,
-      "std_confidence": 0.24633488014340407,
+      "mean_confidence": 0.46610324352979665,
+      "median_confidence": 0.46610324352979665,
+      "std_confidence": 0.0,
       "min_confidence": 0.46610324352979665,
-      "max_confidence": 0.9587730038166048,
-      "high_confidence_count": 1,
+      "max_confidence": 0.46610324352979665,
+      "high_confidence_count": 0,
       "medium_confidence_count": 1,
       "low_confidence_count": 0
     }
