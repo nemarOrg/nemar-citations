@@ -97,7 +97,8 @@ CI runs are at https://github.com/nemarOrg/nemar-citations/actions.
 - Merged `auto-update/<timestamp>` PRs.
   A gap longer than a day or two means the cron is aborting before its commit,
   or its PRs are not merging (see Troubleshooting).
-- `dashboard.nemar.org/citations/` for the deployed result.
+- `dashboard.nemar.org/citations/` for the deployed result, and its `api/` manifests
+  (`index.json`, `data-papers.json`) that nemar-cli pulls daily (see `.rules/cross_repo.md`).
 
 ## Troubleshooting
 

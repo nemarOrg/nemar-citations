@@ -26,7 +26,7 @@ This repo is one of three sibling repos that jointly produce the public NEMAR su
 - **Before claiming a route or schema exists, verify it.** The live API is the ground truth, not stale docs:
   - `curl -s "https://api.nemar.org/datasets?limit=2"` — confirms catalog availability and shape.
   - `curl -s "https://data.nemar.org/<id>/metadata.json"` — works for `nm-*` IDs, returns 404 for legacy `ds-*`.
-- **Don't edit sibling repos from this session unless explicitly asked.** Cross-repo changes (e.g., adding a citations endpoint to `nemar-cli/backend/`) need their own branch + PR in the target repo and should be raised as an issue here first.
+- **Don't edit sibling repos from this session unless explicitly asked.** Cross-repo changes (e.g., adding a column or a sync to `nemar-cli/backend/`) need their own branch + PR in the target repo and should be raised as an issue here first.
 - **When reading sibling code**, prefer `Explore` agent over `grep` for breadth — the relevant files span TypeScript + Python and naming conventions differ. Already-validated entry points: `nemar-cli/backend/src/routes/data.ts`, `nemar-cli/backend/src/routes/datasets.ts`, `nemar-cli/shared/datacite-constants.ts`, `website/src/lib/data-api.ts`.
 
 ### Rate-limit posture (Claude-facing)

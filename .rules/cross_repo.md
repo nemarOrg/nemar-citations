@@ -35,7 +35,22 @@ Public, no token required for any of these. Routes are mounted by `nemar-cli/bac
 | `GET https://data.nemar.org/<id>/metadata.json` | Per-dataset neuroschema doc — includes `related_identifiers[]` with `{identifier, identifier_type, relation_type}` (DataCite values: `References`, `IsDerivedFrom`, `IsIdenticalTo`, `IsVersionOf`, `IsDescribedBy`, ...) | Per-dataset metadata + citation anchors for nm-* / on-* IDs. Legacy ds-* returns 404 here, fall back to GitHub. |
 | `GET https://data.nemar.org/<id>/<version>/manifest.json` | File-level BIDS manifest with presigned S3 URLs | Generally not needed for citations; reference for context. |
 
-There is **no citations endpoint** on the backend today. We do not publish citation JSON back into the D1 catalog. If/when we do, the natural shape is `GET /datasets/:id/citations.json` returning the schema-v2 payload — coordinate with `nemar-cli/backend/src/routes/`.
+## Manifests we publish (nemar-cli pulls them)
+Static files built with the dashboard and served without auth from `dashboard.nemar.org/citations/api/`.
+nemar-cli's Worker pulls them once a day (03:00 UTC on production, 04:00 UTC on dev and staging) into D1.
+We never push, and nemar-cli needs no citations endpoint or credential for this; the lag from the nightly run to the pull is about 15 to 17 hours.
+
+| File | Schema | Content | Consumer |
+|---|---|---|---|
+| `index.json` | `nemar-citations/counts@1` | `{schema, last_updated, datasets: [{dataset_id, num_citations, num_dataset_citations, num_datapaper_citations}]}` | `nemar-cli/backend/src/services/citation-counts-sync.ts` writes the D1 count columns |
+| `data-papers.json` | `nemar-citations/data-papers@1` | `{schema, last_updated, datasets: [{dataset_id, data_papers: [{doi, title, year, venue, judge_model}]}]}` | nemar-cli data-papers sync (#250) stores it and serves `data_papers` in `data.nemar.org/<id>/metadata.json` |
+| `dataset/<id>.json` | none | The counted citations of one dataset | The website's citations modal, fetched lazily |
+
+`data-papers.json` rules (`web/src/lib/data-papers.ts`):
+- It lists only anchors with `kept` and `kept_reason == "judged_data_paper"`: the same gate verdict the counts use, so the list and the counts cannot disagree. The dataset's own DOI, identity records, and every dropped anchor are not listed.
+- Absent and empty differ. A dataset is omitted until the gate has finished with its file (no anchors, a missing `kept_reason`, or an anchor still `awaiting_fetch`), so the consumer keeps NULL, meaning "not judged". A dataset the gate has finished with and that has no data paper gets `data_papers: []`.
+- One entry per work: DOIs that differ only by a trailing period, letter case, or version suffix collapse to one, preferring the version-less form.
+- Datasets and papers are sorted, so the file is stable between builds.
 
 ## Citation JSON contract (we produce)
 Path: `citations/json_opencite/<id>_citations.json`. Schema v2 (see `AGENTS.md` § Key Data Formats).
