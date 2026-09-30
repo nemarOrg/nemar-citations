@@ -20,6 +20,7 @@
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 
+import { type DataPapersRow, buildDataPapersRows } from "./data-papers";
 import {
   type AnchorVerdict,
   type RawAnchor,
@@ -159,6 +160,8 @@ interface RawEntry {
   details: RawCitation[];
   /** Normalized anchor DOI -> the gate's verdict as the file records it. */
   verdicts: Map<string, AnchorVerdict>;
+  /** The file's metadata.anchors[] as written (the data-paper manifest reads it). */
+  anchors: RawAnchor[];
   /** Top-level date_last_updated (ISO) from the citation JSON, or null. */
   lastUpdated: string | null;
 }
@@ -227,7 +230,18 @@ function readDatasetName(id: string): string {
   }
 }
 
+// undefined = not read yet; null = no citation data. Shared by loadAll() and
+// loadDataPapers() so a build reads the corpus once.
+let entriesCache: RawEntry[] | null | undefined;
+
 function readEntries(): RawEntry[] | null {
+  if (entriesCache === undefined) {
+    entriesCache = readEntriesFromDisk();
+  }
+  return entriesCache;
+}
+
+function readEntriesFromDisk(): RawEntry[] | null {
   if (!citationsDir) {
     return null;
   }
@@ -248,6 +262,7 @@ function readEntries(): RawEntry[] | null {
         id: raw.dataset_id || fileName.replace("_citations.json", ""),
         details: raw.citation_details ?? [],
         verdicts: anchorVerdicts(raw.metadata?.anchors),
+        anchors: raw.metadata?.anchors ?? [],
         lastUpdated: raw.date_last_updated ?? null,
       });
     } catch (err) {
@@ -420,4 +435,19 @@ export function loadAll(): LoadedData {
     },
   };
   return cache;
+}
+
+/** Data-paper manifest rows (issue #250): the anchors the trusted judge called
+ * the dataset's data paper and the gate kept, per gated dataset. Datasets the
+ * gate has not finished with are omitted (see data-papers.ts). */
+export function loadDataPapers(): DataPapersRow[] {
+  const entries = readEntries();
+  if (!entries) {
+    if (ALLOW_EMPTY) {
+      console.warn(`[data] no citation data found; data-papers manifest is empty. ${EMPTY_HINT}`);
+      return [];
+    }
+    throw new Error(`[data] Cannot load citations/json_opencite/. ${EMPTY_HINT}`);
+  }
+  return buildDataPapersRows(entries, readNeverAnchors());
 }
