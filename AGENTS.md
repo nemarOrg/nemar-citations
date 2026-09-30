@@ -51,7 +51,14 @@ how THIS repo consumes them:
 - `.nemar/metadata.json` schema (`NemarMetadataV2`) — producer: `nemar-cli/backend/src/services/enrich-dataset.ts`; consumer: `src/dataset_citations/sources/nemar_metadata.py`. Authoritative DOI source via `related_identifiers[]` with DataCite relation types.
 - `https://api.nemar.org/datasets` — public, no auth, returns full catalog (nm-* and on-* IDs). Preferred over GitHub API for discovery.
 - `https://data.nemar.org/<id>/metadata.json` — per-dataset neuroschema. Live for `nm-*` IDs; legacy `ds-*` still requires GitHub-based discovery.
-- Citation publishing back to the website is **not wired yet** — there is no `/datasets/:id/citations` endpoint and the website does not embed citation JSON. The canonical surface stays at `dashboard.nemar.org/citations/`. Adding a citations endpoint would be a `nemar-cli` backend change.
+- Citation data reaches nemar-cli by **pull**, never by push.
+  This repo publishes static manifests under `dashboard.nemar.org/citations/api/`:
+  `index.json` (`nemar-citations/counts@1`, per-dataset citation counts) and `data-papers.json` (`nemar-citations/data-papers@1`, the papers the trusted judge called each dataset's data paper).
+  nemar-cli's daily Worker cron already pulls the counts into D1 (`citation-counts-sync`).
+  It **will** pull `data-papers.json` the same way to serve `data_papers` in `metadata.json`; that sync is planned and not built yet (nemarOrg/nemar-citations#250).
+  Per-dataset detail stays at `citations/api/dataset/<id>.json`.
+  No citations endpoint or credential on the nemar-cli side is needed.
+  Details: `.rules/cross_repo.md`.
 
 ## Architecture Map
 ```

@@ -39,6 +39,10 @@ export interface RawAnchor {
   kept_reason?: string | null;
   classification?: string | null;
   paper_title?: string | null;
+  identifier_type?: string | null;
+  paper_year?: number | null;
+  paper_venue?: string | null;
+  judgment_model?: string | null;
 }
 
 /** An anchor's verdict as the file records it. `gated` is false for a file the
