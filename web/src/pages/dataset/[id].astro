@@ -3,6 +3,7 @@ import CitationItem from "../../components/CitationItem.astro";
 import DatasetId from "../../components/DatasetId.astro";
 import Base from "../../layouts/Base.astro";
 import { type DatasetDetail, loadAll } from "../../lib/data";
+import { dataPaperView, dataPapersHeading } from "../../lib/data-paper-view";
 
 export function getStaticPaths() {
   const { datasets } = loadAll();
@@ -27,6 +28,34 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
       <span class="ds-sub__excl">· {fmt(dataset.excludedByAnchor)} refs excluded (anchor is not the data paper)</span>
     )}
   </p>
+
+  {
+    dataset.dataPapers.length > 0 && (
+      <section class="papers" aria-labelledby="data-papers-title">
+        <h2 class="papers__title" id="data-papers-title">
+          {dataPapersHeading(dataset.dataPapers.length)}
+        </h2>
+        <p class="papers__note">
+          Papers and records that describe this dataset.
+          {dataset.citations.length > 0 &&
+            ' Citations of them count under "Cites a paper", except citations of a copy of the dataset itself (for example a PhysioNet record) and of its own DOI, which count under "Cites dataset".'}
+        </p>
+        <ul class="papers__list" role="list">
+          {dataset.dataPapers.map((paper) => {
+            const view = dataPaperView(paper);
+            return (
+              <li class="papers__item">
+                <a class="papers__link" href={view.href} target="_blank" rel="noopener noreferrer">
+                  {view.text}
+                </a>
+                {view.meta && <span class="papers__meta">{view.meta}</span>}
+              </li>
+            );
+          })}
+        </ul>
+      </section>
+    )
+  }
 
   {
     dataset.citations.length > 0 && (
@@ -124,6 +153,49 @@ const base = import.meta.env.BASE_URL.replace(/\/$/, "");
   }
   .ds-sub__excl {
     color: var(--color-fg-subtle);
+  }
+  /* The dataset's data paper(s), at the top of the page: what the "Cites a
+     paper" tag below refers to. */
+  .papers {
+    margin-top: var(--space-6);
+    padding: var(--space-4) var(--space-5);
+    border: 1px solid var(--color-border);
+    border-inline-start: 3px solid var(--brand-teal);
+    border-radius: var(--radius-sm, 4px);
+    background: var(--color-bg-subtle);
+  }
+  .papers__title {
+    font-size: var(--fs-base);
+    font-weight: var(--fw-semibold);
+    color: var(--color-fg);
+  }
+  .papers__note {
+    margin-top: var(--space-1);
+    font-size: var(--fs-sm);
+    color: var(--color-fg-muted);
+  }
+  .papers__list {
+    list-style: none;
+    margin-top: var(--space-3);
+    display: grid;
+    gap: var(--space-3);
+  }
+  .papers__link {
+    display: block;
+    font-weight: var(--fw-medium);
+    color: var(--color-link);
+    overflow-wrap: anywhere;
+  }
+  .papers__link:hover {
+    color: var(--color-link-hover);
+  }
+  .papers__meta {
+    display: block;
+    margin-top: 2px;
+    font-size: var(--fs-xs);
+    /* Muted, not subtle: subtle on this background is 4.2:1 in the light theme. */
+    color: var(--color-fg-muted);
+    overflow-wrap: anywhere;
   }
   .filter {
     display: flex;
