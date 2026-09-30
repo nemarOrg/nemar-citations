@@ -37,20 +37,45 @@ Public, no token required for any of these. Routes are mounted by `nemar-cli/bac
 
 ## Manifests we publish (nemar-cli pulls them)
 Static files built with the dashboard and served without auth from `dashboard.nemar.org/citations/api/`.
-nemar-cli's Worker pulls them once a day (03:00 UTC on production, 04:00 UTC on dev and staging) into D1.
-We never push, and nemar-cli needs no citations endpoint or credential for this; the lag from the nightly run to the pull is about 15 to 17 hours.
+nemar-cli's Worker already pulls the counts manifest once a day (03:00 UTC on production, 04:00 UTC on dev and staging) into D1.
+It **will** pull `data-papers.json` the same way; that sync is planned and not built yet (nemarOrg/nemar-citations#250).
+We never push, and nemar-cli needs no citations endpoint or credential for this.
+Once the sync exists, the lag from the nightly run to a served `metadata.json` is about 15 to 17 hours.
 
 | File | Schema | Content | Consumer |
 |---|---|---|---|
 | `index.json` | `nemar-citations/counts@1` | `{schema, last_updated, datasets: [{dataset_id, num_citations, num_dataset_citations, num_datapaper_citations}]}` | `nemar-cli/backend/src/services/citation-counts-sync.ts` writes the D1 count columns |
-| `data-papers.json` | `nemar-citations/data-papers@1` | `{schema, last_updated, datasets: [{dataset_id, data_papers: [{doi, title, year, venue, judge_model}]}]}` | nemar-cli data-papers sync (#250) stores it and serves `data_papers` in `data.nemar.org/<id>/metadata.json` |
+| `data-papers.json` | `nemar-citations/data-papers@1` | `{schema, last_updated, description, datasets: [{dataset_id, data_papers: [{doi, title, year, venue, judge_model}]}]}` | Planned (#250): a nemar-cli sync will store it and serve `data_papers` in `data.nemar.org/<id>/metadata.json` |
 | `dataset/<id>.json` | none | The counted citations of one dataset | The website's citations modal, fetched lazily |
 
-`data-papers.json` rules (`web/src/lib/data-papers.ts`):
-- It lists only anchors with `kept` and `kept_reason == "judged_data_paper"`: the same gate verdict the counts use, so the list and the counts cannot disagree. The dataset's own DOI, identity records, and every dropped anchor are not listed.
-- Absent and empty differ. A dataset is omitted until the gate has finished with its file (no anchors, a missing `kept_reason`, or an anchor still `awaiting_fetch`), so the consumer keeps NULL, meaning "not judged". A dataset the gate has finished with and that has no data paper gets `data_papers: []`.
-- One entry per work: DOIs that differ only by a trailing period, letter case, or version suffix collapse to one, preferring the version-less form.
-- Datasets and papers are sorted, so the file is stable between builds.
+`data-papers.json` rules (`web/src/lib/data-papers.ts`; the same contract is embedded in the file's `description`):
+
+- **Consumer semantics.**
+  A row always replaces the consumer's stored value.
+  A dataset with no row means "no statement", so the consumer leaves its stored value untouched.
+  An empty `data_papers` means "judged, no data paper".
+- **What is listed.**
+  Only anchors with `kept` and `kept_reason == "judged_data_paper"`, the same gate verdict the counts use, so the list and the counts cannot disagree.
+  The dataset's own DOI, identity records, and every dropped anchor are not listed.
+  An entry may be a deposit of the same data (a figshare or Zenodo record), because the judge's `data_paper` class includes those; there is no type field, and the list is judge-confirmed only.
+- **When a dataset gets a row.**
+  If at least one judged data paper exists, all of them are listed, even while other anchors are still unjudged (true but possibly incomplete beats silence).
+  If none exists, the row is `[]` only when the gate decided every anchor (own DOI, identity record, never-anchor, or judged not a data paper).
+  Otherwise there is no row: no anchors, an anchor `unjudged`, `awaiting_fetch`, or without a `kept_reason` because the gate sweep has not run.
+  A judged data paper that is not a DOI also means no row.
+- **Served ids only.**
+  Only `nm` and `on` ids get a row.
+  Legacy `ds*` ids are never served, so a row for one would be pointless, even though the sweep stamps them.
+- **One entry per work.**
+  DOIs that differ only by a trailing period, letter case, or version suffix collapse to one.
+  The version-less DOI is preferred, else the highest version (v10 over v9).
+- **Case.**
+  Emitted DOIs are the pipeline's lowercase canonical form, so consumers must compare them case-insensitively.
+- **Stability.**
+  Datasets and papers are sorted, and `last_updated` is the build time, not the time the data last changed.
+- **Size.**
+  Today about 0.7 KB (the description only), because the committed corpus is pre-gate.
+  A fully judged corpus is at most about 210 KB (every DOI anchor listed) and about 177 KB at one paper per dataset; the counts manifest is 36 KB.
 
 ## Citation JSON contract (we produce)
 Path: `citations/json_opencite/<id>_citations.json`. Schema v2 (see `AGENTS.md` § Key Data Formats).
