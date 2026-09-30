@@ -1,7 +1,7 @@
 {
   "dataset_id": "on007262",
-  "num_citations": 0,
-  "date_last_updated": "2026-09-30T10:44:33.915265+00:00",
+  "num_citations": 1,
+  "date_last_updated": "2026-09-30T16:34:52.058504+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
     "fetch_date": "2026-09-29T11:37:56.221191+00:00",
@@ -96,13 +96,56 @@
       "task difficulty"
     ],
     "methods_description": "Data were collected using a combined mobile EEG+ECG system (19-channel 10-20 montage, 250 Hz sampling, Ag/AgCl electrodes with linked-ear reference) and Pupil Labs Pupil Core eye tracker synchronized via Lab Streaming Layer. Participants completed a 60-second baseline followed by 70 arithmetic questions (10 per difficulty level) presented for 6 seconds each, with difficulty defined by Q-value ranges. ECG was recorded with 3-lead configuration and pupillometry via infrared eye tracking with asynchronous sampling.",
-    "funding": []
+    "funding": [],
+    "searched_accessions": [
+      "on007262",
+      "ds007262"
+    ],
+    "num_accession_mentions": 1,
+    "num_dataset_citations": 1,
+    "num_datapaper_citations": 0
   },
-  "citation_details": [],
+  "citation_details": [
+    {
+      "title": "Benchmarking Multimodal Workload Classification: Effects of Modality, Validation Protocol, and Segmentation Contrast on an Open Graded-Arithmetic Dataset",
+      "author": "Liam Booth, Adeel Mehmood, Mehdi Zeinali",
+      "venue": "Bioengineering",
+      "year": 2026,
+      "url": "https://doi.org/10.3390/bioengineering13070820",
+      "cited_by": 0,
+      "abstract": "Physiology-based mental workload classification is hard to compare across studies because task design, preprocessing, segmentation, and validation protocols vary widely. Using OpenNeuro ds007262, an open multimodal arithmetic dataset of synchronised 19-channel 10-20 system electroencephalography (EEG), electrocardiography (ECG), and pupillometry data from 18 released participants (16 retained after participant-level quality control for downstream modelling) spanning seven objective difficulty bands plus baseline fixation, we present a reproducible end-to-end machine learning pipeline for graded workload classification. The pipeline standardises participant-level quality control, trial-aligned windowing, modality-specific preprocessing and feature extraction (153 EEG, 18 ECG, and 25 pupillometry features), and supervised evaluation under three validation protocols (within-participant, pooled-stratified, and group-holdout) over eleven models and five class scenarios. Fused representations generally performed best; EEG was the strongest unimodal modality, and classical models outperformed deep models in most feature-based conditions. The best 6 s pipeline reached a balanced accuracy of 0.635; under denser 3 s overlap segmentation, the best pipeline reached 0.718. Mean balanced accuracy across 60 matched cells rose from 0.324 to 0.380, with gains concentrated in within-participant and pooled-stratified evaluation rather than strict unseen-participant transfer. The pipeline provides a transparent benchmark framework for fine-grained physiological workload modelling.",
+      "doi": "10.3390/bioengineering13070820",
+      "pmid": "42510485",
+      "openalex_id": "W7169591137",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds007262",
+      "confidence_scoring": {
+        "confidence_score": 0.7719874620437623,
+        "similarity_score": 0.6683874130249023,
+        "citation_text_length": 1746,
+        "dataset_text_length": 2246,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    }
+  ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T11:03:25.992843+00:00",
+    "scoring_date": "2026-09-30T16:41:15.216782+00:00",
     "dataset_text_length": 2246,
-    "num_citations_scored": 0
+    "num_citations_scored": 1,
+    "summary_stats": {
+      "mean_confidence": 0.7719874620437623,
+      "median_confidence": 0.7719874620437623,
+      "std_confidence": 0.0,
+      "min_confidence": 0.7719874620437623,
+      "max_confidence": 0.7719874620437623,
+      "high_confidence_count": 1,
+      "medium_confidence_count": 0,
+      "low_confidence_count": 0
+    }
   }
 }
