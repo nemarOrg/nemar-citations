@@ -2,25 +2,19 @@
  * Data-paper manifest, emitted as a static file at build time:
  *   dashboard.nemar.org/citations/api/data-papers.json
  *
- * One row per dataset whose anchors the pipeline's gate has finished with: the
- * papers the trusted judge called the dataset's data paper (an empty list when
- * there is none). nemar-cli pulls this daily, as it does the counts manifest,
- * and serves it as `data_papers` in data.nemar.org/<id>/metadata.json (issue
- * #250). A dataset the gate has not finished with is omitted, so the consumer
- * keeps "not judged". The rules live in lib/data-papers.ts.
+ * Per catalog-served dataset the gate can back a statement for, the papers the
+ * pipeline's trusted judge called its data paper (an empty list when it judged
+ * none). nemar-cli will pull this daily, as it does the counts manifest, and
+ * serve it as `data_papers` in data.nemar.org/<id>/metadata.json (issue #250).
+ * A row replaces the consumer's stored value; a dataset with no row means no
+ * statement, so the consumer leaves its stored value untouched. The rules and
+ * the description embedded in the file live in lib/data-papers.ts.
  */
 import type { APIRoute } from "astro";
-import { loadAll, loadDataPapers } from "../../lib/data";
-import { DATA_PAPERS_SCHEMA } from "../../lib/data-papers";
+import { loadDataPapers } from "../../lib/data";
 
 export const GET: APIRoute = () => {
-  const { overview } = loadAll();
-  const body = {
-    schema: DATA_PAPERS_SCHEMA,
-    last_updated: overview.lastUpdated,
-    datasets: loadDataPapers(),
-  };
-  return new Response(JSON.stringify(body), {
+  return new Response(JSON.stringify(loadDataPapers(new Date())), {
     headers: { "Content-Type": "application/json" },
   });
 };

@@ -20,7 +20,7 @@
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 
-import { type DataPapersRow, buildDataPapersRows } from "./data-papers";
+import { type DataPapersManifest, buildDataPapersManifest } from "./data-papers";
 import {
   type AnchorVerdict,
   type RawAnchor,
@@ -437,17 +437,18 @@ export function loadAll(): LoadedData {
   return cache;
 }
 
-/** Data-paper manifest rows (issue #250): the anchors the trusted judge called
- * the dataset's data paper and the gate kept, per gated dataset. Datasets the
- * gate has not finished with are omitted (see data-papers.ts). */
-export function loadDataPapers(): DataPapersRow[] {
+/** The data-paper manifest (issue #250): per catalog-served dataset the gate
+ * can back a statement for, the papers the trusted judge called its data paper.
+ * `builtAt` is the manifest's build time; the page passes the current time.
+ * See data-papers.ts for which datasets get a row. */
+export function loadDataPapers(builtAt: Date): DataPapersManifest {
   const entries = readEntries();
   if (!entries) {
     if (ALLOW_EMPTY) {
       console.warn(`[data] no citation data found; data-papers manifest is empty. ${EMPTY_HINT}`);
-      return [];
+      return buildDataPapersManifest([], new Set(), builtAt);
     }
     throw new Error(`[data] Cannot load citations/json_opencite/. ${EMPTY_HINT}`);
   }
-  return buildDataPapersRows(entries, readNeverAnchors());
+  return buildDataPapersManifest(entries, readNeverAnchors(), builtAt);
 }
