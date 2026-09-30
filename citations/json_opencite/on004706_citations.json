@@ -1,7 +1,7 @@
 {
   "dataset_id": "on004706",
   "num_citations": 5,
-  "date_last_updated": "2026-09-29T11:18:50.859203+00:00",
+  "date_last_updated": "2026-09-30T10:46:25.703962+00:00",
   "metadata": {
     "total_cumulative_citations": 23,
     "fetch_date": "2026-09-29T11:18:50.859203+00:00",
@@ -11,19 +11,20 @@
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.1101/2022.11.30.518606",
         "identifier_type": "doi",
         "source_relation": "IsDescribedBy",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "Neural correlates of memory in a naturalistic spatiotemporal context",
+        "paper_year": 2022,
+        "paper_venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+        "reason": "Same lab (Kahana), authors overlap, and the paper reports the courier spatial-navigation and free-recall EEG task in this dataset (2021-2022 scalp EEG); DataCite marks it IsDescribedBy.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.82901/nemar.on004706",
@@ -35,7 +36,8 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -58,7 +60,14 @@
         "award_number": "MTEC-20-06-MOM-013",
         "award_title": "Restoring memory with task-independent semi-chronic closed-loop direct brain stimulation and non-invasive closed-loop stimulus timing optimization"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "on004706",
+      "ds004706"
+    ],
+    "num_accession_mentions": 0,
+    "num_dataset_citations": 1,
+    "num_datapaper_citations": 4
   },
   "citation_details": [
     {
@@ -105,7 +114,9 @@
         "dataset_text_length": 2384,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
+      },
+      "mentions_accession": true,
+      "matched_accession": "ds004706"
     },
     {
       "title": "Dissociable Spectral Components of Episodic Memory",

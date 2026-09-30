@@ -1,7 +1,7 @@
 {
   "dataset_id": "on003825",
-  "num_citations": 0,
-  "date_last_updated": "2026-09-29T11:11:52.275794+00:00",
+  "num_citations": 2,
+  "date_last_updated": "2026-09-30T10:45:05.125837+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
     "fetch_date": "2026-09-29T11:11:52.275794+00:00",
@@ -11,7 +11,7 @@
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.82901/nemar.on003825",
@@ -23,7 +23,8 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -52,13 +53,81 @@
         "funder_name": "Australian Research Council",
         "award_number": "DE200101159"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "on003825",
+      "ds003825"
+    ],
+    "num_accession_mentions": 2,
+    "num_dataset_citations": 2,
+    "num_datapaper_citations": 0
   },
-  "citation_details": [],
+  "citation_details": [
+    {
+      "title": "Shared Hierarchical Representations Explain Temporal Correspondence Between Brain Activity and Deep Neural Networks",
+      "author": "Eric Lützow Holm, Giovanni Marraffini, Diego Fernández Slezak, Enzo Tagliazucchi",
+      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+      "year": 2025,
+      "url": "https://doi.org/10.1101/2025.05.19.655003",
+      "cited_by": 0,
+      "abstract": "Abstract The visual cortex and artificial neural networks both process images hierarchically, progressing from low-level features to high-level semantic representations. We investigated the temporal correspondence between activations from multiple convolutional and transformer-based neural network models (AlexNet, MoCo, ResNet-50, VGG-19, and ViT) and human EEG responses recorded during visual perception tasks. Leveraging two EEG datasets of images presented at different durations, we assessed whether this correspondence reflects general architectural principles or model-specific computations. Our analysis revealed a robust mapping: early EEG components correlated with activations from initial network layers and low-level visual features, whereas later components aligned with deeper layers and semantic content. Moreover, for images presented during longer times, the extent of correspondence correlated with the semantic contribution to the EEG response. These findings highlight a consistent temporal alignment between biological and artificial vision, suggesting that this correspondence is primarily driven by the hierarchical transformation of visual to semantic representations rather than by idiosyncratic computational features of individual network architectures.",
+      "doi": "10.1101/2025.05.19.655003",
+      "pmid": null,
+      "openalex_id": "W4410554823",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds003825",
+      "confidence_scoring": {
+        "confidence_score": 0.5702345122396947,
+        "similarity_score": 0.493709534406662,
+        "citation_text_length": 1556,
+        "dataset_text_length": 2031,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "THINGS-EEG: Human electroencephalography recordings from 50 subjects for 22,248 images from 1,854 object concepts",
+      "author": "Tijl Grootswagers, Ivy Zhou, Amanda K. Robinson, Martin N. Hebart, Thomas A. Carlson",
+      "venue": "n/a",
+      "year": 2021,
+      "url": "https://doi.org/10.17605/osf.io/hd6zk",
+      "cited_by": 2,
+      "abstract": "The neural basis of object recognition and semantic knowledge have been the focus of a large body of research but given the high dimensionality of object space, it is challenging to develop an overarching theory on how brain organises object knowledge. To help understand how the brain allows us to recognise, categorise, and represent objects and object categories, there is a growing interest in using large-scale image databases for neuroimaging experiments. Traditional image databases are based on manually selected object concepts and often single images per concept. In contrast, ‘big data’ stimulus sets typically consist of images that can vary significantly in quality and may be biased in content. To address this issue, recent work developed THINGS: a large stimulus set of 1,854 object concepts and 26,107 associated images (https://things-initiative.org/). In the current paper, we present THINGS-EEG, a dataset containing human electroencephalography responses from 50 subjects to all concepts and 22,248 images in the THINGS stimulus set. The THINGS-EEG dataset provides neuroimaging recordings to a systematic collection of objects and concepts and can therefore support a wide array of research to understand visual object processing in the human brain. This repository contains the code that was used to perform the analyses described in this paper: Grootswagers, T., Zhou, I., Robinson, A.K. et al. Human EEG recordings for 1,854 concepts presented in rapid serial visual presentation streams. Sci Data 9, 3 (2022). https://doi.org/10.1038/s41597-021-01102-7 - THINGS images and concept descriptions obtained from: https://osf.io/jum2f (see also: https://things-initiative.org/) - The raw data, preprocessed data, and grand-average RDMs are publicly available on Openneuro: https://openneuro.org/datasets/ds003825 - RDMs for single subjects are publicly available on figshare: https://doi.org/10.6084/m9.figshare.14721282 (note: OSF sometimes incorrectly lists this as private) see the README in the code folder for instructions on how to reproduce the figures in the paper.",
+      "doi": "10.17605/osf.io/hd6zk",
+      "pmid": null,
+      "openalex_id": "W3202104209",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds003825",
+      "confidence_scoring": {
+        "confidence_score": 0.9350285142660143,
+        "similarity_score": 0.8095484972000122,
+        "citation_text_length": 1739,
+        "dataset_text_length": 2031,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    }
+  ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T12:09:30.244111+00:00",
+    "scoring_date": "2026-09-30T10:57:19.282525+00:00",
     "dataset_text_length": 2031,
-    "num_citations_scored": 0
+    "num_citations_scored": 2,
+    "summary_stats": {
+      "mean_confidence": 0.7526315132528545,
+      "median_confidence": 0.7526315132528545,
+      "std_confidence": 0.1823970010131598,
+      "min_confidence": 0.5702345122396947,
+      "max_confidence": 0.9350285142660143,
+      "high_confidence_count": 1,
+      "medium_confidence_count": 1,
+      "low_confidence_count": 0
+    }
   }
 }

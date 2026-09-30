@@ -1,7 +1,7 @@
 {
   "dataset_id": "nm000344",
-  "num_citations": 25,
-  "date_last_updated": "2026-09-29T11:02:52.307877+00:00",
+  "num_citations": 20,
+  "date_last_updated": "2026-09-30T10:44:27.701369+00:00",
   "metadata": {
     "total_cumulative_citations": 95,
     "fetch_date": "2026-09-29T11:02:52.307877+00:00",
@@ -11,31 +11,33 @@
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.1016/j.neuroimage.2023.120446",
         "identifier_type": "doi",
         "source_relation": "IsDerivedFrom",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "Burst c-VEP Based BCI: Optimizing stimulus design for enhanced classification with minimal calibration data and improved user experience",
+        "paper_year": 2023,
+        "paper_venue": "NeuroImage",
+        "reason": "Dataset is derived from Castillos et al. 2023 Burst c-VEP study; matching authors, 12 participants, 32-ch LiveAmp EEG and c-VEP paradigm indicate this is the study paper reporting this data.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.5281/zenodo.8255618",
         "identifier_type": "doi",
         "source_relation": "IsVersionOf",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "4-class code-VEP EEG data",
+        "paper_year": 2023,
+        "paper_venue": "Zenodo (CERN European Organization for Nuclear Research)",
+        "reason": "Zenodo deposit of the same 12-participant c-VEP EEG data (BrainProducts LiveAmp 32, FCz ref, mean age 30.6, SD 7.1) by Castillos, matching this dataset.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.82901/nemar.nm000344",
@@ -47,7 +49,8 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -413,121 +416,6 @@
       }
     },
     {
-      "title": "CastillosBurstVEP100",
-      "author": "Kalou Cabrera Castillos, Simon Ladouce, Ludovic Darmet, Frédéric Dehais",
-      "venue": "UC San Diego",
-      "year": 2026,
-      "url": "https://doi.org/10.82901/nemar.nm000344",
-      "cited_by": 0,
-      "abstract": "This dataset comprises EEG recordings from 12 healthy participants performing a 4-class code-modulated Visual Evoked Potential (c-VEP) brain-computer interface task. The study compares novel burst c-VEP sequences with traditional m-sequences at two stimulus amplitude depths (100% and 40%) to optimize classification performance, minimize calibration requirements, and enhance user experience. Data were acquired at 500 Hz using a 32-channel BrainProducts system and processed with convolutional neural network architectures, achieving classification accuracies up to 95.6% with mean selection times of 1.5 seconds.",
-      "doi": "10.82901/nemar.nm000344",
-      "pmid": null,
-      "openalex_id": "W7163364770",
-      "source_doi": "10.1016/j.neuroimage.2023.120446",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.9276323273777963,
-        "similarity_score": 0.8031448721885681,
-        "citation_text_length": 757,
-        "dataset_text_length": 2239,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "CastillosBurstVEP40",
-      "author": "Kalou Cabrera Castillos, Simon Ladouce, Ludovic Darmet, Frédéric Dehais",
-      "venue": "UC San Diego",
-      "year": 2026,
-      "url": "https://doi.org/10.82901/nemar.nm000345",
-      "cited_by": 0,
-      "abstract": "This dataset comprises electroencephalographic recordings from 12 healthy participants performing a reactive brain-computer interface task using code-modulated visual evoked potentials (c-VEP). The study introduces an innovative 'Burst c-VEP' paradigm employing short bursts of aperiodic visual flashes at 2-4 Hz, designed to optimize classification performance while reducing calibration requirements and improving visual comfort. Data were collected using a 32-channel BrainProducts LiveAmp system at 500 Hz sampling rate across a factorial design manipulating stimulus pattern (burst vs. m-sequence) and amplitude (100% vs. 40% depth modulation).",
-      "doi": "10.82901/nemar.nm000345",
-      "pmid": null,
-      "openalex_id": "W7163376614",
-      "source_doi": "10.1016/j.neuroimage.2023.120446",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.9271299773454666,
-        "similarity_score": 0.8027099370956421,
-        "citation_text_length": 790,
-        "dataset_text_length": 2239,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "CastillosCVEP40",
-      "author": "Kalou Cabrera Castillos, Simon Ladouce, Ludovic Darmet, Frédéric Dehais",
-      "venue": "UC San Diego",
-      "year": 2026,
-      "url": "https://doi.org/10.82901/nemar.nm000342",
-      "cited_by": 0,
-      "abstract": "A code-modulated Visual Evoked Potential (c-VEP) derivative dataset from 12 healthy participants, specifically focusing on the 40% amplitude depth modulation m-sequence c-VEP condition. This dataset is derived from a study comparing burst and m-sequence stimulus patterns at two amplitude levels (100% and 40% depth modulation) for reactive brain-computer interface applications. The study evaluated classification performance using convolutional neural networks, demonstrating that the reduced amplitude condition (40%) maintained 94.2% accuracy while improving visual comfort compared to the full amplitude burst c-VEP condition which achieved 95.6% accuracy.",
-      "doi": "10.82901/nemar.nm000342",
-      "pmid": null,
-      "openalex_id": "W7163403173",
-      "source_doi": "10.1016/j.neuroimage.2023.120446",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.7920080763101578,
-        "similarity_score": 0.6857212781906128,
-        "citation_text_length": 798,
-        "dataset_text_length": 2239,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "CastillosCVEP100",
-      "author": "Kalou Cabrera Castillos, Simon Ladouce, Ludovic Darmet, Frédéric Dehais",
-      "venue": "UC San Diego",
-      "year": 2026,
-      "url": "https://doi.org/10.82901/nemar.nm000346",
-      "cited_by": 0,
-      "abstract": "A 4-target, 2-class code-VEP brain-computer interface dataset from 12 healthy participants comparing burst c-VEP and m-sequence stimulation paradigms at two amplitude depths (100% and 40%). The study evaluates classification performance and user experience using 32-channel EEG recorded at 500 Hz. This derivative dataset is derived from the original Castillos et al. (2023) study and optimizes stimulus design for reactive BCI applications while maintaining visual comfort. CNN-based decoding achieved up to 95.6% accuracy (best-case scenario with 52.8 s of calibration data).",
-      "doi": "10.82901/nemar.nm000346",
-      "pmid": null,
-      "openalex_id": "W7163407365",
-      "source_doi": "10.1016/j.neuroimage.2023.120446",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.8659892901778222,
-        "similarity_score": 0.7497742772102356,
-        "citation_text_length": 715,
-        "dataset_text_length": 2239,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "c-VEP and Burst-VEP dataset from Castillos et al. (2023)",
-      "author": "Kalou Cabrera Castillos, Simon Ladouce, Ludovic Darmet, Frédéric Dehais",
-      "venue": "UC San Diego",
-      "year": 2026,
-      "url": "https://doi.org/10.82901/nemar.nm000163",
-      "cited_by": 0,
-      "abstract": "This dataset comprises code-modulated Visual Evoked Potential (c-VEP) EEG recordings from 12 healthy participants performing a 2-class reactive brain-computer interface task with 4 targets. The study compares novel burst c-VEP sequences with traditional m-sequences at two stimulus amplitude depths (100% and 40%), evaluating classification performance, calibration efficiency, and user experience. EEG was recorded at 500 Hz using a 32-channel BrainProducts system with convolutional neural network decoding achieving 95.6% accuracy.",
-      "doi": "10.82901/nemar.nm000163",
-      "pmid": null,
-      "openalex_id": "W7160832225",
-      "source_doi": "10.1016/j.neuroimage.2023.120446",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.9426951867341996,
-        "similarity_score": 0.8161863088607788,
-        "citation_text_length": 712,
-        "dataset_text_length": 2239,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Optimization of cVEP Classification Approaches for 3D VR Based Brain Computer Interfaces",
       "author": "Alix Gouret, Victor Woelffel, Alexandre Delaux, Solène Le Bars, Hazar Zilelioglu",
       "venue": "n/a",
@@ -668,16 +556,16 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T12:05:01.199969+00:00",
+    "scoring_date": "2026-09-30T10:54:50.746603+00:00",
     "dataset_text_length": 2239,
-    "num_citations_scored": 25,
+    "num_citations_scored": 20,
     "summary_stats": {
-      "mean_confidence": 0.6094984138190747,
-      "median_confidence": 0.6099193543195724,
-      "std_confidence": 0.1768053245439743,
+      "mean_confidence": 0.5391002743765713,
+      "median_confidence": 0.5885430952906608,
+      "std_confidence": 0.1162257879721255,
       "min_confidence": 0.3031199164688587,
-      "max_confidence": 0.9426951867341996,
-      "high_confidence_count": 5,
+      "max_confidence": 0.6883097979426385,
+      "high_confidence_count": 0,
       "medium_confidence_count": 17,
       "low_confidence_count": 3
     }

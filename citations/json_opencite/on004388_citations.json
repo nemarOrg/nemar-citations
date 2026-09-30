@@ -1,7 +1,7 @@
 {
   "dataset_id": "on004388",
-  "num_citations": 0,
-  "date_last_updated": "2026-09-29T11:14:24.391263+00:00",
+  "num_citations": 2,
+  "date_last_updated": "2026-09-30T10:45:51.068653+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
     "fetch_date": "2026-09-29T11:14:24.391263+00:00",
@@ -11,7 +11,7 @@
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.82901/nemar.on004388",
@@ -23,7 +23,8 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -44,13 +45,81 @@
       {
         "funder_name": "n/a"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "on004388",
+      "ds004388"
+    ],
+    "num_accession_mentions": 2,
+    "num_dataset_citations": 2,
+    "num_datapaper_citations": 0
   },
-  "citation_details": [],
+  "citation_details": [
+    {
+      "title": "Evaluating cardiac noise correction approaches for non-invasive electrophysiology of the human spinal cord",
+      "author": "Emma Bailey, Birgit Nierula, Tilman Stephani, Burkhard Maeß, Vadim V. Nikulin, Falk Eippert",
+      "venue": "Imaging Neuroscience",
+      "year": 2025,
+      "url": "https://doi.org/10.1162/imag.a.938",
+      "cited_by": 1,
+      "abstract": "The spinal cord is an important component of the central nervous system for the processing of sensorimotor information transmitted between the body and the brain. Electrospinography (ESG) is the most accessible non-invasive technique for recording spinal signals in humans, but the detrimental impact of physiological noise (mostly of cardiac nature) has prevented widespread adoption. Here, we aim to address this issue by examining various denoising algorithms for cardiac artefact reduction-including approaches based on principal component analysis (PCA), independent component analysis (ICA), signal space projection (SSP), canonical correlation analysis (CCA), and denoising separation of sources (DSS). We observed that in situations where large number of spinal electrodes are used, ICA and SSP offer the best results in terms of balancing the removal of noise and preserving neural information of interest. In cases where only a small number of electrodes are available, an approach based on PCA is deemed helpful. Finally, we also approached this issue from a signal-enhancement perspective by applying CCA and DSS directly to signals of interest, namely spinal somatosensory evoked potentials (SEPs, especially the N13 and N22 components in the cervical and lumbar spinal cord, respectively). We observed that in cases where extensive electrode arrays are used in the context of task-based designs, CCA reveals clear evoked spinal potentials even with single-trial resolution. Taken together, there are several appropriate algorithms for physiological noise removal and/or signal enhancement in ESG, rendering this an accessible and easy-to-use technique for non-invasive assessments of human spinal cord function.",
+      "doi": "10.1162/imag.a.938",
+      "pmid": "41143076",
+      "openalex_id": "W4414643454",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004388",
+      "confidence_scoring": {
+        "confidence_score": 0.6342923337221147,
+        "similarity_score": 0.5491708517074585,
+        "citation_text_length": 1756,
+        "dataset_text_length": 2177,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Non-invasive electrophysiology across the human central nervous system",
+      "author": "Emma Bailey",
+      "venue": "Qucosa (Saxon State and University Library Dresden)",
+      "year": 2026,
+      "url": "https://openalex.org/W7160674920",
+      "cited_by": 0,
+      "abstract": "The spinal cord, despite its central role in sensory and motor integration, remains under investigated compared to the brain. This thesis first addresses key obstacles to non‑invasive electrophysiological recordings from the human spinal cord by developing optimal strategies for removing large cardiac artefacts in electrospinography (ESG) data, markedly enhancing signal quality. Using these refined methods, electroencephalography (EEG) was then combined with simultaneous ESG as a tool to probe entire human central nervous system (CNS) function, investigating both evoked and intrinsic neural activity. Together, these studies strengthen the usability of ESG, reveal novel features of CNS dynamics, and underscore the potential of spinal cord electrophysiology in both basic and clinical research.",
+      "doi": null,
+      "pmid": null,
+      "openalex_id": "W7160674920",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004388",
+      "confidence_scoring": {
+        "confidence_score": 0.722196223139763,
+        "similarity_score": 0.625278115272522,
+        "citation_text_length": 973,
+        "dataset_text_length": 2177,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    }
+  ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T12:11:10.127473+00:00",
+    "scoring_date": "2026-09-30T10:59:02.477047+00:00",
     "dataset_text_length": 2177,
-    "num_citations_scored": 0
+    "num_citations_scored": 2,
+    "summary_stats": {
+      "mean_confidence": 0.6782442784309388,
+      "median_confidence": 0.6782442784309388,
+      "std_confidence": 0.04395194470882413,
+      "min_confidence": 0.6342923337221147,
+      "max_confidence": 0.722196223139763,
+      "high_confidence_count": 1,
+      "medium_confidence_count": 1,
+      "low_confidence_count": 0
+    }
   }
 }

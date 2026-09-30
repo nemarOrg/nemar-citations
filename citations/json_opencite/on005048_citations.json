@@ -1,9 +1,9 @@
 {
   "dataset_id": "on005048",
-  "num_citations": 31,
-  "date_last_updated": "2026-09-29T11:22:19.557851+00:00",
+  "num_citations": 33,
+  "date_last_updated": "2026-09-30T10:47:16.021308+00:00",
   "metadata": {
-    "total_cumulative_citations": 157,
+    "total_cumulative_citations": 161,
     "fetch_date": "2026-09-29T11:22:19.557851+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
@@ -11,31 +11,33 @@
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.1038/s41598-024-63727-z",
         "identifier_type": "doi",
         "source_relation": "IsDescribedBy",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "Auditory gamma-band entrainment enhances default mode network connectivity in dementia patients",
+        "paper_year": 2024,
+        "paper_venue": "Scientific Reports",
+        "reason": "Same authors as the dataset; the paper reports EEG recorded during 40 Hz auditory entrainment in elderly dementia participants, matching the dataset title and task.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.1101/2021.09.30.462389",
         "identifier_type": "doi",
         "source_relation": "References",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "Gamma Entrainment Improves Synchronization Deficits in Dementia Patients",
+        "paper_year": 2021,
+        "paper_venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+        "reason": "Same authors (Lahijanian, Aghajan, Vahabi) report 40Hz auditory entrainment EEG from dementia patients, matching the dataset's title and authorship; it is the study paper for this data.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.82901/nemar.on005048",
@@ -47,7 +49,8 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -73,7 +76,14 @@
         "funder_name": "Sharif University of Technology",
         "award_number": "G970736"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "on005048",
+      "ds005048"
+    ],
+    "num_accession_mentions": 3,
+    "num_dataset_citations": 3,
+    "num_datapaper_citations": 30
   },
   "citation_details": [
     {
@@ -120,7 +130,10 @@
         "dataset_text_length": 2193,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
+      },
+      "superseded_dois": [
+        "10.48550/arxiv.2502.01678"
+      ]
     },
     {
       "title": "VR-based gamma sensory stimulation: a pilot feasibility study",
@@ -537,29 +550,6 @@
       }
     },
     {
-      "title": "40Hz Auditory Entrainment",
-      "author": "Mojtaba Lahijanian, Hamid Aghajan, Zahra Vahabi",
-      "venue": "UC San Diego",
-      "year": 2026,
-      "url": "https://doi.org/10.82901/nemar.on005048",
-      "cited_by": 0,
-      "abstract": "This dataset comprises EEG recordings from elderly dementia patients during 40Hz auditory entrainment sessions designed to investigate gamma-band brain stimulation effects on neural oscillations. Participants underwent either short (6 trials) or long (10 trials) sessions of auditory stimulation using a 5kHz carrier tone amplitude-modulated at 40Hz, with simultaneous 19-channel EEG recording at 250Hz sampling rate. The study examines the effects of auditory gamma-band entrainment on brain oscillations and default mode network connectivity in Alzheimer's disease patients.",
-      "doi": "10.82901/nemar.on005048",
-      "pmid": null,
-      "openalex_id": "W7166177640",
-      "source_doi": "10.1038/s41598-024-63727-z",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.9919044926762582,
-        "similarity_score": 0.8587917685508728,
-        "citation_text_length": 699,
-        "dataset_text_length": 2193,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Engram cell vulnerability in neurodegeneration: from mechanistic insights to therapeutic horizons",
       "author": "Qingyu Bai, Yan Yan, Chao Zeng, Xue Li, Guihua Zeng, Aleena Saidova, Hui Li, Hong Qing",
       "venue": "Frontiers in Aging Neuroscience",
@@ -788,21 +778,102 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "Cross-subject generalization for EEG decoding: a survey of deep learning methods",
+      "author": "Taida Li, Yujun Yan, Fei Dou, Wenli Song, Xiang Zhang",
+      "venue": "Progress in Biomedical Engineering",
+      "year": 2026,
+      "url": "https://doi.org/10.1088/2516-1091/ae65f0",
+      "cited_by": 4,
+      "abstract": "Deep learning for cross-subject electroencephalography (EEG) decoding is hindered by high inter-subject variability, which introduces a severe domain shift between training and unseen test subjects. This survey presents a comprehensive review of deep learning methodologies specifically engineered to address this cross-subject generalization challenge. To ground this analysis, we formalize the cross-subject setting as a multi-source domain problem and delineate the rigorous, subject-independent evaluation protocols required for valid assessment. Central to this survey is a systematic taxonomy of the current literature into discrete methodological families, including feature alignment, adversarial learning, feature disentanglement, and contrastive learning. We conclude by examining three critical elements for advancing robust, real-world decoding: the theoretical limitations of current methodologies, the structural value of subject identity, and the emergence of EEG foundation models.",
+      "doi": "10.1088/2516-1091/ae65f0",
+      "pmid": "42049051",
+      "openalex_id": "W7158097069",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds005048",
+      "confidence_scoring": {
+        "confidence_score": 0.49883213639259344,
+        "similarity_score": 0.43188929557800293,
+        "citation_text_length": 1203,
+        "dataset_text_length": 2193,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Pre-Registered High-Resolution Test of the φ⁸ Binding Frequency Attractor in Resting-State EEG: A 608-Subject, 1000 Hz Replication of P69a",
+      "author": "Abby Davis",
+      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "year": 2026,
+      "url": "https://doi.org/10.5281/zenodo.20090327",
+      "cited_by": 0,
+      "abstract": "Fibonacci Causal Loop Theory (FCLT) predicts that neural gamma-band dynamics are governed by a φ⁸ binding frequency attractor at φ⁸ = 46.979 Hz, where φ = (1+√5)/2 = 1.6180… is the golden ratio. Paper 69a tested this prediction on OpenNeuro ds005048 (35 subjects, 250 Hz resting-state EEG) and returned a cohort mean δ = 0.083 (SD = 0.012), placing the result in the gray zone (0.05 ≤ δ ≤ 0.10) under Protocol V3.1. Instrumental analysis confirmed the 250 Hz sampling rate as the limiting factor: sub-Hz peak resolution in the 40–50 Hz band is unachievable at that sampling rate. This paper constitutes the pre-registration for P69b, a high-resolution follow-up using OpenNeuro ds005385 (608 subjects, 1000 Hz, BIDS-compliant), which provides 4× finer frequency binning. The pre-registered prediction is unchanged: cohort mean δ < 0.05 at φ⁸ = 46.979 Hz. The protocol is identical to P69a. Independent parallel convergences from Ruiz (Entropy, 2025) via thermodynamic symmetry and IFT (Castro & Davis 2026) via icosahedral tensor geometry provide independent theoretical support for φ-attractor behavior in neural systems. Results will be reported in full regardless of outcome; no post-hoc protocol adjustment is permitted after this timestamp.",
+      "doi": "10.5281/zenodo.20090327",
+      "pmid": null,
+      "openalex_id": "W7160618227",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds005048",
+      "superseded_dois": [
+        "10.5281/zenodo.20467298"
+      ],
+      "confidence_scoring": {
+        "confidence_score": 0.6129726451635361,
+        "similarity_score": 0.5307122468948364,
+        "citation_text_length": 1488,
+        "dataset_text_length": 2193,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "FCLT P69b Pre-Registration: Phi-Eighth Binding Frequency Attractor in Resting-State EEG at 1000 Hz Resolution",
+      "author": "Abby Davis",
+      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "year": 2026,
+      "url": "https://doi.org/10.5281/zenodo.20090328",
+      "cited_by": 0,
+      "abstract": "This document constitutes a formal pre-registration for FCLT Paper 69b (P69b), the high-resolution follow-up to P69a. P69a (OpenNeuro ds005048, 250 Hz) returned a mean deviation δ = 0.083 (SD = 0.012, gray zone) across 35 subjects, with the φ⁸ attractor at approximately 46.979 Hz present but unresolvable at 250 Hz sampling. The 250 Hz sampling rate is confirmed as the tech-gap limiting factor. P69b advances to OpenNeuro ds005385 (608 subjects, 1000 Hz, BIDS-compliant) using the identical protocol to close the tech-gap. The pre-registered confirmation threshold is δ < 0.05. This timestamp precedes all data analysis under Protocol V3.1.",
+      "doi": "10.5281/zenodo.20090328",
+      "pmid": null,
+      "openalex_id": "W7160663806",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds005048",
+      "superseded_dois": [
+        "10.5281/zenodo.20328198"
+      ],
+      "confidence_scoring": {
+        "confidence_score": 0.6341128590703011,
+        "similarity_score": 0.549015462398529,
+        "citation_text_length": 856,
+        "dataset_text_length": 2193,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T12:15:15.262088+00:00",
+    "scoring_date": "2026-09-30T11:01:03.999091+00:00",
     "dataset_text_length": 2193,
-    "num_citations_scored": 31,
+    "num_citations_scored": 33,
     "summary_stats": {
-      "mean_confidence": 0.6330065268181987,
-      "median_confidence": 0.6486629730463029,
-      "std_confidence": 0.14194531553286568,
+      "mean_confidence": 0.61749137816104,
+      "median_confidence": 0.6341128590703011,
+      "std_confidence": 0.12385921792423835,
       "min_confidence": 0.3167240381240845,
-      "max_confidence": 0.9919044926762582,
-      "high_confidence_count": 10,
-      "medium_confidence_count": 20,
+      "max_confidence": 0.8980541199445726,
+      "high_confidence_count": 9,
+      "medium_confidence_count": 23,
       "low_confidence_count": 1
     }
   }

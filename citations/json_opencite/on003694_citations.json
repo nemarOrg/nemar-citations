@@ -1,7 +1,7 @@
 {
   "dataset_id": "on003694",
-  "num_citations": 6,
-  "date_last_updated": "2026-09-29T11:10:42.128367+00:00",
+  "num_citations": 7,
+  "date_last_updated": "2026-09-30T10:44:53.578222+00:00",
   "metadata": {
     "total_cumulative_citations": 77,
     "fetch_date": "2026-09-29T11:10:42.128367+00:00",
@@ -11,19 +11,20 @@
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.1101/2020.01.22.915330",
         "identifier_type": "doi",
         "source_relation": "IsDescribedBy",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "Disentangling neocortical alpha/beta and hippocampal theta/gamma oscillations in human episodic memory formation",
+        "paper_year": 2020,
+        "paper_venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+        "reason": "Same authors as the dataset (Griffiths, Martín-Buro, Staresina, Hanslmayr). The preprint reports the 17-participant MEG sequence-learning memory study, which matches MEGMEM. DataCite lists it as IsDescribedBy.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.82901/nemar.on003694",
@@ -35,7 +36,8 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -51,7 +53,14 @@
       "neural correlates"
     ],
     "methods_description": null,
-    "funding": []
+    "funding": [],
+    "searched_accessions": [
+      "on003694",
+      "ds003694"
+    ],
+    "num_accession_mentions": 1,
+    "num_dataset_citations": 1,
+    "num_datapaper_citations": 6
   },
   "citation_details": [
     {
@@ -191,21 +200,46 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "Disentangling neocortical alpha/beta and hippocampal theta/gamma oscillations in human episodic memory formation",
+      "author": "Benjamin James Griffiths, María Carmen Martín-Buro, Bernhard P. Staresina, Simon Hanslmayr",
+      "venue": "NeuroImage",
+      "year": 2021,
+      "url": "https://doi.org/10.1016/j.neuroimage.2021.118454",
+      "cited_by": 78,
+      "abstract": "To form an episodic memory, we must first process a vast amount of sensory information about the to-be-encoded event and then bind these sensory representations together to form a coherent memory trace. While these two cognitive capabilities are thought to have two distinct neural origins, with neocortical alpha/beta oscillations supporting information representation and hippocampal theta-gamma phase-amplitude coupling supporting mnemonic binding, evidence for a dissociation between these two neural markers is conspicuously absent. To address this, seventeen human participants completed an associative memory task that first involved processing information about three sequentially-presented stimuli, and then binding these stimuli together into a coherent memory trace, all the while undergoing MEG recordings. We found that decreases in neocortical alpha/beta power during sequence perception, but not mnemonic binding, correlated with enhanced memory performance. Hippocampal theta/gamma phase-amplitude coupling, however, showed the opposite pattern; increases during mnemonic binding (but not sequence perception) correlated with enhanced memory performance. These results demonstrate that memory-related decreases in neocortical alpha/beta power and memory-related increases in hippocampal theta/gamma phase-amplitude coupling arise at distinct stages of the memory formation process. We speculate that this temporal dissociation reflects a functional dissociation in which neocortical alpha/beta oscillations could support the processing of incoming information relevant to the memory, while hippocampal theta-gamma phase-amplitude coupling could support the binding of this information into a coherent memory trace.",
+      "doi": "10.1016/j.neuroimage.2021.118454",
+      "pmid": "34358658",
+      "openalex_id": "W3192640258",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds003694",
+      "confidence_scoring": {
+        "confidence_score": 0.4312695680558682,
+        "similarity_score": 0.37339356541633606,
+        "citation_text_length": 1751,
+        "dataset_text_length": 577,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T12:09:00.012667+00:00",
+    "scoring_date": "2026-09-30T10:56:54.177987+00:00",
     "dataset_text_length": 577,
-    "num_citations_scored": 6,
+    "num_citations_scored": 7,
     "summary_stats": {
-      "mean_confidence": 0.3909909503906966,
-      "median_confidence": 0.3747329530119896,
-      "std_confidence": 0.03425461219860487,
+      "mean_confidence": 0.39674503862857824,
+      "median_confidence": 0.3779036030173302,
+      "std_confidence": 0.03470461283076407,
       "min_confidence": 0.3598023417592049,
       "max_confidence": 0.4545544593036175,
       "high_confidence_count": 0,
-      "medium_confidence_count": 2,
+      "medium_confidence_count": 3,
       "low_confidence_count": 4
     }
   }

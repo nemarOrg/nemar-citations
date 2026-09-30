@@ -1,7 +1,7 @@
 {
   "dataset_id": "on004952",
   "num_citations": 24,
-  "date_last_updated": "2026-09-29T11:21:32.394936+00:00",
+  "date_last_updated": "2026-09-30T10:47:15.995653+00:00",
   "metadata": {
     "total_cumulative_citations": 126,
     "fetch_date": "2026-09-29T11:21:32.394936+00:00",
@@ -13,31 +13,33 @@
     },
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.1038/s41597-024-03398-7",
         "identifier_type": "doi",
         "source_relation": "IsDescribedBy",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "ChineseEEG: A Chinese Linguistic Corpora EEG Dataset for Semantic Alignment and Neural Decoding",
+        "paper_year": 2024,
+        "paper_venue": "Scientific Data",
+        "reason": "Title and authors match the dataset exactly; the Scientific Data paper describes the ChineseEEG dataset (10 participants, reading Chinese novels, EEG plus eye-tracking, BERT embeddings).",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.1101/2024.02.08.579481",
         "identifier_type": "doi",
         "source_relation": "References",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "ChineseEEG: A Chinese Linguistic Corpora EEG Dataset for Semantic Alignment and Neural Decoding",
+        "paper_year": 2024,
+        "paper_venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+        "reason": "Title matches the dataset name exactly, with the same authors and the same design: 10 participants silently reading about 11 hours of Chinese text, with EEG, eye-tracking and BERT embeddings.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.82901/nemar.on004952",
@@ -49,7 +51,8 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -67,7 +70,14 @@
       "Neural decoding"
     ],
     "methods_description": "EEG data were recorded at 1 kHz sampling rate using high-density EEG (EGI system, .mff format converted to BrainVision), alongside simultaneous eye-tracking data, while participants silently read Chinese novels presented in a moving-window highlighted reading paradigm. Data were pre-processed through filtering (0.5-80 Hz and 0.5-30 Hz band-pass) and further processed with a full pipeline including bad channel rejection and ICA, down-sampled to 256 Hz. The dataset was organized following the EEG-BIDS specification using the MNE-BIDS package.",
-    "funding": []
+    "funding": [],
+    "searched_accessions": [
+      "on004952",
+      "ds004952"
+    ],
+    "num_accession_mentions": 0,
+    "num_dataset_citations": 0,
+    "num_datapaper_citations": 24
   },
   "citation_details": [
     {
@@ -137,7 +147,10 @@
         "dataset_text_length": 2495,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
+      },
+      "superseded_dois": [
+        "10.1101/2024.02.08.579481"
+      ]
     },
     {
       "title": "Medical multimodal large language models: A systematic review",
@@ -625,7 +638,7 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T12:14:47.033711+00:00",
+    "scoring_date": "2026-09-30T11:00:52.075194+00:00",
     "dataset_text_length": 2495,
     "num_citations_scored": 24,
     "summary_stats": {

@@ -1,7 +1,7 @@
 {
   "dataset_id": "on004015",
-  "num_citations": 37,
-  "date_last_updated": "2026-09-24T10:29:50.215355+00:00",
+  "num_citations": 38,
+  "date_last_updated": "2026-09-30T10:45:14.974438+00:00",
   "metadata": {
     "total_cumulative_citations": 257,
     "fetch_date": "2026-09-24T10:29:50.215355+00:00",
@@ -11,19 +11,20 @@
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.3389/fnins.2022.869426",
         "identifier_type": "doi",
         "source_relation": "References",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "Ear-EEG Measures of Auditory Attention to Continuous Speech",
+        "paper_year": 2022,
+        "paper_venue": "Frontiers in Neuroscience",
+        "reason": "README says this article contains all methodological details; it analyzes cEEGrid data of 36 participants (15+21) pooled, matching the dataset, with the same authors.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.82901/nemar.on004015",
@@ -35,7 +36,8 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -51,7 +53,14 @@
       "high-density EEG"
     ],
     "methods_description": "Participants performed a two-competing speaker paradigm with 5-6 blocks of 10-minute audiobook presentations. In the omnidirectional condition, both audiobooks were presented at equal loudness. In the beamforming condition, the attended audiobook was presented louder than the ignored audiobook. cEEGrid recordings were acquired during these tasks.",
-    "funding": []
+    "funding": [],
+    "searched_accessions": [
+      "on004015",
+      "ds004015"
+    ],
+    "num_accession_mentions": 2,
+    "num_dataset_citations": 2,
+    "num_datapaper_citations": 36
   },
   "citation_details": [
     {
@@ -653,29 +662,6 @@
       }
     },
     {
-      "title": "Attended speaker paradigm (cEEGrid data)",
-      "author": "Bjoern Holtze, Marc Rosenkranz, Manuela Jaeger, Stefan Debener, Bojana Mirkovic",
-      "venue": "UC San Diego",
-      "year": 2026,
-      "url": "https://doi.org/10.82901/nemar.on004015",
-      "cited_by": 0,
-      "abstract": "This dataset comprises consolidated cEEGrid recordings from two attended speaker paradigm studies involving 36 participants (15 from Jaeger et al. 2020 and 21 from Holtze et al. 2021). Participants performed a dichotic listening task with competing audiobooks while instructed to attend to either the left or right speaker. The pooled dataset includes recordings under omnidirectional and beamforming acoustic conditions, providing a resource for investigating neural correlates of selective auditory attention using high-density EEG.",
-      "doi": "10.82901/nemar.on004015",
-      "pmid": null,
-      "openalex_id": "W7165675967",
-      "source_doi": "10.3389/fnins.2022.869426",
-      "source_relation": "References",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 1.0,
-        "similarity_score": 0.8817067742347717,
-        "citation_text_length": 704,
-        "dataset_text_length": 1570,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "BROAD APPLICATIONS OF CONSUMER-GRADE EEG DEVICES: FROM CLINICAL DIAGNOSTICS TO BRAIN-COMPUTER INTERFACES AND SOCIAL SCIENCES – LITERATURE REVIEW",
       "author": "Katarzyna Anna Borzęcka, Agnieszka Szwed, Aleksandra Soltys, Daria Aleksandra Warzocha-Żurek, Ewa Maria Polewczak-Karp, Katarzyna Wawrzonek, Krystian Andryszko, Marcelina Dymon, Natalia Matylda Ziemba-Furgała, Paulina Krysa",
       "venue": "International Journal of Innovative Technologies in Social Science",
@@ -904,21 +890,71 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "Ear-EEG Measures of Auditory Attention to Continuous Speech",
+      "author": "Björn Holtze, Marc Rosenkranz, Manuela Jaeger, Stefan Debener, Bojana Mirkovic",
+      "venue": "Frontiers in Neuroscience",
+      "year": 2022,
+      "url": "https://doi.org/10.3389/fnins.2022.869426",
+      "cited_by": 37,
+      "abstract": "Auditory attention is an important cognitive function used to separate relevant from irrelevant auditory information. However, most findings on attentional selection have been obtained in highly controlled laboratory settings using bulky recording setups and unnaturalistic stimuli. Recent advances in electroencephalography (EEG) facilitate the measurement of brain activity outside the laboratory, and around-the-ear sensors such as the cEEGrid promise unobtrusive acquisition. In parallel, methods such as speech envelope tracking, intersubject correlations and spectral entropy measures emerged which allow us to study attentional effects in the neural processing of natural, continuous auditory scenes. In the current study, we investigated whether these three attentional measures can be reliably obtained when using around-the-ear EEG. To this end, we analyzed the cEEGrid data of 36 participants who attended to one of two simultaneously presented speech streams. Speech envelope tracking results confirmed a reliable identification of the attended speaker from cEEGrid data. The accuracies in identifying the attended speaker increased when fitting the classification model to the individual. Artifact correction of the cEEGrid data with artifact subspace reconstruction did not increase the classification accuracy. Intersubject correlations were higher for those participants attending to the same speech stream than for those attending to different speech streams, replicating previously obtained results with high-density cap-EEG. We also found that spectral entropy decreased over time, possibly reflecting the decrease in the listener's level of attention. Overall, these results support the idea of using ear-EEG measurements to unobtrusively monitor auditory attention to continuous speech. This knowledge may help to develop assistive devices that support listeners separating relevant from irrelevant information in complex auditory environments.",
+      "doi": "10.3389/fnins.2022.869426",
+      "pmid": "35592265",
+      "openalex_id": "W4225411564",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004015",
+      "confidence_scoring": {
+        "confidence_score": 0.7402989301085473,
+        "similarity_score": 0.6409514546394348,
+        "citation_text_length": 1701,
+        "dataset_text_length": 1570,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "EEGUnity: Open-Source Tool in Facilitating Unified EEG Datasets Towards Large-Scale EEG Model",
+      "author": "Chengxuan Qin, Rui Yang, You, Wenlong, Zhige Chen, Longsheng Zhu, Mengjie Huang, Zidong Wang",
+      "venue": "arXiv (Cornell University)",
+      "year": 2024,
+      "url": "https://doi.org/10.48550/arxiv.2410.07196",
+      "cited_by": 1,
+      "abstract": "The increasing number of dispersed EEG dataset publications and the advancement of large-scale Electroencephalogram (EEG) models have increased the demand for practical tools to manage diverse EEG datasets. However, the inherent complexity of EEG data, characterized by variability in content data, metadata, and data formats, poses challenges for integrating multiple datasets and conducting large-scale EEG model research. To tackle the challenges, this paper introduces EEGUnity, an open-source tool that incorporates modules of 'EEG Parser', 'Correction', 'Batch Processing', and 'Large Language Model Boost'. Leveraging the functionality of such modules, EEGUnity facilitates the efficient management of multiple EEG datasets, such as intelligent data structure inference, data cleaning, and data unification. In addition, the capabilities of EEGUnity ensure high data quality and consistency, providing a reliable foundation for large-scale EEG data research. EEGUnity is evaluated across 25 EEG datasets from different sources, offering several typical batch processing workflows. The results demonstrate the high performance and flexibility of EEGUnity in parsing and data processing. The project code is publicly available at github.com/Baizhige/EEGUnity.",
+      "doi": "10.48550/arxiv.2410.07196",
+      "pmid": null,
+      "openalex_id": "W4403363656",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004015",
+      "confidence_scoring": {
+        "confidence_score": 0.4919172334671021,
+        "similarity_score": 0.4259023666381836,
+        "citation_text_length": 1514,
+        "dataset_text_length": 1570,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-24T10:36:31.497827+00:00",
+    "scoring_date": "2026-09-30T10:57:41.523340+00:00",
     "dataset_text_length": 1570,
-    "num_citations_scored": 37,
+    "num_citations_scored": 38,
     "summary_stats": {
-      "mean_confidence": 0.574200583051991,
-      "median_confidence": 0.5611197884380819,
-      "std_confidence": 0.11460757516279811,
+      "mean_confidence": 0.5652009930657713,
+      "median_confidence": 0.5606181096285583,
+      "std_confidence": 0.0940279227868775,
       "min_confidence": 0.3919968035817147,
-      "max_confidence": 1.0,
+      "max_confidence": 0.7785480970144273,
       "high_confidence_count": 4,
-      "medium_confidence_count": 32,
+      "medium_confidence_count": 33,
       "low_confidence_count": 1
     }
   }

@@ -1,7 +1,7 @@
 {
   "dataset_id": "nm000229",
-  "num_citations": 51,
-  "date_last_updated": "2026-09-29T10:52:53.621194+00:00",
+  "num_citations": 50,
+  "date_last_updated": "2026-09-30T10:44:26.259833+00:00",
   "metadata": {
     "total_cumulative_citations": 493,
     "fetch_date": "2026-09-29T10:52:53.621194+00:00",
@@ -11,19 +11,20 @@
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.1038/s41597-023-02752-5",
         "identifier_type": "doi",
         "source_relation": "IsDerivedFrom",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "Introducing MEG-MASC a high-quality magneto-encephalography dataset for evaluating natural speech processing",
+        "paper_year": 2023,
+        "paper_venue": "Scientific Data",
+        "reason": "Title, authors and abstract (27 English speakers, MASC stories, BIDS MEG) match the dataset README exactly; this is the MEG-MASC data descriptor in Scientific Data.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.82901/nemar.nm000229",
@@ -35,7 +36,8 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -876,29 +878,6 @@
       }
     },
     {
-      "title": "Gwilliams et al. 2023 — Introducing MEG-MASC: a high-quality magneto-encephalography dataset for evaluating natural speech processing",
-      "author": "Laura Gwilliams, Graham Flick, Alec Marantz, Liina Pylkkänen, David Poeppel, Jean-Rémi King",
-      "venue": "UC San Diego",
-      "year": 2026,
-      "url": "https://doi.org/10.82901/nemar.nm000229.v1.0.1",
-      "cited_by": 0,
-      "abstract": "MEG-MASC is a high-quality magnetoencephalography dataset comprising raw MEG recordings from 27 English speakers listening to approximately two hours of naturalistic stories from the Manually Annotated Sub-Corpus (MASC). The dataset includes precise temporal annotations of word and phoneme onsets/offsets, organized according to the Brain Imaging Data Structure (BIDS) standard. This benchmark dataset enables large-scale encoding and decoding analyses of neural responses to natural speech processing, with accompanying code for validation analyses including temporal decoding of phonetic features and word frequency effects.",
-      "doi": "10.82901/nemar.nm000229.v1.0.1",
-      "pmid": null,
-      "openalex_id": "W7163374169",
-      "source_doi": "10.1038/s41597-023-02752-5",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 1.0,
-        "similarity_score": 0.9611909985542297,
-        "citation_text_length": 902,
-        "dataset_text_length": 2472,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "NEURAL-VOX: NEURal auditory language decoding for voice and text reconstruction",
       "author": "Zhishuo Jin, Dongdong Li, Qin Zhou, Zhe Wang",
       "venue": "Neural Networks",
@@ -1246,16 +1225,16 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T11:58:42.262788+00:00",
+    "scoring_date": "2026-09-30T10:52:49.770005+00:00",
     "dataset_text_length": 2472,
-    "num_citations_scored": 51,
+    "num_citations_scored": 50,
     "summary_stats": {
-      "mean_confidence": 0.66695785768184,
-      "median_confidence": 0.6695614778995514,
-      "std_confidence": 0.12137610044624143,
+      "mean_confidence": 0.6602970148354769,
+      "median_confidence": 0.6649231562018395,
+      "std_confidence": 0.1129782842678427,
       "min_confidence": 0.3069182114303113,
-      "max_confidence": 1.0,
-      "high_confidence_count": 17,
+      "max_confidence": 0.9622062224149706,
+      "high_confidence_count": 16,
       "medium_confidence_count": 33,
       "low_confidence_count": 1
     }

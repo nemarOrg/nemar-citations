@@ -1,9 +1,9 @@
 {
   "dataset_id": "on004796",
-  "num_citations": 34,
-  "date_last_updated": "2026-09-29T11:19:30.937852+00:00",
+  "num_citations": 38,
+  "date_last_updated": "2026-09-30T10:47:15.952131+00:00",
   "metadata": {
-    "total_cumulative_citations": 96,
+    "total_cumulative_citations": 103,
     "fetch_date": "2026-09-29T11:19:30.937852+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
@@ -11,19 +11,20 @@
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.1038/s41597-024-03106-5",
         "identifier_type": "doi",
         "source_relation": "IsDescribedBy",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "PEARL-Neuro Database: EEG, fMRI, health and lifestyle data of middle-aged people at risk of dementia",
+        "paper_year": 2024,
+        "paper_venue": "Scientific Data",
+        "reason": "The dataset README names this Scientific Data paper as its Data Descriptor and citation. The title and authors match the PEARL-Neuro database, with the same EEG/fMRI, APOE/PICALM, and MSIT/Sternberg content.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.82901/nemar.on004796",
@@ -35,7 +36,8 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -58,7 +60,14 @@
         "funder_name": "Polish National Science Center (NCN)",
         "award_number": "2018/31/N/HS6/03551"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "on004796",
+      "ds004796"
+    ],
+    "num_accession_mentions": 4,
+    "num_dataset_citations": 7,
+    "num_datapaper_citations": 31
   },
   "citation_details": [
     {
@@ -105,7 +114,10 @@
         "dataset_text_length": 2336,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
+      },
+      "superseded_dois": [
+        "10.48550/arxiv.2502.01678"
+      ]
     },
     {
       "title": "Dual-Transformer Cross-Attention Framework for Alzheimer’s disease detection via dPTE-Guided EEG channel selection and multi-modal integration",
@@ -680,7 +692,9 @@
         "dataset_text_length": 2336,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
+      },
+      "mentions_accession": true,
+      "matched_accession": "ds004796"
     },
     {
       "title": "Non-Parametric Spectral Analysis of Slow Wave Activity in Resting-State EEG as a Biomarker of Dementia Risk",
@@ -749,7 +763,9 @@
         "dataset_text_length": 2336,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
+      },
+      "mentions_accession": true,
+      "matched_accession": "ds004796"
     },
     {
       "title": "Augmenting Spline Interpolated Dementia EEG Data with Deep Learning for Improved Multi-Centric Data Harmonization",
@@ -795,7 +811,9 @@
         "dataset_text_length": 2336,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
+      },
+      "mentions_accession": true,
+      "matched_accession": "ds004796"
     },
     {
       "title": "Multimodal data fusion for early risk prediction of disease",
@@ -842,21 +860,124 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "Joint Generative Modeling of EEG and fMRI for Cognitive Task Simulation Using Adversarial Learning",
+      "author": "Nirmal Sukumaran Nair, Ravi Prakash B",
+      "venue": "Research Square",
+      "year": 2026,
+      "url": "https://doi.org/10.21203/rs.3.rs-9897980/v1",
+      "cited_by": 0,
+      "abstract": null,
+      "doi": "10.21203/rs.3.rs-9897980/v1",
+      "pmid": null,
+      "openalex_id": "W7166243167",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004796",
+      "confidence_scoring": {
+        "confidence_score": 0.4391387432813645,
+        "similarity_score": 0.4182273745536804,
+        "citation_text_length": 177,
+        "dataset_text_length": 2336,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Task-Related EEG as a Biomarker for Preclinical Alzheimer’s Disease: An Explainable Deep Learning Approach",
+      "author": "Ziyang Li, Hong Wang, Lei Li",
+      "venue": "Biomimetics",
+      "year": 2025,
+      "url": "https://doi.org/10.3390/biomimetics10070468",
+      "cited_by": 7,
+      "abstract": "The early detection of Alzheimer's disease (AD) in cognitively healthy individuals remains a major preclinical challenge. EEG is a promising tool that has shown effectiveness in detecting AD risk. Task-related EEG has been rarely used in Alzheimer's disease research, as most studies have focused on resting-state EEG. An interpretable deep learning framework-Interpretable Convolutional Neural Network (InterpretableCNN)-was utilized to identify AD-related EEG features. EEG data were recorded during three cognitive task conditions, and samples were labeled based on APOE genotype and polygenic risk scores. A 100-fold leave-p%-subjects-out cross-validation (LPSO-CV) was used to evaluate model performance and generalizability. The model achieved an ROC AUC of 60.84% across the tasks and subjects, with a Kappa value of 0.22, indicating fair agreement. Interpretation revealed a consistent focus on theta and alpha activity in the parietal and temporal regions-areas commonly associated with AD pathology. Task-related EEG combined with interpretable deep learning can reveal early AD risk signatures in healthy individuals. InterpretableCNN enhances transparency in feature identification, offering a valuable tool for preclinical screening.",
+      "doi": "10.3390/biomimetics10070468",
+      "pmid": "40710281",
+      "openalex_id": "W4412474434",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004796",
+      "confidence_scoring": {
+        "confidence_score": 0.6615884524583817,
+        "similarity_score": 0.5728038549423218,
+        "citation_text_length": 1430,
+        "dataset_text_length": 2336,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "NS-Copilot: An LLM-Driven Agent System for Autonomous Neuroscience Analysis",
+      "author": "Wuche Liu, Yiran Qiao, Linlin Hou, Rui Yang, Shusen Pu, Song Wang, Jing Ma",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2609.01971",
+      "cited_by": 0,
+      "abstract": "AI is rapidly advancing neuroscience, yet many laboratories fail to fully unleash its potential due to significant interdisciplinary barriers. While pre-trained neural models for physiological data are progressing quickly, their heterogeneous architectures and modality-specific constraints hinder systematic integration, selection, and evaluation. Despite recent advances in large language model (LLM)-based agent systems for intelligent scientific applications, existing approaches often still lack the domain expertise required to effectively select and coordinate diverse neuroscience pre-trained models and handle unique data types in this domain. We present NS-Copilot, an LLM-driven multi-agent system for neuroscience analysis that autonomously supports end-to-end workflows for diverse professional tasks. It unifies domain-specific pre-trained models and supports key neuroscience modalities, including EEG and extracellular spike data, through a natural-language interface. Given raw data and a task description, NS-Copilot orchestrates agents with specialized roles for planning, adaptive control, code generation, and result synthesis, enabling analysis without dataset-specific heuristics. We evaluate NS-Copilot on neuroscience benchmarks spanning Alzheimer's disease, Parkinson's disease, and working memory spike decoding. Across 8 trials per task, the system consistently outperforms strong baselines on the primary metric, demonstrating the ability of NS-Copilot for effective and scalable neuroscience analysis. Our code is publicly available at https://github.com/FrankLiu1102/ns-copilot.",
+      "doi": "10.48550/arxiv.2609.01971",
+      "pmid": null,
+      "openalex_id": "W7207743228",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004796",
+      "confidence_scoring": {
+        "confidence_score": 0.45217602431774145,
+        "similarity_score": 0.39149439334869385,
+        "citation_text_length": 1714,
+        "dataset_text_length": 2336,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Preclinical Neural Divergence associated with Genetic Risk for Alzheimer's Disease: A Multimodal Resting-State EEG and Neuroimaging Study",
+      "author": "Shlok Khare",
+      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "year": 2026,
+      "url": "https://doi.org/10.5281/zenodo.19562976",
+      "cited_by": 0,
+      "abstract": "Pre-symptomatic Alzheimer’s risk detection is difficult precisely because genetically at-risk individuals look neurologically normal for years before any clinical presentation. This paper presents a multimodal neurophysiological framework distinguishing two biologically distinct risk pathways, APOE ε4 (N = 48) and PICALM rs3851179 (N = 30), using resting-state EEG and fMRI in a pre-symptomatic cohort (µage ≈55 years) from the PEARL-Neuro dataset (OpenNeuro ds004796). EEGNet trained under leave-one-subject-out cross-validation reveals a bimodal fold structure in which 57.8% of APOE e3/e4 carriers and 80.0% of PICALM carriers are correctly classified at the subject level, with no intermediate folds between near-perfect (F1 = 1.0, 50/77) and near-chance (F1 ≈0.47–0.50, 27/77) performance. This structure reflects genuine individual variability in pre-symptomatic EEG divergence onset, with age confirmed as non-explanatory (Mann-Whitney U, p>.05). SHAP analysis and EEGNet’s learned spatial filters converge independently on bilateral temporal and frontal channels as the primary discriminating anatomy. Default Mode Network (DMN) connectivity is the single most discriminative individual feature (mean |SHAP|= 0.038) despite showing no linear correlation with any EEG measure (r < 0.17, all p > .16, N = 68), indicating the two modalities access distinct biological aspects of the same risk process. Late fusion demonstrates a ceiling effect consistent with EEGNet’s near-perfect unimodal performance, but within the 24 maximally uncertain subjects, DMN provides genuine probability calibration improvement of approximately 0.20–0.25 in P(PICALM risk). A companion ResNet18 analysis on OASIS-2 (N = 150 baseline sessions) contributes neuroanatomical grounding through Grad-CAM, identifying posterior-inferior atrophy as the primary CDR-based MCI discriminator. Together, these results suggest the preclinical Alzheimer’s neural phenotype is modality-specific, pathway-dependent, and individually variable in its timing of emergence.",
+      "doi": "10.5281/zenodo.19562976",
+      "pmid": null,
+      "openalex_id": "W7154238673",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004796",
+      "superseded_dois": [
+        "10.5281/zenodo.19562977"
+      ],
+      "confidence_scoring": {
+        "confidence_score": 0.8062752440571787,
+        "similarity_score": 0.6980738043785095,
+        "citation_text_length": 1743,
+        "dataset_text_length": 2336,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T12:13:49.201030+00:00",
+    "scoring_date": "2026-09-30T11:00:17.769159+00:00",
     "dataset_text_length": 2336,
-    "num_citations_scored": 34,
+    "num_citations_scored": 38,
     "summary_stats": {
-      "mean_confidence": 0.5636882243919022,
+      "mean_confidence": 0.5664362656168248,
       "median_confidence": 0.5498915389180183,
-      "std_confidence": 0.10926936182887466,
+      "std_confidence": 0.11494237363802769,
       "min_confidence": 0.4029261946678162,
       "max_confidence": 0.8096334922313692,
-      "high_confidence_count": 4,
-      "medium_confidence_count": 30,
+      "high_confidence_count": 5,
+      "medium_confidence_count": 33,
       "low_confidence_count": 0
     }
   }

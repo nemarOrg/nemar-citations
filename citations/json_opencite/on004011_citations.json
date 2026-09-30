@@ -1,10 +1,10 @@
 {
   "dataset_id": "on004011",
   "num_citations": 0,
-  "date_last_updated": "2026-08-26T10:02:19.794551+00:00",
+  "date_last_updated": "2026-09-30T10:42:10.157500+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
-    "fetch_date": "2026-08-26T10:02:19.794551+00:00",
+    "fetch_date": "2026-09-30T10:42:10.157500+00:00",
     "processing_version": "1.0",
     "fetch_status": "not_found",
     "anchor_count": 1,
@@ -13,7 +13,7 @@
     },
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.21105/joss.01896",
@@ -21,11 +21,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
         "paper_year": 2019,
         "paper_venue": "The Journal of Open Source Software",
-        "reason": "The paper describes MNE-BIDS, a tool and specification for organizing electrophysiological data into the BIDS format, which this dataset uses.",
-        "judgment_model": "gemma4:e4b"
+        "reason": "MNE-BIDS is a software tool for organizing electrophysiological data into BIDS, used to format the data, not a paper describing this occlusion MEG dataset.",
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1038/sdata.2018.110",
@@ -33,11 +34,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MEG-BIDS, the brain imaging data structure extended to magnetoencephalography",
         "paper_year": 2018,
         "paper_venue": "Scientific Data",
-        "reason": "The paper introduces MEG-BIDS, a principled data structure and standard for organizing and sharing MEG data, which is a technical specification used in the dataset's format.",
-        "judgment_model": "gemma4:e4b"
+        "reason": "MEG-BIDS is a data-organization standard specification that this MEG dataset follows, not a paper describing the occlusion dataset.",
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on004011",
@@ -45,25 +47,26 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
       "10.82901/nemar.on004011"
     ],
     "keywords": [
-      "Magnetoencephalography",
       "MEG",
+      "Magnetoencephalography",
       "object representation",
-      "visual occlusion",
+      "occlusion",
       "eye tracking",
-      "neural dynamics"
+      "multivariate pattern analysis"
     ],
-    "methods_description": "MEG data were collected during a task involving dynamic occlusion and disappearance of visual stimuli. Behavioral responses and eye-tracking data (pupil size, eye position) were simultaneously recorded during the MEG session across multiple runs. Data were preprocessed and epoched relative to stimulus onset and position changes using CoSMoMVPA formatting.",
+    "methods_description": "MEG data were recorded during an occlusion task and organized in BIDS format. Behavioural event logs and stimulus position files, along with eye-tracking EDF files, are provided in sourcedata. Derivatives contain preprocessed MEG and eye-tracking epochs (eye position, pupil size) relative to stimulus onset and position changes, in CoSMoMVPA format.",
     "funding": [],
     "searched_accessions": [
       "on004011",
@@ -76,7 +79,7 @@
   "citation_details": [],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-08-26T10:10:30.418249+00:00",
+    "scoring_date": "2026-09-30T10:57:38.614625+00:00",
     "dataset_text_length": 2306,
     "num_citations_scored": 0
   }

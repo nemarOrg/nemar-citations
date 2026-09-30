@@ -1,9 +1,9 @@
 {
   "dataset_id": "on004511",
-  "num_citations": 0,
-  "date_last_updated": "2026-09-29T11:16:17.937469+00:00",
+  "num_citations": 3,
+  "date_last_updated": "2026-09-30T10:47:15.820296+00:00",
   "metadata": {
-    "total_cumulative_citations": 0,
+    "total_cumulative_citations": 2,
     "fetch_date": "2026-09-29T11:16:17.937469+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
@@ -11,7 +11,7 @@
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.82901/nemar.on004511",
@@ -23,7 +23,8 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -40,13 +41,113 @@
       "Electromyography"
     ],
     "methods_description": "EEG signals were recorded using the TruScan 128 Research EEG system with electrodes placed according to the standard 10-5 system, sampled at 3000Hz, with impedance kept below 20 kOhm. Ground electrode was placed on the zygomatic bone and reference electrodes on the mastoids; channels 124 and 125 recorded vertical EOG. Physiological signals (ECG, RSP, EDA, EMG) were recorded at 4000Hz using the BioPac MP160 system and AcqKnowledge 5.0 software, with ECG collected via a modified Lead II configuration, RSP via a respiration belt, EDA via finger electrodes, and EMG via corrugator muscle activity.",
-    "funding": []
+    "funding": [],
+    "searched_accessions": [
+      "on004511",
+      "ds004511"
+    ],
+    "num_accession_mentions": 3,
+    "num_dataset_citations": 3,
+    "num_datapaper_citations": 0
   },
-  "citation_details": [],
+  "citation_details": [
+    {
+      "title": "Deception Detection from Five-Channel Wearable EEG on LieWaves: A Reproducible Baseline for Subject-Dependent and Subject-Independent Evaluation",
+      "author": "Șerban-Teodor Nicolescu, Felix–Constantin Adochiei, Florin-Ciprian Argatu, Bogdan–Adrian Enache, George-Călin Serițan",
+      "venue": "Sensors",
+      "year": 2026,
+      "url": "https://doi.org/10.3390/s26031027",
+      "cited_by": 2,
+      "abstract": "Deception detection with low-channel wearable EEG requires protocols that generalize across people while remaining practical for portable devices. Using the public LieWaves dataset (27 subjects recorded with a five-channel Emotiv Insight headset), we evaluate to what extent five-channel head-mounted EEG can support lie-truth discrimination under both subject-independent and subject-dependent evaluations. For the subject-independent setting, we train a compact Residual Network with Squeeze-and-Excitation blocks (ResNet-SE) model on raw overlapping windows with focal loss, light data augmentation, and grouped cross-validation by subject; out-of-fold window probabilities are averaged per session and converted to labels using a single decision threshold estimated from the cross-validated session scores. For the subject-dependent setting, we adopt an overlapping short-window Residual Temporal Convolutional Network with Squeeze-and-Excitation and Attention (Res-TCN-SE-Attention) model that fuses raw EEG with discrete wavelet transform (DWT)-based spectral and handcrafted band-power and Hjorth features, using an 80/10/10 split at the recording/session level (stratified by session label), so that all windows from a given session are assigned to a single subset; because each subject contributes two sessions, the same subject may still appear across subsets via different sessions. The subject-independent model attains 66.70% session-level accuracy with an AUC of 0.58 on unseen subjects, underscoring the difficulty of person-independent generalization from low-channel wearable EEG. Because practical deployment requires generalization to previously unseen individuals, we treat the subject-independent evaluation as the primary estimate of real-world generalization. In contrast, the subject-dependent pipeline reaches 99.94% window-level accuracy under the overlapping sliding-window (OSW) setting with a session-disjoint split (no session contributes windows to more than one subset). This near-ceiling performance reflects the optimistic nature of subject-dependent evaluation with highly overlapping windows, even when avoiding within-session train-test overlap, and should not be interpreted as a meaningful indicator of deception-detection capability under realistic deployment constraints. These results suggest limited, above-chance separability between lie and truth sessions in LieWaves using a five-channel wearable EEG under the studied protocol; however, performance remains far from deployment-ready and is strongly shaped by evaluation design. Explicit reporting of both protocols, together with clear rules for windowing, aggregation, and threshold selection, supports more reproducible and comparable benchmarking.",
+      "doi": "10.3390/s26031027",
+      "pmid": "41682543",
+      "openalex_id": "W7127570473",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004511",
+      "confidence_scoring": {
+        "confidence_score": 0.6719080728292466,
+        "similarity_score": 0.5817385911941528,
+        "citation_text_length": 1807,
+        "dataset_text_length": 2188,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Neural flow geometry differentiates gambling and cognitive control despite matched sympathetic arousal",
+      "author": "Robin Langell",
+      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "year": 2026,
+      "url": "https://doi.org/10.5281/zenodo.20596470",
+      "cited_by": 0,
+      "abstract": "Using the NeuralManifoldDynamics pipeline, we show that local neural-flow-geometry metrics (the Meta-Noetic Jacobian) sharply differentiate a gambling task from cognitive control in the OpenNeuro ds004511 EEG dataset, even though global manifold coordinates and peripheral arousal (tonic EDA, corrugator EMG) do not differ between tasks. The effect survives a ten-part robustness audit, including a conventional-EEG baseline and a direct event/response-rate sensitivity check, supporting MNJ as a sensitive marker of task-context reorganization beyond global brain-state position.",
+      "doi": "10.5281/zenodo.20596470",
+      "pmid": null,
+      "openalex_id": "W7167053676",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004511",
+      "superseded_dois": [
+        "10.5281/zenodo.20596471",
+        "10.5281/zenodo.21134299"
+      ],
+      "confidence_scoring": {
+        "confidence_score": 0.71022298514843,
+        "similarity_score": 0.614911675453186,
+        "citation_text_length": 790,
+        "dataset_text_length": 2188,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Task Contrasts Dissociate Across Neural-Dynamics Estimators",
+      "author": "Robin Langell",
+      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "year": 2026,
+      "url": "https://doi.org/10.5281/zenodo.22901412",
+      "cited_by": 0,
+      "abstract": "This article presents an exploratory within-subject reanalysis of the OpenNeuro ds004511 EEG dataset under Noetic Diffusion Theory (NDT). The analysis asks whether Rest, cognitive control (CC), and gambling (GG) task contrasts agree across explicitly non-interchangeable summaries of a subject-anchored neural chart. The frozen export contains 134 recordings from 45 participants: 45 Rest, 45 CC, and 44 GG recordings. The measurement contract uses the canonical MNPS [m,d,e] chart and its stratified 9D definition with subject-anchored coordinates. The article reports chart occupancy, Meta-Noetic Jacobian (MNJ) quantities, four L1 local law measures, chart-Jacobian spectral abscissa, identified lag-1 one-step L2 and L3 quantities, and certificate-derived L4 reachability amplitudes. These are treated as distinct estimators rather than interchangeable labels. GG minus Rest increased chart-Jacobian alpha (median difference 0.01248, paired dz = 1.42, n = 44, BH q = 5.61e-10). The direction persisted after re-aggregating every recording over the same first 400 seconds. The independently identified one-step L3 generator-proxy spectral abscissa did not show a positive counterpart (dz = -0.328, n = 32, q = 0.178), while identified L2 and L3 rotation summaries decreased. The complete L1 family is reported without significance-based row selection; local chart-drift norm effects were large and remained positive in the deterministic 400-second sensitivity, whereas several diffusion effects attenuated. A separate exploratory estimator-by-task interaction analysis on 121 recordings with common production support found positive GG-Rest and GG-CC interactions after estimator-specific, outcome-blind robust standardization. This estimand is normalization-dependent and does not compare raw endpoint units. A frozen subject-level concordance diagnostic found weak or negative Spearman associations between standardized chart and L3 task contrasts (GG-Rest rho = -0.383; 12/32 same-sign pairs). Reachability amplitude contrasts remain duration-limited because task duration ranges do not overlap and L4 is exported only as recording-level scalars. The degenerate effective-dimension readout is retained as QC and is not interpreted as a dimension result. The findings establish an estimator-specific dissociation in one frozen export, not a biological mechanism, causal task effect, clinical biomarker, consciousness measure, or confirmatory result. Public supplements document the measurement contract, complete endpoint families, missingness, robustness analyses, and reproducibility boundaries.",
+      "doi": "10.5281/zenodo.22901412",
+      "pmid": null,
+      "openalex_id": "W7214045400",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004511",
+      "superseded_dois": [
+        "10.5281/zenodo.22901413"
+      ],
+      "confidence_scoring": {
+        "confidence_score": 0.6405967336893083,
+        "similarity_score": 0.5546292066574097,
+        "citation_text_length": 1667,
+        "dataset_text_length": 2188,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    }
+  ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T12:12:02.598967+00:00",
+    "scoring_date": "2026-09-30T10:59:30.772352+00:00",
     "dataset_text_length": 2188,
-    "num_citations_scored": 0
+    "num_citations_scored": 3,
+    "summary_stats": {
+      "mean_confidence": 0.6742425972223284,
+      "median_confidence": 0.6719080728292466,
+      "std_confidence": 0.028472691316050337,
+      "min_confidence": 0.6405967336893083,
+      "max_confidence": 0.71022298514843,
+      "high_confidence_count": 1,
+      "medium_confidence_count": 2,
+      "low_confidence_count": 0
+    }
   }
 }

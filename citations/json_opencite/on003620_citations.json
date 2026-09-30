@@ -1,9 +1,9 @@
 {
   "dataset_id": "on003620",
-  "num_citations": 35,
-  "date_last_updated": "2026-09-29T11:09:56.608314+00:00",
+  "num_citations": 36,
+  "date_last_updated": "2026-09-30T10:47:15.132985+00:00",
   "metadata": {
-    "total_cumulative_citations": 512,
+    "total_cumulative_citations": 549,
     "fetch_date": "2026-09-29T11:09:56.608314+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
@@ -11,19 +11,20 @@
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.1038/s41598-021-01772-8",
         "identifier_type": "doi",
         "source_relation": "IsDescribedBy",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "EEG and behavioral correlates of attentional processing while walking and navigating naturalistic environments",
+        "paper_year": 2021,
+        "paper_venue": "Scientific Reports",
+        "reason": "Same authors and study (44 participants, auditory oddball in lab, field, campus); this is the original manuscript reporting the data collection for the Runabout dataset.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.82901/nemar.on003620",
@@ -35,7 +36,8 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -61,7 +63,14 @@
         "funder_name": "University of South Australia",
         "award_title": "Research Themes Investment Scheme"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "on003620",
+      "ds003620"
+    ],
+    "num_accession_mentions": 1,
+    "num_dataset_citations": 1,
+    "num_datapaper_citations": 35
   },
   "citation_details": [
     {
@@ -85,7 +94,10 @@
         "dataset_text_length": 2479,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
+      },
+      "superseded_dois": [
+        "10.1101/2021.10.18.464805"
+      ]
     },
     {
       "title": "The reality of virtual reality",
@@ -868,20 +880,45 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "EEG and behavioral correlates of attentional processing while walking and navigating naturalistic environments",
+      "author": "Magnus Liebherr, Andrew W. Corcoran, Phillip M. Alday, Scott W. Coussens, Valeria Bellan, Caitlin A. Howlett, Maarten A. Immink, Mark J Kohler, Matthias Schlesewsky, Ina Bornkessel‐Schlesewsky",
+      "venue": "Scientific Reports",
+      "year": 2021,
+      "url": "https://doi.org/10.1038/s41598-021-01772-8",
+      "cited_by": 37,
+      "abstract": "The capacity to regulate one's attention in accordance with fluctuating task demands and environmental contexts is an essential feature of adaptive behavior. Although the electrophysiological correlates of attentional processing have been extensively studied in the laboratory, relatively little is known about the way they unfold under more variable, ecologically-valid conditions. Accordingly, this study employed a 'real-world' EEG design to investigate how attentional processing varies under increasing cognitive, motor, and environmental demands. Forty-four participants were exposed to an auditory oddball task while (1) sitting in a quiet room inside the lab, (2) walking around a sports field, and (3) wayfinding across a university campus. In each condition, participants were instructed to either count or ignore oddball stimuli. While behavioral performance was similar across the lab and field conditions, oddball count accuracy was significantly reduced in the campus condition. Moreover, event-related potential components (mismatch negativity and P3) elicited in both 'real-world' settings differed significantly from those obtained under laboratory conditions. These findings demonstrate the impact of environmental factors on attentional processing during simultaneously-performed motor and cognitive tasks, highlighting the value of incorporating dynamic and unpredictable contexts within naturalistic designs.",
+      "doi": "10.1038/s41598-021-01772-8",
+      "pmid": "34785702",
+      "openalex_id": "W3211831994",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds003620",
+      "confidence_scoring": {
+        "confidence_score": 0.8213118052482606,
+        "similarity_score": 0.711092472076416,
+        "citation_text_length": 1788,
+        "dataset_text_length": 2479,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T12:08:42.507869+00:00",
+    "scoring_date": "2026-09-30T10:56:33.629982+00:00",
     "dataset_text_length": 2479,
-    "num_citations_scored": 35,
+    "num_citations_scored": 36,
     "summary_stats": {
-      "mean_confidence": 0.5348515594303608,
-      "median_confidence": 0.5293613460659982,
-      "std_confidence": 0.12312448331519749,
+      "mean_confidence": 0.542808788480858,
+      "median_confidence": 0.5366091582924128,
+      "std_confidence": 0.13021002119987826,
       "min_confidence": 0.30661144852638245,
-      "max_confidence": 0.7287388211488725,
-      "high_confidence_count": 4,
+      "max_confidence": 0.8213118052482606,
+      "high_confidence_count": 5,
       "medium_confidence_count": 26,
       "low_confidence_count": 5
     }

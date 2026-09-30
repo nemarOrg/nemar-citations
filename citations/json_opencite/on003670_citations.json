@@ -1,7 +1,7 @@
 {
   "dataset_id": "on003670",
-  "num_citations": 1,
-  "date_last_updated": "2026-09-29T11:10:22.801646+00:00",
+  "num_citations": 2,
+  "date_last_updated": "2026-09-30T10:44:50.746432+00:00",
   "metadata": {
     "total_cumulative_citations": 19,
     "fetch_date": "2026-09-29T11:10:22.801646+00:00",
@@ -11,19 +11,20 @@
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.5281/zenodo.3837212",
         "identifier_type": "doi",
         "source_relation": "References",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "Dataset of Concurrent EEG, ECG, and Behavior with Multiple Doses of transcranial Electrical Stimulation",
+        "paper_year": 2020,
+        "paper_venue": "Zenodo (CERN European Organization for Nuclear Research)",
+        "reason": "Zenodo record of the GX dataset with the same title and authors as this BIDS dataset. It is another deposit of the same data, and the README points to it for the raw data.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.82901/nemar.on003670",
@@ -35,7 +36,8 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -83,7 +85,14 @@
       {
         "funder_name": "X Development LLC"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "on003670",
+      "ds003670"
+    ],
+    "num_accession_mentions": 1,
+    "num_dataset_citations": 1,
+    "num_datapaper_citations": 1
   },
   "citation_details": [
     {
@@ -108,20 +117,45 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "Modulation of vigilance/alertness using beta (30 Hz) transcranial alternating current stimulation",
+      "author": "Zhongliang Chu, Rui Wang, Tianyi Zhou",
+      "venue": "Frontiers in Neuroscience",
+      "year": 2025,
+      "url": "https://doi.org/10.3389/fnins.2025.1445006",
+      "cited_by": 2,
+      "abstract": "Vigilance refers to the ability to maintain alertness and sustain attention for prolonged periods to detect and respond to subtle changes in the environment. Previous research has explored the use of transcranial alternating current stimulation (tACS) to modulate brain oscillations and enhance vigilance/alertness. In this study, we explore the modulation effects of different stimulation parameters on Vigilance using an open-source dataset. The open-source dataset includes within participant application of High-Definition tES (HD-tES) types, targeting two cortical regions (frontal, motor) with one stimulation waveforms (30 Hz); combining human-participant high-density electroencephalography (EEG) with continuous behavioral metrics. We only analyzed the behavioral task performance data to assess how vigilant states are acutely altered by specific tES types. Our findings indicate that (1) Both online and offline tACS improve vigilance performance; (2) online tACS have greater effect on vigilance performance than offline tACS; (3) tACS that targeting frontal region have greater effect on vigilance performance than stimulating the motor region. These results align with the view of current the theoretical accounts on the oscillatory nature of vigilance attention and contribute to the groundwork for tACS closed-loop interventions for counteracting vigilance decrements.",
+      "doi": "10.3389/fnins.2025.1445006",
+      "pmid": "40018360",
+      "openalex_id": "W4407555360",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds003670",
+      "confidence_scoring": {
+        "confidence_score": 0.7347247517108918,
+        "similarity_score": 0.6361253261566162,
+        "citation_text_length": 1582,
+        "dataset_text_length": 2378,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T12:08:53.633900+00:00",
+    "scoring_date": "2026-09-30T10:56:47.138707+00:00",
     "dataset_text_length": 2378,
-    "num_citations_scored": 1,
+    "num_citations_scored": 2,
     "summary_stats": {
-      "mean_confidence": 1.0,
-      "median_confidence": 1.0,
-      "std_confidence": 0.0,
-      "min_confidence": 1.0,
+      "mean_confidence": 0.8673623758554458,
+      "median_confidence": 0.8673623758554458,
+      "std_confidence": 0.1326376241445541,
+      "min_confidence": 0.7347247517108918,
       "max_confidence": 1.0,
-      "high_confidence_count": 1,
+      "high_confidence_count": 2,
       "medium_confidence_count": 0,
       "low_confidence_count": 0
     }

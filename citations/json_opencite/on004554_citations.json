@@ -1,7 +1,7 @@
 {
   "dataset_id": "on004554",
   "num_citations": 5,
-  "date_last_updated": "2026-09-29T11:17:04.017297+00:00",
+  "date_last_updated": "2026-09-30T10:46:09.095324+00:00",
   "metadata": {
     "total_cumulative_citations": 16,
     "fetch_date": "2026-09-29T11:17:04.017297+00:00",
@@ -11,19 +11,20 @@
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.3934/mbe.2023507",
         "identifier_type": "doi",
         "source_relation": "References",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "Characterization of spatiotemporal dynamics in EEG data during picture naming with optical flow patterns",
+        "paper_year": 2023,
+        "paper_venue": "Mathematical Biosciences & Engineering",
+        "reason": "Title matches the dataset README's study (\"Characterization of spatiotemporal dynamics in EEG data during picture naming with optical flow patterns\"), with the same authors and picture-naming EEG task.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.82901/nemar.on004554",
@@ -35,7 +36,8 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -55,7 +57,14 @@
       "preprocessed data"
     ],
     "methods_description": "EEG data were collected during a picture naming task with three experimental phases: baseline (−2 to 0 s), visual stimulation (0 to 1.5 s), and naming (1.5 to 3 s). Stimuli consisted of black-and-white line drawings from the Snodgrass & Vanderwart corpus presented on screen. Participants were right-handed native French speakers aged 18–70 years with normal or corrected-to-normal vision and hearing. Data were preprocessed according to a standardized pipeline (detailed in code/preprocess_pipeline.pdf). A total of 270 trials were recorded per subject across 16 participants.",
-    "funding": []
+    "funding": [],
+    "searched_accessions": [
+      "on004554",
+      "ds004554"
+    ],
+    "num_accession_mentions": 1,
+    "num_dataset_citations": 1,
+    "num_datapaper_citations": 4
   },
   "citation_details": [
     {
@@ -151,23 +160,25 @@
       }
     },
     {
-      "title": "Forced Picture Naming Task",
-      "author": "V. Volpert, Beibei Xu, A. Tchechmedjiev, S. Harispe, A. Aksenov, Q. Mesnildrey and A. Beuter",
-      "venue": "UC San Diego",
-      "year": 2026,
-      "url": "https://doi.org/10.82901/nemar.on004554.v1.0.0",
-      "cited_by": 0,
-      "abstract": "This dataset comprises preprocessed EEG recordings from 16 native French-speaking participants performing a forced picture naming task. Of 20 subjects initially recruited, 4 were excluded due to hardware failure, resulting in a final sample of 16 right-handed participants aged 18–70 years with normal or corrected-to-normal vision and hearing. Participants viewed images from the Snodgrass & Vanderwart corpus and were required to name them while EEG activity was recorded across baseline, visual stimulation, and naming phases. The dataset contains 270 trials per subject and was used to characterize spatiotemporal dynamics in EEG data using optical flow pattern analysis.",
-      "doi": "10.82901/nemar.on004554.v1.0.0",
-      "pmid": null,
-      "openalex_id": "W7165731615",
-      "source_doi": "10.3934/mbe.2023507",
-      "source_relation": "References",
-      "discovery_backend": "opencite",
+      "title": "Characterization of spatiotemporal dynamics in EEG data during picture naming with optical flow patterns",
+      "author": "Vitaly A Volpert, Binbin Xu, A. Tchechmedjiev, S. Harispe, Alexandre Aksenov, Quentin Mesnildrey, Anne C. Beuter",
+      "venue": "Mathematical Biosciences & Engineering",
+      "year": 2023,
+      "url": "https://doi.org/10.3934/mbe.2023507",
+      "cited_by": 5,
+      "abstract": "In this study, we investigate the spatiotemporal dynamics of the neural oscillations by analyzing the electric potential that arises from neural activity. We identify two types of dynamics based on the frequency and phase of oscillations: standing waves or as out-of-phase and modulated waves, which represent a combination of standing and moving waves. To characterize these dynamics, we use optical flow patterns such as sources, sinks, spirals and saddles. We compare analytical and numerical solutions with real EEG data acquired during a picture-naming task. Analytical approximation of standing waves helps us to establish some properties of pattern location and number. Specifically, sources and sinks are mainly located in the same location, while saddles are positioned between them. The number of saddles correlates with the sum of all the other patterns. These properties are confirmed in both the simulated and real EEG data. In particular, source and sink clusters in the EEG data overlap with each other with median percentages around 60%, and hence have high spatial correlation, while source/sink clusters overlap with saddle clusters in less than 1%, and have different locations. Our statistical analysis showed that saddles account for about 45% of all patterns, while the remaining patterns are present in similar proportions.",
+      "doi": "10.3934/mbe.2023507",
+      "pmid": "37322989",
+      "openalex_id": "W4367326051",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004554",
       "confidence_scoring": {
-        "confidence_score": 1.0,
-        "similarity_score": 0.8840909004211426,
-        "citation_text_length": 844,
+        "confidence_score": 0.6182574060559273,
+        "similarity_score": 0.5352877974510193,
+        "citation_text_length": 1639,
         "dataset_text_length": 1694,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -176,17 +187,17 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T12:12:27.610030+00:00",
+    "scoring_date": "2026-09-30T10:59:41.427278+00:00",
     "dataset_text_length": 1694,
     "num_citations_scored": 5,
     "summary_stats": {
-      "mean_confidence": 0.5165254613161088,
+      "mean_confidence": 0.4401769425272942,
       "median_confidence": 0.4812277521193028,
-      "std_confidence": 0.27580787087006253,
+      "std_confidence": 0.15987882010328927,
       "min_confidence": 0.22288600400090222,
-      "max_confidence": 1.0,
-      "high_confidence_count": 1,
-      "medium_confidence_count": 2,
+      "max_confidence": 0.6182574060559273,
+      "high_confidence_count": 0,
+      "medium_confidence_count": 3,
       "low_confidence_count": 2
     }
   }

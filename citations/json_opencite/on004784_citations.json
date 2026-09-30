@@ -1,7 +1,7 @@
 {
   "dataset_id": "on004784",
   "num_citations": 26,
-  "date_last_updated": "2026-09-29T11:19:15.062811+00:00",
+  "date_last_updated": "2026-09-30T10:46:29.269619+00:00",
   "metadata": {
     "total_cumulative_citations": 164,
     "fetch_date": "2026-09-29T11:19:15.062811+00:00",
@@ -11,19 +11,20 @@
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.3390/s23198214",
         "identifier_type": "doi",
         "source_relation": "References",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "iCanClean Removes Motion, Muscle, Eye, and Line-Noise Artifacts from Phantom EEG",
+        "paper_year": 2023,
+        "paper_venue": "Sensors",
+        "reason": "Downey & Ferris Sensors paper reports the phantom head EEG study with the same six conditions (brain, eyes, muscles, walking motion, all artifacts) contained in this dataset; README cites it.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.82901/nemar.on004784",
@@ -35,7 +36,8 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -52,7 +54,14 @@
       "signal processing"
     ],
     "methods_description": "Data were collected from an electrically conductive head phantom under six experimental conditions: brain-only (no artifacts), brain with eye artifacts, brain with jaw muscle artifacts, brain with neck muscle artifacts, brain with motion artifacts, and brain with all artifacts simultaneously present.",
-    "funding": []
+    "funding": [],
+    "searched_accessions": [
+      "on004784",
+      "ds004784"
+    ],
+    "num_accession_mentions": 1,
+    "num_dataset_citations": 1,
+    "num_datapaper_citations": 25
   },
   "citation_details": [
     {
@@ -493,29 +502,6 @@
       }
     },
     {
-      "title": "Phantom EEG Dataset with Motion, Muscle, and Eye Artifacts and Example Scripts",
-      "author": "Ryan J. Downey, Daniel Perry Ferris",
-      "venue": "UC San Diego",
-      "year": 2026,
-      "url": "https://doi.org/10.82901/nemar.on004784.v1.0.0",
-      "cited_by": 0,
-      "abstract": "This phantom EEG dataset contains recordings from an electrically conductive head model under six controlled conditions: brain-only baseline, and brain signals combined with eye, jaw muscle, neck muscle, motion, or simultaneous artifacts. The dataset includes ground truth brain signals and accompanying EEGLAB scripts for artifact detection validation and parameter optimization, supporting development and benchmarking of EEG artifact removal methods.",
-      "doi": "10.82901/nemar.on004784.v1.0.0",
-      "pmid": null,
-      "openalex_id": "W7165866560",
-      "source_doi": "10.3390/s23198214",
-      "source_relation": "References",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 1.0,
-        "similarity_score": 0.9133334755897522,
-        "citation_text_length": 617,
-        "dataset_text_length": 1144,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Walking speed does not modulate electrocortical alpha response to intermittent visual occlusions",
       "author": "Jonel Morris, Kenneth Cruz, Raydeep Kainth, Daniel Perry Ferris",
       "venue": "Journal of Neurophysiology",
@@ -652,19 +638,44 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "iCanClean Removes Motion, Muscle, Eye, and Line-Noise Artifacts from Phantom EEG",
+      "author": "Ryan J. Downey, Daniel Perry Ferris",
+      "venue": "Sensors",
+      "year": 2023,
+      "url": "https://doi.org/10.3390/s23198214",
+      "cited_by": 21,
+      "abstract": "The goal of this study was to test a novel approach (iCanClean) to remove non-brain sources from scalp EEG data recorded in mobile conditions. We created an electrically conductive phantom head with 10 brain sources, 10 contaminating sources, scalp, and hair. We tested the ability of iCanClean to remove artifacts while preserving brain activity under six conditions: Brain, Brain + Eyes, Brain + Neck Muscles, Brain + Facial Muscles, Brain + Walking Motion, and Brain + All Artifacts. We compared iCanClean to three other methods: Artifact Subspace Reconstruction (ASR), Auto-CCA, and Adaptive Filtering. Before and after cleaning, we calculated a Data Quality Score (0–100%), based on the average correlation between brain sources and EEG channels. iCanClean consistently outperformed the other three methods, regardless of the type or number of artifacts present. The most striking result was for the condition with all artifacts simultaneously present. Starting from a Data Quality Score of 15.7% (before cleaning), the Brain + All Artifacts condition improved to 55.9% after iCanClean. Meanwhile, it only improved to 27.6%, 27.2%, and 32.9% after ASR, Auto-CCA, and Adaptive Filtering. For context, the Brain condition scored 57.2% without cleaning (reasonable target). We conclude that iCanClean offers the ability to clear multiple artifact sources in real time and could facilitate human mobile brain-imaging studies with EEG.",
+      "doi": "10.3390/s23198214",
+      "pmid": "37837044",
+      "openalex_id": "W4387262518",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004784",
+      "confidence_scoring": {
+        "confidence_score": 0.8454396146535875,
+        "similarity_score": 0.7319823503494263,
+        "citation_text_length": 1596,
+        "dataset_text_length": 1144,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T12:13:43.289041+00:00",
+    "scoring_date": "2026-09-30T11:00:12.944801+00:00",
     "dataset_text_length": 1144,
     "num_citations_scored": 26,
     "summary_stats": {
-      "mean_confidence": 0.5736915003393706,
+      "mean_confidence": 0.5677468701337394,
       "median_confidence": 0.5169711863994599,
-      "std_confidence": 0.13542167505516978,
+      "std_confidence": 0.11897059726584021,
       "min_confidence": 0.41184923350811015,
-      "max_confidence": 1.0,
+      "max_confidence": 0.8454396146535875,
       "high_confidence_count": 4,
       "medium_confidence_count": 22,
       "low_confidence_count": 0

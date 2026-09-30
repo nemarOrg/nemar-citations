@@ -1,9 +1,9 @@
 {
   "dataset_id": "on004460",
-  "num_citations": 51,
-  "date_last_updated": "2026-09-29T11:15:22.167880+00:00",
+  "num_citations": 49,
+  "date_last_updated": "2026-09-30T10:45:57.247221+00:00",
   "metadata": {
-    "total_cumulative_citations": 892,
+    "total_cumulative_citations": 891,
     "fetch_date": "2026-09-29T11:15:22.167880+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
@@ -11,19 +11,20 @@
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.1038/s41598-021-97749-8",
         "identifier_type": "doi",
         "source_relation": "References",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "Human cortical dynamics during full-body heading changes",
+        "paper_year": 2021,
+        "paper_venue": "Scientific Reports",
+        "reason": "The dataset README says this EEG and motion capture data was analyzed and published in this paper. The authors, task (spot rotation) and title match, so it is the study paper for this data.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.82901/nemar.on004460",
@@ -35,7 +36,8 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -57,7 +59,14 @@
         "funder_name": "DFG",
         "award_number": "GR 2627/8-1"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "on004460",
+      "ds004460"
+    ],
+    "num_accession_mentions": 0,
+    "num_dataset_citations": 1,
+    "num_datapaper_citations": 48
   },
   "citation_details": [
     {
@@ -357,7 +366,9 @@
         "dataset_text_length": 2302,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
+      },
+      "mentions_accession": true,
+      "matched_accession": "ds004460"
     },
     {
       "title": "Mobile Brain/Body Imaging: Challenges and opportunities for the implementation of research programs based on the 4E perspective to cognition",
@@ -1030,29 +1041,6 @@
       }
     },
     {
-      "title": "Examining the effects of free gaze and dynamic video stimuli on engagement, eye movements, and EEG signal quality in a visual aesthetic rating task",
-      "author": "Dominik Welke, Edward A. Vessel",
-      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
-      "year": 2019,
-      "url": "https://doi.org/10.17605/osf.io/8zctp",
-      "cited_by": 1,
-      "abstract": "Free gaze and moving images are typically avoided in EEG experiments due to the expected generation of artifacts and noise. Yet for a growing number of research questions, loosening these rigorous restrictions would be beneficial. Among these is research on visual aesthetic experiences, which often involve open-ended exploration of highly variable stimuli. Here we systematically compare the effect of conservative vs. more liberal experimental settings on various measures of behavior, brain activity and physiology in an aesthetic rating task. Our primary aim was to assess EEG signal quality. 43 participants either maintained fixation or were allowed to gaze freely, and viewed either static images or dynamic (video) stimuli consisting of dance performances or nature scenes. A passive auditory background task (auditory steady-state response; ASSR) was added as a proxy measure for overall EEG recording quality. We recorded EEG, ECG and eyetracking data, and participants rated their aesthet",
-      "doi": "10.17605/osf.io/8zctp",
-      "pmid": null,
-      "openalex_id": "W3201042689",
-      "source_doi": "10.1038/s41598-021-97749-8",
-      "source_relation": "References",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.614694207906723,
-        "similarity_score": 0.5588129162788391,
-        "citation_text_length": 1256,
-        "dataset_text_length": 2302,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Study on the regulatory effect of magnetic vestibular stimulation on visually induced motion sickness",
       "author": "Yuehua Geng, Xinlei Li, Yongjian Li, Xiang Zhai, Guizhi Xu",
       "venue": "Medical & Biological Engineering & Computing",
@@ -1070,29 +1058,6 @@
         "confidence_score": 0.45729023516178136,
         "similarity_score": 0.43551450967788696,
         "citation_text_length": 230,
-        "dataset_text_length": 2302,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "EEG and motion capture data set for a full-body/joystick rotation task",
-      "author": "Klaus Gramann, F.U. Hohlefeld, Lukas Gehrke, Marius Klug",
-      "venue": "UC San Diego",
-      "year": 2026,
-      "url": "https://doi.org/10.82901/nemar.on004460.v1.0.0",
-      "cited_by": 0,
-      "abstract": "This dataset comprises simultaneous EEG and motion capture recordings from 20 healthy adults performing a spatial orientation task involving full-body heading changes. Participants completed a spot rotation task under two conditions: joystick-controlled visual rotation on a 2D display and physical full-body rotation in a virtual reality environment. The dataset includes 157-channel EEG data (129 scalp + 28 neck electrodes) sampled at 1000 Hz and multi-camera motion capture data at 90 Hz, enabling investigation of cortical dynamics and sensorimotor integration during naturalistic spatial navigation.",
-      "doi": "10.82901/nemar.on004460.v1.0.0",
-      "pmid": null,
-      "openalex_id": "W7165804502",
-      "source_doi": "10.1038/s41598-021-97749-8",
-      "source_relation": "References",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.9821194410324098,
-        "similarity_score": 0.8503198623657227,
-        "citation_text_length": 782,
         "dataset_text_length": 2302,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1239,17 +1204,17 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T12:11:35.105935+00:00",
+    "scoring_date": "2026-09-30T10:59:13.965925+00:00",
     "dataset_text_length": 2302,
-    "num_citations_scored": 51,
+    "num_citations_scored": 49,
     "summary_stats": {
-      "mean_confidence": 0.493538590053133,
-      "median_confidence": 0.5041429889202118,
-      "std_confidence": 0.12953774460785758,
+      "mean_confidence": 0.48109498864838063,
+      "median_confidence": 0.4731062784790993,
+      "std_confidence": 0.11017649494884223,
       "min_confidence": 0.229639228284359,
-      "max_confidence": 0.9821194410324098,
-      "high_confidence_count": 2,
-      "medium_confidence_count": 37,
+      "max_confidence": 0.7059118759632111,
+      "high_confidence_count": 1,
+      "medium_confidence_count": 36,
       "low_confidence_count": 12
     }
   }

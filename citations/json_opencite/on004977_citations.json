@@ -13,31 +13,33 @@
     },
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.48550/arxiv.2310.00185",
         "identifier_type": "doi",
         "source_relation": "References",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "CARLA: Adjusted common average referencing for cortico-cortical evoked potential data",
+        "paper_year": 2023,
+        "paper_venue": "arXiv (Cornell University)",
+        "reason": "The arXiv preprint has the same title and authors as the dataset's cited paper, and it reports the CARLA CCEP recordings from four participants, so it is a preprint of the paper that describes this data.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.1016/j.jneumeth.2024.110153",
         "identifier_type": "doi",
         "source_relation": "IsDescribedBy",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "CARLA: Adjusted common average referencing for cortico-cortical evoked potential data",
+        "paper_year": 2024,
+        "paper_venue": "Journal of Neuroscience Methods",
+        "reason": "Dataset name and README match the paper title and authors; the README says the dataset holds the raw iEEG data behind the CARLA paper's results, so it is this dataset's study paper.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.82901/nemar.on004977",
@@ -49,7 +51,8 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -88,7 +91,14 @@
         "award_number": "937450",
         "award_title": "AES Predoctoral Research Fellowship"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "on004977",
+      "ds004977"
+    ],
+    "num_accession_mentions": 0,
+    "num_dataset_citations": 0,
+    "num_datapaper_citations": 14
   },
   "citation_details": [
     {

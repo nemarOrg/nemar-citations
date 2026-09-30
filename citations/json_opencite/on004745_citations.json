@@ -1,7 +1,7 @@
 {
   "dataset_id": "on004745",
-  "num_citations": 28,
-  "date_last_updated": "2026-09-29T11:19:02.768267+00:00",
+  "num_citations": 27,
+  "date_last_updated": "2026-09-30T10:44:30.483776+00:00",
   "metadata": {
     "total_cumulative_citations": 295,
     "fetch_date": "2026-09-29T11:19:02.768267+00:00",
@@ -11,19 +11,20 @@
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.1109/embc46164.2021.9629771",
         "identifier_type": "doi",
         "source_relation": "References",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "Efficient Artifact Removal from Low-Density Wearable EEG using Artifacts Subspace Reconstruction",
+        "paper_year": 2021,
+        "paper_venue": "2021 43rd Annual International Conference of the IEEE Engineering in Medicine &amp; Biology Society (EMBC)",
+        "reason": "The dataset README points to Kumaravel et al., EMBC 2021 for details. It has the same authors, and the paper analyzes the 8-channel BioWolf SSVEP recordings from six adults with clean and artifact-contaminated trials.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.82901/nemar.on004745",
@@ -35,7 +36,8 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -57,7 +59,14 @@
         "award_number": "842243",
         "award_title": "NeuroSoNew ERC PoC Grant"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "on004745",
+      "ds004745"
+    ],
+    "num_accession_mentions": 0,
+    "num_dataset_citations": 0,
+    "num_datapaper_citations": 27
   },
   "citation_details": [
     {
@@ -567,29 +576,6 @@
       }
     },
     {
-      "title": "8-Channel SSVEP EEG Dataset with Artifact Trials",
-      "author": "Velu Prabhakar Kumaravel, Victor Kartsch, Simone Benatti, Giorgio Vallortigara, Elisabetta Farella, Marco Buiatti",
-      "venue": "UC San Diego",
-      "year": 2026,
-      "url": "https://doi.org/10.82901/nemar.on004745",
-      "cited_by": 0,
-      "abstract": "An 8-channel EEG dataset comprising steady-state visual evoked potential (SSVEP) recordings from 6 participants performing attention tasks at three stimulation frequencies (2 Hz, 4 Hz, 8 Hz). The dataset includes both artifact-free trials with minimal movement and trials with voluntary head, neck, and eye movements, enabling investigation of SSVEP robustness under naturalistic conditions.",
-      "doi": "10.82901/nemar.on004745",
-      "pmid": null,
-      "openalex_id": "W7161035470",
-      "source_doi": "10.1109/embc46164.2021.9629771",
-      "source_relation": "References",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 1.0,
-        "similarity_score": 0.9153279066085815,
-        "citation_text_length": 603,
-        "dataset_text_length": 856,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Early detection of parkinson’s disease through electrode configurations and sensory states",
       "author": "F. Ben Salah, Amira Echtioui, Yassine Ben Ayed",
       "venue": "Network Modeling Analysis in Health Informatics and Bioinformatics",
@@ -707,16 +693,16 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T12:13:37.175377+00:00",
+    "scoring_date": "2026-09-30T11:00:07.881263+00:00",
     "dataset_text_length": 856,
-    "num_citations_scored": 28,
+    "num_citations_scored": 27,
     "summary_stats": {
-      "mean_confidence": 0.5611180012087738,
-      "median_confidence": 0.569962667003274,
-      "std_confidence": 0.12243956643412669,
+      "mean_confidence": 0.5448631123646543,
+      "median_confidence": 0.5695805002748967,
+      "std_confidence": 0.09026896867061722,
       "min_confidence": 0.36833503246307375,
-      "max_confidence": 1.0,
-      "high_confidence_count": 2,
+      "max_confidence": 0.7309737521409989,
+      "high_confidence_count": 1,
       "medium_confidence_count": 25,
       "low_confidence_count": 1
     }

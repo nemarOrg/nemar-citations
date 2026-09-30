@@ -1,7 +1,7 @@
 {
   "dataset_id": "nm000119",
-  "num_citations": 45,
-  "date_last_updated": "2026-09-29T10:37:25.500840+00:00",
+  "num_citations": 43,
+  "date_last_updated": "2026-09-30T10:44:23.647907+00:00",
   "metadata": {
     "total_cumulative_citations": 463,
     "fetch_date": "2026-09-29T10:37:25.500840+00:00",
@@ -11,31 +11,33 @@
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.48550/arxiv.1602.00904",
         "identifier_type": "doi",
         "source_relation": "IsDerivedFrom",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "Comparative evaluation of state-of-the-art algorithms for SSVEP-based BCIs",
+        "paper_year": 2016,
+        "paper_venue": "arXiv (Cornell University)",
+        "reason": "The dataset's DOI is this arXiv report (Oikonomou et al. 2016), with the same authors. It introduces the MAMEM SSVEP dataset and evaluates algorithms on it, so it is the dataset's source paper.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.6084/m9.figshare.2068677.v1",
         "identifier_type": "doi",
         "source_relation": "References",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "MAMEM EEG SSVEP Dataset I (256 channels, 11 subjects, 5 frequencies)",
+        "paper_year": 2016,
+        "paper_venue": "Figshare",
+        "reason": "Figshare record of MAMEM EEG SSVEP Dataset I (256 channels, 11 subjects, 5 frequencies) is a deposit of the same data as this dataset, with matching subjects, frequencies, and sampling rate.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.82901/nemar.nm000119",
@@ -47,7 +49,8 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -809,29 +812,6 @@
       }
     },
     {
-      "title": "Oikonomou2016 – SSVEP MAMEM 1 dataset",
-      "author": "Vangelis P. Oikonomou, Georgios Liaros, Kostantinos Georgiadis, Elisavet Chatzilari, Katerina Adam, Spiros Nikolopoulos, Ioannis Kompatsiaris",
-      "venue": "UC San Diego",
-      "year": 2026,
-      "url": "https://doi.org/10.82901/nemar.nm000119",
-      "cited_by": 0,
-      "abstract": "A 256-channel EEG dataset from 11 healthy subjects performing a steady-state visually evoked potential (SSVEP) brain-computer interface task. Subjects attended to a single flickering visual stimulus at five frequencies (6.66, 7.50, 8.57, 10.00, and 12.00 Hz) presented sequentially. The dataset comprises 1,104 trials acquired at 250 Hz sampling rate and is accompanied by a comprehensive comparative evaluation of signal processing algorithms and classifiers for SSVEP-based BCI applications.",
-      "doi": "10.82901/nemar.nm000119",
-      "pmid": null,
-      "openalex_id": "W7160071726",
-      "source_doi": "10.48550/arxiv.1602.00904",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.9215397584438325,
-        "similarity_score": 0.7978699207305908,
-        "citation_text_length": 722,
-        "dataset_text_length": 2344,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Enhancing SSVEP-Based BCIs Through Using Several Preprocessing and Feature Selection Techniques: A Comparative Study",
       "author": "Negin Amirsoleimani, Luis G. Rueda, Esam Abdel‐Raheem",
       "venue": "n/a",
@@ -1083,43 +1063,20 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
-    },
-    {
-      "title": "Oikonomou2016 – SSVEP MAMEM 3 dataset",
-      "author": "Vangelis P. Oikonomou, Georgios Liaros, Kostantinos Georgiadis, Elisavet Chatzilari, Katerina Adam, Spiros Nikolopoulos, Ioannis Kompatsiaris",
-      "venue": "UC San Diego",
-      "year": 2026,
-      "url": "https://doi.org/10.82901/nemar.nm000121",
-      "cited_by": 0,
-      "abstract": "This dataset comprises 14-channel EEG recordings from 11 healthy subjects performing a steady-state visually evoked potential (SSVEP) brain-computer interface task with five flickering stimuli at frequencies of 6.66, 7.50, 8.57, 10.00, and 12.00 Hz presented sequentially at the center of the screen. The dataset was collected to enable comparative evaluation of state-of-the-art signal processing algorithms for SSVEP-based BCIs, including filtering, artifact removal, feature extraction, and classification methods. EEG signals were recorded using an Emotiv EPOC wireless headset with 14-channel scalp electrodes at 128 Hz sampling rate. The dataset contains preprocessed data including bandpass filtering (5-48 Hz), notch filtering (50 Hz), artifact removal via AMUSE and ICA, and common average reference (CAR) re-referencing.",
-      "doi": "10.82901/nemar.nm000121",
-      "pmid": null,
-      "openalex_id": "W7160104784",
-      "source_doi": "10.6084/m9.figshare.2068677.v1",
-      "source_relation": "References",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.9034207355976105,
-        "similarity_score": 0.7821824550628662,
-        "citation_text_length": 1059,
-        "dataset_text_length": 2344,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T11:47:20.413942+00:00",
+    "scoring_date": "2026-09-30T10:49:03.658907+00:00",
     "dataset_text_length": 2344,
-    "num_citations_scored": 45,
+    "num_citations_scored": 43,
     "summary_stats": {
-      "mean_confidence": 0.5328096380333106,
-      "median_confidence": 0.5399603328108789,
-      "std_confidence": 0.14080509876173428,
+      "mean_confidence": 0.5151505399408729,
+      "median_confidence": 0.5379609525203705,
+      "std_confidence": 0.1171661947706578,
       "min_confidence": 0.17198206782341005,
-      "max_confidence": 0.9215397584438325,
-      "high_confidence_count": 2,
+      "max_confidence": 0.6761899924278261,
+      "high_confidence_count": 0,
       "medium_confidence_count": 38,
       "low_confidence_count": 5
     }

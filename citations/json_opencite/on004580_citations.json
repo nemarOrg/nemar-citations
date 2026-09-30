@@ -1,7 +1,7 @@
 {
   "dataset_id": "on004580",
-  "num_citations": 9,
-  "date_last_updated": "2026-09-29T11:17:34.578007+00:00",
+  "num_citations": 6,
+  "date_last_updated": "2026-09-30T10:46:13.429429+00:00",
   "metadata": {
     "total_cumulative_citations": 9,
     "fetch_date": "2026-09-29T11:17:34.578007+00:00",
@@ -11,19 +11,20 @@
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.1101/2022.07.26.22278079",
         "identifier_type": "doi",
         "source_relation": "References",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "Evoked midfrontal activity predicts cognitive dysfunction in Parkinson’s disease",
+        "paper_year": 2022,
+        "paper_venue": "medRxiv",
+        "reason": "Same authors (Singh, Cole, Espinoza, Wessel, Cavanagh, Narayanan) report Simon, oddball, and interval timing EEG tasks in ~100 PD patients and 49 controls, matching this dataset's cohort and task.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.82901/nemar.on004580",
@@ -35,7 +36,8 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -79,7 +81,14 @@
         "funder_name": "NIH",
         "award_number": "F32AG069445"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "on004580",
+      "ds004580"
+    ],
+    "num_accession_mentions": 1,
+    "num_dataset_citations": 1,
+    "num_datapaper_citations": 5
   },
   "citation_details": [
     {
@@ -175,98 +184,6 @@
       }
     },
     {
-      "title": "Cross-modal Oddball Task.",
-      "author": "Arun Singh arun.singh@usd.edu, Rachel Cole rachel-cole@uiowa.edu, Arturo Espinoza arturo-espinoza@uiowa.edu, Jan R Wessel jan-wessel@uiowa.edu, Jim Cavanagh jcavanagh@unm.edu, Nandakumar Narayanan nandakumar-narayanan@uiowa.edu",
-      "venue": "UC San Diego",
-      "year": 2026,
-      "url": "https://doi.org/10.82901/nemar.on004574",
-      "cited_by": 0,
-      "abstract": "A cross-modal oddball task EEG dataset comprising 146 subjects (98 with Parkinson's disease, 48 controls) collected between 2017-2021. Participants performed a directional response task cued by visual arrows, preceded by synchronized visual and auditory pre-cues that varied between standard and oddball conditions. The dataset includes 64-channel EEG recordings and enables investigation of multimodal sensory processing and cognitive control mechanisms in both healthy and neurodegenerative populations.",
-      "doi": "10.82901/nemar.on004574",
-      "pmid": null,
-      "openalex_id": "W7165728191",
-      "source_doi": "10.1101/2022.07.26.22278079",
-      "source_relation": "References",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.8083820575475693,
-        "similarity_score": 0.6998978853225708,
-        "citation_text_length": 808,
-        "dataset_text_length": 1172,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Interval Timing Task",
-      "author": "Arun Singh arun.singh@usd.edu, Rachel Cole rachel-cole@uiowa.edu, Arturo Espinoza arturo-espinoza@uiowa.edu, Jan R Wessel jan-wessel@uiowa.edu, Jim Cavanagh jcavanagh@unm.edu, Nandakumar Narayanan nandakumar-narayanan@uiowa.edu",
-      "venue": "UC San Diego",
-      "year": 2026,
-      "url": "https://doi.org/10.82901/nemar.on004579",
-      "cited_by": 0,
-      "abstract": "This dataset comprises EEG recordings from 139 participants (94 with Parkinson's disease and 45 healthy controls) performing an interval timing task. Participants were instructed to judge the passage of either 3-second or 7-second intervals while 64-channel EEG was recorded. The task involved visual cues and keyboard responses, with distractors presented to prevent explicit counting strategies. This dataset provides neurophysiological data for investigating temporal perception and motor timing deficits in Parkinson's disease.",
-      "doi": "10.82901/nemar.on004579",
-      "pmid": null,
-      "openalex_id": "W7165750653",
-      "source_doi": "10.1101/2022.07.26.22278079",
-      "source_relation": "References",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.7899602615833283,
-        "similarity_score": 0.683948278427124,
-        "citation_text_length": 829,
-        "dataset_text_length": 1172,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Simon-conflict Task.",
-      "author": "Arun Singh arun.singh@usd.edu, Rachel Cole rachel-cole@uiowa.edu, Arturo Espinoza arturo-espinoza@uiowa.edu, Jan R Wessel jan-wessel@uiowa.edu, Jim Cavanagh jcavanagh@unm.edu, Nandakumar Narayanan nandakumar-narayanan@uiowa.edu",
-      "venue": "UC San Diego",
-      "year": 2026,
-      "url": "https://doi.org/10.82901/nemar.on004580.v1.0.0",
-      "cited_by": 0,
-      "abstract": "This dataset comprises EEG recordings from 146 participants (98 with Parkinson's disease and 48 healthy controls) performing a Simon conflict task. Participants responded to color-coded stimuli presented laterally on a screen using a 64-channel BrainVision EEG system. The task manipulated spatial congruency between stimulus location and required response hand, enabling investigation of conflict processing and motor control mechanisms in both patient and control populations.",
-      "doi": "10.82901/nemar.on004580.v1.0.0",
-      "pmid": null,
-      "openalex_id": "W7165738857",
-      "source_doi": "10.1101/2022.07.26.22278079",
-      "source_relation": "References",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 1.0,
-        "similarity_score": 0.8930880427360535,
-        "citation_text_length": 776,
-        "dataset_text_length": 1172,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Rest eyes open",
-      "author": "Arun Singh arun.singh@usd.edu, Rachel Cole rachel-cole@uiowa.edu, Arturo Espinoza arturo-espinoza@uiowa.edu, Jim Cavanagh jcavanagh@unm.edu, Nandakumar Narayanan nandakumar-narayanan@uiowa.edu",
-      "venue": "UC San Diego",
-      "year": 2026,
-      "url": "https://doi.org/10.82901/nemar.on004584",
-      "cited_by": 0,
-      "abstract": "A resting-state EEG dataset comprising 149 subjects (100 with Parkinson's disease and 49 healthy controls) recorded using a 64-channel BrainVision system. Participants were seated in a quiet environment with eyes open for two minutes of continuous recording. This dataset provides neurophysiological data suitable for investigating oscillatory brain activity and potential biomarkers associated with Parkinson's disease.",
-      "doi": "10.82901/nemar.on004584",
-      "pmid": null,
-      "openalex_id": "W7165774658",
-      "source_doi": "10.1101/2022.07.26.22278079",
-      "source_relation": "References",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.6701908439397812,
-        "similarity_score": 0.5802518129348755,
-        "citation_text_length": 677,
-        "dataset_text_length": 1172,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Theta-Frequency Subthalamic Nucleus Stimulation Boosts Decision Threshold",
       "author": "Rachael C. Cole, Nadja Rita Ging-Jehli, Juan Vivanco‐Suarez, Jeremy D.W. Greenlee, Arturo I. Espinoza, Jan R. Wessel, J J Zhang, James F. Cavanagh, Nandakumar S. Narayanan",
       "venue": "SSRN Electronic Journal",
@@ -288,20 +205,45 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "NS-Copilot: An LLM-Driven Agent System for Autonomous Neuroscience Analysis",
+      "author": "Wuche Liu, Yiran Qiao, Linlin Hou, Rui Yang, Shusen Pu, Song Wang, Jing Ma",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2609.01971",
+      "cited_by": 0,
+      "abstract": "AI is rapidly advancing neuroscience, yet many laboratories fail to fully unleash its potential due to significant interdisciplinary barriers. While pre-trained neural models for physiological data are progressing quickly, their heterogeneous architectures and modality-specific constraints hinder systematic integration, selection, and evaluation. Despite recent advances in large language model (LLM)-based agent systems for intelligent scientific applications, existing approaches often still lack the domain expertise required to effectively select and coordinate diverse neuroscience pre-trained models and handle unique data types in this domain. We present NS-Copilot, an LLM-driven multi-agent system for neuroscience analysis that autonomously supports end-to-end workflows for diverse professional tasks. It unifies domain-specific pre-trained models and supports key neuroscience modalities, including EEG and extracellular spike data, through a natural-language interface. Given raw data and a task description, NS-Copilot orchestrates agents with specialized roles for planning, adaptive control, code generation, and result synthesis, enabling analysis without dataset-specific heuristics. We evaluate NS-Copilot on neuroscience benchmarks spanning Alzheimer's disease, Parkinson's disease, and working memory spike decoding. Across 8 trials per task, the system consistently outperforms strong baselines on the primary metric, demonstrating the ability of NS-Copilot for effective and scalable neuroscience analysis. Our code is publicly available at https://github.com/FrankLiu1102/ns-copilot.",
+      "doi": "10.48550/arxiv.2609.01971",
+      "pmid": null,
+      "openalex_id": "W7207743228",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004580",
+      "confidence_scoring": {
+        "confidence_score": 0.45390337318181995,
+        "similarity_score": 0.3929899334907532,
+        "citation_text_length": 1714,
+        "dataset_text_length": 1172,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T12:12:44.922671+00:00",
+    "scoring_date": "2026-09-30T10:59:49.948842+00:00",
     "dataset_text_length": 1172,
-    "num_citations_scored": 9,
+    "num_citations_scored": 6,
     "summary_stats": {
-      "mean_confidence": 0.6559944941269027,
-      "median_confidence": 0.6401193049550057,
-      "std_confidence": 0.1752076097568496,
+      "mean_confidence": 0.5148867762088777,
+      "median_confidence": 0.5158758947253228,
+      "std_confidence": 0.07952120338262719,
       "min_confidence": 0.3941357731819153,
-      "max_confidence": 1.0,
-      "high_confidence_count": 3,
+      "max_confidence": 0.6401193049550057,
+      "high_confidence_count": 0,
       "medium_confidence_count": 5,
       "low_confidence_count": 1
     }

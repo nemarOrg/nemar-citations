@@ -1,19 +1,19 @@
 {
   "dataset_id": "on004995",
-  "num_citations": 0,
-  "date_last_updated": "2026-08-26T10:02:37.337604+00:00",
+  "num_citations": 15,
+  "date_last_updated": "2026-09-30T10:42:50.611869+00:00",
   "metadata": {
-    "total_cumulative_citations": 0,
-    "fetch_date": "2026-08-26T10:02:37.337604+00:00",
+    "total_cumulative_citations": 22,
+    "fetch_date": "2026-09-30T10:42:50.611869+00:00",
     "processing_version": "1.0",
-    "fetch_status": "not_found",
-    "anchor_count": 2,
+    "fetch_status": "partial",
+    "anchor_count": 3,
     "anchor_errors": {
       "10.82901/nemar.on004995": "not_found"
     },
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.17605/osf.io/pwc4k",
@@ -21,11 +21,25 @@
         "source_relation": "References",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "The Time-Course of Food Representation in the Human Brain",
         "paper_year": 2023,
         "paper_venue": "OSF Preprints (OSF Preprints)",
-        "reason": "The candidate paper title and abstract explicitly describe the study and the data collected ('The Time-Course of Food Representation in the Human Brain'), indicating it is the primary paper for this dataset.",
-        "judgment_model": "gemma4:e4b"
+        "reason": "OSF record has the same title and authors as the dataset (Moerel, Psihoyos, Carlson) and describes the EEG food-representation study; README lists it as the code/figures repository for this data.",
+        "judgment_model": "claude-sonnet-5-5"
+      },
+      {
+        "identifier": "10.1101/2023.06.06.543985",
+        "identifier_type": "doi",
+        "source_relation": "IsSupplementTo",
+        "classification": "data_paper",
+        "kept": true,
+        "kept_reason": "judged_data_paper",
+        "paper_title": "The Time-Course of Food Representation in the Human Brain",
+        "paper_year": 2023,
+        "paper_venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+        "reason": "Title and authors match the dataset (Moerel, Psihoyos, Carlson); README cites this manuscript as the study reporting the EEG data; DataCite marks IsSupplementTo.",
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.21105/joss.01896",
@@ -33,23 +47,25 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
         "paper_year": 2019,
         "paper_venue": "The Journal of Open Source Software",
-        "reason": "The paper describes MNE-BIDS, a general standard for organizing electrophysiological data into the BIDS format, which is a technical specification/tool, not a paper introducing this specific dataset.",
-        "judgment_model": "gemma4:e4b"
+        "reason": "MNE-BIDS is a software tool for organizing electrophysiological data into BIDS, used to format this dataset; it does not describe the food-representation EEG data.",
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1038/sdata.2018.110",
         "identifier_type": "doi",
         "source_relation": "References",
-        "classification": "related_work",
+        "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MEG-BIDS, the brain imaging data structure extended to magnetoencephalography",
         "paper_year": 2018,
         "paper_venue": "Scientific Data",
-        "reason": "The candidate paper proposes MEG-BIDS, a general data structure extension for MEG data, which is topically related to neuroimaging but does not describe or introduce the specific 'Food Representation' dataset.",
-        "judgment_model": "gemma4:e4b"
+        "reason": "MEG-BIDS is a data-organization standard specification cited in the README references, not a paper describing this EEG food-representation dataset.",
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on004995",
@@ -57,15 +73,17 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
       "10.17605/osf.io/pwc4k",
+      "10.1101/2023.06.06.543985",
       "10.82901/nemar.on004995"
     ],
     "keywords": [
@@ -92,13 +110,369 @@
     ],
     "num_accession_mentions": 0,
     "num_dataset_citations": 0,
-    "num_datapaper_citations": 0
+    "num_datapaper_citations": 15
   },
-  "citation_details": [],
+  "citation_details": [
+    {
+      "title": "Automatic engagement of limbic and prefrontal networks in response to food images reflects distinct information about food hedonics and inhibitory control",
+      "author": "Jason A. Avery, Madeline Carrington, J. Ingeholm, Valerie L. Darcey, W. K. Simmons, K. Hall, Alex Martin",
+      "venue": "Communications Biology",
+      "year": 2025,
+      "url": "https://doi.org/10.1038/s42003-025-07704-w",
+      "cited_by": 9,
+      "abstract": "Adaptive regulation of food consumption involves both identifying food as well as evaluating whether it should be eaten, a process that requires assessing relevant properties such as healthfulness and hedonic value. In order to identify how these fine-grained food properties are represented in the brain, we analyzed functional Magnetic Resonance Imaging data from 43 participants who viewed images of 36 different foods. A data-driven clustering approach based on Representational Similarity Analysis partitioned food-responsive brain regions into two sub-networks based on their multivariate response to food pictures: a Prefrontal network composed of fronto-parietal brain regions and a Limbic network composed of cortico-limbic and sub-cortical brain regions. Further analysis, using similarity judgments of those foods from a large online sample, revealed that the Prefrontal network predominantly represented information related to food healthfulness or processing, the key factor underlying f",
+      "doi": "10.1038/s42003-025-07704-w",
+      "pmid": "39979602",
+      "openalex_id": null,
+      "source_doi": "10.1101/2023.06.06.543985",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6204652816057206,
+        "similarity_score": 0.5371993780136108,
+        "citation_text_length": 1319,
+        "dataset_text_length": 1333,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Naturalistic food categories are driven by subjective estimates rather than objective measures of food qualities",
+      "author": "Madeline Carrington, Alexander Liu, Caroline Candy, Alex Martin, Jason A. Avery",
+      "venue": "Food Quality and Preference",
+      "year": 2023,
+      "url": "https://doi.org/10.1016/j.foodqual.2023.105073",
+      "cited_by": 8,
+      "abstract": null,
+      "doi": "10.1016/j.foodqual.2023.105073",
+      "pmid": "38222065",
+      "openalex_id": "W4389808076",
+      "source_doi": "10.1101/2023.06.06.543985",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.3220360860228539,
+        "similarity_score": 0.30670103430747986,
+        "citation_text_length": 245,
+        "dataset_text_length": 1333,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Rotation-tolerant representations elucidate the time-course of high-level object processing",
+      "author": "D. Moerel, T. Grootswagers, Amanda K. Robinson, Patrick Engeler, A. Holcombe, Thomas A. Carlson",
+      "venue": "PLOS One",
+      "year": 2026,
+      "url": "https://doi.org/10.1371/journal.pone.0347992",
+      "cited_by": 2,
+      "abstract": "Despite the very different retinal images that result from different viewing conditions, humans have little difficulty recognising visual objects in varying circumstances. One source of variability is 2-D rotation, which results in an object having different orientations. Here, we studied how the brain transforms rotated object images into object representations that are tolerant to rotation. We measured time-varying electroencephalography responses to object images shown in eight different orientations, presented at either 5 Hz or 20 Hz. We used multivariate classification to assess when rotation-tolerant object information emerged, and whether the rotation-tolerant processing would be limited at the faster presentation rate. We compared this to fixed-rotation measures of object decoding, where the classifier is trained and tested on the same orientation. Our results showed that both fixed-rotation and rotation-tolerant object decoding emerged at an early stage of processing, less tha",
+      "doi": "10.1371/journal.pone.0347992",
+      "pmid": "42054380",
+      "openalex_id": null,
+      "source_doi": "10.1101/2023.06.06.543985",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5131718994677067,
+        "similarity_score": 0.4443046748638153,
+        "citation_text_length": 1233,
+        "dataset_text_length": 1333,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "The effect of hunger and state preferences on the neural processing of food images",
+      "author": "D. Moerel, Cecilia Chenh, Sophie Bowman, Thomas A. Carlson",
+      "venue": "bioRxiv",
+      "year": 2026,
+      "url": "https://doi.org/10.1101/2025.09.09.674354",
+      "cited_by": 1,
+      "abstract": "Visual information plays a key role in guiding food-related decisions. While previous studies have shown that features such as calories and naturalness are encoded by the brain, upon simply seeing the stimuli, it remains unclear how this encoding is shaped by the observer’s current state. In this study, we explore the effect of 1) hunger state, 2) task relevance, and 3) current individual preference on the processing of visual food information. Participants (N = 23) underwent two EEG sessions: one after fasting overnight and another after eating normally. During each session, participants did two separate tasks, one where the stimuli were task-relevant and one where attention was distracted away. We used multivariate analysis methods to assess the impact of hunger on the representation of food-related features, and to determine the time-course of information related to food flavour, personal appeal, and arousal, across both tasks. Results showed that information about edibility (food v",
+      "doi": "10.1101/2025.09.09.674354",
+      "pmid": "41980304",
+      "openalex_id": null,
+      "source_doi": "10.1101/2023.06.06.543985",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6547686910629273,
+        "similarity_score": 0.566899299621582,
+        "citation_text_length": 1186,
+        "dataset_text_length": 1333,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Characterising the neural time-courses of food attribute representations",
+      "author": "Violet J. Chae, Tijl Grootswagers, Stefan Bode, Daniel Feuerriegel",
+      "venue": "bioRxiv",
+      "year": 2025,
+      "url": "https://doi.org/10.1101/2025.05.13.653572",
+      "cited_by": 1,
+      "abstract": "Dietary decisions involve the consideration of multiple, often conflicting, food attributes that precede the computation of an overall value for a food. The differences in the speed at which attributes are processed play an important role; however, it is unknown whether different attributes are processed over distinct time windows. We mapped the neural time-courses of 12 choice-relevant food attributes. Participants (N = 110) viewed food images while we recorded brain activity using electroencephalography (EEG). A separate group of participants (N = 421) rated the same images on nutritive properties (healthiness, calorie content, edibility, and level of transformation), hedonic properties (tastiness, willingness to eat, negative and positive valence, and arousal), and familiarity (previous exposure, recognisability, and typicality). Using representational similarity analysis, we quantified differences in patterns of multivariate EEG signals across foods and assessed whether the structu",
+      "doi": "10.1101/2025.05.13.653572",
+      "pmid": "41061804",
+      "openalex_id": null,
+      "source_doi": "10.1101/2023.06.06.543985",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7725002074241639,
+        "similarity_score": 0.6688313484191895,
+        "citation_text_length": 1184,
+        "dataset_text_length": 1333,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "The bioSocial Cognitive Theory of Eating (bSCT-e): Applying and Elaborating on a Biopsychosocial Substance Use Theory for Food Addiction.",
+      "author": "Jasmine S. Zaphir, N. Loxton, M. Gullo",
+      "venue": "Appetite",
+      "year": 2024,
+      "url": "https://doi.org/10.1016/j.appet.2024.107750",
+      "cited_by": 1,
+      "abstract": "Obesity rates are increasing globally, and food addiction (FA1) may be an important contributing factor but there is a lack of understanding of the key psychological mechanisms that contribute to FA. The bioSocial Cognitive Theory (bSCT) proposes that substance use is predicted by biologically based personality traits and their influence on social cognitive mechanisms. While validated in substance use, bSCT has not been applied to a behavioural or non-substance addiction. However, the bSCT does not include a negative affective personality component, of which there is clear theoretical and empirical support as risk factors for FA. Thus, this study sought to test both the original bSCT model and an elaborated version related to eating (bSCT-e) that included direct and indirect punishment sensitivity pathways to identify the individual risk factors of FA. Data were collected from 204 university students (75.5% female; Mage = 24.82, SD = 9.17) via an online survey. Both original bSCT and b",
+      "doi": "10.1016/j.appet.2024.107750",
+      "pmid": "39489345",
+      "openalex_id": null,
+      "source_doi": "10.1101/2023.06.06.543985",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.4177297648787499,
+        "similarity_score": 0.3616707921028137,
+        "citation_text_length": 1222,
+        "dataset_text_length": 1333,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Individual differences in PROP bitterness responsiveness modulate visual awareness of food stimuli.",
+      "author": "Riccardo Migliavada, T. Ciorli, Marina Perino, M. Dimakopoulou, Andrea Devecchi, M. Piochi, L. Pia, Luisa Torri",
+      "venue": "Cognition",
+      "year": 2026,
+      "url": "https://doi.org/10.1016/j.cognition.2026.106605",
+      "cited_by": 0,
+      "abstract": "Individuals with heightened taste sensitivity often exhibit broader sensory responsiveness to food stimuli, yet little is known about whether individual differences in gustatory sensitivity influence visual food processing. In this exploratory study, we examined whether sensitivity to 6-n-propylthiouracil (PROP) bitterness also influences the visual processing of food stimuli, specifically processed and highly processed sweet and salty items with comparable caloric content. Using the breaking Continuous Flash Suppression (bCFS) and Binocular Rivalry (BR) paradigms, we measured the speed of unconscious processing and perceptual dominance, respectively, in relation to visual awareness. Participants were assessed for their familiarity and liking of food, and the Multidimensional Assessment of Interoceptive Awareness-2 and the Eating Disorder Inventory-2 questionnaires were administered. Our findings indicate that sweet stimuli reached awareness (bCFS) significantly faster than salty stimu",
+      "doi": "10.1016/j.cognition.2026.106605",
+      "pmid": "42242008",
+      "openalex_id": null,
+      "source_doi": "10.1101/2023.06.06.543985",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.4340276741981507,
+        "similarity_score": 0.3757815361022949,
+        "citation_text_length": 1258,
+        "dataset_text_length": 1333,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "An Open Dataset of Human Electroencephalographic and Behavioural Responses to Food Images",
+      "author": "Violet J. Chae, Tijl Grootswagers, Stefan Bode, Daniel Feuerriegel",
+      "venue": "bioRxiv",
+      "year": 2026,
+      "url": "https://doi.org/10.1101/2025.11.07.687287",
+      "cited_by": 0,
+      "abstract": "Investigating the neurocognitive mechanisms underlying food choices has the potential to advance our understanding of eating behaviour and inform health-targeted interventions and policy. Large, publicly available neural and behavioural datasets can enable new discoveries and targeted hypothesis tests, yet no such datasets are currently available. We present the FOODEEG dataset containing electroencephalographic (EEG) responses to a diverse array of food images, as well as behavioural measures of food cognition (food categorisation task, food go/no-go task, and food choice task responses), collected from 117 participants. We also provide normative ratings for the food image stimuli with respect to 22 food attributes, including nutritive, hedonic and taste properties, familiarity, and elicited emotions. Our dataset also includes questionnaire-based measures of participants’ food motivations, dietary styles, and general motivational tendencies. In the validation analyses, we demonstrate ",
+      "doi": "10.1101/2025.11.07.687287",
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.1101/2023.06.06.543985",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7608629938960076,
+        "similarity_score": 0.6587558388710022,
+        "citation_text_length": 1201,
+        "dataset_text_length": 1333,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Large-scale brain network interactions differentiate sweet, sour, and salty food cues during visual processing",
+      "author": "Manyoel Lim, Min Jung Kim",
+      "venue": "Scientific Reports",
+      "year": 2026,
+      "url": "https://doi.org/10.1038/s41598-026-49773-9",
+      "cited_by": 0,
+      "abstract": "Visual cues play an important role in food selection by providing early information about taste properties before consumption. However, the large-scale neural mechanisms underlying the perception of different tastes from visual food cues remain poorly understood. Using electroencephalography and whole-brain functional connectivity analysis, we conducted an exploratory, hypothesis-generating investigation of large-scale brain network responses to visual food cues associated with three basic taste qualities, including sweet, sour, and salty. We computed functional connectivity across 100 cortical parcels, and examined the distribution of significant connections across seven canonical brain networks. Brain network connectivity differed across taste categories. Sweet food images engaged default mode network connectivity with somatomotor and attention networks. Sour food images showed significant limbic and salience network connectivity, suggesting heightened affective evaluation. Salty foo",
+      "doi": "10.1038/s41598-026-49773-9",
+      "pmid": "42020504",
+      "openalex_id": null,
+      "source_doi": "10.1101/2023.06.06.543985",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5705214169621468,
+        "similarity_score": 0.4939579367637634,
+        "citation_text_length": 1192,
+        "dataset_text_length": 1333,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "A neuroscience perspective on the use of food image databases in food services and tourism studies: a systematic review",
+      "author": "Elif Güner, Mevlüde Işık",
+      "venue": "Worldwide Hospitality and Tourism Themes",
+      "year": 2026,
+      "url": "https://doi.org/10.1108/whatt-12-2025-0319",
+      "cited_by": 0,
+      "abstract": "\n \n The aim of this systematic review is to report food image databases and their properties and to exemplify the use of these databases in neuroscience studies in the fields of food services and tourism.\n \n \n \n The keywords “food image” and “database” were searched in Web of Science and Scopus. (1) Publications were included in this research if they were published between 2010 and 2025, (2) written in English and (3) in the form of articles. Selected scientific studies about the use of these databases in neurotourism and neurogastronomy were presented.\n \n \n \n A total of 12 databases were accessed, and 5 of the databases are multiethnic, 3 of them contain more than 1,000 images and 8 of them have an access link shared in the article. These databases have generally been used in studies examining the effects of the restaurant environment (sound, odor, etc.), presentation style (complexity, etc.) and the characteristics of the food (color, degree of processing, etc.) on consumer perceptio",
+      "doi": "10.1108/whatt-12-2025-0319",
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.1101/2023.06.06.543985",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5480416832864285,
+        "similarity_score": 0.47449496388435364,
+        "citation_text_length": 1222,
+        "dataset_text_length": 1333,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Better safe than sorry: discriminability and response bias in adult food neophobia",
+      "author": "Damien Foinant, Laura Gagliardi, Andrea Borghini, J. Thibaut, J. Lafraire",
+      "venue": "Motivation and Emotion",
+      "year": 2026,
+      "url": "https://doi.org/10.1007/s11031-026-10218-5",
+      "cited_by": 0,
+      "abstract": "Food neophobia, the reluctance to try novel or unfamiliar foods, is thought to involve both uncertainty-related processes and avoidance tendencies under perceived risk. These components have largely been studied separately. This study integrates both using the Signal Detection Theory framework to examine how adults decide whether a food item is edible or inedible under conditions of uncertainty and risk. 57 young French adults (32 females; M = 20.9 years, SD = 4.23) completed validated measures of food neophobia and food disgust sensitivity, and performed a Go/no-Go task in which familiar and unfamiliar foods, presented with or without visual cues of spoilage. Results showed that higher levels of food neophobia were associated with poorer discriminability in distinguishing safe from unsafe food. Individuals with higher food neophobia also exhibited a cautious response bias, favoring “inedible” responses even at the cost of missing edible items, particularly unfamiliar foods. These find",
+      "doi": "10.1007/s11031-026-10218-5",
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.1101/2023.06.06.543985",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.4458726570010186,
+        "similarity_score": 0.3860369324684143,
+        "citation_text_length": 1216,
+        "dataset_text_length": 1333,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Parallel processing of distinct facial signals for the rapid evaluation of social agents",
+      "author": "Zihe Wei, Amanda K. Robinson, Alan J. Pegna, Jessica Taubert",
+      "venue": "iScience",
+      "year": 2026,
+      "url": "https://doi.org/10.1016/j.isci.2026.114978",
+      "cited_by": 0,
+      "abstract": "Summary The distributed model of primate face perception proposes that distinct facial signals, such as emotional valence and sex, are processed by separate neural mechanisms. A key prediction is that cues about a face’s emotion and sex are extracted at different processing stages. To test this, we decoded time-resolved patterns of brain activity evoked by a large set of unfamiliar, naturalistic faces. Behavioral ratings were first collected to characterize the perceived emotional valence and sex of 900 faces. Electrophysiological recordings were then obtained while 40 participants passively viewed all face stimuli. The brain reliably distinguished both emotional valence and perceived sex from a brief glance, with decoding emerging in under 95 ms. Crucially, emotional valence showed earlier peak decoding than perceived sex, consistent with time-resolved representational similarity analyses. These findings indicate separable processing pipelines for changeable and stable facial signals,",
+      "doi": "10.1016/j.isci.2026.114978",
+      "pmid": "41797890",
+      "openalex_id": null,
+      "source_doi": "10.1101/2023.06.06.543985",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.4471903878450394,
+        "similarity_score": 0.38717782497406006,
+        "citation_text_length": 1195,
+        "dataset_text_length": 1333,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Processing level of meat modulates functional brain network connectivity during visual evaluation",
+      "author": "Manyoel Lim, Yun-Sang Choi",
+      "venue": "Food Science and Biotechnology",
+      "year": 2025,
+      "url": "https://doi.org/10.1007/s10068-025-02025-4",
+      "cited_by": 0,
+      "abstract": null,
+      "doi": "10.1007/s10068-025-02025-4",
+      "pmid": "41523679",
+      "openalex_id": null,
+      "source_doi": "10.1101/2023.06.06.543985",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5712967246770859,
+        "similarity_score": 0.5440921187400818,
+        "citation_text_length": 180,
+        "dataset_text_length": 1333,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Neural Correlates Underlying General and Food-Related Working Memory in Females with Overweight/Obesity",
+      "author": "Yazhi Pang, Yuanluo Jing, Jia Zhao, Xiaolin Liu, Wen Zhao, Yong Liu, Hong Chen",
+      "venue": "Nutrients",
+      "year": 2025,
+      "url": "https://doi.org/10.3390/nu17152552",
+      "cited_by": 0,
+      "abstract": "Background/Objectives: Prior research suggest that poor working memory significantly contributes to the growth of overweight and obesity. This study investigated the behavioral and neural aspects of general and food-specific working memory in females with overweight or obesity (OW/OB). Method: A total of 54 female participants, with 26 in the OW/OB group and 28 in the normal-weight (NW) group, completed a general and a food-related two-back task while an EEG was recorded. Results: In the general task, the OW/OB group showed significantly poorer performance (higher IES) than the NW group (p = 0.018, η2 = 0.10), with reduced theta power during non-target trials (p = 0.040, η2 = 0.08). No group differences were found for P2, N2, or P3 amplitudes. In the food-related task, significant group × stimulus interactions were observed. The OW/OB group showed significantly higher P2 amplitudes in high-calorie (HC) versus low-calorie (LC) food conditions (p = 0.005, η2 = 0.15). LPC amplitudes were ",
+      "doi": "10.3390/nu17152552",
+      "pmid": "40806136",
+      "openalex_id": null,
+      "source_doi": "10.1101/2023.06.06.543985",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5578455291688442,
+        "similarity_score": 0.48298314213752747,
+        "citation_text_length": 1229,
+        "dataset_text_length": 1333,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Reconstruction of Partial Dissimilarity Matrices for Cognitive Neuroscience",
+      "author": "D. Moerel, Tijl Grootswagers",
+      "venue": "n/a",
+      "year": 2025,
+      "url": "n/a",
+      "cited_by": 0,
+      "abstract": "In cognitive neuroscience research, Representational Dissimilarity Matrices (RDMs) are often incomplete because pairwise similarity judgments cannot always be exhaustively collected as the number of pairs rapidly increases with the number of conditions. Existing methods to fill these missing values, such as deep neural network imputation, are powerful but computationally demanding and relatively opaque. We introduce a simple algorithm based on geometric inference that fills missing dissimilarity matrix entries using known distances. We use tests on publicly available empirical cognitive neuroscience datasets, as well as simulations, to demonstrate the method's effectiveness and robustness across varying sparsity and matrix sizes. We have made this geometric reconstruction algorithm, implemented in Python and MATLAB, publicly available. This method provides a fast and accurate solution for completing partial dissimilarity matrices in the cognitive neurosciences.",
+      "doi": null,
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.1101/2023.06.06.543985",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.46704722374677665,
+        "similarity_score": 0.40436989068984985,
+        "citation_text_length": 1120,
+        "dataset_text_length": 1333,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    }
+  ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-08-26T10:11:02.418811+00:00",
+    "scoring_date": "2026-09-30T11:00:55.607058+00:00",
     "dataset_text_length": 1333,
-    "num_citations_scored": 0
+    "num_citations_scored": 15,
+    "summary_stats": {
+      "mean_confidence": 0.5402252147495746,
+      "median_confidence": 0.5480416832864285,
+      "std_confidence": 0.12164993013301975,
+      "min_confidence": 0.3220360860228539,
+      "max_confidence": 0.7725002074241639,
+      "high_confidence_count": 2,
+      "medium_confidence_count": 12,
+      "low_confidence_count": 1
+    }
   }
 }

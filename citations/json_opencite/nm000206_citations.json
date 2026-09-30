@@ -1,7 +1,7 @@
 {
   "dataset_id": "nm000206",
-  "num_citations": 74,
-  "date_last_updated": "2026-09-29T10:49:22.535054+00:00",
+  "num_citations": 73,
+  "date_last_updated": "2026-09-30T10:44:25.847302+00:00",
   "metadata": {
     "total_cumulative_citations": 397,
     "fetch_date": "2026-09-29T10:49:22.535054+00:00",
@@ -11,31 +11,33 @@
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.1038/s41597-022-01898-y",
         "identifier_type": "doi",
         "source_relation": "IsDerivedFrom",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "Open multi-session and multi-task EEG cognitive Dataset for passive brain-computer Interface Applications",
+        "paper_year": 2023,
+        "paper_venue": "Scientific Data",
+        "reason": "Dataset lists this DOI as its own with matching authors (Hinss, Jahanpour, Somon, Pluchon, Dehais, Roy); paper describes the COG-BCI open multi-session EEG dataset.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.5281/zenodo.6874128",
         "identifier_type": "doi",
         "source_relation": "References",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "COG-BCI database: A multi-session and multi-task EEG cognitive dataset for passive brain-computer interfaces",
+        "paper_year": 2022,
+        "paper_venue": "Zenodo (CERN European Organization for Nuclear Research)",
+        "reason": "Zenodo record of the COG-BCI database by the same authors; the dataset cites the COG-BCI Sci Data paper DOI, and its 11 female + 18 male participants total 29, matching COG-BCI.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.82901/nemar.nm000206",
@@ -47,7 +49,8 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -1758,43 +1761,20 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
-    },
-    {
-      "title": "Neuroergonomic 2021 dataset",
-      "author": "Marcel F. Hinss, Emilie S. Jahanpour, Bertille Somon, Lou Pluchon, Frédéric Dehais, Raphaëlle N. Roy",
-      "venue": "UC San Diego",
-      "year": 2026,
-      "url": "https://doi.org/10.82901/nemar.nm000206",
-      "cited_by": 0,
-      "abstract": "A multi-session EEG dataset acquired from 15 healthy participants performing resting state and graded cognitive tasks (MATB-II at three difficulty levels). The dataset comprises 62-channel EEG recordings sampled at 500 Hz, designed for passive brain-computer interface applications and mental workload estimation in neuroergonomic contexts. This dataset includes raw EEG data with HED event annotations and is intended for cross-subject and cross-session machine learning studies.",
-      "doi": "10.82901/nemar.nm000206",
-      "pmid": null,
-      "openalex_id": "W7163165812",
-      "source_doi": "10.5281/zenodo.6874128",
-      "source_relation": "References",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.9585902935266496,
-        "similarity_score": 0.8299483060836792,
-        "citation_text_length": 658,
-        "dataset_text_length": 2285,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T11:56:20.084483+00:00",
+    "scoring_date": "2026-09-30T10:52:03.530241+00:00",
     "dataset_text_length": 2285,
-    "num_citations_scored": 74,
+    "num_citations_scored": 73,
     "summary_stats": {
-      "mean_confidence": 0.5435606087079725,
-      "median_confidence": 0.5545031149685384,
-      "std_confidence": 0.1132264662405251,
+      "mean_confidence": 0.5378752705597715,
+      "median_confidence": 0.5526194228231908,
+      "std_confidence": 0.10297545879074581,
       "min_confidence": 0.19966435432434082,
-      "max_confidence": 0.9585902935266496,
-      "high_confidence_count": 5,
+      "max_confidence": 0.7228592535853386,
+      "high_confidence_count": 4,
       "medium_confidence_count": 61,
       "low_confidence_count": 8
     }

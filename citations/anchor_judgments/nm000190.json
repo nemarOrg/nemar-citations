@@ -1,31 +1,56 @@
 {
   "dataset_id": "nm000190",
-  "judged_at": "2026-09-29T10:06:46.505055+00:00",
-  "judgment_model": "gemma4:e4b",
+  "judged_at": "2026-09-30T10:08:31.665716+00:00",
+  "judgment_model": "claude-sonnet-5-5",
+  "prompt_version": 2,
   "judgments": [
     {
       "anchor_identifier": "10.3389/fnins.2011.00099",
       "anchor_identifier_type": "doi",
       "source_relation": "IsDerivedFrom",
-      "classification": "",
-      "reason": "",
+      "classification": "data_paper",
+      "reason": "PASS2D paper by Höhne et al. reports the 9-class auditory ERP speller study; its DOI is the dataset's listed DOI and the authors match the dataset's authors.",
       "paper_title": "A novel 9-class auditory ERP paradigm driving a predictive text entry system",
       "paper_year": 2011,
       "paper_venue": "Frontiers in Neuroscience",
-      "judged_at": "2026-09-29T10:06:46.122711+00:00",
-      "error": "llm_judgment_failed:ollama HTTP 404: model 'gemma4:e4b' not found"
+      "judged_at": "2026-09-30T10:08:30.761814+00:00",
+      "error": null
     },
     {
       "anchor_identifier": "10.3389/fnins.2011.00112",
       "anchor_identifier_type": "doi",
       "source_relation": "References",
-      "classification": "",
-      "reason": "",
+      "classification": "related_work",
+      "reason": "Dataset's anchor DOI is 10.3389/fnins.2011.00099 (PASS2D); this candidate is a different study (AMUSE auditory speller, N=21) by overlapping authors, topically related only.",
       "paper_title": "Listen, You are Writing! Speeding up Online Spelling with a Dynamic Auditory BCI",
       "paper_year": 2011,
       "paper_venue": "Frontiers in Neuroscience",
-      "judged_at": "2026-09-29T10:06:46.505055+00:00",
-      "error": "llm_judgment_failed:ollama HTTP 404: model 'gemma4:e4b' not found"
+      "judged_at": "2026-09-30T10:08:31.064920+00:00",
+      "error": null
+    },
+    {
+      "anchor_identifier": "10.21105/joss.01896",
+      "anchor_identifier_type": "doi",
+      "source_relation": "References",
+      "classification": "methodology",
+      "reason": "MNE-BIDS is a software tool for organizing electrophysiological data into BIDS, used for dataset conversion, not a paper describing the PASS2D P300 dataset.",
+      "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
+      "paper_year": 2019,
+      "paper_venue": "The Journal of Open Source Software",
+      "judged_at": "2026-09-30T10:08:31.356903+00:00",
+      "error": null
+    },
+    {
+      "anchor_identifier": "10.1038/s41597-019-0104-8",
+      "anchor_identifier_type": "doi",
+      "source_relation": "References",
+      "classification": "methodology",
+      "reason": "EEG-BIDS is a data-organization standard extension that this BIDS-formatted dataset uses, not a paper describing the PASS2D P300 recordings.",
+      "paper_title": "EEG-BIDS, an extension to the brain imaging data structure for electroencephalography",
+      "paper_year": 2019,
+      "paper_venue": "Scientific Data",
+      "judged_at": "2026-09-30T10:08:31.665716+00:00",
+      "error": null
     }
   ]
 }

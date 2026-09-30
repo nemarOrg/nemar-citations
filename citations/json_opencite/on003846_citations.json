@@ -1,7 +1,7 @@
 {
   "dataset_id": "on003846",
   "num_citations": 88,
-  "date_last_updated": "2026-09-29T11:12:08.456601+00:00",
+  "date_last_updated": "2026-09-30T10:45:07.009911+00:00",
   "metadata": {
     "total_cumulative_citations": 1254,
     "fetch_date": "2026-09-29T11:12:08.456601+00:00",
@@ -11,7 +11,7 @@
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.1145/3290605.3300657",
@@ -22,8 +22,9 @@
         "paper_title": "Detecting Visuo-Haptic Mismatches in Virtual Reality using the Prediction Error Negativity of Event-Related Brain Potentials",
         "paper_year": 2019,
         "paper_venue": null,
-        "reason": "The dataset README explicitly lists this paper (DOI 10.1145/3290605.3300657) as one of the two publications to consult for the task details, indicating it describes the data collection.",
-        "judgment_model": "gemma4:e4b"
+        "reason": "Same authors (Gehrke, Akman, Lopes, Chen); README cites this CHI 2019 paper for the Prediction Error task methods, and it reports the VR visuo-haptic EEG study behind this data.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.1088/1741-2552/ac69bc",
@@ -34,20 +35,22 @@
         "paper_title": "Neural sources of prediction errors detect unrealistic VR interactions",
         "paper_year": 2022,
         "paper_venue": "Journal of Neural Engineering",
-        "reason": "The dataset README explicitly lists the candidate paper's DOI and title as sources for understanding the task, indicating it describes the data collection and content.",
-        "judgment_model": "gemma4:e4b"
+        "reason": "Same authors (Gehrke, Lopes, Akman, Gramann); VR reach-to-tap EEG prediction-error study matches the dataset's task, and the README cites this paper's methods for the data.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.82901/nemar.on003846",
         "identifier_type": "doi",
         "source_relation": "IsIdenticalTo",
-        "classification": "data_paper",
+        "classification": null,
         "kept": true,
         "paper_title": "Prediction Error",
         "paper_year": 2026,
         "paper_venue": "UC San Diego",
-        "reason": "The candidate paper's abstract explicitly describes the dataset, detailing the EEG recordings, 19 participants, and the cyber-physical systems task.",
-        "judgment_model": "gemma4:e4b"
+        "reason": null,
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -79,7 +82,14 @@
       {
         "funder_name": "Technische Universität Berlin"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "on003846",
+      "ds003846"
+    ],
+    "num_accession_mentions": 0,
+    "num_dataset_citations": 1,
+    "num_datapaper_citations": 87
   },
   "citation_details": [
     {
@@ -1322,7 +1332,9 @@
         "dataset_text_length": 2213,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
+      },
+      "mentions_accession": true,
+      "matched_accession": "ds003846"
     },
     {
       "title": "Sense of Agency in Closed-Loop Muscle Stimulation",

@@ -1,7 +1,7 @@
 {
   "dataset_id": "on007526",
-  "num_citations": 2,
-  "date_last_updated": "2026-09-29T11:39:44.653111+00:00",
+  "num_citations": 1,
+  "date_last_updated": "2026-09-30T10:44:34.058086+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
     "fetch_date": "2026-09-29T11:39:44.653111+00:00",
@@ -11,19 +11,20 @@
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.1002/mds.70348",
         "identifier_type": "doi",
         "source_relation": "References",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "Electroencephalography‐Based Clustering Reveals Robust Neurophysiological Subtypes in Parkinson's Disease",
+        "paper_year": 2026,
+        "paper_venue": "Movement Disorders",
+        "reason": "Same authors (Vered, Katzir, Maidan) report EEG from 116 PD patients and healthy controls during resting state and treadmill walking, matching this dataset's participants and conditions.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.82901/nemar.on007526",
@@ -35,7 +36,8 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -55,29 +57,6 @@
     "funding": []
   },
   "citation_details": [
-    {
-      "title": "PD-EEG: Resting-State & Walking EEG in Parkinson's Disease",
-      "author": "Zoya Katzir, Daniel Vered, Inbal Maidan (inbalm@tlvmc.gov.il)",
-      "venue": "UC San Diego",
-      "year": 2026,
-      "url": "https://doi.org/10.82901/nemar.on007526",
-      "cited_by": 0,
-      "abstract": "This dataset comprises 64-channel EEG recordings from 116 Parkinson's disease patients and 28 healthy controls acquired during resting state (sitting, eyes open) and treadmill walking conditions. Each participant underwent approximately 4 minutes of EEG recording under both behavioral conditions, with accompanying clinical assessments including MDS-UPDRS, MoCA, and medication dosage data. The dataset was collected at the Neurology Institute, Tel Aviv Sourasky Medical Center, and is organized according to BIDS specifications.",
-      "doi": "10.82901/nemar.on007526",
-      "pmid": null,
-      "openalex_id": "W7166680022",
-      "source_doi": "10.1002/mds.70348",
-      "source_relation": "References",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 1.0,
-        "similarity_score": 0.9212198257446289,
-        "citation_text_length": 700,
-        "dataset_text_length": 2293,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
     {
       "title": "Attention-Guided Rest–Walk EEG Modeling for Parkinson’s Disease Classification Using CNN Features and Transformer Encoding",
       "author": "H. Herath, Prathiksha Padmanabha, Nuwan Madusanka Vithanage, Rajitha Kawshalya Mailan Arachchige Don, Byeong-il Lee",
@@ -104,16 +83,16 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T12:21:05.564136+00:00",
+    "scoring_date": "2026-09-30T11:03:40.089891+00:00",
     "dataset_text_length": 2293,
-    "num_citations_scored": 2,
+    "num_citations_scored": 1,
     "summary_stats": {
-      "mean_confidence": 0.9427975615859032,
-      "median_confidence": 0.9427975615859032,
-      "std_confidence": 0.05720243841409678,
+      "mean_confidence": 0.8855951231718064,
+      "median_confidence": 0.8855951231718064,
+      "std_confidence": 0.0,
       "min_confidence": 0.8855951231718064,
-      "max_confidence": 1.0,
-      "high_confidence_count": 2,
+      "max_confidence": 0.8855951231718064,
+      "high_confidence_count": 1,
       "medium_confidence_count": 0,
       "low_confidence_count": 0
     }

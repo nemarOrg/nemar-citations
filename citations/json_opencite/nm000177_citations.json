@@ -1,7 +1,7 @@
 {
   "dataset_id": "nm000177",
-  "num_citations": 54,
-  "date_last_updated": "2026-09-29T10:44:55.488386+00:00",
+  "num_citations": 53,
+  "date_last_updated": "2026-09-30T10:44:25.162273+00:00",
   "metadata": {
     "total_cumulative_citations": 178,
     "fetch_date": "2026-09-29T10:44:55.488386+00:00",
@@ -11,31 +11,33 @@
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.1093/pnasnexus/pgae076",
         "identifier_type": "doi",
         "source_relation": "IsDerivedFrom",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "Transfer learning promotes acquisition of individual BCI skills",
+        "paper_year": 2024,
+        "paper_venue": "PNAS Nexus",
+        "reason": "Same authors and study as the dataset: 18 naive subjects, five online sessions, GR and PAR transfer-learning frameworks; the study paper reporting exactly this motor imagery EEG data.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.5281/zenodo.10694880",
         "identifier_type": "doi",
         "source_relation": "IsVersionOf",
-        "classification": null,
+        "classification": "data_paper",
         "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "paper_title": "Multi-Session longitudinal MI training dataset",
+        "paper_year": 2024,
+        "paper_venue": "Zenodo (CERN European Organization for Nuclear Research)",
+        "reason": "Zenodo record of the same dataset (18 subjects, 6 sessions, same authors, Kumar et al. 2024), i.e. another deposit of the same data.",
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "judged_data_paper"
       },
       {
         "identifier": "10.82901/nemar.nm000177",
@@ -47,7 +49,8 @@
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5",
+        "kept_reason": "own_doi"
       }
     ],
     "searched_dois": [
@@ -884,29 +887,6 @@
       }
     },
     {
-      "title": "Multi-session longitudinal motor imagery EEG dataset (Kumar et al. 2024)",
-      "author": "Satyam Kumar, Hussein Alawieh, Frigyes Sámuel Rácz, Rawan Fakhreddine, José del R. Millán",
-      "venue": "UC San Diego",
-      "year": 2026,
-      "url": "https://doi.org/10.82901/nemar.nm000177",
-      "cited_by": 0,
-      "abstract": "A longitudinal motor imagery EEG dataset from 18 brain-computer interface (BCI)-naive subjects acquired across 6 sessions (1 offline + 5 online) to investigate transfer learning and domain adaptation for calibration-free BCI training. Subjects performed left/right hand motor imagery tasks with visual feedback using 22 EEG channels sampled at 512 Hz. The dataset compares Generic Recentering (unsupervised) and Personally Assisted Recentering (supervised) domain adaptation frameworks, with features extracted as covariance matrices and classified using Riemannian geometry-based methods.",
-      "doi": "10.82901/nemar.nm000177",
-      "pmid": null,
-      "openalex_id": "W7165630526",
-      "source_doi": "10.1093/pnasnexus/pgae076",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 1.0,
-        "similarity_score": 0.9391041994094849,
-        "citation_text_length": 801,
-        "dataset_text_length": 2361,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Neuroscience-Inspired Deep Learning Brain–Machine Interface Decoder",
       "author": "Hongyun Ou, Takahiro Hasegawa, Osamu Fukayama, Eizo Miyashita",
       "venue": "Bioengineering",
@@ -1323,16 +1303,16 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T11:53:09.745101+00:00",
+    "scoring_date": "2026-09-30T10:50:57.277310+00:00",
     "dataset_text_length": 2361,
-    "num_citations_scored": 54,
+    "num_citations_scored": 53,
     "summary_stats": {
-      "mean_confidence": 0.6291587650886291,
-      "median_confidence": 0.6200649574398995,
-      "std_confidence": 0.1342890101295684,
+      "mean_confidence": 0.622161760656339,
+      "median_confidence": 0.6196460455656052,
+      "std_confidence": 0.12541952736605028,
       "min_confidence": 0.3605107744038105,
-      "max_confidence": 1.0,
-      "high_confidence_count": 18,
+      "max_confidence": 0.8535244417190553,
+      "high_confidence_count": 17,
       "medium_confidence_count": 33,
       "low_confidence_count": 3
     }

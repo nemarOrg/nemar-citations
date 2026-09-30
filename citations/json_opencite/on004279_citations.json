@@ -1,78 +1,103 @@
 {
   "dataset_id": "on004279",
-  "num_citations": 0,
-  "date_last_updated": "2026-08-26T10:02:31.753201+00:00",
+  "num_citations": 1,
+  "date_last_updated": "2026-09-30T10:45:39.691464+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
-    "fetch_date": "2026-08-26T10:02:31.753201+00:00",
+    "fetch_date": "2026-09-30T10:42:39.512685+00:00",
     "processing_version": "1.0",
-    "fetch_status": "not_found",
-    "anchor_count": 2,
-    "anchor_errors": {
-      "10.1088/1741-2552/ad7a4c": "not_found"
-    },
+    "fetch_status": "success",
+    "anchor_count": 1,
+    "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": "gemma4:e4b",
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
-      {
-        "identifier": "10.1088/1741-2552/ad7a4c",
-        "identifier_type": "doi",
-        "source_relation": "IsDescribedBy",
-        "classification": null,
-        "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "gemma4:e4b"
-      },
       {
         "identifier": "10.82901/nemar.on004279",
         "identifier_type": "doi",
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "gemma4:e4b"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
-      "10.1088/1741-2552/ad7a4c",
       "10.82901/nemar.on004279"
     ],
     "keywords": [
       "EEG",
+      "electroencephalography",
       "speech perception",
-      "silent speech production",
-      "deep neural networks",
-      "brain-computer interfaces",
+      "silent speech",
       "speech decoding",
-      "subject-independent classification"
+      "deep neural networks",
+      "neuroprosthesis",
+      "Spanish",
+      "Brain-Computer Interfaces"
     ],
-    "methods_description": "EEG data were recorded from 56 healthy participants (60 sessions total) using a 64-channel EEG system during speech perception and silent speech production tasks. The experimental protocol consisted of four segments: rest (5 s with fixation cross), perception (4-5 s with 6-7 sentence repetitions), preparation (1 s blank screen), and silent speech production (5 s). Participants listened to spoken Spanish sentences and then silently repeated them without motor action. Trials were presented in randomized order across 30 stimuli per block.",
+    "methods_description": "64-channel EEG was recorded while participants listened to spoken sentences and then silently repeated them without motor action. Each trial had four segments: rest (5 s), perception (4 s before S18, 5 s from S19), preparation (1 s) and silent speech production (5 s). Sentences were repeated 7 times (before S19) or 6 times (from S19), and trial order was randomized within each block of 30 stimuli.",
     "funding": [
       {
         "funder_name": "Agencia Nacional de Investigacion y Desarrollo (ANID Chile)",
-        "award_number": "21211883"
+        "award_number": "21211883",
+        "award_title": "Doctoral scholarship"
       }
     ],
     "searched_accessions": [
       "on004279",
       "ds004279"
     ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
+    "num_accession_mentions": 1,
+    "num_dataset_citations": 1,
     "num_datapaper_citations": 0
   },
-  "citation_details": [],
+  "citation_details": [
+    {
+      "title": "Brain-inspired cascaded EEG speech decoding with conformal calibration and adaptive exit: simulation validation and five-stage real-data assessment",
+      "author": "Daqian Chen",
+      "venue": "Research Square",
+      "year": 2026,
+      "url": "https://doi.org/10.21203/rs.3.rs-11134147/v1",
+      "cited_by": 0,
+      "abstract": null,
+      "doi": "10.21203/rs.3.rs-11134147/v1",
+      "pmid": null,
+      "openalex_id": "W7214405362",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004279",
+      "confidence_scoring": {
+        "confidence_score": 0.707426905632019,
+        "similarity_score": 0.6737399101257324,
+        "citation_text_length": 200,
+        "dataset_text_length": 2221,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    }
+  ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-08-26T10:10:51.898924+00:00",
+    "scoring_date": "2026-09-30T10:58:38.487821+00:00",
     "dataset_text_length": 2221,
-    "num_citations_scored": 0
+    "num_citations_scored": 1,
+    "summary_stats": {
+      "mean_confidence": 0.707426905632019,
+      "median_confidence": 0.707426905632019,
+      "std_confidence": 0.0,
+      "min_confidence": 0.707426905632019,
+      "max_confidence": 0.707426905632019,
+      "high_confidence_count": 1,
+      "medium_confidence_count": 0,
+      "low_confidence_count": 0
+    }
   }
 }

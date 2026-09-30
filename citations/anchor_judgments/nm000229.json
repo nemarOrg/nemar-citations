@@ -1,19 +1,44 @@
 {
   "dataset_id": "nm000229",
-  "judged_at": "2026-09-29T10:10:03.413843+00:00",
-  "judgment_model": "gemma4:e4b",
+  "judged_at": "2026-09-30T10:11:49.125708+00:00",
+  "judgment_model": "claude-sonnet-5-5",
+  "prompt_version": 2,
   "judgments": [
     {
       "anchor_identifier": "10.1038/s41597-023-02752-5",
       "anchor_identifier_type": "doi",
       "source_relation": "IsDerivedFrom",
-      "classification": "",
-      "reason": "",
+      "classification": "data_paper",
+      "reason": "Title, authors and abstract (27 English speakers, MASC stories, BIDS MEG) match the dataset README exactly; this is the MEG-MASC data descriptor in Scientific Data.",
       "paper_title": "Introducing MEG-MASC a high-quality magneto-encephalography dataset for evaluating natural speech processing",
       "paper_year": 2023,
       "paper_venue": "Scientific Data",
-      "judged_at": "2026-09-29T10:10:03.413843+00:00",
-      "error": "llm_judgment_failed:ollama HTTP 404: model 'gemma4:e4b' not found"
+      "judged_at": "2026-09-30T10:11:48.406611+00:00",
+      "error": null
+    },
+    {
+      "anchor_identifier": "10.21105/joss.01896",
+      "anchor_identifier_type": "doi",
+      "source_relation": "References",
+      "classification": "methodology",
+      "reason": "MNE-BIDS is a software tool for organizing electrophysiology data into BIDS, used for dataset formatting, not a paper describing the MEG-MASC dataset.",
+      "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
+      "paper_year": 2019,
+      "paper_venue": "The Journal of Open Source Software",
+      "judged_at": "2026-09-30T10:11:48.798503+00:00",
+      "error": null
+    },
+    {
+      "anchor_identifier": "10.1038/sdata.2018.110",
+      "anchor_identifier_type": "doi",
+      "source_relation": "References",
+      "classification": "methodology",
+      "reason": "MEG-BIDS is a data-organization standard specification that this BIDS-formatted MEG dataset uses, not a paper describing the MEG-MASC data.",
+      "paper_title": "MEG-BIDS, the brain imaging data structure extended to magnetoencephalography",
+      "paper_year": 2018,
+      "paper_venue": "Scientific Data",
+      "judged_at": "2026-09-30T10:11:49.125708+00:00",
+      "error": null
     }
   ]
 }
