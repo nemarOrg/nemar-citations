@@ -1,16 +1,14 @@
 {
   "dataset_id": "nm000287",
   "num_citations": 1,
-  "date_last_updated": "2026-09-30T10:44:27.394692+00:00",
+  "date_last_updated": "2026-10-04T10:04:01.520827+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
-    "fetch_date": "2026-09-25T10:32:03.684977+00:00",
+    "fetch_date": "2026-10-04T10:01:22.506522+00:00",
     "processing_version": "1.0",
-    "fetch_status": "partial",
+    "fetch_status": "success",
     "anchor_count": 1,
-    "anchor_errors": {
-      "10.82901/nemar.nm000287": "not_found"
-    },
+    "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
     "anchor_judgment_model": "claude-sonnet-5-5",
@@ -21,12 +19,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
         "paper_year": 2019,
         "paper_venue": "The Journal of Open Source Software",
         "reason": "MNE-BIDS is a software tool for organizing electrophysiological data into BIDS, likely used to format this dataset; it does not describe the Muse sleep-onset EEG data.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1038/s41597-019-0104-8",
@@ -34,12 +32,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "EEG-BIDS, an extension to the brain imaging data structure for electroencephalography",
         "paper_year": 2019,
         "paper_venue": "Scientific Data",
         "reason": "EEG-BIDS is a data-organization standard extension for EEG that this dataset's BIDS format follows; it does not describe the Muse sleep-onset data.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.nm000287",
@@ -47,12 +45,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -60,13 +58,14 @@
     ],
     "keywords": [
       "EEG",
-      "Sleep Onset",
+      "sleep onset",
+      "N2 sleep",
       "wearable EEG",
-      "N2 sleep stage",
-      "BIDS",
-      "at-home monitoring"
+      "Muse headband",
+      "at-home recording",
+      "machine learning challenge"
     ],
-    "methods_description": "EEG was recorded at home using Muse S-family wearable headbands with four channels (TP9, AF7, AF8, TP10) at a stored sampling rate of 128 Hz, possibly downsampled from 256 Hz. Data were exported to BrainVision format using pybv 0.7.5 and organized according to the EEG-BIDS standard. Each recording includes one annotated event marking the first N2 sleep epoch; full sleep-stage scoring was not performed or included.",
+    "methods_description": "Recordings were made at home by participants using a Muse S family headband with four dry EEG channels (TP9, AF7, AF8, TP10), stored at 128 Hz (downsampling from 256 Hz is a curator-supplied assumption). Each recording lasts about 6 to 30 minutes and ends 300 s after the annotated first N2 epoch. Data were exported to BrainVision format with pybv and organized according to EEG-BIDS.",
     "funding": [],
     "searched_accessions": [
       "nm000287"
@@ -104,7 +103,7 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T10:54:28.139273+00:00",
+    "scoring_date": "2026-10-04T10:09:41.811613+00:00",
     "dataset_text_length": 2268,
     "num_citations_scored": 1,
     "summary_stats": {

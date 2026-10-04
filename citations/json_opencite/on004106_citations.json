@@ -1,10 +1,10 @@
 {
   "dataset_id": "on004106",
-  "num_citations": 32,
-  "date_last_updated": "2026-09-30T10:45:24.274896+00:00",
+  "num_citations": 31,
+  "date_last_updated": "2026-10-04T10:02:22.172671+00:00",
   "metadata": {
-    "total_cumulative_citations": 904,
-    "fetch_date": "2026-09-24T10:31:02.376801+00:00",
+    "total_cumulative_citations": 916,
+    "fetch_date": "2026-10-04T10:02:22.172671+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -19,12 +19,12 @@
         "source_relation": "References",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Common EEG features for behavioral estimation in disparate, real-world tasks",
         "paper_year": 2015,
         "paper_venue": "Biological Psychology",
         "reason": "Same authors (Touryan, Lance, Kerick, Ries, McDowell) report EEG from guard duty and driving tasks, matching this Advanced Guard Duty dataset; it is the study paper for these recordings.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1016/j.neuroimage.2019.116361",
@@ -32,12 +32,12 @@
         "source_relation": "References",
         "classification": "related_work",
         "kept": false,
+        "kept_reason": "judged_not_data_paper",
         "paper_title": "Automated EEG mega-analysis I: Spectral and amplitude characteristics across studies",
         "paper_year": 2019,
         "paper_venue": "NeuroImage",
         "reason": "The paper is a multi-study EEG mega-analysis pipeline (18 studies) that likely includes BCIT data, but it doesn't introduce this Advanced Guard Duty dataset. It is not a data paper, so related_work.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_not_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1016/j.neuroimage.2019.116054",
@@ -45,12 +45,12 @@
         "source_relation": "References",
         "classification": "related_work",
         "kept": false,
+        "kept_reason": "judged_not_data_paper",
         "paper_title": "Automated EEG mega-analysis II: Cognitive aspects of event related features",
         "paper_year": 2019,
         "paper_venue": "NeuroImage",
         "reason": "Multi-study EEG mega-analysis (17 studies, HED tags) that likely includes BCIT data but is not this dataset's data paper; it is an analysis paper, not a descriptor.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_not_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on004106",
@@ -58,12 +58,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -73,25 +73,19 @@
     "keywords": [
       "EEG",
       "vigilance",
-      "fatigue",
-      "cognitive workload",
+      "guard duty",
       "eye tracking",
-      "sustained attention"
+      "fatigue",
+      "sustained attention",
+      "decision making"
     ],
-    "methods_description": "EEG was recorded using a BioSemi 256-channel system (plus 8 additional channels including 4 eye and 2 mastoid channels) at 1024 Hz sampling rate. Eye tracking was performed with a Sensomotoric Instruments REDEYE250 system. Participants completed a guard duty task involving serial presentation of replica ID cards paired with reference face images from the Multi-PIE database. The task consisted of ten 5-minute blocks with ID presentation rates varying stochastically between 1 and 25 per minute according to predefined profiles. Participants made forced-choice allow/deny decisions with a maximum response time of 20 seconds per trial.",
+    "methods_description": "Participants completed a driving simulator practice session and were then fitted for EEG (BioSemi 256+8 channels, 1024 Hz) and eye tracking (SMI REDEYE250). They performed ten 5-minute guard duty blocks, judging whether to allow or deny access for serially presented ID and reference-image pairs. Queue rates ranged from 1 to 25 IDs per minute, and 18% of IDs were invalid. Accuracy, processing times and fatigue and sleepiness questionnaires were the dependent measures.",
     "funding": [
       {
         "funder_name": "Army Research Laboratory",
         "award_number": "W911NF-10-0-0002"
       }
-    ],
-    "searched_accessions": [
-      "on004106",
-      "ds004106"
-    ],
-    "num_accession_mentions": 1,
-    "num_dataset_citations": 1,
-    "num_datapaper_citations": 31
+    ]
   },
   "citation_details": [
     {
@@ -100,7 +94,7 @@
       "venue": "IEEE Access",
       "year": 2018,
       "url": "https://doi.org/10.1109/access.2018.2811723",
-      "cited_by": 138,
+      "cited_by": 139,
       "abstract": "Electroencephalography-based sleepiness detection system (ESDS) is a brain-computer interface that evaluates a driver's sleepiness level directly from cerebral activity. The goals of ESDS research are to estimate and produce a timely warning to prevent declines in performance efficiency and to inhibit sleepiness-related accidents. We first, review different types of measures used in sleepiness detection systems (SDSs) and presents their advantages and drawbacks. Second, the review includes several techniques proposed in ESDSs to optimize the number of EEG electrodes, increasing the sleepiness level resolution and incorporation of circadian information. Finally, the review discusses future direction that can be considered in the development of ESDS.",
       "doi": "10.1109/access.2018.2811723",
       "pmid": null,
@@ -123,7 +117,7 @@
       "venue": "Accident Analysis & Prevention",
       "year": 2017,
       "url": "https://doi.org/10.1016/j.aap.2017.09.025",
-      "cited_by": 109,
+      "cited_by": 110,
       "abstract": null,
       "doi": "10.1016/j.aap.2017.09.025",
       "pmid": "29031926",
@@ -169,7 +163,7 @@
       "venue": "Frontiers in Physiology",
       "year": 2021,
       "url": "https://doi.org/10.3389/fphys.2021.727840",
-      "cited_by": 84,
+      "cited_by": 85,
       "abstract": "The competitive demand for attention is present in our daily lives, and the identification of neural processes in the EEG signals associated with the demand for specific attention can be useful to the individual's interactions in virtual environments. Since EEG-based devices can be portable, non-invasive, and present high temporal resolution technology for recording neural signal, the interpretations of virtual systems user's attention, fatigue and cognitive load based on parameters extracted from the EEG signal are relevant for several purposes, such as games, rehabilitation, and therapies. However, despite the large amount of studies on this subject, different methodological forms are highlighted and suggested in this work, relating virtual environments, demand of attention, workload and fatigue applications. In our summarization, we discuss controversies, current research gaps and future directions together with the background and final sections.",
       "doi": "10.3389/fphys.2021.727840",
       "pmid": "34887770",
@@ -326,7 +320,7 @@
     },
     {
       "title": "Generating EEG signals of an RSVP Experiment by a Class Conditioned Wasserstein Generative Adversarial Network",
-      "author": "Sharaj Panwar, Paul Rad, John Quarles, Yufei Huang",
+      "author": "Sharaj Panwar, Paul Rad, John P. Quarles, Yufei Huang",
       "venue": "n/a",
       "year": 2019,
       "url": "https://doi.org/10.1109/smc.2019.8914492",
@@ -339,9 +333,9 @@
       "source_relation": "References",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.4589579284191132,
-        "similarity_score": 0.41723448038101196,
-        "citation_text_length": 1112,
+        "confidence_score": 0.4581587225198746,
+        "similarity_score": 0.41650792956352234,
+        "citation_text_length": 1115,
         "dataset_text_length": 2313,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -486,12 +480,35 @@
       }
     },
     {
+      "title": "A novel method linking neural connectivity to behavioral fluctuations: Behavior-regressed connectivity",
+      "author": "Antony D. Passaro, Jean M. Vettel, Jonathan McDaniel, Vernon J. Lawhern, Piotr J. Franaszczuk, Stephen M. Gordon",
+      "venue": "Journal of Neuroscience Methods",
+      "year": 2017,
+      "url": "https://doi.org/10.1016/j.jneumeth.2017.01.010",
+      "cited_by": 12,
+      "abstract": "BACKGROUND: During an experimental session, behavioral performance fluctuates, yet most neuroimaging analyses of functional connectivity derive a single connectivity pattern. These conventional connectivity approaches assume that since the underlying behavior of the task remains constant, the connectivity pattern is also constant. NEW METHOD: We introduce a novel method, behavior-regressed connectivity (BRC), to directly examine behavioral fluctuations within an experimental session and capture their relationship to changes in functional connectivity. This method employs the weighted phase lag index (WPLI) applied to a window of trials with a weighting function. Using two datasets, the BRC results are compared to conventional connectivity results during two time windows: the one second before stimulus onset to identify predictive relationships, and the one second after onset to capture task-dependent relationships. RESULTS: In both tasks, we replicate the expected results for the conve",
+      "doi": "10.1016/j.jneumeth.2017.01.010",
+      "pmid": "28109833",
+      "openalex_id": "W2420734676",
+      "source_doi": "10.1016/j.biopsycho.2015.12.009",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.34113126397132876,
+        "similarity_score": 0.3101193308830261,
+        "citation_text_length": 1284,
+        "dataset_text_length": 2313,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Altered parahippocampal gyrus activation and its connectivity with resting-state network areas in schizophrenia: An EEG study",
       "author": "Sunaina Soni, Suriya Prakash Muthukrishnan, Mamta Sood, Simran Kaur, Ratna Sharma",
       "venue": "Schizophrenia Research",
       "year": 2020,
       "url": "https://doi.org/10.1016/j.schres.2020.03.066",
-      "cited_by": 9,
+      "cited_by": 10,
       "abstract": null,
       "doi": "10.1016/j.schres.2020.03.066",
       "pmid": "32534839",
@@ -694,7 +711,7 @@
     },
     {
       "title": "Linguistic, Kinematic and Gaze Information in Task Descriptions: The LKG-Corpus",
-      "author": "Tim Reinboth, Stephanie Gross, Laura Menchaca Bishop, Brigitte Krenn",
+      "author": "Tim Reinboth, Stephanie Gross, Laura Bishop, Brigitte Krenn",
       "venue": "Language Resources and Evaluation",
       "year": 2020,
       "url": "n/a",
@@ -707,9 +724,9 @@
       "source_relation": "References",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.45286967754364016,
-        "similarity_score": 0.4313044548034668,
-        "citation_text_length": 207,
+        "confidence_score": 0.4515903487801552,
+        "similarity_score": 0.43008604645729065,
+        "citation_text_length": 198,
         "dataset_text_length": 2313,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -783,70 +800,22 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
-    },
-    {
-      "title": "A novel method linking neural connectivity to behavioral fluctuations: Behavior-regressed connectivity",
-      "author": "Antony D. Passaro, Jean M. Vettel, Jonathan R. McDaniel, Vernon J. Lawhern, Piotr J. Franaszczuk, Stephen M. Gordon",
-      "venue": "Journal of Neuroscience Methods",
-      "year": 2017,
-      "url": "https://doi.org/10.1016/j.jneumeth.2017.01.010",
-      "cited_by": 0,
-      "abstract": "BACKGROUND: During an experimental session, behavioral performance fluctuates, yet most neuroimaging analyses of functional connectivity derive a single connectivity pattern. These conventional connectivity approaches assume that since the underlying behavior of the task remains constant, the connectivity pattern is also constant. NEW METHOD: We introduce a novel method, behavior-regressed connectivity (BRC), to directly examine behavioral fluctuations within an experimental session and capture their relationship to changes in functional connectivity. This method employs the weighted phase lag index (WPLI) applied to a window of trials with a weighting function. Using two datasets, the BRC results are compared to conventional connectivity results during two time windows: the one second before stimulus onset to identify predictive relationships, and the one second after onset to capture task-dependent relationships. RESULTS: In both tasks, we replicate the expected results for the conve",
-      "doi": "10.1016/j.jneumeth.2017.01.010",
-      "pmid": "28109833",
-      "openalex_id": "W2420734676",
-      "source_doi": "10.1016/j.biopsycho.2015.12.009",
-      "source_relation": "References",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.3386133342981339,
-        "similarity_score": 0.3078303039073944,
-        "citation_text_length": 1287,
-        "dataset_text_length": 2313,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "A revision of the genus Croton (Euphorbiaceae) in Sumatra (Indonesia)",
-      "author": "Jesse Beyer, H.-J. Esser, M.C.M. Eurlings, P.C. Vanwelzen",
-      "venue": "Blumea - Biodiversity Evolution and Biogeography of Plants",
-      "year": 2023,
-      "url": "https://doi.org/10.3767/blumea.2023.68.01.01",
-      "cited_by": 4,
-      "abstract": "Croton (Euphorbiaceae) is a very large genus of over 1200 species of herbs, shrubs and trees occurring mainly in the (sub)tropics. The major diversity of Croton is within the Neotropics; and there are comparatively few species in South-East Asia. This contribution provides a revision of Croton from the Sumatran region in Indonesia, including descriptions and a determination key. In total sixteen species are recognized for Sumatra, including four species new to science, C. beccarii, C. scalaeus, C. simalurensis, and C. viridifolius. Two new synonyms and lectotypification of numerous names are also included. Besides a taxonomic treatment, a molecular analysis, using the nuclear ribosomal internal transcribed spacer(ITS), based on former data extended with Sumatran species, was performed to create a phylogeny that places the Sumatran species in a phylogenetic context. In total 13 new sequences were created, which were combined with 56 sequences obtained from GenBank. The results from the phylogenetic analysis, based on Bayesian inference, are in line with the phylogeny as published for mainly the Australian species of Croton by Van Eeetal.(2015).",
-      "doi": "10.3767/blumea.2023.68.01.01",
-      "pmid": null,
-      "openalex_id": "W4321195888",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "on004106",
-      "confidence_scoring": {
-        "confidence_score": 0.11171393506228926,
-        "similarity_score": 0.09672202169895172,
-        "citation_text_length": 1384,
-        "dataset_text_length": 2313,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T10:58:00.592203+00:00",
+    "scoring_date": "2026-10-04T10:11:18.737518+00:00",
     "dataset_text_length": 2313,
-    "num_citations_scored": 32,
+    "num_citations_scored": 31,
     "summary_stats": {
-      "mean_confidence": 0.45156360132619744,
-      "median_confidence": 0.4589255839586258,
-      "std_confidence": 0.09972710232615081,
-      "min_confidence": 0.11171393506228926,
+      "mean_confidence": 0.4625406678189193,
+      "median_confidence": 0.4588932394981384,
+      "std_confidence": 0.08000953964462808,
+      "min_confidence": 0.2539113505929709,
       "max_confidence": 0.6711399972438813,
       "high_confidence_count": 0,
       "medium_confidence_count": 25,
-      "low_confidence_count": 7
+      "low_confidence_count": 6
     }
   }
 }
