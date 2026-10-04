@@ -1,57 +1,190 @@
 {
   "dataset_id": "on004200",
-  "num_citations": 0,
-  "date_last_updated": "2026-09-24T10:32:49.123070+00:00",
+  "num_citations": 5,
+  "date_last_updated": "2026-10-04T10:03:14.217551+00:00",
   "metadata": {
-    "total_cumulative_citations": 0,
-    "fetch_date": "2026-09-24T10:32:49.123070+00:00",
+    "total_cumulative_citations": 57,
+    "fetch_date": "2026-10-04T10:03:14.217551+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
-    "anchor_count": 1,
+    "anchor_count": 2,
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
     "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
+        "identifier": "10.1101/2020.12.11.421180",
+        "identifier_type": "doi",
+        "source_relation": "IsDescribedBy",
+        "classification": "data_paper",
+        "kept": true,
+        "kept_reason": "judged_data_paper",
+        "paper_title": "Temporal scaling of human scalp-recorded potentials",
+        "paper_year": 2020,
+        "paper_venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+        "reason": "The dataset README cites this preprint, and the authors match. It reports EEG from interval perception and production tasks, which matches the dataset's Temporal Scaling tasks. It is the study paper for this data.",
+        "judgment_model": "claude-sonnet-5-5"
+      },
+      {
         "identifier": "10.82901/nemar.on004200",
         "identifier_type": "doi",
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
+      "10.1101/2020.12.11.421180",
       "10.82901/nemar.on004200"
     ],
     "keywords": [
       "EEG",
       "Time Perception",
+      "interval timing",
       "temporal scaling",
-      "feedback",
-      "interval timing"
+      "feedback"
     ],
-    "methods_description": "Twenty participants completed a temporal scaling paradigm with two randomly interleaved subtasks (Production and Perception) involving three temporal intervals (short, medium, long), receiving visual feedback (checkmark or x) after each response.",
-    "funding": [],
-    "searched_accessions": [
-      "on004200",
-      "ds004200"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 0
+    "methods_description": "Participants learned three temporal intervals and performed interleaved Production and Perception subtasks. In Production, they produced a short, medium, or long interval. In Perception, they judged a computer-produced interval as correct or incorrect. Visual feedback was given after each trial.",
+    "funding": []
   },
-  "citation_details": [],
+  "citation_details": [
+    {
+      "title": "Beyond peaks and troughs: Multiplexed performance monitoring signals in the EEG",
+      "author": "Markus Ullsperger",
+      "venue": "Psychophysiology",
+      "year": 2024,
+      "url": "https://doi.org/10.1111/psyp.14553",
+      "cited_by": 18,
+      "abstract": "With the discovery of event-related potentials elicited by errors more than 30 years ago, a new avenue of research on performance monitoring, cognitive control, and decision making emerged. Since then, the field has developed and expanded fulminantly. After a brief overview on the EEG correlates of performance monitoring, this article reviews recent advancements based on single-trial analyses using independent component analysis, multiple regression, and multivariate pattern classification. Given the close interconnection between performance monitoring and reinforcement learning, computational modeling and model-based EEG analyses have made a particularly strong impact. The reviewed findings demonstrate that error- and feedback-related EEG dynamics represent variables reflecting how performance-monitoring signals are weighted and transformed into an adaptation signal that guides future decisions and actions. The model-based single-trial analysis approach goes far beyond conventional pe",
+      "doi": "10.1111/psyp.14553",
+      "pmid": "38415791",
+      "openalex_id": "W4392239328",
+      "source_doi": "10.1101/2020.12.11.421180",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.43749510794878016,
+        "similarity_score": 0.378783643245697,
+        "citation_text_length": 1151,
+        "dataset_text_length": 803,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Quantifying decision-making in dynamic, continuously evolving environments",
+      "author": "Maria Ruesseler, Lilian A. E. Weber, Tom R. Marshall, Jill X. O’Reilly, Laurence Tudor Hunt",
+      "venue": "eLife",
+      "year": 2023,
+      "url": "https://doi.org/10.7554/elife.82823",
+      "cited_by": 17,
+      "abstract": "During perceptual decision-making tasks, centroparietal electroencephalographic (EEG) potentials report an evidence accumulation-to-bound process that is time locked to trial onset. However, decisions in real-world environments are rarely confined to discrete trials; they instead unfold continuously, with accumulation of time-varying evidence being recency-weighted towards its immediate past. The neural mechanisms supporting recency-weighted continuous decision-making remain unclear. Here, we use a novel continuous task design to study how the centroparietal positivity (CPP) adapts to different environments that place different constraints on evidence accumulation. We show that adaptations in evidence weighting to these different environments are reflected in changes in the CPP. The CPP becomes more sensitive to fluctuations in sensory evidence when large shifts in evidence are less frequent, and the potential is primarily sensitive to fluctuations in decision-relevant (not decision-ir",
+      "doi": "10.7554/elife.82823",
+      "pmid": "37883173",
+      "openalex_id": "W4387949129",
+      "source_doi": "10.1101/2020.12.11.421180",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.49068872362375265,
+        "similarity_score": 0.42483872175216675,
+        "citation_text_length": 1209,
+        "dataset_text_length": 803,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Post-stimulus encoding of decision confidence in EEG: toward a brain–computer interface for decision making",
+      "author": "Nitin Sadras, Omid G. Sani, Parima Ahmadipour, Maryam Modir Shanechi",
+      "venue": "Journal of Neural Engineering",
+      "year": 2023,
+      "url": "https://doi.org/10.1088/1741-2552/acec14",
+      "cited_by": 14,
+      "abstract": "Abstract Objective. When making decisions, humans can evaluate how likely they are to be correct. If this subjective confidence could be reliably decoded from brain activity, it would be possible to build a brain–computer interface (BCI) that improves decision performance by automatically providing more information to the user if needed based on their confidence. But this possibility depends on whether confidence can be decoded right after stimulus presentation and before the response so that a corrective action can be taken in time. Although prior work has shown that decision confidence is represented in brain signals, it is unclear if the representation is stimulus-locked or response-locked, and whether stimulus-locked pre-response decoding is sufficiently accurate for enabling such a BCI. Approach. We investigate the neural correlates of confidence by collecting high-density electroencephalography (EEG) during a perceptual decision task with realistic stimuli. Importantly, we design",
+      "doi": "10.1088/1741-2552/acec14",
+      "pmid": "37524073",
+      "openalex_id": "W4385408680",
+      "source_doi": "10.1101/2020.12.11.421180",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.47718853980302817,
+        "similarity_score": 0.41315025091171265,
+        "citation_text_length": 1243,
+        "dataset_text_length": 803,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "The neural correlates of continuous feedback processing",
+      "author": "Cameron Dale Hassall, Yan Yan, Laurence Tudor Hunt",
+      "venue": "Psychophysiology",
+      "year": 2023,
+      "url": "https://doi.org/10.1111/psyp.14399",
+      "cited_by": 7,
+      "abstract": "Feedback processing is commonly studied by analyzing the brain's response to discrete rather than continuous events. Such studies have led to the hypothesis that rapid phasic midbrain dopaminergic activity tracks reward prediction errors (RPEs), the effects of which are measurable at the scalp via electroencephalography (EEG). Although studies using continuous feedback are sparse, recent animal work suggests that moment-to-moment changes in reward are tracked by slowly ramping midbrain dopaminergic activity. Some have argued that these ramping signals index state values rather than RPEs. Our goal here was to develop an EEG measure of continuous feedback processing in humans, then test whether its behavior could be accounted for by the RPE hypothesis. Participants completed a stimulus-response learning task in which a continuous reward cue gradually increased or decreased over time. A regression-based unmixing approach revealed EEG activity with a topography and time course consistent w",
+      "doi": "10.1111/psyp.14399",
+      "pmid": "37485986",
+      "openalex_id": "W4385186794",
+      "source_doi": "10.1101/2020.12.11.421180",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.4573950742185116,
+        "similarity_score": 0.3960130512714386,
+        "citation_text_length": 1160,
+        "dataset_text_length": 803,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Integrating Reward Information for Prospective Behavior",
+      "author": "Sam Hall-McMaster, Mark G. Stokes, Nicholas E. Myers",
+      "venue": "Journal of Neuroscience",
+      "year": 2022,
+      "url": "https://doi.org/10.1523/jneurosci.1113-21.2021",
+      "cited_by": 1,
+      "abstract": "Value-based decision-making is often studied in a static context, where participants decide which option to select from those currently available. However, everyday life often involves an additional dimension: deciding when to select to maximize reward. Recent evidence suggests that agents track the latent reward of an option, updating changes in their latent reward estimate, to achieve appropriate selection timing (latent reward tracking). However, this strategy can be difficult to distinguish from one in which the optimal selection time is estimated in advance, allowing an agent to wait a predetermined amount of time before selecting, without needing to monitor an option's latent reward (distance-to-goal tracking). Here, we show that these strategies can in principle be dissociated. Human brain activity was recorded using electroencephalography (EEG), while female and male participants performed a novel decision task. Participants were shown an option and decided when to select it, a",
+      "doi": "10.1523/jneurosci.1113-21.2021",
+      "pmid": "35042770",
+      "openalex_id": "W4221021730",
+      "source_doi": "10.1101/2020.12.11.421180",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.47132965967059137,
+        "similarity_score": 0.4080776274204254,
+        "citation_text_length": 1169,
+        "dataset_text_length": 803,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    }
+  ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-24T10:37:43.281510+00:00",
+    "scoring_date": "2026-10-04T10:11:39.592328+00:00",
     "dataset_text_length": 803,
-    "num_citations_scored": 0
+    "num_citations_scored": 5,
+    "summary_stats": {
+      "mean_confidence": 0.4668194210529328,
+      "median_confidence": 0.47132965967059137,
+      "std_confidence": 0.018145733016579894,
+      "min_confidence": 0.43749510794878016,
+      "max_confidence": 0.49068872362375265,
+      "high_confidence_count": 0,
+      "medium_confidence_count": 5,
+      "low_confidence_count": 0
+    }
   }
 }

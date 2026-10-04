@@ -1,10 +1,10 @@
 {
   "dataset_id": "on004276",
-  "num_citations": 1,
-  "date_last_updated": "2026-09-30T10:45:38.631387+00:00",
+  "num_citations": 0,
+  "date_last_updated": "2026-10-04T10:03:35.366382+00:00",
   "metadata": {
-    "total_cumulative_citations": 3,
-    "fetch_date": "2026-09-24T10:33:11.527011+00:00",
+    "total_cumulative_citations": 0,
+    "fetch_date": "2026-10-04T10:03:35.366382+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 1,
@@ -16,15 +16,15 @@
       {
         "identifier": "10.21105/joss.01896",
         "identifier_type": "doi",
-        "source_relation": "IsDescribedBy",
+        "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
         "paper_year": 2019,
         "paper_venue": "The Journal of Open Source Software",
         "reason": "MNE-BIDS is a software tool for converting data to BIDS, used to convert this dataset; it does not describe the MEG word recognition data itself.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1038/sdata.2018.110",
@@ -32,25 +32,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MEG-BIDS, the brain imaging data structure extended to magnetoencephalography",
         "paper_year": 2018,
         "paper_venue": "Scientific Data",
         "reason": "MEG-BIDS is a data-organization standard extension of BIDS used to format this dataset, not a paper describing this auditory word recognition MEG dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
-      },
-      {
-        "identifier": "10.1162/nol_a_00069",
-        "identifier_type": "doi",
-        "source_relation": "IsDescribedBy",
-        "classification": null,
-        "kept": false,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "unjudged"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on004276",
@@ -58,12 +45,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -71,15 +58,10 @@
     ],
     "keywords": [
       "MEG",
-      "auditory processing",
-      "word recognition",
-      "lexical decision",
-      "magnetoencephalography",
-      "neuroimaging",
-      "BIDS",
-      "MALD",
-      "Massive Auditory Lexical Decision",
-      "MNE-BIDS"
+      "auditory word recognition",
+      "speech comprehension",
+      "single word processing",
+      "Magnetoencephalography"
     ],
     "methods_description": "MEG data were collected during an auditory word recognition task using stimuli from the Massive Auditory Lexical Decision database. Data were converted to BIDS format using MNE-BIDS.",
     "funding": [
@@ -87,56 +69,13 @@
         "funder_name": "NSF",
         "award_number": "BCS-1749407"
       }
-    ],
-    "searched_accessions": [
-      "on004276",
-      "ds004276"
-    ],
-    "num_accession_mentions": 1,
-    "num_dataset_citations": 1,
-    "num_datapaper_citations": 0
+    ]
   },
-  "citation_details": [
-    {
-      "title": "Recurrent neural networks as neuro-computational models of human speech recognition",
-      "author": "Christian J. Brodbeck, Thomas Hannagan, James S. Magnuson",
-      "venue": "PLoS Computational Biology",
-      "year": 2025,
-      "url": "https://doi.org/10.1371/journal.pcbi.1013244",
-      "cited_by": 3,
-      "abstract": "Human speech recognition transforms a continuous acoustic signal into categorical linguistic units, by aggregating information that is distributed in time. It has been suggested that this kind of information processing may be understood through the computations of a Recurrent Neural Network (RNN) that receives input frame by frame, linearly in time, but builds an incremental representation of this input through a continually evolving internal state. While RNNs can simulate several key behavioral observations about human speech and language processing, it is unknown whether RNNs also develop computational dynamics that resemble human neural speech processing. Here we show that the internal dynamics of long short-term memory (LSTM) RNNs, trained to recognize speech from auditory spectrograms, predict human neural population responses to the same stimuli, beyond predictions from auditory features. Variations in the RNN architecture motivated by cognitive principles further improved this predictive power. Specifically, modifications that allow more human-like phonetic competition also led to more human-like temporal dynamics. Overall, our results suggest that RNNs provide plausible computational models of the cortical processes supporting human speech recognition.",
-      "doi": "10.1371/journal.pcbi.1013244",
-      "pmid": "40720506",
-      "openalex_id": "W4412726145",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004276",
-      "confidence_scoring": {
-        "confidence_score": 0.5026099160313607,
-        "similarity_score": 0.4351601004600525,
-        "citation_text_length": 1485,
-        "dataset_text_length": 1808,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    }
-  ],
+  "citation_details": [],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T10:58:35.506699+00:00",
+    "scoring_date": "2026-10-04T10:11:47.532082+00:00",
     "dataset_text_length": 1808,
-    "num_citations_scored": 1,
-    "summary_stats": {
-      "mean_confidence": 0.5026099160313607,
-      "median_confidence": 0.5026099160313607,
-      "std_confidence": 0.0,
-      "min_confidence": 0.5026099160313607,
-      "max_confidence": 0.5026099160313607,
-      "high_confidence_count": 0,
-      "medium_confidence_count": 1,
-      "low_confidence_count": 0
-    }
+    "num_citations_scored": 0
   }
 }

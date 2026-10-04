@@ -1,10 +1,10 @@
 {
   "dataset_id": "on004122",
   "num_citations": 45,
-  "date_last_updated": "2026-09-30T10:44:29.431066+00:00",
+  "date_last_updated": "2026-10-04T10:02:40.804097+00:00",
   "metadata": {
-    "total_cumulative_citations": 1804,
-    "fetch_date": "2026-09-24T10:31:57.346317+00:00",
+    "total_cumulative_citations": 1811,
+    "fetch_date": "2026-10-04T10:02:40.804097+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -19,12 +19,12 @@
         "source_relation": "References",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Estimating endogenous changes in task performance from EEG",
         "paper_year": 2014,
         "paper_venue": "Frontiers in Neuroscience",
         "reason": "Touryan et al. 2014 reports the simulated-driving fatigue/performance EEG study (same authors: Touryan, Apker, Lance, Kerick, Ries) matching the BCIT Speed Control dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1016/j.physbeh.2015.05.026",
@@ -32,12 +32,12 @@
         "source_relation": "References",
         "classification": "related_work",
         "kept": false,
+        "kept_reason": "judged_not_data_paper",
         "paper_title": "Event-related alpha perturbations related to the scaling of steering wheel corrections",
         "paper_year": 2015,
         "paper_venue": "Physiology & Behavior",
         "reason": "Brooks & Kerick 2015 studies alpha ERSP and steering corrections in a driving task by dataset contributors, but the abstract doesn't clearly present this Speed Control dataset as its data source.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_not_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1016/j.neuroimage.2017.02.057",
@@ -45,12 +45,12 @@
         "source_relation": "References",
         "classification": "related_work",
         "kept": false,
+        "kept_reason": "judged_not_data_paper",
         "paper_title": "Estimating direction in brain-behavior interactions: Proactive and reactive brain states in driving",
         "paper_year": 2017,
         "paper_venue": "NeuroImage",
         "reason": "Garcia et al. 2017 is a NeuroImage study of proactive/reactive brain states in driving; authors overlap with BCIT, but it doesn't clearly describe the Speed Control dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_not_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1016/j.neuroimage.2019.116361",
@@ -58,12 +58,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "judged_not_data_paper",
         "paper_title": "Automated EEG mega-analysis I: Spectral and amplitude characteristics across studies",
         "paper_year": 2019,
         "paper_venue": "NeuroImage",
         "reason": "Multi-study EEG mega-analysis presenting an automated processing pipeline across 18 studies; an analysis-method paper, not the data paper for BCIT Speed Control.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_not_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1016/j.neuroimage.2019.116054",
@@ -71,12 +71,12 @@
         "source_relation": "References",
         "classification": "related_work",
         "kept": false,
+        "kept_reason": "judged_not_data_paper",
         "paper_title": "Automated EEG mega-analysis II: Cognitive aspects of event related features",
         "paper_year": 2019,
         "paper_venue": "NeuroImage",
         "reason": "Mega-analysis of 17 studies with HED tags; it likely uses BCIT data but is a multi-study analysis paper, not the Speed Control data paper, so evidence is ambiguous.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_not_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1080/00222895.2014.959887",
@@ -84,12 +84,12 @@
         "source_relation": "References",
         "classification": "related_work",
         "kept": false,
+        "kept_reason": "judged_not_data_paper",
         "paper_title": "Novel Measure of Driver and Vehicle Interaction Demonstrates Transient Changes Related to Alerting",
         "paper_year": 2014,
         "paper_venue": "Journal of Motor Behavior",
         "reason": "Brooks et al. 2014 introduces a driver-vehicle steering measure (RSWC) from a related driving study by the same group, but it doesn't clearly describe the Speed Control dataset itself.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_not_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on004122",
@@ -97,12 +97,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -111,26 +111,19 @@
     ],
     "keywords": [
       "EEG",
-      "Fatigue",
       "driving simulation",
-      "steering performance",
-      "brain-behavior interaction",
-      "biomarkers"
+      "fatigue",
+      "speed control",
+      "brain-computer interaction",
+      "task performance"
     ],
-    "methods_description": "EEG was recorded using a BioSemi 64+8 channel system (including eye and mastoid channels) at 2048 Hz sampling rate, while driving performance was captured via a Real Time Technologies driving simulator with a video refresh rate of 900 Hz and vehicle data logging at 100 Hz. Subjects performed two 45-minute driving conditions (Speed Control A and B), differing in whether the simulator or subject controlled speed, with counterbalanced order across participants. Lateral perturbing forces were periodically applied to the vehicle, requiring corrective steering responses, and subjective fatigue was assessed using standardized scales (TIFS, KSS, VAS-F).",
+    "methods_description": "64-channel BioSemi EEG (plus 4 eye and 2 mastoid channels, 2048 Hz) was recorded during simulated driving (Real Time Technologies simulator with steering wheel and pedals; vehicle log at 100 Hz). After a 10-15 minute practice session, participants completed two counter-balanced 45-minute conditions (Speed Control A: steering only; Speed Control B: steering and speed) on a straight road with periodic lateral perturbation forces. Questionnaires (TIFS, KSS, VAS-F) were also collected, and eye tracking was acquired but is not included.",
     "funding": [
       {
         "funder_name": "Army Research Laboratory",
         "award_number": "W911NF-10-0-0002"
       }
-    ],
-    "searched_accessions": [
-      "on004122",
-      "ds004122"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 45
+    ]
   },
   "citation_details": [
     {
@@ -139,7 +132,7 @@
       "venue": "Journal of Neuroscience Methods",
       "year": 2020,
       "url": "https://doi.org/10.1016/j.jneumeth.2020.108885",
-      "cited_by": 396,
+      "cited_by": 399,
       "abstract": "-BackgroundData augmentation (DA) has recently been demonstrated to achieve considerable performance gains for deep learning (DL)—increased accuracy and stability and reduced overfitting. Some electroencephalography (EEG) tasks suffer from low samples-to-features ratio, severely reducing DL effectiveness. DA with DL thus holds transformative promise for EEG processing, possibly like DL revolutionized computer vision, etc.-New methodWe review trends and approaches to DA for DL in EEG to address: Which DA approaches exist and are common for which EEG tasks? What input features are used? And, what kind of accuracy gain can be expected?-ResultsDA for DL on EEG begun 5 years ago and is steadily used more. We grouped DA techniques (noise addition, generative adversarial networks, sliding windows, sampling, Fourier transform, recombination of segmentation, and others) and EEG tasks (into seizure detection, sleep stages, motor imagery, mental workload, emotion recognition, motor tasks, and vis",
       "doi": "10.1016/j.jneumeth.2020.108885",
       "pmid": "32745492",
@@ -158,11 +151,11 @@
     },
     {
       "title": "Improving EEG-Based Driver Fatigue Classification Using Sparse-Deep Belief Networks",
-      "author": "Rifai Chai, Sai Ho Ling, Phyo Phyo San, Ganesh R. Naik, Tuan Nghia Nguyen, Yvonne Tran, Ashley Craig, Hung T. Nguyen",
+      "author": "Rifai Chai, Sai Ho Ling, Phyo Phyo San, Ganesh R. Naik, Tuan Nghia Nguyen, Yvonne Tran, Ashley Craig, Hung Tan Nguyen",
       "venue": "Frontiers in Neuroscience",
       "year": 2017,
       "url": "https://doi.org/10.3389/fnins.2017.00103",
-      "cited_by": 151,
+      "cited_by": 150,
       "abstract": "This paper presents an improvement of classification performance for electroencephalography (EEG)-based driver fatigue classification between fatigue and alert states with the data collected from 43 participants. The system employs autoregressive (AR) modeling as the features extraction algorithm, and sparse-deep belief networks (sparse-DBN) as the classification algorithm. Compared to other classifiers, sparse-DBN is a semi supervised learning method which combines unsupervised learning for modeling features in the pre-training layer and supervised learning for classification in the following layer. The sparsity in sparse-DBN is achieved with a regularization term that penalizes a deviation of the expected activation of hidden units from a fixed low-level prevents the network from overfitting and is able to learn low-level structures as well as high-level structures. For comparison, the artificial neural networks (ANN), Bayesian neural networks (BNN), and original deep belief networks",
       "doi": "10.3389/fnins.2017.00103",
       "pmid": "28326009",
@@ -171,9 +164,9 @@
       "source_relation": "References",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5882741570472718,
-        "similarity_score": 0.5347946882247925,
-        "citation_text_length": 1263,
+        "confidence_score": 0.5926743626594544,
+        "similarity_score": 0.5387948751449585,
+        "citation_text_length": 1264,
         "dataset_text_length": 2343,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -185,7 +178,7 @@
       "venue": "Frontiers in Neuroscience",
       "year": 2015,
       "url": "https://doi.org/10.3389/fnins.2015.00136",
-      "cited_by": 147,
+      "cited_by": 148,
       "abstract": "Estimating cognitive or affective state from neurophysiological signals and designing applications that make use of this information requires expertise in many disciplines such as neurophysiology, machine learning, experimental psychology, and human factors. This makes it difficult to perform research that is strong in all its aspects as well as to judge a study or application on its merits. On the occasion of the special topic \"Using neurophysiological signals that reflect cognitive or affective state\" we here summarize often occurring pitfalls and recommendations on how to avoid them, both for authors (researchers) and readers. They relate to defining the state of interest, the neurophysiological processes that are expected to be involved in the state of interest, confounding factors, inadvertently \"cheating\" with classification analyses, insight on what underlies successful state estimation, and finally, the added value of neurophysiological measures in the context of an application",
       "doi": "10.3389/fnins.2015.00136",
       "pmid": "25983676",
@@ -208,7 +201,7 @@
       "venue": "Frontiers in Human Neuroscience",
       "year": 2021,
       "url": "https://doi.org/10.3389/fnhum.2021.765525",
-      "cited_by": 104,
+      "cited_by": 105,
       "abstract": "Classification of electroencephalogram (EEG) is a key approach to measure the rhythmic oscillations of neural activity, which is one of the core technologies of brain-computer interface systems (BCIs). However, extraction of the features from non-linear and non-stationary EEG signals is still a challenging task in current algorithms. With the development of artificial intelligence, various advanced algorithms have been proposed for signal classification in recent years. Among them, deep neural networks (DNNs) have become the most attractive type of method due to their end-to-end structure and powerful ability of automatic feature extraction. However, it is difficult to collect large-scale datasets in practical applications of BCIs, which may lead to overfitting or weak generalizability of the classifier. To address these issues, a promising technique has been proposed to improve the performance of the decoding model based on data augmentation (DA). In this article, we investigate recen",
       "doi": "10.3389/fnhum.2021.765525",
       "pmid": "34975434",
@@ -254,7 +247,7 @@
       "venue": "Archives of Computational Methods in Engineering",
       "year": 2023,
       "url": "https://doi.org/10.1007/s11831-023-09920-1",
-      "cited_by": 95,
+      "cited_by": 96,
       "abstract": null,
       "doi": "10.1007/s11831-023-09920-1",
       "pmid": null,
@@ -354,9 +347,6 @@
       "source_doi": "10.3389/fnins.2014.00155",
       "source_relation": "References",
       "discovery_backend": "opencite",
-      "superseded_dois": [
-        "10.1101/409631"
-      ],
       "confidence_scoring": {
         "confidence_score": 0.47554347515106205,
         "similarity_score": 0.4323122501373291,
@@ -390,6 +380,29 @@
       }
     },
     {
+      "title": "Dynamic belief fusion for object detection",
+      "author": "Hyungtae Lee, Heesung Kwon, Ryan M. Robinson, William D. Nothwang, Amar R. Marathe",
+      "venue": "2016 IEEE Winter Conference on Applications of Computer Vision (WACV)",
+      "year": 2016,
+      "url": "https://doi.org/10.1109/wacv.2016.7477574",
+      "cited_by": 35,
+      "abstract": "A novel approach for the fusion of heterogeneous object detection methods is proposed. In order to effectively integrate the outputs of multiple detectors, the level of ambiguity in each individual detection score is estimated using the precision/recall relationship of the corresponding detector. The main contribution of the proposed work is a novel fusion method, called Dynamic Belief Fusion (DBF), which dynamically assigns probabilities to hypotheses (target, non-target, intermediate state (target or non-target)) based on confidence levels in the detection results conditioned on the prior performance of individual detectors. In DBF, a joint basic probability assignment, optimally fusing information from all detectors, is determined by the Dempster's combination rule, and is easily reduced to a single fused detection score. Experiments on ARL and PASCAL VOC 07 datasets demonstrate that the detection accuracy of DBF is considerably greater than conventional fusion approaches as well as",
+      "doi": "10.1109/wacv.2016.7477574",
+      "pmid": null,
+      "openalex_id": "W2100523817",
+      "source_doi": "10.3389/fnins.2014.00155",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.23586510419845583,
+        "similarity_score": 0.2144228219985962,
+        "citation_text_length": 1232,
+        "dataset_text_length": 2343,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Common EEG features for behavioral estimation in disparate, real-world tasks",
       "author": "Jon Touryan, Brent J. Lance, Scott E. Kerick, Anthony J. Ries, Kaleb McDowell",
       "venue": "Biological Psychology",
@@ -413,35 +426,12 @@
       }
     },
     {
-      "title": "Dynamic belief fusion for object detection",
-      "author": "Hyungtae Lee, Heesung Kwon, Ryan M. Robinson, William D. Nothwang, Amar M. Marathe",
-      "venue": "2016 IEEE Winter Conference on Applications of Computer Vision (WACV)",
-      "year": 2016,
-      "url": "https://doi.org/10.1109/wacv.2016.7477574",
-      "cited_by": 35,
-      "abstract": "A novel approach for the fusion of heterogeneous object detection methods is proposed. In order to effectively integrate the outputs of multiple detectors, the level of ambiguity in each individual detection score is estimated using the precision/recall relationship of the corresponding detector. The main contribution of the proposed work is a novel fusion method, called Dynamic Belief Fusion (DBF), which dynamically assigns probabilities to hypotheses (target, non-target, intermediate state (target or non-target)) based on confidence levels in the detection results conditioned on the prior performance of individual detectors. In DBF, a joint basic probability assignment, optimally fusing information from all detectors, is determined by the Dempster's combination rule, and is easily reduced to a single fused detection score. Experiments on ARL and PASCAL VOC 07 datasets demonstrate that the detection accuracy of DBF is considerably greater than conventional fusion approaches as well as",
-      "doi": "10.1109/wacv.2016.7477574",
-      "pmid": null,
-      "openalex_id": "W2100523817",
-      "source_doi": "10.3389/fnins.2014.00155",
-      "source_relation": "References",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.236152820289135,
-        "similarity_score": 0.2146843820810318,
-        "citation_text_length": 1232,
-        "dataset_text_length": 2343,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Decoding Neural Correlates of Cognitive States to Enhance Driving Experience",
       "author": "Ricardo Chavarriaga, Marija Ušćumlić, Huaijian Zhang, Zahra Khaliliardali, Ruslan Aydarkhanov, Sareh Saeedi, Lucian Gheorghe, José del R. Millán",
       "venue": "IEEE Transactions on Emerging Topics in Computational Intelligence",
       "year": 2018,
       "url": "https://doi.org/10.1109/tetci.2018.2848289",
-      "cited_by": 33,
+      "cited_by": 34,
       "abstract": "Modern cars can support their drivers by assessing and autonomously performing different driving maneuvers based on information gathered by in-car sensors. We propose that brain- machine interfaces (BMIs) can provide complementary information that can ease the interaction with intelligent cars in order to enhance the driving experience. In our approach, the human remains in control, while a BMI is used to monitor the driver's cognitive state and use that information to modulate the assistance provided by the intelligent car. In this paper, we gather our proof-of-concept studies demonstrating the feasibility of decoding electroencephalography correlates of upcoming actions and those reflecting whether the decisions of driving assistant systems are in-line with the drivers' intentions. Experimental results while driving both simulated and real cars consistently showed neural signatures of anticipation, movement preparation, and error processing. Remarkably, despite the increased noise in",
       "doi": "10.1109/tetci.2018.2848289",
       "pmid": null,
@@ -472,9 +462,6 @@
       "source_doi": "10.3389/fnins.2014.00155",
       "source_relation": "References",
       "discovery_backend": "opencite",
-      "superseded_dois": [
-        "10.1101/411371"
-      ],
       "confidence_scoring": {
         "confidence_score": 0.532471200823784,
         "similarity_score": 0.4840647280216217,
@@ -490,7 +477,7 @@
       "venue": "Frontiers in Human Neuroscience",
       "year": 2019,
       "url": "https://doi.org/10.3389/fnhum.2019.00201",
-      "cited_by": 29,
+      "cited_by": 30,
       "abstract": "Deep convolutional neural networks (CNN) have previously been shown to be useful tools for signal decoding and analysis in a variety of complex domains, such as image processing and speech recognition. By learning from large amounts of data, the representations encoded by these deep networks are often invariant to moderate changes in the underlying feature spaces. Recently, we proposed a CNN architecture that could be applied to electroencephalogram (EEG) decoding and analysis. In this article, we train our CNN model using data from prior experiments in order to later decode the P300 evoked response from an unseen, hold-out experiment. We analyze the CNN output as a function of the underlying variability in the P300 response and demonstrate that the CNN output is sensitive to the experiment-induced changes in the neural response. We then assess the utility of our approach as a means of improving the overall signal-to-noise ratio in the EEG record. Finally, we show an example of how CNN",
       "doi": "10.3389/fnhum.2019.00201",
       "pmid": "31258469",
@@ -509,7 +496,7 @@
     },
     {
       "title": "Generating EEG signals of an RSVP Experiment by a Class Conditioned Wasserstein Generative Adversarial Network",
-      "author": "Sharaj Panwar, Paul Rad, John Quarles, Yufei Huang",
+      "author": "Sharaj Panwar, Paul Rad, John P. Quarles, Yufei Huang",
       "venue": "2019 IEEE International Conference on Systems, Man and Cybernetics (SMC)",
       "year": 2019,
       "url": "https://doi.org/10.1109/smc.2019.8914492",
@@ -522,9 +509,9 @@
       "source_relation": "References",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.48426553606987005,
-        "similarity_score": 0.44024139642715454,
-        "citation_text_length": 1181,
+        "confidence_score": 0.4807632446289063,
+        "similarity_score": 0.4370574951171875,
+        "citation_text_length": 1184,
         "dataset_text_length": 2343,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -647,7 +634,7 @@
     },
     {
       "title": "The privileged sensing framework: A principled approach to improved human-autonomy integration",
-      "author": "A. Marathe, J. Metcalfe, B. Lance, Jamie Lukos, D. Jangraw, Kuan-Ting Lai, J. Touryan, Ethan Stump, Brian M. Sadler, W. Nothwang, K. McDowell",
+      "author": "A. Marathe, J. Metcalfe, B. Lance, Jamie Lukos, D. Jangraw, Kuan-Ting Lai, Jon Touryan, Ethan Stump, Brian M. Sadler, W. Nothwang, K. McDowell",
       "venue": "Theoretical Issues in Ergonomics Science",
       "year": 2018,
       "url": "https://doi.org/10.1080/1463922X.2017.1297865",
@@ -660,9 +647,9 @@
       "source_relation": "References",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.2932333290576935,
-        "similarity_score": 0.26657575368881226,
-        "citation_text_length": 1314,
+        "confidence_score": 0.2924842476844788,
+        "similarity_score": 0.2658947706222534,
+        "citation_text_length": 1315,
         "dataset_text_length": 2343,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -762,7 +749,7 @@
     },
     {
       "title": "A mental fatigue index based on regression using mulitband EEG features with application in simulated driving",
-      "author": "Georgios N. Dimitrakopoulos, Iοannis Kakkos, Nitish V. Thakor, Anastasios Bezerianos, Yu Sun",
+      "author": "Georgios Ν. Dimitrakopoulos, Iοannis Kakkos, Nitish V. Thakor, Anastasios Bezerianos, Yu Sun",
       "venue": "2017 39th Annual International Conference of the IEEE Engineering in Medicine and Biology Society (EMBC)",
       "year": 2017,
       "url": "https://doi.org/10.1109/embc.2017.8037542",
@@ -775,8 +762,8 @@
       "source_relation": "References",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6865321278572083,
-        "similarity_score": 0.6241201162338257,
+        "confidence_score": 0.6857248902320863,
+        "similarity_score": 0.6233862638473511,
         "citation_text_length": 1167,
         "dataset_text_length": 2343,
         "scoring_method": "sentence_transformers",
@@ -785,7 +772,7 @@
     },
     {
       "title": "A roadmap for developing team trust metrics for human-autonomy teams",
-      "author": "Kristin E. Schaefer, Brandon S. Perelman, Gregory M. Gremillion, Amar R. Marathe, J. Stanley Metcalfe",
+      "author": "Kristin E. Schaefer, Brandon S. Perelman, Gregory M. Gremillion, Amar R. Marathe, Jason S. Metcalfe",
       "venue": "Elsevier eBooks",
       "year": 2020,
       "url": "https://doi.org/10.1016/b978-0-12-819472-0.00012-5",
@@ -798,9 +785,9 @@
       "source_relation": "References",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.3656617507338524,
-        "similarity_score": 0.34824928641319275,
-        "citation_text_length": 211,
+        "confidence_score": 0.3651423275470734,
+        "similarity_score": 0.3477545976638794,
+        "citation_text_length": 209,
         "dataset_text_length": 2343,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1177,15 +1164,15 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T10:58:17.241599+00:00",
+    "scoring_date": "2026-10-04T10:11:26.772681+00:00",
     "dataset_text_length": 2343,
     "num_citations_scored": 45,
     "summary_stats": {
-      "mean_confidence": 0.45281323580940575,
+      "mean_confidence": 0.4527806681626374,
       "median_confidence": 0.4615360796451569,
-      "std_confidence": 0.11661242294584738,
+      "std_confidence": 0.11671546351444134,
       "min_confidence": 0.2036990910768509,
-      "max_confidence": 0.6865321278572083,
+      "max_confidence": 0.6857248902320863,
       "high_confidence_count": 0,
       "medium_confidence_count": 32,
       "low_confidence_count": 13

@@ -1,10 +1,10 @@
 {
   "dataset_id": "on004080",
-  "num_citations": 76,
-  "date_last_updated": "2026-09-30T10:47:15.535802+00:00",
+  "num_citations": 73,
+  "date_last_updated": "2026-10-04T10:02:09.072034+00:00",
   "metadata": {
-    "total_cumulative_citations": 679,
-    "fetch_date": "2026-09-24T10:30:37.972558+00:00",
+    "total_cumulative_citations": 509,
+    "fetch_date": "2026-10-04T10:02:09.072034+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -19,12 +19,12 @@
         "source_relation": "IsDescribedBy",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Developmental trajectory of transmission speed in the human brain",
         "paper_year": 2023,
         "paper_venue": "Nature Neuroscience",
         "reason": "The dataset README cites this Nature Neuroscience paper as the detailed description; it reports CCEP ECoG in 74 subjects aged 4-51, matching the dataset and authors.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on004080",
@@ -32,12 +32,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -48,33 +48,32 @@
       "Electrocorticography",
       "Evoked Potentials",
       "Epilepsy",
-      "single pulse electrical stimulation",
+      "iEEG",
       "cortico-cortical evoked potentials",
-      "brain development",
-      "iEEG"
+      "single pulse electrical stimulation",
+      "brain development"
     ],
-    "methods_description": "CCEPs were measured with ECoG during single pulse electrical stimulation (SPES) in epilepsy surgery patients. Electrode positions were estimated using Freesurfer on individual subject MRI scans, labeled with the Destrieux atlas based on the most common surface label within a sphere around each electrode, then converted to MNI152 space using Freesurfer surface-based non-linear transformation.",
+    "methods_description": "CCEPs were measured with ECoG during clinical single pulse electrical stimulation (SPES) in patients undergoing monitoring for epilepsy surgery. Electrode positions were localized on individual MRI, labeled with Destrieux atlas regions using Freesurfer, and converted to MNI152 space using a surface-based non-linear transformation.",
     "funding": [
+      {
+        "funder_name": "Alexandre Suerman Stipendium 2015"
+      },
+      {
+        "funder_name": "EpilepsieNL #17-07"
+      },
       {
         "funder_name": "National Institute of Mental Health",
         "award_number": "R01MH122258"
       },
       {
         "funder_name": "EpilepsieNL",
-        "award_number": "17-07"
+        "award_number": "NEF17-07"
       },
       {
-        "funder_name": "UMC Utrecht Alexandre Suerman MD/PhD Stipendium",
-        "award_number": "2015"
+        "funder_name": "UMC Utrecht",
+        "award_title": "Alexandre Suerman MD/PhD Stipendium 2015"
       }
-    ],
-    "searched_accessions": [
-      "on004080",
-      "ds004080"
-    ],
-    "num_accession_mentions": 3,
-    "num_dataset_citations": 4,
-    "num_datapaper_citations": 72
+    ]
   },
   "citation_details": [
     {
@@ -83,7 +82,7 @@
       "venue": "Trends in Neurosciences",
       "year": 2024,
       "url": "https://doi.org/10.1016/j.tins.2024.02.001",
-      "cited_by": 100,
+      "cited_by": 101,
       "abstract": "Middle age has historically been an understudied period of life compared to older age, when cognitive and brain health decline are most pronounced, but the scope for intervention may be limited. However, recent research suggests that middle age could mark a shift in brain aging. We review emerging evidence on multiple levels of analysis indicating that midlife is a period defined by unique central and peripheral processes that shape future cognitive trajectories and brain health. Informed by recent developments in aging research and lifespan studies in humans and animal models, we highlight the utility of modeling non-linear changes in study samples with wide subject age ranges to distinguish life stage-specific processes from those acting linearly throughout the lifespan.",
       "doi": "10.1016/j.tins.2024.02.001",
       "pmid": "38508906",
@@ -106,7 +105,7 @@
       "venue": "Nature Communications",
       "year": 2024,
       "url": "https://doi.org/10.1038/s41467-024-44863-6",
-      "cited_by": 46,
+      "cited_by": 47,
       "abstract": "Cortical thinning is an important hallmark of the maturation of brain morphology during childhood and adolescence. However, the connectome-based wiring mechanism that underlies cortical maturation remains unclear. Here, we show cortical thinning patterns primarily located in the lateral frontal and parietal heteromodal nodes during childhood and adolescence, which are structurally constrained by white matter network architecture and are particularly represented using a network-based diffusion model. Furthermore, connectome-based constraints are regionally heterogeneous, with the largest constraints residing in frontoparietal nodes, and are associated with gene expression signatures of microstructural neurodevelopmental events. These results are highly reproducible in another independent dataset. These findings advance our understanding of network-level mechanisms and the associated genetic basis that underlies the maturational process of cortical morphology during childhood and adolesc",
       "doi": "10.1038/s41467-024-44863-6",
       "pmid": "38278807",
@@ -129,7 +128,7 @@
       "venue": "PLoS Computational Biology",
       "year": 2023,
       "url": "https://doi.org/10.1371/journal.pcbi.1011105",
-      "cited_by": 36,
+      "cited_by": 37,
       "abstract": "Single-pulse electrical stimulation in the nervous system, often called cortico-cortical evoked potential (CCEP) measurement, is an important technique to understand how brain regions interact with one another. Voltages are measured from implanted electrodes in one brain area while stimulating another with brief current impulses separated by several seconds. Historically, researchers have tried to understand the significance of evoked voltage polyphasic deflections by visual inspection, but no general-purpose tool has emerged to understand their shapes or describe them mathematically. We describe and illustrate a new technique to parameterize brain stimulation data, where voltage response traces are projected into one another using a semi-normalized dot product. The length of timepoints from stimulation included in the dot product is varied to obtain a temporal profile of structural significance, and the peak of the profile uniquely identifies the duration of the response. Using linear",
       "doi": "10.1371/journal.pcbi.1011105",
       "pmid": "37228169",
@@ -152,7 +151,7 @@
       "venue": "Journal of Neuroscience",
       "year": 2023,
       "url": "https://doi.org/10.1523/jneurosci.2201-22.2023",
-      "cited_by": 27,
+      "cited_by": 28,
       "abstract": "Stimulation-evoked signals are starting to be used as biomarkers to indicate the state and health of brain networks. The human limbic network, often targeted for brain stimulation therapy, is involved in emotion and memory processing. Previous anatomic, neurophysiological, and functional studies suggest distinct subsystems within the limbic network (Rolls, 2015). Studies using intracranial electrical stimulation, however, have emphasized the similarities of the evoked waveforms across the limbic network. We test whether these subsystems have distinct stimulation-driven signatures. In eight patients (four male, four female) with drug-resistant epilepsy, we stimulated the limbic system with single-pulse electrical stimulation. Reliable corticocortical evoked potentials (CCEPs) were measured between hippocampus and the posterior cingulate cortex (PCC) and between the amygdala and the anterior cingulate cortex (ACC). However, the CCEP waveform in the PCC after hippocampal stimulation showe",
       "doi": "10.1523/jneurosci.2201-22.2023",
       "pmid": "37620159",
@@ -175,7 +174,7 @@
       "venue": "Clinical Neurophysiology",
       "year": 2023,
       "url": "https://doi.org/10.1016/j.clinph.2023.12.013",
-      "cited_by": 18,
+      "cited_by": 19,
       "abstract": "OBJECTIVE\nSingle-pulse electrical stimulations (SPES) can elicit normal and abnormal responses that might characterize the epileptogenic zone, including spikes, high-frequency oscillations and cortico-cortical evoked potentials (CCEPs). In this study, we investigate their association with the epileptogenic zone during stereoelectroencephalography (SEEG) in 28 patients with refractory focal epilepsy.\n\n\nMETHODS\nCharacteristics of CCEPs (distance-corrected or -uncorrected latency, amplitude and the connectivity index) and the occurrence of spikes and ripples were assessed. Responses within the epileptogenic zone and within the non-involved zone were compared using receiver operating characteristics curves and analysis of variance (ANOVA) either in all patients, patients with well-delineated epileptogenic zone, and patients older than 15 years old.\n\n\nRESULTS\nWe found an increase in distance-corrected CCEPs latency after stimulation within the epileptogenic zone (area under the curve = 0.71",
       "doi": "10.1016/j.clinph.2023.12.013",
       "pmid": "38183887",
@@ -198,7 +197,7 @@
       "venue": "medRxiv",
       "year": 2024,
       "url": "https://doi.org/10.1101/2024.03.03.24303480",
-      "cited_by": 18,
+      "cited_by": 19,
       "abstract": "Background: The clinical effects of deep brain stimulation for neurological conditions manifest across multiple timescales, spanning seconds to months, and involve direct electrical modulation, neuroplasticity, and network reorganization. In epilepsy, the delayed effects of deep brain stimulation on seizures limit optimization. Single pulse electrical stimulation and the resulting pulse evoked potentials offer a measure network effective connectivity and excitability. This study leverages single pulse and high frequency thalamic stimulation during stereotactic electroencephalography to assess seizure network engagement, modulate network activity, and track changes in excitability and epileptiform abnormalities. Methods: effect size) assessed change in network excitability. Interictal epileptiform discharge rates were measured by an automated classifier at baseline and during high frequency stimulation. Statistical significance was determined using paired-sample t-tests (p<0.05 signific",
       "doi": "10.1101/2024.03.03.24303480",
       "pmid": "38496621",
@@ -217,7 +216,7 @@
     },
     {
       "title": "A Simple Review of EEG Foundation Models: Datasets, Advancements and Future Perspectives",
-      "author": "Junhong Lai, Jiyu Wei, Lin Yao, Yueming Wang",
+      "author": "Junhong Lai, Ji-Yu Wei, Lin Yao, Yue-Ming Wang",
       "venue": "ArXiv",
       "year": 2025,
       "url": "https://doi.org/10.48550/arXiv.2504.20069",
@@ -230,9 +229,9 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5400481425225735,
-        "similarity_score": 0.4675741493701935,
-        "citation_text_length": 1176,
+        "confidence_score": 0.5387528201937677,
+        "similarity_score": 0.4664526581764221,
+        "citation_text_length": 1178,
         "dataset_text_length": 2380,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -286,7 +285,7 @@
     },
     {
       "title": "Touch-evoked traveling waves establish a translaminar spacetime code",
-      "author": "Daniel L. Gonzales, Hammad F. Khan, Hayagreev V. S. Keri, Saumitra Yadav, Christopher S. Steward, Lyle Muller, Scott R. Pluta, Krishna Jayant",
+      "author": "Daniel L. Gonzales, Hammad Furqan Khan, Hayagreev V. S. Keri, Saumitra Yadav, Christopher S. Steward, Lyle Muller, Scott R. Pluta, Krishna Jayant",
       "venue": "Science Advances",
       "year": 2025,
       "url": "https://doi.org/10.1126/sciadv.adr4038",
@@ -299,9 +298,32 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.41773850798606876,
-        "similarity_score": 0.3616783618927002,
-        "citation_text_length": 1264,
+        "confidence_score": 0.41895548656582837,
+        "similarity_score": 0.36273202300071716,
+        "citation_text_length": 1268,
+        "dataset_text_length": 2380,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Neurophysiological mechanisms of cognition in the developing brain: Insights from intracranial EEG studies",
+      "author": "Qin Yin, Elizabeth L. Johnson, Noa Ofen",
+      "venue": "Developmental Cognitive Neuroscience",
+      "year": 2023,
+      "url": "https://doi.org/10.1016/j.dcn.2023.101312",
+      "cited_by": 12,
+      "abstract": "The quest to understand how the development of the brain supports the development of complex cognitive functions is fueled by advances in cognitive neuroscience methods. Intracranial EEG (iEEG) recorded directly from the developing human brain provides unprecedented spatial and temporal resolution for mapping the neurophysiological mechanisms supporting cognitive development. In this paper, we focus on episodic memory, the ability to remember detailed information about past experiences, which improves from childhood into adulthood. We review memory effects based on broadband spectral power and emphasize the importance of isolating narrowband oscillations from broadband activity to determine mechanisms of neural coordination within and between brain regions. We then review evidence of developmental variability in neural oscillations and present emerging evidence linking the development of neural oscillations to the development of memory. We conclude by proposing that the development of ",
+      "doi": "10.1016/j.dcn.2023.101312",
+      "pmid": "37837918",
+      "openalex_id": "W4387477054",
+      "source_doi": "10.1038/s41593-023-01272-0",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5392445683479309,
+        "similarity_score": 0.46687841415405273,
+        "citation_text_length": 1220,
         "dataset_text_length": 2380,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -331,35 +353,12 @@
       }
     },
     {
-      "title": "Neurophysiological mechanisms of cognition in the developing brain: Insights from intracranial EEG studies",
-      "author": "Qin Yin, Elizabeth L. Johnson, Noa Ofen",
-      "venue": "Developmental Cognitive Neuroscience",
-      "year": 2023,
-      "url": "https://doi.org/10.1016/j.dcn.2023.101312",
-      "cited_by": 11,
-      "abstract": "The quest to understand how the development of the brain supports the development of complex cognitive functions is fueled by advances in cognitive neuroscience methods. Intracranial EEG (iEEG) recorded directly from the developing human brain provides unprecedented spatial and temporal resolution for mapping the neurophysiological mechanisms supporting cognitive development. In this paper, we focus on episodic memory, the ability to remember detailed information about past experiences, which improves from childhood into adulthood. We review memory effects based on broadband spectral power and emphasize the importance of isolating narrowband oscillations from broadband activity to determine mechanisms of neural coordination within and between brain regions. We then review evidence of developmental variability in neural oscillations and present emerging evidence linking the development of neural oscillations to the development of memory. We conclude by proposing that the development of ",
-      "doi": "10.1016/j.dcn.2023.101312",
-      "pmid": "37837918",
-      "openalex_id": "W4387477054",
-      "source_doi": "10.1038/s41593-023-01272-0",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5392445683479309,
-        "similarity_score": 0.46687841415405273,
-        "citation_text_length": 1220,
-        "dataset_text_length": 2380,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "When Maturation is Not Linear: Brain Oscillatory Activity in the Process of Aging as Measured by Electrophysiology",
       "author": "Sandra Doval, David López‐Sanz, Ricardo Bruña, Pablo Cuesta, Luis Fernando Antón‐Toro, Ignacio Taguas, Lucía Torres-Simón, Brenda Nadia Chino Vilca, Fernando Maestú",
       "venue": "Brain Topography",
       "year": 2024,
       "url": "https://doi.org/10.1007/s10548-024-01064-0",
-      "cited_by": 10,
+      "cited_by": 11,
       "abstract": "Abstract Changes in brain oscillatory activity are commonly used as biomarkers both in cognitive neuroscience and in neuropsychiatric conditions. However, little is known about how its profile changes across maturation. Here we use regression models to characterize magnetoencephalography power changes within classical frequency bands in a sample of 792 healthy participants, covering the range 13 to 80 years old. Our results reveal complex, non-linear trajectories of power changes that challenge the linear model traditionally reported. Moreover, these trajectories also exhibit variations across cortical regions. Remarkably, we observed that increases in slow wave activity are associated with a better cognitive performance across the lifespan, as well as with larger gray matter volume for elderlies, while fast wave activity decreases with adulthood. These results suggest that elevated power in low-frequency resting-state activity during aging may reflect a proxy for deterioration, rather",
       "doi": "10.1007/s10548-024-01064-0",
       "pmid": "38900389",
@@ -446,29 +445,6 @@
       }
     },
     {
-      "title": "High-stable multifunctional dynamically reconfigurable artificial synapses based on hybrid graphene/ferroelectric field-effect transistors",
-      "author": "Liang Liu, Xutao Zhang, Ruijuan Tian, Qiao Zhang, Mingwen Zhang, Yu Zhang, Xuetao Gan",
-      "venue": "Applied Physics Reviews",
-      "year": 2025,
-      "url": "https://doi.org/10.1063/5.0235614",
-      "cited_by": 8,
-      "abstract": "In response to the challenges posed by traditional computing architectures in handling big data and AI demands, neuromorphic computing has emerged as a promising alternative inspired by the brain's efficiency. This study focuses on three-terminal synaptic transistors utilizing graphene and P(VDF-TrFE) to achieve dynamic reconfigurability between excitatory and inhibitory response modes, which are crucial for mimicking biological functions. The devices operate by applying different top gate spikes (±25 V and ±10 V) to modulate the polarization degree of P(VDF-TrFE), thereby regulating the carrier type and concentration in the graphene channel. This results in the effective realization of enhancement and inhibition processes in two neural-like states: excitatory and inhibitory modes, accompanied by good neural plasticity with paired-pulse facilitation and spike-time-dependent plasticity. With these features, the synaptic devices achieve brain-like memory enhancement and human-like percep",
-      "doi": "10.1063/5.0235614",
-      "pmid": null,
-      "openalex_id": "W4406697670",
-      "source_doi": "10.1038/s41593-023-01272-0",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.35039709895849236,
-        "similarity_score": 0.30337411165237427,
-        "citation_text_length": 1285,
-        "dataset_text_length": 2380,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Cortico‐cortical evoked potentials: Analytical techniques and emerging paradigms for epileptogenic zone localization",
       "author": "Zekai Qiang, J. C. Norris, Gerald Cooray, Richard Ewald Rosch, Kai Joshua Miller, Dora Hermes, Ajai Chari, Martin M. Tisdall",
       "venue": "Epilepsia",
@@ -486,6 +462,29 @@
         "confidence_score": 0.7080396178364755,
         "similarity_score": 0.6130213141441345,
         "citation_text_length": 1288,
+        "dataset_text_length": 2380,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "High-stable multifunctional dynamically reconfigurable artificial synapses based on hybrid graphene/ferroelectric field-effect transistors",
+      "author": "Liang Liu, Xutao Zhang, Ruijuan Tian, Qiao Zhang, Mingwen Zhang, Yu Zhang, Xuetao Gan",
+      "venue": "Applied Physics Reviews",
+      "year": 2025,
+      "url": "https://doi.org/10.1063/5.0235614",
+      "cited_by": 8,
+      "abstract": "In response to the challenges posed by traditional computing architectures in handling big data and AI demands, neuromorphic computing has emerged as a promising alternative inspired by the brain's efficiency. This study focuses on three-terminal synaptic transistors utilizing graphene and P(VDF-TrFE) to achieve dynamic reconfigurability between excitatory and inhibitory response modes, which are crucial for mimicking biological functions. The devices operate by applying different top gate spikes (±25 V and ±10 V) to modulate the polarization degree of P(VDF-TrFE), thereby regulating the carrier type and concentration in the graphene channel. This results in the effective realization of enhancement and inhibition processes in two neural-like states: excitatory and inhibitory modes, accompanied by good neural plasticity with paired-pulse facilitation and spike-time-dependent plasticity. With these features, the synaptic devices achieve brain-like memory enhancement and human-like percep",
+      "doi": "10.1063/5.0235614",
+      "pmid": null,
+      "openalex_id": "W4406697670",
+      "source_doi": "10.1038/s41593-023-01272-0",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.35039709895849236,
+        "similarity_score": 0.30337411165237427,
+        "citation_text_length": 1285,
         "dataset_text_length": 2380,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -516,7 +515,7 @@
     },
     {
       "title": "Establishing the relationship between brain cellular senescence and brain structure",
-      "author": "Anina N. Lund, Brian H. Kopell, Negar Golestani, Eric Sean Vornholt, Ryan C. Thompson, Lora E. Liharska, Yuyang Luo, Esther Cheng, You Jeong Park, Brian Fennessy, Lilian Wilkins, Deepak A. Kaji, Hannah Silk, Kimia Ziafat, Alice Hashemi, Emily Moya, Claudia Feng, Lisa M. Linares, Ariela Buxbaum Grice, Sabrina Xie, Marysia-Kolbe Rieder, Joseph Scarpa, Prashant Kota, Vanessa V. Cohen, Brendan Sullivan, Punit Shah, Weiping Ma, Jessica S. Johnson, Gregory M. Miller, Richard M. Searfoss, Nischal Mahaveer Chand, Pei Wang, Girish  N. Nadkarni, Niven R. Narain, Eric J. Nestler, Michael A. Kiebish, Eric E. Schadt, Alexander W. Charney, Noam D. Beckmann",
+      "author": "Anina N. Lund, Brian Harris Kopell, Negar Golestani, Eric Sean Vornholt, Ryan C. Thompson, Lora E. Liharska, Yuyang Luo, Esther Cheng, You Jeong Park, Brian Fennessy, Lilian Wilkins, Deepak A. Kaji, Hannah Silk, Kimia Ziafat, Alice Hashemi, Emily Moya, Claudia Feng, Lisa M. Linares, Ariela Buxbaum Grice, Sabrina Xie, Marysia-Kolbe Rieder, Joseph Scarpa, Prashant Kota, Vanessa V. Cohen, Brendan Sullivan, Punit Shah, Weiping Ma, Jessica S. Johnson, Gregory M. Miller, Richard M. Searfoss, Nischal Mahaveer Chand, Pei Wang, Girish  N. Nadkarni, Niven R. Narain, Eric J. Nestler, Michael A. Kiebish, Eric E. Schadt, Alexander W. Charney, Noam D. Beckmann",
       "venue": "Cell",
       "year": 2026,
       "url": "https://doi.org/10.1016/j.cell.2025.10.014",
@@ -529,9 +528,9 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.4354328361153603,
-        "similarity_score": 0.3769981265068054,
-        "citation_text_length": 1776,
+        "confidence_score": 0.4351950511336327,
+        "similarity_score": 0.3767922520637512,
+        "citation_text_length": 1780,
         "dataset_text_length": 2380,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -555,6 +554,52 @@
         "confidence_score": 0.3102017551660538,
         "similarity_score": 0.2954302430152893,
         "citation_text_length": 153,
+        "dataset_text_length": 2380,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "The effect of propofol on effective brain networks",
+      "author": "Dorien van Blooijs, S. Blok, Geertjan J.M. Huiskamp, Pieter van Eijsden, Hil G. E. Meijer, Frans S. S. Leijten",
+      "venue": "Clinical Neurophysiology",
+      "year": 2024,
+      "url": "https://doi.org/10.1016/j.clinph.2024.01.012",
+      "cited_by": 6,
+      "abstract": "OBJECTIVE: We compared the effective networks derived from Single Pulse Electrical Stimulation (SPES) in intracranial electrocorticography (ECoG) of awake epilepsy patients and while under general propofol-anesthesia to investigate the effect of propofol on these brain networks. METHODS: We included nine patients who underwent ECoG for epilepsy surgery evaluation. We performed SPES when the patient was awake (SPES-clinical) and repeated this under propofol-anesthesia during the surgery in which the ECoG grids were removed (SPES-propofol). We detected the cortico-cortical evoked potentials (CCEPs) with an automatic detector. We constructed two effective networks derived from SPES-clinical and SPES-propofol. We compared three network measures (indegree, outdegree and betweenness centrality), the N1-peak-latency and amplitude of CCEPs between the two effective networks. RESULTS: = 0.55, p < 0.001). The median N1-peak-latency increased from 22.0 ms during SPES-clinical to 26.4 ms during SP",
+      "doi": "10.1016/j.clinph.2024.01.012",
+      "pmid": "38522268",
+      "openalex_id": "W4392578699",
+      "source_doi": "10.1038/s41593-023-01272-0",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6836168146133423,
+        "similarity_score": 0.5918760299682617,
+        "citation_text_length": 1223,
+        "dataset_text_length": 2380,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Utility of intracranial EEG networks depends on re-referencing and connectivity choice",
+      "author": "Haoer Shi, Akash R. Pattnaik, Carlos A. Aguila, Alfredo Lucas, Nishant Sinha, Brian Prager, Marissa Mojena, Ryan S. Gallagher, Alexandra Parashos, Leonardo Bonilha, Ezequiel L. Gleichgerrcht, Kathryn A. Davis, Brian Litt, Erin C. Conrad",
+      "venue": "Brain Communications",
+      "year": 2024,
+      "url": "https://doi.org/10.1093/braincomms/fcae165",
+      "cited_by": 6,
+      "abstract": "Abstract Studies of intracranial EEG networks have been used to reveal seizure generators in patients with drug-resistant epilepsy. Intracranial EEG is implanted to capture the epileptic network, the collection of brain tissue that forms a substrate for seizures to start and spread. Interictal intracranial EEG measures brain activity at baseline, and networks computed during this state can reveal aberrant brain tissue without requiring seizure recordings. Intracranial EEG network analyses require choosing a reference and applying statistical measures of functional connectivity. Approaches to these technical choices vary widely across studies, and the impact of these technical choices on downstream analyses is poorly understood. Our objective was to examine the effects of different re-referencing and connectivity approaches on connectivity results and on the ability to lateralize the seizure onset zone in patients with drug-resistant epilepsy. We applied 48 pre-processing pipelines to a",
+      "doi": "10.1093/braincomms/fcae165",
+      "pmid": "38799618",
+      "openalex_id": "W4396871733",
+      "source_doi": "10.1038/s41593-023-01272-0",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5259663355350495,
+        "similarity_score": 0.4553821086883545,
+        "citation_text_length": 1381,
         "dataset_text_length": 2380,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -607,31 +652,8 @@
       }
     },
     {
-      "title": "Utility of intracranial EEG networks depends on re-referencing and connectivity choice",
-      "author": "Haoer Shi, Akash R. Pattnaik, Carlos A. Aguila, Alfredo Lucas, Nishant Kumar Sinha, Brian Prager, Marissa Mojena, Ryan S. Gallagher, Alexandra Parashos, Leonardo Bonilha, Ezequiel L. Gleichgerrcht, Kathryn A. Davis, Brian Litt, Erin C. Conrad",
-      "venue": "Brain Communications",
-      "year": 2024,
-      "url": "https://doi.org/10.1093/braincomms/fcae165",
-      "cited_by": 6,
-      "abstract": "Abstract Studies of intracranial EEG networks have been used to reveal seizure generators in patients with drug-resistant epilepsy. Intracranial EEG is implanted to capture the epileptic network, the collection of brain tissue that forms a substrate for seizures to start and spread. Interictal intracranial EEG measures brain activity at baseline, and networks computed during this state can reveal aberrant brain tissue without requiring seizure recordings. Intracranial EEG network analyses require choosing a reference and applying statistical measures of functional connectivity. Approaches to these technical choices vary widely across studies, and the impact of these technical choices on downstream analyses is poorly understood. Our objective was to examine the effects of different re-referencing and connectivity approaches on connectivity results and on the ability to lateralize the seizure onset zone in patients with drug-resistant epilepsy. We applied 48 pre-processing pipelines to a",
-      "doi": "10.1093/braincomms/fcae165",
-      "pmid": "38799618",
-      "openalex_id": "W4396871733",
-      "source_doi": "10.1038/s41593-023-01272-0",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5263854883611202,
-        "similarity_score": 0.45574501156806946,
-        "citation_text_length": 1387,
-        "dataset_text_length": 2380,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Short-range human cortico-cortical white matter fibers have thinner axons and are less myelinated compared to long-range fibers despite a similar g-ratio",
-      "author": "Philip Ruthig, David Edler v.d. Planitz, Maria A. Morozova, Katja Reimann, Carsten Jäger, T. Reinert, Siawoosh Mohammadi, Nikolaus Weiskopf, Evgeniya P. Kirilina, Markus Morawski",
+      "author": "Philip Ruthig, David Edler v.d. Planitz, Maria Morozova, Katja Reimann, Carsten Jäger, T. Reinert, Siawoosh Mohammadi, Nikolaus Weiskopf, Evgeniya P. Kirilina, Markus Morawski",
       "venue": "PLoS Biology",
       "year": 2025,
       "url": "https://doi.org/10.1371/journal.pbio.3002906",
@@ -644,9 +666,9 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.31417213350534445,
-        "similarity_score": 0.2720105051994324,
-        "citation_text_length": 1382,
+        "confidence_score": 0.3134089015424252,
+        "similarity_score": 0.27134969830513,
+        "citation_text_length": 1379,
         "dataset_text_length": 2380,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -676,6 +698,29 @@
       }
     },
     {
+      "title": "ER-detect: A pipeline for robust detection of early evoked responses in BIDS-iEEG electrical stimulation data",
+      "author": "Max van den Boom, Max A. van den Boom, Nicholas Miller Gregg, Gabriela Ojeda Valencia, Brian N. Lundstrom, Kai Joshua Miller, Dorien van Blooijs, Geertjan J.M. Huiskamp, Frans S. S. Leijten, Gregory A. Worrell, Dora Hermes",
+      "venue": "Journal of Neuroscience Methods",
+      "year": 2025,
+      "url": "https://doi.org/10.1016/j.jneumeth.2025.110389",
+      "cited_by": 5,
+      "abstract": "Abstract Human brain connectivity can be measured in different ways. Intracranial EEG (iEEG) measurements during single pulse electrical stimulation provide a unique way to assess the spread of electrical information with millisecond precision. To provide a robust workflow to process these cortico-cortical evoked potential (CCEP) data and detect early evoked responses in a fully automated and reproducible fashion, we developed Early Response (ER)-detect. ER-detect is an open-source Python package and Docker application to preprocess BIDS structured iEEG data and detect early evoked CCEP responses. ER-detect can use three response detection methods, which were validated against 14 manually annotated CCEP datasets from two different sites by four independent raters. Results showed that ER-detect’s automated detection performed on par with the inter-rater reliability (Cohen’s Kappa of ∼0.6). Moreover, ER-detect was optimized for processing large CCEP datasets, to be used in conjunction wi",
+      "doi": "10.1016/j.jneumeth.2025.110389",
+      "pmid": "39952481",
+      "openalex_id": "W4407406287",
+      "source_doi": "10.1038/s41593-023-01272-0",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7999608618021012,
+        "similarity_score": 0.6926068067550659,
+        "citation_text_length": 1401,
+        "dataset_text_length": 2380,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Effect of Electrode Distance and Size on Electrocorticographic Recordings in Human Sensorimotor Cortex",
       "author": "Simon H. Geukes, Mariana Pedroso Branco, Erik J. Aarnoutse, Annike Bekius, Julia Berezutskaya, Nick F. Ramsey",
       "venue": "Neuroinformatics",
@@ -699,46 +744,23 @@
       }
     },
     {
-      "title": "The effect of propofol on effective brain networks",
-      "author": "Dorien van Blooijs, S. Blok, Geertjan J.M. Huiskamp, Pieter van Eijsden, Hil G. E. Meijer, Frans S. S. Leijten",
-      "venue": "Clinical Neurophysiology",
-      "year": 2024,
-      "url": "https://doi.org/10.1016/j.clinph.2024.01.012",
+      "title": "Physiological and pathological neuronal connectivity in the living human brain based on intracranial EEG signals: the current state of research",
+      "author": "Yulia Novitskaya, Matthias Dümpelmann, Andreas Schulze‐Bonhage",
+      "venue": "Frontiers in Network Physiology",
+      "year": 2023,
+      "url": "https://doi.org/10.3389/fnetp.2023.1297345",
       "cited_by": 5,
-      "abstract": "OBJECTIVE: We compared the effective networks derived from Single Pulse Electrical Stimulation (SPES) in intracranial electrocorticography (ECoG) of awake epilepsy patients and while under general propofol-anesthesia to investigate the effect of propofol on these brain networks. METHODS: We included nine patients who underwent ECoG for epilepsy surgery evaluation. We performed SPES when the patient was awake (SPES-clinical) and repeated this under propofol-anesthesia during the surgery in which the ECoG grids were removed (SPES-propofol). We detected the cortico-cortical evoked potentials (CCEPs) with an automatic detector. We constructed two effective networks derived from SPES-clinical and SPES-propofol. We compared three network measures (indegree, outdegree and betweenness centrality), the N1-peak-latency and amplitude of CCEPs between the two effective networks. RESULTS: = 0.55, p < 0.001). The median N1-peak-latency increased from 22.0 ms during SPES-clinical to 26.4 ms during SP",
-      "doi": "10.1016/j.clinph.2024.01.012",
-      "pmid": "38522268",
-      "openalex_id": "W4392578699",
+      "abstract": "Over the past decades, studies of human brain networks have received growing attention as the assessment and modelling of connectivity in the brain is a topic of high impact with potential application in the understanding of human brain organization under both physiological as well as various pathological conditions. Under specific diagnostic settings, human neuronal signal can be obtained from intracranial EEG (iEEG) recording in epilepsy patients that allows gaining insight into the functional organisation of living human brain. There are two approaches to assess brain connectivity in the iEEG-based signal: evaluation of spontaneous neuronal oscillations during ongoing physiological and pathological brain activity, and analysis of the electrophysiological cortico-cortical neuronal responses, evoked by single pulse electrical stimulation (SPES). Both methods have their own advantages and limitations. The paper outlines available methodological approaches and provides an overview of cu",
+      "doi": "10.3389/fnetp.2023.1297345",
+      "pmid": "38107334",
+      "openalex_id": "W4389203571",
       "source_doi": "10.1038/s41593-023-01272-0",
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6836168146133423,
-        "similarity_score": 0.5918760299682617,
-        "citation_text_length": 1223,
-        "dataset_text_length": 2380,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "ER-detect: A pipeline for robust detection of early evoked responses in BIDS-iEEG electrical stimulation data",
-      "author": "Max van den Boom, Max A. van den Boom, Nicholas Miller Gregg, Gabriela Ojeda Valencia, Brian N. Lundstrom, Kai Joshua Miller, Dorien van Blooijs, Geertjan J.M. Huiskamp, Frans S. S. Leijten, Gregory A. Worrell, Dora Hermes",
-      "venue": "Journal of Neuroscience Methods",
-      "year": 2025,
-      "url": "https://doi.org/10.1016/j.jneumeth.2025.110389",
-      "cited_by": 4,
-      "abstract": "Abstract Human brain connectivity can be measured in different ways. Intracranial EEG (iEEG) measurements during single pulse electrical stimulation provide a unique way to assess the spread of electrical information with millisecond precision. To provide a robust workflow to process these cortico-cortical evoked potential (CCEP) data and detect early evoked responses in a fully automated and reproducible fashion, we developed Early Response (ER)-detect. ER-detect is an open-source Python package and Docker application to preprocess BIDS structured iEEG data and detect early evoked CCEP responses. ER-detect can use three response detection methods, which were validated against 14 manually annotated CCEP datasets from two different sites by four independent raters. Results showed that ER-detect’s automated detection performed on par with the inter-rater reliability (Cohen’s Kappa of ∼0.6). Moreover, ER-detect was optimized for processing large CCEP datasets, to be used in conjunction wi",
-      "doi": "10.1016/j.jneumeth.2025.110389",
-      "pmid": "39952481",
-      "openalex_id": "W4407406287",
-      "source_doi": "10.1038/s41593-023-01272-0",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.7999608618021012,
-        "similarity_score": 0.6926068067550659,
-        "citation_text_length": 1401,
+        "confidence_score": 0.6362144404649736,
+        "similarity_score": 0.5508350133895874,
+        "citation_text_length": 1275,
         "dataset_text_length": 2380,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -791,29 +813,6 @@
       }
     },
     {
-      "title": "Physiological and pathological neuronal connectivity in the living human brain based on intracranial EEG signals: the current state of research",
-      "author": "Yulia Novitskaya, Matthias Dümpelmann, Andreas Schulze‐Bonhage",
-      "venue": "Frontiers in Network Physiology",
-      "year": 2023,
-      "url": "https://doi.org/10.3389/fnetp.2023.1297345",
-      "cited_by": 4,
-      "abstract": "Over the past decades, studies of human brain networks have received growing attention as the assessment and modelling of connectivity in the brain is a topic of high impact with potential application in the understanding of human brain organization under both physiological as well as various pathological conditions. Under specific diagnostic settings, human neuronal signal can be obtained from intracranial EEG (iEEG) recording in epilepsy patients that allows gaining insight into the functional organisation of living human brain. There are two approaches to assess brain connectivity in the iEEG-based signal: evaluation of spontaneous neuronal oscillations during ongoing physiological and pathological brain activity, and analysis of the electrophysiological cortico-cortical neuronal responses, evoked by single pulse electrical stimulation (SPES). Both methods have their own advantages and limitations. The paper outlines available methodological approaches and provides an overview of cu",
-      "doi": "10.3389/fnetp.2023.1297345",
-      "pmid": "38107334",
-      "openalex_id": "W4389203571",
-      "source_doi": "10.1038/s41593-023-01272-0",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.6362144404649736,
-        "similarity_score": 0.5508350133895874,
-        "citation_text_length": 1275,
-        "dataset_text_length": 2380,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Structure in noise: Recurrent connectivity shapes neural variability to balance perceptual and cognitive demands in the human brain",
       "author": "Jonas Terlau, Jan Martini, Randolph F. Helfrich",
       "venue": "Neuron",
@@ -854,6 +853,29 @@
         "confidence_score": 0.4373754143714905,
         "similarity_score": 0.4165480136871338,
         "citation_text_length": 160,
+        "dataset_text_length": 2380,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Methodologies to detect cortico-cortical evoked potentials: a systematic review",
+      "author": "Tamara Al-Sadek, Aryan Wadhwa, Millen Wadhwa, Aaron E. L. Warren, John David Rolston",
+      "venue": "Frontiers in Human Neuroscience",
+      "year": 2025,
+      "url": "https://doi.org/10.3389/fnhum.2025.1636115",
+      "cited_by": 3,
+      "abstract": "Introduction: Cortico-cortical evoked potentials (CCEPs) are electrophysiological responses elicited by direct electrical stimulation of one cortical region and recorded from another, providing insights into functional connectivity and communication pathways between brain areas. However, no consistent standard for defining and measuring CCEPs currently exists. Methods: We conducted a systematic review of the CCEP literature on detection methods to evaluate commonalities and gaps in methodology. Extracted data included demographics, disease, recording type, montage, recording system, stimulation amplitude and frequency, time window used for epoching around stimulus onset, open access availability, and detection approach. Results: Of 187 studies undergoing full-text review, over half lacked a description of the CCEP detection method. Specifically, 9.1% utilized visual identification, whereas 49.74% did not explicitly state the method. The remaining 72 studies represented 3,424 patients, ",
+      "doi": "10.3389/fnhum.2025.1636115",
+      "pmid": "40958989",
+      "openalex_id": "W4413868552",
+      "source_doi": "10.1038/s41593-023-01272-0",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7344556429982186,
+        "similarity_score": 0.6358923316001892,
+        "citation_text_length": 1233,
         "dataset_text_length": 2380,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -953,7 +975,7 @@
     },
     {
       "title": "Hierarchical Flows of Human Cortical Activity",
-      "author": "Xiao-Bo Liu, A. Wiesman, S. Baillet",
+      "author": "Xiao-Bo Liu, A. I. Wiesman, S. Baillet",
       "venue": "bioRxiv",
       "year": 2026,
       "url": "https://doi.org/10.64898/2026.03.19.712872",
@@ -966,9 +988,9 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.540918288230896,
-        "similarity_score": 0.46832752227783203,
-        "citation_text_length": 1126,
+        "confidence_score": 0.5422996303439142,
+        "similarity_score": 0.46952348947525024,
+        "citation_text_length": 1129,
         "dataset_text_length": 2380,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -995,13 +1017,34 @@
         "dataset_text_length": 2380,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      },
-      "mentions_accession": true,
-      "matched_accession": "ds004080"
+      }
+    },
+    {
+      "title": "How Thalamo-Cortical Loops Modulate Cortico-Cortical Evoked Potentials?",
+      "author": "Odile Feys, Samuel Médina Villalon, Christian George Bénar, Julia Makhalova, Francesca Bonini, Sandrine Aubert‐Conil, Romain Carron, Angela Marchi, Fabrice Bartoloméi, Francesca Pizzo",
+      "venue": "Brain Topography",
+      "year": 2026,
+      "url": "https://doi.org/10.1007/s10548-026-01213-7",
+      "cited_by": 2,
+      "abstract": null,
+      "doi": "10.1007/s10548-026-01213-7",
+      "pmid": "42216978",
+      "openalex_id": "W7162873957",
+      "source_doi": "10.1038/s41593-023-01272-0",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5111003994941712,
+        "similarity_score": 0.48676228523254395,
+        "citation_text_length": 297,
+        "dataset_text_length": 2380,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Monosynaptic connections link functionally similar regions in human cortex",
-      "author": "Rui Xu, Alan Bush, Atsushi Takahashi, Nathan Sisterson, Ashley Walton, Samuel Hutchinson, Alexandra Kammen, Clemens Neudorfer, Vasileios Kokkinos, Pranav Nanda, Niharika Jhingan, Ammar I. Marvi, Alexander Fung, Suseendrakumar Duraivel, Eghbal A. Hosseini, Colton Casto, Claudia Valenzuela, Seonghwan Yee, John Kirsch, Evelina Fedorenko, Nancy Kanwisher, Robert Desimone, R Mark Richardson",
+      "author": "Rui Xu, Alan Bush, Atsushi Takahashi, Nathan D. Sisterson, Ashley E. Walton, Samuel Hutchinson, Alexandra Kammen, Clemens Neudorfer, Vasileios Kokkinos, Pranav Nanda, Niharika Jhingan, Ammar I. Marvi, Alexander Fung, Suseendrakumar Duraivel, Eghbal A. Hosseini, Colton Casto, Claudia Valenzuela, Seonghwan Yee, John Kirsch, Evelina G. Fedorenko, Nancy Kanwisher, Robert Desimone, Robert Mark Richardson",
       "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
       "year": 2026,
       "url": "https://doi.org/10.64898/2026.05.19.726279",
@@ -1014,32 +1057,32 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.47333072975277907,
-        "similarity_score": 0.4098101556301117,
-        "citation_text_length": 1540,
+        "confidence_score": 0.47588340729475026,
+        "similarity_score": 0.4120202660560608,
+        "citation_text_length": 1554,
         "dataset_text_length": 2380,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
     },
     {
-      "title": "Methodologies to detect cortico-cortical evoked potentials: a systematic review",
-      "author": "Tamara Al-Sadek, Aryan Wadhwa, Millen Wadhwa, Aaron E. L. Warren, John David Rolston",
-      "venue": "Frontiers in Human Neuroscience",
+      "title": "Developmental relationships between the human alpha rhythm and intrinsic neural timescales are dependent on neural hierarchy",
+      "author": "Jesse T. Miles, Kurt E. Weaver, Sara Jane Webb, Jeffrey G. Ojemann",
+      "venue": "Journal of Neurophysiology",
       "year": 2025,
-      "url": "https://doi.org/10.3389/fnhum.2025.1636115",
+      "url": "https://doi.org/10.1152/jn.00435.2025",
       "cited_by": 2,
-      "abstract": "Introduction: Cortico-cortical evoked potentials (CCEPs) are electrophysiological responses elicited by direct electrical stimulation of one cortical region and recorded from another, providing insights into functional connectivity and communication pathways between brain areas. However, no consistent standard for defining and measuring CCEPs currently exists. Methods: We conducted a systematic review of the CCEP literature on detection methods to evaluate commonalities and gaps in methodology. Extracted data included demographics, disease, recording type, montage, recording system, stimulation amplitude and frequency, time window used for epoching around stimulus onset, open access availability, and detection approach. Results: Of 187 studies undergoing full-text review, over half lacked a description of the CCEP detection method. Specifically, 9.1% utilized visual identification, whereas 49.74% did not explicitly state the method. The remaining 72 studies represented 3,424 patients, ",
-      "doi": "10.3389/fnhum.2025.1636115",
-      "pmid": "40958989",
-      "openalex_id": "W4413868552",
+      "abstract": "Abstract Maturation of human brain structure has been well-studied, but developmental changes to brain physiology are not as well understood. One consistent finding is that the peak alpha rhythm frequency (PAF) increases throughout childhood. Another is that resting-state functional connectivity shifts from sensorimotor regions in children to association regions in adolescents, a reorganization along a hierarchy called the sensorimotor-to-association (S-A) axis. In mature brains, the S-A axis has been parcellated physiologically using the duration of persistent neural activity, known as the intrinsic neural timescale (INT), which increases along the hierarchy. Here we studied the development of PAF and INT in a cohort of epilepsy patients 3 – 33 years of age undergoing intracranial electrocorticographic (ECoG) monitoring. Given the well-known developmental trajectory of PAF, and the ability to delineate hierarchy using INT, we hypothesized that changes to PAF and INT would correlate ac",
+      "doi": "10.1152/jn.00435.2025",
+      "pmid": "41389010",
+      "openalex_id": "W4417298886",
       "source_doi": "10.1038/s41593-023-01272-0",
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.7344556429982186,
-        "similarity_score": 0.6358923316001892,
-        "citation_text_length": 1233,
+        "confidence_score": 0.574919234365225,
+        "similarity_score": 0.49776557087898254,
+        "citation_text_length": 1255,
         "dataset_text_length": 2380,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1063,29 +1106,6 @@
         "confidence_score": 0.3185971096158028,
         "similarity_score": 0.2758416533470154,
         "citation_text_length": 1143,
-        "dataset_text_length": 2380,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "How Thalamo-Cortical Loops Modulate Cortico-Cortical Evoked Potentials?",
-      "author": "Odile Feys, Samuel Medina Villalon, Christian George Bénar, Julia Makhalova, Francesca Bonini, Sandrine Aubert‐Conil, Romain Carron, Angela Marchi, Fabrice Bartolomei, Francesca Pizzo",
-      "venue": "Brain Topography",
-      "year": 2026,
-      "url": "https://doi.org/10.1007/s10548-026-01213-7",
-      "cited_by": 1,
-      "abstract": null,
-      "doi": "10.1007/s10548-026-01213-7",
-      "pmid": "42216978",
-      "openalex_id": "W7162873957",
-      "source_doi": "10.1038/s41593-023-01272-0",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5066130951046944,
-        "similarity_score": 0.4824886620044708,
-        "citation_text_length": 297,
         "dataset_text_length": 2380,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1207,29 +1227,6 @@
       }
     },
     {
-      "title": "Developmental relationships between the human alpha rhythm and intrinsic neural timescales are dependent on neural hierarchy",
-      "author": "Jesse T. Miles, Kurt E. Weaver, Sara Jane Webb, Jeffrey G. Ojemann",
-      "venue": "Journal of Neurophysiology",
-      "year": 2025,
-      "url": "https://doi.org/10.1152/jn.00435.2025",
-      "cited_by": 1,
-      "abstract": "Abstract Maturation of human brain structure has been well-studied, but developmental changes to brain physiology are not as well understood. One consistent finding is that the peak alpha rhythm frequency (PAF) increases throughout childhood. Another is that resting-state functional connectivity shifts from sensorimotor regions in children to association regions in adolescents, a reorganization along a hierarchy called the sensorimotor-to-association (S-A) axis. In mature brains, the S-A axis has been parcellated physiologically using the duration of persistent neural activity, known as the intrinsic neural timescale (INT), which increases along the hierarchy. Here we studied the development of PAF and INT in a cohort of epilepsy patients 3 – 33 years of age undergoing intracranial electrocorticographic (ECoG) monitoring. Given the well-known developmental trajectory of PAF, and the ability to delineate hierarchy using INT, we hypothesized that changes to PAF and INT would correlate ac",
-      "doi": "10.1152/jn.00435.2025",
-      "pmid": "41389010",
-      "openalex_id": "W4417298886",
-      "source_doi": "10.1038/s41593-023-01272-0",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.574919234365225,
-        "similarity_score": 0.49776557087898254,
-        "citation_text_length": 1255,
-        "dataset_text_length": 2380,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Gold standard for estimation of propagation velocity from axono- or cortico-cortical evoked potentials? A case study",
       "author": "Clotilde Turpin, Olivier Rossel, Félix Schlosser-Perrin, Mathilde Carrière, Riki Matsumoto, Emmanuel Mandonnet, Hugues Duffau, Sam Ng, François Bonnetblanc",
       "venue": "Clinical Neurophysiology",
@@ -1277,7 +1274,7 @@
     },
     {
       "title": "Localising the epileptogenic zone from single-pulse electrical stimulation responses using cross-trial attention",
-      "author": "J. C. Norris, Dorien van Blooijs, Ajai Chari, Gerald Cooray, Martin M. Tisdall, Karl John Friston, Stuart D W Smith, Richard Ewald Rosch",
+      "author": "Jamie Norris, Dorien van Blooijs, Ajai Chari, Gerald Cooray, Martin M. Tisdall, Karl John Friston, Stuart D W Smith, Richard Ewald Rosch",
       "venue": "medRxiv",
       "year": 2026,
       "url": "https://doi.org/10.64898/2026.07.27.26358819",
@@ -1290,8 +1287,8 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6186189025640488,
-        "similarity_score": 0.5356007814407349,
+        "confidence_score": 0.6228787922859192,
+        "similarity_score": 0.5392889976501465,
         "citation_text_length": 1294,
         "dataset_text_length": 2380,
         "scoring_method": "sentence_transformers",
@@ -1300,7 +1297,7 @@
     },
     {
       "title": "Pulvinar Subregions Influence Select Cortical Pathways in Humans",
-      "author": "Jordan A. Bilderbeek, Nicholas Miller Gregg, Maria Guadalupe Yanez-Ramos, Harvey Huang, Morgan N. Montoya, Peter Brunner, Jon T. Willie, Jamie J. Van Gompel, Gregory Worrell, Kai Miller, Dora Hermes",
+      "author": "Jordan A. Bilderbeek, Nicholas Miller Gregg, Maria Guadalupe Yanez-Ramos, Harvey Huang, Morgan N. Montoya, Peter Brunner, Jon Timothy Willie, Jamie J. Van Gompel, Gregory A. Worrell, Kai Joshua Miller, Dora Hermes",
       "venue": "Journal of Neuroscience",
       "year": 2026,
       "url": "https://doi.org/10.1523/jneurosci.1604-25.2026",
@@ -1313,9 +1310,9 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.4606432762742043,
-        "similarity_score": 0.39882534742355347,
-        "citation_text_length": 1324,
+        "confidence_score": 0.46288547024130827,
+        "similarity_score": 0.40076664090156555,
+        "citation_text_length": 1339,
         "dataset_text_length": 2380,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1323,7 +1320,7 @@
     },
     {
       "title": "Quilting the Brain: Whole-Brain iEEG Reconstruction via Incomplete Observation Linear Mixed Models",
-      "author": "Ying Wang, Min Li, Maria L. Bringas Vega, Pedro Antonio Valdes-Sosa",
+      "author": "Ying Wang, Min Li, María Luisa Bringas Vega, Pedro Antonio Valdes-Sosa",
       "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
       "year": 2026,
       "url": "https://doi.org/10.64898/2026.05.31.729074",
@@ -1336,9 +1333,9 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5794314005970955,
-        "similarity_score": 0.5016722083091736,
-        "citation_text_length": 1243,
+        "confidence_score": 0.5787682324647904,
+        "similarity_score": 0.5010980367660522,
+        "citation_text_length": 1246,
         "dataset_text_length": 2380,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1369,7 +1366,7 @@
     },
     {
       "title": "Clinical characteristics of patients hospitalised with traumatic brain injury in an Australian tertiary hospital",
-      "author": "Aishani Desai, Vincent Oxenham, Jamie Berry, Anthony P. Delaney, Naomi Hammond, Frances E. Bass, Joanne M. Bennett, Geoffrey Healy, Geoffrey Kenneth Herkes, Jennifer Batchelor",
+      "author": "Aishani Desai, Vincent Oxenham, Jamie Berry, Anthony P. Delaney, Naomi E. Hammond, Frances E. Bass, Joanne M. Bennett, Geoffrey Healy, Geoffrey Kenneth Herkes, Jennifer Batchelor",
       "venue": "Brain Impairment",
       "year": 2026,
       "url": "https://doi.org/10.1071/ib25044",
@@ -1382,9 +1379,9 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.3031777104735375,
-        "similarity_score": 0.26249152421951294,
-        "citation_text_length": 1342,
+        "confidence_score": 0.3044966460764409,
+        "similarity_score": 0.26363345980644226,
+        "citation_text_length": 1345,
         "dataset_text_length": 2380,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1392,7 +1389,7 @@
     },
     {
       "title": "Minimal biophysical rules are sufficient for the emergence of computational intelligence at the neuronal scale",
-      "author": "Guanyu Wang, Liang Qi, K E X I N Li, Chenyu Tang, Xuhang Chen, Luigi G. Occhipinti, Arokia Nathan, Hongtao Wang, Yu Pan, Peter Smielewski, Ying Wang, Yingyan Mao, X S Guo, Shuo Gao",
+      "author": "Guanyu Wang, Liang Qi, K E X I N Li, Chenyu Tang, Xuhang Chen, Luigi G. Occhipinti, Arokia Nathan, Hongtao Wang, Yu Pan, Peter S. Smielewski, Ying Wang, Yingyan Mao, X S Guo, Shuo Gao",
       "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
       "year": 2026,
       "url": "https://doi.org/10.64898/2026.03.01.708921",
@@ -1405,9 +1402,9 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.4131637287139893,
-        "similarity_score": 0.35771751403808594,
-        "citation_text_length": 1368,
+        "confidence_score": 0.41410171955823905,
+        "similarity_score": 0.35852962732315063,
+        "citation_text_length": 1371,
         "dataset_text_length": 2380,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1553,7 +1550,7 @@
     },
     {
       "title": "Ultrastructural Analysis of Human Uncinate Fasciculus with Spectral-Focusing Coherent Anti-Stokes Raman Spectroscopy",
-      "author": "Kelly Perlman, Justine Major, A. Collin, Valerie Pineau-Noel, Murielle Mardenli, Sébastien Jerczyński, Maria Antonietta Davoli, Julien Cohen‐Adad, Daniel C. Côté, Naguib Mechawar",
+      "author": "Kelly Perlman, Justine Major, A. Collin, Valérie Pineau Noël, Murielle Mardenli, Sébastien Jerczyński, Maria Antonietta Davoli, Julien Cohen‐Adad, Daniel C. Côté, Naguib Mechawar",
       "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
       "year": 2025,
       "url": "https://doi.org/10.1101/2025.09.18.672977",
@@ -1566,8 +1563,8 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.42169466078281403,
-        "similarity_score": 0.3651036024093628,
+        "confidence_score": 0.42202824130654343,
+        "similarity_score": 0.36539241671562195,
         "citation_text_length": 1372,
         "dataset_text_length": 2380,
         "scoring_method": "sentence_transformers",
@@ -1599,7 +1596,7 @@
     },
     {
       "title": "Human short association fibers are thinner and less myelinated than long fibers",
-      "author": "Philip Ruthig, David Edler v.d. Planitz, Maria A. Morozova, Katja Reimann, Carsten Jäger, T. Reinert, Siawoosh Mohammadi, Nikolaus Weiskopf, Evgeniya P. Kirilina, Markus Morawski",
+      "author": "Philip Ruthig, David Edler v.d. Planitz, Maria Morozova, Katja Reimann, Carsten Jäger, T. Reinert, Siawoosh Mohammadi, Nikolaus Weiskopf, Evgeniya P. Kirilina, Markus Morawski",
       "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
       "year": 2024,
       "url": "https://doi.org/10.1101/2024.10.21.619354",
@@ -1612,9 +1609,9 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.2649830675125122,
-        "similarity_score": 0.22942256927490234,
-        "citation_text_length": 1335,
+        "confidence_score": 0.2643447518348694,
+        "similarity_score": 0.22886991500854492,
+        "citation_text_length": 1332,
         "dataset_text_length": 2380,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1622,7 +1619,7 @@
     },
     {
       "title": "El cerebro cambia muy rápido en la mediana edad, y estudiarlo es clave para anticiparnos a la demencia",
-      "author": "Sébastien Allard, Yvonne M. Nolan",
+      "author": "Sebastian Allard, Yvonne M. Nolan",
       "venue": "n/a",
       "year": 2024,
       "url": "https://doi.org/10.64628/aao.kryqd53m9",
@@ -1635,8 +1632,8 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.3621147841215134,
-        "similarity_score": 0.3448712229728699,
+        "confidence_score": 0.35433880090713504,
+        "similarity_score": 0.3374655246734619,
         "citation_text_length": 165,
         "dataset_text_length": 2380,
         "scoring_method": "sentence_transformers",
@@ -1645,7 +1642,7 @@
     },
     {
       "title": "The middle-aged brain changes a lot – and it’s key to understanding dementia",
-      "author": "Sébastien Allard, Yvonne M. Nolan",
+      "author": "Sebastian Allard, Yvonne M. Nolan",
       "venue": "n/a",
       "year": 2024,
       "url": "https://doi.org/10.64628/ab.gj9ad4rjm",
@@ -1658,8 +1655,8 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.2846162125468254,
-        "similarity_score": 0.27106305956840515,
+        "confidence_score": 0.2759454220533371,
+        "similarity_score": 0.26280516386032104,
         "citation_text_length": 139,
         "dataset_text_length": 2380,
         "scoring_method": "sentence_transformers",
@@ -1714,7 +1711,7 @@
     },
     {
       "title": "Protracted Functional and Structural Reorganization of Human Prefrontal Cortex Supports Lateralized Category Geometries",
-      "author": "P. Louis, Jewelia K. Yao, Zachariya Yazdani, Ruggaya Musa, T. J. Buschman, Jesse Gomez",
+      "author": "P. Louis, Jewelia K. Yao, Z. Yazdani, Ruggaya Musa, T. J. Buschman, Jesse Gomez",
       "venue": "bioRxiv",
       "year": 2026,
       "url": "https://doi.org/10.64898/2026.05.04.721346",
@@ -1727,9 +1724,9 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.3972595345973969,
-        "similarity_score": 0.3439476490020752,
-        "citation_text_length": 1251,
+        "confidence_score": 0.39834667459130296,
+        "similarity_score": 0.3448888957500458,
+        "citation_text_length": 1244,
         "dataset_text_length": 2380,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1737,7 +1734,7 @@
     },
     {
       "title": "Intrinsic and extrinsic connectivity of the seizure onset zone at rest and during stimulation",
-      "author": "J. Larocque, W. Ojemann, Jay Xu, A. Lucas, N. Sinha, Eli J. Cornblath, C. Armstrong, S. B. Tomlinson, E. Marsh, Saurabh R. Sinha, Brian Litt, Kathryn A. Davis, Q. Cao, E. Conrad",
+      "author": "J. Larocque, W. Ojemann, Jay Xu, A. Lucas, Nishant Sinha, Eli J. Cornblath, Caren Armstrong, Samuel B. Tomlinson, Eric D. Marsh, Saurabh R. Sinha, B. Litt, Kathryn A. Davis, Q. Cao, E. Conrad",
       "venue": "medRxiv",
       "year": 2026,
       "url": "https://doi.org/10.64898/2026.02.27.26347224",
@@ -1750,87 +1747,9 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5141300958395004,
-        "similarity_score": 0.4451342821121216,
-        "citation_text_length": 1316,
-        "dataset_text_length": 2380,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Developmental trajectory of transmission speed in the human brain",
-      "author": "Dorien van Blooijs, Max van den Boom, Jaap F. van der Aar, Geertjan M. Huiskamp, Giulio Castegnaro, Matteo Demuru, Willemiek J. E. M. Zweiphenning, Pieter van Eijsden, Kai Joshua Miller, Frans S. S. Leijten, Dora Hermes",
-      "venue": "Nature Neuroscience",
-      "year": 2023,
-      "url": "https://doi.org/10.1038/s41593-023-01272-0",
-      "cited_by": 80,
-      "abstract": "The structure of the human connectome develops from childhood throughout adolescence to middle age, but how these structural changes affect the speed of neuronal signaling is not well described. In 74 subjects, we measured the latency of cortico-cortical evoked responses across association and U-fibers and calculated their corresponding transmission speeds. Decreases in conduction delays until at least 30 years show that the speed of neuronal communication develops well into adulthood.",
-      "doi": "10.1038/s41593-023-01272-0",
-      "pmid": "36894655",
-      "openalex_id": "W4323669803",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004080",
-      "confidence_scoring": {
-        "confidence_score": 0.5624239227175714,
-        "similarity_score": 0.48694711923599243,
-        "citation_text_length": 832,
-        "dataset_text_length": 2380,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Journal of Neural Engineering",
-      "author": "n/a",
-      "venue": "Journal of Neural Engineering",
-      "year": 2013,
-      "url": "https://doi.org/10.1088/issn.1741-2552",
-      "cited_by": 104,
-      "abstract": "Objective. The maintenance of balance is a complicated process in the human brain, which involves multisensory processing such as somatosensory and visual processing, motor planning and execution. It was shown that a specific cortical activity called perturbation-evoked potential (PEP) appears in the electroencephalogram (EEG) during balance perturbation. PEPs are primarily recognized by the N1 component with a negative peak localized in frontal and central regions. There has been a doubt in balance perturbation studies whether the N1 potential of perturbation is elicited due to error processing in the brain. The objective of this study is to test whether the brain perceives postural instability as a cognitive error by imposing two types of perturbations consisting of erroneous and correct perturbations. Approach. We conducted novel research to incorporate the experiment designs of both error and balance studies. To this end, participants encountered errors during balance perturbations at rare moments in the experiment. We induced errors by imposing perturbations to participants in the wrong directions and an erroneous perturbation was considered as a situation when the participant was exposed to an opposite direction of the expected/informed one. In correct perturbations, participants were tilted to the same direction, as they were informed. We analyzed the two conditions in time, time-frequency, and source domains. Main results. We showed that two error-related neural markers were derived from the EEG responses, including error positivity (Pe), and error-related alpha suppression (ERAS) during erroneous perturbations. Consequently, early neural correlates of perturbation cannot be interpreted as error-related responses. We discovered distinct patterns of conscious error processing; both Pe and ERAS are associated with conscious sensations of error. Significance. Our findings indicated that early cortical responses of balance perturbation are not associated with neural error processing of the brain, and errors induce distinct cortical responses that are distinguishable from brain dynamics of N1 potential.",
-      "doi": "10.1088/issn.1741-2552",
-      "pmid": null,
-      "openalex_id": "W4205709116",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004080",
-      "confidence_scoring": {
-        "confidence_score": 0.4014899134635926,
-        "similarity_score": 0.36499083042144775,
-        "citation_text_length": 1600,
-        "dataset_text_length": 2380,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "BrennanTM/PulseDetect: v1.0.3 — Dataset citation fix",
-      "author": "Tristan Brennan",
-      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
-      "year": 2026,
-      "url": "https://doi.org/10.5281/zenodo.19381255",
-      "cited_by": 0,
-      "abstract": "Fix the dataset citation in examples/run_openneuro_example.py. The docstring previously cited an incorrect paper title and abbreviated author list for OpenNeuro ds004080; the full correct citation is now present (van Blooijs, Aarnoutse, Stallmann, van Klink, Leijten, Huiskamp, Visser, Hermes — \"CCEP ECoG dataset across age 4-51\"). No functional or API changes. Zenodo will automatically archive this release.",
-      "doi": "10.5281/zenodo.19381255",
-      "pmid": null,
-      "openalex_id": "W7148560208",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004080",
-      "superseded_dois": [
-        "10.5281/zenodo.19599906"
-      ],
-      "confidence_scoring": {
-        "confidence_score": 0.7014919942617417,
-        "similarity_score": 0.6073523759841919,
-        "citation_text_length": 572,
+        "confidence_score": 0.5153647327423097,
+        "similarity_score": 0.44620323181152344,
+        "citation_text_length": 1330,
         "dataset_text_length": 2380,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1839,17 +1758,17 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T10:57:52.624807+00:00",
+    "scoring_date": "2026-10-04T10:11:11.950919+00:00",
     "dataset_text_length": 2380,
-    "num_citations_scored": 76,
+    "num_citations_scored": 73,
     "summary_stats": {
-      "mean_confidence": 0.4780044031496111,
-      "median_confidence": 0.47389347262680537,
-      "std_confidence": 0.14114735515660146,
+      "mean_confidence": 0.47484270862316447,
+      "median_confidence": 0.4744562155008316,
+      "std_confidence": 0.14126103849168398,
       "min_confidence": 0.22352921068668366,
       "max_confidence": 0.7999608618021012,
-      "high_confidence_count": 7,
-      "medium_confidence_count": 46,
+      "high_confidence_count": 6,
+      "medium_confidence_count": 44,
       "low_confidence_count": 23
     }
   }
