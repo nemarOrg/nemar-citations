@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000207",
   "num_citations": 5,
-  "date_last_updated": "2026-09-30T10:44:25.878392+00:00",
+  "date_last_updated": "2026-10-11T10:20:30.653115+00:00",
   "metadata": {
-    "total_cumulative_citations": 5,
-    "fetch_date": "2026-09-29T10:49:29.698607+00:00",
+    "total_cumulative_citations": 6,
+    "fetch_date": "2026-10-11T10:20:30.653115+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 3,
@@ -19,25 +19,25 @@
         "source_relation": "IsDerivedFrom",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Replication Data for: Four-class ASME BCI: investigation of the feasibility and comparison of two strategies for multiclassing",
         "paper_year": 2024,
         "paper_venue": "Harvard Dataverse",
         "reason": "Candidate is the Harvard Dataverse deposit (10.7910/DVN/1UJDV6) of the same Kojima 2024 four-class ASME BCI EEG/EOG data, matching the dataset's DOI and title.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.3389/fnhum.2024.1461960",
         "identifier_type": "doi",
-        "source_relation": "References",
+        "source_relation": "IsDescribedBy",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Four-class ASME BCI: investigation of the feasibility and comparison of two strategies for multiclassing",
         "paper_year": 2024,
         "paper_venue": "Frontiers in Human Neuroscience",
         "reason": "Dataset name matches the paper title exactly (Four-class ASME BCI, Kojima & Kanoh 2024); the paper reports the recorded ASME P300 EEG data.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.21105/joss.01896",
@@ -45,12 +45,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
         "paper_year": 2019,
         "paper_venue": "The Journal of Open Source Software",
         "reason": "MNE-BIDS is a software tool for organizing electrophysiological data into BIDS; it is used for packaging data, not a paper describing this Kojima P300 dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1038/s41597-019-0104-8",
@@ -58,12 +58,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "EEG-BIDS, an extension to the brain imaging data structure for electroencephalography",
         "paper_year": 2019,
         "paper_venue": "Scientific Data",
         "reason": "EEG-BIDS is a data-organization standard/specification extension of BIDS, used to format this dataset, not a paper describing the Kojima 2024 four-class ASME BCI data.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.nm000207",
@@ -71,12 +71,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -86,46 +86,39 @@
     ],
     "keywords": [
       "Brain-Computer Interfaces",
-      "electroencephalography",
+      "Electroencephalography",
       "Event-Related Potentials, P300",
       "auditory scene analysis",
       "stream segregation",
-      "P300",
-      "machine learning"
+      "NASA-TLX"
     ],
-    "methods_description": "EEG was recorded at 1000 Hz from 64 channels using a BrainAmp system with standard 10-20 montage (EasyCap, passive Ag/AgCl electrodes). Subjects performed 12 runs alternating between ASME-4stream (4 streams, SOA=150ms, 600 stimuli/trial) and ASME-2stream (2 streams, SOA=300ms, 300 stimuli/trial) paradigms. Preprocessing included ICA-based artifact removal (15 components), bandpass filtering (1-40 Hz for ERP analysis, 0.1-8 Hz for classification), epoching (-0.1 to 1.2s), and downsampling to 250 Hz. Classification employed shrinkage-LDA with mean amplitudes from 10 non-overlapping intervals (0-1.0s) as features, evaluated using 4-fold chronological cross-validation.",
+    "methods_description": "Participants completed 12 runs alternating between ASME-4stream (SOA 0.15 s, 600 stimuli per trial) and ASME-2stream (SOA 0.3 s, 300 stimuli per trial), with 4 trials per run of about 90 s. EEG was recorded at 1000 Hz from 64 passive Ag/AgCl electrodes (BrainAmp, right mastoid reference) with horizontal and vertical EOG. Workload was assessed with the NASA-TLX questionnaire. Analysis used shrinkage-LDA on mean amplitudes from 10 intervals with chronological cross-validation.",
     "funding": [
       {
-        "funder_name": "JSPS",
+        "funder_name": "JSPS KAKENHI",
         "award_number": "JP23K11811"
       }
-    ],
-    "searched_accessions": [
-      "nm000207"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 5
+    ]
   },
   "citation_details": [
     {
       "title": "Neural–Computer Interfaces: Theory, Practice, Perspectives",
-      "author": "Ignat A. Dubynin, M. S. Zemlyanskov, Irina Shalayeva, Oleg Gorskii, Vladimir B. Grinevich, Pavel E. Musienko",
+      "author": "Ignat A. Dubynin, M. S. Zemlyanskov, Irina Shalayeva, Oleg Gorskii, Vladimir Grinevich, Pavel E. Musienko",
       "venue": "Applied Sciences",
       "year": 2025,
       "url": "https://doi.org/10.3390/app15168900",
-      "cited_by": 3,
+      "cited_by": 4,
       "abstract": "This review outlines the technological principles of neural–computer interface (NCI) construction, classifying them according to: (1) the degree of intervention (invasive, semi-invasive, and non-invasive); (2) the direction of signal communication, including BCI (brain–computer interface) for converting neural activity into commands for external devices, CBI (computer–brain interface) for translating artificial signals into stimuli for the CNS, and BBI (brain–brain interface) for direct brain-to-brain interaction systems that account for agency; and (3) the mode of user interaction with technology (active, reactive, passive). For each NCI type, we detail the fundamental data processing principles, covering signal registration, digitization, preprocessing, classification, encoding, command execution, and stimulation, alongside engineering implementations ranging from EEG/MEG to intracortical implants and from transcranial magnetic stimulation (TMS) to intracortical microstimulation (ICM",
       "doi": "10.3390/app15168900",
       "pmid": null,
       "openalex_id": "W4413177129",
       "source_doi": "10.3389/fnhum.2024.1461960",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.4547919344902039,
-        "similarity_score": 0.39375925064086914,
-        "citation_text_length": 1221,
+        "confidence_score": 0.4563334062695504,
+        "similarity_score": 0.3950938582420349,
+        "citation_text_length": 1218,
         "dataset_text_length": 2431,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -143,7 +136,7 @@
       "pmid": "42253796",
       "openalex_id": "W7161976913",
       "source_doi": "10.3389/fnhum.2024.1461960",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.6555489617586137,
@@ -166,7 +159,7 @@
       "pmid": "40174604",
       "openalex_id": "W4409096663",
       "source_doi": "10.3389/fnhum.2024.1461960",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.6214292263984681,
@@ -189,7 +182,7 @@
       "pmid": null,
       "openalex_id": "W7202034171",
       "source_doi": "10.3389/fnhum.2024.1461960",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.5900972342491151,
@@ -202,7 +195,7 @@
     },
     {
       "title": "Brain–Computer Interface Games for Cognitive Assessment: A Scoping Review",
-      "author": "Munirah Alsubaie, Salamah Alshammari, Yusuf Ahmed, Shaniff Esmail, Kim D. Adams, Hossein Rouhani, Adriana Rincón",
+      "author": "Munirah Alsubaie, Salamah Alshammari, Yusuf Ahmed, Shaniff Esmail, Kim D. Adams, Hossein Rouhani, Adriana Ríos Rincón",
       "venue": "Canadian Journal of Neurological Sciences / Journal Canadien des Sciences Neurologiques",
       "year": 2026,
       "url": "https://doi.org/10.1017/cjn.2026.10606",
@@ -212,12 +205,12 @@
       "pmid": "41969217",
       "openalex_id": "W7154043802",
       "source_doi": "10.3389/fnhum.2024.1461960",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5515770998597146,
-        "similarity_score": 0.47755593061447144,
-        "citation_text_length": 1311,
+        "confidence_score": 0.5513263723254205,
+        "similarity_score": 0.47733885049819946,
+        "citation_text_length": 1316,
         "dataset_text_length": 2431,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -226,14 +219,14 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T10:52:07.354398+00:00",
+    "scoring_date": "2026-10-11T11:22:30.194580+00:00",
     "dataset_text_length": 2431,
     "num_citations_scored": 5,
     "summary_stats": {
-      "mean_confidence": 0.574688891351223,
+      "mean_confidence": 0.5749470402002336,
       "median_confidence": 0.5900972342491151,
-      "std_confidence": 0.06909393910894929,
-      "min_confidence": 0.4547919344902039,
+      "std_confidence": 0.06857685014271757,
+      "min_confidence": 0.4563334062695504,
       "max_confidence": 0.6555489617586137,
       "high_confidence_count": 0,
       "medium_confidence_count": 5,

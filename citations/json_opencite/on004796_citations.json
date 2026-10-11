@@ -1,10 +1,10 @@
 {
   "dataset_id": "on004796",
-  "num_citations": 38,
-  "date_last_updated": "2026-09-30T10:47:15.952131+00:00",
+  "num_citations": 35,
+  "date_last_updated": "2026-10-11T10:57:28.017271+00:00",
   "metadata": {
     "total_cumulative_citations": 103,
-    "fetch_date": "2026-09-29T11:19:30.937852+00:00",
+    "fetch_date": "2026-10-11T10:57:28.017271+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -19,12 +19,12 @@
         "source_relation": "IsDescribedBy",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "PEARL-Neuro Database: EEG, fMRI, health and lifestyle data of middle-aged people at risk of dementia",
         "paper_year": 2024,
         "paper_venue": "Scientific Data",
         "reason": "The dataset README names this Scientific Data paper as its Data Descriptor and citation. The title and authors match the PEARL-Neuro database, with the same EEG/fMRI, APOE/PICALM, and MSIT/Sternberg content.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on004796",
@@ -32,12 +32,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -49,34 +49,26 @@
       "fMRI",
       "Alzheimer Disease",
       "Apolipoproteins E",
-      "Genetics",
-      "resting-state",
-      "cognitive tasks",
-      "Middle Aged"
+      "resting state",
+      "middle-aged adults",
+      "lifestyle"
     ],
-    "methods_description": "Data were collected via EEG and fMRI during resting-state protocols (eyes open and eyes closed conditions) and cognitive tasks (multi-source interference task and Sternberg's memory task). Genetic data (APOE, PICALM) and psychometric assessments (memory, intelligence, mood, personality, stress coping) were also obtained, alongside blood tests (blood count, lipid profile, HSV virus).",
+    "methods_description": "Resting-state EEG and fMRI were recorded with eyes-open and eyes-closed conditions, along with the multi-source interference task and Sternberg memory task. Participants were genotyped for APOE and PICALM, and completed psychometric assessments of memory, intelligence, mood, personality and stress coping. Blood tests were also collected.",
     "funding": [
       {
         "funder_name": "Polish National Science Center (NCN)",
         "award_number": "2018/31/N/HS6/03551"
       }
-    ],
-    "searched_accessions": [
-      "on004796",
-      "ds004796"
-    ],
-    "num_accession_mentions": 4,
-    "num_dataset_citations": 7,
-    "num_datapaper_citations": 31
+    ]
   },
   "citation_details": [
     {
       "title": "GREEN: A lightweight architecture using learnable wavelets and Riemannian geometry for biomarker exploration with EEG signals",
-      "author": "Joseph Paillard, Joerg F. Hipp, Denis Alexander Engemann, Denis A Engemann",
+      "author": "Joseph Paillard, Joerg F. Hipp, Denis Alexander Engemann, Denis Alexander Engemann",
       "venue": "Patterns",
       "year": 2025,
       "url": "https://doi.org/10.1016/j.patter.2025.101182",
-      "cited_by": 23,
+      "cited_by": 24,
       "abstract": "Spectral analysis using wavelets is widely used for identifying biomarkers in EEG signals. Recently, Riemannian geometry has provided an effective mathematical framework for predicting biomedical outcomes from multichannel electroencephalography (EEG) recordings while showing concord with neuroscientific domain knowledge. However, these methods rely on handcrafted rules and sequential optimization. In contrast, deep learning (DL) offers end-to-end trainable models achieving state-of-the-art performance on various prediction tasks but lacks interpretability and interoperability with established neuroscience concepts. We introduce Gabor Riemann EEGNet (GREEN), a lightweight neural network that integrates wavelet transforms and Riemannian geometry for processing raw EEG data. Benchmarking on six prediction tasks across four datasets with over 5,000 participants, GREEN outperformed non-deep state-of-the-art models and performed favorably against large DL models while using orders-of-magnit",
       "doi": "10.1016/j.patter.2025.101182",
       "pmid": "40182177",
@@ -85,9 +77,9 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.548247043043375,
-        "similarity_score": 0.47467276453971863,
-        "citation_text_length": 1246,
+        "confidence_score": 0.5469000881910325,
+        "similarity_score": 0.4735065698623657,
+        "citation_text_length": 1254,
         "dataset_text_length": 2336,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -95,11 +87,11 @@
     },
     {
       "title": "LEAD: An EEG Foundation Model for Alzheimer's Disease Detection",
-      "author": "Yihe Wang, Nan Huang, N. Mammone, M. Cecchi, Xiang Zhang",
+      "author": "Yi-He Wang, Nan Huang, N. Mammone, M. Cecchi, Xiang Zhang",
       "venue": "n/a",
       "year": 2025,
       "url": "n/a",
-      "cited_by": 18,
+      "cited_by": 19,
       "abstract": "Electroencephalography (EEG) provides a non-invasive, highly accessible, and cost-effective approach for detecting Alzheimer's disease (AD). However, existing methods, whether based on handcrafted feature engineering or standard deep learning, face three major challenges: 1) the lack of large-scale EEG-based AD datasets for robust representation learning and evaluation; 2) limited cross-subject generalizability; and 3) difficulty in adapting to highly heterogeneous data. To address these challenges, we curate the world's largest EEG-AD corpus to date, comprising 2,238 subjects. Leveraging this unique resource, we propose LEAD, the first foundation model for EEG-based AD detection. Specifically, we design a gated temporal-spatial Transformer that can adapt to EEG recordings with diverse lengths, channel configurations, and sampling rates. In addition, we introduce a subject-regularized training strategy to enhance end-to-end subject-level detection. We further employ medical contrastive",
       "doi": null,
       "pmid": null,
@@ -108,16 +100,13 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5965272045135499,
-        "similarity_score": 0.5164737701416016,
-        "citation_text_length": 1161,
+        "confidence_score": 0.5964006704092026,
+        "similarity_score": 0.5163642168045044,
+        "citation_text_length": 1162,
         "dataset_text_length": 2336,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      },
-      "superseded_dois": [
-        "10.48550/arxiv.2502.01678"
-      ]
+      }
     },
     {
       "title": "Dual-Transformer Cross-Attention Framework for Alzheimer’s disease detection via dPTE-Guided EEG channel selection and multi-modal integration",
@@ -212,6 +201,29 @@
       }
     },
     {
+      "title": "Understanding Neurocognition With Deep Learning and MRI: A Systematic Review",
+      "author": "Md. Tanvir Rahman, Nabil Anan Orka, Asaduzzaman Khan, Píetro Lió, Mohammad Ali Moni",
+      "venue": "IEEE Transactions on Cognitive and Developmental Systems",
+      "year": 2025,
+      "url": "https://doi.org/10.1109/tcds.2025.3635161",
+      "cited_by": 5,
+      "abstract": "Neurocognition encompasses a range of cognitive functions supported by distributed neural networks. While magnetic resonance imaging (MRI) enables non-invasive brain mapping and deep learning (DL) can capture complex neuroimaging patterns, their integration for understanding cognition remains underexplored. To clarify the current state of progress and highlight persisting challenges, we systematically reviewed 45 studies (2019–2025) following PRISMA guidelines, spanning cognitive profiling (n = 28) and cognitive decoding (n = 18), with one study addressing both. Across profiling studies, graph neural networks were most frequently applied and achieved the strongest predictions for fluid intelligence (r = 0.66), while LSTMs performed best for crystallized intelligence (r = 0.62). Overall, crystallized intelligence (mean r = 0.39) proved more predictable than fluid intelligence (mean r = 0.30), particularly when using task-based functional MRI or combining MRI modalities. Decoding studies",
+      "doi": "10.1109/tcds.2025.3635161",
+      "pmid": null,
+      "openalex_id": "W4416582703",
+      "source_doi": "10.1038/s41597-024-03106-5",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.4169780986011029,
+        "similarity_score": 0.3610199987888336,
+        "citation_text_length": 1254,
+        "dataset_text_length": 2336,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "EEG-based Alzheimer’s disease detection: Past, present, and future",
       "author": "Mahsa Alidadi, Ramtin Hamavar, Ehsan Abbasi, Samaneh Nabavifard, Maryam Mohebbi, Babak Mohammadzadeh Asl",
       "venue": "Measurement",
@@ -240,7 +252,7 @@
       "venue": "IEEE journal of biomedical and health informatics",
       "year": 2025,
       "url": "https://doi.org/10.1109/JBHI.2026.3732223",
-      "cited_by": 3,
+      "cited_by": 4,
       "abstract": "Current deep learning models for electroencephalography (EEG) are often task-specific and depend on large labeled datasets, limiting their adaptability. Although EEG foundation models seek broader applicability, many still rely on predefined multi-channel inputs, electrode-layout assumptions, or model-specific channel handling. To address these limitations, we introduce the Single-Channel Large EEG Model (SingLEM), a self-supervised foundation model whose hybrid convolutional-Transformer encoder maps each channel independently to a reusable representation capturing local and long-range temporal structure. These representations can be used individually or combined through channel-wise feature concatenation. We assembled 71 public EEG datasets comprising approximately 9,200 subjects and 357,000 single-channel hours. For leakage-controlled evaluation, downstream results were obtained with a model pretrained on 68 datasets after excluding the three source datasets underlying the six tasks.",
       "doi": "10.1109/JBHI.2026.3732223",
       "pmid": "42709520",
@@ -275,6 +287,29 @@
         "confidence_score": 0.5057418072223664,
         "similarity_score": 0.43787169456481934,
         "citation_text_length": 1120,
+        "dataset_text_length": 2336,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Explainable AI for Dementia Detection Using EEG Microstates",
+      "author": "Quoc-Toan Nguyen, Linh Le, David Williams-King, Quang-Hieu Tang, Nghia Duong-Trung",
+      "venue": "ACM International Conference on Intelligent User Interfaces (IUI)",
+      "year": 2026,
+      "url": "https://doi.org/10.1145/3742414.3794731",
+      "cited_by": 2,
+      "abstract": "Alzheimer’s disease (AD) is a leading cause of dementia worldwide, and early detection plays a critical role in enabling timely care and improving quality of life. While deep learning models based on electroencephalography (EEG) microstate representations show strong potential for early AD detection, their complex temporal behaviour generally makes decisions difficult for humans to understand and rely on. This paper presents an explainable approach for temporal EEG microstate classifiers, which helps users understand how brain dynamics contribute to individual predictions. The proposed method produces time-aligned, microstate-aware explanations that reveal which temporal segments and microstate patterns influence AD and normal control decisions. Developed based on a fixed, pre-trained microstate-based dementia detection model across multiple EEG datasets, the approach improves the transparency and interpretability of AI decisions. By translating model behaviour into meaningful temporal",
+      "doi": "10.1145/3742414.3794731",
+      "pmid": null,
+      "openalex_id": "W7134262208",
+      "source_doi": "10.1038/s41597-024-03106-5",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5104362706840039,
+        "similarity_score": 0.4419361650943756,
+        "citation_text_length": 1245,
         "dataset_text_length": 2336,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -321,52 +356,6 @@
         "confidence_score": 0.41731704890728,
         "similarity_score": 0.36131346225738525,
         "citation_text_length": 1147,
-        "dataset_text_length": 2336,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Understanding Neurocognition With Deep Learning and MRI: A Systematic Review",
-      "author": "Md. Tanvir Rahman, Nabil Anan Orka, Asaduzzaman Khan, Píetro Lió, Mohammad Ali Moni",
-      "venue": "IEEE Transactions on Cognitive and Developmental Systems",
-      "year": 2025,
-      "url": "https://doi.org/10.1109/tcds.2025.3635161",
-      "cited_by": 2,
-      "abstract": "Neurocognition encompasses a range of cognitive functions supported by distributed neural networks. While magnetic resonance imaging (MRI) enables non-invasive brain mapping and deep learning (DL) can capture complex neuroimaging patterns, their integration for understanding cognition remains underexplored. To clarify the current state of progress and highlight persisting challenges, we systematically reviewed 45 studies (2019–2025) following PRISMA guidelines, spanning cognitive profiling (n = 28) and cognitive decoding (n = 18), with one study addressing both. Across profiling studies, graph neural networks were most frequently applied and achieved the strongest predictions for fluid intelligence (r = 0.66), while LSTMs performed best for crystallized intelligence (r = 0.62). Overall, crystallized intelligence (mean r = 0.39) proved more predictable than fluid intelligence (mean r = 0.30), particularly when using task-based functional MRI or combining MRI modalities. Decoding studies",
-      "doi": "10.1109/tcds.2025.3635161",
-      "pmid": null,
-      "openalex_id": "W4416582703",
-      "source_doi": "10.1038/s41597-024-03106-5",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.4169780986011029,
-        "similarity_score": 0.3610199987888336,
-        "citation_text_length": 1254,
-        "dataset_text_length": 2336,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Explainable AI for Dementia Detection Using EEG Microstates",
-      "author": "Quoc-Toan Nguyen, Linh Le, David Williams-King, Quang-Hieu Tang, Nghia Duong-Trung",
-      "venue": "Companion Proceedings of the 31st International Conference on Intelligent User Interfaces",
-      "year": 2026,
-      "url": "https://doi.org/10.1145/3742414.3794731",
-      "cited_by": 1,
-      "abstract": "Alzheimer’s disease (AD) is a leading cause of dementia worldwide, and early detection plays a critical role in enabling timely care and improving quality of life. While deep learning models based on electroencephalography (EEG) microstate representations show strong potential for early AD detection, their complex temporal behaviour generally makes decisions difficult for humans to understand and rely on. This paper presents an explainable approach for temporal EEG microstate classifiers, which helps users understand how brain dynamics contribute to individual predictions. The proposed method produces time-aligned, microstate-aware explanations that reveal which temporal segments and microstate patterns influence AD and normal control decisions. Developed based on a fixed, pre-trained microstate-based dementia detection model across multiple EEG datasets, the approach improves the transparency and interpretability of AI decisions. By translating model behaviour into meaningful temporal",
-      "doi": "10.1145/3742414.3794731",
-      "pmid": null,
-      "openalex_id": "W7134262208",
-      "source_doi": "10.1038/s41597-024-03106-5",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5189611101150513,
-        "similarity_score": 0.44931697845458984,
-        "citation_text_length": 1269,
         "dataset_text_length": 2336,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -443,7 +432,7 @@
     },
     {
       "title": "Large-Scale AI and Foundation Models for Neuroscience: A Comprehensive Review",
-      "author": "Shihao Yang, Xi-Ying Huang, Danilo Bernardo, Jun-En Ding, Andrew Michael, Guo-An Wang, Jingmei Yang, Alison Anderson, D. Giritharan, P. Kwan, A. Raj, Yu Zhang, Feng Liu",
+      "author": "Shi-Hao Yang, Xi-Ying Huang, Danilo Bernardo, Jun-En Ding, Andrew Michael, Guo-An Wang, Jingmei Yang, Alison Anderson, D. Giritharan, P. Kwan, A. Raj, Yu Zhang, Feng Liu",
       "venue": "Meta-Radiology",
       "year": 2026,
       "url": "https://doi.org/10.1016/j.metrad.2026.100224",
@@ -456,9 +445,32 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.41718690991401675,
-        "similarity_score": 0.39732086658477783,
-        "citation_text_length": 286,
+        "confidence_score": 0.4201492086052895,
+        "similarity_score": 0.400142103433609,
+        "citation_text_length": 287,
+        "dataset_text_length": 2336,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "A Modality-Invariant Measure of Neural Health",
+      "author": "Luis A. Sánchez, Ernst Niebur, Joon Y. Kang, Chiadi U. Onyike, Sridevi V. Sarma",
+      "venue": "medRxiv",
+      "year": 2026,
+      "url": "https://doi.org/10.64898/2026.10.02.26364203",
+      "cited_by": 0,
+      "abstract": "Abstract Quantifying neural health with a single measure remains a major unmet challenge. Here, we report a physiological marker based on the spatial distribution of signal-derived energy correlates in the resting brain. We hypothesize that energy organization in the healthy brain approaches an entropy-maximizing, homeostatically regulated state characterized by five properties: lognormal energy distributions, balanced spatial allocation, statistical independence between regions, low energy variance, and temporal stability. Together, these properties define an energetic profile that the Neural Health Index (NHI) summarizes as a single score, computable from (scalp/intracranial) electroencephalography, magnetoencephalography, or functional magnetic resonance imaging. Across 808 participants spanning neurological, psychiatric, neurodevelopmental, and neurodegenerative disorders, NHI distinguished healthy from clinical populations with sensitivity and specificity exceeding 95% in internal",
+      "doi": "10.64898/2026.10.02.26364203",
+      "pmid": null,
+      "openalex_id": "W7220690564",
+      "source_doi": "10.1038/s41597-024-03106-5",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5233349700272084,
+        "similarity_score": 0.4531038701534271,
+        "citation_text_length": 1170,
         "dataset_text_length": 2336,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -466,7 +478,7 @@
     },
     {
       "title": "UniFCHarm: Unified Prompt-Guided Harmonization of fMRI Functional Connectivity Across Scanners and Atlases",
-      "author": "Xin Lin, Yuxiao Liu, Yulin Wang, Lin Teng, Long Yang, Shilun Zhao, Kai Zhang, Zhiming Cui, Dinggang Shen",
+      "author": "Xin Lin, Yuxiao Liu, Yulin Wang, Lin Teng, Long Yang, Shilun Zhao, Kai Zhang, Zhiming Cui, Dinggang G. Shen",
       "venue": "Lecture notes in computer science",
       "year": 2026,
       "url": "https://doi.org/10.1007/978-3-032-38072-2_58",
@@ -479,9 +491,9 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.4029261946678162,
-        "similarity_score": 0.3837392330169678,
-        "citation_text_length": 270,
+        "confidence_score": 0.40139361619949343,
+        "similarity_score": 0.382279634475708,
+        "citation_text_length": 273,
         "dataset_text_length": 2336,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -512,7 +524,7 @@
     },
     {
       "title": "Bridging EEG to fMRI: Semi-supervised Functional Connectivity Translation via Latent Alignment",
-      "author": "Xiaoye Li, Weiqi Li, Jia Mi, Shijie Huang, Ye He, Xin Lin, Zhiming Cui, Dinggang Shen",
+      "author": "Xiaoye Li, Weiqi Li, Jia Mi, Shijie Huang, Ye He, Xin Lin, Zhiming Cui, Dinggang G. Shen",
       "venue": "Lecture notes in computer science",
       "year": 2026,
       "url": "https://doi.org/10.1007/978-3-032-38239-9_12",
@@ -525,9 +537,9 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.46681530922651293,
-        "similarity_score": 0.44458600878715515,
-        "citation_text_length": 239,
+        "confidence_score": 0.4679521322250366,
+        "similarity_score": 0.44566869735717773,
+        "citation_text_length": 242,
         "dataset_text_length": 2336,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -535,7 +547,7 @@
     },
     {
       "title": "CMD-AD: Cross-Modality Distillation from fMRI-EEG for Single-Modality Alzheimer’s Disease Diagnosis",
-      "author": "Xin Lin, Yuxiao Liu, Wenfei Yu, Yulong Dou, Weiqi Li, Minhui Tan, Ye He, Zhiming Cui, Dinggang Shen",
+      "author": "Xin Lin, Yuxiao Liu, Wenfei Yu, Yulong Dou, Weiqi Li, Minhui Tan, Ye He, Zhiming Cui, Dinggang G. Shen",
       "venue": "Lecture notes in computer science",
       "year": 2026,
       "url": "https://doi.org/10.1007/978-3-032-38098-2_17",
@@ -548,9 +560,9 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5450111389160156,
-        "similarity_score": 0.5190582275390625,
-        "citation_text_length": 258,
+        "confidence_score": 0.5394102305173875,
+        "similarity_score": 0.5137240290641785,
+        "citation_text_length": 261,
         "dataset_text_length": 2336,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -692,14 +704,12 @@
         "dataset_text_length": 2336,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      },
-      "mentions_accession": true,
-      "matched_accession": "ds004796"
+      }
     },
     {
       "title": "Non-Parametric Spectral Analysis of Slow Wave Activity in Resting-State EEG as a Biomarker of Dementia Risk",
       "author": "Waldemar Bauer, Mariusz Pelc, Katarzyna Bialas, Tomasz Jan Kajdanowicz, Aleksandra Kawala‐Sterniuk",
-      "venue": "2025 IEEE International Conference on Data Mining Workshops (ICDMW)",
+      "venue": "IEEE ... International Conference on Data Mining workshops",
       "year": 2025,
       "url": "https://doi.org/10.1109/icdmw69685.2025.00218",
       "cited_by": 0,
@@ -711,9 +721,9 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6432918137311936,
-        "similarity_score": 0.5569626092910767,
-        "citation_text_length": 1311,
+        "confidence_score": 0.6462160044908525,
+        "similarity_score": 0.5594943761825562,
+        "citation_text_length": 1302,
         "dataset_text_length": 2336,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -763,14 +773,12 @@
         "dataset_text_length": 2336,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      },
-      "mentions_accession": true,
-      "matched_accession": "ds004796"
+      }
     },
     {
       "title": "Augmenting Spline Interpolated Dementia EEG Data with Deep Learning for Improved Multi-Centric Data Harmonization",
       "author": "Matthew Chen, Benoit Louis Marteau, Micky C. Nnamdi, J. Ben Tamo, May Dongmei Wang",
-      "venue": "2025 IEEE 22nd International Symposium on Biomedical Imaging (ISBI)",
+      "venue": "IEEE International Symposium on Biomedical Imaging (ISBI)",
       "year": 2025,
       "url": "https://doi.org/10.1109/isbi60581.2025.10981278",
       "cited_by": 0,
@@ -782,9 +790,9 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5116196192800999,
-        "similarity_score": 0.4429607093334198,
-        "citation_text_length": 1301,
+        "confidence_score": 0.5090120735764504,
+        "similarity_score": 0.4407030940055847,
+        "citation_text_length": 1291,
         "dataset_text_length": 2336,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -811,9 +819,7 @@
         "dataset_text_length": 2336,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      },
-      "mentions_accession": true,
-      "matched_accession": "ds004796"
+      }
     },
     {
       "title": "Multimodal data fusion for early risk prediction of disease",
@@ -860,124 +866,21 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
-    },
-    {
-      "title": "Joint Generative Modeling of EEG and fMRI for Cognitive Task Simulation Using Adversarial Learning",
-      "author": "Nirmal Sukumaran Nair, Ravi Prakash B",
-      "venue": "Research Square",
-      "year": 2026,
-      "url": "https://doi.org/10.21203/rs.3.rs-9897980/v1",
-      "cited_by": 0,
-      "abstract": null,
-      "doi": "10.21203/rs.3.rs-9897980/v1",
-      "pmid": null,
-      "openalex_id": "W7166243167",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004796",
-      "confidence_scoring": {
-        "confidence_score": 0.4391387432813645,
-        "similarity_score": 0.4182273745536804,
-        "citation_text_length": 177,
-        "dataset_text_length": 2336,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Task-Related EEG as a Biomarker for Preclinical Alzheimer’s Disease: An Explainable Deep Learning Approach",
-      "author": "Ziyang Li, Hong Wang, Lei Li",
-      "venue": "Biomimetics",
-      "year": 2025,
-      "url": "https://doi.org/10.3390/biomimetics10070468",
-      "cited_by": 7,
-      "abstract": "The early detection of Alzheimer's disease (AD) in cognitively healthy individuals remains a major preclinical challenge. EEG is a promising tool that has shown effectiveness in detecting AD risk. Task-related EEG has been rarely used in Alzheimer's disease research, as most studies have focused on resting-state EEG. An interpretable deep learning framework-Interpretable Convolutional Neural Network (InterpretableCNN)-was utilized to identify AD-related EEG features. EEG data were recorded during three cognitive task conditions, and samples were labeled based on APOE genotype and polygenic risk scores. A 100-fold leave-p%-subjects-out cross-validation (LPSO-CV) was used to evaluate model performance and generalizability. The model achieved an ROC AUC of 60.84% across the tasks and subjects, with a Kappa value of 0.22, indicating fair agreement. Interpretation revealed a consistent focus on theta and alpha activity in the parietal and temporal regions-areas commonly associated with AD pathology. Task-related EEG combined with interpretable deep learning can reveal early AD risk signatures in healthy individuals. InterpretableCNN enhances transparency in feature identification, offering a valuable tool for preclinical screening.",
-      "doi": "10.3390/biomimetics10070468",
-      "pmid": "40710281",
-      "openalex_id": "W4412474434",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004796",
-      "confidence_scoring": {
-        "confidence_score": 0.6615884524583817,
-        "similarity_score": 0.5728038549423218,
-        "citation_text_length": 1430,
-        "dataset_text_length": 2336,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "NS-Copilot: An LLM-Driven Agent System for Autonomous Neuroscience Analysis",
-      "author": "Wuche Liu, Yiran Qiao, Linlin Hou, Rui Yang, Shusen Pu, Song Wang, Jing Ma",
-      "venue": "arXiv (Cornell University)",
-      "year": 2026,
-      "url": "https://doi.org/10.48550/arxiv.2609.01971",
-      "cited_by": 0,
-      "abstract": "AI is rapidly advancing neuroscience, yet many laboratories fail to fully unleash its potential due to significant interdisciplinary barriers. While pre-trained neural models for physiological data are progressing quickly, their heterogeneous architectures and modality-specific constraints hinder systematic integration, selection, and evaluation. Despite recent advances in large language model (LLM)-based agent systems for intelligent scientific applications, existing approaches often still lack the domain expertise required to effectively select and coordinate diverse neuroscience pre-trained models and handle unique data types in this domain. We present NS-Copilot, an LLM-driven multi-agent system for neuroscience analysis that autonomously supports end-to-end workflows for diverse professional tasks. It unifies domain-specific pre-trained models and supports key neuroscience modalities, including EEG and extracellular spike data, through a natural-language interface. Given raw data and a task description, NS-Copilot orchestrates agents with specialized roles for planning, adaptive control, code generation, and result synthesis, enabling analysis without dataset-specific heuristics. We evaluate NS-Copilot on neuroscience benchmarks spanning Alzheimer's disease, Parkinson's disease, and working memory spike decoding. Across 8 trials per task, the system consistently outperforms strong baselines on the primary metric, demonstrating the ability of NS-Copilot for effective and scalable neuroscience analysis. Our code is publicly available at https://github.com/FrankLiu1102/ns-copilot.",
-      "doi": "10.48550/arxiv.2609.01971",
-      "pmid": null,
-      "openalex_id": "W7207743228",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004796",
-      "confidence_scoring": {
-        "confidence_score": 0.45217602431774145,
-        "similarity_score": 0.39149439334869385,
-        "citation_text_length": 1714,
-        "dataset_text_length": 2336,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Preclinical Neural Divergence associated with Genetic Risk for Alzheimer's Disease: A Multimodal Resting-State EEG and Neuroimaging Study",
-      "author": "Shlok Khare",
-      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
-      "year": 2026,
-      "url": "https://doi.org/10.5281/zenodo.19562976",
-      "cited_by": 0,
-      "abstract": "Pre-symptomatic Alzheimer’s risk detection is difficult precisely because genetically at-risk individuals look neurologically normal for years before any clinical presentation. This paper presents a multimodal neurophysiological framework distinguishing two biologically distinct risk pathways, APOE ε4 (N = 48) and PICALM rs3851179 (N = 30), using resting-state EEG and fMRI in a pre-symptomatic cohort (µage ≈55 years) from the PEARL-Neuro dataset (OpenNeuro ds004796). EEGNet trained under leave-one-subject-out cross-validation reveals a bimodal fold structure in which 57.8% of APOE e3/e4 carriers and 80.0% of PICALM carriers are correctly classified at the subject level, with no intermediate folds between near-perfect (F1 = 1.0, 50/77) and near-chance (F1 ≈0.47–0.50, 27/77) performance. This structure reflects genuine individual variability in pre-symptomatic EEG divergence onset, with age confirmed as non-explanatory (Mann-Whitney U, p>.05). SHAP analysis and EEGNet’s learned spatial filters converge independently on bilateral temporal and frontal channels as the primary discriminating anatomy. Default Mode Network (DMN) connectivity is the single most discriminative individual feature (mean |SHAP|= 0.038) despite showing no linear correlation with any EEG measure (r < 0.17, all p > .16, N = 68), indicating the two modalities access distinct biological aspects of the same risk process. Late fusion demonstrates a ceiling effect consistent with EEGNet’s near-perfect unimodal performance, but within the 24 maximally uncertain subjects, DMN provides genuine probability calibration improvement of approximately 0.20–0.25 in P(PICALM risk). A companion ResNet18 analysis on OASIS-2 (N = 150 baseline sessions) contributes neuroanatomical grounding through Grad-CAM, identifying posterior-inferior atrophy as the primary CDR-based MCI discriminator. Together, these results suggest the preclinical Alzheimer’s neural phenotype is modality-specific, pathway-dependent, and individually variable in its timing of emergence.",
-      "doi": "10.5281/zenodo.19562976",
-      "pmid": null,
-      "openalex_id": "W7154238673",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004796",
-      "superseded_dois": [
-        "10.5281/zenodo.19562977"
-      ],
-      "confidence_scoring": {
-        "confidence_score": 0.8062752440571787,
-        "similarity_score": 0.6980738043785095,
-        "citation_text_length": 1743,
-        "dataset_text_length": 2336,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T11:00:17.769159+00:00",
+    "scoring_date": "2026-10-11T11:34:19.844360+00:00",
     "dataset_text_length": 2336,
-    "num_citations_scored": 38,
+    "num_citations_scored": 35,
     "summary_stats": {
-      "mean_confidence": 0.5664362656168248,
-      "median_confidence": 0.5498915389180183,
-      "std_confidence": 0.11494237363802769,
-      "min_confidence": 0.4029261946678162,
+      "mean_confidence": 0.5621719585955142,
+      "median_confidence": 0.5477698896825314,
+      "std_confidence": 0.10807157166335743,
+      "min_confidence": 0.40139361619949343,
       "max_confidence": 0.8096334922313692,
-      "high_confidence_count": 5,
-      "medium_confidence_count": 33,
+      "high_confidence_count": 4,
+      "medium_confidence_count": 31,
       "low_confidence_count": 0
     }
   }

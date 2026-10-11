@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000270",
   "num_citations": 27,
-  "date_last_updated": "2026-09-30T10:44:27.180432+00:00",
+  "date_last_updated": "2026-10-11T10:26:39.351545+00:00",
   "metadata": {
-    "total_cumulative_citations": 17,
-    "fetch_date": "2026-09-29T10:58:58.611766+00:00",
+    "total_cumulative_citations": 18,
+    "fetch_date": "2026-10-11T10:26:39.351545+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -19,25 +19,25 @@
         "source_relation": "IsDerivedFrom",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Lower limb motor imagery EEG dataset based on the multi-paradigm and longitudinal-training of stroke patients",
         "paper_year": 2025,
         "paper_venue": "Scientific Data",
         "reason": "Title, authors, and abstract (27 stroke patients, lower-limb MI, multi-paradigm, longitudinal) match this dataset exactly; it is the Scientific Data descriptor.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.nm000270",
         "identifier_type": "doi",
-        "source_relation": "IsVersionOf",
+        "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -49,25 +49,41 @@
       "motor imagery",
       "Stroke",
       "Rehabilitation",
-      "Gait",
+      "brain-computer interface",
       "lower limb",
-      "longitudinal",
-      "brain-computer interface"
+      "gait"
     ],
     "methods_description": "Scalp EEG recordings were acquired during a lower-limb motor imagery task (`task-imagery`) in stroke patients undergoing rehabilitation. The study employed a multi-paradigm protocol with a longitudinal training design involving repeated sessions across 27 participants.",
     "funding": [
       {
         "funder_name": "Tianjin University"
       }
-    ],
-    "searched_accessions": [
-      "nm000270"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 27
+    ]
   },
   "citation_details": [
+    {
+      "title": "SingLEM: Single-Channel Large EEG Model",
+      "author": "Jamiyan Sukhbaatar, S. Imamura, Ibuki Inoue, Shoya Murakami, Kazi Mahmudul Hassan, Seung-Woo Han, Ingon Chanpornpakdi, Toshihisa Tanaka",
+      "venue": "IEEE journal of biomedical and health informatics",
+      "year": 2025,
+      "url": "https://doi.org/10.1109/JBHI.2026.3732223",
+      "cited_by": 4,
+      "abstract": "Current deep learning models for electroencephalography (EEG) are often task-specific and depend on large labeled datasets, limiting their adaptability. Although EEG foundation models seek broader applicability, many still rely on predefined multi-channel inputs, electrode-layout assumptions, or model-specific channel handling. To address these limitations, we introduce the Single-Channel Large EEG Model (SingLEM), a self-supervised foundation model whose hybrid convolutional-Transformer encoder maps each channel independently to a reusable representation capturing local and long-range temporal structure. These representations can be used individually or combined through channel-wise feature concatenation. We assembled 71 public EEG datasets comprising approximately 9,200 subjects and 357,000 single-channel hours. For leakage-controlled evaluation, downstream results were obtained with a model pretrained on 68 datasets after excluding the three source datasets underlying the six tasks.",
+      "doi": "10.1109/JBHI.2026.3732223",
+      "pmid": "42709520",
+      "openalex_id": null,
+      "source_doi": "10.1038/s41597-025-04618-4",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6313100391626358,
+        "similarity_score": 0.5465887784957886,
+        "citation_text_length": 1262,
+        "dataset_text_length": 2526,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
     {
       "title": "A multi-paradigm EEG dataset for studying upper limb rehabilitation exercises",
       "author": "Wenwen Chang, Weixuan Kong, Guanghui Yan, Renjie Lv, Kaiyue Du, Muhammad Tariq Sadiq, Bin Guo, Rong Yin, Xuan Liu",
@@ -86,29 +102,6 @@
         "confidence_score": 0.9253984290361406,
         "similarity_score": 0.8012107610702515,
         "citation_text_length": 1244,
-        "dataset_text_length": 2526,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "SingLEM: Single-Channel Large EEG Model",
-      "author": "Jamiyan Sukhbaatar, S. Imamura, Ibuki Inoue, Shoya Murakami, Kazi Mahmudul Hassan, Seung-Woo Han, Ingon Chanpornpakdi, Toshihisa Tanaka",
-      "venue": "IEEE journal of biomedical and health informatics",
-      "year": 2025,
-      "url": "https://doi.org/10.1109/JBHI.2026.3732223",
-      "cited_by": 3,
-      "abstract": "Current deep learning models for electroencephalography (EEG) are often task-specific and depend on large labeled datasets, limiting their adaptability. Although EEG foundation models seek broader applicability, many still rely on predefined multi-channel inputs, electrode-layout assumptions, or model-specific channel handling. To address these limitations, we introduce the Single-Channel Large EEG Model (SingLEM), a self-supervised foundation model whose hybrid convolutional-Transformer encoder maps each channel independently to a reusable representation capturing local and long-range temporal structure. These representations can be used individually or combined through channel-wise feature concatenation. We assembled 71 public EEG datasets comprising approximately 9,200 subjects and 357,000 single-channel hours. For leakage-controlled evaluation, downstream results were obtained with a model pretrained on 68 datasets after excluding the three source datasets underlying the six tasks.",
-      "doi": "10.1109/JBHI.2026.3732223",
-      "pmid": "42709520",
-      "openalex_id": null,
-      "source_doi": "10.1038/s41597-025-04618-4",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.6313100391626358,
-        "similarity_score": 0.5465887784957886,
-        "citation_text_length": 1262,
         "dataset_text_length": 2526,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -185,7 +178,7 @@
     },
     {
       "title": "EgoBrain: Synergizing Minds and Eyes For Human Action Understanding",
-      "author": "Nie Lin, Yansen Wang, Dongqi Han, Weibang Jiang, Jingyuan Li, Ryosuke Furuta, Yoichi Sato, Dongsheng Li",
+      "author": "Nie Lin, Yansen Wang, Dong-Qi Han, Weibang Jiang, Jingyuan Li, Ryosuke Furuta, Yoichi Sato, Dong-Sheng Li",
       "venue": "ArXiv",
       "year": 2025,
       "url": "https://doi.org/10.48550/arXiv.2506.01353",
@@ -198,9 +191,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6277522829174996,
-        "similarity_score": 0.5435084700584412,
-        "citation_text_length": 1214,
+        "confidence_score": 0.6265924787521363,
+        "similarity_score": 0.5425043106079102,
+        "citation_text_length": 1216,
         "dataset_text_length": 2526,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -255,7 +248,7 @@
     {
       "title": "A Study on the Classification Method of Motor Imagery EEG Signals Based on Band Filter Bank Common Space Pattern and Continuous Wavelet Transforms",
       "author": "Qixuan Cui, Xiaodan Zhang, Kemeng Xu, Shu‐Yi Wang",
-      "venue": "2025 5th International Conference on Sensors and Information Technology",
+      "venue": "International Conference on Sensors and Information Technology (ICSI)",
       "year": 2025,
       "url": "https://doi.org/10.1109/icsi64877.2025.11009976",
       "cited_by": 1,
@@ -267,9 +260,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6745062214136124,
-        "similarity_score": 0.5839880704879761,
-        "citation_text_length": 1268,
+        "confidence_score": 0.6661549705266954,
+        "similarity_score": 0.576757550239563,
+        "citation_text_length": 1266,
         "dataset_text_length": 2526,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -347,7 +340,7 @@
     {
       "title": "EEG-Based Brain-Computer Interface Control for Lower-Limb Rehabilitation Robots: A Focused Review",
       "author": "Yongkang Li, Aihui Wang, Xinyu Liu, Xueying Hu, Wenhan Sun",
-      "venue": "2026 International Conference on Advanced Mechatronic Systems (ICAMechS)",
+      "venue": "International Conference on Advanced Mechatronic Systems",
       "year": 2026,
       "url": "https://doi.org/10.1109/icamechs71619.2026.11663349",
       "cited_by": 0,
@@ -359,9 +352,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.8043363395333292,
-        "similarity_score": 0.6963950991630554,
-        "citation_text_length": 1266,
+        "confidence_score": 0.8048881191015245,
+        "similarity_score": 0.6968728303909302,
+        "citation_text_length": 1250,
         "dataset_text_length": 2526,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -415,7 +408,7 @@
     },
     {
       "title": "Motor imagery interventions in stroke patients modulate their brain-heart network dynamics",
-      "author": "Diego Candia‐Rivera, Marie‐Constance Corsi, Juliana Gonzalez-Astudillo, Charlotte Rosso, Fabrizio De Vico Fallani, Mario Chavez",
+      "author": "Diego Candia‐Rivera, Marie‐Constance Corsi, Juliana Gonzalez-Astudillo, Charlotte Rosso, Fabrizio De Vico Fallani, Mario Chávez",
       "venue": "medRxiv",
       "year": 2026,
       "url": "https://doi.org/10.64898/2026.06.23.26355958",
@@ -428,8 +421,8 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.7655778694152833,
-        "similarity_score": 0.6628379821777344,
+        "confidence_score": 0.7665825694799425,
+        "similarity_score": 0.6637078523635864,
         "citation_text_length": 1263,
         "dataset_text_length": 2526,
         "scoring_method": "sentence_transformers",
@@ -577,7 +570,7 @@
     {
       "title": "EEG-Based Gait Phase Classification: Healthy and Stroke Subjects",
       "author": "Md. Shafiul Islam Joy, Md. Fazlul Karim Khondakar, Mehdi Hasan Chowdhury, Md. Hasib Sarowar, Quazi Delwar Hossain",
-      "venue": "2025 28th International Conference on Computer and Information Technology (ICCIT)",
+      "venue": "International Conference on Computer and Information Technology (ICCIT)",
       "year": 2025,
       "url": "https://doi.org/10.1109/iccit68739.2025.11491543",
       "cited_by": 0,
@@ -589,9 +582,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.7303611838817597,
-        "similarity_score": 0.6323473453521729,
-        "citation_text_length": 1297,
+        "confidence_score": 0.7196486055850982,
+        "similarity_score": 0.6230723857879639,
+        "citation_text_length": 1287,
         "dataset_text_length": 2526,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -668,7 +661,7 @@
     },
     {
       "title": "Motor Imagery Classification Research Based on FBCSANet Algorithm",
-      "author": "Yi-Hao Zhang, Y. Fei, Qiuhui Liu, Yi-Dan Xu, Xuelin Gu",
+      "author": "Yi-Hao Zhang, Y. Fei, Qiuhui Liu, Yi-Dan Xu, Xue-Lin Gu",
       "venue": "2025 IEEE 8th International Conference on Computer and Communication Engineering Technology (CCET)",
       "year": 2025,
       "url": "https://doi.org/10.1109/CCET66260.2025.11199439",
@@ -681,9 +674,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.8700712198019028,
-        "similarity_score": 0.7533084154129028,
-        "citation_text_length": 1256,
+        "confidence_score": 0.868349516093731,
+        "similarity_score": 0.7518177628517151,
+        "citation_text_length": 1257,
         "dataset_text_length": 2526,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -692,13 +685,13 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T10:54:08.650590+00:00",
+    "scoring_date": "2026-10-11T11:25:15.196948+00:00",
     "dataset_text_length": 2526,
     "num_citations_scored": 27,
     "summary_stats": {
-      "mean_confidence": 0.7347513984971578,
-      "median_confidence": 0.727835871577263,
-      "std_confidence": 0.09769436677145019,
+      "mean_confidence": 0.7339962556295925,
+      "median_confidence": 0.7196486055850982,
+      "std_confidence": 0.09792081369472215,
       "min_confidence": 0.520859534740448,
       "max_confidence": 0.9253984290361406,
       "high_confidence_count": 17,

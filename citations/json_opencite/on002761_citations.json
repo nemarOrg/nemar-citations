@@ -1,10 +1,10 @@
 {
   "dataset_id": "on002761",
-  "num_citations": 14,
-  "date_last_updated": "2026-09-30T10:44:28.294342+00:00",
+  "num_citations": 15,
+  "date_last_updated": "2026-10-11T10:42:19.959088+00:00",
   "metadata": {
-    "total_cumulative_citations": 569,
-    "fetch_date": "2026-09-29T11:06:11.186507+00:00",
+    "total_cumulative_citations": 702,
+    "fetch_date": "2026-10-11T10:42:19.959088+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -16,15 +16,15 @@
       {
         "identifier": "10.1101/758185",
         "identifier_type": "doi",
-        "source_relation": "References",
+        "source_relation": "IsDescribedBy",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Episodic memory retrieval success is associated with rapid replay of episode content",
         "paper_year": 2019,
         "paper_venue": "bioRxiv (Cold Spring Harbor Laboratory)",
         "reason": "Study paper by the same authors (Wimmer, Liu, Vehar, Behrens, Dolan) reporting the MEG episodic memory retrieval/replay data in this 'memoryreplay' dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on002761",
@@ -32,12 +32,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -46,13 +46,13 @@
     ],
     "keywords": [
       "MEG",
-      "memory replay",
-      "sequential activity",
-      "neural sequenceness",
       "episodic memory",
-      "brain imaging"
+      "memory retrieval",
+      "neural replay",
+      "sequenceness",
+      "Magnetoencephalography"
     ],
-    "methods_description": "MEG recordings were acquired during two experimental phases: a memory phase and a localizer phase. In both phases, trials began with visual presentation of images from 6 stimulus categories or story-ending stimuli (positive or negative). Memory phase trials included an answer onset approximately 5.5 seconds after stimulus presentation. Localizer phase trials included a 2-second baseline period with word naming prior to picture onset. Visual stimulus timing was calibrated using a photodiode, with approximately 20 ms delay between trigger and visual onset.",
+    "methods_description": "MEG was recorded with a trigger channel marking event timing. Visual onset lagged the trigger by about 20 ms, as estimated with a photodiode. In the memory phase, each trial began with a trigger for the image category (1-8), and the answer onset was marked by trigger 11 about 5.5 s later. The localizer phase used the same category triggers, with a word naming each picture shown for 2 s before picture onset. Sequenceness was computed as the Frobenius inner product between the lag-wise regression matrix and a 6 x 6 transition matrix, z-scored across lags, and differential forward-backward sequenceness was then derived.",
     "funding": [
       {
         "funder_name": "R.D. is supported by Wellcome Trust Investigator Award 098362/ Z/12/Z."
@@ -65,20 +65,21 @@
       },
       {
         "funder_name": "Wellcome Trust",
-        "award_number": "098362/Z/12/Z",
-        "award_title": "Investigator Award"
+        "award_number": "098362/Z/12/Z"
       },
       {
         "funder_name": "Wellcome Trust",
-        "award_number": "203147/Z/16/Z"
-      },
-      {
-        "funder_name": "University College London"
-      },
-      {
-        "funder_name": "Max Planck Society"
+        "award_number": "203147/Z/16/Z",
+        "award_title": "Core funding for the Wellcome Centre for Human Neuroimaging"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "on002761",
+      "ds002761"
+    ],
+    "num_accession_mentions": 0,
+    "num_dataset_citations": 0,
+    "num_datapaper_citations": 15
   },
   "citation_details": [
     {
@@ -87,13 +88,13 @@
       "venue": "Progress in neurobiology",
       "year": 2020,
       "url": "https://doi.org/10.1016/j.pneurobio.2020.101821",
-      "cited_by": 188,
+      "cited_by": 190,
       "abstract": "The hippocampus is crucial for episodic memory, but it is also involved in online prediction. Evidence suggests that a unitary hippocampal code underlies both episodic memory and predictive processing, yet within a predictive coding framework the hippocampal-neocortical interactions that accompany these two phenomena are distinct and opposing. Namely, during episodic recall, the hippocampus is thought to exert an excitatory influence on the neocortex, to reinstate activity patterns across cortical circuits. This contrasts with empirical and theoretical work on predictive processing, where descending predictions suppress prediction errors to ‘explain away’ ascending inputs via cortical inhibition. In this hypothesis piece, we attempt to dissolve this previously overlooked dialectic. We consider how the hippocampus may facilitate both prediction and memory, respectively, by inhibiting neocortical prediction errors or increasing their gain. We propose that these distinct processing modes ",
       "doi": "10.1016/j.pneurobio.2020.101821",
       "pmid": "32446883",
       "openalex_id": null,
       "source_doi": "10.1101/758185",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.4380215531587601,
@@ -110,13 +111,13 @@
       "venue": "Science (New York, N.Y.)",
       "year": 2021,
       "url": "https://doi.org/10.1126/science.abf1357",
-      "cited_by": 146,
+      "cited_by": 147,
       "abstract": "Replay supports planning Learning from direct experience is easy—we can always use trial and error—but how do we learn from nondirect (nonlocal) experiences? For this, we need additional mechanisms that bridge time and space. In rodents, hippocampal replay is hypothesized to promote this function. Liu et al. measured high-temporal-resolution brain signals using human magnetoencephalography combined with a new model-based, visually oriented, multipath reinforcement memory task. This task was designed to differentiate local versus nonlocal learning episodes within the subject. They found that reverse sequential replay in the human medial temporal lobe supports nonlocal reinforcement learning and is the underlying mechanism for solving complex credit assignment problems such as value learning. Science, abf1357, this issue p. eabf1357 Reverse sequential replay supports nondirect reinforcement learning in humans and is prioritized according to utility. INTRODUCTION Adaptive decision-making ",
       "doi": "10.1126/science.abf1357",
       "pmid": "34016753",
       "openalex_id": null,
       "source_doi": "10.1101/758185",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.5953269892930986,
@@ -128,23 +129,46 @@
       }
     },
     {
-      "title": "The Temporal Dynamics of Opportunity Costs: A Normative Account of Cognitive Fatigue and Boredom",
+      "title": "The temporal dynamics of opportunity costs: A normative account of cognitive fatigue and boredom.",
       "author": "Mayank Agrawal, Marcelo Gomes Mattar, Jonathan D. Cohen, Nathaniel D. Daw",
-      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
-      "year": 2020,
-      "url": "https://doi.org/10.1101/2020.09.08.287276",
-      "cited_by": 84,
-      "abstract": "Abstract Cognitive fatigue and boredom are two phenomenological states that reflect overt task disengagement. In this paper, we present a rational analysis of the temporal structure of controlled behavior, which provides a formal account of these phenomena. We suggest that in controlling behavior, the brain faces competing behavioral and computational imperatives, and must balance them by tracking their opportunity costs over time. We use this analysis to flesh out previous suggestions that feelings associated with subjective effort, like cognitive fatigue and boredom, are the phenomenological counterparts of these opportunity cost measures, instead of reflecting the depletion of resources as has often been assumed. Specifically, we propose that both fatigue and boredom reflect the competing value of particular options that require foregoing immediate reward but can improve future performance: Fatigue reflects the value of offline computation (internal to the organism) to improve futur",
-      "doi": "10.1101/2020.09.08.287276",
+      "venue": "Psychological Review",
+      "year": 2021,
+      "url": "https://doi.org/10.1037/rev0000309",
+      "cited_by": 135,
+      "abstract": "Cognitive fatigue and boredom are two phenomenological states that reflect overt task disengagement. In this article, we present a rational analysis of the temporal structure of controlled behavior, which provides a formal account of these phenomena. We suggest that in controlling behavior, the brain faces competing behavioral and computational imperatives, and must balance them by tracking their opportunity costs over time. We use this analysis to flesh out previous suggestions that feelings associated with subjective effort, like cognitive fatigue and boredom, are the phenomenological counterparts of these opportunity cost measures, instead of reflecting the depletion of resources as has often been assumed. Specifically, we propose that both fatigue and boredom reflect the competing value of particular options that require foregoing immediate reward but can improve future performance: Fatigue reflects the value of offline computation (internal to the organism) to improve future decis",
+      "doi": "10.1037/rev0000309",
       "pmid": "34383523",
-      "openalex_id": "W3112525110",
+      "openalex_id": "W3191133200",
       "source_doi": "10.1101/758185",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.38193073332309724,
-        "similarity_score": 0.33067595958709717,
-        "citation_text_length": 1247,
+        "confidence_score": 0.3899139475822449,
+        "similarity_score": 0.337587833404541,
+        "citation_text_length": 1229,
+        "dataset_text_length": 2126,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Dynamics of fMRI patterns reflect sub-second activation sequences and reveal replay in human visual cortex",
+      "author": "Lennart Wittkuhn, Nicolas W. Schuck",
+      "venue": "Nature Communications",
+      "year": 2021,
+      "url": "https://doi.org/10.1038/s41467-021-21970-2",
+      "cited_by": 76,
+      "abstract": "Neural computations are often fast and anatomically localized. Yet, investigating such computations in humans is challenging because non-invasive methods have either high temporal or spatial resolution, but not both. Of particular relevance, fast neural replay is known to occur throughout the brain in a coordinated fashion about which little is known. We develop a multivariate analysis method for functional magnetic resonance imaging that makes it possible to study sequentially activated neural patterns separated by less than 100 ms with precise spatial resolution. Human participants viewed five images individually and sequentially with speeds up to 32 ms between items. Probabilistic pattern classifiers were trained on activation patterns in visual and ventrotemporal cortex during individual image trials. Applied to sequence trials, probabilistic classifier time courses allow the detection of neural representations and their order. Order detection remains possible at speeds up to 32 ms",
+      "doi": "10.1038/s41467-021-21970-2",
+      "pmid": "33741933",
+      "openalex_id": "W3136966614",
+      "source_doi": "10.1101/758185",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6681186586618424,
+        "similarity_score": 0.5784577131271362,
+        "citation_text_length": 1201,
         "dataset_text_length": 2126,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -153,21 +177,21 @@
     {
       "title": "Multiple memories can be simultaneously reactivated during sleep as effectively as a single memory",
       "author": "Eitan Schechtman, James W. Antony, Anna Lampe, Brianna J. Wilson, Kenneth A. Norman, Ken A. Paller",
-      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
-      "year": 2019,
-      "url": "https://doi.org/10.1101/662015",
-      "cited_by": 57,
-      "abstract": "Abstract Memory consolidation involves the reactivation of memory traces during sleep. If many memories are reactivated each night, how much do they interfere with one another? To explore this question, we examined whether reactivating multiple memories incurs a cost to sleep-related benefits by contrasting reactivation of multiple memories versus single memories during sleep. First, participants learned the on-screen location of different images. Each image was part of a semantically interconnected group (e.g., images of different cats). Groups were comprised of either one, two, or six images. During sleep, group-related sounds (e.g., “meow”) were unobtrusively presented to reactivate memories for half of the groups. The benefit in location recall for cued versus non-cued items was independent of the number of items in the group, suggesting that reactivation occurs in a simultaneous, promiscuous manner. Intriguingly, sleep spindles and delta-theta power modulations were sensitive to g",
-      "doi": "10.1101/662015",
+      "venue": "Communications Biology",
+      "year": 2021,
+      "url": "https://doi.org/10.1038/s42003-020-01512-0",
+      "cited_by": 63,
+      "abstract": "Memory consolidation involves the reactivation of memory traces during sleep. If different memories are reactivated each night, how much do they interfere with one another? We examined whether reactivating multiple memories incurs a cost to sleep-related benefits by contrasting reactivation of multiple memories versus single memories during sleep. First, participants learned the on-screen location of different objects. Each object was part of a semantically coherent group comprised of either one, two, or six items (e.g., six different cats). During sleep, sounds were unobtrusively presented to reactivate memories for half of the groups (e.g., \"meow\"). Memory benefits for cued versus non-cued items were independent of the number of items in the group, suggesting that reactivation occurs in a simultaneous and promiscuous manner. Intriguingly, sleep spindles and delta-theta power modulations were sensitive to group size, reflecting the extent of previous learning. Our results demonstrate ",
+      "doi": "10.1038/s42003-020-01512-0",
       "pmid": "33398075",
-      "openalex_id": "W2948199227",
+      "openalex_id": "W3120413577",
       "source_doi": "10.1101/758185",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5367933183908463,
-        "similarity_score": 0.48799392580986023,
-        "citation_text_length": 1274,
+        "confidence_score": 0.5668850760161878,
+        "similarity_score": 0.4908095896244049,
+        "citation_text_length": 1257,
         "dataset_text_length": 2126,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -185,7 +209,7 @@
       "pmid": "32530378",
       "openalex_id": null,
       "source_doi": "10.1101/758185",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.554300474524498,
@@ -202,13 +226,13 @@
       "venue": "eLife",
       "year": 2020,
       "url": "https://doi.org/10.7554/elife.54519",
-      "cited_by": 22,
+      "cited_by": 19,
       "abstract": "Humans recall the past by replaying fragments of events temporally. Here, we demonstrate a similar effect in macaques. We trained six rhesus monkeys with a temporal-order judgement (TOJ) task and collected 5000 TOJ trials. In each trial, the monkeys watched a naturalistic video of about 10 s comprising two across-context clips, and after a 2 s delay, performed TOJ between two frames from the video. The data are suggestive of a non-linear, time-compressed forward memory replay mechanism in the macaque. In contrast with humans, such compression of replay is, however, not sophisticated enough to allow these monkeys to skip over irrelevant information by compressing the encoded video globally. We also reveal that the monkeys detect event contextual boundaries, and that such detection facilitates recall by increasing the rate of information accumulation. Demonstration of a time-compressed, forward replay-like pattern in the macaque provides insights into the evolution of episodic memory in ",
       "doi": "10.7554/elife.54519",
       "pmid": "32310083",
       "openalex_id": "W3016882734",
       "source_doi": "10.1101/758185",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.6739501047134401,
@@ -231,7 +255,7 @@
       "pmid": null,
       "openalex_id": "W3094313234",
       "source_doi": "10.1101/758185",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.5963853871822358,
@@ -254,7 +278,7 @@
       "pmid": null,
       "openalex_id": "W3020977291",
       "source_doi": "10.1101/758185",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.6894724935293198,
@@ -277,7 +301,7 @@
       "pmid": null,
       "openalex_id": "W3213468537",
       "source_doi": "10.1101/758185",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.6650580891966821,
@@ -291,21 +315,21 @@
     {
       "title": "Faster than thought: Detecting sub-second activation sequences with sequential fMRI pattern analysis",
       "author": "Lennart Wittkuhn, Nicolas W. Schuck",
-      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+      "venue": "bioRxiv",
       "year": 2020,
       "url": "https://doi.org/10.1101/2020.02.15.950667",
       "cited_by": 3,
-      "abstract": "Abstract Neural computations are often anatomically localized and executed on sub-second time scales. Understanding the brain therefore requires methods that offer sufficient spatial and temporal resolution. This poses a particular challenge for the study of the human brain because non-invasive methods have either high temporal or spatial resolution, but not both. Here, we introduce a novel multivariate analysis method for conventional blood-oxygen-level dependent functional magnetic resonance imaging (BOLD fMRI) that allows to study sequentially activated neural patterns separated by less than 100 ms with anatomical precision. Human participants underwent fMRI and were presented with sequences of visual stimuli separated by 32 to 2048 ms. Probabilistic pattern classifiers were trained on fMRI data to detect the presence of image-specific activation patterns in early visual and ventral temporal cortex. The classifiers were then applied to data recorded during sequences of the same imag",
+      "abstract": "Neural computations are often anatomically localized and executed on sub-second time scales. Understanding the brain therefore requires methods that offer sufficient spatial and temporal resolution. This poses a particular challenge for the study of the human brain because non-invasive methods have either high temporal or spatial resolution, but not both. Here, we introduce a novel multivariate analysis method for conventional blood-oxygen-level dependent functional magnetic resonance imaging (BOLD fMRI) that allows to study sequentially activated neural patterns separated by less than 100 ms with anatomical precision. Human participants underwent fMRI and were presented with sequences of visual stimuli separated by 32 to 2048 ms. Probabilistic pattern classifiers were trained on fMRI data to detect the presence of image-specific activation patterns in early visual and ventral temporal cortex. The classifiers were then applied to data recorded during sequences of the same images presen",
       "doi": "10.1101/2020.02.15.950667",
       "pmid": null,
-      "openalex_id": "W3005578929",
+      "openalex_id": null,
       "source_doi": "10.1101/758185",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6159012418985367,
-        "similarity_score": 0.5332478284835815,
-        "citation_text_length": 1213,
+        "confidence_score": 0.6156370210647584,
+        "similarity_score": 0.5330190658569336,
+        "citation_text_length": 1181,
         "dataset_text_length": 2126,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -323,7 +347,7 @@
       "pmid": "39677778",
       "openalex_id": "W4405141600",
       "source_doi": "10.1101/758185",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.5179217818379402,
@@ -346,7 +370,7 @@
       "pmid": null,
       "openalex_id": "W4400773386",
       "source_doi": "10.1101/758185",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.5912944203615189,
@@ -369,7 +393,7 @@
       "pmid": null,
       "openalex_id": "W7150984649",
       "source_doi": "10.1101/758185",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.5019907732307911,
@@ -392,7 +416,7 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/758185",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.5534709870815278,
@@ -406,17 +430,17 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T10:55:45.423392+00:00",
+    "scoring_date": "2026-10-11T11:27:34.077366+00:00",
     "dataset_text_length": 2126,
-    "num_citations_scored": 14,
+    "num_citations_scored": 15,
     "summary_stats": {
-      "mean_confidence": 0.5651298819801638,
-      "median_confidence": 0.5727974474430084,
-      "std_confidence": 0.08427397170689548,
-      "min_confidence": 0.38193073332309724,
+      "mean_confidence": 0.5745165171623231,
+      "median_confidence": 0.5912944203615189,
+      "std_confidence": 0.0836765766516824,
+      "min_confidence": 0.3899139475822449,
       "max_confidence": 0.6894724935293198,
       "high_confidence_count": 0,
-      "medium_confidence_count": 13,
+      "medium_confidence_count": 14,
       "low_confidence_count": 1
     }
   }

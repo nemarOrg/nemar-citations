@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000208",
-  "num_citations": 11,
-  "date_last_updated": "2026-10-04T10:04:42.098453+00:00",
+  "num_citations": 9,
+  "date_last_updated": "2026-10-11T10:20:41.991085+00:00",
   "metadata": {
-    "total_cumulative_citations": 37,
-    "fetch_date": "2026-09-29T10:49:42.252207+00:00",
+    "total_cumulative_citations": 40,
+    "fetch_date": "2026-10-11T10:20:41.991085+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -19,12 +19,12 @@
         "source_relation": "IsDerivedFrom",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "A comprehensive dataset for home appliance control using ERP-based BCIs with the application of inter-subject transfer learning",
         "paper_year": 2024,
         "paper_venue": "Frontiers in Human Neuroscience",
         "reason": "Data descriptor for home appliance ERP-BCI dataset including the 15-subject door lock subset; authors and DOI match this dataset (Lee2024-DL).",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.21105/joss.01896",
@@ -32,12 +32,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
         "paper_year": 2019,
         "paper_venue": "The Journal of Open Source Software",
         "reason": "MNE-BIDS is a software tool for organizing electrophysiological data into BIDS, used for the dataset's format conversion, not a paper describing the door lock P300 dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1038/s41597-019-0104-8",
@@ -45,12 +45,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "EEG-BIDS, an extension to the brain imaging data structure for electroencephalography",
         "paper_year": 2019,
         "paper_venue": "Scientific Data",
         "reason": "EEG-BIDS is a data-organization standard extension used to format the dataset, not a paper describing the door lock P300 dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.nm000208",
@@ -58,12 +58,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -73,25 +73,17 @@
     "keywords": [
       "EEG",
       "P300",
-      "brain-computer interface",
       "Event-Related Potentials, P300",
-      "oddball paradigm",
+      "Brain-Computer Interfaces",
       "home appliance control",
-      "healthy",
-      "ERP"
+      "oddball paradigm"
     ],
-    "methods_description": "EEG data were acquired using a 31-channel actiCHamp system (Brain Products) at 500 Hz sampling rate with linked mastoid reference and active sensors. Participants performed a visual oddball task with target and non-target stimuli presented via flash on an LCD display with 750 ms stimulus onset asynchrony. Trial duration was 1.0 second with online visual feedback provided to subjects.",
+    "methods_description": "EEG was recorded with a Brain Products actiCHamp active-electrode system (31 channels, 10-20 montage, linked-mastoid reference, 500 Hz). Participants viewed an LCD display with flashing visual stimuli (stimulus onset asynchrony of 750 ms) in a 4-class oddball paradigm. Target and non-target events were epoched over a 0-1 s interval. Each subject completed 50 training and 30 online testing blocks with visual feedback.",
     "funding": [
       {
         "funder_name": "Ulsan National Institute of Science and Technology"
       }
-    ],
-    "searched_accessions": [
-      "nm000208"
-    ],
-    "num_accession_mentions": 2,
-    "num_dataset_citations": 2,
-    "num_datapaper_citations": 9
+    ]
   },
   "citation_details": [
     {
@@ -100,7 +92,7 @@
       "venue": "Advanced Science",
       "year": 2025,
       "url": "https://doi.org/10.1002/advs.202505426",
-      "cited_by": 14,
+      "cited_by": 16,
       "abstract": "Motor imagery (MI)-based neurorehabilitation shows promise for intracerebral hemorrhage (ICH) recovery, yet conventional unimodal brain-computer interfaces (BCIs) face critical limitations in cross-subject generalization. This study presents a multimodal electroencephalography (EEG)-functional near-infrared spectroscopy (fNIRS) fusion framework incorporating a Wasserstein metric-driven source domain selection method that quantifies inter-subject neural distribution divergence. Through comparative neuroactivation analysis of 17 normal controls and 13 ICH patients during MI tasks, the transfer learning model achieved 74.87% mean classification accuracy on patient data when trained with optimally selected normal templates. Cross-validation on two public hybrid EEG-fNIRS datasets demonstrated generalizability, increasing baseline accuracy to 82.30% and 87.24%, respectively. The proposed system synergistically combines the millisecond temporal resolution of EEG with the hemodynamic spatial ",
       "doi": "10.1002/advs.202505426",
       "pmid": "40831229",
@@ -146,7 +138,7 @@
       "venue": "Journal of Applied Biomedicine",
       "year": 2025,
       "url": "https://doi.org/10.1016/j.bbe.2025.02.002",
-      "cited_by": 4,
+      "cited_by": 5,
       "abstract": null,
       "doi": "10.1016/j.bbe.2025.02.002",
       "pmid": null,
@@ -235,7 +227,7 @@
     {
       "title": "Variability-Aware EEG Classification for P300 Spelling with Subject-Specific Hyperparameter Optimization",
       "author": "Sirine Ammar, Mohamed Karray, Nabil El Kadhi, Mohamed Ksantini",
-      "venue": "2025 International Conference on Decision Aid Sciences and Applications (DASA)",
+      "venue": "International Conference on Decision Aid Sciences and Applications (DASA)",
       "year": 2025,
       "url": "https://doi.org/10.1109/dasa68193.2025.11499039",
       "cited_by": 0,
@@ -247,9 +239,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6380701822042466,
-        "similarity_score": 0.5524417161941528,
-        "citation_text_length": 1283,
+        "confidence_score": 0.6406058210134508,
+        "similarity_score": 0.55463707447052,
+        "citation_text_length": 1278,
         "dataset_text_length": 2395,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -300,72 +292,22 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
-    },
-    {
-      "title": "Pericyte Insulin Receptors Modulate Retinal Vascular Remodeling and Endothelial Angiopoietin Signaling",
-      "author": "Nele Warmke, Fiona M. Platt, Alexander F Bruns, Claire H Ozber, Natalie J Haywood, Yilizila Abudushalamu, Charles I Slater, Victoria Palin, Piruthivi Sukumar, Stephen Bentley Wheatcroft, Nadira Y. Yuldasheva, Mark T. Kearney, Kathryn Jane Griffin, Richard M. Cubbon",
-      "venue": "Endocrinology",
-      "year": 2021,
-      "url": "https://doi.org/10.1210/endocr/bqab182",
-      "cited_by": 25,
-      "abstract": "Pericytes regulate vascular development, stability, and quiescence; their dysfunction contributes to diabetic retinopathy. To explore the role of insulin receptors in pericyte biology, we created pericyte insulin receptor knockout mice (PIRKO) by crossing PDGFRβ-Cre mice with insulin receptor (Insr) floxed mice. Their neonatal retinal vasculature exhibited perivenous hypervascularity with venular dilatation, plus increased angiogenic sprouting in superficial and deep layers. Pericyte coverage of capillaries was unaltered in perivenous and periarterial plexi, and no differences in vascular regression or endothelial proliferation were apparent. Isolated brain pericytes from PIRKO had decreased angiopoietin-1 mRNA, whereas retinal and lung angiopoietin-2 mRNA was increased. Endothelial phospho-Tie2 staining was diminished and FoxO1 was more frequently nuclear localized in the perivenous plexus of PIRKO, in keeping with reduced angiopoietin-Tie2 signaling. Silencing of Insr in human brain pericytes led to reduced insulin-stimulated angiopoietin-1 secretion, and conditioned media from these cells was less able to induce Tie2 phosphorylation in human endothelial cells. Hence, insulin signaling in pericytes promotes angiopoietin-1 secretion and endothelial Tie2 signaling and perturbation of this leads to excessive vascular sprouting and venous plexus abnormalities. This phenotype mimics elements of diabetic retinopathy, and future work should evaluate pericyte insulin signaling in this disease.",
-      "doi": "10.1210/endocr/bqab182",
-      "pmid": "34460911",
-      "openalex_id": "W3197839721",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "nm000208",
-      "confidence_scoring": {
-        "confidence_score": 0.22832235798239708,
-        "similarity_score": 0.19768169522285461,
-        "citation_text_length": 1919,
-        "dataset_text_length": 2395,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "СЛУЧАЙ ВРОЖДЕННОЙ ИНСУЛИНОРЕЗИСТЕНТНОСТИ ПРИ СИНДРОМЕ РАБСОНА-МЕНДЕНХОЛЛА",
-      "author": "Ю. Л. Скородок, Е. В. Плотникова, И. Ю. Иоффе, Е. Д. Носкова, В. Д. Забинский, А. В. Кожевникова, Ф. З. Цораева",
-      "venue": "n/a",
-      "year": 2024,
-      "url": "https://doi.org/10.14341/eoap2024-043",
-      "cited_by": 0,
-      "abstract": null,
-      "doi": "10.14341/eoap2024-043",
-      "pmid": null,
-      "openalex_id": "W4393280145",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "nm000208",
-      "confidence_scoring": {
-        "confidence_score": 0.28790952265262604,
-        "similarity_score": 0.27419954538345337,
-        "citation_text_length": 214,
-        "dataset_text_length": 2395,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-10-04T10:08:29.087885+00:00",
+    "scoring_date": "2026-10-11T11:22:31.883125+00:00",
     "dataset_text_length": 2395,
-    "num_citations_scored": 11,
+    "num_citations_scored": 9,
     "summary_stats": {
-      "mean_confidence": 0.49738114556128327,
-      "median_confidence": 0.5586891263723374,
-      "std_confidence": 0.12919388042970056,
-      "min_confidence": 0.22832235798239708,
-      "max_confidence": 0.6380701822042466,
+      "mean_confidence": 0.5508329288164774,
+      "median_confidence": 0.5631692898273468,
+      "std_confidence": 0.06858629487030334,
+      "min_confidence": 0.37465653687715533,
+      "max_confidence": 0.6406058210134508,
       "high_confidence_count": 0,
       "medium_confidence_count": 8,
-      "low_confidence_count": 3
+      "low_confidence_count": 1
     }
   }
 }

@@ -1,10 +1,10 @@
 {
   "dataset_id": "on007169",
   "num_citations": 0,
-  "date_last_updated": "2026-09-30T10:44:33.812851+00:00",
+  "date_last_updated": "2026-10-11T11:11:28.117824+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
-    "fetch_date": "2026-09-29T11:37:06.116230+00:00",
+    "fetch_date": "2026-10-11T11:11:28.117824+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 1,
@@ -19,12 +19,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
         "paper_year": 2019,
         "paper_venue": "The Journal of Open Source Software",
         "reason": "MNE-BIDS is a software tool for organizing electrophysiological data into BIDS, used for conversion; it does not describe this n-back dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1038/s41597-019-0104-8",
@@ -32,12 +32,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "EEG-BIDS, an extension to the brain imaging data structure for electroencephalography",
         "paper_year": 2019,
         "paper_venue": "Scientific Data",
         "reason": "EEG-BIDS is a BIDS extension specification used to format this dataset, not a paper describing the n-back workload data.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1049/htl.2015.0037",
@@ -45,12 +45,12 @@
         "source_relation": "References",
         "classification": "related_work",
         "kept": false,
+        "kept_reason": "judged_not_data_paper",
         "paper_title": "Non‐invasive, home‐based electroencephalography hypoglycaemia warning system for personal monitoring using skin surface electrodes: a single‐case feasibility study",
         "paper_year": 2016,
         "paper_venue": "Healthcare Technology Letters",
         "reason": "Paper is a single-case EEG hypoglycaemia warning feasibility study, not this n-back cognitive workload dataset. Topically loose (EEG/wearable monitoring), so related_work.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_not_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1109/access.2021.3079992",
@@ -58,12 +58,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "judged_not_data_paper",
         "paper_title": "Development and Evaluation of a Smartphone-Based Electroencephalography (EEG) System",
         "paper_year": 2021,
         "paper_venue": "IEEE Access",
         "reason": "Paper describes a smartphone-based 19-channel EEG hardware system (ADS1299) and its evaluation; a technical/device paper likely tied to the acquisition equipment, not this n-back dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_not_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on007169",
@@ -71,12 +71,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -84,27 +84,20 @@
     ],
     "keywords": [
       "EEG",
-      "Electrocardiography",
+      "ECG",
+      "eye tracking",
       "pupillometry",
       "n-back task",
       "cognitive workload",
-      "working memory",
-      "multimodal recording"
+      "working memory"
     ],
-    "methods_description": "EEG was recorded with a 19-channel 10-20 montage using Ag/AgCl electrodes with linked-ear reference at 250 Hz, with impedance checks and Neurogel applied. ECG was recorded via a 3-lead configuration on the same mobile system. Pupillometry data were collected using a Pupil Labs Pupil Core eye tracker with infrared illuminators, relayed asynchronously via LSL. The n-back task included a tutorial phase with feedback (20 trials per level) and a main experiment (100 trials per level) without feedback, with each trial presenting a letter for 1.0 s followed by a 0.7 s blank interval.",
-    "funding": [],
-    "searched_accessions": [
-      "on007169",
-      "ds007169"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 0
+    "methods_description": "EEG was recorded with a combined EEG+ECG mobile system using a 19-channel 10-20 montage, Ag/AgCl electrodes, a linked-ear reference and 250 Hz sampling. ECG used 3 leads on the same system. Pupil Labs Pupil Core captured pupillometry, and all streams were synchronized via LSL. The protocol had a tutorial phase with feedback (20 trials per level) and a main experiment of 100 trials per level (1-back to 4-back) without feedback. Each letter was shown for 1.0 s followed by a 0.7 s blank interval.",
+    "funding": []
   },
   "citation_details": [],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T11:03:21.467419+00:00",
+    "scoring_date": "2026-10-11T11:40:36.873336+00:00",
     "dataset_text_length": 2255,
     "num_citations_scored": 0
   }

@@ -1,10 +1,10 @@
 {
   "dataset_id": "on003825",
-  "num_citations": 2,
-  "date_last_updated": "2026-09-30T10:45:05.125837+00:00",
+  "num_citations": 3,
+  "date_last_updated": "2026-10-11T11:15:43.472637+00:00",
   "metadata": {
-    "total_cumulative_citations": 2,
-    "fetch_date": "2026-09-29T11:11:52.275794+00:00",
+    "total_cumulative_citations": 0,
+    "fetch_date": "2026-10-11T10:47:36.349999+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 1,
@@ -19,27 +19,26 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
       "10.82901/nemar.on003825"
     ],
     "keywords": [
-      "Electroencephalography",
       "EEG",
-      "Visual Perception",
       "object recognition",
       "rapid serial visual presentation",
-      "neural representation",
-      "THINGS database"
+      "THINGS database",
+      "Visual Perception",
+      "Electroencephalography"
     ],
-    "methods_description": "EEG recordings were acquired during rapid serial visual presentation (RSVP) of images at 10 Hz. Participants performed an orthogonal fixation color change detection task while viewing stimuli. Total experiment duration was approximately 1 hour per subject.",
+    "methods_description": "Images from the THINGS database were presented in rapid serial visual presentation streams at 10 Hz. Participants performed an orthogonal fixation colour change detection task during the roughly 1-hour EEG session. Stimulus images are not bundled and must be obtained separately from the THINGS OSF project.",
     "funding": [
       {
         "funder_name": "Australian Research Council",
@@ -58,8 +57,8 @@
       "on003825",
       "ds003825"
     ],
-    "num_accession_mentions": 2,
-    "num_dataset_citations": 2,
+    "num_accession_mentions": 3,
+    "num_dataset_citations": 3,
     "num_datapaper_citations": 0
   },
   "citation_details": [
@@ -90,7 +89,7 @@
     },
     {
       "title": "THINGS-EEG: Human electroencephalography recordings from 50 subjects for 22,248 images from 1,854 object concepts",
-      "author": "Tijl Grootswagers, Ivy Zhou, Amanda K. Robinson, Martin N. Hebart, Thomas A. Carlson",
+      "author": "Tijl Grootswagers, Ivy Zhou, Amanda K. Robinson, Martin N. Hebart, Thomas Carlson",
       "venue": "n/a",
       "year": 2021,
       "url": "https://doi.org/10.17605/osf.io/hd6zk",
@@ -105,9 +104,34 @@
       "discovery_method": "accession_mention",
       "matched_accession": "ds003825",
       "confidence_scoring": {
-        "confidence_score": 0.9350285142660143,
-        "similarity_score": 0.8095484972000122,
-        "citation_text_length": 1739,
+        "confidence_score": 0.9343356746435166,
+        "similarity_score": 0.8089486360549927,
+        "citation_text_length": 1736,
+        "dataset_text_length": 2031,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "What masking geometry works best for EEG foundation models?",
+      "author": "Pierre Guetschel, Bruno Aristimunha, Yassine El Ouahidi, Arnaud Delorme, Thomas Moreau, Michael Tangermann",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2609.33487",
+      "cited_by": 0,
+      "abstract": "EEG foundation models hold promise for scalable brain-signal decoding across clinical and cognitive neuroscience applications, yet their pre-training pipelines remain poorly understood. Among design choices, the masking strategy is particularly critical: it determines what the network must predict and from which context. Yet it has never been ablated in isolation, as each new model bundles a new masking strategy with a new backbone and objective. In this paper, we formalize the design choices for spatio-temporal masking strategies and train various models with a single pipeline under varying masking configurations across two SSL frameworks (MAE and JEPA). We then systematically evaluate the resulting 58 pre-trained models on the 12 datasets of OpenEEGBench under a linear probe. Both frameworks agree on an optimal masking configuration and on shared failure modes. Outside these, performance is robust: 11 MAE and 9 JEPA configurations are statistically indistinguishable from the best. We further identify a novel JEPA-specific failure mode, tagged bias-inflation collapse, invisible to standard detectors. With a well-chosen mask, our pipeline reaches REVE-level downstream performance at a fraction of REVE's pre-training compute.",
+      "doi": "10.48550/arxiv.2609.33487",
+      "pmid": null,
+      "openalex_id": "W7214740814",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds003825",
+      "confidence_scoring": {
+        "confidence_score": 0.4644157893955708,
+        "similarity_score": 0.4020915925502777,
+        "citation_text_length": 1474,
         "dataset_text_length": 2031,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -116,17 +140,17 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T10:57:19.282525+00:00",
+    "scoring_date": "2026-10-11T11:30:08.587459+00:00",
     "dataset_text_length": 2031,
-    "num_citations_scored": 2,
+    "num_citations_scored": 3,
     "summary_stats": {
-      "mean_confidence": 0.7526315132528545,
-      "median_confidence": 0.7526315132528545,
-      "std_confidence": 0.1823970010131598,
-      "min_confidence": 0.5702345122396947,
-      "max_confidence": 0.9350285142660143,
+      "mean_confidence": 0.6563286587595941,
+      "median_confidence": 0.5702345122396947,
+      "std_confidence": 0.2012715018519397,
+      "min_confidence": 0.4644157893955708,
+      "max_confidence": 0.9343356746435166,
       "high_confidence_count": 1,
-      "medium_confidence_count": 1,
+      "medium_confidence_count": 2,
       "low_confidence_count": 0
     }
   }

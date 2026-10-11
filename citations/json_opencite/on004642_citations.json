@@ -1,10 +1,10 @@
 {
   "dataset_id": "on004642",
-  "num_citations": 9,
-  "date_last_updated": "2026-09-29T11:18:28.792694+00:00",
+  "num_citations": 10,
+  "date_last_updated": "2026-10-11T10:56:28.070753+00:00",
   "metadata": {
-    "total_cumulative_citations": 111,
-    "fetch_date": "2026-09-29T11:18:28.792694+00:00",
+    "total_cumulative_citations": 114,
+    "fetch_date": "2026-10-11T10:56:28.070753+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -19,12 +19,12 @@
         "source_relation": "IsDescribedBy",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Low impedance electrodes improve detection of high frequency oscillations in the intracranial EEG",
         "paper_year": 2023,
         "paper_venue": "Clinical Neurophysiology",
         "reason": "Dataset README says the data was first analyzed in this publication (LoZ vs HiZ ECoG, 10 patients, medianus SEP); same authors and design, so it is the study paper for this data.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on004642",
@@ -32,12 +32,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -46,13 +46,14 @@
     ],
     "keywords": [
       "intracranial EEG",
-      "ECoG",
-      "high-frequency oscillations",
+      "Electrocorticography",
       "somatosensory evoked potentials",
+      "high frequency oscillations",
       "electrode impedance",
-      "intraoperative monitoring"
+      "median nerve stimulation",
+      "brain tumor surgery"
     ],
-    "methods_description": "Intraoperative median nerve stimulation at 4.7 Hz was recorded from two simultaneous 4-contact ECoG strips with different impedance profiles. Raw continuous ECoG data were acquired and processed offline using custom MATLAB scripts. Data analysis included high-pass filtering (200 Hz cutoff), stimulus artifact detection via local peak detection, sweep definition (50 ms post-stimulus), artifact rejection (±100 µV amplitude threshold), and averaging of 100 sweeps. Bandpass filtering was applied at [30-300] Hz for N20 analysis, [250-500] Hz for fast ripple detection, and [500-1000] Hz for high-frequency oscillation analysis.",
+    "methods_description": "Median nerve SEPs were recorded intraoperatively (stimulation rate 4.7 Hz) from two simultaneously placed 4-contact ECoG strips with different median impedance (LoZ 3.4 kΩ, HiZ 6.9 kΩ). Continuous iEEG was saved as EDF and converted to BIDS using bids-starter-kid and custom Matlab scripts. Analysis in the source paper averaged 100 sweeps and band-filtered them to obtain N20, fast ripple and HFO responses.",
     "funding": [
       {
         "funder_name": "Alexander S. Onassis Public Benefit Foundation Scholarship"
@@ -62,16 +63,10 @@
         "award_number": "204651"
       },
       {
-        "funder_name": "Alexander S. Onassis Public Benefit Foundation"
+        "funder_name": "Alexander S. Onassis Public Benefit Foundation",
+        "award_title": "Scholarship"
       }
-    ],
-    "searched_accessions": [
-      "on004642",
-      "ds004642"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 9
+    ]
   },
   "citation_details": [
     {
@@ -80,7 +75,7 @@
       "venue": "Nature Communications",
       "year": 2024,
       "url": "https://doi.org/10.1038/s41467-024-47495-y",
-      "cited_by": 42,
+      "cited_by": 41,
       "abstract": "Interictal Epileptiform Discharges (IED) and High Frequency Oscillations (HFO) in intraoperative electrocorticography (ECoG) may guide the surgeon by delineating the epileptogenic zone. We designed a modular spiking neural network (SNN) in a mixed-signal neuromorphic device to process the ECoG in real-time. We exploit the variability of the inhomogeneous silicon neurons to achieve efficient sparse and decorrelated temporal signal encoding. We interface the full-custom SNN device to the BCI2000 real-time framework and configure the setup to detect HFO and IED co-occurring with HFO (IED-HFO). We validate the setup on pre-recorded data and obtain HFO rates that are concordant with a previously validated offline algorithm (Spearman's ρ = 0.75, p = 1e-4), achieving the same postsurgical seizure freedom predictions for all patients. In a remote on-line analysis, intraoperative ECoG recorded in Utrecht was compressed and transferred to Zurich for SNN processing and successful IED-HFO detectio",
       "doi": "10.1038/s41467-024-47495-y",
       "pmid": "38627406",
@@ -126,7 +121,7 @@
       "venue": "Materials Horizons",
       "year": 2025,
       "url": "https://doi.org/10.1039/d4mh01858c",
-      "cited_by": 22,
+      "cited_by": 25,
       "abstract": "The development of ultrathin and highly permeable epidermal electrodes is critical for continuous health monitoring, enabling early diagnosis and effective disease management. However, conventional epidermal electrode materials and designs face significant challenges in achieving the necessary combination of ultrathin geometry, gas permeability, seamless adhesion, and high stretchability for long-term wearability. To address these issues, we report an ultrathin gel electrode consisting of a polyvinyl alcohol gel and silver nanowires with a thickness of only 14.7 μm. The high electrical conductivity and nanomaterial reinforcement of silver nanowires, and the flexibility, biocompatibility, and adhesion of polyvinyl alcohol provide silver nanowires/polyvinyl alcohol with excellent performance. This composite structure synergistically combines the strengths of each component, overcoming the limitations of traditional single-material designs, resulting in excellent mechanical properties, in",
       "doi": "10.1039/d4mh01858c",
       "pmid": "40211877",
@@ -172,7 +167,7 @@
       "venue": "Expert Review of Medical Devices",
       "year": 2024,
       "url": "https://doi.org/10.1080/17434440.2024.2343421",
-      "cited_by": 4,
+      "cited_by": 5,
       "abstract": "INTRODUCTION: During intraoperative neurophysiological monitoring in neurosurgery, brain electrodes are placed to record electrocorticography or to inject current for direct cortical stimulation. A low impedance electrode may improve signal quality. AREAS COVERED: We review here a brain electrode (WISE Cortical Strip, WCS®), where a thin polymer strip embeds platinum nanoparticles to create conductive electrode contacts. The low impedance contacts enable a high signal-to-noise ratio, allowing for better detection of small signals such as high-frequency oscillations (HFO). The softness of the WCS may hinder sliding the electrode under the dura or advancing it to deeper structures as the hippocampus but assures conformability with the cortex even in the resection cavity. We provide an extensive review on WCS including a market overview, an introduction to the device (mechanistics, cost aspects, performance standards, safety and contraindications) and an overview of the available pre- and",
       "doi": "10.1080/17434440.2024.2343421",
       "pmid": "38629964",
@@ -259,6 +254,29 @@
       }
     },
     {
+      "title": "Flexible 3D multimodal organoid interface reveals functional subnetworks and coordinated circuit activity in cortical organoids",
+      "author": "Madison N. Wilson, Elizabeth K. Kharitonova, Joseph Yeh, Joann Lee, Shadee Hemaidan, Samuel Essig, Marie Shi, Colt W Crain, Mehrdad Ramezani, Fengyi Sun, Teng Zhou, Ikbal Surucu, Farzad Mortazavi, Ertugrul Cubukcu, Martin Thunemann, Ella Zeldich, Duygu Kuzum",
+      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+      "year": 2026,
+      "url": "https://doi.org/10.64898/2026.10.02.756317",
+      "cited_by": 0,
+      "abstract": "Abstract The balance between excitatory and inhibitory (E/I) neurons is fundamental to cortical function, and its disruption underlies a wide range of neurological disorders, including epilepsy, Alzheimer’s disease and autism spectrum disorder. Cortical organoids offer a promising model to study this balance, as they recapitulate key features of brain development, including the emergence of E/I circuitry. However, no existing technology can simultaneously resolve neuronal identity, spatial organization, and dynamic network activity within intact organoids, limiting precise interrogation of E/I circuit function. Here, we report INFORM, an INtegrated Flexible Organoid Recording Multimodal neural interface that conformally wraps organoids of any size and shape, enabling long-term recordings over 371 days with above 90% of channels detecting spikes. INFORM interface combines four distinct modalities; electrophysiology, two-photon calcium imaging, targeted electrical microstimulation, and c",
+      "doi": "10.64898/2026.10.02.756317",
+      "pmid": null,
+      "openalex_id": "W7220423920",
+      "source_doi": "10.1016/j.clinph.2023.07.002",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5282526925206185,
+        "similarity_score": 0.45736163854599,
+        "citation_text_length": 1463,
+        "dataset_text_length": 2337,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Advancing intraoperative brain mapping: First-in-human evaluation of flexible high-density electrocorticography grids for epilepsy surgery",
       "author": "Sem Hoogteijling, Carmen Gelpke, Eline V. Schaft, Ziyi Wang, Tessa Souhoka, Pieter van Eijsden, Anna Diop, Karolina Janikowska, Willem M. Otte, Nicole E. C. van Klink, Maryse A. van ’t Klooster, Maeike Zijlmans",
       "venue": "NeuroImage",
@@ -284,17 +302,17 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T12:13:15.728974+00:00",
+    "scoring_date": "2026-10-11T11:33:53.278766+00:00",
     "dataset_text_length": 2337,
-    "num_citations_scored": 9,
+    "num_citations_scored": 10,
     "summary_stats": {
-      "mean_confidence": 0.6496066931883495,
-      "median_confidence": 0.7207886517047882,
-      "std_confidence": 0.10781875225867943,
+      "mean_confidence": 0.6374712931215765,
+      "median_confidence": 0.6872990396618843,
+      "std_confidence": 0.10857166489366539,
       "min_confidence": 0.4516161900758744,
       "max_confidence": 0.7462098902463914,
       "high_confidence_count": 5,
-      "medium_confidence_count": 4,
+      "medium_confidence_count": 5,
       "low_confidence_count": 0
     }
   }

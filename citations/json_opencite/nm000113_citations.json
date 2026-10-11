@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000113",
   "num_citations": 0,
-  "date_last_updated": "2026-09-30T10:44:23.566636+00:00",
+  "date_last_updated": "2026-10-11T10:11:53.228514+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
-    "fetch_date": "2026-09-29T10:36:57.504561+00:00",
+    "fetch_date": "2026-10-11T10:11:53.228514+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 1,
@@ -14,30 +14,30 @@
     "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
-        "identifier": "10.82901/nemar.nm000113",
-        "identifier_type": "doi",
-        "source_relation": "IsVersionOf",
-        "classification": null,
-        "kept": true,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
-      },
-      {
         "identifier": "10.21105/joss.01896",
         "identifier_type": "doi",
-        "source_relation": "IsDescribedBy",
+        "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
         "paper_year": 2019,
         "paper_venue": "The Journal of Open Source Software",
         "reason": "MNE-BIDS is a software tool for organizing electrophysiological data into BIDS, used for formatting, not a paper describing the 2020 BCI competition imagined speech dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
+      },
+      {
+        "identifier": "10.82901/nemar.nm000113",
+        "identifier_type": "doi",
+        "source_relation": "References",
+        "classification": null,
+        "kept": true,
+        "kept_reason": "own_doi",
+        "paper_title": null,
+        "paper_year": null,
+        "paper_venue": null,
+        "reason": null,
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -45,29 +45,19 @@
     ],
     "keywords": [
       "EEG",
-      "Brain-Computer Interfaces",
       "imagined speech",
-      "motor imagery",
-      "signal classification",
-      "neural decoding",
+      "Brain-Computer Interfaces",
       "BCI competition",
       "speech decoding",
-      "BIDS",
-      "benchmark"
+      "machine learning"
     ],
-    "methods_description": "EEG signals were recorded from participants performing imagined speech tasks where subjects mentally articulated five different phrases without audible speech or overt mouth movements. Data were acquired using a 64-channel EEG system at 256 Hz sampling rate. The original MATLAB and HDF5 files were converted to BIDS-compliant EDF format, with EEG data scaled to Volts (multiplied by 1e-6). Epoched data were concatenated into continuous recordings with event annotations marking trial onsets and durations for each imagined speech command.",
-    "funding": [],
-    "searched_accessions": [
-      "nm000113"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 0
+    "methods_description": "64-channel EEG sampled at 256 Hz during imagined speech trials. Original MATLAB/HDF5 competition files were converted to continuous EDF recordings scaled to Volts, with events marking the onset, duration and command label of each trial. Test set labels came from the competition answer sheet.",
+    "funding": []
   },
   "citation_details": [],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T10:48:58.680945+00:00",
+    "scoring_date": "2026-10-11T11:18:11.420816+00:00",
     "dataset_text_length": 2241,
     "num_citations_scored": 0
   }

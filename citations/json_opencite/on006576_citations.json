@@ -1,16 +1,14 @@
 {
   "dataset_id": "on006576",
-  "num_citations": 1,
-  "date_last_updated": "2026-09-30T10:44:33.386446+00:00",
+  "num_citations": 4,
+  "date_last_updated": "2026-10-11T11:09:47.013811+00:00",
   "metadata": {
-    "total_cumulative_citations": 1,
-    "fetch_date": "2026-09-29T11:34:12.777846+00:00",
+    "total_cumulative_citations": 7,
+    "fetch_date": "2026-10-11T11:09:47.013811+00:00",
     "processing_version": "1.0",
-    "fetch_status": "partial",
+    "fetch_status": "success",
     "anchor_count": 2,
-    "anchor_errors": {
-      "10.82901/nemar.on006576": "not_found"
-    },
+    "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
     "anchor_judgment_model": "claude-sonnet-5-5",
@@ -21,12 +19,12 @@
         "source_relation": "IsDescribedBy",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "The Role of Rapid Eye Movement Sleep in Neural Differentiation of Memories in the Hippocampus",
         "paper_year": 2025,
         "paper_venue": "Journal of Cognitive Neuroscience",
         "reason": "The dataset README cites this exact paper (McDevitt, Kim, Turk-Browne, Norman, JOCN) as the source of the fMRI and EEG data, with matching title and authors.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on006576",
@@ -34,12 +32,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -47,12 +45,13 @@
       "10.82901/nemar.on006576"
     ],
     "keywords": [
-      "EEG",
       "fMRI",
+      "EEG",
       "REM Sleep Behavior Disorder",
       "Hippocampus",
-      "memory consolidation",
-      "neural differentiation"
+      "Memory",
+      "neural differentiation",
+      "nap"
     ],
     "methods_description": "Data collection included three fMRI scans and one EEG session per participant. The EEG session recorded either sleep (nap) or quiet wake data depending on the participant's assigned condition. Participants also completed behavioral tasks including a decision task and a reward prediction task during fMRI sessions.",
     "funding": [
@@ -63,15 +62,11 @@
       {
         "funder_name": "NIMH",
         "award_number": "K99-MH126154"
+      },
+      {
+        "funder_name": "Regina and John Scully '66 Center for the Neuroscience of Mind and Behavior"
       }
-    ],
-    "searched_accessions": [
-      "on006576",
-      "ds006576"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 1
+    ]
   },
   "citation_details": [
     {
@@ -96,21 +91,90 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "Pre-sleep experiences shape neural activity and dream content in the sleeping brain",
+      "author": "Deniz Kumral, Jessica Palmieri, Steffen Gais, Monika Schönauer",
+      "venue": "iScience",
+      "year": 2025,
+      "url": "https://doi.org/10.1016/j.isci.2025.113032",
+      "cited_by": 6,
+      "abstract": "Dreams incorporate recent experiences, and memory-related brain activity is reactivated during sleep, suggesting that dreaming, memory consolidation, and reactivation are tightly linked. We devised a paradigm to investigate whether memory reprocessing during sleep contributes to dreaming. Participants listened to different audiobooks before falling asleep, introducing dissimilar experiences to be processed at night. We show that audiobook content was reprocessed at the neural level using multivariate pattern analyses. Brain activity during rapid eye movement sleep, particularly in the beta range, carried information about the audiobook. While the amount of neural reinstatement did not correlate with memory retention, global beta power during REM sleep was associated with better memory performance. Moreover, blind raters could determine which audiobook participants had studied based on dream reports. Participants who dreamt of the audiobook also showed stronger neural reinstatement. Rep",
+      "doi": "10.1016/j.isci.2025.113032",
+      "pmid": "40792020",
+      "openalex_id": "W4411922938",
+      "source_doi": "10.82901/nemar.on006576",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6715993103384972,
+        "similarity_score": 0.5814712643623352,
+        "citation_text_length": 1192,
+        "dataset_text_length": 2349,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "The role of sleep in strengthening face learning and memory consolidation: A systematic review",
+      "author": "Han Ke, Kai Yuan, Katie Liu",
+      "venue": "Cognitive Affective & Behavioral Neuroscience",
+      "year": 2026,
+      "url": "https://doi.org/10.3758/s13415-026-01472-8",
+      "cited_by": 0,
+      "abstract": null,
+      "doi": "10.3758/s13415-026-01472-8",
+      "pmid": "42380545",
+      "openalex_id": "W7166727915",
+      "source_doi": "10.82901/nemar.on006576",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5655986219644547,
+        "similarity_score": 0.5386653542518616,
+        "citation_text_length": 193,
+        "dataset_text_length": 2349,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Imperatorin restores behavioral and recognition memory deficits induced by REM sleep deprivation in male rats",
+      "author": "Mohammad Mojtaba Ayati, M. Eslami, B. G. Yekta",
+      "venue": "Scientific Reports",
+      "year": 2026,
+      "url": "https://doi.org/10.1038/s41598-026-49071-4",
+      "cited_by": 0,
+      "abstract": "Many studies have shown the deleterious effects of rapid-eye movement (REM) sleep deprivation (SD) on cognitive functions and synaptic plasticity markers. On the other hand, imperatorin (IMP, extracted from the fruits of Angelica dahurica and Peucedanum praeruptorum) may exert significant pro-cognitive and neuroprotective effects. The present study aimed to explore the potential therapeutic effects of IMP on behavioral and molecular changes induced by REM SD, before or after training in the novel object recognition (NOR) memory test. REM SD was done for 24 h and IMP was orally administered at the dose of 100 mg/kg (immediately after REM SD). Locomotion, anxiety-like behavior, and brain-derived neurotrophic factor (BDNF) and cAMP response element binding (CREB) levels were also assessed in the prefrontal cortex. The results showed that REM SD impaired NOR memory, reduced locomotor activity, increased anxiety- and depressive-like behaviors, with more severe effects of the post-train REM ",
+      "doi": "10.1038/s41598-026-49071-4",
+      "pmid": "42215472",
+      "openalex_id": null,
+      "source_doi": "10.82901/nemar.on006576",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6566678041219712,
+        "similarity_score": 0.568543553352356,
+        "citation_text_length": 1212,
+        "dataset_text_length": 2349,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T11:02:51.965335+00:00",
+    "scoring_date": "2026-10-11T11:39:54.754631+00:00",
     "dataset_text_length": 2349,
-    "num_citations_scored": 1,
+    "num_citations_scored": 4,
     "summary_stats": {
-      "mean_confidence": 0.5057997733354569,
-      "median_confidence": 0.5057997733354569,
-      "std_confidence": 0.0,
+      "mean_confidence": 0.599916377440095,
+      "median_confidence": 0.611133213043213,
+      "std_confidence": 0.067813735349891,
       "min_confidence": 0.5057997733354569,
-      "max_confidence": 0.5057997733354569,
+      "max_confidence": 0.6715993103384972,
       "high_confidence_count": 0,
-      "medium_confidence_count": 1,
+      "medium_confidence_count": 4,
       "low_confidence_count": 0
     }
   }

@@ -1,13 +1,13 @@
 {
   "dataset_id": "nm000345",
   "num_citations": 21,
-  "date_last_updated": "2026-10-04T10:05:07.226997+00:00",
+  "date_last_updated": "2026-10-11T10:33:15.882384+00:00",
   "metadata": {
-    "total_cumulative_citations": 95,
-    "fetch_date": "2026-09-29T11:02:59.748421+00:00",
+    "total_cumulative_citations": 99,
+    "fetch_date": "2026-10-11T10:33:15.882384+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
-    "anchor_count": 2,
+    "anchor_count": 3,
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
@@ -19,12 +19,51 @@
         "source_relation": "IsDerivedFrom",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Burst c-VEP Based BCI: Optimizing stimulus design for enhanced classification with minimal calibration data and improved user experience",
         "paper_year": 2023,
         "paper_venue": "NeuroImage",
         "reason": "Dataset CastillosBurstVEP40 is the 12-subject Burst c-VEP recording from this NeuroImage 2023 paper, with matching authors and title; the dataset is derived from that study's data.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
+      },
+      {
+        "identifier": "10.5281/zenodo.8255618",
+        "identifier_type": "doi",
+        "source_relation": "IsDerivedFrom",
+        "classification": "data_paper",
+        "kept": true,
+        "kept_reason": "judged_data_paper",
+        "paper_title": "4-class code-VEP EEG data",
+        "paper_year": 2023,
+        "paper_venue": "Zenodo (CERN European Organization for Nuclear Research)",
+        "reason": "Zenodo record by Castillos describing the same 12-participant c-VEP EEG data (BrainProducts LiveAmp 32, FCz reference, mean age 30.6, SD 7.1), i.e., another deposit of this dataset.",
+        "judgment_model": "claude-sonnet-5-5"
+      },
+      {
+        "identifier": "10.21105/joss.01896",
+        "identifier_type": "doi",
+        "source_relation": "References",
+        "classification": "methodology",
+        "kept": false,
+        "kept_reason": "never_anchor",
+        "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
+        "paper_year": 2019,
+        "paper_venue": "The Journal of Open Source Software",
+        "reason": "MNE-BIDS is a software tool for organizing electrophysiology data into BIDS, used for dataset conversion, not a paper describing this c-VEP dataset.",
+        "judgment_model": "claude-sonnet-5-5"
+      },
+      {
+        "identifier": "10.1038/s41597-019-0104-8",
+        "identifier_type": "doi",
+        "source_relation": "References",
+        "classification": "methodology",
+        "kept": false,
+        "kept_reason": "never_anchor",
+        "paper_title": "EEG-BIDS, an extension to the brain imaging data structure for electroencephalography",
+        "paper_year": 2019,
+        "paper_venue": "Scientific Data",
+        "reason": "EEG-BIDS is a specification/standard extension to BIDS for EEG data, used to organize this dataset, not a paper describing the CastillosBurstVEP40 data.",
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.nm000345",
@@ -32,35 +71,29 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
       "10.1016/j.neuroimage.2023.120446",
+      "10.5281/zenodo.8255618",
       "10.82901/nemar.nm000345"
     ],
     "keywords": [
+      "EEG",
       "code-modulated visual evoked potentials",
       "Brain-Computer Interfaces",
-      "EEG",
-      "convolutional neural networks",
-      "visual stimulation",
       "reactive BCI",
-      "burst coding"
+      "convolutional neural network",
+      "visual comfort"
     ],
-    "methods_description": "Factorial experimental design with 12 healthy participants (mean age 30.6±7.1 years). Four conditions manipulated: burst vs. m-sequence codes × 100% vs. 40% amplitude depth modulation. EEG recorded at 500 Hz using 32-channel BrainProducts LiveAmp with active Acticap electrodes, referenced to FCz. Burst codes consisted of 50ms visual flashes at 2-4 Hz with 200ms minimum inter-burst intervals; m-sequences used pseudo-random binary sequences at ~10 Hz. Each participant completed 15 blocks of 4 trials (60 trials per class, 240 total trials). Trial structure: 700ms inter-trial interval, 500ms cue, 2200ms stimulus presentation. Analysis employed CNN-based bitwise decoding on occipital/parietal electrodes.",
-    "funding": [],
-    "searched_accessions": [
-      "nm000345"
-    ],
-    "num_accession_mentions": 1,
-    "num_dataset_citations": 1,
-    "num_datapaper_citations": 20
+    "methods_description": "32-channel EEG was recorded at 500 Hz with a BrainProducts LiveAmp 32 and active Acticap electrodes (reference FCz, ground FPz). This subset contains only the burst c-VEP condition at 40% amplitude depth. The original study used a factorial design crossing code type (burst vs m-sequence) with amplitude depth (100% vs 40%), but the other conditions are not included here. Participants attended to cued targets showing aperiodic visual flashes at 2-4 flashes per second on a 60 Hz screen. Each subject completed 15 blocks of 4 trials (60 trials) in this condition.",
+    "funding": []
   },
   "citation_details": [
     {
@@ -69,7 +102,7 @@
       "venue": "Journal of Neural Engineering",
       "year": 2024,
       "url": "https://doi.org/10.1088/1741-2552/ad8ef7",
-      "cited_by": 20,
+      "cited_by": 21,
       "abstract": "Abstract Objective. Reactive brain–computer interfaces typically rely on repetitive visual stimuli, which can strain the eyes and cause attentional distraction. To address these challenges, we propose a novel approach rooted in visual neuroscience to design visual Stimuli for Augmented Response (StAR). The StAR stimuli consist of small randomly-oriented Gabor or Ricker patches that optimize foveal neural response while reducing peripheral distraction. Approach. In a factorial design study, 24 participants equipped with an 8-dry electrode EEG system focused on series of target flickers presented under three formats: traditional Plain flickers, Gabor-based, or Ricker-based flickers. These flickers were part of a five-class code visually evoked potentials paradigm featuring low frequency, short, and aperiodic visual flashes. Main results. Subjective ratings revealed that Gabor and Ricker stimuli were visually comfortable and nearly invisible in peripheral vision compared to plain flickers",
       "doi": "10.1088/1741-2552/ad8ef7",
       "pmid": "39500051",
@@ -92,8 +125,8 @@
       "venue": "Journal of Neural Engineering",
       "year": 2025,
       "url": "https://doi.org/10.1088/1741-2552/add771",
-      "cited_by": 15,
-      "abstract": "Abstract Objective. Sustaining vigilance over extended periods is crucial for many critical operations but remains challenging due to the cognitive resources required. Fatigue and other factors contribute to fluctuations in vigilance, causing attentional focus to drift from task-relevant information. Such lapses of attention, common in prolonged tasks, lead to decreased performance and missed critical information, with potentially serious consequences. Identifying physiological markers that predict inattention is key to developing preventive strategies. Approach. Previous research has established electroencephalography (EEG) responses to periodic visual stimuli, known as steady-state visual evoked potentials (SSVEP), as sensitive markers of attention. In this study, we evaluated a minimally intrusive SSVEP-based approach for tracking vigilance in healthy participants ( N = 16) during two sessions of a 45 min sustained visual attention task (Mackworth’s clock task). A 14 Hz frequency-ta",
+      "cited_by": 16,
+      "abstract": "Abstract Objective Sustaining vigilance over extended periods is crucial for many critical operations but remains challenging due to the cognitive resources required. Fatigue and other factors contribute to fluctuations in vigilance, causing attentional focus to drift from task-relevant information. Such lapses of attention, common in prolonged tasks, lead to decreased performance and missed critical information, with potentially serious consequences. Identifying physiological markers that predict inattention is key to developing preventive strategies. Approach Previous research has established electroencephalography (EEG) responses to periodic visual stimuli, known as steady-state visual evoked potentials (SSVEP), as sensitive markers of attention. In this study, we evaluated a minimally intrusive SSVEP-based approach for tracking vigilance in healthy participants (N = 16) during two sessions of a 45-minute sustained visual attention task (Mackworth’s clock task). A 14 Hz frequency-ta",
       "doi": "10.1088/1741-2552/add771",
       "pmid": "40354807",
       "openalex_id": "W4410289441",
@@ -101,8 +134,8 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6145151495933533,
-        "similarity_score": 0.5320477485656738,
+        "confidence_score": 0.6057626795768738,
+        "similarity_score": 0.5244698524475098,
         "citation_text_length": 1248,
         "dataset_text_length": 2237,
         "scoring_method": "sentence_transformers",
@@ -116,7 +149,7 @@
       "year": 2024,
       "url": "https://doi.org/10.1162/imag_a_00223",
       "cited_by": 12,
-      "abstract": "Steady-State Visually Evoked Potentials (SSVEPs) manifest as a sustained rhythmic activity that can be observed in surface electroencephalography (EEG) in response to periodic visual stimuli, commonly referred to as flickers. SSVEPs are widely used in fundamental cognitive neuroscience paradigms and Brain-Computer Interfaces (BCI) due to their robust and rapid onset. However, they have drawbacks related to the intrusive saliency of flickering visual stimuli, which may induce eye strain, cognitive fatigue, and biases in visual exploration. Previous findings highlighted the potential of altering features of flicker stimuli to improve user experience. In this study, we propose to reduce the amplitude modulation depth of flickering stimuli down to the individuals' perceptual visibility threshold (periliminal) and below (subliminal). The stimulus amplitude modulation depth represents the contrast difference between the two alternating states of a flicker. A simple visual attention task wher",
+      "abstract": "ABSTRACT Steady-State Visually Evoked Potentials (SSVEP) manifest as a sustained rhythmic activity that can be observed in surface electroencephalography (EEG) in response to periodic visual stimuli, commonly referred to as flickers. SSVEPs are widely used in fundamental cognitive neuroscience paradigms and Brain-Computer Interfaces (BCI) due to their robust and rapid onset. However, they have drawbacks related to the intrusive saliency of flickering visual stimuli, which may induce eye strain, cognitive fatigue, and biases in visual exploration. Previous findings highlighted the potential of altering features of flicker stimuli to improve user experience. In this study, we propose to reduce the amplitude modulation depth of flickering stimuli down to the individuals’ perceptual visibility threshold (periliminal) and below (subliminal). The stimulus amplitude modulation depth represents the contrast difference between the two alternating states of a flicker. A simple visual attention t",
       "doi": "10.1162/imag_a_00223",
       "pmid": "40800282",
       "openalex_id": "W4399995597",
@@ -124,8 +157,8 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6345106360316277,
-        "similarity_score": 0.5493598580360413,
+        "confidence_score": 0.6398625192046166,
+        "similarity_score": 0.5539935231208801,
         "citation_text_length": 1154,
         "dataset_text_length": 2237,
         "scoring_method": "sentence_transformers",
@@ -134,7 +167,7 @@
     },
     {
       "title": "Advancements in brain-computer interfaces for the rehabilitation of unilateral spatial neglect: a concise review",
-      "author": "Alix Gouret, Solène Le Bars, Thibault Porssut, Florian Waszak, Sylvie Chokron",
+      "author": "Alix Gouret, Solène Le Bars, Thibault Porssut, Florian Waszak, Sylvie Chokron A",
       "venue": "Frontiers in Neuroscience",
       "year": 2024,
       "url": "https://doi.org/10.3389/fnins.2024.1373377",
@@ -147,9 +180,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.36764511555433277,
-        "similarity_score": 0.31830745935440063,
-        "citation_text_length": 1134,
+        "confidence_score": 0.36733036369085315,
+        "similarity_score": 0.31803494691848755,
+        "citation_text_length": 1136,
         "dataset_text_length": 2237,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -196,6 +229,29 @@
         "confidence_score": 0.6194998222589494,
         "similarity_score": 0.5363634824752808,
         "citation_text_length": 1301,
+        "dataset_text_length": 2237,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Addressing BCI inefficiency in c-VEP-based BCIs: A comprehensive study of neurophysiological predictors, binary stimulus sequences, and user comfort",
+      "author": "Jordy Thielen",
+      "venue": "Biomedical Physics & Engineering Express",
+      "year": 2025,
+      "url": "https://doi.org/10.1088/2057-1976/ade316",
+      "cited_by": 5,
+      "abstract": "Abstract Objective. This study investigated the presence of brain-computer interface (BCI) inefficiency in BCIs using the code-modulated visual evoked potential (c-VEP). It further explored neurophysiological predictors of performance variability and evaluated a wide range of binary stimulus sequences in terms of classification accuracy and user comfort, aiming to identify strategies to mitigate c-VEP BCI inefficiency. Approach. In a comprehensive empirical analysis, ten different binary stimulus sequences were offline evaluated. These sequences included five code families (m-sequence, de Bruijn sequence, Golay sequence, Gold code, and a Gold code set), each in original and modulated form. To identify predictors of performance variability, resting-state alpha activity, heart rate and heart rate variability, sustained attention, and flash-VEP characteristics were studied. Main Results. Results confirmed substantial inter-individual variability in c-VEP BCI efficiency. While all particip",
+      "doi": "10.1088/2057-1976/ade316",
+      "pmid": "40494367",
+      "openalex_id": "W4411166688",
+      "source_doi": "10.1016/j.neuroimage.2023.120446",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7181489217281343,
+        "similarity_score": 0.6217739582061768,
+        "citation_text_length": 1240,
         "dataset_text_length": 2237,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -249,7 +305,7 @@
     },
     {
       "title": "Rewiring Attention: Virtual Reality and Brain–Computer Interfaces in the Rehabilitation of Unilateral Spatial Neglect",
-      "author": "Alix Gouret, Alexandre Delaux, Solène Le Bars, Sylvie Chokron",
+      "author": "Alix Gouret, Alexandre Delaux, Solène Le Bars, Sylvie Chokron A",
       "venue": "Journal of Clinical Medicine",
       "year": 2026,
       "url": "https://doi.org/10.3390/jcm15031036",
@@ -262,32 +318,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.3400812649726868,
-        "similarity_score": 0.29444265365600586,
-        "citation_text_length": 1245,
-        "dataset_text_length": 2237,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Addressing BCI inefficiency in c-VEP-based BCIs: A comprehensive study of neurophysiological predictors, binary stimulus sequences, and user comfort",
-      "author": "Jordy Thielen",
-      "venue": "Biomedical Physics & Engineering Express",
-      "year": 2025,
-      "url": "https://doi.org/10.1088/2057-1976/ade316",
-      "cited_by": 4,
-      "abstract": "Abstract Objective. This study investigated the presence of brain-computer interface (BCI) inefficiency in BCIs using the code-modulated visual evoked potential (c-VEP). It further explored neurophysiological predictors of performance variability and evaluated a wide range of binary stimulus sequences in terms of classification accuracy and user comfort, aiming to identify strategies to mitigate c-VEP BCI inefficiency. Approach. In a comprehensive empirical analysis, ten different binary stimulus sequences were offline evaluated. These sequences included five code families (m-sequence, de Bruijn sequence, Golay sequence, Gold code, and a Gold code set), each in original and modulated form. To identify predictors of performance variability, resting-state alpha activity, heart rate and heart rate variability, sustained attention, and flash-VEP characteristics were studied. Main Results. Results confirmed substantial inter-individual variability in c-VEP BCI efficiency. While all particip",
-      "doi": "10.1088/2057-1976/ade316",
-      "pmid": "40494367",
-      "openalex_id": "W4411166688",
-      "source_doi": "10.1016/j.neuroimage.2023.120446",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.7181489217281343,
-        "similarity_score": 0.6217739582061768,
-        "citation_text_length": 1240,
+        "confidence_score": 0.34012983396649366,
+        "similarity_score": 0.2944847047328949,
+        "citation_text_length": 1247,
         "dataset_text_length": 2237,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -334,6 +367,29 @@
         "confidence_score": 0.5364944824576379,
         "similarity_score": 0.4644973874092102,
         "citation_text_length": 1265,
+        "dataset_text_length": 2237,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Near-invisible c-VEP-based passive BCI for mental workload monitoring",
+      "author": "P Cimarosto, Velut Sebastien, Kalou Cabrera Castillos, Juan Jesús Torre, Raphaëlle N. Roy, Frédéric Dehais",
+      "venue": "Journal of Neural Engineering",
+      "year": 2026,
+      "url": "https://doi.org/10.1088/1741-2552/ae4ff6",
+      "cited_by": 1,
+      "abstract": "Abstract Objective. Flickering visual stimuli, either periodic steady-state visual evoked potential (VEP) or aperiodic code-based VEP (c-VEP), have shown strong potential for implementing reactive brain–computer interfaces (BCIs) and enabling hands-free interaction. Yet, their adaptation to passive BCIs (pBCIs) remains limited, largely due to the distracting nature of flickers and its impact on visual comfort. Approach. In this study, we introduce an unobtrusive approach that embeds near–invisible, texture-based flickers over regions of interest in the user interface, combined with a c-VEP pBCI pipeline to assess mental workload. We validated the approach in two experiments: (i) within an ecologically valid multitasking microworld of flying, and (ii) in a flight Simulator, where cognitive workload was systematically varied across three levels. Main results. Results at the group level disclosed that the amplitude of visual event-related potentials was significantly reduced under higher ",
+      "doi": "10.1088/1741-2552/ae4ff6",
+      "pmid": "41806473",
+      "openalex_id": "W7134925418",
+      "source_doi": "10.1016/j.neuroimage.2023.120446",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6602114474773408,
+        "similarity_score": 0.5716116428375244,
+        "citation_text_length": 1243,
         "dataset_text_length": 2237,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -403,29 +459,6 @@
         "confidence_score": 0.7063897177577019,
         "similarity_score": 0.6115928292274475,
         "citation_text_length": 1210,
-        "dataset_text_length": 2237,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Near-invisible c-VEP-based passive BCI for mental workload monitoring",
-      "author": "P Cimarosto, Sébastien Velut, Kalou Cabrera Castillos, Juan Jesús Torre, Raphaëlle N. Roy, Frédéric Dehais",
-      "venue": "Journal of Neural Engineering",
-      "year": 2026,
-      "url": "https://doi.org/10.1088/1741-2552/ae4ff6",
-      "cited_by": 0,
-      "abstract": "Abstract Objective. Flickering visual stimuli, either periodic steady-state visual evoked potential (VEP) or aperiodic code-based VEP (c-VEP), have shown strong potential for implementing reactive brain–computer interfaces (BCIs) and enabling hands-free interaction. Yet, their adaptation to passive BCIs (pBCIs) remains limited, largely due to the distracting nature of flickers and its impact on visual comfort. Approach. In this study, we introduce an unobtrusive approach that embeds near–invisible, texture-based flickers over regions of interest in the user interface, combined with a c-VEP pBCI pipeline to assess mental workload. We validated the approach in two experiments: (i) within an ecologically valid multitasking microworld of flying, and (ii) in a flight Simulator, where cognitive workload was systematically varied across three levels. Main results. Results at the group level disclosed that the amplitude of visual event-related potentials was significantly reduced under higher ",
-      "doi": "10.1088/1741-2552/ae4ff6",
-      "pmid": "41806473",
-      "openalex_id": "W7134925418",
-      "source_doi": "10.1016/j.neuroimage.2023.120446",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.6618674746155739,
-        "similarity_score": 0.5730454325675964,
-        "citation_text_length": 1243,
         "dataset_text_length": 2237,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -503,7 +536,7 @@
     {
       "title": "Leveraging Foundation Models for Calibration-Free c-VEP BCIs",
       "author": "Mohammadreza Behboodi, Eli Kinney‐Lang, Ali Etemad, Adam Kirton, Hatem Abou-Zeid",
-      "venue": "n/a",
+      "venue": "Conference proceedings/Conference proceedings - IEEE International Conference on Systems, Man, and Cybernetics",
       "year": 2025,
       "url": "https://doi.org/10.1109/smc58881.2025.11342650",
       "cited_by": 0,
@@ -515,34 +548,32 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6604579067230225,
-        "similarity_score": 0.5718250274658203,
-        "citation_text_length": 1182,
+        "confidence_score": 0.6518895927071573,
+        "similarity_score": 0.5644065737724304,
+        "citation_text_length": 1289,
         "dataset_text_length": 2237,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
     },
     {
-      "title": "Elevated α-synuclein caused by SNCA gene triplication impairs neuronal differentiation and maturation in Parkinson's patient-derived induced pluripotent stem cells",
-      "author": "Luís M. A. Oliveira, Lisandro J. Falomir‐Lockhart, Michelle Botelho Caarls, K-H Lin, Pauline Wales, Jan Christoph Koch, Ellen Gerhardt, Holger Taschenberger, Tiago F. Outeiro, Paul Lingor, Birgitt Schüle, Donna J. Arndt-Jovin, Thomas M. Jovin",
-      "venue": "Cell Death and Disease",
-      "year": 2015,
-      "url": "https://doi.org/10.1038/cddis.2015.318",
-      "cited_by": 171,
-      "abstract": "We have assessed the impact of α-synuclein overexpression on the differentiation potential and phenotypic signatures of two neural-committed induced pluripotent stem cell lines derived from a Parkinson's disease patient with a triplication of the human SNCA genomic locus. In parallel, comparative studies were performed on two control lines derived from healthy individuals and lines generated from the patient iPS-derived neuroprogenitor lines infected with a lentivirus incorporating a small hairpin RNA to knock down the SNCA mRNA. The SNCA triplication lines exhibited a reduced capacity to differentiate into dopaminergic or GABAergic neurons and decreased neurite outgrowth and lower neuronal activity compared with control cultures. This delayed maturation phenotype was confirmed by gene expression profiling, which revealed a significant reduction in mRNA for genes implicated in neuronal differentiation such as delta-like homolog 1 (DLK1), gamma-aminobutyric acid type B receptor subunit 2 (GABABR2), nuclear receptor related 1 protein (NURR1), G-protein-regulated inward-rectifier potassium channel 2 (GIRK-2) and tyrosine hydroxylase (TH). The differentiated patient cells also demonstrated increased autophagic flux when stressed with chloroquine. We conclude that a two-fold overexpression of α-synuclein caused by a triplication of the SNCA gene is sufficient to impair the differentiation of neuronal progenitor cells, a finding with implications for adult neurogenesis and Parkinson's disease progression, particularly in the context of bioenergetic dysfunction.",
-      "doi": "10.1038/cddis.2015.318",
-      "pmid": "26610207",
-      "openalex_id": "W2201901179",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "nm000345",
+      "title": "The partially observable brain : An exploratory study on the use of partially observable Markov decision processes as a general framework for brain-computer interfaces",
+      "author": "Juan Jesús Torre",
+      "venue": "n/a",
+      "year": 2024,
+      "url": "https://doi.org/10.70675/e4e78df0za2b0z4162z8104z7ae752d81a23",
+      "cited_by": 0,
+      "abstract": "Le cerveau partiellement observable : Une étude exploratoire sur l'utilisation des processus décisionnels de Markov partiellement observables en tant que cadre général pour les interfaces cerveau-machine Malgré les progrès récents, les interfaces cerveau-machine (ICM) continuent de se heurter à plusieurs limites qui entravent leur passage des laboratoires aux applications réelles. Les problèmes persistants des faux positifs et des temps de décodage fixes sont particulièrement préoccupants. Cette thèse propose l'intégration d'un cadre décisionnel structuré, en particulier le processus de décision markovien partiellement observable (POMDP), dans la technologie BCI.Notre objectif est de concevoir un modèle POMDP complet adaptable à diverses modalités d'ICB, servant de composante décisionnelle dans le pipeline d'ICB.En s'appuyant sur les résultats des algorithmes de décodage courants, ce modèle facilite la prise de décision optimale pendant le fonctionnement, comme la collecte d'informatio",
+      "doi": "10.70675/e4e78df0za2b0z4162z8104z7ae752d81a23",
+      "pmid": null,
+      "openalex_id": "W7152029738",
+      "source_doi": "10.1016/j.neuroimage.2023.120446",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.24142625480890276,
-        "similarity_score": 0.21947841346263885,
-        "citation_text_length": 1966,
+        "confidence_score": 0.45797549262642867,
+        "similarity_score": 0.3965155780315399,
+        "citation_text_length": 1225,
         "dataset_text_length": 2237,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -551,18 +582,18 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-10-04T10:10:02.499971+00:00",
+    "scoring_date": "2026-10-11T11:26:29.179421+00:00",
     "dataset_text_length": 2237,
     "num_citations_scored": 21,
     "summary_stats": {
-      "mean_confidence": 0.5582577392671791,
-      "median_confidence": 0.6145151495933533,
-      "std_confidence": 0.13702503413622588,
-      "min_confidence": 0.24142625480890276,
+      "mean_confidence": 0.5679081262648106,
+      "median_confidence": 0.6057626795768738,
+      "std_confidence": 0.11952860971055358,
+      "min_confidence": 0.34012983396649366,
       "max_confidence": 0.7361468490958214,
       "high_confidence_count": 3,
-      "medium_confidence_count": 14,
-      "low_confidence_count": 4
+      "medium_confidence_count": 15,
+      "low_confidence_count": 3
     }
   }
 }

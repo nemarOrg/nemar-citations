@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000110",
-  "num_citations": 51,
-  "date_last_updated": "2026-10-04T10:04:17.416039+00:00",
+  "num_citations": 52,
+  "date_last_updated": "2026-10-11T10:11:39.127120+00:00",
   "metadata": {
-    "total_cumulative_citations": 237,
-    "fetch_date": "2026-09-29T10:36:39.379238+00:00",
+    "total_cumulative_citations": 247,
+    "fetch_date": "2026-10-11T10:11:39.127120+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -19,38 +19,25 @@
         "source_relation": "IsVersionOf",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "CHB-MIT Scalp EEG Database",
         "paper_year": 2010,
         "paper_venue": "PhysioNet",
         "reason": "PhysioNet record of the CHB-MIT Scalp EEG Database; abstract matches this dataset (Children's Hospital Boston, pediatric intractable seizures, anti-seizure medication withdrawal), so it is another deposit of the same data.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.21105/joss.01896",
         "identifier_type": "doi",
-        "source_relation": "IsDescribedBy",
+        "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
         "paper_year": 2019,
         "paper_venue": "The Journal of Open Source Software",
         "reason": "MNE-BIDS is a software tool for organizing electrophysiology data into BIDS, used for converting the data, not a paper describing the CHB-MIT dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
-      },
-      {
-        "identifier": "10.1161/01.cir.101.23.e215",
-        "identifier_type": "doi",
-        "source_relation": "References",
-        "classification": null,
-        "kept": false,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "unjudged"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.nm000110",
@@ -58,12 +45,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -73,25 +60,13 @@
     "keywords": [
       "EEG",
       "Epilepsy",
-      "seizure detection",
+      "Seizures",
       "pediatric",
-      "scalp electroencephalography",
-      "bipolar montage",
-      "clinical neurophysiology",
-      "intractable epilepsy",
-      "seizure annotation",
-      "pediatric epilepsy",
-      "BIDS",
-      "PhysioNet"
+      "seizure detection",
+      "scalp EEG"
     ],
-    "methods_description": "Subjects underwent continuous scalp EEG monitoring using the International 10-20 electrode system with bipolar montages. Signals were sampled at 256 samples per second with 16-bit resolution. Most recording files contain one hour of digitized EEG signals, with some containing two-hour or four-hour recordings. Additional signals including ECG and vagal nerve stimulus (VNS) were recorded in some cases. The original EEG data in .edf format from PhysioNet has been converted to BIDS format with standardized channel naming. Channel names have been standardized to match the standard 10-05 montage naming convention. Bipolar channel pairs are represented in the format 'Electrode1-Electrode2' (e.g., 'FP1-F7'). Non-EEG channels such as ECG are preserved with appropriate BIDS channel types. All protected health information (PHI) in the original files has been replaced with surrogate information.",
-    "funding": [],
-    "searched_accessions": [
-      "nm000110"
-    ],
-    "num_accession_mentions": 1,
-    "num_dataset_citations": 51,
-    "num_datapaper_citations": 0
+    "methods_description": "Continuous scalp EEG was recorded at 256 Hz with 16-bit resolution, mostly 23 channels in the International 10-20 system using bipolar montages. Some recordings also include ECG and vagal nerve stimulus channels. Original EDF files were converted to BIDS with MNE-BIDS. Channel names were standardized to 10-05 naming, protected health information was replaced with surrogates, and seizure annotations were converted to events.tsv.",
+    "funding": []
   },
   "citation_details": [
     {
@@ -100,7 +75,7 @@
       "venue": "Royal Society Open Science",
       "year": 2024,
       "url": "https://doi.org/10.1098/rsos.230601",
-      "cited_by": 34,
+      "cited_by": 36,
       "abstract": "Epilepsy is a life-threatening neurological condition. Manual detection of epileptic seizures (ES) is laborious and burdensome. Machine learning techniques applied to electroencephalography (EEG) signals are widely used for automatic seizure detection. Some key factors are worth considering for the real-world applicability of such systems: (i) continuous EEG data typically has a higher class imbalance; (ii) higher variability across subjects is present in physiological signals such as EEG; and (iii) seizure event detection is more practical than random segment detection. Most prior studies failed to address these crucial factors altogether for seizure detection. In this study, we intend to investigate a generalized cross-subject seizure event detection system using the continuous EEG signals from the CHB-MIT dataset that considers all these overlooked aspects. A 5-second non-overlapping window is used to extract 92 features from 22 EEG channels; however, the most significant 32 feature",
       "doi": "10.1098/rsos.230601",
       "pmid": "39076791",
@@ -119,11 +94,11 @@
     },
     {
       "title": "Epileptic seizure detection from electroencephalogram signals based on 1D CNN-LSTM deep learning model using discrete wavelet transform",
-      "author": "Homa Kashefi Amiri, Masoud M. Zarei, Mohammad Reza Daliri",
+      "author": "Homa Kashefi Amiri, Masoud Zarei, Mohammad Reza Daliri",
       "venue": "Scientific Reports",
       "year": 2025,
       "url": "https://doi.org/10.1038/s41598-025-18479-9",
-      "cited_by": 27,
+      "cited_by": 28,
       "abstract": "Excessive electrical activity in the brain causes epileptic seizures which can be detected through Electroencephalogram (EEG) signals. The research aims to identify epileptic seizures using EEG records automatically. Firstly, EEG bands are extracted using Discrete Wavelet Transform (DWT) and concatenated. Secondly, the resulting feature vector is fed into a 1-dimensional Convolutional Neural Network (CNN) to extract spatial information. The Long-Short Term Memory (LSTM) layer then receives the feature maps in order to extract the temporal information. Ultimately, a fully connected layer will use the generated spatiotemporal features as input to categorize the signal. Results show that the suggested model performs well on the following datasets: the TUSZ corpus, which has 94.32% accuracy, 86.08% Kappa value, and 79.01% GDR; the BONN dataset, which has 97.24% accuracy, 97.92% Kappa value, and 99.18% GDR; and the CHB-MIT dataset, which has 96.94% accuracy, 94.33% Kappa value, and 96.36% G",
       "doi": "10.1038/s41598-025-18479-9",
       "pmid": "40998985",
@@ -132,9 +107,9 @@
       "source_relation": "IsVersionOf",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5709844230115415,
-        "similarity_score": 0.4943588078022003,
-        "citation_text_length": 1249,
+        "confidence_score": 0.5690942595899107,
+        "similarity_score": 0.4927223026752472,
+        "citation_text_length": 1246,
         "dataset_text_length": 2229,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -210,6 +185,29 @@
       }
     },
     {
+      "title": "Electroencephalogram (EEG) classification using a bio-inspired deep oscillatory neural network",
+      "author": "Sayan Ghosh, Vigneswaran Chandrasekaran, NR Rohan, V. Srinivasa Chakravarthy",
+      "venue": "Biomedical Signal Processing and Control",
+      "year": 2024,
+      "url": "https://doi.org/10.1016/j.bspc.2024.107379",
+      "cited_by": 14,
+      "abstract": null,
+      "doi": "10.1016/j.bspc.2024.107379",
+      "pmid": null,
+      "openalex_id": "W4405803499",
+      "source_doi": "10.13026/c2k01r",
+      "source_relation": "IsVersionOf",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5261892378330231,
+        "similarity_score": 0.501132607460022,
+        "citation_text_length": 237,
+        "dataset_text_length": 2229,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Prediction of epileptic seizures based on multivariate multiscale modified-distribution entropy",
       "author": "Si Thu Aung, Yodchanan Wongsawat",
       "venue": "PeerJ Computer Science",
@@ -227,29 +225,6 @@
         "confidence_score": 0.5127263107895852,
         "similarity_score": 0.4439188838005066,
         "citation_text_length": 1188,
-        "dataset_text_length": 2229,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Electroencephalogram (EEG) classification using a bio-inspired deep oscillatory neural network",
-      "author": "Sayan Ghosh, Vigneswaran Chandrasekaran, NR Rohan, V. Srinivasa Chakravarthy",
-      "venue": "Biomedical Signal Processing and Control",
-      "year": 2024,
-      "url": "https://doi.org/10.1016/j.bspc.2024.107379",
-      "cited_by": 11,
-      "abstract": "Abstract In this paper, we propose two models of oscillatory neural networks - the Deep Oscillatory Neural Network (DONN) and a convolutional variation of it named Oscillatory Convolutional Neural Network (OCNN) – and apply the models to a variety of problems involving the classification and prediction of Electroencephalogram (EEG) signals. Deep neural networks applied to signal processing problems will have to incorporate various architectural features to remember the history of the input signals e.g., loops between the layers, “gated” neurons, and tapped delay lines. But real brains have rich dynamics expressed in terms of frequency bands like alpha, beta, gamma, delta, etc. To incorporate this aspect of brain dynamics in a Recurrent Neural Network (RNN) we propose to use nonlinear oscillators as dynamic neuron models in the hidden layers. The two oscillatory deep neural networks proposed are applied to the following EEG classification and prediction problems: Prediction of nearby EE",
-      "doi": "10.1016/j.bspc.2024.107379",
-      "pmid": null,
-      "openalex_id": "W4405803499",
-      "source_doi": "10.13026/c2k01r",
-      "source_relation": "IsVersionOf",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.4720981925725938,
-        "similarity_score": 0.4087430238723755,
-        "citation_text_length": 1249,
         "dataset_text_length": 2229,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -279,6 +254,29 @@
       }
     },
     {
+      "title": "OVME-REG: Harris hawks optimization algorithm based optimized variational mode extraction for eye blink artifact removal from EEG signal",
+      "author": "B. V. N. Silpa, Malaya Kumar Hota",
+      "venue": "Medical & Biological Engineering & Computing",
+      "year": 2023,
+      "url": "https://doi.org/10.1007/s11517-023-02976-y",
+      "cited_by": 10,
+      "abstract": null,
+      "doi": "10.1007/s11517-023-02976-y",
+      "pmid": "38109026",
+      "openalex_id": "W4389900295",
+      "source_doi": "10.13026/c2k01r",
+      "source_relation": "IsVersionOf",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.4482438415288925,
+        "similarity_score": 0.42689889669418335,
+        "citation_text_length": 240,
+        "dataset_text_length": 2229,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Retraining and evaluation of machine learning and deep learning models for seizure classification from EEG data",
       "author": "Juan Pablo Carvajal-Dossman, Laura Guio, Danilo Alejandro García Orjuela, Jennifer J Guzmán-Porras, Kelly Garcés, Andrés Naranjo, Silvia Juliana Maradei Anaya, Jorge Duitama",
       "venue": "Scientific Reports",
@@ -302,23 +300,23 @@
       }
     },
     {
-      "title": "OVME-REG: Harris hawks optimization algorithm based optimized variational mode extraction for eye blink artifact removal from EEG signal",
-      "author": "B. V. N. Silpa, Malaya Kumar Hota",
-      "venue": "Medical & Biological Engineering & Computing",
-      "year": 2023,
-      "url": "https://doi.org/10.1007/s11517-023-02976-y",
+      "title": "Performance Analysis of Entropy Methods in Detecting Epileptic Seizure from Surface Electroencephalograms",
+      "author": "Emran Ali, Radhagayathri K. Udhayakumar, Maia N Angelova, Chandan Kumar Karmakar",
+      "venue": "Proceedings of the Annual International Conference of the IEEE Engineering in Medicine and Biology Society",
+      "year": 2021,
+      "url": "https://doi.org/10.1109/embc46164.2021.9629538",
       "cited_by": 9,
-      "abstract": null,
-      "doi": "10.1007/s11517-023-02976-y",
-      "pmid": "38109026",
-      "openalex_id": "W4389900295",
+      "abstract": "Physiological signals like Electrocardiography (ECG) and Electroencephalography (EEG) are complex and nonlinear in nature. To retrieve diagnostic information from these, we need the help of nonlinear methods of analysis. Entropy estimation is a very popular approach in the nonlinear category, where entropy estimates are used as features for signal classification and analysis. In this study, we analyze and compare the performances of four entropy methods; namely Distribution entropy (DistEn), Shannon entropy (ShanEn), Renyi entropy (RenEn) and LempelZiv complexity (LempelZiv) as classification features to detect epileptic seizure (ES) from surface Electroencephalography (sEEG) signal. Experiments were conducted on sEEG data from 23 subjects, obtained from the CHB-MIT database of PhysioNet. ShanEn, RenEn and LempelZiv entropy are found to be potential features for accurate and consistent detection of ES from sEEG, across multiple channels and subjects.",
+      "doi": "10.1109/embc46164.2021.9629538",
+      "pmid": "34891475",
+      "openalex_id": "W4200022805",
       "source_doi": "10.13026/c2k01r",
       "source_relation": "IsVersionOf",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.4482438415288925,
-        "similarity_score": 0.42689889669418335,
-        "citation_text_length": 240,
+        "confidence_score": 0.5570171713829041,
+        "similarity_score": 0.4822659492492676,
+        "citation_text_length": 1294,
         "dataset_text_length": 2229,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -342,29 +340,6 @@
         "confidence_score": 0.602925306558609,
         "similarity_score": 0.5742145776748657,
         "citation_text_length": 222,
-        "dataset_text_length": 2229,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Performance Analysis of Entropy Methods in Detecting Epileptic Seizure from Surface Electroencephalograms",
-      "author": "Emran Ali, Radhagayathri K. Udhayakumar, Maia N Angelova, Chandan Kumar Karmakar",
-      "venue": "2021 43rd Annual International Conference of the IEEE Engineering in Medicine &amp; Biology Society (EMBC)",
-      "year": 2021,
-      "url": "https://doi.org/10.1109/embc46164.2021.9629538",
-      "cited_by": 8,
-      "abstract": "Physiological signals like Electrocardiography (ECG) and Electroencephalography (EEG) are complex and nonlinear in nature. To retrieve diagnostic information from these, we need the help of nonlinear methods of analysis. Entropy estimation is a very popular approach in the nonlinear category, where entropy estimates are used as features for signal classification and analysis. In this study, we analyze and compare the performances of four entropy methods; namely Distribution entropy (DistEn), Shannon entropy (ShanEn), Renyi entropy (RenEn) and LempelZiv complexity (LempelZiv) as classification features to detect epileptic seizure (ES) from surface Electroencephalography (sEEG) signal. Experiments were conducted on sEEG data from 23 subjects, obtained from the CHB-MIT database of PhysioNet. ShanEn, RenEn and LempelZiv entropy are found to be potential features for accurate and consistent detection of ES from sEEG, across multiple channels and subjects.",
-      "doi": "10.1109/embc46164.2021.9629538",
-      "pmid": "34891475",
-      "openalex_id": "W4200022805",
-      "source_doi": "10.13026/c2k01r",
-      "source_relation": "IsVersionOf",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.563528548926115,
-        "similarity_score": 0.48790350556373596,
-        "citation_text_length": 1294,
         "dataset_text_length": 2229,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -441,8 +416,8 @@
     },
     {
       "title": "Epileptic Seizure Prediction Using a Deep Hybrid CNN-GAN Model on EEG Data",
-      "author": "Nowshad Hasan, Mohiuddin Sharif, Miskatur Rahman, Md. Saiful Islam, M. A. S. K. Khan, Md Jiabul Hoque, Anamul Bahar",
-      "venue": "n/a",
+      "author": "Nowshad Hasan, Md. Maskat Sharif, Miskatur Rahman, Md. Saiful Islam, M. A. S. K. Khan, Md Jiabul Hoque, Anamul Bahar",
+      "venue": "IEEE International Conference on Robotics, Automation, Artificial-Intelligence and Internet-of-Things (RAAICON)",
       "year": 2024,
       "url": "https://doi.org/10.1109/raaicon64172.2024.10928493",
       "cited_by": 3,
@@ -454,9 +429,9 @@
       "source_relation": "IsVersionOf",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5958589419722558,
-        "similarity_score": 0.5158951878547668,
-        "citation_text_length": 1231,
+        "confidence_score": 0.5877001082897187,
+        "similarity_score": 0.508831262588501,
+        "citation_text_length": 1340,
         "dataset_text_length": 2229,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -465,7 +440,7 @@
     {
       "title": "Epileptic Seizure Prediction From EEG Signal Recording Using Energy and Dispersion Entropy with SVM Classifier",
       "author": "Yumna Nabila, Hasballah Zakaria",
-      "venue": "n/a",
+      "venue": "International Conference on Information Technology Research and Innovation (ICITRI)",
       "year": 2024,
       "url": "https://doi.org/10.1109/icitri62858.2024.10699014",
       "cited_by": 3,
@@ -477,9 +452,9 @@
       "source_relation": "IsVersionOf",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5480222350358964,
-        "similarity_score": 0.4744781255722046,
-        "citation_text_length": 1183,
+        "confidence_score": 0.5560502663254738,
+        "similarity_score": 0.4814288020133972,
+        "citation_text_length": 1263,
         "dataset_text_length": 2229,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -555,6 +530,29 @@
       }
     },
     {
+      "title": "Stochastic memristive devices for low cost learning of spatiotemporal signals in spiking neural networks",
+      "author": "Aabid Amin Fida, Sparsh Mittal",
+      "venue": "Engineering Research Express",
+      "year": 2024,
+      "url": "https://doi.org/10.1088/2631-8695/ad9a3e",
+      "cited_by": 2,
+      "abstract": "Abstract Resistive switching devices are an excellent candidate for dedicated neural network hardware. They offer extremely low-power in-memory computing substrates for edge computing tasks like health monitoring. But, the imprecise and random conductance changes in these devices make deploying neural networks on such hardware significantly challenging. In this regard, biological random networks, known as liquid state machines (LSM), can be helpful. Using them as inspiration we can utilize the imprecise nature of the switching process for a low-cost training approach to learning in spiking recurrent neural networks. We rely on the inherent non-determinism associated with the conductance states in memristive devices to initialize the random weight matrices within a memristive LSM. We also utilize the randomness of the resistive states to introduce heterogeneity in the neuron parameters. The significance of the proposed approach is evaluated using arrhythmia and seizure detection edge co",
+      "doi": "10.1088/2631-8695/ad9a3e",
+      "pmid": null,
+      "openalex_id": "W4404942730",
+      "source_doi": "10.13026/c2k01r",
+      "source_relation": "IsVersionOf",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.40197358399629596,
+        "similarity_score": 0.34802907705307007,
+        "citation_text_length": 1201,
+        "dataset_text_length": 2229,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "A lightweight 1D-CNN-GRU model for epileptic seizure prediction",
       "author": "Chunlei He, Peijun Ma, Jiangyi Shi, Chenxin Qu, Qingrong Wang, Cong Yao, Yue Hao",
       "venue": "Research Square",
@@ -579,8 +577,8 @@
     },
     {
       "title": "Recognition of Secondary Tonic-Colonic Epilepsy Seizures using Machine Learning",
-      "author": "Neha Kumari, Syed Raheel Hassan, Pallavi Bassi",
-      "venue": "n/a",
+      "author": "Neha Kumari, Raheel Hassan, Pallavi Bassi",
+      "venue": "International Conference on Computing for Sustainable Global Development",
       "year": 2024,
       "url": "https://doi.org/10.23919/indiacom61295.2024.10498197",
       "cited_by": 2,
@@ -592,9 +590,9 @@
       "source_relation": "IsVersionOf",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5539782875776291,
-        "similarity_score": 0.4796348810195923,
-        "citation_text_length": 1055,
+        "confidence_score": 0.5620295879244804,
+        "similarity_score": 0.486605703830719,
+        "citation_text_length": 1119,
         "dataset_text_length": 2229,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -647,6 +645,29 @@
       }
     },
     {
+      "title": "A multi-view neural framework with attention for epileptic seizure classification",
+      "author": "Lufeng Feng, Baomin Xu, Li Duan, Wei Ni, Quan Sheng",
+      "venue": "Journal of Neural Engineering",
+      "year": 2026,
+      "url": "https://doi.org/10.1088/1741-2552/ae33f8",
+      "cited_by": 1,
+      "abstract": "Abstract Objective . Epilepsy is a chronic brain disorder characterized by recurrent seizures due to abnormal neuronal firing. Electroencephalogram (EEG)-based seizure classification has become an important auxiliary tool in clinical practice. This study aims to reduce reliance on expert experience in diagnosis and to improve the automated classification of epileptic seizures using EEG signals. Approach . We propose a novel filter-bank multi-view and attention-based mechanism neural network model for seizure classification. The model employs a learnable filter bank to decompose the raw EEG into multiple frequency sub-bands, forming multi-view representations. A multi-branch group convolution network is designed to capture multi-scale frequency–spatial features, while temporal dependencies are extracted through a bidirectional long short-term memory with an attention mechanism. A shared attention module adaptively emphasizes the most informative sub-bands and time windows for classifica",
+      "doi": "10.1088/1741-2552/ae33f8",
+      "pmid": "41494202",
+      "openalex_id": "W7118490373",
+      "source_doi": "10.13026/c2k01r",
+      "source_relation": "IsVersionOf",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5511550211906434,
+        "similarity_score": 0.4771904945373535,
+        "citation_text_length": 1200,
+        "dataset_text_length": 2229,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "An EEG-based patient-independent epileptic seizure detection method based on domain generative adversarial network",
       "author": "Yulang Feng, Tianshu Zhou, Yu Shan Tian, Chengkai Wu, Jianda Wang, Jianhua Feng, Jingsong Li",
       "venue": "Health Information Science and Systems",
@@ -672,7 +693,7 @@
     {
       "title": "Dynamic Graph Contrastive Learning for EEG-Based Epileptic Seizure Detection",
       "author": "Zejing Zhang, Dengdi Sun",
-      "venue": "n/a",
+      "venue": "IEEE Information Technology and Mechatronics Engineering Conference (ITOEC)",
       "year": 2025,
       "url": "https://doi.org/10.1109/itoec63606.2025.10968415",
       "cited_by": 1,
@@ -684,32 +705,9 @@
       "source_relation": "IsVersionOf",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6243773058056832,
-        "similarity_score": 0.5405864119529724,
-        "citation_text_length": 1142,
-        "dataset_text_length": 2229,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Stochastic memristive devices for low cost learning of spatiotemporal signals in spiking neural networks",
-      "author": "Aabid Amin Fida, Sparsh Mittal",
-      "venue": "Engineering Research Express",
-      "year": 2024,
-      "url": "https://doi.org/10.1088/2631-8695/ad9a3e",
-      "cited_by": 1,
-      "abstract": "Abstract Resistive switching devices are an excellent candidate for dedicated neural network hardware. They offer extremely low-power in-memory computing substrates for edge computing tasks like health monitoring. But, the imprecise and random conductance changes in these devices make deploying neural networks on such hardware significantly challenging. In this regard, biological random networks, known as liquid state machines (LSM), can be helpful. Using them as inspiration we can utilize the imprecise nature of the switching process for a low-cost training approach to learning in spiking recurrent neural networks. We rely on the inherent non-determinism associated with the conductance states in memristive devices to initialize the random weight matrices within a memristive LSM. We also utilize the randomness of the resistive states to introduce heterogeneity in the neuron parameters. The significance of the proposed approach is evaluated using arrhythmia and seizure detection edge co",
-      "doi": "10.1088/2631-8695/ad9a3e",
-      "pmid": null,
-      "openalex_id": "W4404942730",
-      "source_doi": "10.13026/c2k01r",
-      "source_relation": "IsVersionOf",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.40197358399629596,
-        "similarity_score": 0.34802907705307007,
-        "citation_text_length": 1201,
+        "confidence_score": 0.6230730682611466,
+        "similarity_score": 0.5394572019577026,
+        "citation_text_length": 1214,
         "dataset_text_length": 2229,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -764,7 +762,7 @@
     {
       "title": "Electroencephalography (EEG) Signal Identification for Epilepsy Using Support Vector Machine (SVM)",
       "author": "Afif Firdaus Fatharani, Khoerun Nisa Syaja’ah, W. S. Mada Sanjaya, Muhammad Insan Al-Amin, Rin Rin Nurmalasari, Andang Saehu",
-      "venue": "n/a",
+      "venue": "International Conference on Telecommunication Systems, Services, and Applications",
       "year": 2023,
       "url": "https://doi.org/10.1109/tssa59948.2023.10366941",
       "cited_by": 1,
@@ -776,32 +774,78 @@
       "source_relation": "IsVersionOf",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5606229802966118,
-        "similarity_score": 0.4853878617286682,
-        "citation_text_length": 1264,
+        "confidence_score": 0.5574022123217584,
+        "similarity_score": 0.48259931802749634,
+        "citation_text_length": 1342,
         "dataset_text_length": 2229,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
     },
     {
-      "title": "The alarm rule as a second decision system: a declare-to-verify procedure for clinical EEG seizure prediction",
-      "author": "Salem Trabelsi, Salah Gontara, Khaled Ben Khalifa",
-      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "title": "Patient-Adaptive Seizure Detection via Cluster-Based Zero-Shot and Fine-Tuned TCN on Pediatric EEG",
+      "author": "Nafisa Binte Ghulam Kibria, Zareen Tasnim Pear, Md Kishor Morol, Ramisa Anjum Oishi, Tamzid Tanvi Alam, Diya Rahman",
+      "venue": "Lecture notes in computer science",
       "year": 2026,
-      "url": "https://doi.org/10.5281/zenodo.22288291",
+      "url": "https://doi.org/10.1007/978-3-032-39379-1_12",
       "cited_by": 0,
-      "abstract": "Data and replay archive for the study of the same name. A seizure-prediction system decides twice: a predictor scores each EEG segment, and an alarm rule turns those scores into warnings. This archive holds everything needed to reproduce the second decision and to re-declare it. It contains the per-segment leave-one-seizure-out probabilities of two frozen predictors, a CNN-BiLSTM with attention and a logistic regression, on twenty subjects of the CHB-MIT scalp EEG corpus, covering 98 admitted seizures and 452.14 hours of interictal recording; the 1,248 alarm configurations of three families swept over them; and the operating point each configuration realises on both the validation and the test collection. Beyond those frontiers it carries the configuration each declared objective selects at cohort and at patient level, the comparison of the reduced search against the exhaustive one over 336 cells, a sweep of three members of the counting cell, the conformity, transport and dispersion c",
-      "doi": "10.5281/zenodo.22288291",
+      "abstract": null,
+      "doi": "10.1007/978-3-032-39379-1_12",
       "pmid": null,
-      "openalex_id": "W7208763613",
+      "openalex_id": "W7220840268",
       "source_doi": "10.13026/c2k01r",
       "source_relation": "IsVersionOf",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6449656024575233,
-        "similarity_score": 0.5584117770195007,
-        "citation_text_length": 1253,
+        "confidence_score": 0.6116377472877502,
+        "similarity_score": 0.5825121402740479,
+        "citation_text_length": 273,
+        "dataset_text_length": 2229,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Uncertainty-aware few-shot epileptic seizure detection for IoMT edge devices using TinyML and Kolmogorov–Arnold networks",
+      "author": "Chaymae Yahyati, Ismail Lamaakal, Khalid El Makkaoui, Ibrahim Ouahbi",
+      "venue": "Discover Internet of Things",
+      "year": 2026,
+      "url": "https://doi.org/10.1007/s43926-026-00514-4",
+      "cited_by": 0,
+      "abstract": "Epileptic seizure detection from electroencephalography (EEG) remains challenging in real-world clinical settings due to severe class imbalance, limited labeled ictal data, inter-patient variability, and the computational constraints of edge deployment. To address these challenges, this paper proposes an uncertainty-aware few-shot epileptic seizure detection framework for Internet of Medical Things edge devices based on TinyML and Kolmogorov–Arnold Networks (KANs). The proposed method combines a clinically motivated EEG preprocessing pipeline, compact handcrafted feature extraction, a lightweight KAN classifier, Monte Carlo dropout with temperature scaling for uncertainty-aware prediction, and a deployment-oriented compression strategy based on structured pruning, quantization-aware training, and post-training quantization. The framework is designed to jointly achieve reliable seizure discrimination, robustness under scarce ictal supervision, and practical compatibility with resource-c",
+      "doi": "10.1007/s43926-026-00514-4",
+      "pmid": null,
+      "openalex_id": "W7220414338",
+      "source_doi": "10.13026/c2k01r",
+      "source_relation": "IsVersionOf",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5408192226290703,
+        "similarity_score": 0.46824175119400024,
+        "citation_text_length": 1254,
+        "dataset_text_length": 2229,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "A declare-to-verify procedure for the decision stage of EEG seizure-warning systems",
+      "author": "Salem Trabelsi, Salah Gontara, Khaled Ben Khalifa",
+      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "year": 2026,
+      "url": "https://doi.org/10.5281/zenodo.22288290",
+      "cited_by": 0,
+      "abstract": "Data and replay archive for the study of the same name. A seizure-prediction system decides twice: a predictor scores each EEG segment, and an alarm rule turns those scores into warnings. This archive holds everything needed to reproduce the second decision and to re-declare it. It contains the per-segment leave-one-seizure-out probabilities of two frozen predictors, a CNN-BiLSTM with attention and a logistic regression, on twenty subjects of the CHB-MIT scalp EEG corpus, covering 98 admitted seizures and 452.14 hours of interictal recording; the 1,248 alarm configurations of three families swept over them; and the operating point each configuration realises on both the validation and the test collection. Beyond those frontiers it carries the configuration each declared objective selects at cohort and at patient level, the comparison of the reduced search against the exhaustive one over 336 cells, a sweep of three members of the counting cell, the conformity, transport and dispersion c",
+      "doi": "10.5281/zenodo.22288290",
+      "pmid": null,
+      "openalex_id": "W7208786431",
+      "source_doi": "10.13026/c2k01r",
+      "source_relation": "IsVersionOf",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6602761602401734,
+        "similarity_score": 0.5716676712036133,
+        "citation_text_length": 1227,
         "dataset_text_length": 2229,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -883,7 +927,7 @@
       "year": 2026,
       "url": "https://doi.org/10.1186/s13677-026-00910-9",
       "cited_by": 0,
-      "abstract": "Personalized seizure forecasting with wearable electroencephalography (EEG) is limited by sparse patient-specific labels, privacy constraints and finite device and gateway resources. This study evaluates a generative-digital-twin and meta-learning workload as an Edge–Twin/Fog–Cloud service for 24-hour personalized forecasting. In this design, warning inference remains on the wearable, patient-state tracking and synthetic support-set construction run at a nearby Twin/Fog node, and cross-patient meta-parameter management remains in the Cloud. Using a trace-driven simulator derived from the Children’s Hospital Boston–Massachusetts Institute of Technology (CHB-MIT) dataset, we quantify the communication and on-device adaptation needed to establish and maintain patient state. Under steady monitoring, sparse uploads reduce shared-gateway bandwidth demand by 98.3% relative to continuous streaming. During cold start, uploading six EEG segments per hour provides the required labeled support win",
+      "abstract": "Abstract Personalized seizure forecasting with wearable electroencephalography (EEG) is promising for remote healthcare, but practical deployment is constrained by limited patient-specific data, inter-patient heterogeneity, latency requirements, battery limits, and privacy risks. This paper presents an edge-twin-cloud continuum service architecture for deploying the GenDT-MAML workload under realistic physical constraints. The proposed design partitions real-time inference and lightweight adaptation to the edge, places generative augmentation and dispatch decisions at the Twin/Fog layer, and uses the cloud for global meta-parameter aggregation. We further introduce a context-aware state machine to coordinate uplink transmission, edge fine-tuning, and Twin-triggered downlink updates. Trace-driven simulation on CHB-MIT-derived workloads shows that the proposed orchestration reduces communication overhead by 98.3% relative to continuous streaming, while maintaining clinically meaningful p",
       "doi": "10.1186/s13677-026-00910-9",
       "pmid": null,
       "openalex_id": "W7163336095",
@@ -891,8 +935,8 @@
       "source_relation": "IsVersionOf",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5456624910235405,
-        "similarity_score": 0.4724350571632385,
+        "confidence_score": 0.5217961487174034,
+        "similarity_score": 0.4517715573310852,
         "citation_text_length": 1292,
         "dataset_text_length": 2229,
         "scoring_method": "sentence_transformers",
@@ -970,7 +1014,7 @@
     },
     {
       "title": "Diff-EEG: Dual-Condition Latent Diffusion with LLM and Patient Information for EEG Synthesis",
-      "author": "H. L. Dai, Yanxin Zhang, Shiqi Zhao, Chuan Zhao, Daibo Xiao, Chaozhe Jiang",
+      "author": "Hengyu Dai, Yanxin Zhang, Shiqi Zhao, Chuan Zhao, Daibo Xiao, Chaozhe Jiang",
       "venue": "n/a",
       "year": 2026,
       "url": "https://doi.org/10.1145/3813723.3813734",
@@ -983,9 +1027,9 @@
       "source_relation": "IsVersionOf",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5827029061317445,
-        "similarity_score": 0.5045046806335449,
-        "citation_text_length": 1208,
+        "confidence_score": 0.5826668322086335,
+        "similarity_score": 0.5044734477996826,
+        "citation_text_length": 1209,
         "dataset_text_length": 2229,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1009,29 +1053,6 @@
         "confidence_score": 0.4924355551600457,
         "similarity_score": 0.4263511300086975,
         "citation_text_length": 1278,
-        "dataset_text_length": 2229,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "A multi-view neural framework with attention for epileptic seizure classification",
-      "author": "Lufeng Feng, Baomin Xu, Li Duan, Wei Ni, Quan Sheng",
-      "venue": "Journal of Neural Engineering",
-      "year": 2026,
-      "url": "https://doi.org/10.1088/1741-2552/ae33f8",
-      "cited_by": 0,
-      "abstract": "Abstract Objective . Epilepsy is a chronic brain disorder characterized by recurrent seizures due to abnormal neuronal firing. Electroencephalogram (EEG)-based seizure classification has become an important auxiliary tool in clinical practice. This study aims to reduce reliance on expert experience in diagnosis and to improve the automated classification of epileptic seizures using EEG signals. Approach . We propose a novel filter-bank multi-view and attention-based mechanism neural network model for seizure classification. The model employs a learnable filter bank to decompose the raw EEG into multiple frequency sub-bands, forming multi-view representations. A multi-branch group convolution network is designed to capture multi-scale frequency–spatial features, while temporal dependencies are extracted through a bidirectional long short-term memory with an attention mechanism. A shared attention module adaptively emphasizes the most informative sub-bands and time windows for classifica",
-      "doi": "10.1088/1741-2552/ae33f8",
-      "pmid": "41494202",
-      "openalex_id": "W7118490373",
-      "source_doi": "10.13026/c2k01r",
-      "source_relation": "IsVersionOf",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5511550211906434,
-        "similarity_score": 0.4771904945373535,
-        "citation_text_length": 1200,
         "dataset_text_length": 2229,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1108,7 +1129,7 @@
     },
     {
       "title": "Artificial Intelligence and Machine Learning in Pediatric Epilepsy: A Systematic Review",
-      "author": "Emilia Malik, Michał Wizner, Julia Izabela Karpierz, Zuzanna Pająk, Monika Roszkowska, Marta Rojek, Justyna Paprocka",
+      "author": "Emilia Malik, Michał Wizner, Julia Izabela Karpierz, Zuzanna Pająk, Monika Roszkowska, Marcin Rojek, Justyna Paprocka",
       "venue": "Neurology and Therapy",
       "year": 2025,
       "url": "https://doi.org/10.1007/s40120-026-00924-0",
@@ -1121,9 +1142,9 @@
       "source_relation": "IsVersionOf",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5540852701663972,
-        "similarity_score": 0.47972750663757324,
-        "citation_text_length": 1263,
+        "confidence_score": 0.5536198890209199,
+        "similarity_score": 0.4793245792388916,
+        "citation_text_length": 1264,
         "dataset_text_length": 2229,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1200,7 +1221,7 @@
     },
     {
       "title": "Examining the Potential of Sequence Patterns from EEG Data as Alternative Case Representation for Seizure Detection",
-      "author": "Jonah Fernandez, Guillem Hernández Guillamet, Cristina Muniesa Montserrat, Bianca Innocenti, Beatriz López",
+      "author": "Jonah Fernandez, Guillem Hernández Guillamet, Cristina Montserrat, Bianca Innocenti, Beatriz López",
       "venue": "Lecture notes in computer science",
       "year": 2024,
       "url": "https://doi.org/10.1007/978-3-031-63646-2_17",
@@ -1213,9 +1234,9 @@
       "source_relation": "IsVersionOf",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6256592631340027,
-        "similarity_score": 0.5958659648895264,
-        "citation_text_length": 281,
+        "confidence_score": 0.6232747793197632,
+        "similarity_score": 0.593595027923584,
+        "citation_text_length": 273,
         "dataset_text_length": 2229,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1224,7 +1245,7 @@
     {
       "title": "Can a pre-trained EEG neonatal model be used for seizure detection in pediatrics?",
       "author": "Lavanya Vinod Pampana, Aengus Daly, Joaquim Bauxell Cornet, Andriy Temko, Emanuel Mihai Popovici",
-      "venue": "n/a",
+      "venue": "Irish Signals and Systems Conference",
       "year": 2023,
       "url": "https://doi.org/10.1109/issc59246.2023.10162069",
       "cited_by": 0,
@@ -1236,34 +1257,9 @@
       "source_relation": "IsVersionOf",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.706020579636097,
-        "similarity_score": 0.6112732291221619,
-        "citation_text_length": 1031,
-        "dataset_text_length": 2229,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "An Order Estimation Based Approach to Identify Response Genes for Microarray Time Course Data",
-      "author": "Zhiheng K Lu, Allen O. Brian, Anthony F. Desmond",
-      "venue": "Statistical Applications in Genetics and Molecular Biology",
-      "year": 2012,
-      "url": "https://doi.org/10.1515/1544-6115.1818",
-      "cited_by": 2,
-      "abstract": "Gene expression profiles from microarray time course experiments provide a unique opportunity to examine genome-wide signal processing and gene responses. A fundamental issue in microarray experiments is that the treatment condition can only be controlled at the cell level rather than at the gene level. The treatment condition does not affect all genes equally. Some genes depend on other genes to detect external changes. The dependency between genes is not fully deterministic and may vary with treatment condition. Thus the expression of each gene is potentially affected by two confounding effects: the treatment effect and the gene context effect arising from the regulatory interactions among genes. This gene context effect is hard to isolate. Neither can it be simply ignored. Instead, this gene context information which may be different under different treatment conditions is of primary biological interest. We introduce an approach which deals with the confounding effects and takes into account the uncontrollable gene context effect. Our method is based on the estimation of the number of hidden states, which, in our development, corresponds to the order of a hidden Markov model (HMM). For each gene, its observed expression is modeled by a gamma distribution determined by the corresponding hidden state at each time point. Those genes showing evidence for more than one hidden state can be categorized as the signalling genes, or in a wider sense, as the response genes which are coordinated by a cell system in reaction to a specific external condition. These response genes can be used in the comparison of different treatment conditions, to investigate the gene context effect under different treatments. Microarray time course data are also analyzed to demonstrate our method.",
-      "doi": "10.1515/1544-6115.1818",
-      "pmid": "23241685",
-      "openalex_id": "W2265464824",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "nm000110",
-      "confidence_scoring": {
-        "confidence_score": 0.28299041986465456,
-        "similarity_score": 0.25726401805877686,
-        "citation_text_length": 1738,
+        "confidence_score": 0.7168744245171548,
+        "similarity_score": 0.62067049741745,
+        "citation_text_length": 1064,
         "dataset_text_length": 2229,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1272,18 +1268,18 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-10-04T10:06:48.660612+00:00",
+    "scoring_date": "2026-10-11T11:18:01.005500+00:00",
     "dataset_text_length": 2229,
-    "num_citations_scored": 51,
+    "num_citations_scored": 52,
     "summary_stats": {
-      "mean_confidence": 0.5432997718920896,
-      "median_confidence": 0.563528548926115,
-      "std_confidence": 0.11137257475643139,
+      "mean_confidence": 0.5505048468221839,
+      "median_confidence": 0.5644451169669629,
+      "std_confidence": 0.10451746505017226,
       "min_confidence": 0.164143303334713,
       "max_confidence": 0.7881729501485826,
       "high_confidence_count": 2,
-      "medium_confidence_count": 44,
-      "low_confidence_count": 5
+      "medium_confidence_count": 46,
+      "low_confidence_count": 4
     }
   }
 }

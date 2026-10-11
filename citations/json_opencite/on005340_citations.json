@@ -1,16 +1,14 @@
 {
   "dataset_id": "on005340",
   "num_citations": 8,
-  "date_last_updated": "2026-09-30T16:35:15.851418+00:00",
+  "date_last_updated": "2026-10-11T11:02:17.110782+00:00",
   "metadata": {
-    "total_cumulative_citations": 22,
-    "fetch_date": "2026-09-29T11:24:49.649812+00:00",
+    "total_cumulative_citations": 13,
+    "fetch_date": "2026-10-11T11:02:17.110782+00:00",
     "processing_version": "1.0",
-    "fetch_status": "partial",
+    "fetch_status": "success",
     "anchor_count": 3,
-    "anchor_errors": {
-      "10.82901/nemar.on005340": "not_found"
-    },
+    "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
     "anchor_judgment_model": "claude-sonnet-5-5",
@@ -21,12 +19,12 @@
         "source_relation": "IsDescribedBy",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Fundamental frequency predominantly drives talker differences in auditory brainstem responses to continuous speech",
         "paper_year": 2024,
         "paper_venue": "JASA Express Letters",
         "reason": "Dataset title and authors match this paper exactly; README names it as the peer-reviewed manuscript for the peaky_pitchshift dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1101/2024.07.12.603125",
@@ -34,12 +32,12 @@
         "source_relation": "References",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Fundamental frequency predominantly drives talker differences in auditory brainstem responses to continuous speech",
         "paper_year": 2024,
         "paper_venue": "bioRxiv (Cold Spring Harbor Laboratory)",
         "reason": "Dataset name, authors and README match this bioRxiv preprint, which is listed as the pre-print of the paper reporting the 'peaky_pitchshift' data.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on005340",
@@ -47,12 +45,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -61,27 +59,21 @@
       "10.82901/nemar.on005340"
     ],
     "keywords": [
-      "Evoked Potentials, Auditory, Brain Stem",
       "EEG",
-      "speech perception",
-      "fundamental frequency",
       "auditory brainstem response",
-      "continuous speech"
+      "continuous speech",
+      "fundamental frequency",
+      "peaky speech",
+      "click train",
+      "Evoked Potentials, Auditory, Brain Stem"
     ],
-    "methods_description": "Participants sat in a darkened sound-isolating booth and watched silent captioned videos while stimuli (click trains and peaky speech from male and female narrators at three fundamental frequencies) were presented at 65 dB SPL via ER-2 insert earphones connected to an RME Babyface Pro sound card, controlled by custom Python scripts using expyfun. EEG was recorded using Brain Products hardware, with stimuli including 90 click trials (30 x 10s per rate) and 720 speech trials (120 x 10s per narrator-f0 combination).",
+    "methods_description": "EEG was recorded in BrainVision format from 15 participants in a darkened sound-isolating booth. Stimuli were presented at about 65 dB SPL through ER-2 insert earphones and an RME Babyface Pro sound card, controlled with custom expyfun Python scripts. Conditions were 90 randomized click-train trials at three rates (123, 150, 183 Hz) and 720 peaky speech trials (2 narrators x 3 f0s, randomly interleaved). Each trial lasted 10 s, with trial-number triggers.",
     "funding": [
       {
         "funder_name": "NIDCD",
         "award_number": "R01DC017962"
       }
-    ],
-    "searched_accessions": [
-      "on005340",
-      "ds005340"
-    ],
-    "num_accession_mentions": 1,
-    "num_dataset_citations": 1,
-    "num_datapaper_citations": 7
+    ]
   },
   "citation_details": [
     {
@@ -252,28 +244,23 @@
       }
     },
     {
-      "title": "Fundamental frequency predominantly drives talker differences in auditory brainstem responses to continuous speech",
-      "author": "Melissa Jane Polonenko, Ross K. Maddox",
-      "venue": "JASA Express Letters",
-      "year": 2024,
-      "url": "https://doi.org/10.1121/10.0034329",
-      "cited_by": 9,
-      "abstract": "Deriving human neural responses to natural speech is now possible, but the responses to male- and female-uttered speech have been shown to differ. These talker differences may complicate interpretations or restrict experimental designs geared toward more realistic communication scenarios. This study found that when a male talker and a female talker had the same fundamental frequency, auditory brainstem responses (ABRs) were very similar. Those responses became smaller and later with increasing fundamental frequency, as did click ABRs with increasing stimulus rates. Modeled responses suggested that the speech and click ABR differences were reasonably predicted by peripheral and brainstem processing of stimulus acoustics.",
-      "doi": "10.1121/10.0034329",
-      "pmid": "39504231",
-      "openalex_id": "W4404106206",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds005340",
-      "superseded_dois": [
-        "10.1101/2024.07.12.603125"
-      ],
+      "title": "A DEEP NEURAL NETWORK FOR PREDICTING CONTINUOUS HUMAN EEG ACROSS THE AUDITORY PATHWAY IN RESPONSE TO SOUND",
+      "author": "Thomas J. Stoll, Ross K. Maddox",
+      "venue": "ArXiv",
+      "year": 2026,
+      "url": "n/a",
+      "cited_by": 0,
+      "abstract": "Computational models of auditory physiology commonly target specific responses or stages of the auditory pathway, limiting their ability to integrate findings across experimental paradigms and neural timescales. We present a foundation model of human auditory electrophysiology: a causal neural network trained to map binaural acoustic waveforms directly to high-sample-rate EEG. The model was trained on approximately 250 hours of EEG data from 92 subjects, with varied electrode montages and stimuli spanning tonebursts, speech, and music. We tested whether the model recovered effects of stimulus rate, frequency, and presentation method on auditory brainstem responses (ABRs); subcortical and cortical temporal response functions (TRFs) to continuous speech; and the click-evoked binaural interaction component (BIC). Predicted ABRs and TRFs reproduced established response morphology and stimulus-dependent effects, with model–grand-average correlations falling within the corresponding subject-",
+      "doi": null,
+      "pmid": "42818211",
+      "openalex_id": null,
+      "source_doi": "10.82901/nemar.on005340",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 1.0,
-        "similarity_score": 0.8953871726989746,
-        "citation_text_length": 940,
+        "confidence_score": 0.6403855222463609,
+        "similarity_score": 0.5544463396072388,
+        "citation_text_length": 1181,
         "dataset_text_length": 2379,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -282,17 +269,17 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T16:38:24.022933+00:00",
+    "scoring_date": "2026-10-11T11:36:28.720952+00:00",
     "dataset_text_length": 2379,
     "num_citations_scored": 8,
     "summary_stats": {
-      "mean_confidence": 0.7432304413616658,
-      "median_confidence": 0.7200924043357373,
-      "std_confidence": 0.12444596919790646,
+      "mean_confidence": 0.698278631642461,
+      "median_confidence": 0.6739832872152329,
+      "std_confidence": 0.0809131815320487,
       "min_confidence": 0.5765421509742737,
-      "max_confidence": 1.0,
-      "high_confidence_count": 4,
-      "medium_confidence_count": 4,
+      "max_confidence": 0.8419287407398225,
+      "high_confidence_count": 3,
+      "medium_confidence_count": 5,
       "low_confidence_count": 0
     }
   }

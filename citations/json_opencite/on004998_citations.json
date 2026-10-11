@@ -1,10 +1,10 @@
 {
   "dataset_id": "on004998",
-  "num_citations": 17,
-  "date_last_updated": "2026-09-30T10:47:16.008752+00:00",
+  "num_citations": 15,
+  "date_last_updated": "2026-10-11T10:59:25.332019+00:00",
   "metadata": {
-    "total_cumulative_citations": 45,
-    "fetch_date": "2026-09-29T11:21:49.957522+00:00",
+    "total_cumulative_citations": 53,
+    "fetch_date": "2026-10-11T10:59:25.332019+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -19,12 +19,12 @@
         "source_relation": "IsDescribedBy",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Exploring the electrophysiology of Parkinson’s disease with magnetoencephalography and deep brain recordings",
         "paper_year": 2024,
         "paper_venue": "Scientific Data",
         "reason": "Scientific Data descriptor by the same authors, with the same title as the dataset. It describes the MEG plus STN LFP recordings in Parkinson's patients at rest and in two motor tasks.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.21105/joss.01896",
@@ -32,12 +32,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
         "paper_year": 2019,
         "paper_venue": "The Journal of Open Source Software",
         "reason": "MNE-BIDS is a software tool for organizing electrophysiological data into BIDS, used to format this dataset, not a paper describing the dataset itself.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1038/sdata.2018.110",
@@ -45,12 +45,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MEG-BIDS, the brain imaging data structure extended to magnetoencephalography",
         "paper_year": 2018,
         "paper_venue": "Scientific Data",
         "reason": "MEG-BIDS is the BIDS extension specification for MEG data, a standard the dataset follows, not a paper describing this Parkinson's MEG-STN dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on004998",
@@ -58,12 +58,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -71,15 +71,15 @@
       "10.82901/nemar.on004998"
     ],
     "keywords": [
-      "Parkinson Disease",
       "Magnetoencephalography",
+      "Parkinson Disease",
       "Deep Brain Stimulation",
       "Subthalamic Nucleus",
       "local field potentials",
-      "basal ganglia-cortex loops",
+      "MEG",
       "dopaminergic medication"
     ],
-    "methods_description": "Data were collected via simultaneous MEG and STN LFP recordings from externalized DBS patients under two medication states (MedOn/MedOff). Recording sessions included resting-state periods and movement tasks: static forearm extension (hold) and self-paced fist-clenching (move), each preceded by 5 minutes of rest, with pauses during the movement segments. Some patients underwent resting-state recordings only.",
+    "methods_description": "Externalized DBS patients underwent simultaneous MEG and STN LFP recordings in medication ON and OFF states. Each movement condition consisted of 5 minutes of rest followed by either static forearm extension (hold) or self-paced fist-clenching (move), with pauses during the movement parts. Some patients were recorded in resting state only.",
     "funding": [
       {
         "funder_name": "The project was funded by ERA-NET Neuron for 3 years."
@@ -87,14 +87,7 @@
       {
         "funder_name": "ERA-NET Neuron"
       }
-    ],
-    "searched_accessions": [
-      "on004998",
-      "ds004998"
-    ],
-    "num_accession_mentions": 2,
-    "num_dataset_citations": 4,
-    "num_datapaper_citations": 13
+    ]
   },
   "citation_details": [
     {
@@ -103,8 +96,8 @@
       "venue": "EBioMedicine",
       "year": 2025,
       "url": "https://doi.org/10.1016/j.ebiom.2025.105988",
-      "cited_by": 13,
-      "abstract": "Background Parkinson's disease is linked to increased beta rhythms (13–30 Hz) in the subthalamic nucleus, which correlate with motor symptoms. However, findings across studies are inconsistent. Furthermore, the contribution of other frequencies to symptom severity remains underexplored. Methods We analysed subthalamic local field potentials from 119 patients with Parkinson's disease (31 female; mean age 60 ± 9 years) across five independent datasets. Power spectra were parametrised and studied in relation to Levodopa administration and the severity of motor symptoms. Findings Our findings suggest that small sample sizes contributed to the variable correlations between beta power and motor symptoms reported in previous studies. Here, we demonstrate that more than 100 patients are required for stable replication. Aperiodic offset and low gamma (30–45 Hz) oscillations were negatively correlated with motor deficits ( r Offset = − 0.32 , p = 4 e − 4 ; r L γ = − 0.21 , p = 0.021 ), whereas l",
+      "cited_by": 16,
+      "abstract": "Abstract Parkinson’s disease is linked to increased beta oscillations in the subthalamic nucleus, which correlate with motor symptoms. However, findings across studies have varied. Our standardized analysis of multicenter datasets shows that small sample sizes contributed to these discrepancies—a challenge we address by pooling datasets into one large cohort (n=119). Moving beyond beta power, we disentangled spectral components reflecting distinct neural processes. Combining aperiodic offset, low beta, and low gamma oscillations explained significantly more variance in symptom severity than beta alone. Moreover, interhemispheric within-patient analyses showed that, unlike beta oscillations, aperiodic broadband power–likely reflecting spiking activity–was increased in the more affected hemisphere. These findings identify aperiodic broadband power as a potential biomarker for adaptive deep brain stimulation and provide novel insights into the relationship between subthalamic hyperactivit",
       "doi": "10.1016/j.ebiom.2025.105988",
       "pmid": "41168073",
       "openalex_id": "W4415667389",
@@ -112,8 +105,8 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.7003442376852036,
-        "similarity_score": 0.6063586473464966,
+        "confidence_score": 0.6863530629873277,
+        "similarity_score": 0.5942450761795044,
         "citation_text_length": 1760,
         "dataset_text_length": 2339,
         "scoring_method": "sentence_transformers",
@@ -126,7 +119,7 @@
       "venue": "Scientific Data",
       "year": 2024,
       "url": "https://doi.org/10.1038/s41597-024-03768-1",
-      "cited_by": 12,
+      "cited_by": 10,
       "abstract": "Aberrant information processing in the basal ganglia and connected cortical areas are key to many neurological movement disorders such as Parkinson's disease. Investigating the electrophysiology of this system is difficult in humans because non-invasive methods, such as electroencephalography or magnetoencephalography, have limited sensitivity to deep brain areas. Recordings from electrodes implanted for therapeutic deep brain stimulation, in contrast, provide clear deep brain signals but are not suited for studying cortical activity. Therefore, we combine magnetoencephalography and local field potential recordings from deep brain stimulation electrodes in individuals with Parkinson's disease. Here, we make these data available, inviting a broader scientific community to explore the dynamics of neural activity in the subthalamic nucleus and its functional connectivity to cortex. The dataset encompasses resting-state recordings, plus two motor tasks: static forearm extension and self-pa",
       "doi": "10.1038/s41597-024-03768-1",
       "pmid": "39147788",
@@ -141,28 +134,49 @@
         "dataset_text_length": 2339,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      },
-      "mentions_accession": true,
-      "matched_accession": "ds004998"
+      }
     },
     {
-      "title": "Beyond beta rhythms: Aperiodic broadband power reflects Parkinson’s disease severity–a multicenter study",
-      "author": "Moritz Gerster, Gunnar Waterstraat, Thomas S. Binns, Natasha Darcy, Christoph Wiest, Richard M. Köhler, Jonathan Vanhoecke, Timothy O. West, Matthias Sure, Dmitry Todorov, Lukasz Radzinski, Jeroen Habets, Johannes L. Busch, Lucia K. Feldmann, Patricia Krause, Katharina Faust, Gerd‐Helge Schneider, Keyoumars Ashkan, Erlick A C Pereira, Harith Akram, Ludvic U. Zrinzo, Benjamin Blankertz, Arno Villringer, Huiling Tan, Jan V. Hirschmann, Andrea A. Kühn, Esther Florin, Alfons Schnitzler, Ashwini Oswal, Vladimir Litvak, Wolf‐Julian Neumann, Gabriel Curio, Vadim V. Nikulin",
-      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
-      "year": 2025,
-      "url": "https://doi.org/10.1101/2025.03.11.642600",
-      "cited_by": 5,
-      "abstract": "Abstract Parkinson’s disease is linked to increased beta oscillations in the subthalamic nucleus, which correlate with motor symptoms. However, findings across studies have varied. Our standardized analysis of multicenter datasets shows that small sample sizes contributed to these discrepancies—a challenge we address by pooling datasets into one large cohort (n=119). Moving beyond beta power, we disentangled spectral components reflecting distinct neural processes. Combining aperiodic offset, low beta, and low gamma oscillations explained significantly more variance in symptom severity than beta alone. Moreover, interhemispheric within-patient analyses showed that, unlike beta oscillations, aperiodic broadband power–likely reflecting spiking activity–was increased in the more affected hemisphere. These findings identify aperiodic broadband power as a potential biomarker for adaptive deep brain stimulation and provide novel insights into the relationship between subthalamic hyperactivit",
-      "doi": "10.1101/2025.03.11.642600",
-      "pmid": null,
-      "openalex_id": "W4408394085",
+      "title": "A paired sequence language model for protein-protein interaction modeling",
+      "author": "Jun Liu, Hungyu Chen, Yang Zhang",
+      "venue": "Nature Communications",
+      "year": 2026,
+      "url": "https://doi.org/10.1038/s41467-026-70457-5",
+      "cited_by": 6,
+      "abstract": "Understanding protein-protein interactions (PPIs) is crucial for deciphering cellular processes and guiding therapeutic discovery. While recent protein language models have advanced sequence-based protein representation, most are designed for individual chains and fail to capture inherent PPI patterns. Here, we introduce a Protein Pair Language Model (PPLM) that jointly encodes paired sequences, enabling direct learning of interaction-aware representations beyond what single-chain models can provide. Building on this foundation, we develop PPLM-PPI, PPLM-Affinity, and PPLM-Contact for binary interaction, binding affinity, and interface contact prediction. Large-scale experiments show that PPLM-PPI achieves state-of-the-art performance across different species on binary interaction prediction, while PPLM-Affinity outperforms both ESM2 and structure-based methods on binding affinity modeling, particularly on challenging cases including antibody-antigen and TCR-pMHC complexes. PPLM-Contac",
+      "doi": "10.1038/s41467-026-70457-5",
+      "pmid": "41807423",
+      "openalex_id": "W7134971468",
       "source_doi": "10.1038/s41597-024-03768-1",
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.677995891571045,
-        "similarity_score": 0.5870094299316406,
-        "citation_text_length": 1754,
+        "confidence_score": 0.19935158997774127,
+        "similarity_score": 0.17259877920150757,
+        "citation_text_length": 1165,
+        "dataset_text_length": 2339,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Beyond beta rhythms: Aperiodic broadband power reflects Parkinson’s disease severity–a multicenter study",
+      "author": "M. Gerster, G. Waterstraat, T. Binns, Natasha Darcy, C. Wiest, R. Köhler, Jonathan Vanhoecke, Timothy O. West, M. Sure, Dmitrii Todorov, Lukasz Radzinski, Jeroen G. V. Habets, J. Busch, L. Feldmann, P. Krause, K. Faust, G. Schneider, K. Ashkan, E. Pereira, H. Akram, L. Zrinzo, B. Blankertz, A. Villringer, Hui-Ling Tan, J. Hirschmann, A. Kühn, Esther Florin, A. Schnitzler, A. Oswal, Vladimir Litvak, W. Neumann, G. Curio, V. Nikulin",
+      "venue": "bioRxiv",
+      "year": 2025,
+      "url": "https://doi.org/10.1101/2025.03.11.642600",
+      "cited_by": 5,
+      "abstract": "Parkinson’s disease is linked to increased beta oscillations in the subthalamic nucleus, which correlate with motor symptoms. However, findings across studies have varied. Our standardized analysis of multicenter datasets shows that small sample sizes contributed to these discrepancies—a challenge we address by pooling datasets into one large cohort (n=119). Moving beyond beta power, we disentangled spectral components reflecting distinct neural processes. Combining aperiodic offset, low beta, and low gamma oscillations explained significantly more variance in symptom severity than beta alone. Moreover, interhemispheric within-patient analyses showed that, unlike beta oscillations, aperiodic broadband power–likely reflecting spiking activity–was increased in the more affected hemisphere. These findings identify aperiodic broadband power as a potential biomarker for adaptive deep brain stimulation and provide novel insights into the relationship between subthalamic hyperactivity and mot",
+      "doi": "10.1101/2025.03.11.642600",
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.1038/s41597-024-03768-1",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6855894523859025,
+        "similarity_score": 0.5935839414596558,
+        "citation_text_length": 1584,
         "dataset_text_length": 2339,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -235,9 +249,7 @@
         "dataset_text_length": 2339,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      },
-      "mentions_accession": true,
-      "matched_accession": "ds004998"
+      }
     },
     {
       "title": "Pangenome-based identification of cryptic pathogenic variants in undiagnosed rare disease patients",
@@ -263,13 +275,36 @@
       }
     },
     {
+      "title": "Scenario-driven shifts in future Usutu and West Nile virus outbreak characteristics in the Netherlands",
+      "author": "Mariken M. de Wit, Martha Dellar, Gertjan Geerling, Eline Boelee, M.C.M. de Jong, Quirine A. ten Bosch",
+      "venue": "Scientific Reports",
+      "year": 2026,
+      "url": "https://doi.org/10.1038/s41598-026-41926-0",
+      "cited_by": 1,
+      "abstract": "Mosquito-borne virus transmission is shaped by its ecological context, including land use, climate, and population dynamics. Future changes in these factors may therefore affect the risk and intensity of Usutu virus (USUV) and West Nile virus (WNV) outbreaks in the Netherlands. We compared a reference scenario to four future Shared Socio-economic Pathway scenarios developed for the Netherlands, which differed in land use, host distribution, mosquito distribution, and temperature. Temperature (between + 1.0 °C and + 1.7 °C) and mosquito abundance (between + 5% and + 10%) were predicted to increase during the transmission season across the scenarios. Scenario effects on hosts differed between species with the largest abundance increases predicted for WNV hosts. We found that outbreak size and growth rate were expected to increase in all future scenarios for both USUV and WNV. These effects were most pronounced early in the season and in scenarios characterised by a high temperature incre",
+      "doi": "10.1038/s41598-026-41926-0",
+      "pmid": "41786922",
+      "openalex_id": "W7133643487",
+      "source_doi": "10.1038/s41597-024-03768-1",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.13873368211090567,
+        "similarity_score": 0.1201157420873642,
+        "citation_text_length": 1261,
+        "dataset_text_length": 2339,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Qualitative and Quantitative Comparative Analysis of Common Normal Variants and Physiological Artifacts in MEG and EEG",
       "author": "Daria F. Kleeva, Mikhail Vladimirovich Sinkin, Anna Shtekleyn, Анна Русинова, Anastasia A. Skalnaya, Alexei E. Ossadtchi",
       "venue": "Brain Topography",
       "year": 2025,
       "url": "https://doi.org/10.1007/s10548-025-01143-w",
       "cited_by": 1,
-      "abstract": "Abstract Magnetoencephalography (MEG) and electroencephalography (EEG) provide complementary insights into brain activity, yet their distinct biophysical principles influence how normal neurophysiological patterns and artifacts are represented. This study presents a comprehensive qualitative and quantitative analysis of common physiological variants and artifacts in simultaneously recorded MEG and EEG data. We systematically examined patterns such as alpha spindles, sensorimotor rhythms, sleep-related waveforms (vertex waves, K-complexes, sleep spindles, and posterior slow waves of youth), as well as common artifacts including eye blinks, chewing, and movement-related interferences. By applying time-domain, time-frequency, and source- space analyses, we identified modality-specific differences in signal representation, source localization, and artifact susceptibility. Our results demonstrate that MEG provides a more spatially focal representation of physiological patterns, whereas EEG ",
+      "abstract": "Magnetoencephalography (MEG) and electroencephalography (EEG) provide complementary insights into brain activity, yet their distinct biophysical principles influence how normal neurophysiological patterns and artifacts are represented. This study presents a comprehensive qualitative and quantitative analysis of common physiological variants and artifacts in simultaneously recorded MEG and EEG data. We systematically examined patterns such as alpha spindles, sensorimotor rhythms, sleep-related waveforms (vertex waves, K-complexes, sleep spindles, and posterior slow waves of youth), as well as common artifacts including eye blinks, chewing, and movement-related interferences. By applying time-domain, time-frequency, and source- space analyses, we identified modality-specific differences in signal representation, source localization, and artifact susceptibility. Our results demonstrate that MEG provides a more spatially focal representation of physiological patterns, whereas EEG captures ",
       "doi": "10.1007/s10548-025-01143-w",
       "pmid": "41042404",
       "openalex_id": "W4414783219",
@@ -277,8 +312,8 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5517878982424738,
-        "similarity_score": 0.4777384400367737,
+        "confidence_score": 0.5522573755681516,
+        "similarity_score": 0.47814491391181946,
         "citation_text_length": 1293,
         "dataset_text_length": 2339,
         "scoring_method": "sentence_transformers",
@@ -286,23 +321,23 @@
       }
     },
     {
-      "title": "A Corporative Language Model for Protein–Protein Interaction, Binding Affinity, and Interface Contact Prediction",
-      "author": "Jun Liu, Hungyu Chen, Yang Zhang",
-      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
-      "year": 2025,
-      "url": "https://doi.org/10.1101/2025.07.07.663595",
+      "title": "A meta-analysis of periodic and aperiodic electrophysiological features in Parkinson’s disease",
+      "author": "Hamzeh Norouzi, Magdalena Ietswaart, Jason Adair, G. Learmonth",
+      "venue": "Brain Communications",
+      "year": 2026,
+      "url": "https://doi.org/10.1093/braincomms/fcag329",
       "cited_by": 1,
-      "abstract": "Abstract Understanding protein–protein interactions (PPIs) is crucial for deciphering cellular processes and guiding therapeutic discovery. While recent protein language models have advanced sequence-based protein representation, most are designed for individual chains and fail to capture inherent PPI patterns. Here, we introduce a novel Protein–Protein Language Model (PPLM) that jointly encodes paired sequences, enabling direct learning of interaction-aware representations beyond what single-chain models can provide. Building on this foundation, we develop PPLM-PPI, PPLM-Affinity, and PPLM-Contact for binary interaction, binding affinity, and interface contact prediction. Large-scale experiments show that PPLM-PPI achieves state-of-the-art performance across different species on binary interaction prediction, while PPLM-Affinity outperforms both ESM2 and structure-based methods on binding affinity modeling, particularly on challenging cases including antibody–antigen and TCR–pMHC comp",
-      "doi": "10.1101/2025.07.07.663595",
-      "pmid": null,
-      "openalex_id": "W4412168587",
+      "abstract": "Abstract Parkinson’s disease is characterized by a range of motor and non-motor changes that can negatively impact quality of life. Many studies have identified potential clinical electrophysiological correlates of Parkinson’s disease with an aim of developing new methods of identifying at-risk patients and forming the basis of therapeutic interventions. However, these studies do not present consistent results, and a formal meta-analysis is warranted to identify reliable EEG or magnetoencephalography (M/EEG) characteristics across datasets. In this meta-analysis of open-access M/EEG datasets (n = 6; 4 EEG and 2 MEG), we compared periodic and aperiodic characteristics of resting-state recordings in 368 patients with Parkinson’s disease and 570 age-matched healthy controls. Specifically, we compared the power and peak frequency of unadjusted and aperiodic-adjusted alpha- and beta-band oscillations, and the exponent and offset, across the two groups. Parkinson’s patients had a consistentl",
+      "doi": "10.1093/braincomms/fcag329",
+      "pmid": "42724388",
+      "openalex_id": null,
       "source_doi": "10.1038/s41597-024-03768-1",
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.21151287361979487,
-        "similarity_score": 0.18312802910804749,
-        "citation_text_length": 1222,
+        "confidence_score": 0.7734404012560846,
+        "similarity_score": 0.669645369052887,
+        "citation_text_length": 1215,
         "dataset_text_length": 2339,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -326,52 +361,6 @@
         "confidence_score": 0.7756355407834055,
         "similarity_score": 0.6715459227561951,
         "citation_text_length": 1209,
-        "dataset_text_length": 2339,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Implications of future change scenarios for mosquito-borne disease transmission in the Netherlands",
-      "author": "Mariken M. de Wit, Martha Dellar, Gertjan Geerling, Eline Boelee, M.C.M. de Jong, Quirine A. ten Bosch",
-      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
-      "year": 2025,
-      "url": "https://doi.org/10.1101/2025.07.09.663836",
-      "cited_by": 0,
-      "abstract": "Abstract Background Mosquito-borne virus transmission is shaped by its ecological context, including land use, climate, and population dynamics. Future changes in these factors may therefore affect the risk and intensity of Usutu virus (USUV) and West Nile virus (WNV) outbreaks in the Netherlands. Methodology & findings We compared a reference scenario to four future Shared Socio-economic Pathway scenarios developed for the Netherlands, which differed in land use, host distribution, mosquito distribution, and temperature. Temperature (between +1.0°C and +1.7°C) and mosquito abundance (between +5% and +10%) were predicted to increase during the transmission season across the scenarios. Scenario effects on hosts differed between species. We found that outbreak size and growth rate were expected to increase in all future scenarios for both USUV and WNV. These effects were most pronounced early in the season and in scenarios characterised by a high temperature increase and little concern a",
-      "doi": "10.1101/2025.07.09.663836",
-      "pmid": null,
-      "openalex_id": "W4412401931",
-      "source_doi": "10.1038/s41597-024-03768-1",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.15615527004003527,
-        "similarity_score": 0.13519936800003052,
-        "citation_text_length": 1278,
-        "dataset_text_length": 2339,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "A meta-analysis of periodic and aperiodic electrophysiological features in Parkinson’s disease",
-      "author": "Hamzeh Norouzi, Magdalena Ietswaart, Jason Adair, G. Learmonth",
-      "venue": "Brain Communications",
-      "year": 2026,
-      "url": "https://doi.org/10.1093/braincomms/fcag329",
-      "cited_by": 0,
-      "abstract": "Abstract Parkinson’s disease is characterized by a range of motor and non-motor changes that can negatively impact quality of life. Many studies have identified potential clinical electrophysiological correlates of Parkinson’s disease with an aim of developing new methods of identifying at-risk patients and forming the basis of therapeutic interventions. However, these studies do not present consistent results, and a formal meta-analysis is warranted to identify reliable EEG or magnetoencephalography (M/EEG) characteristics across datasets. In this meta-analysis of open-access M/EEG datasets (n = 6; 4 EEG and 2 MEG), we compared periodic and aperiodic characteristics of resting-state recordings in 368 patients with Parkinson’s disease and 570 age-matched healthy controls. Specifically, we compared the power and peak frequency of unadjusted and aperiodic-adjusted alpha- and beta-band oscillations, and the exponent and offset, across the two groups. Parkinson’s patients had a consistentl",
-      "doi": "10.1093/braincomms/fcag329",
-      "pmid": "42724388",
-      "openalex_id": null,
-      "source_doi": "10.1038/s41597-024-03768-1",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.7734404012560846,
-        "similarity_score": 0.669645369052887,
-        "citation_text_length": 1215,
         "dataset_text_length": 2339,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -445,74 +434,21 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
-    },
-    {
-      "title": "GeoStim-DBSNet: A Geometry-Aware Multimodal Fusion Network for Deep Brain Stimulation Response Prediction in Parkinson’s Disease",
-      "author": "Chongjing Sun, Yue Xu, Jin Xu, Hongwei Wang, Liangliang Yang, 刘腾飞, Wenxiao Li, Lin Chen, Xi Lawrence Wu, Wei Zhu",
-      "venue": "Information Fusion",
-      "year": 2026,
-      "url": "https://doi.org/10.1016/j.inffus.2026.104818",
-      "cited_by": 0,
-      "abstract": null,
-      "doi": "10.1016/j.inffus.2026.104818",
-      "pmid": null,
-      "openalex_id": "W7214504386",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004998",
-      "confidence_scoring": {
-        "confidence_score": 0.6448537945747376,
-        "similarity_score": 0.6141464710235596,
-        "citation_text_length": 285,
-        "dataset_text_length": 2339,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "One Token, Six Modalities: Pre-Registered Cross-Modality Screening of a Single-Token Class-Discriminant Encoder for Wearable and Implantable Physiological Monitoring",
-      "author": "Randolph James Ferlic, Kimberly Kate Ferlic",
-      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
-      "year": 2026,
-      "url": "https://doi.org/10.5281/zenodo.21136785",
-      "cited_by": 0,
-      "abstract": "Description This record accompanies a manuscript that screens a single class-discriminant codebook token — one window of a physiological signal reduced to one ~9-bit index computed on the device — across six physiological modalities (five wearable, plus an implantable neural comparator) on real public data, under strict pre-registration (frozen recipe, patient-disjoint splits, five seeds, a frozen GO/MARGINAL/NO-GO rule, and honest negatives reported verbatim). Four modalities are GO on unseen subjects: atrial fibrillation (AF) from single-lead ECG, sleep/wake and three-class staging from wrist heart rate, induced stress from electrodermal activity, and sleep apnea from pulse-oximetry SpO2. Two boundaries are mapped honestly: cuffless blood-pressure category is largely subject-identity leakage rather than physiology, and rest-state deep-brain medication state does not decode across patients (its uncompressed ceiling sits at chance — signal absence, not a compression loss). The flagship AF vertical is de-risked end-to-end — cross-dataset generalization with no retraining (AUC 0.822), federated refresh, onset prediction (0.789), graceful motion-noise robustness, and a selective high-fidelity co-channel whose confirmation stage repairs the single token's arrhythmia-specificity limit (AF-versus-ectopy AUC 0.623 → 0.875). A cross-cutting regularity is documented: the single-token tax scales with task information content. Method companion: Paper 19 (doi:10.5281/zenodo.20788187). Application companion: Paper 30 — CGM (doi:10.5281/zenodo.21114273). Keywords: wearable health monitoring; class-discriminant codebook; vector quantization; on-device inference; atrial fibrillation; sleep staging; sleep apnea; pulse oximetry; cross-dataset generalization; federated refresh; pre-registration; edge AI; selective reconstruction References 1. R. J. Ferlic and K. K. Ferlic, \"A single-token class-discriminant codebook encoder for physiological signals (Paper 19),\" Zenodo, 10.5281/zenodo.20788187. 2. R. J. Ferlic and K. K. Ferlic, \"On-device glucose alarms from a single learned token (Paper 30),\" Zenodo, 10.5281/zenodo.21114273. 3. G. B. Moody and R. G. Mark, \"A new method for detecting atrial fibrillation using R-R intervals (MIT-BIH Atrial Fibrillation Database),\" Computers in Cardiology, vol. 10, pp. 227-230, 1983. 4. T. Penzel, G. B. Moody, R. G. Mark, A. L. Goldberger, and J. H. Peter, \"The Apnea-ECG Database,\" Computers in Cardiology, vol. 27, pp. 255-258, 2000. 5. O. Walch, Y. Huang, D. Forger, and C. Goldstein, \"Sleep stage prediction with raw acceleration and photoplethysmography-derived heart rate,\" Sleep, vol. 42, no. 12, zsz180, 2019. 6. A. L. Goldberger et al., \"PhysioBank, PhysioToolkit, and PhysioNet: components of a new research resource for complex physiologic signals,\" Circulation, vol. 101, no. 23, pp. e215-e220, 2000. 7. M. M. Ghassemi et al., \"You Snooze, You Win: the PhysioNet/Computing in Cardiology Challenge 2018,\" Computing in Cardiology, vol. 45, 2018. 8. J. Birjandtalab, D. Cogan, M. B. Pouyan, and M. Nourani, \"A Non-EEG dataset for assessment of neurological status,\" in IEEE Int. Conf. on Biomedical and Health Informatics (BHI), 2016. 9. J. A. Healey and R. W. Picard, \"Detecting stress during real-world driving tasks using physiological sensors,\" IEEE Trans. Intelligent Transportation Systems, vol. 6, no. 2, pp. 156-166, 2005. 10. C. Heneghan, \"St. Vincent's University Hospital / University College Dublin Sleep Apnea Database (ucddb),\" PhysioNet, 2011. 11. G. B. Moody, W. E. Muldrow, and R. G. Mark, \"A noise stress test for arrhythmia detectors (MIT-BIH Noise Stress Test Database),\" Computers in Cardiology, vol. 11, pp. 381-384, 1984. 12. P. Mehrgardt, M. Khoshkhou, and A. Argha, \"Pulse Transit Time PPG Dataset,\" PhysioNet, 2022. 13. A. van den Oord, O. Vinyals, and K. Kavukcuoglu, \"Neural discrete representation learning,\" in Advances in Neural Information Processing Systems (NeurIPS), 2017. 14. J. Ballé, V. Laparra, and E. P. Simoncelli, \"End-to-end optimized image compression,\" in Int. Conf. on Learning Representations (ICLR), 2017. 15. N. Tishby and N. Zaslavsky, \"Deep learning and the information bottleneck principle,\" in IEEE Information Theory Workshop (ITW), 2015. 16. M. V. Perez et al., \"Large-scale assessment of a smartwatch to identify atrial fibrillation (Apple Heart Study),\" New England Journal of Medicine, vol. 381, no. 20, pp. 1909-1917, 2019. 17. J. Torres-Soto and E. A. Ashley, \"Multi-task deep learning for cardiac rhythm detection in wearable devices (DeepBeat),\" npj Digital Medicine, vol. 3, no. 116, 2020. 18. A. Y. Hannun et al., \"Cardiologist-level arrhythmia detection and classification in ambulatory electrocardiograms using a deep neural network,\" Nature Medicine, vol. 25, no. 1, pp. 65-69, 2019. 19. G. D. Clifford et al., \"AF classification from a short single lead ECG recording: the PhysioNet/Computing in Cardiology Challenge 2017,\" Computing in Cardiology, vol. 44, 2017. 20. P. Schmidt, A. Reiss, R. Duerichen, C. Marberger, and K. Van Laerhoven, \"Introducing WESAD, a multimodal dataset for wearable stress and affect detection,\" in ACM Int. Conf. on Multimodal Interaction (ICMI), 2018. 21. R. Mukkamala et al., \"Toward ubiquitous blood pressure monitoring via pulse transit time: theory and practice,\" IEEE Trans. Biomedical Engineering, vol. 62, no. 8, pp. 1879-1901, 2015. 22. I. Odinaka, P.-H. Lai, A. D. Kaplan, J. A. O'Sullivan, E. J. Sirevaag, and J. W. Rohrbaugh, \"ECG biometric recognition: a comparative analysis,\" IEEE Trans. Information Forensics and Security, vol. 7, no. 6, pp. 1812-1824, 2012. 23. B. McMahan, E. Moore, D. Ramage, S. Hampson, and B. A. y Arcas, \"Communication-efficient learning of deep networks from decentralized data,\" in Artificial Intelligence and Statistics (AISTATS), 2017. 24. J. Pineau et al., \"Improving reproducibility in machine learning research: a report from the NeurIPS 2019 reproducibility program,\" Journal of Machine Learning Research, vol. 22, no. 164, pp. 1-20, 2021. 25. O. E. Gundersen and S. Kjensmo, \"State of the art: reproducibility in artificial intelligence,\" in AAAI Conf. on Artificial Intelligence, 2018. 26. A. Reiss, I. Indlekofer, P. Schmidt, and K. Van Laerhoven, \"Deep PPG: large-scale heart rate estimation with convolutional neural networks,\" Sensors, vol. 19, no. 14, 3079, 2019. 27. E. Bourtsoulatze, D. Burth Kurka, and D. Gündüz, \"Deep joint source-channel coding for wireless image transmission,\" IEEE Trans. Cognitive Communications and Networking, vol. 5, no. 3, pp. 567-579, 2019. 28. D. Dias and J. P. S. Cunha, \"Wearable health devices—vital sign monitoring, systems and technologies,\" Sensors, vol. 18, no. 8, 2414, 2018. 29. A. A. Kühn, A. Kupsch, G.-H. Schneider, and P. Brown, \"Reduction in subthalamic 8-35 Hz oscillatory activity correlates with clinical improvement in Parkinson's disease,\" European Journal of Neuroscience, vol. 23, no. 7, pp. 1956-1960, 2006. 30. W.-J. Neumann et al., \"Subthalamic synchronized oscillatory activity correlates with motor impairment in patients with Parkinson's disease,\" Movement Disorders, vol. 31, no. 11, pp. 1748-1751, 2016. 31. S. Little et al., \"Adaptive deep brain stimulation in advanced Parkinson disease,\" Annals of Neurology, vol. 74, no. 3, pp. 449-457, 2013. License This work is released under the Creative Commons Attribution 4.0 International License (CC BY 4.0). The encoding method and its federated, privacy, input-quality-gate, and selective tiered-fidelity co-channel mechanisms are covered by previously filed U.S. provisional patent applications (Nos. 64/095,354; 64/084,807; 64/084,817; 64/084,821; 64/097,102; 64/098,837); patent rights are separate from the copyright license. This is an application and validation of a previously-published method and introduces no new subject matter. Public datasets (PhysioNet afdb, ltafdb, nsrdb, afpdb, mitdb, nstdb, apnea-ecg, ucddb, challenge-2018, sleep-accel, drivedb, noneeg, pulse-transit-time-ppg; OpenNeuro ds004998) retain their own licenses and are not redistributed in the archive. Licensing inquiries: randolphf@fieldstoneanalyticsllc.com. Randolph James Ferlic, M.D. · Kimberly Kate Ferlic · Fieldstone Analytics, LLC · DOI 10.5281/zenodo.21136786",
-      "doi": "10.5281/zenodo.21136785",
-      "pmid": null,
-      "openalex_id": "W7167031852",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004998",
-      "superseded_dois": [
-        "10.5281/zenodo.21136786"
-      ],
-      "confidence_scoring": {
-        "confidence_score": 0.4071080254018307,
-        "similarity_score": 0.35247448086738586,
-        "citation_text_length": 1803,
-        "dataset_text_length": 2339,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T11:00:57.408625+00:00",
+    "scoring_date": "2026-10-11T11:35:16.663668+00:00",
     "dataset_text_length": 2339,
-    "num_citations_scored": 17,
+    "num_citations_scored": 15,
     "summary_stats": {
-      "mean_confidence": 0.5964512152443915,
-      "median_confidence": 0.677995891571045,
-      "std_confidence": 0.22244377098687443,
-      "min_confidence": 0.15615527004003527,
+      "mean_confidence": 0.6034798554033041,
+      "median_confidence": 0.6863530629873277,
+      "std_confidence": 0.23465501122418342,
+      "min_confidence": 0.13873368211090567,
       "max_confidence": 0.9753887629508974,
-      "high_confidence_count": 7,
-      "medium_confidence_count": 7,
+      "high_confidence_count": 6,
+      "medium_confidence_count": 6,
       "low_confidence_count": 3
     }
   }

@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000343",
-  "num_citations": 74,
-  "date_last_updated": "2026-10-04T10:05:06.524688+00:00",
+  "num_citations": 78,
+  "date_last_updated": "2026-10-11T10:33:01.445446+00:00",
   "metadata": {
-    "total_cumulative_citations": 397,
-    "fetch_date": "2026-09-29T11:02:40.796015+00:00",
+    "total_cumulative_citations": 413,
+    "fetch_date": "2026-10-11T10:33:01.445446+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 3,
@@ -19,25 +19,25 @@
         "source_relation": "IsDerivedFrom",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Open multi-session and multi-task EEG cognitive Dataset for passive brain-computer Interface Applications",
         "paper_year": 2023,
         "paper_venue": "Scientific Data",
         "reason": "Dataset name and README DOI match this paper (Hinss et al., COG-BCI, Scientific Data) with the same authors and title; it is the dataset's descriptor, though this record has 15 subjects.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.5281/zenodo.6874128",
         "identifier_type": "doi",
-        "source_relation": "References",
+        "source_relation": "IsDerivedFrom",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "COG-BCI database: A multi-session and multi-task EEG cognitive dataset for passive brain-computer interfaces",
         "paper_year": 2022,
         "paper_venue": "Zenodo (CERN European Organization for Nuclear Research)",
         "reason": "Zenodo deposit of the COG-BCI database by Hinss et al. (same authors, multi-session multi-task pBCI EEG); this is the same data as the dataset, so it counts as a data deposit.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.21105/joss.01896",
@@ -45,12 +45,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
         "paper_year": 2019,
         "paper_venue": "The Journal of Open Source Software",
         "reason": "MNE-BIDS is a software tool for organizing electrophysiology data into BIDS; it is not a paper describing the Hinss2021 dataset itself.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1038/s41597-019-0104-8",
@@ -58,12 +58,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "EEG-BIDS, an extension to the brain imaging data structure for electroencephalography",
         "paper_year": 2019,
         "paper_venue": "Scientific Data",
         "reason": "EEG-BIDS is a data-organization standard extension (BIDS for EEG) used to format this dataset, not a paper introducing the Hinss2021 data.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.nm000343",
@@ -71,12 +71,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -86,33 +86,22 @@
     ],
     "keywords": [
       "EEG",
-      "Brain-Computer Interfaces",
-      "cognitive workload",
+      "passive brain-computer interface",
+      "mental workload",
       "neuroergonomics",
-      "mental workload estimation",
       "resting state",
-      "passive BCI",
-      "MATB-II"
+      "MATB-II",
+      "Electroencephalography"
     ],
-    "methods_description": "EEG data were acquired from 15 healthy participants (mean age 23.9 years) using a 62-channel ActiCHamp system (Brain Products GmbH) at 500 Hz sampling rate with active Ag/AgCl sensors referenced to Fpz. The standard 10-20 montage was employed with impedance maintained below 25 kOhm. Participants completed two sessions involving resting state and three difficulty levels of the MATB-II task (easy, medium, difficult), yielding 90 trials total per participant. Trial intervals were set to [0, 2] seconds with a 50 Hz line frequency. Data are provided in raw, unpreprocessed format.",
+    "methods_description": "EEG was recorded at 500 Hz from 62 active Ag/AgCl electrodes (ActiCHamp, Brain Products) placed according to the 10-20 system, referenced to Fpz, with an additional ECG channel. Impedances were kept below 25 kOhm. Each of two sessions per participant included resting state and MATB-II task blocks of easy, medium and difficult levels.",
     "funding": [
       {
         "funder_name": "ERASMUS program"
       },
       {
         "funder_name": "ANITI (Artificial and Natural Intelligence Toulouse Institute)"
-      },
-      {
-        "funder_name": "ANITI",
-        "award_title": "Artificial and Natural Intelligence Toulouse Institute"
       }
-    ],
-    "searched_accessions": [
-      "nm000343"
-    ],
-    "num_accession_mentions": 1,
-    "num_dataset_citations": 1,
-    "num_datapaper_citations": 73
+    ]
   },
   "citation_details": [
     {
@@ -121,7 +110,7 @@
       "venue": "Scientific Data",
       "year": 2023,
       "url": "https://doi.org/10.1038/s41597-022-01898-y",
-      "cited_by": 57,
+      "cited_by": 60,
       "abstract": "Brain-Computer Interfaces and especially passive Brain-Computer interfaces (pBCI), with their ability to estimate and monitor user mental states, are receiving increasing attention from both the fundamental research and the applied research and development communities. Testing new pipelines and benchmarking classifiers and feature extraction algorithms is central to further research within this domain. Unfortunately, data sharing in pBCI research is still scarce. The COG-BCI database encompasses the recordings of 29 participants over 3 separate sessions with 4 different tasks (MATB, N-Back, PVT, Flanker) designed to elicit different mental states, for a total of over 100 hours of open EEG data. This dataset was validated on a subjective, behavioral and physiological level, to ensure its usefulness to the pBCI community. Furthermore, a proof of concept is given with an example of mental workload estimation pipeline and results, to ensure that the data can be used for the design and eval",
       "doi": "10.1038/s41597-022-01898-y",
       "pmid": "36765121",
@@ -144,7 +133,7 @@
       "venue": "Biosensors",
       "year": 2023,
       "url": "https://doi.org/10.3390/bios13100930",
-      "cited_by": 55,
+      "cited_by": 56,
       "abstract": "This review focuses on electroencephalogram (EEG) acquisition and feedback technology and its core elements, including the composition and principles of the acquisition devices, a wide range of applications, and commonly used EEG signal classification algorithms. First, we describe the construction of EEG acquisition and feedback devices encompassing EEG electrodes, signal processing, and control and feedback systems, which collaborate to measure faint EEG signals from the scalp, convert them into interpretable data, and accomplish practical applications using control feedback systems. Subsequently, we examine the diverse applications of EEG acquisition and feedback across various domains. In the medical field, EEG signals are employed for epilepsy diagnosis, brain injury monitoring, and sleep disorder research. EEG acquisition has revealed associations between brain functionality, cognition, and emotions, providing essential insights for psychologists and neuroscientists. Brain-comput",
       "doi": "10.3390/bios13100930",
       "pmid": "37887123",
@@ -163,7 +152,7 @@
     },
     {
       "title": "MST-net: A multi-scale swin transformer network for EEG-based cognitive load assessment",
-      "author": "Zhongrui Li, Rongkai Zhang, Ying Zeng, Tong Li, Runnan Lu, Bin Feng Yan",
+      "author": "Zhongrui Li, Rongkai Zhang, Ying Zeng, Tong Li, Runnan Lu, Bin Yan",
       "venue": "Brain Research Bulletin",
       "year": 2023,
       "url": "https://doi.org/10.1016/j.brainresbull.2023.110834",
@@ -176,9 +165,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5904232764244081,
-        "similarity_score": 0.5111889839172363,
-        "citation_text_length": 1220,
+        "confidence_score": 0.5888466256856919,
+        "similarity_score": 0.5098239183425903,
+        "citation_text_length": 1215,
         "dataset_text_length": 2481,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -231,6 +220,29 @@
       }
     },
     {
+      "title": "Towards a nuanced classification of mental fatigue: A comprehensive review of detection techniques and prospective research",
+      "author": "Xinsheng He, Shuran Li, Haiyan Zhang, Chuangquan Chen, Junhua Li, Andrei Dragomir, Anastasios Bezerianos, Hongtao Wang",
+      "venue": "Biomedical Signal Processing and Control",
+      "year": 2025,
+      "url": "https://doi.org/10.1016/j.bspc.2025.108496",
+      "cited_by": 16,
+      "abstract": null,
+      "doi": "10.1016/j.bspc.2025.108496",
+      "pmid": null,
+      "openalex_id": "W4412972754",
+      "source_doi": "10.1038/s41597-022-01898-y",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5148597478866578,
+        "similarity_score": 0.4903426170349121,
+        "citation_text_length": 308,
+        "dataset_text_length": 2481,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "An EEG Dataset of Neural Signatures in a Competitive Two-Player Game Encouraging Deceptive Behavior",
       "author": "Yiyu Chen, Siamac Fazli, Christian Wallraven",
       "venue": "Scientific Data",
@@ -248,6 +260,29 @@
         "confidence_score": 0.5645997516810894,
         "similarity_score": 0.48883095383644104,
         "citation_text_length": 1197,
+        "dataset_text_length": 2481,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "NeuralBench: A Unifying Framework to Benchmark NeuroAI Models",
+      "author": "Hubert J. Banville, Stéphane d'Ascoli, Simon Dahan, Jérémy Rapin, Marlène Careil, Yohann Benchetrit, Jarod Lévy, S. Panchavati, Antoine Ratouchniak, Ming-Fang Zhang, Elisa Cascardi, K. Begany, Teon L Brooks, Jean-Rémi King",
+      "venue": "ArXiv",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arXiv.2605.08495",
+      "cited_by": 16,
+      "abstract": "Deep learning and large public datasets have recently catalyzed the proliferation of AI models for processing brain recordings. However, systematically evaluating these models remains a challenge: not only do the preprocessing pipelines, training and finetuning approaches largely vary across studies, but their downstream evaluation is often limited to small sets of tasks and/or datasets. Here, we present NeuralBench: a unified framework for benchmarking AI models of brain activity. We accompany this framework with NeuralBench-EEG v1.0 -- a large EEG benchmark that includes 36 electroencephalography (EEG) tasks and 14 deep learning architectures, and is evaluated on 94 datasets accessed through a standardized interface. This first EEG-focused release already highlights two main findings. First, current foundation models only marginally outperform task-specific models. Second, a large set of tasks (e.g. cognitive decoding, clinical predictions) remain highly challenging, even for the bes",
+      "doi": "10.48550/arXiv.2605.08495",
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.1038/s41597-022-01898-y",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6982618635892869,
+        "similarity_score": 0.6045557260513306,
+        "citation_text_length": 1327,
         "dataset_text_length": 2481,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -277,32 +312,9 @@
       }
     },
     {
-      "title": "Towards a nuanced classification of mental fatigue: A comprehensive review of detection techniques and prospective research",
-      "author": "Xinsheng He, Shuran Li, Haiyan Zhang, Chuangquan Chen, Junhua Li, Andrei Dragomir, Anastasios Bezerianos, Hongtao Wang",
-      "venue": "Biomedical Signal Processing and Control",
-      "year": 2025,
-      "url": "https://doi.org/10.1016/j.bspc.2025.108496",
-      "cited_by": 14,
-      "abstract": null,
-      "doi": "10.1016/j.bspc.2025.108496",
-      "pmid": null,
-      "openalex_id": "W4412972754",
-      "source_doi": "10.1038/s41597-022-01898-y",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5148597478866578,
-        "similarity_score": 0.4903426170349121,
-        "citation_text_length": 308,
-        "dataset_text_length": 2481,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Clinical Analysis of EEG for Cognitive Activation Using MATLAB Applications",
       "author": "R. Kishore Kanna, U. Mutheeswaran, Kadim A. Jabbar, Adnan Allwi Ftaiet, Raed Khalid, Haider Al-Chlidi",
-      "venue": "2023 3rd International Conference on Advance Computing and Innovative Technologies in Engineering (ICACITE)",
+      "venue": "International Conference on Advance Computing and Innovative Technologies in Engineering (ICACITE)",
       "year": 2023,
       "url": "https://doi.org/10.1109/icacite57410.2023.10182561",
       "cited_by": 13,
@@ -314,32 +326,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6131884691119195,
-        "similarity_score": 0.5308991074562073,
-        "citation_text_length": 1322,
-        "dataset_text_length": 2481,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "NeuralBench: A Unifying Framework to Benchmark NeuroAI Models",
-      "author": "Hubert J. Banville, Stéphane d’Ascoli, Simon Dahan, Jérémy Rapin, Marlène Careil, Yohann Benchetrit, Jarod Lévy, S. Panchavati, Antoine Ratouchniak, Mingfang Zhang, Elisa Cascardi, K. Begany, Teon L Brooks, Jean-Rémi King",
-      "venue": "ArXiv",
-      "year": 2026,
-      "url": "https://doi.org/10.48550/arXiv.2605.08495",
-      "cited_by": 13,
-      "abstract": "Deep learning and large public datasets have recently catalyzed the proliferation of AI models for processing brain recordings. However, systematically evaluating these models remains a challenge: not only do the preprocessing pipelines, training and finetuning approaches largely vary across studies, but their downstream evaluation is often limited to small sets of tasks and/or datasets. Here, we present NeuralBench: a unified framework for benchmarking AI models of brain activity. We accompany this framework with NeuralBench-EEG v1.0 -- a large EEG benchmark that includes 36 electroencephalography (EEG) tasks and 14 deep learning architectures, and is evaluated on 94 datasets accessed through a standardized interface. This first EEG-focused release already highlights two main findings. First, current foundation models only marginally outperform task-specific models. Second, a large set of tasks (e.g. cognitive decoding, clinical predictions) remain highly challenging, even for the bes",
-      "doi": "10.48550/arXiv.2605.08495",
-      "pmid": null,
-      "openalex_id": null,
-      "source_doi": "10.1038/s41597-022-01898-y",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.699004683494568,
-        "similarity_score": 0.605198860168457,
-        "citation_text_length": 1326,
+        "confidence_score": 0.6085232985019684,
+        "similarity_score": 0.5268599987030029,
+        "citation_text_length": 1313,
         "dataset_text_length": 2481,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -348,7 +337,7 @@
     {
       "title": "Non-invasive Brain Signal Acquisition Techniques",
       "author": "Ujwal Chaudhary",
-      "venue": "n/a",
+      "venue": "Springer eBooks",
       "year": 2025,
       "url": "https://doi.org/10.1007/978-3-031-76081-5_2",
       "cited_by": 11,
@@ -360,9 +349,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.43293595612049107,
-        "similarity_score": 0.41231995820999146,
-        "citation_text_length": 93,
+        "confidence_score": 0.4796436443924904,
+        "similarity_score": 0.45680347084999084,
+        "citation_text_length": 105,
         "dataset_text_length": 2481,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -438,6 +427,29 @@
       }
     },
     {
+      "title": "Enhancing EEG-based cross-day mental workload classification using periodic component of power spectrum",
+      "author": "Yufeng Ke, Tao Wang, Feng He, Shuang Liu, Dong Ming",
+      "venue": "Journal of Neural Engineering",
+      "year": 2023,
+      "url": "https://doi.org/10.1088/1741-2552/ad0f3d",
+      "cited_by": 9,
+      "abstract": "Abstract Objective. The day-to-day variability of electroencephalogram (EEG) poses a significant challenge to decode human brain activity in EEG-based passive brain-computer interfaces (pBCIs). Conventionally, a time-consuming calibration process is required to collect data from users on a new day to ensure the performance of the machine learning-based decoding model, which hinders the application of pBCIs to monitor mental workload (MWL) states in real-world settings. Approach. This study investigated the day-to-day stability of the raw power spectral density (PSD) and their periodic and aperiodic components decomposed by the Fitting Oscillations and One-Over-F algorithm. In addition, we validated the feasibility of using periodic components to improve cross-day MWL classification performance. Main results. Compared to the raw PSD (69.9% ± 18.5%) and the aperiodic component (69.4% ± 19.2%), the periodic component had better day-to-day stability and significantly higher cross-day class",
+      "doi": "10.1088/1741-2552/ad0f3d",
+      "pmid": "37995362",
+      "openalex_id": "W4388934203",
+      "source_doi": "10.1038/s41597-022-01898-y",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6625546690821649,
+        "similarity_score": 0.5736404061317444,
+        "citation_text_length": 1222,
+        "dataset_text_length": 2481,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "OmniEEG-Bench: A Standardized Evaluation Benchmark for EEG Foundation Models",
       "author": "Zilin Lu, Zong-Sheng Li, Xin-Ke Shen, Kexin Lou, Ying Xin, Xiao-Qi Chen, Shi-Nan Wang, Xiang Chen, Jiahao Fan, Chen-Yu Huang, Xin Xu, Zhoujie Hou, Chen Wei, Quanying Liu",
       "venue": "ArXiv",
@@ -461,23 +473,23 @@
       }
     },
     {
-      "title": "Enhancing EEG-based cross-day mental workload classification using periodic component of power spectrum",
-      "author": "Yufeng Ke, Tao Wang, Feng He, Shuang Liu, Dong Ming",
-      "venue": "Journal of Neural Engineering",
-      "year": 2023,
-      "url": "https://doi.org/10.1088/1741-2552/ad0f3d",
+      "title": "The impact of cross-validation choices on pBCI classification metrics: lessons for transparent reporting",
+      "author": "Felix Schroeder, Stephen H. Fairclough, Frédéric Dehais, Matt T. Richins",
+      "venue": "Frontiers in Neuroergonomics",
+      "year": 2025,
+      "url": "https://doi.org/10.3389/fnrgo.2025.1582724",
       "cited_by": 8,
-      "abstract": "Abstract Objective. The day-to-day variability of electroencephalogram (EEG) poses a significant challenge to decode human brain activity in EEG-based passive brain-computer interfaces (pBCIs). Conventionally, a time-consuming calibration process is required to collect data from users on a new day to ensure the performance of the machine learning-based decoding model, which hinders the application of pBCIs to monitor mental workload (MWL) states in real-world settings. Approach. This study investigated the day-to-day stability of the raw power spectral density (PSD) and their periodic and aperiodic components decomposed by the Fitting Oscillations and One-Over-F algorithm. In addition, we validated the feasibility of using periodic components to improve cross-day MWL classification performance. Main results. Compared to the raw PSD (69.9% ± 18.5%) and the aperiodic component (69.4% ± 19.2%), the periodic component had better day-to-day stability and significantly higher cross-day class",
-      "doi": "10.1088/1741-2552/ad0f3d",
-      "pmid": "37995362",
-      "openalex_id": "W4388934203",
+      "abstract": "Neuroadaptive technologies are a type of passive Brain-computer interface (pBCI) that aim to incorporate implicit user-state information into human-machine interactions by monitoring neurophysiological signals. Evaluating machine learning and signal processing approaches represents a core aspect of research into neuroadaptive technologies. These evaluations are often conducted under controlled laboratory settings and offline, where exhaustive analyses are possible. However, the manner in which classifiers are evaluated offline has been shown to impact reported accuracy levels, possibly biasing conclusions. In the current study, we investigated one of these sources of bias, the choice of cross-validation scheme, which is often not reported in sufficient detail. Across three independent electroencephalography (EEG) n-back datasets and 74 participants, we show how metrics and conclusions based on the same data can diverge with different cross-validation choices. A comparison of cross-vali",
+      "doi": "10.3389/fnrgo.2025.1582724",
+      "pmid": "40667422",
+      "openalex_id": "W4411913860",
       "source_doi": "10.1038/s41597-022-01898-y",
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6625546690821649,
-        "similarity_score": 0.5736404061317444,
-        "citation_text_length": 1222,
+        "confidence_score": 0.629956716299057,
+        "similarity_score": 0.545417070388794,
+        "citation_text_length": 1243,
         "dataset_text_length": 2481,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -530,32 +542,9 @@
       }
     },
     {
-      "title": "The impact of cross-validation choices on pBCI classification metrics: lessons for transparent reporting",
-      "author": "Felix Schroeder, Stephen H. Fairclough, Frédéric Dehais, Matt T. Richins",
-      "venue": "Frontiers in Neuroergonomics",
-      "year": 2025,
-      "url": "https://doi.org/10.3389/fnrgo.2025.1582724",
-      "cited_by": 7,
-      "abstract": "Neuroadaptive technologies are a type of passive Brain-computer interface (pBCI) that aim to incorporate implicit user-state information into human-machine interactions by monitoring neurophysiological signals. Evaluating machine learning and signal processing approaches represents a core aspect of research into neuroadaptive technologies. These evaluations are often conducted under controlled laboratory settings and offline, where exhaustive analyses are possible. However, the manner in which classifiers are evaluated offline has been shown to impact reported accuracy levels, possibly biasing conclusions. In the current study, we investigated one of these sources of bias, the choice of cross-validation scheme, which is often not reported in sufficient detail. Across three independent electroencephalography (EEG) n-back datasets and 74 participants, we show how metrics and conclusions based on the same data can diverge with different cross-validation choices. A comparison of cross-vali",
-      "doi": "10.3389/fnrgo.2025.1582724",
-      "pmid": "40667422",
-      "openalex_id": "W4411913860",
-      "source_doi": "10.1038/s41597-022-01898-y",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.629956716299057,
-        "similarity_score": 0.545417070388794,
-        "citation_text_length": 1243,
-        "dataset_text_length": 2481,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Exploring Emotions in EEG: Deep Learning Approach with Feature Fusion",
       "author": "Danastan Tasaouf Mridula, Abu Ahmed Ferdaus, Tanmoy Sarkar Pias",
-      "venue": "medRxiv",
+      "venue": "International Conference on Computer and Information Technology (ICCIT)",
       "year": 2023,
       "url": "https://doi.org/10.1109/iccit60459.2023.10441204",
       "cited_by": 6,
@@ -567,9 +556,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5882880306243897,
-        "similarity_score": 0.5093402862548828,
-        "citation_text_length": 1178,
+        "confidence_score": 0.5846600541472435,
+        "similarity_score": 0.5061991810798645,
+        "citation_text_length": 1242,
         "dataset_text_length": 2481,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -577,7 +566,7 @@
     },
     {
       "title": "A novel method of cognitive overload assessment based on a fusion feature selection using EEG signals",
-      "author": "Zhongrui Li, Li Tong, Ying Zeng, Yuanlong Gao, Diankun Gong, Kai Yang, Yidong Hu, Bin Feng Yan",
+      "author": "Zhongrui Li, Li Tong, Ying Zeng, Yuanlong Gao, Diankun Gong, Kai Yang, Yidong Hu, Bin Yan",
       "venue": "Journal of Neural Engineering",
       "year": 2024,
       "url": "https://doi.org/10.1088/1741-2552/ad9cc0",
@@ -590,9 +579,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5621851739287377,
-        "similarity_score": 0.4867404103279114,
-        "citation_text_length": 1263,
+        "confidence_score": 0.5654380917549133,
+        "similarity_score": 0.48955678939819336,
+        "citation_text_length": 1258,
         "dataset_text_length": 2481,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -645,32 +634,9 @@
       }
     },
     {
-      "title": "EEG-based Adaptive Visual Alerts to Mitigate UAS Operator Mental Fatigue: A Technical Proof of Concept",
-      "author": "Marcel F. Hinss, Anke Brock, Raphaëlle N. Roy",
-      "venue": "Proceedings of the Extended Abstracts of the CHI Conference on Human Factors in Computing Systems",
-      "year": 2025,
-      "url": "https://doi.org/10.1145/3706599.3719921",
-      "cited_by": 4,
-      "abstract": "Uncrewed Aerial Systems (UAS) mishaps are partially attributable to mental fatigue during long endurance missions. Mental fatigue decreases cognitive flexibility resulting in a decreased performance when switching between sub-tasks. Solutions include adaptive interfaces. We propose a technical proof of concept that launches visual alerts to mitigate operator mental fatigue by estimating future performance based on brain activity (EEG). The proposed solution uses flying and detection tasks, and includes an online classification pipeline. The method is designed to work in an intra-user and inter-session manner, i.e. the solution is tuned to a user and works without calibration in the following sessions. The proof of concept was validated on three participants and compared with a previous campaign with randomly launched alerts. Very promising results were found (negative correlation between visual alerts activation and detection misses). This opens the way for the use of physiology-based ",
-      "doi": "10.1145/3706599.3719921",
-      "pmid": null,
-      "openalex_id": "W4409721541",
-      "source_doi": "10.1038/s41597-022-01898-y",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5425696340203285,
-        "similarity_score": 0.4697572588920593,
-        "citation_text_length": 1283,
-        "dataset_text_length": 2481,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Novel SPD Matrix Representations Considering Cross-Frequency Coupling for EEG Classification Using Riemannian Geometry",
       "author": "Maria Sayu Yamamoto, Apolline Mellot, Sylvain Chevallier, Fabien Lotte",
-      "venue": "2023 31st European Signal Processing Conference (EUSIPCO)",
+      "venue": "European Signal Processing Conference (EUSIPCO)",
       "year": 2023,
       "url": "https://doi.org/10.23919/eusipco58844.2023.10290043",
       "cited_by": 4,
@@ -682,9 +648,32 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6747128891944887,
-        "similarity_score": 0.5841670036315918,
-        "citation_text_length": 1284,
+        "confidence_score": 0.6711316573619843,
+        "similarity_score": 0.581066370010376,
+        "citation_text_length": 1274,
+        "dataset_text_length": 2481,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "EEG-based Adaptive Visual Alerts to Mitigate UAS Operator Mental Fatigue: A Technical Proof of Concept",
+      "author": "Marcel F. Hinss, Anke Brock, Raphaëlle N. Roy",
+      "venue": "Extended Abstracts of the CHI Conference on Human Factors in Computing Systems (CHI EA)",
+      "year": 2025,
+      "url": "https://doi.org/10.1145/3706599.3719921",
+      "cited_by": 4,
+      "abstract": "Uncrewed Aerial Systems (UAS) mishaps are partially attributable to mental fatigue during long endurance missions. Mental fatigue decreases cognitive flexibility resulting in a decreased performance when switching between sub-tasks. Solutions include adaptive interfaces. We propose a technical proof of concept that launches visual alerts to mitigate operator mental fatigue by estimating future performance based on brain activity (EEG). The proposed solution uses flying and detection tasks, and includes an online classification pipeline. The method is designed to work in an intra-user and inter-session manner, i.e. the solution is tuned to a user and works without calibration in the following sessions. The proof of concept was validated on three participants and compared with a previous campaign with randomly launched alerts. Very promising results were found (negative correlation between visual alerts activation and detection misses). This opens the way for the use of physiology-based ",
+      "doi": "10.1145/3706599.3719921",
+      "pmid": null,
+      "openalex_id": "W4409721541",
+      "source_doi": "10.1038/s41597-022-01898-y",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5419712819159032,
+        "similarity_score": 0.469239205121994,
+        "citation_text_length": 1273,
         "dataset_text_length": 2481,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -692,7 +681,7 @@
     },
     {
       "title": "Functional Graph Image Representation applied to EEG-based Mental Workload Classification",
-      "author": "M. Sarkis, Mira Rizkallah, Saïd Moussaoui",
+      "author": "Maria Sarkis, Mira Rizkallah, Saïd Moussaoui",
       "venue": "2024 46th Annual International Conference of the IEEE Engineering in Medicine and Biology Society (EMBC)",
       "year": 2024,
       "url": "https://doi.org/10.1109/embc53108.2024.10781733",
@@ -705,9 +694,55 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.593877974152565,
-        "similarity_score": 0.514180064201355,
-        "citation_text_length": 1273,
+        "confidence_score": 0.5914405059814454,
+        "similarity_score": 0.5120697021484375,
+        "citation_text_length": 1276,
+        "dataset_text_length": 2481,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "SingLEM: Single-Channel Large EEG Model",
+      "author": "Jamiyan Sukhbaatar, S. Imamura, Ibuki Inoue, Shoya Murakami, Kazi Mahmudul Hassan, Seung-Woo Han, Ingon Chanpornpakdi, Toshihisa Tanaka",
+      "venue": "IEEE journal of biomedical and health informatics",
+      "year": 2025,
+      "url": "https://doi.org/10.1109/JBHI.2026.3732223",
+      "cited_by": 4,
+      "abstract": "Current deep learning models for electroencephalography (EEG) are often task-specific and depend on large labeled datasets, limiting their adaptability. Although EEG foundation models seek broader applicability, many still rely on predefined multi-channel inputs, electrode-layout assumptions, or model-specific channel handling. To address these limitations, we introduce the Single-Channel Large EEG Model (SingLEM), a self-supervised foundation model whose hybrid convolutional-Transformer encoder maps each channel independently to a reusable representation capturing local and long-range temporal structure. These representations can be used individually or combined through channel-wise feature concatenation. We assembled 71 public EEG datasets comprising approximately 9,200 subjects and 357,000 single-channel hours. For leakage-controlled evaluation, downstream results were obtained with a model pretrained on 68 datasets after excluding the three source datasets underlying the six tasks.",
+      "doi": "10.1109/JBHI.2026.3732223",
+      "pmid": "42709520",
+      "openalex_id": null,
+      "source_doi": "10.1038/s41597-022-01898-y",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6184632477164269,
+        "similarity_score": 0.5354660153388977,
+        "citation_text_length": 1262,
+        "dataset_text_length": 2481,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Does topological data analysis work for EEG-based brain–computer interfaces?",
+      "author": "Xiaoqi Xu, Nicolas Drougard, Raphaëlle N. Roy",
+      "venue": "Journal of Neural Engineering",
+      "year": 2025,
+      "url": "https://doi.org/10.1088/1741-2552/add8bd",
+      "cited_by": 3,
+      "abstract": "Abstract Objective. Brain–computer interfaces (BCIs) are systems that establish a direct communication pathway with machines through brain activity only, recorded for example via electroencephalography (EEG). Topological data analysis (TDA) extracts topological features of the shape of the data and showed promising results in various applications. However, the work evaluating TDA systematically on EEG-based BCI is rare. Our study aims to fill this gap. Approach. The hypothesis is that the topology of the EEG dynamics is different under different mental states so that the topological features are discriminant. By adopting a dynamical system point of view, the non-stationary nature of EEG is respected. In practice, topological information is encoded by the persistence diagram. To turn it into a feature vector, some classical vector- and function-based representations are used. Each feature vector is then classified by several basic linear and non-linear classifiers. Main results. A bench",
+      "doi": "10.1088/1741-2552/add8bd",
+      "pmid": "40367953",
+      "openalex_id": "W4410352653",
+      "source_doi": "10.1038/s41597-022-01898-y",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6091251271963121,
+        "similarity_score": 0.5273810625076294,
+        "citation_text_length": 1189,
         "dataset_text_length": 2481,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -739,7 +774,7 @@
     {
       "title": "Combining Spatio-Temporal Networks and Graph Attention Architectures for EEG-Based Workload Classification",
       "author": "Nikhil Panwar, Vishal Kumar Pandey, Rownak Tiwari, Partha Pratim Roy",
-      "venue": "ICASSP 2025 - 2025 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)",
+      "venue": "IEEE International Conference on Acoustics Speech and Signal Processing",
       "year": 2025,
       "url": "https://doi.org/10.1109/icassp49660.2025.10890032",
       "cited_by": 3,
@@ -751,32 +786,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6531015801429749,
-        "similarity_score": 0.5654559135437012,
-        "citation_text_length": 1313,
-        "dataset_text_length": 2481,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "SingLEM: Single-Channel Large EEG Model",
-      "author": "Jamiyan Sukhbaatar, S. Imamura, Ibuki Inoue, Shoya Murakami, Kazi Mahmudul Hassan, Seung-Woo Han, Ingon Chanpornpakdi, Toshihisa Tanaka",
-      "venue": "IEEE journal of biomedical and health informatics",
-      "year": 2025,
-      "url": "https://doi.org/10.1109/JBHI.2026.3732223",
-      "cited_by": 3,
-      "abstract": "Current deep learning models for electroencephalography (EEG) are often task-specific and depend on large labeled datasets, limiting their adaptability. Although EEG foundation models seek broader applicability, many still rely on predefined multi-channel inputs, electrode-layout assumptions, or model-specific channel handling. To address these limitations, we introduce the Single-Channel Large EEG Model (SingLEM), a self-supervised foundation model whose hybrid convolutional-Transformer encoder maps each channel independently to a reusable representation capturing local and long-range temporal structure. These representations can be used individually or combined through channel-wise feature concatenation. We assembled 71 public EEG datasets comprising approximately 9,200 subjects and 357,000 single-channel hours. For leakage-controlled evaluation, downstream results were obtained with a model pretrained on 68 datasets after excluding the three source datasets underlying the six tasks.",
-      "doi": "10.1109/JBHI.2026.3732223",
-      "pmid": "42709520",
-      "openalex_id": null,
-      "source_doi": "10.1038/s41597-022-01898-y",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.6184632477164269,
-        "similarity_score": 0.5354660153388977,
-        "citation_text_length": 1262,
+        "confidence_score": 0.6392294356226922,
+        "similarity_score": 0.5534453988075256,
+        "citation_text_length": 1284,
         "dataset_text_length": 2481,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -852,29 +864,6 @@
       }
     },
     {
-      "title": "Does topological data analysis work for EEG-based brain–computer interfaces?",
-      "author": "Xiaoqi Xu, Nicolas Drougard, Raphaëlle N. Roy",
-      "venue": "Journal of Neural Engineering",
-      "year": 2025,
-      "url": "https://doi.org/10.1088/1741-2552/add8bd",
-      "cited_by": 2,
-      "abstract": "Abstract Objective. Brain–computer interfaces (BCIs) are systems that establish a direct communication pathway with machines through brain activity only, recorded for example via electroencephalography (EEG). Topological data analysis (TDA) extracts topological features of the shape of the data and showed promising results in various applications. However, the work evaluating TDA systematically on EEG-based BCI is rare. Our study aims to fill this gap. Approach. The hypothesis is that the topology of the EEG dynamics is different under different mental states so that the topological features are discriminant. By adopting a dynamical system point of view, the non-stationary nature of EEG is respected. In practice, topological information is encoded by the persistence diagram. To turn it into a feature vector, some classical vector- and function-based representations are used. Each feature vector is then classified by several basic linear and non-linear classifiers. Main results. A bench",
-      "doi": "10.1088/1741-2552/add8bd",
-      "pmid": "40367953",
-      "openalex_id": "W4410352653",
-      "source_doi": "10.1038/s41597-022-01898-y",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.6091251271963121,
-        "similarity_score": 0.5273810625076294,
-        "citation_text_length": 1189,
-        "dataset_text_length": 2481,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Detection of Pre-error States in Aircraft Pilots Through Machine Learning",
       "author": "Massimo Pietracupa, Hamdi Ben Abdessalem, Claude Frasson",
       "venue": "Lecture notes in computer science",
@@ -921,9 +910,55 @@
       }
     },
     {
+      "title": "Near-invisible c-VEP-based passive BCI for mental workload monitoring",
+      "author": "P Cimarosto, Velut Sebastien, Kalou Cabrera Castillos, Juan Jesús Torre, Raphaëlle N. Roy, Frédéric Dehais",
+      "venue": "Journal of Neural Engineering",
+      "year": 2026,
+      "url": "https://doi.org/10.1088/1741-2552/ae4ff6",
+      "cited_by": 1,
+      "abstract": "Abstract Objective. Flickering visual stimuli, either periodic steady-state visual evoked potential (VEP) or aperiodic code-based VEP (c-VEP), have shown strong potential for implementing reactive brain–computer interfaces (BCIs) and enabling hands-free interaction. Yet, their adaptation to passive BCIs (pBCIs) remains limited, largely due to the distracting nature of flickers and its impact on visual comfort. Approach. In this study, we introduce an unobtrusive approach that embeds near–invisible, texture-based flickers over regions of interest in the user interface, combined with a c-VEP pBCI pipeline to assess mental workload. We validated the approach in two experiments: (i) within an ecologically valid multitasking microworld of flying, and (ii) in a flight Simulator, where cognitive workload was systematically varied across three levels. Main results. Results at the group level disclosed that the amplitude of visual event-related potentials was significantly reduced under higher ",
+      "doi": "10.1088/1741-2552/ae4ff6",
+      "pmid": "41806473",
+      "openalex_id": "W7134925418",
+      "source_doi": "10.1038/s41597-022-01898-y",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6151928436756134,
+        "similarity_score": 0.5326344966888428,
+        "citation_text_length": 1243,
+        "dataset_text_length": 2481,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "The individual alpha bandwidth: A trait-like neural marker associated with sensory processing and executive function",
+      "author": "Zeliang Jiang, Pan Zhang, Hanlin Wang, Wenxiao Zhong, Xingwei An, Zhijie Zhang",
+      "venue": "NeuroImage",
+      "year": 2026,
+      "url": "https://doi.org/10.1016/j.neuroimage.2026.121685",
+      "cited_by": 1,
+      "abstract": "Alpha oscillations are a fundamental rhythm of human brain activity, yet most studies have emphasized the peak alpha frequency (IAF) while overlooking the width of the alpha band. Here, we examined the individual alpha bandwidth (IAB) as a complementary marker across four EEG datasets. Using a unified preprocessing pipeline, we assessed its reliability and functional relevance. Test-retest analyses showed good-to-excellent reliability, supporting its trait-like stability. Importantly, IAB estimated with the Savitzky-Golay filter (SGF) method-but not with FOOOF or amplitude-difference-was significantly related to sensory and cognitive processes, whereas IAF showed no such associations. In perception, wider parieto-occipital IAB during eyes-closed rest was associated with larger P2 amplitudes in visual and auditory evoked potentials. In cognition, wider parieto-occipital IAB during eyes-open rest was linked to smaller flanker interference effects and enhanced N450 amplitudes. Mediation a",
+      "doi": "10.1016/j.neuroimage.2026.121685",
+      "pmid": "41490565",
+      "openalex_id": "W7118074939",
+      "source_doi": "10.1038/s41597-022-01898-y",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5511615957319738,
+        "similarity_score": 0.47719618678092957,
+        "citation_text_length": 1243,
+        "dataset_text_length": 2481,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "BCI-Based Cross-Dataset Mental Workload Assessment: Integrating Transfer Learning with XAI for EEG-Based Analysis",
       "author": "SUSHIL KUMAR CHATURVEDI, Mitul Kumar Ahirwal",
-      "venue": "2025 IEEE 17th International Conference on Computational Intelligence and Communication Networks (CICN)",
+      "venue": "IEEE International Conference on Computational Intelligence and Communication Networks (CICN)",
       "year": 2025,
       "url": "https://doi.org/10.1109/cicn67655.2025.11368246",
       "cited_by": 1,
@@ -935,9 +970,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6511498707532883,
-        "similarity_score": 0.5637661218643188,
-        "citation_text_length": 1299,
+        "confidence_score": 0.6454390382766725,
+        "similarity_score": 0.5588216781616211,
+        "citation_text_length": 1289,
         "dataset_text_length": 2481,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1014,7 +1049,7 @@
     },
     {
       "title": "Pretraining Induces a Reusable Spectral Basis for Downstream Task Adaptation",
-      "author": "Junjie Yu, Yue Wang, Zihan Deng, Yanan Zhu, Wenxiao Ma, Quan-Ying Liu",
+      "author": "Jun-Jie Yu, Yue Wang, Zihan Deng, Ya-Nan Zhu, Wenxiao Ma, Quan-Ying Liu",
       "venue": "ArXiv",
       "year": 2026,
       "url": "https://doi.org/10.48550/arXiv.2605.07302",
@@ -1027,9 +1062,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.32973507106304173,
-        "similarity_score": 0.2854849100112915,
-        "citation_text_length": 1189,
+        "confidence_score": 0.3321107178926468,
+        "similarity_score": 0.2875417470932007,
+        "citation_text_length": 1191,
         "dataset_text_length": 2481,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1037,7 +1072,7 @@
     },
     {
       "title": "Toward general‐purpose foundation models for electroencephalography: A unified data registry",
-      "author": "Shenglei Shi, Yin Song, Yong Wang, Jian Xiao, Xin Lin, Heng Wang, Zhi-Bin Zhao, Pengyu Wang, Zi-Tong Lu, Xiao-Li Li, He Chen",
+      "author": "Sheng-Lei Shi, Yin Song, Yong Wang, Jian Xiao, Xin Lin, Heng Wang, Zhi-Bin Zhao, Pengyu Wang, Zi-Tong Lu, Xiao-Li Li, He Chen",
       "venue": "Brain‐X",
       "year": 2026,
       "url": "https://doi.org/10.1002/brx2.70046",
@@ -1050,9 +1085,32 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.7105717456340791,
-        "similarity_score": 0.6152136325836182,
-        "citation_text_length": 1262,
+        "confidence_score": 0.7104109275341035,
+        "similarity_score": 0.6150743961334229,
+        "citation_text_length": 1263,
+        "dataset_text_length": 2481,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Non-invasive dry EEG electrodes: from laboratory prototypes to wearable neurotechnology systems",
+      "author": "Zahra Razaghi, Raheleh Mohammadpour, Reza Ebrahimpour, Azam Iraji zad",
+      "venue": "Sensors and Actuators A Physical",
+      "year": 2026,
+      "url": "https://doi.org/10.1016/j.sna.2026.118509",
+      "cited_by": 0,
+      "abstract": null,
+      "doi": "10.1016/j.sna.2026.118509",
+      "pmid": null,
+      "openalex_id": "W7212851786",
+      "source_doi": "10.1038/s41597-022-01898-y",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6120521843433381,
+        "similarity_score": 0.5829068422317505,
+        "citation_text_length": 223,
         "dataset_text_length": 2481,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1076,29 +1134,6 @@
         "confidence_score": 0.7482639008760453,
         "similarity_score": 0.6478475332260132,
         "citation_text_length": 1206,
-        "dataset_text_length": 2481,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Non-Invasive Dry EEG Electrodes: From Laboratory Prototypes to Wearable Neurotechnology Systems",
-      "author": "Zahra Razaghi, Raheleh Mohammadpour, Reza Ebrahimpour, Azam Iraji zad",
-      "venue": "Sensors and Actuators A Physical",
-      "year": 2026,
-      "url": "https://doi.org/10.1016/j.sna.2026.118509",
-      "cited_by": 0,
-      "abstract": null,
-      "doi": "10.1016/j.sna.2026.118509",
-      "pmid": null,
-      "openalex_id": "W7212851786",
-      "source_doi": "10.1038/s41597-022-01898-y",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5744372338056565,
-        "similarity_score": 0.5470830798149109,
-        "citation_text_length": 223,
         "dataset_text_length": 2481,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1197,6 +1232,29 @@
       }
     },
     {
+      "title": "Adaptive Online Instructional Methodologies Using Real-Time EEG Signals: Neurofeedback-Driven Framework for Personalized Learning in K-12 Digital Environments",
+      "author": "Rohini Thrimurthy, Chaitra N., Gopikrishna Deshpande",
+      "venue": "2026 IEEE Digital Education and MOOCS Conference (DEMOcon)",
+      "year": 2026,
+      "url": "https://doi.org/10.1109/democon70840.2026.11708462",
+      "cited_by": 0,
+      "abstract": "This paper presents the design, validation, and adaptive simulation of FLAIR (Focus and Learning with AI for Real-time Response), a neurofeedback-driven framework for real-time adaptive content delivery in K-12 digital learning environments. Using the publicly available PhysioNet EEG Motor Movement/Imagery dataset (Schalk et al., 2004; 64-channel, 160 Hz), we extract six EEG features – delta, theta, alpha, and beta band powers, the theta/beta ratio (TBR), and a Cognitive Focus Index (CFI) – and classify four proxy EEG conditions that we hypothesize correspond to attentional learning states (High Focus, Moderate Focus, Low Focus, Cognitive Overload) using five machine learning algorithms. A multilayer perceptron (MLP) achieves the best performance with 96.67% accuracy and 0.967 macro-F1 under five-fold stratified cross-validation. One-way ANOVA confirms highly significant state separation across all features (p < 0.001), and Welch t-tests establish that TBR and CFI discriminate high-foc",
+      "doi": "10.1109/democon70840.2026.11708462",
+      "pmid": null,
+      "openalex_id": "W7220659510",
+      "source_doi": "10.1038/s41597-022-01898-y",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5848638993501664,
+        "similarity_score": 0.5063756704330444,
+        "citation_text_length": 1307,
+        "dataset_text_length": 2481,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "A cross-attention multimodal fusion transformer for ECG-guided EEG mental workload classification",
       "author": "Zhen Xue, Wenxiao Zhong, Shuang Liu, Xingwei An",
       "venue": "Biomedical Signal Processing and Control",
@@ -1243,29 +1301,6 @@
       }
     },
     {
-      "title": "Near-invisible c-VEP-based passive BCI for mental workload monitoring",
-      "author": "P Cimarosto, Sébastien Velut, Kalou Cabrera Castillos, Juan Jesús Torre, Raphaëlle N. Roy, Frédéric Dehais",
-      "venue": "Journal of Neural Engineering",
-      "year": 2026,
-      "url": "https://doi.org/10.1088/1741-2552/ae4ff6",
-      "cited_by": 0,
-      "abstract": "Abstract Objective. Flickering visual stimuli, either periodic steady-state visual evoked potential (VEP) or aperiodic code-based VEP (c-VEP), have shown strong potential for implementing reactive brain–computer interfaces (BCIs) and enabling hands-free interaction. Yet, their adaptation to passive BCIs (pBCIs) remains limited, largely due to the distracting nature of flickers and its impact on visual comfort. Approach. In this study, we introduce an unobtrusive approach that embeds near–invisible, texture-based flickers over regions of interest in the user interface, combined with a c-VEP pBCI pipeline to assess mental workload. We validated the approach in two experiments: (i) within an ecologically valid multitasking microworld of flying, and (ii) in a flight Simulator, where cognitive workload was systematically varied across three levels. Main results. Results at the group level disclosed that the amplitude of visual event-related potentials was significantly reduced under higher ",
-      "doi": "10.1088/1741-2552/ae4ff6",
-      "pmid": "41806473",
-      "openalex_id": "W7134925418",
-      "source_doi": "10.1038/s41597-022-01898-y",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.6167869806289673,
-        "similarity_score": 0.5340147018432617,
-        "citation_text_length": 1243,
-        "dataset_text_length": 2481,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "EEGAmp+: Investigating the Efficacy of Functional Connectivity for Detecting Events in Low Resolution EEG",
       "author": "Indrajeet Ghosh, Kasthuri Jayarajah, Nicholas R. Waytowich, Nirmalya Roy",
       "venue": "Maryland Shared Open Access Repository (USMAI Consortium)",
@@ -1283,29 +1318,6 @@
         "confidence_score": 0.6181772723793983,
         "similarity_score": 0.5352184176445007,
         "citation_text_length": 1273,
-        "dataset_text_length": 2481,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "The individual alpha bandwidth: A trait-like neural marker associated with sensory processing and executive function",
-      "author": "Zeliang Jiang, Pan Zhang, Hanlin Wang, Wenxiao Zhong, Xingwei An, Zhijie Zhang",
-      "venue": "NeuroImage",
-      "year": 2026,
-      "url": "https://doi.org/10.1016/j.neuroimage.2026.121685",
-      "cited_by": 0,
-      "abstract": "Alpha oscillations are a fundamental rhythm of human brain activity, yet most studies have emphasized the peak alpha frequency (IAF) while overlooking the width of the alpha band. Here, we examined the individual alpha bandwidth (IAB) as a complementary marker across four EEG datasets. Using a unified preprocessing pipeline, we assessed its reliability and functional relevance. Test-retest analyses showed good-to-excellent reliability, supporting its trait-like stability. Importantly, IAB estimated with the Savitzky-Golay filter (SGF) method-but not with FOOOF or amplitude-difference-was significantly related to sensory and cognitive processes, whereas IAF showed no such associations. In perception, wider parieto-occipital IAB during eyes-closed rest was associated with larger P2 amplitudes in visual and auditory evoked potentials. In cognition, wider parieto-occipital IAB during eyes-open rest was linked to smaller flanker interference effects and enhanced N450 amplitudes. Mediation a",
-      "doi": "10.1016/j.neuroimage.2026.121685",
-      "pmid": "41490565",
-      "openalex_id": "W7118074939",
-      "source_doi": "10.1038/s41597-022-01898-y",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5511615957319738,
-        "similarity_score": 0.47719618678092957,
-        "citation_text_length": 1243,
         "dataset_text_length": 2481,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1360,7 +1372,7 @@
     {
       "title": "Learnable Frequency-Weighting Layer for Improving EEG-Based BCI Performance",
       "author": "Tsu-Jen Ding, Hui‐Yu Hsu, Po‐Chih Kuo, Zai-Fu Yao, C. H. Pan, Bo-Yu Pan",
-      "venue": "2025 IEEE International Conference on Systems, Man, and Cybernetics (SMC)",
+      "venue": "Conference proceedings/Conference proceedings - IEEE International Conference on Systems, Man, and Cybernetics",
       "year": 2025,
       "url": "https://doi.org/10.1109/smc58881.2025.11343651",
       "cited_by": 0,
@@ -1372,9 +1384,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6410045617818834,
-        "similarity_score": 0.5549823045730591,
-        "citation_text_length": 1258,
+        "confidence_score": 0.6450089049339295,
+        "similarity_score": 0.5584492683410645,
+        "citation_text_length": 1295,
         "dataset_text_length": 2481,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1450,9 +1462,55 @@
       }
     },
     {
+      "title": "Addressing the Large Variability of EEG Data with Riemannian Geometry : Toward Designing Reliable Brain-Computer Interfaces",
+      "author": "Maria Sayu Yamamoto",
+      "venue": "n/a",
+      "year": 2024,
+      "url": "https://doi.org/10.70675/32177478z17bbz4f18zb3e9z7f3dc54e8522",
+      "cited_by": 0,
+      "abstract": "Aborder la grande variabilité des données EEG avec la géométrie riemannienne : vers la conception d'interfaces cerveau-ordinateur fiables Les interfaces cerveau-ordinateur (BCI) basées sur la géométrie riemannienne ont gagné en popularité au cours de la dernière décennie, démontrant des améliorations significatives dans divers contextes de classification des BCI. Malgré ces avancées, les systèmes BCI restent insuffisamment fiables pour des applications pratiques. L'une des principales difficultés auxquelles les BCI sont confrontées est la variabilité considérable de l'électroencéphalogramme (EEG). Cette variabilité est censée être encore plus prononcée lorsque les systèmes BCI sont utilisés sur plusieurs jours ou en dehors des environnements de laboratoire contrôlés. Cette thèse aborde la grande variabilité de l'EEG sous divers angles sur la variété riemannienne des matrices symétriques définies positives (SPD). Nos six contributions au total peuvent être divisées en trois catégories. ",
+      "doi": "10.70675/32177478z17bbz4f18zb3e9z7f3dc54e8522",
+      "pmid": null,
+      "openalex_id": "W7152051304",
+      "source_doi": "10.1038/s41597-022-01898-y",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7569692131876946,
+        "similarity_score": 0.6553846001625061,
+        "citation_text_length": 1184,
+        "dataset_text_length": 2481,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "The partially observable brain : An exploratory study on the use of partially observable Markov decision processes as a general framework for brain-computer interfaces",
+      "author": "Juan Jesús Torre",
+      "venue": "n/a",
+      "year": 2024,
+      "url": "https://doi.org/10.70675/e4e78df0za2b0z4162z8104z7ae752d81a23",
+      "cited_by": 0,
+      "abstract": "Le cerveau partiellement observable : Une étude exploratoire sur l'utilisation des processus décisionnels de Markov partiellement observables en tant que cadre général pour les interfaces cerveau-machine Malgré les progrès récents, les interfaces cerveau-machine (ICM) continuent de se heurter à plusieurs limites qui entravent leur passage des laboratoires aux applications réelles. Les problèmes persistants des faux positifs et des temps de décodage fixes sont particulièrement préoccupants. Cette thèse propose l'intégration d'un cadre décisionnel structuré, en particulier le processus de décision markovien partiellement observable (POMDP), dans la technologie BCI.Notre objectif est de concevoir un modèle POMDP complet adaptable à diverses modalités d'ICB, servant de composante décisionnelle dans le pipeline d'ICB.En s'appuyant sur les résultats des algorithmes de décodage courants, ce modèle facilite la prise de décision optimale pendant le fonctionnement, comme la collecte d'informatio",
+      "doi": "10.70675/e4e78df0za2b0z4162z8104z7ae752d81a23",
+      "pmid": null,
+      "openalex_id": "W7152029738",
+      "source_doi": "10.1038/s41597-022-01898-y",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5807511967420579,
+        "similarity_score": 0.5028148889541626,
+        "citation_text_length": 1225,
+        "dataset_text_length": 2481,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "The Use of SPOD and Spherical Harmonics for the Analysis of EEG Data",
       "author": "Johann Boy, Moritz Sieber, Kilian Oberleithner, Robert John Martinuzzi, Yaoping Hu",
-      "venue": "2023 IEEE International Conference on Systems, Man, and Cybernetics (SMC)",
+      "venue": "Conference proceedings/Conference proceedings - IEEE International Conference on Systems, Man, and Cybernetics",
       "year": 2023,
       "url": "https://doi.org/10.1109/smc53992.2023.10393978",
       "cited_by": 0,
@@ -1464,9 +1522,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.653498737514019,
-        "similarity_score": 0.5657997727394104,
-        "citation_text_length": 1262,
+        "confidence_score": 0.6506021529436111,
+        "similarity_score": 0.5632919073104858,
+        "citation_text_length": 1299,
         "dataset_text_length": 2481,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1520,7 +1578,7 @@
     },
     {
       "title": "BrainBench: Benchmarking Large Language Models for Comprehensive EEG Understanding",
-      "author": "Yangxuan Zhou, Yu-Ning Chen, Chentian Wu, Jiquan Wang, Shijian Li, Gang Pan, Sha Zhao",
+      "author": "Yang-Xuan Zhou, Yu-Ning Chen, Chentian Wu, Jiquan Wang, Shi-Jian Li, Gang Pan, Sha Zhao",
       "venue": "n/a",
       "year": 2026,
       "url": "n/a",
@@ -1533,9 +1591,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6927409699559213,
-        "similarity_score": 0.5997757315635681,
-        "citation_text_length": 1209,
+        "confidence_score": 0.6915023401379585,
+        "similarity_score": 0.5987033247947693,
+        "citation_text_length": 1211,
         "dataset_text_length": 2481,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1566,7 +1624,7 @@
     },
     {
       "title": "Model Form Identification in High-Dimensional Functional Linear Regressions",
-      "author": "Xingche Guo, Yehua Li, Pang Du",
+      "author": "Xing-Che Guo, Yehua Li, Pang Du",
       "venue": "n/a",
       "year": 2026,
       "url": "n/a",
@@ -1579,9 +1637,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.3448476009070873,
-        "similarity_score": 0.29856935143470764,
-        "citation_text_length": 1147,
+        "confidence_score": 0.3433381068706513,
+        "similarity_score": 0.29726243019104004,
+        "citation_text_length": 1148,
         "dataset_text_length": 2481,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1795,25 +1853,46 @@
       }
     },
     {
-      "title": "Pharmacological profile of tofogliflozin, a novel SGLT2 inhibitor, in preclinical studies",
-      "author": "SUZUKI MASAYUKI",
-      "venue": "Institutional Repositories DataBase (IRDB)",
-      "year": 0,
-      "url": "https://doi.org/10.20604/00000134",
+      "title": "An Online Learning and Problem Solving (OLPS) EEG Database for Mental Workload Assessment and Its Initial Benchmark Classification Performance",
+      "author": "Mrinal Kanti Sadhukhan, Mitul Kumar Ahirwal, Sri Khetwat Saritha",
+      "venue": "Algorithms for intelligent systems",
+      "year": 2024,
+      "url": "https://doi.org/10.1007/978-981-97-3526-6_21",
+      "cited_by": 1,
+      "abstract": null,
+      "doi": "10.1007/978-981-97-3526-6_21",
+      "pmid": null,
+      "openalex_id": "W4400728102",
+      "source_doi": "10.5281/zenodo.6874128",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6200980961322785,
+        "similarity_score": 0.5905696153640747,
+        "citation_text_length": 267,
+        "dataset_text_length": 2481,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Intelligent Neural Interfaces in Education: A Review of Technologies for Monitoring and Adapting Students’ Cognitive States Through BCI and Artificial Intelligence",
+      "author": "Nurzada Amangeldy, Assel Omarbekova, Aizhan Nazyrova, Marek Miłosz, Nazerke Gazizova, Nazgul Dospol",
+      "venue": "Communications in computer and information science",
+      "year": 2026,
+      "url": "https://doi.org/10.1007/978-3-032-21625-0_20",
       "cited_by": 0,
       "abstract": null,
-      "doi": "10.20604/00000134",
+      "doi": "10.1007/978-3-032-21625-0_20",
       "pmid": null,
-      "openalex_id": "W7144133518",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "nm000343",
+      "openalex_id": "W7149602250",
+      "source_doi": "10.5281/zenodo.6874128",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.24732482433319092,
-        "similarity_score": 0.24732482433319092,
-        "citation_text_length": 173,
+        "confidence_score": 0.5102747172117233,
+        "similarity_score": 0.4859759211540222,
+        "citation_text_length": 339,
         "dataset_text_length": 2481,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1822,18 +1901,18 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-10-04T10:09:56.752614+00:00",
+    "scoring_date": "2026-10-11T11:26:23.254441+00:00",
     "dataset_text_length": 2481,
-    "num_citations_scored": 74,
+    "num_citations_scored": 78,
     "summary_stats": {
-      "mean_confidence": 0.5924546476584431,
-      "median_confidence": 0.6159431675076485,
-      "std_confidence": 0.12305178723728546,
+      "mean_confidence": 0.598679736683575,
+      "median_confidence": 0.6151460990309716,
+      "std_confidence": 0.1141617576769017,
       "min_confidence": 0.21583570539951324,
       "max_confidence": 0.8599728620052338,
-      "high_confidence_count": 9,
-      "medium_confidence_count": 59,
-      "low_confidence_count": 6
+      "high_confidence_count": 10,
+      "medium_confidence_count": 63,
+      "low_confidence_count": 5
     }
   }
 }

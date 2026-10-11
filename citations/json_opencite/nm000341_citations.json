@@ -1,13 +1,13 @@
 {
   "dataset_id": "nm000341",
-  "num_citations": 18,
-  "date_last_updated": "2026-09-30T10:44:27.646998+00:00",
+  "num_citations": 20,
+  "date_last_updated": "2026-10-11T10:32:46.241530+00:00",
   "metadata": {
-    "total_cumulative_citations": 252,
-    "fetch_date": "2026-09-29T11:02:15.448672+00:00",
+    "total_cumulative_citations": 278,
+    "fetch_date": "2026-10-11T10:32:46.241530+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
-    "anchor_count": 2,
+    "anchor_count": 3,
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
@@ -17,27 +17,27 @@
         "identifier": "10.5281/zenodo.2617084",
         "identifier_type": "doi",
         "source_relation": "IsDerivedFrom",
-        "classification": null,
-        "kept": false,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "unjudged"
+        "classification": "data_paper",
+        "kept": true,
+        "kept_reason": "judged_data_paper",
+        "paper_title": "Passive Head-Mounted Display Music-Listening EEG dataset",
+        "paper_year": 2019,
+        "paper_venue": "arXiv (Cornell University)",
+        "reason": "The candidate is the Zenodo/arXiv deposit of the same PHMD dataset (12 subjects, 16 electrodes, GIPSA-lab 2017) with matching title, authors, and DOI listed in the dataset description.",
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.2312/vriphys.20181064",
         "identifier_type": "doi",
-        "source_relation": "References",
+        "source_relation": "IsDescribedBy",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "The Impact of Passive Head-Mounted Virtual Reality Devices on the Quality of EEG Signals",
         "paper_year": 2018,
         "paper_venue": "HAL (Le Centre pour la Communication Scientifique Directe)",
         "reason": "Paper reports EEG from 12 subjects wearing an HMD with smartphone on/off, matching the PHMD dataset (12 subjects, off/on events) by the same authors (Cattan, Congedo).",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.21105/joss.01896",
@@ -45,12 +45,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
         "paper_year": 2019,
         "paper_venue": "The Journal of Open Source Software",
         "reason": "MNE-BIDS is a software tool for organizing electrophysiology data into BIDS, used to format this dataset, not a paper describing the PHMD EEG data.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1038/s41597-019-0104-8",
@@ -58,12 +58,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "EEG-BIDS, an extension to the brain imaging data structure for electroencephalography",
         "paper_year": 2019,
         "paper_venue": "Scientific Data",
         "reason": "EEG-BIDS is a standard/specification extension of BIDS for EEG used to organize the data, not a paper describing the Cattan PHMD dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.nm000341",
@@ -71,50 +71,90 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
+      "10.5281/zenodo.2617084",
       "10.2312/vriphys.20181064",
       "10.82901/nemar.nm000341"
     ],
     "keywords": [
       "Electroencephalography",
-      "EEG",
       "Virtual Reality",
-      "Head-mounted display",
-      "Resting state",
-      "Music listening",
-      "Brain-computer interfaces"
+      "passive head-mounted display",
+      "music listening",
+      "resting state",
+      "EEG signal quality"
     ],
-    "methods_description": "EEG data were acquired using a 16-channel g.USBamp system (sampling rate: 512 Hz) with wet electrodes in a standard 10-20 montage. Subjects sat approximately 50 cm from a screen while wearing an EEG cap and Samsung Gear head-mounted display. The protocol consisted of 10 blocks (60 seconds each) with alternating smartphone on/off conditions in randomized order. Recordings were performed with eyes open, no digital filtering applied, and no Faraday cage to simulate real-world conditions.",
-    "funding": [],
-    "searched_accessions": [
-      "nm000341"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 18
+    "methods_description": "EEG was recorded with a g.USBamp amplifier and OpenViBE software at 512 Hz from 16 wet electrodes (EasyCap, 10-20 system), referenced to the right earlobe with ground at AFz and no digital filtering. Participants sat about 50 cm from a screen wearing the EEG cap and a Samsung Gear headset. Each of 10 randomized blocks lasted 1 minute with eyes open, and triggers marked block onset (1 = smartphone off, 2 = smartphone on).",
+    "funding": []
   },
   "citation_details": [
+    {
+      "title": "Using electrophysiological measures to evaluate the sense of presence in immersive virtual environments: An event‐related potential study",
+      "author": "Simone Grassini, Karin Laumann, Sebastian Oltedal Thorp, Virginia de Martin Topranin",
+      "venue": "Brain and Behavior",
+      "year": 2021,
+      "url": "https://doi.org/10.1002/brb3.2269",
+      "cited_by": 26,
+      "abstract": "Sense of presence has been often explored in the context of virtual reality (VR) and immersive visual technologies; however, standardized and objective measures of the sense of presence have been difficult to find. Studies attempting to find physiological correlates of sense presence using electroencephalography (EEG) have reported mixed results. In the present study, we used brain event-related potentials (ERPs) elicited by auditory stimuli to identify an objective physiological index of sense of presence during VR, attempting to replicate the findings of previous studies and explain the heterogeneity of results reported in the literature. Participants in our experiment were asked to experience an immersive virtual environment using a modern head-mounted display while passively hearing task-irrelevant frequent standard and infrequent deviant tones as in a classic auditory oddball paradigm. Subsequently, they were asked to complete a battery of questionnaires aimed to estimate their se",
+      "doi": "10.1002/brb3.2269",
+      "pmid": "34173347",
+      "openalex_id": "W3176421582",
+      "source_doi": "10.5281/zenodo.2617084",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5732022120058538,
+        "similarity_score": 0.4962789714336395,
+        "citation_text_length": 1278,
+        "dataset_text_length": 2365,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Translating the Nearest Convex Hull Classifier from Classical to Quantum Computing",
+      "author": "G. Cattan, Anton Andreev, Quentin Barthélemy",
+      "venue": "Quantum Reports",
+      "year": 2025,
+      "url": "https://doi.org/10.3390/quantum7040051",
+      "cited_by": 0,
+      "abstract": "The nearest convex hull (NCH) classifier is a promising algorithm for the classification of biosignals, such as electroencephalography (EEG) signals, especially when adapted to the classification of symmetric positive definite matrices. In this paper, we implemented a version of this classifier that can execute either on a traditional computer or a quantum simulator, and we tested it against state-of-the-art classifiers for EEG classification. This article addresses the practical challenges of adapting a classical algorithm to one that can be executed on a quantum computer or a quantum simulator. One of these challenges is to find a formulation of the classification problem that is quadratic, is binary, and accepts only linear constraints—that is, an objective function that can be solved using a variational quantum algorithm. In this article, we present two approaches to solve this problem, both compatible with continuous variables. Finally, we evaluated, for the first time, the perfor",
+      "doi": "10.3390/quantum7040051",
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.5281/zenodo.2617084",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.3802921235561372,
+        "similarity_score": 0.3292572498321533,
+        "citation_text_length": 1180,
+        "dataset_text_length": 2365,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
     {
       "title": "Neural Applications Using Immersive Virtual Reality: A Review on EEG Studies",
       "author": "Jin Woo Choi, Haram Kwon, Jaehoon Choi, Netiwit Kaongoen, Chaeeun Hwang, Minuk Kim, Byung Hyung Kim, Su-Cheol Jo",
       "venue": "IEEE Transactions on Neural Systems and Rehabilitation Engineering",
       "year": 2023,
       "url": "https://doi.org/10.1109/TNSRE.2023.3254551",
-      "cited_by": 53,
+      "cited_by": 54,
       "abstract": "Recent advancements in immersive virtual reality head-mounted displays allowed users to better engage with simulated graphical environments. Having the screen egocentrically stabilized in a way such that the users may freely rotate their heads to observe virtual surroundings, head-mounted displays present virtual scenarios with rich immersion. With such an enhanced degree of freedom, immersive virtual reality displays have also been integrated with electroencephalograms, which make it possible to study and utilize brain signals non-invasively, to analyze and apply their capabilities. In this review, we introduce recent progress that utilized immersive head-mounted displays along with electroencephalograms across various fields, focusing on the purposes and experimental designs of their studies. The paper also highlights the effects of using immersive virtual reality discovered through the electroencephalogram analysis and discusses existing limitations, current trends as well as future",
       "doi": "10.1109/TNSRE.2023.3254551",
       "pmid": "37028309",
       "openalex_id": null,
       "source_doi": "10.2312/vriphys.20181064",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.5599009166657926,
@@ -128,7 +168,7 @@
     {
       "title": "Brain Activity in Virtual Reality: Assessing Signal Quality of High-Resolution EEG While Using Head-Mounted Displays",
       "author": "Stephan Hertweck, Desiee Weber, Hisham Alwanni, Fabian Unruh, Martin Fischbach, Marc Erich Latoschik, Tonio Ball",
-      "venue": "2019 IEEE Conference on Virtual Reality and 3D User Interfaces (VR)",
+      "venue": "IEEE Conference on Virtual Reality and 3D User Interfaces (VR)",
       "year": 2019,
       "url": "https://doi.org/10.1109/vr.2019.8798369",
       "cited_by": 36,
@@ -137,12 +177,12 @@
       "pmid": null,
       "openalex_id": "W2968157696",
       "source_doi": "10.2312/vriphys.20181064",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6032498180866241,
-        "similarity_score": 0.5484089255332947,
-        "citation_text_length": 1334,
+        "confidence_score": 0.6022315263748169,
+        "similarity_score": 0.5474832057952881,
+        "citation_text_length": 1329,
         "dataset_text_length": 2365,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -154,13 +194,13 @@
       "venue": "Frontiers in Neuroscience",
       "year": 2021,
       "url": "https://doi.org/10.3389/fnins.2021.733673",
-      "cited_by": 30,
+      "cited_by": 29,
       "abstract": "Joint applications of virtual reality (VR) systems and electroencephalography (EEG) offer numerous new possibilities ranging from behavioral science to therapy. VR systems allow for highly controlled experimental environments, while EEG offers a non-invasive window to brain activity with a millisecond-ranged temporal resolution. However, EEG measurements are highly susceptible to electromagnetic (EM) noise and the influence of EM noise of head-mounted-displays (HMDs) on EEG signal quality has not been conclusively investigated. In this paper, we propose a structured approach to test HMDs for EM noise potentially harmful to EEG measures. The approach verifies the impact of HMDs on the frequency- and time-domain of the EEG signal recorded in healthy subjects. The verification task includes a comparison of conditions with and without an HMD during (i) an eyes-open vs. eyes-closed task, and (ii) with respect to the sensory- evoked brain activity. The approach is developed and tested to der",
       "doi": "10.3389/fnins.2021.733673",
       "pmid": "34880720",
       "openalex_id": "W3217150834",
       "source_doi": "10.2312/vriphys.20181064",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.6600608181953431,
@@ -177,13 +217,13 @@
       "venue": "IEEE Transactions on Games",
       "year": 2020,
       "url": "https://doi.org/10.1109/TG.2019.2957963",
-      "cited_by": 24,
+      "cited_by": 25,
       "abstract": "A brain–computer interface (BCI) based on electroencephalography (EEG) is a promising technology for enhancing virtual reality (VR) applications—in particular, for gaming. We focus on the so-called P300-BCI, a stable and accurate BCI paradigm relying on the recognition of a positive event-related potential (ERP) occurring in the EEG about 300 ms poststimulation. We implemented a basic version of such a BCI displayed on an ordinary and affordable smartphone-based head-mounted VR device, that is, a mobile and passive VR system (with no electronic components beyond the smartphone). The mobile phone performed the stimuli presentation, EEG synchronization (tagging), and feedback display. We compared the ERPs and the accuracy of the BCI on the VR device with a traditional BCI running on a personal computer (PC). We also evaluated the impact of subjective factors on the accuracy. The study was within-subjects, with 21 participants and one session in each modality. No significant difference in",
       "doi": "10.1109/TG.2019.2957963",
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.2312/vriphys.20181064",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.4869773089885712,
@@ -200,13 +240,13 @@
       "venue": "Social Cognitive and Affective Neuroscience",
       "year": 2020,
       "url": "https://doi.org/10.1093/scan/nsaa131",
-      "cited_by": 18,
+      "cited_by": 19,
       "abstract": "Recently, the World Health Organization included 'gaming disorder' in its latest revision of the international classification of diseases (ICD-11). Despite extensive research on internet gaming disorder (IGD), few studies have addressed game-related stimuli eliciting craving, which plays an important role in addiction. Particularly, most previous studies did not consider personal preferences in games presented to subjects as stimuli. In this study, we compared neurophysiological responses elicited for favorite game (FG) videos and non-favorite game (NFG) videos. We aimed to demonstrate neurophysiological characteristics according to the game preference in the IGD group. We measured participants' electroencephalogram (EEG) while they watched FG, NFG and neutral videos. For FG videos, the parieto-occipital theta power (TPPO) were significantly increased compared with those for NFG videos (P < 0.05, paired t-test). TPPO also differed significantly between the healthy control and IGD group",
       "doi": "10.1093/scan/nsaa131",
       "pmid": "33064824",
       "openalex_id": "W3092811742",
       "source_doi": "10.2312/vriphys.20181064",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.4901728114485741,
@@ -229,7 +269,7 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.2312/vriphys.20181064",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.5998156070709229,
@@ -252,7 +292,7 @@
       "pmid": "37393581",
       "openalex_id": "W4382893951",
       "source_doi": "10.2312/vriphys.20181064",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.51691253811121,
@@ -275,7 +315,7 @@
       "pmid": null,
       "openalex_id": "W3162042329",
       "source_doi": "10.2312/vriphys.20181064",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.3749470214545727,
@@ -298,7 +338,7 @@
       "pmid": "39395060",
       "openalex_id": "W4403359502",
       "source_doi": "10.2312/vriphys.20181064",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.4144299302995205,
@@ -321,7 +361,7 @@
       "pmid": "38200371",
       "openalex_id": "W4390692063",
       "source_doi": "10.2312/vriphys.20181064",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.49645273759961134,
@@ -344,35 +384,12 @@
       "pmid": null,
       "openalex_id": "W2955122968",
       "source_doi": "10.2312/vriphys.20181064",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.5772942304611206,
         "similarity_score": 0.5248129367828369,
         "citation_text_length": 1192,
-        "dataset_text_length": 2365,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "A novel system for measuring visual potentials evoked by passive head-mounted display stimulators",
-      "author": "Rossana Terracciano, Alessandro Sanginario, Luana Puleo, Danilo Demarchi",
-      "venue": "Documenta Ophthalmologica",
-      "year": 2021,
-      "url": "https://doi.org/10.1007/s10633-021-09856-6",
-      "cited_by": 5,
-      "abstract": null,
-      "doi": "10.1007/s10633-021-09856-6",
-      "pmid": "34661850",
-      "openalex_id": "W3206050745",
-      "source_doi": "10.2312/vriphys.20181064",
-      "source_relation": "References",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.501729565858841,
-        "similarity_score": 0.4778376817703247,
-        "citation_text_length": 221,
         "dataset_text_length": 2365,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -390,12 +407,35 @@
       "pmid": null,
       "openalex_id": "W4387222609",
       "source_doi": "10.2312/vriphys.20181064",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.4701442801952363,
         "similarity_score": 0.40705132484436035,
         "citation_text_length": 1228,
+        "dataset_text_length": 2365,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "A novel system for measuring visual potentials evoked by passive head-mounted display stimulators",
+      "author": "Rossana Terracciano, Alessandro Sanginario, Luana Puleo, Danilo Demarchi",
+      "venue": "Documenta Ophthalmologica",
+      "year": 2021,
+      "url": "https://doi.org/10.1007/s10633-021-09856-6",
+      "cited_by": 3,
+      "abstract": null,
+      "doi": "10.1007/s10633-021-09856-6",
+      "pmid": "34661850",
+      "openalex_id": "W3206050745",
+      "source_doi": "10.2312/vriphys.20181064",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.501729565858841,
+        "similarity_score": 0.4778376817703247,
+        "citation_text_length": 221,
         "dataset_text_length": 2365,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -413,7 +453,7 @@
       "pmid": null,
       "openalex_id": "W2929415918",
       "source_doi": "10.2312/vriphys.20181064",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.976564109325409,
@@ -436,7 +476,7 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.2312/vriphys.20181064",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.4051602810621262,
@@ -459,7 +499,7 @@
       "pmid": null,
       "openalex_id": "W4391213136",
       "source_doi": "10.2312/vriphys.20181064",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.3619695997238159,
@@ -482,7 +522,7 @@
       "pmid": null,
       "openalex_id": "W3111226616",
       "source_doi": "10.2312/vriphys.20181064",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.4671786457300187,
@@ -505,7 +545,7 @@
       "pmid": null,
       "openalex_id": "W4413046926",
       "source_doi": "10.2312/vriphys.20181064",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.5080707094073297,
@@ -519,18 +559,18 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T10:54:43.073249+00:00",
+    "scoring_date": "2026-10-11T11:26:18.930528+00:00",
     "dataset_text_length": 2365,
-    "num_citations_scored": 18,
+    "num_citations_scored": 20,
     "summary_stats": {
-      "mean_confidence": 0.52616838498248,
+      "mean_confidence": 0.5211753486767412,
       "median_confidence": 0.49909115172922613,
-      "std_confidence": 0.13420586538834076,
+      "std_confidence": 0.13172687044291054,
       "min_confidence": 0.3619695997238159,
       "max_confidence": 0.976564109325409,
       "high_confidence_count": 1,
-      "medium_confidence_count": 15,
-      "low_confidence_count": 2
+      "medium_confidence_count": 16,
+      "low_confidence_count": 3
     }
   }
 }

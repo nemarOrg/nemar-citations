@@ -1,10 +1,10 @@
 {
   "dataset_id": "on005398",
-  "num_citations": 20,
-  "date_last_updated": "2026-09-30T16:33:06.844037+00:00",
+  "num_citations": 17,
+  "date_last_updated": "2026-10-11T11:02:48.569650+00:00",
   "metadata": {
-    "total_cumulative_citations": 39,
-    "fetch_date": "2026-09-29T11:25:18.035085+00:00",
+    "total_cumulative_citations": 23,
+    "fetch_date": "2026-10-11T11:02:48.569650+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -19,12 +19,25 @@
         "source_relation": "IsDescribedBy",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Self‐supervised data‐driven approach defines pathological high‐frequency oscillations in epilepsy",
         "paper_year": 2025,
         "paper_venue": "Epilepsia",
         "reason": "Authors match the dataset's authors, and the paper analyzes 185 epilepsy iEEG patients, matching the dataset's 185 subjects. The README says the data was used for the Zhang et al. manuscript.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
+      },
+      {
+        "identifier": "10.64898/2026.06.12.26355482",
+        "identifier_type": "doi",
+        "source_relation": "References",
+        "classification": "related_work",
+        "kept": false,
+        "kept_reason": "judged_not_data_paper",
+        "paper_title": "Discovering Novel intracranial EEG Biomarkers of Seizure Generating Tissue through Time-Frequency Analysis",
+        "paper_year": 2026,
+        "paper_venue": "medRxiv",
+        "reason": "Paper presents a new time-frequency biomarker framework applied to 14 UCLA seizure-free patients, a downstream analysis; it does not introduce or describe this 185-subject dataset.",
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on005398",
@@ -32,12 +45,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -45,16 +58,15 @@
       "10.82901/nemar.on005398"
     ],
     "keywords": [
-      "Electroencephalography",
+      "intracranial EEG",
+      "iEEG",
       "Epilepsy",
       "high-frequency oscillations",
-      "intracranial EEG",
-      "pediatric epilepsy",
-      "epilepsy surgery",
+      "pediatric",
       "sleep",
-      "HFO detection"
+      "epilepsy surgery outcome"
     ],
-    "methods_description": "Interictal iEEG recordings were collected during sleep from pediatric epilepsy patients. Subject-wise data includes channel names, anatomical labels, and resection status. HFO detection and classification derivatives were generated using RMS and MNI detection methods, with additional bipolar iEEG data processed for time-frequency analysis.",
+    "methods_description": "Interictal iEEG recordings were collected during sleep from pediatric epilepsy patients at UCLA Mattel Children's Hospital and Children's Hospital of Michigan. Subject-wise data includes channel names, anatomical labels, and resection status. HFO detection derivatives were generated using RMS and MNI detectors. Bipolar iEEG data used in a related time-frequency analysis study are also provided.",
     "funding": [
       {
         "funder_name": "National Institutes of Health"
@@ -63,23 +75,16 @@
         "funder_name": "National Institutes of Health",
         "award_number": "Not specified"
       }
-    ],
-    "searched_accessions": [
-      "on005398",
-      "ds005398"
-    ],
-    "num_accession_mentions": 4,
-    "num_dataset_citations": 4,
-    "num_datapaper_citations": 16
+    ]
   },
   "citation_details": [
     {
       "title": "Omni-iEEG: A Large-Scale, Comprehensive iEEG Dataset and Benchmark for Epilepsy Research",
-      "author": "Chen-Da Duan, Yi-Peng Zhang, Sotaro Kanai, Yuanyi Ding, A. Daida, P. Yu, T. Zheng, Naoto Kuroda, Shaun A Hussain, E. Asano, H. Nariai, V. Roychowdhury",
+      "author": "Chen-Da Duan, Yi-Peng Zhang, Sotaro Kanai, Yuan-Yi Ding, Atsuro Daida, P. Yu, T. Zheng, Naoto Kuroda, Shaun A Hussain, E. Asano, H. Nariai, V. Roychowdhury",
       "venue": "ArXiv",
       "year": 2026,
       "url": "https://doi.org/10.48550/arXiv.2602.16072",
-      "cited_by": 6,
+      "cited_by": 8,
       "abstract": "Epilepsy affects over 50 million people worldwide, and one-third of patients suffer drug-resistant seizures where surgery offers the best chance of seizure freedom. Accurate localization of the epileptogenic zone (EZ) relies on intracranial EEG (iEEG). Clinical workflows, however, remain constrained by labor-intensive manual review. At the same time, existing data-driven approaches are typically developed on single-center datasets that are inconsistent in format and metadata, lack standardized benchmarks, and rarely release pathological event annotations, creating barriers to reproducibility, cross-center validation, and clinical relevance. With extensive efforts to reconcile heterogeneous iEEG formats, metadata, and recordings across publicly available sources, we present $\\textbf{Omni-iEEG}$, a large-scale, pre-surgical iEEG resource comprising $\\textbf{302 patients}$ and $\\textbf{178 hours}$ of high-resolution recordings. The dataset includes harmonized clinical metadata such as sei",
       "doi": "10.48550/arXiv.2602.16072",
       "pmid": null,
@@ -88,9 +93,32 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.8533547428250313,
-        "similarity_score": 0.7388352751731873,
-        "citation_text_length": 1282,
+        "confidence_score": 0.856364161670208,
+        "similarity_score": 0.7414408326148987,
+        "citation_text_length": 1287,
+        "dataset_text_length": 2531,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "PyHFO 2.0: an open-source platform for deep learning—based clinical high-frequency oscillations analysis",
+      "author": "Yuanyi Ding, Yipeng Zhang, Chenda Duan, Atsuro Daida, Yun Zhang, Sotaro Kanai, Mingjian Lu, Shaun A. Hussain, Richard J. Staba, Hiroki Nariai, Vwani Roychowdhury",
+      "venue": "Journal of Neural Engineering",
+      "year": 2025,
+      "url": "https://doi.org/10.1088/1741-2552/ae10e0",
+      "cited_by": 6,
+      "abstract": "Abstract Objective. Accurate detection and classification of high-frequency oscillations (HFOs) in electroencephalography (EEG) recordings have become increasingly important for identifying epileptogenic zones in patients with drug-resistant epilepsy. However, few open-source platforms offer both state-of-the-art computational methods and user-friendly interfaces to support practical clinical use. Approach. We present PyHFO 2.0, an enhanced open-source, Python-based platform that extends previous work by incorporating a more comprehensive set of detection methods and deep learning (DL) tools for HFO analysis. The platform now supports three commonly used detectors: short-term energy, Montreal Neurological Institute, and a newly integrated Hilbert transform-based detector. For HFO classification, PyHFO 2.0 includes DL models for artifact rejection, spike HFO detection, and identification of epileptogenic HFOs. These models are integrated with the Hugging Face ecosystem for automatic loa",
+      "doi": "10.1088/1741-2552/ae10e0",
+      "pmid": "41061718",
+      "openalex_id": "W4414945900",
+      "source_doi": "10.1111/epi.18545",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7694015675783158,
+        "similarity_score": 0.6661485433578491,
+        "citation_text_length": 1333,
         "dataset_text_length": 2531,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -114,29 +142,6 @@
         "confidence_score": 0.5164102569222451,
         "similarity_score": 0.4471084475517273,
         "citation_text_length": 1475,
-        "dataset_text_length": 2531,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "PyHFO 2.0: an open-source platform for deep learning—based clinical high-frequency oscillations analysis",
-      "author": "Yuanyi Ding, Yipeng Zhang, Chenda Duan, Atsuro Daida, Yun Zhang, Sotaro Kanai, Mingjian Lu, Shaun A. Hussain, Richard J. Staba, Hiroki Nariai, Vwani Roychowdhury",
-      "venue": "Journal of Neural Engineering",
-      "year": 2025,
-      "url": "https://doi.org/10.1088/1741-2552/ae10e0",
-      "cited_by": 5,
-      "abstract": "Abstract Objective. Accurate detection and classification of high-frequency oscillations (HFOs) in electroencephalography (EEG) recordings have become increasingly important for identifying epileptogenic zones in patients with drug-resistant epilepsy. However, few open-source platforms offer both state-of-the-art computational methods and user-friendly interfaces to support practical clinical use. Approach. We present PyHFO 2.0, an enhanced open-source, Python-based platform that extends previous work by incorporating a more comprehensive set of detection methods and deep learning (DL) tools for HFO analysis. The platform now supports three commonly used detectors: short-term energy, Montreal Neurological Institute, and a newly integrated Hilbert transform-based detector. For HFO classification, PyHFO 2.0 includes DL models for artifact rejection, spike HFO detection, and identification of epileptogenic HFOs. These models are integrated with the Hugging Face ecosystem for automatic loa",
-      "doi": "10.1088/1741-2552/ae10e0",
-      "pmid": "41061718",
-      "openalex_id": "W4414945900",
-      "source_doi": "10.1111/epi.18545",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.7694015675783158,
-        "similarity_score": 0.6661485433578491,
-        "citation_text_length": 1333,
         "dataset_text_length": 2531,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -183,6 +188,29 @@
         "confidence_score": 0.7081406798958779,
         "similarity_score": 0.6131088137626648,
         "citation_text_length": 1226,
+        "dataset_text_length": 2531,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Internal and external validation of comprehensive high-frequency activity biomarkers for epilepsy surgery",
+      "author": "Keisuke Hatano, Naoto Kuroda, Hiroshi Uda, Kazuki Sakakura, Michael J. Cools, Aimée F. Luat, Shin‐ichiro Osawa, Hitoshi Nemoto, Kazushi Ukishiro, Hidenori Endo, Nobukazu Nakasato, Yutaro Takayama, Keiya Iijima, Masaki Iwasaki, Eishi Asano",
+      "venue": "Clinical Neurophysiology",
+      "year": 2026,
+      "url": "https://doi.org/10.1016/j.clinph.2026.2111981",
+      "cited_by": 1,
+      "abstract": "OBJECTIVE: To validate models incorporating intracranial EEG-derived high-frequency activity (HFA) biomarkers for predicting the seizure onset zone (SOZ) and postsurgical seizure outcomes across independent cohorts and etiologies. METHODS: We quantified interictal HFA occurrence rates together with a comprehensive set of morphological features in people with drug-resistant epilepsy in a derivation cohort (N = 142), a temporal external cohort (N = 35), and two geographical external cohorts (N = 26 and N = 30). We developed models for SOZ localization using data from the 79 derivation cohort individuals who achieved postoperative seizure freedom. Model performance for SOZ localization and postoperative seizure outcome prediction was subsequently evaluated in the derivation, temporal external, and geographical external cohorts. RESULTS: HFA rate, spectral entropy, and power emerged as the most influential features for accurate SOZ classification. The model identified SOZ sites with areas ",
+      "doi": "10.1016/j.clinph.2026.2111981",
+      "pmid": "42322807",
+      "openalex_id": "W7164849672",
+      "source_doi": "10.1111/epi.18545",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7393404239416124,
+        "similarity_score": 0.640121579170227,
+        "citation_text_length": 1406,
         "dataset_text_length": 2531,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -373,29 +401,6 @@
       }
     },
     {
-      "title": "Internal and external validation of comprehensive high-frequency activity biomarkers for epilepsy surgery",
-      "author": "Keisuke Hatano, Naoto Kuroda, Hiroshi Uda, Kazuki Sakakura, Michael J. Cools, Aimée F. Luat, Shin‐ichiro Osawa, Hitoshi Nemoto, Kazushi Ukishiro, Hidenori Endo, Nobukazu Nakasato, Yutaro Takayama, Keiya Iijima, Masaki Iwasaki, Eishi Asano",
-      "venue": "Clinical Neurophysiology",
-      "year": 2026,
-      "url": "https://doi.org/10.1016/j.clinph.2026.2111981",
-      "cited_by": 0,
-      "abstract": "OBJECTIVE: To validate models incorporating intracranial EEG-derived high-frequency activity (HFA) biomarkers for predicting the seizure onset zone (SOZ) and postsurgical seizure outcomes across independent cohorts and etiologies. METHODS: We quantified interictal HFA occurrence rates together with a comprehensive set of morphological features in people with drug-resistant epilepsy in a derivation cohort (N = 142), a temporal external cohort (N = 35), and two geographical external cohorts (N = 26 and N = 30). We developed models for SOZ localization using data from the 79 derivation cohort individuals who achieved postoperative seizure freedom. Model performance for SOZ localization and postoperative seizure outcome prediction was subsequently evaluated in the derivation, temporal external, and geographical external cohorts. RESULTS: HFA rate, spectral entropy, and power emerged as the most influential features for accurate SOZ classification. The model identified SOZ sites with areas ",
-      "doi": "10.1016/j.clinph.2026.2111981",
-      "pmid": "42322807",
-      "openalex_id": "W7164849672",
-      "source_doi": "10.1111/epi.18545",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.7393404239416124,
-        "similarity_score": 0.640121579170227,
-        "citation_text_length": 1406,
-        "dataset_text_length": 2531,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "ESM-AnatTractNet: Advanced deep learning model of true positive eloquent white matter tractography to improve preoperative evaluation of pediatric epilepsy surgery",
       "author": "Min‐Hee Lee, Bohan Xiao, Soumyanil Banerjee, Hiroshi Uda, Yoon Ho Hwang, Csaba Juhász, Eishi Asano, Ming Dong, Jeong‐Won Jeong",
       "venue": "Medical Image Analysis",
@@ -413,6 +418,29 @@
         "confidence_score": 0.6604249995946885,
         "similarity_score": 0.5717965364456177,
         "citation_text_length": 1350,
+        "dataset_text_length": 2531,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "PHASE: A Physiology-Guided Hierarchical Foundation Model for Intracranial EEG",
+      "author": "Yi-Peng Zhang, Chen-Da Duan, Yuan-Yi Ding, Tian-Yi Wang, Atsuro Daida, Masaki Izumi, Yuta Tanoue, Naoto Kuroda, Shaun A. Hussain, Nishant Sinha, E. Asano, H. Nariai, V. Roychowdhury",
+      "venue": "n/a",
+      "year": 2026,
+      "url": "n/a",
+      "cited_by": 0,
+      "abstract": "Clinicians and neuroscientists have long analyzed intracranial electroencephalography (iEEG) through directly measurable physiological characteristics, which carry much of the information that downstream tasks depend on. Recent iEEG foundation models learn by reconstructing or predicting their inputs, which leaves the retention of these characteristics implicit. They are also evaluated mainly on cognitive decoding and a narrow clinical task, i.e., seizure detection. On a broad, clinically relevant benchmark such as Omni-iEEG, they remain below task-specific models when used frozen. We introduce PHASE, a physiology-guided foundation model that makes these characteristics explicit learning targets, pairing them with masked latent prediction in a temporal stage (PHASE-T) within each channel and a spatiotemporal stage (PHASE-ST) across synchronized channels. PHASE is pretrained on heterogeneous recordings from 222 participants at nine clinical sites. On all five Omni-iEEG clinical tasks, f",
+      "doi": null,
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.1111/epi.18545",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7300415441393854,
+        "similarity_score": 0.6320706009864807,
+        "citation_text_length": 1300,
         "dataset_text_length": 2531,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -440,121 +468,21 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
-    },
-    {
-      "title": "Self-Supervised Data-Driven Approach Defines Pathological High-Frequency Oscillations in Human",
-      "author": "Yipeng Zhang, Atsuro Daida, Lawrence Liu, Naoto Kuroda, Yuanyi Ding, Shingo Oana, Sotaro Kanai, Tonmoy Monsoor, Chenda Duan, Shaun A. Hussain, Joe X Qiao, Noriko Salamon, Aria Fallah, Myung‐Shin Sim, Raman Sankar, Richard J. Staba, Jerome Engel, Eishi Asano, Vwani Roychowdhury, Hiroki Nariai",
-      "venue": "medRxiv",
-      "year": 2024,
-      "url": "https://doi.org/10.1101/2024.07.10.24310189",
-      "cited_by": 5,
-      "abstract": "Objective: Interictal high-frequency oscillations (HFOs) are a promising neurophysiological biomarker of the epileptogenic zone (EZ). However, objective criteria for distinguishing pathological from physiological HFOs remain elusive, hindering clinical application. We investigated whether the distinct mechanisms underlying pathological and physiological HFOs are encapsulated in their signal morphology in intracranial EEG (iEEG) recordings and whether this mechanism-driven distinction could be simulated by a deep generative model. Methods: In a retrospective cohort of 185 epilepsy patients who underwent iEEG monitoring, we analyzed 686,410 HFOs across 18,265 brain contacts. To learn morphological characteristics, each event was transformed into a time-frequency plot and input into a variational autoencoder. We characterized latent space clusters containing morphologically defined putative pathological HFOs (mpHFOs) using interpretability analysis, including latent space disentanglement and time-domain perturbation. Results: mpHFOs showed strong associations with expert-defined spikes and were predominantly located within the seizure onset zone (SOZ). Discovered novel pathological features included high power in the gamma (30-80 Hz) and ripple (>80 Hz) bands centered on the event. These characteristics were consistent across multiple variables, including institution, electrode type, and patient demographics. Predicting 12-month postoperative seizure outcomes using the resection ratio of mpHFOs outperformed unclassified HFOs (F1=0.72 vs. 0.68) and matched current clinical standards using SOZ resection (F1=0.74). Combining mpHFO data with demographic and SOZ resection status further improved prediction accuracy (F1=0.83). Interpretation: Our data-driven approach yielded a novel, explainable definition of pathological HFOs, which has the potential to further enhance the clinical use of HFOs for EZ delineation.",
-      "doi": "10.1101/2024.07.10.24310189",
-      "pmid": "39040207",
-      "openalex_id": "W4400520718",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds005398",
-      "confidence_scoring": {
-        "confidence_score": 0.8291423249244692,
-        "similarity_score": 0.717872142791748,
-        "citation_text_length": 1932,
-        "dataset_text_length": 2531,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Interictal Mini-Seizures: Recurrent Neuronal Synchronization Events Driven by the Epileptogenic Zone",
-      "author": "Tonmoy Monsoor, Sotaro Kanai, Prateik Sinha, Atsuro Daida, Naoto Kuroda, Shingo Oana, Lina Zhang, Lawrence Liu, Gaurav Singh, Yipeng Zhang, Chenda Duan, Shaun A. Hussain, Raman Sankar, Aria Fallah, Myung‐Shin Sim, William F Speier, Richard J Staba, Jerome Engel, Eishi Asano, Vwani Roychowdhury, Hiroki Nariai",
-      "venue": "medRxiv",
-      "year": 2025,
-      "url": "https://doi.org/10.1101/2025.01.31.25321482",
-      "cited_by": 1,
-      "abstract": "Epilepsy affects 1% of the population, with up to one-third of patients being medication-resistant. Surgery is the only curative treatment, yet over one-third of surgical patients fail to achieve seizure freedom due to the lack of a reliable epileptogenic zone (EZ) biomarker. We introduced and validated mini-seizures, frequent hypersynchronization events at EZ hubs that mirror seizure network dynamics, as a novel interictal EEG biomarker. Using a dynamical networks-based model, we analyzed short interictal intracranial EEG from 159 patients across two institutions. Our model, integrating hypersynchronous network properties and clinical data, successfully identified EZ hubs and accurately predicted one-year postoperative seizure outcomes. Our model (mean F1 score: 87%) outperformed the high-frequency oscillations-based model (mean F1 score: 79%) and seizure onset zone resection-status-based model (current clinical standard) (mean F1 score: 78%), supporting its potential as a robust interictal biomarker for EZ localization. Our findings suggest mini-seizures and seizures exist on a continuum of epileptic events, sharing common network properties. Unlike seizure-based analyses that require 1-2 weeks of monitoring to capture spontaneous seizures, mini-seizures provide a rapid alternative using only brief interictal recordings.",
-      "doi": "10.1101/2025.01.31.25321482",
-      "pmid": "39974054",
-      "openalex_id": "W4407079706",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds005398",
-      "confidence_scoring": {
-        "confidence_score": 0.6800278034806252,
-        "similarity_score": 0.5887686610221863,
-        "citation_text_length": 1799,
-        "dataset_text_length": 2531,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Self‐supervised data‐driven approach defines pathological high‐frequency oscillations in epilepsy",
-      "author": "Yipeng Zhang, Atsuro Daida, Lawrence Liu, Naoto Kuroda, Yuanyi Ding, Shingo Oana, Sotaro Kanai, Tonmoy Monsoor, Chenda Duan, Shaun A. Hussain, Joe X Qiao, Noriko Salamon, Aria Fallah, Myung‐Shin Sim, Raman Sankar, Richard J. Staba, Jerome Engel, Eishi Asano, Vwani Roychowdhury, Hiroki Nariai",
-      "venue": "Epilepsia",
-      "year": 2025,
-      "url": "https://doi.org/10.1111/epi.18545",
-      "cited_by": 14,
-      "abstract": "OBJECTIVE: Interictal high-frequency oscillations (HFOs) are a promising neurophysiological biomarker of the epileptogenic zone (EZ). However, objective criteria for distinguishing pathological from physiological HFOs remain elusive, hindering clinical application. We investigated whether the distinct mechanisms underlying pathological and physiological HFOs are encapsulated in their signal morphology in intracranial electroencephalographic (iEEG) recordings and whether this distinction could be captured by a deep generative model. METHODS: In a retrospective cohort of 185 epilepsy patients who underwent iEEG monitoring, we analyzed 686 410 HFOs across 18 265 brain contacts. To learn morphological characteristics, each event was transformed into a time-frequency plot and input into a variational autoencoder. We characterized latent space clusters containing morphologically defined putative pathological HFOs (mpHFOs) using interpretability analysis, including latent space disentanglement and time-domain perturbation. We built a predictive model to forecast postoperative seizure outcomes at 12 months based on the resection status of brain regions exhibiting mpHFOs. This model was compared to current clinical standards that evaluate outcomes based on the extent of seizure onset zone (SOZ) removal. RESULTS: mpHFOs showed strong associations with expert-defined spikes and were predominantly located within the SOZ. The interpretability analysis discovered novel pathological features, including high power in the gamma (30-80 Hz) and ripple (>80 Hz) bands centered on the event with spike-like activity. These characteristics were consistent across multiple variables, including institution, electrode type, patient demographics, and anatomical location. Predicting postoperative seizure outcomes using the resection ratio of mpHFOs outperformed unclassified HFOs (F1 = .72 vs. .68, p < .01) and matched current clinical standards using SOZ resection (F1 = .74, p = .76). Combining mpHFO data with demographic and SOZ resection status further improved prediction performance (F1 = .83, p < .01). SIGNIFICANCE: Our data-driven approach using the generative artificial intelligence model yielded a novel, explainable definition of pathological HFOs, which has the potential to further enhance the clinical use of HFOs for EZ delineation.",
-      "doi": "10.1111/epi.18545",
-      "pmid": "40650866",
-      "openalex_id": "W4412365719",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds005398",
-      "confidence_scoring": {
-        "confidence_score": 0.8221008878946305,
-        "similarity_score": 0.7117756605148315,
-        "citation_text_length": 1937,
-        "dataset_text_length": 2531,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "頭蓋内脳波バイオマーカーによるてんかん手術支援のためのマルチタスク学習器の開発",
-      "author": "Nawara Mahmood Broti",
-      "venue": "Institutional Repositories DataBase (IRDB)",
-      "year": 2026,
-      "url": "https://openalex.org/W7207950481",
-      "cited_by": 0,
-      "abstract": null,
-      "doi": null,
-      "pmid": null,
-      "openalex_id": "W7207950481",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds005398",
-      "confidence_scoring": {
-        "confidence_score": 0.48051191568374635,
-        "similarity_score": 0.4576303958892822,
-        "citation_text_length": 128,
-        "dataset_text_length": 2531,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T16:38:37.493609+00:00",
+    "scoring_date": "2026-10-11T11:36:43.753504+00:00",
     "dataset_text_length": 2531,
-    "num_citations_scored": 20,
+    "num_citations_scored": 17,
     "summary_stats": {
-      "mean_confidence": 0.6355422056615352,
-      "median_confidence": 0.630837773680687,
-      "std_confidence": 0.13313653293363098,
+      "mean_confidence": 0.6254183614253999,
+      "median_confidence": 0.6303235825896264,
+      "std_confidence": 0.12478593737213382,
       "min_confidence": 0.41212410628795626,
-      "max_confidence": 0.8533547428250313,
-      "high_confidence_count": 7,
-      "medium_confidence_count": 13,
+      "max_confidence": 0.856364161670208,
+      "high_confidence_count": 6,
+      "medium_confidence_count": 11,
       "low_confidence_count": 0
     }
   }

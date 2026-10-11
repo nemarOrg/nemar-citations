@@ -1,10 +1,10 @@
 {
   "dataset_id": "on007808",
-  "num_citations": 4,
-  "date_last_updated": "2026-10-04T10:04:03.547680+00:00",
+  "num_citations": 3,
+  "date_last_updated": "2026-10-11T11:12:51.842493+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
-    "fetch_date": "2026-09-29T11:42:00.155370+00:00",
+    "fetch_date": "2026-10-11T11:12:51.842493+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -19,12 +19,12 @@
         "source_relation": "IsDescribedBy",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Large-scale training data enhances silent speech decoding with around-ear EEG",
         "paper_year": 2026,
         "paper_venue": "Journal of Neural Engineering",
         "reason": "Authors overlap with the dataset (Inoue, Hatakeyama, Kita, Sasai). The paper reports the around-ear EEG collection during silent, vocalized and attempted speech, and DataCite lists it as IsDescribedBy.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on007808",
@@ -32,12 +32,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -46,27 +46,20 @@
     ],
     "keywords": [
       "EEG",
-      "speech production",
-      "Auditory Perception",
+      "speech decoding",
       "brain-computer interface",
       "covert speech",
-      "speech decoding"
+      "auditory perception",
+      "overt speech production"
     ],
-    "methods_description": "EEG data were recorded using three different acquisition systems (g.tec g.Pangolin, g.tec g.SCARABEO, ANT Neuro eego sports) across multiple sessions labeled by recording date, with tasks including overt speech production, auditory listening, and covert speech imagery. Audio recordings of vocal production and listening stimuli were collected alongside EEG. Raw EEG data are stored in EDF format, with channel typing detailed in accompanying channels.tsv files and electrode coordinates provided for g.Pangolin sessions.",
+    "methods_description": "EEG was recorded with g.tec g.Pangolin (128 channels), g.tec g.SCARABEO (64 channels), or ANT Neuro eego sports (64 channels), along with audio monitor, EOG, lip EMG, and trigger channels. Participants completed overt speech production (vocalizing visually presented text), listening to prerecorded speech, and listening followed by covert speech imagery. Sessions are organized by recording date and stored in EDF format with synchronized WAV audio. 3D electrode coordinates from digitization are provided for g.Pangolin sessions.",
     "funding": [
       {
         "funder_name": "JST",
         "award_number": "JPMJMS2012",
         "award_title": "Moonshot R&D"
       }
-    ],
-    "searched_accessions": [
-      "on007808",
-      "ds007808"
-    ],
-    "num_accession_mentions": 1,
-    "num_dataset_citations": 1,
-    "num_datapaper_citations": 3
+    ]
   },
   "citation_details": [
     {
@@ -137,45 +130,20 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
-    },
-    {
-      "title": "A 1000-hour EEG-EMG-audio dataset of Japanese speech production",
-      "author": "Motoshige Sato, Ilya Horiguchi, Masakazu Inoue, Kenichi Tomeoka, Eri Hatakeyama, Yuya Kita, Atsushi Yamamoto, Ippei Fujisawa, Shuntaro Sasai",
-      "venue": "arXiv (Cornell University)",
-      "year": 2026,
-      "url": "https://doi.org/10.48550/arxiv.2606.01264",
-      "cited_by": 0,
-      "abstract": "We present a multimodal dataset of 1020 hours of simultaneously recorded scalp electroencephalography (EEG), facial electromyography (EMG), and speech audio from three healthy native Japanese speakers during open-vocabulary overt speech. Recordings were acquired with three EEG systems-an ultra-high-density system (g.Pangolin) and two cap-type systems (g.SCARABEO and eegosports), spanning 62-128 channels-across many sessions over several months. Each session provides time-synchronized EEG, facial EMG, and audio, together with speech-event annotations and transcriptions. Although collected with speech decoding as a primary motivation, the dataset also supports work on multimodal signal processing, artifact modeling, longitudinal and cross-device adaptation, and EEG representation learning. Technical validation included power spectral density and event-related potential analyses across participants, devices, and tasks, which showed the expected 1/f spectral profile, task-related alpha-band attenuation, and time-locked evoked responses. The dataset is released in Brain Imaging Data Structure (BIDS) format via OpenNeuro under a CC0 waiver to support both speech-related and broader EEG research.",
-      "doi": "10.48550/arxiv.2606.01264",
-      "pmid": null,
-      "openalex_id": "W7163137601",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds007808",
-      "confidence_scoring": {
-        "confidence_score": 0.8972454169392586,
-        "similarity_score": 0.7768358588218689,
-        "citation_text_length": 1476,
-        "dataset_text_length": 2321,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-10-04T10:12:07.765995+00:00",
+    "scoring_date": "2026-10-11T11:41:10.558438+00:00",
     "dataset_text_length": 2321,
-    "num_citations_scored": 4,
+    "num_citations_scored": 3,
     "summary_stats": {
-      "mean_confidence": 0.6591807402670384,
-      "median_confidence": 0.6068916387856007,
-      "std_confidence": 0.14336442367027344,
+      "mean_confidence": 0.579825848042965,
+      "median_confidence": 0.5733379304409028,
+      "std_confidence": 0.047071027389492204,
       "min_confidence": 0.5256942665576936,
-      "max_confidence": 0.8972454169392586,
-      "high_confidence_count": 1,
+      "max_confidence": 0.6404453471302987,
+      "high_confidence_count": 0,
       "medium_confidence_count": 3,
       "low_confidence_count": 0
     }

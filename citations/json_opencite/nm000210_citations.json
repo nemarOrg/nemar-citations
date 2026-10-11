@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000210",
-  "num_citations": 78,
-  "date_last_updated": "2026-10-04T10:04:42.659203+00:00",
+  "num_citations": 76,
+  "date_last_updated": "2026-10-11T10:20:52.430268+00:00",
   "metadata": {
-    "total_cumulative_citations": 884,
-    "fetch_date": "2026-09-29T10:50:04.594383+00:00",
+    "total_cumulative_citations": 894,
+    "fetch_date": "2026-10-11T10:20:52.430268+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -19,12 +19,12 @@
         "source_relation": "IsDerivedFrom",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "BCIAUT-P300: A Multi-Session and Multi-Subject Benchmark Dataset on Autism for P300-Based Brain-Computer-Interfaces",
         "paper_year": 2020,
         "paper_venue": "Frontiers in Neuroscience",
         "reason": "The paper presents the BCIAUT-P300 dataset (15 ASD participants, 7 sessions), which matches this dataset's title, authors, subject count and session count.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.21105/joss.01896",
@@ -32,12 +32,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
         "paper_year": 2019,
         "paper_venue": "The Journal of Open Source Software",
         "reason": "MNE-BIDS is a software tool for organizing electrophysiological data into BIDS; it is not a paper describing the BCIAUT-P300 dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1038/s41597-019-0104-8",
@@ -45,12 +45,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "EEG-BIDS, an extension to the brain imaging data structure for electroencephalography",
         "paper_year": 2019,
         "paper_venue": "Scientific Data",
         "reason": "EEG-BIDS is a data-format standard specification that the dataset's BIDS organization uses, not a paper describing the BCIAUT-P300 autism dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.nm000210",
@@ -58,12 +58,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -73,20 +73,13 @@
     "keywords": [
       "EEG",
       "P300",
-      "brain-computer interfaces",
+      "Brain-Computer Interfaces",
       "Autism Spectrum Disorder",
       "Event-Related Potentials, P300",
-      "joint attention",
-      "benchmark dataset"
+      "joint attention training"
     ],
-    "methods_description": "EEG data were acquired using a g.Nautilus wireless system (g.tec) with 8 channels (C3, Cz, C4, CPz, P3, Pz, P4, POz) referenced to the right ear and grounded at AFz. Sampling rate was 250 Hz with a 50 Hz line frequency. Participants completed 7 sessions of P300 BCI training with visual feedback, involving 2 runs per session with flashing object stimuli. Data were preprocessed and epoched with a trial interval of [0, 1.2] seconds.",
-    "funding": [],
-    "searched_accessions": [
-      "nm000210"
-    ],
-    "num_accession_mentions": 2,
-    "num_dataset_citations": 2,
-    "num_datapaper_citations": 76
+    "methods_description": "EEG was acquired with a wireless g.Nautilus system (g.tec) at 250 Hz from 8 channels (C3, Cz, C4, CPz, P3, Pz, P4, POz). The reference was the right ear and the ground was AFz. Participants viewed 8 flashing objects in a virtual environment. Each session contained 1600 training trials plus 400*K online test trials (K=3-10). Data were band-pass filtered at 2-30 Hz and epoched over 0-1.2 s.",
+    "funding": []
   },
   "citation_details": [
     {
@@ -118,7 +111,7 @@
       "venue": "IEEE Access",
       "year": 2023,
       "url": "https://doi.org/10.1109/access.2023.3341419",
-      "cited_by": 64,
+      "cited_by": 67,
       "abstract": "EEG is a common and safe test that uses small electrodes to record electrical signals from the brain. It has a broad range of applications in medical diagnosis, including diagnosis of epileptic seizure, Alzheimer’s, brain tumors, head injury, sleep disorders, stroke, and other seizure and neurological disorders. EEG can also be used to help diagnose death in people who are in a persistent coma. The use of digital signal processing and machine learning to improve EEG analysis for medical diagnosis has gained traction in recent years. This is because EEG visual analysis can be complex and time-consuming, as it mostly involves high dimensions and consists of large datasets. The development of novel sensors for EEG recording, digital signal processing algorithms, feature engineering, and detection algorithms increases the need for efficient diagnostic systems. An extensive review of the recent approaches for EEG preprocessing, extraction of features, and diagnosis of brain disorders is pro",
       "doi": "10.1109/access.2023.3341419",
       "pmid": null,
@@ -141,7 +134,7 @@
       "venue": "Brain Sciences",
       "year": 2023,
       "url": "https://doi.org/10.3390/brainsci13020315",
-      "cited_by": 45,
+      "cited_by": 46,
       "abstract": "Joint attention skills deficiency in Autism spectrum disorder (ASD) hinders individuals from communicating effectively. The P300 Electroencephalogram (EEG) signal-based brain-computer interface (BCI) helps these individuals in neurorehabilitation training to overcome this deficiency. The detection of the P300 signal is more challenging in ASD as it is noisy, has less amplitude, and has a higher latency than in other individuals. This paper presents a novel application of the variational mode decomposition (VMD) technique in a BCI system involving ASD subjects for P300 signal identification. The EEG signal is decomposed into five modes using VMD. Thirty linear and non-linear time and frequency domain features are extracted for each mode. Synthetic minority oversampling technique data augmentation is performed to overcome the class imbalance problem in the chosen dataset. Then, a comparative analysis of three popular machine learning classifiers is performed for this application. VMD's f",
       "doi": "10.3390/brainsci13020315",
       "pmid": "36831857",
@@ -164,7 +157,7 @@
       "venue": "Computers in Biology and Medicine",
       "year": 2023,
       "url": "https://doi.org/10.1016/j.compbiomed.2023.107323",
-      "cited_by": 42,
+      "cited_by": 43,
       "abstract": "Continuous decoding of hand kinematics has been recently explored for the intuitive control of electroencephalography (EEG)-based Brain-Computer Interfaces (BCIs). Deep neural networks (DNNs) are emerging as powerful decoders, for their ability to automatically learn features from lightly pre-processed signals. However, DNNs for kinematics decoding lack in the interpretability of the learned features and are only used to realize within-subject decoders without testing other training approaches potentially beneficial for reducing calibration time, such as transfer learning. Here, we aim to overcome these limitations by using an interpretable convolutional neural network (ICNN) to decode 2-D hand kinematics (position and velocity) from EEG in a pursuit tracking task performed by 13 participants. The ICNN is trained using both within-subject and cross-subject strategies, and also testing the feasibility of transferring the knowledge learned on other subjects on a new one. Moreover, the ne",
       "doi": "10.1016/j.compbiomed.2023.107323",
       "pmid": "37619325",
@@ -187,7 +180,7 @@
       "venue": "Artificial Intelligence Review",
       "year": 2025,
       "url": "https://doi.org/10.1007/s10462-025-11302-x",
-      "cited_by": 41,
+      "cited_by": 43,
       "abstract": "Neurological disorders affect communication ability, social interaction, and a person’s conduct. Early diagnosis and treatment of ASD during the early stages of a person’s life may result in better outcomes and a higher quality of life for patients. Current methods of diagnosis are based on behavioral observations and interviews, which are subjective, time-consuming, and costly. EEG does not include invasive techniques, and it is a safe and painless way of measuring electrical activity in the brain. EEG signals may reflect neural differences and abnormalities related to ASD and serve as a potential biomarker for diagnosis. Due to the increase in prevalence, there has been an increased need to develop more sensitive and unbiased diagnostic methods for ASD. ML and DL are two sophisticated methods that researchers developed for detecting ASD by doing neural network analyses. The review paper incorporates the analysis of previous studies; more than 200 works have been analyzed from top pub",
       "doi": "10.1007/s10462-025-11302-x",
       "pmid": null,
@@ -210,7 +203,7 @@
       "venue": "Journal of Neural Engineering",
       "year": 2022,
       "url": "https://doi.org/10.1088/1741-2552/ac7908",
-      "cited_by": 38,
+      "cited_by": 39,
       "abstract": "Abstract Objective. P300 can be analyzed in autism spectrum disorder (ASD) to derive biomarkers and can be decoded in brain–computer interfaces to reinforce ASD impaired skills. Convolutional neural networks (CNNs) have been proposed for P300 decoding, outperforming traditional algorithms but they (a) do not investigate optimal designs in different training conditions; (b) lack in interpretability. To overcome these limitations, an interpretable CNN (ICNN), that we recently proposed for motor decoding, has been modified and adopted here, with its optimal design searched via Bayesian optimization. Approach. The ICNN provides a straightforward interpretation of spectral and spatial features learned to decode P300. The Bayesian-optimized (BO) ICNN design was investigated separately for different training strategies (within-subject, within-session, and cross-subject) and BO models were used for the subsequent analyses. Specifically, transfer learning (TL) potentialities were investigated b",
       "doi": "10.1088/1741-2552/ac7908",
       "pmid": "35704992",
@@ -233,7 +226,7 @@
       "venue": "Frontiers in Human Neuroscience",
       "year": 2021,
       "url": "https://doi.org/10.3389/fnhum.2021.655840",
-      "cited_by": 37,
+      "cited_by": 36,
       "abstract": "Convolutional neural networks (CNNs), which automatically learn features from raw data to approximate functions, are being increasingly applied to the end-to-end analysis of electroencephalographic (EEG) signals, especially for decoding brain states in brain-computer interfaces (BCIs). Nevertheless, CNNs introduce a large number of trainable parameters, may require long training times, and lack in interpretability of learned features. The aim of this study is to propose a CNN design for P300 decoding with emphasis on its lightweight design while guaranteeing high performance, on the effects of different training strategies, and on the use of post-hoc techniques to explain network decisions. The proposed design, named MS-EEGNet, learned temporal features in two different timescales (i.e., multi-scale, MS) in an efficient and optimized (in terms of trainable parameters) way, and was validated on three P300 datasets. The CNN was trained using different strategies (within-participant and w",
       "doi": "10.3389/fnhum.2021.655840",
       "pmid": "34305550",
@@ -279,7 +272,7 @@
       "venue": "Journal of Integrative Neuroscience",
       "year": 2021,
       "url": "https://doi.org/10.31083/j.jin2004083",
-      "cited_by": 32,
+      "cited_by": 31,
       "abstract": "The neural processing of incoming stimuli can be analysed from the electroencephalogram (EEG) through event-related potentials (ERPs). The P3 component is largely investigated as it represents an important psychophysiological marker of psychiatric disorders. This is composed by several subcomponents, such as P3a and P3b, reflecting distinct but interrelated sensory and cognitive processes of incoming stimuli. Due to the low EEG signal-to-noise-ratio, ERPs emerge only after an averaging procedure across trials and subjects. Thus, this canonical ERP analysis lacks in the ability to highlight EEG neural signatures at the level of single-subject and single-trial. In this study, a deep learning-based workflow is investigated to enhance EEG neural signatures related to P3 subcomponents already at single-subject and at single-trial level. This was based on the combination of a convolutional neural network (CNN) with an explanation technique (ET). The CNN was trained using two different strate",
       "doi": "10.31083/j.jin2004083",
       "pmid": "34997705",
@@ -389,29 +382,6 @@
       }
     },
     {
-      "title": "Motor decoding from the posterior parietal cortex using deep neural networks",
-      "author": "Davide Borra, Matteo Filippini, Mauro Ursino, Patrizia Fattori, Elisa Magosso",
-      "venue": "Journal of Neural Engineering",
-      "year": 2023,
-      "url": "https://doi.org/10.1088/1741-2552/acd1b6",
-      "cited_by": 16,
-      "abstract": "Abstract Objective. Motor decoding is crucial to translate the neural activity for brain-computer interfaces (BCIs) and provides information on how motor states are encoded in the brain. Deep neural networks (DNNs) are emerging as promising neural decoders. Nevertheless, it is still unclear how different DNNs perform in different motor decoding problems and scenarios, and which network could be a good candidate for invasive BCIs. Approach. Fully-connected, convolutional, and recurrent neural networks (FCNNs, CNNs, RNNs) were designed and applied to decode motor states from neurons recorded from V6A area in the posterior parietal cortex (PPC) of macaques. Three motor tasks were considered, involving reaching and reach-to-grasping (the latter under two illumination conditions). DNNs decoded nine reaching endpoints in 3D space or five grip types using a sliding window approach within the trial course. To evaluate decoders simulating a broad variety of scenarios, the performance was also a",
-      "doi": "10.1088/1741-2552/acd1b6",
-      "pmid": "37130514",
-      "openalex_id": "W4367670523",
-      "source_doi": "10.3389/fnins.2020.568104",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.4321639466285706,
-        "similarity_score": 0.37416791915893555,
-        "citation_text_length": 1221,
-        "dataset_text_length": 2416,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Summarizing Recent Developments on Autism Spectrum Disorder Detection and Classification Through Machine Learning and Deep Learning Techniques",
       "author": "Masroor Ahmed, Sadam Hussain, Farman Ali Pirzado, Anna Karen Gárate-Escamilla, Iván Amaya, Gilberto Ochoa‐Ruiz, José Carlos Ortíz-Bayliss",
       "venue": "Applied Sciences",
@@ -435,23 +405,23 @@
       }
     },
     {
-      "title": "EEG as a marker of brain plasticity in clinical applications",
-      "author": "Paolo Manganotti, Miloš Ajčević, Alex Buoite Stella",
-      "venue": "Handbook of clinical neurology",
-      "year": 2022,
-      "url": "https://doi.org/10.1016/b978-0-12-819410-2.00029-1",
-      "cited_by": 15,
-      "abstract": "Neural networks are dynamic, and the brain has the capacity to reorganize itself. This capacity is named neuroplasticity and is fundamental for many processes ranging from learning and adaptation to new environments to the response to brain injuries. Measures of brain plasticity involve several techniques, including neuroimaging and neurophysiology. Electroencephalography, often used together with other techniques, is a common tool for prognostic and diagnostic purposes, and cortical reorganization is reflected by EEG measurements. Changes of power bands in different cortical areas occur with fatigue and in response to training stimuli leading to learning processes. Sleep has a fundamental role in brain plasticity, restoring EEG bands alterations and promoting consolidation of learning. Exercise and physical inactivity have been extensively studied as both strongly impact brain plasticity. Indeed, EEG studies showed the importance of the physical activity to promote learning and the ef",
-      "doi": "10.1016/b978-0-12-819410-2.00029-1",
-      "pmid": "35034760",
-      "openalex_id": "W4205139463",
+      "title": "Motor decoding from the posterior parietal cortex using deep neural networks",
+      "author": "Davide Borra, Matteo Filippini, Mauro Ursino, Patrizia Fattori, Elisa Magosso",
+      "venue": "Journal of Neural Engineering",
+      "year": 2023,
+      "url": "https://doi.org/10.1088/1741-2552/acd1b6",
+      "cited_by": 16,
+      "abstract": "Abstract Objective. Motor decoding is crucial to translate the neural activity for brain-computer interfaces (BCIs) and provides information on how motor states are encoded in the brain. Deep neural networks (DNNs) are emerging as promising neural decoders. Nevertheless, it is still unclear how different DNNs perform in different motor decoding problems and scenarios, and which network could be a good candidate for invasive BCIs. Approach. Fully-connected, convolutional, and recurrent neural networks (FCNNs, CNNs, RNNs) were designed and applied to decode motor states from neurons recorded from V6A area in the posterior parietal cortex (PPC) of macaques. Three motor tasks were considered, involving reaching and reach-to-grasping (the latter under two illumination conditions). DNNs decoded nine reaching endpoints in 3D space or five grip types using a sliding window approach within the trial course. To evaluate decoders simulating a broad variety of scenarios, the performance was also a",
+      "doi": "10.1088/1741-2552/acd1b6",
+      "pmid": "37130514",
+      "openalex_id": "W4367670523",
       "source_doi": "10.3389/fnins.2020.568104",
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.42117017760872844,
-        "similarity_score": 0.3646495044231415,
-        "citation_text_length": 1180,
+        "confidence_score": 0.4321639466285706,
+        "similarity_score": 0.37416791915893555,
+        "citation_text_length": 1221,
         "dataset_text_length": 2416,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -459,7 +429,7 @@
     },
     {
       "title": "CNN-FEBAC: A framework for attention measurement of autistic individuals",
-      "author": "Manan S. Patel, Harsh Bhatt, Manushi Munshi, Shivani Pandya, Swati Jain, Priyank Thakkar, Sang Won Yoon",
+      "author": "Manan Patel, Harsh Bhatt, Manushi Munshi, Shivani Pandya, Swati Jain, Priyank Thakkar, Sang Won Yoon",
       "venue": "Biomedical Signal Processing and Control",
       "year": 2023,
       "url": "https://doi.org/10.1016/j.bspc.2023.105018",
@@ -472,9 +442,32 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6427879303693772,
-        "similarity_score": 0.6121789813041687,
-        "citation_text_length": 242,
+        "confidence_score": 0.6451360523700714,
+        "similarity_score": 0.6144152879714966,
+        "citation_text_length": 239,
+        "dataset_text_length": 2416,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "EEG as a marker of brain plasticity in clinical applications",
+      "author": "Paolo Manganotti, Miloš Ajčević, Alex Buoite Stella",
+      "venue": "Handbook of clinical neurology",
+      "year": 2022,
+      "url": "https://doi.org/10.1016/b978-0-12-819410-2.00029-1",
+      "cited_by": 14,
+      "abstract": "Neural networks are dynamic, and the brain has the capacity to reorganize itself. This capacity is named neuroplasticity and is fundamental for many processes ranging from learning and adaptation to new environments to the response to brain injuries. Measures of brain plasticity involve several techniques, including neuroimaging and neurophysiology. Electroencephalography, often used together with other techniques, is a common tool for prognostic and diagnostic purposes, and cortical reorganization is reflected by EEG measurements. Changes of power bands in different cortical areas occur with fatigue and in response to training stimuli leading to learning processes. Sleep has a fundamental role in brain plasticity, restoring EEG bands alterations and promoting consolidation of learning. Exercise and physical inactivity have been extensively studied as both strongly impact brain plasticity. Indeed, EEG studies showed the importance of the physical activity to promote learning and the ef",
+      "doi": "10.1016/b978-0-12-819410-2.00029-1",
+      "pmid": "35034760",
+      "openalex_id": "W4205139463",
+      "source_doi": "10.3389/fnins.2020.568104",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.42117017760872844,
+        "similarity_score": 0.3646495044231415,
+        "citation_text_length": 1180,
         "dataset_text_length": 2416,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -711,6 +704,29 @@
       }
     },
     {
+      "title": "Ventral and Dorsal Stream EEG Channels: Key Features for EEG-Based Object Recognition and Identification",
+      "author": "Daniel Leong, Thomas Do, Chin‐Teng Lin",
+      "venue": "IEEE Transactions on Neural Systems and Rehabilitation Engineering",
+      "year": 2023,
+      "url": "https://doi.org/10.1109/tnsre.2023.3339698",
+      "cited_by": 8,
+      "abstract": "Object recognition and object identification are multifaceted cognitive operations that require various brain regions to synthesize and process information. Prior research has evidenced the activity of both visual and temporal cortices during these tasks. Notwithstanding their similarities, object recognition and identification are recognized as separate brain functions. Drawing from the two-stream hypothesis, our investigation aims to understand whether the channels within the ventral and dorsal streams contain pertinent information for effective model learning regarding object recognition and identification tasks. By utilizing the data we collected during the object recognition and identification experiment, we scrutinized EEGNet models, trained using channels that replicate the two-stream hypothesis pathways, against a model trained using all available channels. The outcomes reveal that the model trained solely using the temporal region delivered a high accuracy level in classifying",
+      "doi": "10.1109/tnsre.2023.3339698",
+      "pmid": "38051624",
+      "openalex_id": "W4389331910",
+      "source_doi": "10.3389/fnins.2020.568104",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.44971480518579493,
+        "similarity_score": 0.38936346769332886,
+        "citation_text_length": 1247,
+        "dataset_text_length": 2416,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "A brain functional network feature extraction method based on directed transfer function and graph theory for MI-BCI decoding tasks",
       "author": "Pengfei Ma, Chaoyi Dong, Ruijing Lin, Huanzi Liu, Dongyang Lei, Xiaoyan Chen, Huan Liu",
       "venue": "Frontiers in Neuroscience",
@@ -734,23 +750,23 @@
       }
     },
     {
-      "title": "Ventral and Dorsal Stream EEG Channels: Key Features for EEG-Based Object Recognition and Identification",
-      "author": "Daniel J. Leong, Thomas Do, Chin‐Teng Lin",
-      "venue": "IEEE Transactions on Neural Systems and Rehabilitation Engineering",
+      "title": "Domain-independent short-term calibration based hybrid approach for motor imagery electroencephalograph classification: a comprehensive review",
+      "author": "Ifrah Raoof, Manoj Kumar Gupta",
+      "venue": "Multimedia Tools and Applications",
       "year": 2023,
-      "url": "https://doi.org/10.1109/tnsre.2023.3339698",
+      "url": "https://doi.org/10.1007/s11042-023-15900-1",
       "cited_by": 7,
-      "abstract": "Object recognition and object identification are multifaceted cognitive operations that require various brain regions to synthesize and process information. Prior research has evidenced the activity of both visual and temporal cortices during these tasks. Notwithstanding their similarities, object recognition and identification are recognized as separate brain functions. Drawing from the two-stream hypothesis, our investigation aims to understand whether the channels within the ventral and dorsal streams contain pertinent information for effective model learning regarding object recognition and identification tasks. By utilizing the data we collected during the object recognition and identification experiment, we scrutinized EEGNet models, trained using channels that replicate the two-stream hypothesis pathways, against a model trained using all available channels. The outcomes reveal that the model trained solely using the temporal region delivered a high accuracy level in classifying",
-      "doi": "10.1109/tnsre.2023.3339698",
-      "pmid": "38051624",
-      "openalex_id": "W4389331910",
+      "abstract": null,
+      "doi": "10.1007/s11042-023-15900-1",
+      "pmid": null,
+      "openalex_id": "W4379794887",
       "source_doi": "10.3389/fnins.2020.568104",
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.45212859123945237,
-        "similarity_score": 0.3914533257484436,
-        "citation_text_length": 1250,
+        "confidence_score": 0.5227555185556412,
+        "similarity_score": 0.49786239862442017,
+        "citation_text_length": 232,
         "dataset_text_length": 2416,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -759,7 +775,7 @@
     {
       "title": "An Approach for Analyzing Cognitive Behavior of Autism Spectrum Disorder Using P300 BCI Data",
       "author": "Nabila Tasnim, Joyita Halder, Shahed Ahmed, Shaikh Anowarul Fattah",
-      "venue": "2022 IEEE Region 10 Symposium (TENSYMP)",
+      "venue": "IEEE Region 10 Symposium (TENSYMP)",
       "year": 2022,
       "url": "https://doi.org/10.1109/tensymp54529.2022.9864339",
       "cited_by": 7,
@@ -771,9 +787,32 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.8642644196748736,
-        "similarity_score": 0.7482808828353882,
-        "citation_text_length": 1236,
+        "confidence_score": 0.8583282628655434,
+        "similarity_score": 0.7431413531303406,
+        "citation_text_length": 1231,
+        "dataset_text_length": 2416,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "A protocol for trustworthy EEG decoding with neural networks",
+      "author": "Davide Borra, Elisa Magosso, Mirco Ravanelli",
+      "venue": "Neural Networks",
+      "year": 2024,
+      "url": "https://doi.org/10.1016/j.neunet.2024.106847",
+      "cited_by": 7,
+      "abstract": "Deep learning solutions have rapidly emerged for EEG decoding, achieving state-of-the-art performance on a variety of decoding tasks. Despite their high performance, existing solutions do not fully address the challenge posed by the introduction of many hyperparameters, defining data pre-processing, network architecture, network training, and data augmentation. Automatic hyperparameter search is rarely performed and limited to network-related hyperparameters. Moreover, pipelines are highly sensitive to performance fluctuations due to random initialization, hindering their reliability. Here, we design a comprehensive protocol for EEG decoding that explores the hyperparameters characterizing the entire pipeline and that includes multi-seed initialization for providing robust performance estimates. Our protocol is validated on 9 datasets about motor imagery, P300, SSVEP, including 204 participants and 26 recording sessions, and on different deep learning models. We accompany our protocol ",
+      "doi": "10.1016/j.neunet.2024.106847",
+      "pmid": "39549492",
+      "openalex_id": "W4403997676",
+      "source_doi": "10.3389/fnins.2020.568104",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5289685946702958,
+        "similarity_score": 0.4579814672470093,
+        "citation_text_length": 1158,
         "dataset_text_length": 2416,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -797,52 +836,6 @@
         "confidence_score": 0.37258831009268767,
         "similarity_score": 0.3225872814655304,
         "citation_text_length": 1267,
-        "dataset_text_length": 2416,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Domain-independent short-term calibration based hybrid approach for motor imagery electroencephalograph classification: a comprehensive review",
-      "author": "Ifrah Raoof, Manoj Kumar Gupta",
-      "venue": "Multimedia Tools and Applications",
-      "year": 2023,
-      "url": "https://doi.org/10.1007/s11042-023-15900-1",
-      "cited_by": 6,
-      "abstract": null,
-      "doi": "10.1007/s11042-023-15900-1",
-      "pmid": null,
-      "openalex_id": "W4379794887",
-      "source_doi": "10.3389/fnins.2020.568104",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5227555185556412,
-        "similarity_score": 0.49786239862442017,
-        "citation_text_length": 232,
-        "dataset_text_length": 2416,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "A protocol for trustworthy EEG decoding with neural networks",
-      "author": "Davide Borra, Elisa Magosso, Mirco Ravanelli",
-      "venue": "Neural Networks",
-      "year": 2024,
-      "url": "https://doi.org/10.1016/j.neunet.2024.106847",
-      "cited_by": 6,
-      "abstract": "Deep learning solutions have rapidly emerged for EEG decoding, achieving state-of-the-art performance on a variety of decoding tasks. Despite their high performance, existing solutions do not fully address the challenge posed by the introduction of many hyperparameters, defining data pre-processing, network architecture, network training, and data augmentation. Automatic hyperparameter search is rarely performed and limited to network-related hyperparameters. Moreover, pipelines are highly sensitive to performance fluctuations due to random initialization, hindering their reliability. Here, we design a comprehensive protocol for EEG decoding that explores the hyperparameters characterizing the entire pipeline and that includes multi-seed initialization for providing robust performance estimates. Our protocol is validated on 9 datasets about motor imagery, P300, SSVEP, including 204 participants and 26 recording sessions, and on different deep learning models. We accompany our protocol ",
-      "doi": "10.1016/j.neunet.2024.106847",
-      "pmid": "39549492",
-      "openalex_id": "W4403997676",
-      "source_doi": "10.3389/fnins.2020.568104",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5289685946702958,
-        "similarity_score": 0.4579814672470093,
-        "citation_text_length": 1158,
         "dataset_text_length": 2416,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -897,7 +890,7 @@
     {
       "title": "Unveiling the Subtle: P300 Detection for Autism Assessment via CNN and CWT",
       "author": "Swapneel Sen, Md. Shohel Rana, Shaikh Anowarul Fattah",
-      "venue": "2023 26th International Conference on Computer and Information Technology (ICCIT)",
+      "venue": "International Conference on Computer and Information Technology (ICCIT)",
       "year": 2023,
       "url": "https://doi.org/10.1109/iccit60459.2023.10441166",
       "cited_by": 5,
@@ -909,9 +902,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.8137081244587899,
-        "similarity_score": 0.7045091986656189,
-        "citation_text_length": 1247,
+        "confidence_score": 0.8064994668960572,
+        "similarity_score": 0.698267936706543,
+        "citation_text_length": 1237,
         "dataset_text_length": 2416,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -920,7 +913,7 @@
     {
       "title": "Enhancing ASD Cognitive Assessment with P300 Classification using EMD-based qEEG Wavelet Features",
       "author": "Madhuparna Das, Manjunatha Mahadevappa",
-      "venue": "2023 7th International Conference on Computer Applications in Electrical Engineering-Recent Advances (CERA)",
+      "venue": "International Conference on Computer Applications in Electrical Engineering-Recent Advances (CERA)",
       "year": 2023,
       "url": "https://doi.org/10.1109/cera59325.2023.10455596",
       "cited_by": 5,
@@ -932,9 +925,32 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.7865515512228013,
-        "similarity_score": 0.6809970140457153,
-        "citation_text_length": 1281,
+        "confidence_score": 0.7734996753931047,
+        "similarity_score": 0.6696966886520386,
+        "citation_text_length": 1272,
+        "dataset_text_length": 2416,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Advancing Autism Spectrum Disorder Diagnosis With Multimodal Data: A Survey",
+      "author": "K. Namitha, S. Girish, M. P. Anuvind, R. S. Harish Kumar, Harishankar K. Nair, Dhanya Chandran",
+      "venue": "IEEE Open Journal of the Computer Society",
+      "year": 2026,
+      "url": "https://doi.org/10.1109/OJCS.2026.3666102",
+      "cited_by": 5,
+      "abstract": "Autism Spectrum Disorder (ASD) is a complicated neurodevelopmental condition characterised by a variety of behavioural and communication challenges, marking timely and accurate diagnosis and intervention essential. Despite their widespread occurrence, conventional diagnostic methods like clinical observations and standardised questionnaires are hindered by issues like subjectivity, practitioner variability, and long evaluation durations and existing works using AI for diagnosis falters as they fail to capture range of symptoms, generalizability across cohorts and a lot more challenges. This survey compiles a comprehensive set of ASD datasets, including the limited multimodal collections, and outlines clear modality specific preprocessing steps that ensures data quality. By reviewing prior multimodal fusion surveys and highlighting breakthroughs across individual modalities with the main fusion studies, it establishes a unified view of the diagnostic approach and the fusion techniques u",
+      "doi": "10.1109/OJCS.2026.3666102",
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.3389/fnins.2020.568104",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.4926524461805821,
+        "similarity_score": 0.4265389144420624,
+        "citation_text_length": 1249,
         "dataset_text_length": 2416,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -989,7 +1005,7 @@
     {
       "title": "Augmentative and Alternative Communication with Eye-gaze Technology and Augmented Reality: Reflections from Engineers, People with Cerebral Palsy and Caregivers",
       "author": "Haifeng Zhao, Petra Karlsson, Omid Kavehei, Alistair Lee McEwan",
-      "venue": "2021 IEEE Sensors",
+      "venue": "Proceedings of IEEE Sensors/Proceedings of IEEE Sensors ...",
       "year": 2021,
       "url": "https://doi.org/10.1109/sensors47087.2021.9639819",
       "cited_by": 4,
@@ -1001,9 +1017,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.39973452240228663,
-        "similarity_score": 0.34609049558639526,
-        "citation_text_length": 1270,
+        "confidence_score": 0.3963608533143998,
+        "similarity_score": 0.34316956996917725,
+        "citation_text_length": 1312,
         "dataset_text_length": 2416,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1027,29 +1043,6 @@
         "confidence_score": 0.49285725206136705,
         "similarity_score": 0.46938785910606384,
         "citation_text_length": 180,
-        "dataset_text_length": 2416,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Advancing Autism Spectrum Disorder Diagnosis With Multimodal Data: A Survey",
-      "author": "K. Namitha, S. Girish, M. P. Anuvind, R. S. Harish Kumar, Harishankar K. Nair, Dhanya Chandran",
-      "venue": "IEEE Open Journal of the Computer Society",
-      "year": 2026,
-      "url": "https://doi.org/10.1109/OJCS.2026.3666102",
-      "cited_by": 3,
-      "abstract": "Autism Spectrum Disorder (ASD) is a complicated neurodevelopmental condition characterised by a variety of behavioural and communication challenges, marking timely and accurate diagnosis and intervention essential. Despite their widespread occurrence, conventional diagnostic methods like clinical observations and standardised questionnaires are hindered by issues like subjectivity, practitioner variability, and long evaluation durations and existing works using AI for diagnosis falters as they fail to capture range of symptoms, generalizability across cohorts and a lot more challenges. This survey compiles a comprehensive set of ASD datasets, including the limited multimodal collections, and outlines clear modality specific preprocessing steps that ensures data quality. By reviewing prior multimodal fusion surveys and highlighting breakthroughs across individual modalities with the main fusion studies, it establishes a unified view of the diagnostic approach and the fusion techniques u",
-      "doi": "10.1109/OJCS.2026.3666102",
-      "pmid": null,
-      "openalex_id": null,
-      "source_doi": "10.3389/fnins.2020.568104",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.4926524461805821,
-        "similarity_score": 0.4265389144420624,
-        "citation_text_length": 1249,
         "dataset_text_length": 2416,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1219,7 +1212,7 @@
     {
       "title": "A Clinical Diagnosis Based Approach for EEG-Based Classification of Autism Spectrum Disorder Using Hilbert Transform and Single Label SVM",
       "author": "Saraswati Patil, Pradyumn Patil",
-      "venue": "2023 7th International Conference On Computing, Communication, Control And Automation (ICCUBEA)",
+      "venue": "International Conference on Computing Communication Control and automation",
       "year": 2023,
       "url": "https://doi.org/10.1109/iccubea58933.2023.10392146",
       "cited_by": 1,
@@ -1231,9 +1224,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6015643358230591,
-        "similarity_score": 0.5208349227905273,
-        "citation_text_length": 1046,
+        "confidence_score": 0.5794872325658799,
+        "similarity_score": 0.5017205476760864,
+        "citation_text_length": 1025,
         "dataset_text_length": 2416,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1288,7 +1281,7 @@
     {
       "title": "CAT-Net: A Co-Adaptive Transfer Learning Network for BCI-Assisted Neurorehabilitation",
       "author": "Shuailei Zhang, Yi Ding, Muyun Jiang, Ning Tang, Effie Chew, Kai Keng Ang, Cuntai Guan",
-      "venue": "ICASSP 2025 - 2025 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)",
+      "venue": "IEEE International Conference on Acoustics Speech and Signal Processing",
       "year": 2025,
       "url": "https://doi.org/10.1109/icassp49660.2025.10889107",
       "cited_by": 1,
@@ -1300,9 +1293,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5283780562877656,
-        "similarity_score": 0.457470178604126,
-        "citation_text_length": 1310,
+        "confidence_score": 0.5317241880297662,
+        "similarity_score": 0.46036726236343384,
+        "citation_text_length": 1281,
         "dataset_text_length": 2416,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1380,7 +1373,7 @@
     {
       "title": "Energy-Guided Spatiotemporal Attention and Dual-Axis Recalibration Network (Estar-Net) for P300 Detection",
       "author": "Chenghan Xin, Na Lu, Xu Niu",
-      "venue": "ICASSP 2026 - 2026 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)",
+      "venue": "IEEE International Conference on Acoustics Speech and Signal Processing",
       "year": 2026,
       "url": "https://doi.org/10.1109/icassp55912.2026.11461573",
       "cited_by": 0,
@@ -1392,9 +1385,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.695194891691208,
-        "similarity_score": 0.6019003391265869,
-        "citation_text_length": 1271,
+        "confidence_score": 0.6941399359703064,
+        "similarity_score": 0.6009869575500488,
+        "citation_text_length": 1242,
         "dataset_text_length": 2416,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1403,7 +1396,7 @@
     {
       "title": "A Systematic Comparison of Deep Learning Models for Single-Trial P300 Detection in Autism Spectrum Disorder",
       "author": "Anirban Das, Prasant Kumar Pattnaik, Pritam Debnath, Kamruzzaman Mondal, Anjan Bandyopadhyay, Anirban Mitra",
-      "venue": "2026 IEEE International Conference on Interdisciplinary Approaches in Technology and Management for Social Innovation (IATMSI)",
+      "venue": "IEEE International Conference on Interdisciplinary Approaches in Technology and Management for Social Innovation (IATMSI)",
       "year": 2026,
       "url": "https://doi.org/10.1109/iatmsi68868.2026.11465648",
       "cited_by": 0,
@@ -1415,9 +1408,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.8413862550258637,
-        "similarity_score": 0.7284729480743408,
-        "citation_text_length": 1379,
+        "confidence_score": 0.8405868458747865,
+        "similarity_score": 0.727780818939209,
+        "citation_text_length": 1374,
         "dataset_text_length": 2416,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1471,7 +1464,7 @@
     },
     {
       "title": "GIN-EEG: a graph isomorphism network approach for P300-based cognitive assessment in autism",
-      "author": "Suresh Sahadevan, Ponnusamy Palanisamy, Varun P. Gopi, Bibin Francis, Anju Thomas, Snehapriya Thiagarajan",
+      "author": "Sreeraj Sahadevan, Ponnusamy Palanisamy, Varun P. Gopi, Bibin Francis, Anju Thomas, Snehapriya Thiagarajan",
       "venue": "International Journal of Information Technology",
       "year": 2025,
       "url": "https://doi.org/10.1007/s41870-025-02901-6",
@@ -1484,9 +1477,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6733126401901245,
-        "similarity_score": 0.6412501335144043,
-        "citation_text_length": 270,
+        "confidence_score": 0.6710744798183441,
+        "similarity_score": 0.6391185522079468,
+        "citation_text_length": 271,
         "dataset_text_length": 2416,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1656,7 +1649,7 @@
     {
       "title": "DWTN-Net: Autism Evaluation Through P300 Detection Using a Discrete Wavelet Transform Neural Network",
       "author": "Swapneel Sen, Md. Shohel Rana, Shaikh Anowarul Fattah",
-      "venue": "2024 27th International Conference on Computer and Information Technology (ICCIT)",
+      "venue": "International Conference on Computer and Information Technology (ICCIT)",
       "year": 2024,
       "url": "https://doi.org/10.1109/iccit64611.2024.11022446",
       "cited_by": 0,
@@ -1668,9 +1661,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.7629871559143067,
-        "similarity_score": 0.6605949401855469,
-        "citation_text_length": 1273,
+        "confidence_score": 0.7545494377613069,
+        "similarity_score": 0.6532895565032959,
+        "citation_text_length": 1263,
         "dataset_text_length": 2416,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1770,7 +1763,7 @@
     },
     {
       "title": "Interpretable Fuzzy Modeling Reveals Population-Level Representation Differences in P300 Brain Computer Interfaces Across Neurodivergent and Neurotypical Cohorts",
-      "author": "Xiao-Wei Jiang, Sudong Shang, Adrian Wilkinson, M. L. Platt, Danica Xiao, Bening Cao, T. Do",
+      "author": "Xiao-Wei Jiang, Su-Dong Shang, Adrian Wilkinson, M. L. Platt, Danica Xiao, Bening Cao, T. Do",
       "venue": "ArXiv",
       "year": 2026,
       "url": "https://doi.org/10.48550/arXiv.2604.24765",
@@ -1783,9 +1776,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6751493561267854,
-        "similarity_score": 0.5845448970794678,
-        "citation_text_length": 1296,
+        "confidence_score": 0.6742910858988762,
+        "similarity_score": 0.583801805973053,
+        "citation_text_length": 1297,
         "dataset_text_length": 2416,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1836,72 +1829,22 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
-    },
-    {
-      "title": "In VitroCulture-Induced Pluripotency of Human Spermatogonial Stem Cells",
-      "author": "Jung Jin Lim, Hyung Joon Kim, Kye-Seong Kim, Jae Yup Hong, Dong Ryul Lee",
-      "venue": "BioMed Research International",
-      "year": 2012,
-      "url": "https://doi.org/10.1155/2013/143028",
-      "cited_by": 18,
-      "abstract": "Unipotent spermatogonial stem cells (SSCs) can be transformed into ESC-like cells that exhibit pluripotency in vitro. However, except for mouse models, their characterization and their origins have remained controversies in other models including humans. This controversy has arisen primarily from the lack of the direct induction of ESC-like cells from well-characterized SSCs. Thus, the aim of the present study was to find and characterize pluripotent human SSCs in in vitro cultures of characterized SSCs. Human testicular tissues were dissociated and plated onto gelatin/laminin-coated dishes to isolate SSCs. In the presence of growth factors SSCs formed multicellular clumps after 2-4 weeks of culture. At passages 1 and 5, the clumps were dissociated and were then analyzed using markers of pluripotent cells. The number of SSEA-4-positive cells was extremely low but increased gradually up to ~ 10% in the SSC clumps during culture. Most of the SSEA-4-negative cells expressed markers for SSCs, and some cells coexpressed markers of both pluripotent and germ cells. The pluripotent cells formed embryoid bodies and teratomas that contained derivatives of the three germ layers in SCID mice. These results suggest that the pluripotent cells present within the clumps were derived directly from SSCs during in vitro culture.",
-      "doi": "10.1155/2013/143028",
-      "pmid": "23484080",
-      "openalex_id": "W2012949954",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "nm000210",
-      "confidence_scoring": {
-        "confidence_score": 0.20886686742305757,
-        "similarity_score": 0.18987897038459778,
-        "citation_text_length": 1542,
-        "dataset_text_length": 2416,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Three-Step Method for Proliferation and Differentiation of Human Embryonic Stem Cell (hESC)-Derived Male Germ Cells",
-      "author": "Jung Jin Lim, Myung Sun Shim, Jeoung Eun Lee, Dong Ryul Lee",
-      "venue": "PLoS ONE",
-      "year": 2014,
-      "url": "https://doi.org/10.1371/journal.pone.0090454",
-      "cited_by": 26,
-      "abstract": "The low efficiency of differentiation into male germ cell (GC)-like cells and haploid germ cells from human embryonic stem cells (hESCs) reflects the culture method employed in the two-dimensional (2D)-microenvironment. In this study, we applied a three-step media and calcium alginate-based 3D-culture system for enhancing the differentiation of hESCs into male germ stem cell (GSC)-like cells and haploid germ cells. In the first step, embryoid bodies (EBs) were derived from hESCs cultured in EB medium for 3 days and re-cultured for 4 additional days in EB medium with BMP4 and RA to specify GSC-like cells. In the second step, the resultant cells were cultured in GC-proliferation medium for 7 days. The GSC-like cells were then propagated after selection using GFR-α1 and were further cultured in GC-proliferation medium for 3 weeks. In the final step, a 3D-co-culture system using calcium alginate encapsulation and testicular somatic cells was applied to induce differentiation into haploid germ cells, and a culture containing approximately 3% male haploid germ cells was obtained after 2 weeks of culture. These results demonstrated that this culture system could be used to efficiently induce GSC-like cells in an EB population and to promote the differentiation of ESCs into haploid male germ cells.",
-      "doi": "10.1371/journal.pone.0090454",
-      "pmid": "24690677",
-      "openalex_id": "W2061062273",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "nm000210",
-      "confidence_scoring": {
-        "confidence_score": 0.25198505669832233,
-        "similarity_score": 0.2290773242712021,
-        "citation_text_length": 1532,
-        "dataset_text_length": 2416,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-10-04T10:08:30.858548+00:00",
+    "scoring_date": "2026-10-11T11:22:35.784027+00:00",
     "dataset_text_length": 2416,
-    "num_citations_scored": 78,
+    "num_citations_scored": 76,
     "summary_stats": {
-      "mean_confidence": 0.539139835546032,
-      "median_confidence": 0.5181542658805848,
-      "std_confidence": 0.13289383404480146,
-      "min_confidence": 0.20886686742305757,
-      "max_confidence": 0.8642644196748736,
+      "mean_confidence": 0.5464513123682456,
+      "median_confidence": 0.521071866452694,
+      "std_confidence": 0.12365672704061367,
+      "min_confidence": 0.2629801034927368,
+      "max_confidence": 0.8583282628655434,
       "high_confidence_count": 8,
       "medium_confidence_count": 59,
-      "low_confidence_count": 11
+      "low_confidence_count": 9
     }
   }
 }

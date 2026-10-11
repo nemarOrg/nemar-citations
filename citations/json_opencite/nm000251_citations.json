@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000251",
-  "num_citations": 19,
-  "date_last_updated": "2026-10-04T10:04:54.630574+00:00",
+  "num_citations": 16,
+  "date_last_updated": "2026-10-11T10:24:59.979468+00:00",
   "metadata": {
-    "total_cumulative_citations": 32,
-    "fetch_date": "2026-09-29T10:56:27.312272+00:00",
+    "total_cumulative_citations": 36,
+    "fetch_date": "2026-10-11T10:24:59.979468+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 3,
@@ -19,12 +19,12 @@
         "source_relation": "IsDerivedFrom",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "VocalMind: A Stereotactic EEG Dataset for Vocalized, Mimed, and Imagined Speech in Tonal Language",
         "paper_year": 2025,
         "paper_venue": "Zenodo (CERN European Organization for Nuclear Research)",
         "reason": "Title and authors match the dataset exactly (VocalMind sEEG dataset for vocalized, mimed, imagined Mandarin speech, He et al. 2025); this is the Zenodo deposit of the same data.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1038/s41597-025-04741-2",
@@ -32,12 +32,12 @@
         "source_relation": "IsDerivedFrom",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "VocalMind: A Stereotactic EEG Dataset for Vocalized, Mimed, and Imagined Speech in Tonal Language",
         "paper_year": 2025,
         "paper_venue": "Scientific Data",
         "reason": "Title and authors match the dataset exactly (VocalMind sEEG dataset for vocalized, mimed, imagined Mandarin speech, He et al. 2025, Scientific Data), so it is the data descriptor.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.nm000251",
@@ -45,12 +45,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -62,12 +62,11 @@
       "stereotactic EEG",
       "intracranial EEG",
       "speech decoding",
-      "brain-computer interfaces",
       "imagined speech",
       "tonal language",
-      "Mandarin Chinese"
+      "brain-computer interface"
     ],
-    "methods_description": "Stereotactic EEG recordings were obtained while the participant performed three speech modes: vocalized, mimed, and imagined speech in Mandarin Chinese. Raw per-trial recordings at 1000 Hz were converted to BIDS iEEG BrainVision format using the EEGDash conversion pipeline, with per-trial files concatenated by speech mode and task type, and events.tsv files marking stimulus onsets.",
+    "methods_description": "Raw per-trial sEEG recordings sampled at 1000 Hz were converted to BIDS iEEG BrainVision format. Per-trial files were concatenated per speech mode/task, with events.tsv marking each stimulus onset.",
     "funding": [
       {
         "funder_name": "National Natural Science Foundation of China"
@@ -75,13 +74,7 @@
       {
         "funder_name": "Shenzhen Science and Technology Innovation Program"
       }
-    ],
-    "searched_accessions": [
-      "nm000251"
-    ],
-    "num_accession_mentions": 3,
-    "num_dataset_citations": 3,
-    "num_datapaper_citations": 16
+    ]
   },
   "citation_details": [
     {
@@ -159,7 +152,7 @@
       "venue": "Sensors",
       "year": 2026,
       "url": "https://doi.org/10.3390/s26103212",
-      "cited_by": 3,
+      "cited_by": 4,
       "abstract": "Imagined speech decoding has attracted growing interest in brain-computer interface (BCI) research, as it may enable language-related information to be recovered from non-overt neural activity. Current studies in this area are often treated as a single, unified research problem, despite substantial differences in decoding target, output constraints, and system output forms. This review examines recent imagined speech decoding research from a task-oriented perspective, with a focus on how different neural decoding tasks are defined, constrained by their output spaces, and expressed through different output pathways. The included studies are organized into four main task levels: semantic/intent, phoneme/syllable, word, and sentence/language decoding. They are further compared along two auxiliary dimensions: output-space property and output pathway, with particular attention to closed-set and open-vocabulary settings. The review shows that current studies span markedly different linguisti",
       "doi": "10.3390/s26103212",
       "pmid": "42198020",
@@ -171,6 +164,29 @@
         "confidence_score": 0.7736705446243287,
         "similarity_score": 0.6698446273803711,
         "citation_text_length": 1171,
+        "dataset_text_length": 2439,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "An Approach to Simultaneous Acquisition of Real-Time MRI Video, EEG, and Surface EMG for Articulatory, Brain, and Muscle Activity During Speech Production",
+      "author": "Jih-Wan Lee, Parsa Razmara, Kevin Huang, Sean Foley, Aditya Kommineni, Haley Hsu, Woojae Jeong, Prakash Kumar, Xuan Shi, Yoonjeong Lee, Tian-Tian Feng, Takfarinas Medani, Ye Tian, Sudarsana Reddy Kadiri, Krishna S. Nayak, Dani Byrd, Louis Goldstein, Richard M. Leahy, Shrikanth S. Narayanan",
+      "venue": "ArXiv",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arXiv.2603.04840",
+      "cited_by": 3,
+      "abstract": "Speech production is a complex process spanning neural planning, motor control, muscle activation, and articulatory kinematics. While the acoustic speech signal is the most accessible product of the speech production act, it does not directly reveal its causal neurophysiological substrates. We present the first simultaneous acquisition of real-time (dynamic) MRI, EEG, and surface EMG, capturing several key aspects of the speech production chain: brain signals, muscle activations, and articulatory movements. This multimodal acquisition paradigm presents substantial technical challenges, including MRI-induced electromagnetic interference and myogenic artifacts. To mitigate these, we introduce an artifact suppression pipeline tailored to this tri-modal setting. Once fully developed, this framework is poised to offer an unprecedented window into speech neuroscience and insights leading to brain-computer interface advances. The source code and data are available.",
+      "doi": "10.48550/arXiv.2603.04840",
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.1038/s41597-025-04741-2",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7372789782285691,
+        "similarity_score": 0.6383367776870728,
+        "citation_text_length": 1460,
         "dataset_text_length": 2439,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -269,23 +285,23 @@
       }
     },
     {
-      "title": "An Approach to Simultaneous Acquisition of Real-Time MRI Video, EEG, and Surface EMG for Articulatory, Brain, and Muscle Activity During Speech Production",
-      "author": "Jihwan Lee, Parsa Razmara, Kevin Huang, Sean Foley, Aditya Kommineni, Haley Hsu, Woojae Jeong, Prakash Kumar, Xuan Shi, Yoonjeong Lee, Tian-Tian Feng, T. Medani, Ye Tian, Sudarsana Reddy Kadiri, Krishna S. Nayak, Dani Byrd, Louis Goldstein, Richard M. Leahy, Shrikanth S. Narayanan",
-      "venue": "ArXiv",
+      "title": "A Robust Multi-Scale Framework with Test-Time Adaptation for sEEG-Based Speech Decoding",
+      "author": "Yang Yang Li, Suli Wang, Siqi Cai, Haizhou Li",
+      "venue": "IEEE International Conference on Acoustics Speech and Signal Processing",
       "year": 2026,
-      "url": "https://doi.org/10.48550/arXiv.2603.04840",
+      "url": "https://doi.org/10.1109/icassp55912.2026.11464168",
       "cited_by": 1,
-      "abstract": "Speech production is a complex process spanning neural planning, motor control, muscle activation, and articulatory kinematics. While the acoustic speech signal is the most accessible product of the speech production act, it does not directly reveal its causal neurophysiological substrates. We present the first simultaneous acquisition of real-time (dynamic) MRI, EEG, and surface EMG, capturing several key aspects of the speech production chain: brain signals, muscle activations, and articulatory movements. This multimodal acquisition paradigm presents substantial technical challenges, including MRI-induced electromagnetic interference and myogenic artifacts. To mitigate these, we introduce an artifact suppression pipeline tailored to this tri-modal setting. Once fully developed, this framework is poised to offer an unprecedented window into speech neuroscience and insights leading to brain-computer interface advances. The source code and data are available.",
-      "doi": "10.48550/arXiv.2603.04840",
+      "abstract": "Decoding speech from stereo-electroencephalography (sEEG) signals has emerged as a promising direction for brain-computer interfaces (BCIs). Its clinical applicability, however, is limited by the inherent non-stationarity of neural signals, which causes domain shifts between training and testing, undermining decoding reliability. To address this challenge, a two-stage framework is proposed for enhanced robustness. First, a multi-scale decomposable mixing (MDM) module is introduced to model the hierarchical temporal dynamics of speech production, learning stable multi-timescale representations from sEEG signals. Second, a source-free online test-time adaptation (TTA) method performs entropy minimization to adapt the model to distribution shifts during inference. Evaluations on the public DU-IN spoken word decoding benchmark show that the approach outperforms state-of-the-art models, particularly in challenging cases. This study demonstrates that combining invariant feature learning with",
+      "doi": "10.1109/icassp55912.2026.11464168",
       "pmid": null,
-      "openalex_id": null,
+      "openalex_id": "W7155070244",
       "source_doi": "10.1038/s41597-025-04741-2",
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.7400395971536637,
-        "similarity_score": 0.6407269239425659,
-        "citation_text_length": 1451,
+        "confidence_score": 0.7658398872613907,
+        "similarity_score": 0.6630648374557495,
+        "citation_text_length": 1242,
         "dataset_text_length": 2439,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -362,8 +378,8 @@
     },
     {
       "title": "Neuromamba: Adaptive Frequency Filtering with a Pyramid Mamba for sEEG-driven Speech Synthesis",
-      "author": "Jiayue Xie, Ruicong Wang, Xueyi Zhang, Siqi Cai, Hui Li",
-      "venue": "ICASSP 2026 - 2026 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)",
+      "author": "Jiayue Xie, Ruicong Wang, Xueyi Zhang, Siqi Cai, Haizhou Li",
+      "venue": "IEEE International Conference on Acoustics Speech and Signal Processing",
       "year": 2026,
       "url": "https://doi.org/10.1109/icassp55912.2026.11462161",
       "cited_by": 0,
@@ -375,32 +391,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.7639937835931779,
-        "similarity_score": 0.6614664793014526,
-        "citation_text_length": 1288,
-        "dataset_text_length": 2439,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "A Robust Multi-Scale Framework with Test-Time Adaptation for sEEG-Based Speech Decoding",
-      "author": "Yang Yang Li, Suli Wang, Siqi Cai, Hui Li",
-      "venue": "ICASSP 2026 - 2026 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)",
-      "year": 2026,
-      "url": "https://doi.org/10.1109/icassp55912.2026.11464168",
-      "cited_by": 0,
-      "abstract": "Decoding speech from stereo-electroencephalography (sEEG) signals has emerged as a promising direction for brain-computer interfaces (BCIs). Its clinical applicability, however, is limited by the inherent non-stationarity of neural signals, which causes domain shifts between training and testing, undermining decoding reliability. To address this challenge, a two-stage framework is proposed for enhanced robustness. First, a multi-scale decomposable mixing (MDM) module is introduced to model the hierarchical temporal dynamics of speech production, learning stable multi-timescale representations from sEEG signals. Second, a source-free online test-time adaptation (TTA) method performs entropy minimization to adapt the model to distribution shifts during inference. Evaluations on the public DU-IN spoken word decoding benchmark show that the approach outperforms state-of-the-art models, particularly in challenging cases. This study demonstrates that combining invariant feature learning with",
-      "doi": "10.1109/icassp55912.2026.11464168",
-      "pmid": null,
-      "openalex_id": "W7155070244",
-      "source_doi": "10.1038/s41597-025-04741-2",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.7700014686584473,
-        "similarity_score": 0.6666679382324219,
-        "citation_text_length": 1267,
+        "confidence_score": 0.7556926506757737,
+        "similarity_score": 0.654279351234436,
+        "citation_text_length": 1263,
         "dataset_text_length": 2439,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -451,97 +444,22 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
-    },
-    {
-      "title": "Differential expression of 37 selected genes in hormone‐refractory prostate cancer using quantitative taqman real‐time RT‐PCR",
-      "author": "Gaëlle Fromont, Laurent Chêne, Michel Vidaud, Guy Vallancien, Philippe Mangin, Georges R. Fournier, Pierre Validire, Alain Latil, Olivier Cussenot",
-      "venue": "International Journal of Cancer",
-      "year": 2004,
-      "url": "https://doi.org/10.1002/ijc.20704",
-      "cited_by": 24,
-      "abstract": "Progression of prostate cancer to androgen independence remains the primary obstacle to improved survival. The development of more effective treatments depends on our understanding of the molecular events associated with the hormone-refractory stage. We quantified, among 90 screened genes, the expression of 37 target genes, using real-time quantitative RT-PCR. Gene expression was studied in 13 samples of HPRC compared to 33 clinically localised cancers and normal prostate tissue. We identify 19 genes with significant differential expression in HRPC compared to localised prostate cancer. Genes with decreased expression included receptors for growth factors, MMR genes and the serine protease hepsin. Analysis of increased gene expression confirmed the importance of AR upregulation and highlighted genes not previously linked to HRPC, including enzymes involved in steroid synthesis and the antiapoptotic factor survivin. Progression of prostate cancer to the hormone-refractory state is associated with differential gene expression, which may prove useful for both understanding disease progression and the development of new therapeutic approaches.",
-      "doi": "10.1002/ijc.20704",
-      "pmid": "15543616",
-      "openalex_id": "W2036975851",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "nm000251",
-      "confidence_scoring": {
-        "confidence_score": 0.12072834670543672,
-        "similarity_score": 0.10975304245948792,
-        "citation_text_length": 1498,
-        "dataset_text_length": 2439,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Assay Validation for Identification of Hereditary Nonpolyposis Colon Cancer-Causing Mutations in Mismatch Repair Genes MLH1, MSH2, and MSH6",
-      "author": "Madhuri Hegde, Maria Blazo, Belinda Chong, Tom Prior, Carolyn Richards",
-      "venue": "Journal of Molecular Diagnostics",
-      "year": 2005,
-      "url": "https://doi.org/10.1016/s1525-1578(10)60584-3",
-      "cited_by": 30,
-      "abstract": null,
-      "doi": "10.1016/s1525-1578(10)60584-3",
-      "pmid": "16237223",
-      "openalex_id": "W2081366736",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "nm000251",
-      "confidence_scoring": {
-        "confidence_score": 0.14454099535942078,
-        "similarity_score": 0.14454099535942078,
-        "citation_text_length": 268,
-        "dataset_text_length": 2439,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Classic Kaposi's sarcoma: a case report.",
-      "author": "Kristina Narancić-Skorić, Hrvoje Brajčić, Mirjana Sabljar-Matovinović, Tajana Filipec-Kanižaj, Maruška Marušić-Vrsalović, Mladen Knotek, Ingrid Prkačin, Dinko Škegro, Slavko Gašparov",
-      "venue": "PubMed",
-      "year": 2005,
-      "url": "https://openalex.org/W2137675314",
-      "cited_by": 4,
-      "abstract": "A 60-year-old male from the Mediterranean area presented with edematous right leg and livid nodules and macules on the skin of upper and lower extremities. Biopsy specimen obtained from the right upper leg showed a pathohistologic finding indicative of Kaposi's sarcoma. Polymerase chain reaction testing revealed HHV-8 in the skin lesion. Serology for HIV was negative. Additional examinations did not reveal dissemination of the disease. Negative HIV serology, normal laboratory findings and absence of immunosuppressant therapy in the patient's history confirmed the diagnosis of the classic form of Kaposi's sarcoma.",
-      "doi": null,
-      "pmid": "15788143",
-      "openalex_id": "W2137675314",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "nm000251",
-      "confidence_scoring": {
-        "confidence_score": 0.09307626187801361,
-        "similarity_score": 0.08461478352546692,
-        "citation_text_length": 887,
-        "dataset_text_length": 2439,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-10-04T10:09:14.060895+00:00",
+    "scoring_date": "2026-10-11T11:24:22.338565+00:00",
     "dataset_text_length": 2439,
-    "num_citations_scored": 19,
+    "num_citations_scored": 16,
     "summary_stats": {
-      "mean_confidence": 0.6481051496141838,
-      "median_confidence": 0.7400395971536637,
-      "std_confidence": 0.2518106613096477,
-      "min_confidence": 0.09307626187801361,
+      "mean_confidence": 0.7462768065929414,
+      "median_confidence": 0.7607662689685822,
+      "std_confidence": 0.11386621809995393,
+      "min_confidence": 0.5422707161307336,
       "max_confidence": 1.0,
       "high_confidence_count": 11,
       "medium_confidence_count": 5,
-      "low_confidence_count": 3
+      "low_confidence_count": 0
     }
   }
 }

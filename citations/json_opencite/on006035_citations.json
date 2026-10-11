@@ -1,10 +1,10 @@
 {
   "dataset_id": "on006035",
   "num_citations": 0,
-  "date_last_updated": "2026-09-30T10:44:32.929417+00:00",
+  "date_last_updated": "2026-10-11T11:07:27.348496+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
-    "fetch_date": "2026-09-29T11:31:17.724986+00:00",
+    "fetch_date": "2026-10-11T11:07:27.348496+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 1,
@@ -19,12 +19,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
         "paper_year": 2019,
         "paper_venue": "The Journal of Open Source Software",
         "reason": "MNE-BIDS is a software tool for organizing electrophysiological data into BIDS, cited as a BIDS reference; it does not describe this somatomotor dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1038/sdata.2018.110",
@@ -32,12 +32,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MEG-BIDS, the brain imaging data structure extended to magnetoencephalography",
         "paper_year": 2018,
         "paper_venue": "Scientific Data",
         "reason": "MEG-BIDS is the BIDS extension specification for MEG data, a standard the dataset follows, not a paper describing this somatomotor median nerve dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on006035",
@@ -45,12 +45,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -59,12 +59,13 @@
     "keywords": [
       "MEG",
       "EEG",
+      "MRI",
       "median nerve stimulation",
-      "somatosensory evoked potentials",
+      "somatosensory",
       "motor response",
-      "Magnetic Resonance Imaging"
+      "Median Nerve"
     ],
-    "methods_description": "MRI (T1w), MEG, and EEG data were acquired while median nerve electrical stimuli were delivered at the right wrist, and subjects responded by lifting their left hand index finger. Three anatomical fiducials (nasion, left and right pre-auricular points) were digitized to co-register MEG with MRI. Trigger codes recorded stimulus (32) and response (16) events.",
+    "methods_description": "MEG and EEG were recorded during right median nerve electrical stimulation with left index finger lift responses. Three anatomical fiducials (nasion, left and right pre-auricular points) were digitized for MEG-MRI alignment. Triggers 32 (somatosensory stimulus) and 16 (finger lift response) are stored in the .fif files and events .tsv files.",
     "funding": [
       {
         "funder_name": "NIH",
@@ -74,19 +75,12 @@
         "funder_name": "NIH",
         "award_number": "P41EB030006"
       }
-    ],
-    "searched_accessions": [
-      "on006035",
-      "ds006035"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 0
+    ]
   },
   "citation_details": [],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T11:02:29.206522+00:00",
+    "scoring_date": "2026-10-11T11:38:48.222194+00:00",
     "dataset_text_length": 2156,
     "num_citations_scored": 0
   }

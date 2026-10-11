@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000189",
-  "num_citations": 2,
-  "date_last_updated": "2026-10-04T10:04:36.548937+00:00",
+  "num_citations": 0,
+  "date_last_updated": "2026-10-11T10:18:41.476463+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
-    "fetch_date": "2026-09-29T10:46:49.459850+00:00",
+    "fetch_date": "2026-10-11T10:18:41.476463+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 1,
@@ -19,25 +19,51 @@
         "source_relation": "IsDerivedFrom",
         "classification": "related_work",
         "kept": false,
+        "kept_reason": "judged_not_data_paper",
         "paper_title": "How many people are able to control a P300-based brain–computer interface (BCI)?",
         "paper_year": 2009,
         "paper_venue": "Neuroscience Letters",
         "reason": "Guger et al. 2009 is a P300 BCI study of 100 subjects. This dataset has 10 subjects, a BrainAmp amplifier and Schreuder/Tangermann as authors, so it is topically related but not the data paper.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_not_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.3389/fnins.2011.00112",
         "identifier_type": "doi",
-        "source_relation": "References",
+        "source_relation": "IsDescribedBy",
         "classification": "related_work",
         "kept": false,
+        "kept_reason": "judged_not_data_paper",
         "paper_title": "Listen, You are Writing! Speeding up Online Spelling with a Dynamic Auditory BCI",
         "paper_year": 2011,
         "paper_venue": "Frontiers in Neuroscience",
         "reason": "Same authors and auditory ERP speller topic, but this study has N=21 subjects. The dataset has 10 subjects and cites a different DOI (Neurosci Lett 2009), so it is not clearly this dataset's paper.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_not_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
+      },
+      {
+        "identifier": "10.21105/joss.01896",
+        "identifier_type": "doi",
+        "source_relation": "References",
+        "classification": "methodology",
+        "kept": false,
+        "kept_reason": "never_anchor",
+        "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
+        "paper_year": 2019,
+        "paper_venue": "The Journal of Open Source Software",
+        "reason": "MNE-BIDS is a software tool for organizing electrophysiological data into BIDS, used for dataset conversion, not a paper describing the BNCI 2015-003 P300 data.",
+        "judgment_model": "claude-sonnet-5-5"
+      },
+      {
+        "identifier": "10.1038/s41597-019-0104-8",
+        "identifier_type": "doi",
+        "source_relation": "References",
+        "classification": "methodology",
+        "kept": false,
+        "kept_reason": "never_anchor",
+        "paper_title": "EEG-BIDS, an extension to the brain imaging data structure for electroencephalography",
+        "paper_year": 2019,
+        "paper_venue": "Scientific Data",
+        "reason": "EEG-BIDS is a data-organization standard/specification used to format the dataset, not a paper describing this BNCI 2015-003 P300 dataset.",
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.nm000189",
@@ -45,125 +71,54 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
       "10.82901/nemar.nm000189"
     ],
     "keywords": [
-      "Brain-Computer Interfaces",
-      "P300",
-      "Event-Related Potentials, P300",
-      "auditory oddball",
       "EEG",
-      "spatial attention",
-      "speller interface"
+      "brain-computer interface",
+      "P300",
+      "auditory event-related potentials",
+      "spatial auditory stimulation",
+      "speller"
     ],
-    "methods_description": "EEG data acquired at 256 Hz from 8 channels (Fz, Cz, P3, Pz, P4, PO7, Oz, PO8) using BrainAmp hardware with Ag/AgCl electrodes referenced to nose. Subjects were positioned within six speakers arranged in a circle (60° spacing, 65 cm radius) and performed an auditory oddball task with spatial cues. Two sessions per subject included calibration (48 trials, 8 per direction) followed by online spelling. Data preprocessed with bandpass filtering (0.1-40 Hz), downsampling to 100 Hz, and baselining using 150 ms pre-stimulus data. Spatio-temporal features extracted using r2 coefficient with interval selection, classified using linear discriminant analysis with Ledoit-Wolf shrinkage regularization.",
+    "methods_description": "Participants sat surrounded by six speakers at ear height (60° spacing, 65 cm radius). Each direction had a unique tone and band-pass filtered noise combination. EEG was recorded from 8 Ag/AgCl channels with a BrainAmp amplifier at 256 Hz, referenced to the nose. Session 1 consisted of calibration (48 trials) followed by online spelling with 15 fixed iterations. Session 2 consisted of calibration followed by online spelling with dynamic stopping (4-15 iterations). Classification used spatio-temporal features with a shrinkage-regularized linear binary classifier.",
     "funding": [
       {
-        "funder_name": "FP7-ICT PASCAL2 Network of Excellence ICT-216886"
-      },
-      {
-        "funder_name": "European Commission",
+        "funder_name": "European ICT Programme",
         "award_number": "FP7-224631"
       },
       {
-        "funder_name": "European Commission",
+        "funder_name": "European ICT Programme",
         "award_number": "FP7-216886"
       },
       {
-        "funder_name": "DFG",
+        "funder_name": "Deutsche Forschungsgemeinschaft",
         "award_number": "MU 987/3-2"
       },
       {
-        "funder_name": "BMBF",
-        "award_number": "01IB001A"
+        "funder_name": "Bundesministerium für Bildung und Forschung",
+        "award_number": "FKZ 01IB001A, 01GQ0850"
       },
       {
-        "funder_name": "BMBF",
-        "award_number": "01GQ0850"
+        "funder_name": "FP7-ICT PASCAL2 Network of Excellence",
+        "award_number": "ICT-216886"
       }
-    ],
-    "searched_accessions": [
-      "nm000189"
-    ],
-    "num_accession_mentions": 2,
-    "num_dataset_citations": 2,
-    "num_datapaper_citations": 0
+    ]
   },
-  "citation_details": [
-    {
-      "title": "Hypoxia and the metabolic phenotype of prostate cancer cells",
-      "author": "L.H. Higgins, Henry G. Withers, Alaina Garbens, Harold D. Love, Leonardo  Julian Magnoni, Simon W. Hayward, Christopher D. Moyes",
-      "venue": "Biochimica et Biophysica Acta (BBA) - Bioenergetics",
-      "year": 2009,
-      "url": "https://doi.org/10.1016/j.bbabio.2009.06.003",
-      "cited_by": 109,
-      "abstract": null,
-      "doi": "10.1016/j.bbabio.2009.06.003",
-      "pmid": "19524545",
-      "openalex_id": "W1981549785",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "nm000189",
-      "confidence_scoring": {
-        "confidence_score": 0.2194547802209854,
-        "similarity_score": 0.2194547802209854,
-        "citation_text_length": 266,
-        "dataset_text_length": 2236,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Sur la dramaturgie de Huis clos",
-      "author": "Jean-François Louette",
-      "venue": "Les Temps Modernes",
-      "year": 1994,
-      "url": "https://openalex.org/W19524545",
-      "cited_by": 0,
-      "abstract": null,
-      "doi": null,
-      "pmid": null,
-      "openalex_id": "W19524545",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "nm000189",
-      "confidence_scoring": {
-        "confidence_score": 0.1269451379776001,
-        "similarity_score": 0.1269451379776001,
-        "citation_text_length": 97,
-        "dataset_text_length": 2236,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    }
-  ],
+  "citation_details": [],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-10-04T10:08:09.832738+00:00",
+    "scoring_date": "2026-10-11T11:21:39.566878+00:00",
     "dataset_text_length": 2236,
-    "num_citations_scored": 2,
-    "summary_stats": {
-      "mean_confidence": 0.17319995909929276,
-      "median_confidence": 0.17319995909929276,
-      "std_confidence": 0.04625482112169266,
-      "min_confidence": 0.1269451379776001,
-      "max_confidence": 0.2194547802209854,
-      "high_confidence_count": 0,
-      "medium_confidence_count": 0,
-      "low_confidence_count": 2
-    }
+    "num_citations_scored": 0
   }
 }

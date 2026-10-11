@@ -1,16 +1,14 @@
 {
   "dataset_id": "on004952",
   "num_citations": 24,
-  "date_last_updated": "2026-09-30T10:47:15.995653+00:00",
+  "date_last_updated": "2026-10-11T10:59:09.791161+00:00",
   "metadata": {
     "total_cumulative_citations": 126,
-    "fetch_date": "2026-09-29T11:21:32.394936+00:00",
+    "fetch_date": "2026-10-11T10:59:09.791161+00:00",
     "processing_version": "1.0",
-    "fetch_status": "partial",
+    "fetch_status": "success",
     "anchor_count": 3,
-    "anchor_errors": {
-      "10.82901/nemar.on004952": "not_found"
-    },
+    "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
     "anchor_judgment_model": "claude-sonnet-5-5",
@@ -21,12 +19,12 @@
         "source_relation": "IsDescribedBy",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "ChineseEEG: A Chinese Linguistic Corpora EEG Dataset for Semantic Alignment and Neural Decoding",
         "paper_year": 2024,
         "paper_venue": "Scientific Data",
         "reason": "Title and authors match the dataset exactly; the Scientific Data paper describes the ChineseEEG dataset (10 participants, reading Chinese novels, EEG plus eye-tracking, BERT embeddings).",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1101/2024.02.08.579481",
@@ -34,12 +32,38 @@
         "source_relation": "References",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "ChineseEEG: A Chinese Linguistic Corpora EEG Dataset for Semantic Alignment and Neural Decoding",
         "paper_year": 2024,
         "paper_venue": "bioRxiv (Cold Spring Harbor Laboratory)",
         "reason": "Title matches the dataset name exactly, with the same authors and the same design: 10 participants silently reading about 11 hours of Chinese text, with EEG, eye-tracking and BERT embeddings.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
+      },
+      {
+        "identifier": "10.21105/joss.01896",
+        "identifier_type": "doi",
+        "source_relation": "References",
+        "classification": null,
+        "kept": false,
+        "kept_reason": "never_anchor",
+        "paper_title": null,
+        "paper_year": null,
+        "paper_venue": null,
+        "reason": null,
+        "judgment_model": "claude-sonnet-5-5"
+      },
+      {
+        "identifier": "10.1038/s41597-019-0104-8",
+        "identifier_type": "doi",
+        "source_relation": "References",
+        "classification": null,
+        "kept": false,
+        "kept_reason": "never_anchor",
+        "paper_title": null,
+        "paper_year": null,
+        "paper_venue": null,
+        "reason": null,
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on004952",
@@ -47,12 +71,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -62,22 +86,15 @@
     ],
     "keywords": [
       "EEG",
-      "Eye-Tracking",
-      "Reading",
-      "Semantics",
-      "Natural Language Processing",
+      "eye tracking",
+      "natural reading",
       "Chinese language",
-      "Neural decoding"
+      "neural decoding",
+      "semantic alignment",
+      "BERT embeddings"
     ],
-    "methods_description": "EEG data were recorded at 1 kHz sampling rate using high-density EEG (EGI system, .mff format converted to BrainVision), alongside simultaneous eye-tracking data, while participants silently read Chinese novels presented in a moving-window highlighted reading paradigm. Data were pre-processed through filtering (0.5-80 Hz and 0.5-30 Hz band-pass) and further processed with a full pipeline including bad channel rejection and ICA, down-sampled to 256 Hz. The dataset was organized following the EEG-BIDS specification using the MNE-BIDS package.",
-    "funding": [],
-    "searched_accessions": [
-      "on004952",
-      "ds004952"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 24
+    "methods_description": "Participants read text presented as three-line pages, with the middle line highlighted. Each character was highlighted in red for 0.35 s. High-density EEG was recorded with an EGI system at 1 kHz alongside eye-tracking, with eye-tracker calibration at the start of each run. Triggers marked chapters, rows and calibration events. Data were converted to BrainVision format in EEG-BIDS using MNE-BIDS. Filtered (0.5-80 Hz and 0.5-30 Hz) and pre-processed derivatives at 256 Hz are provided.",
+    "funding": []
   },
   "citation_details": [
     {
@@ -147,10 +164,7 @@
         "dataset_text_length": 2495,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      },
-      "superseded_dois": [
-        "10.1101/2024.02.08.579481"
-      ]
+      }
     },
     {
       "title": "Medical multimodal large language models: A systematic review",
@@ -638,7 +652,7 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T11:00:52.075194+00:00",
+    "scoring_date": "2026-10-11T11:35:06.964759+00:00",
     "dataset_text_length": 2495,
     "num_citations_scored": 24,
     "summary_stats": {

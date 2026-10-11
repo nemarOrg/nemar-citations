@@ -1,10 +1,10 @@
 {
   "dataset_id": "on003190",
-  "num_citations": 3,
-  "date_last_updated": "2026-09-30T10:44:28.520430+00:00",
+  "num_citations": 4,
+  "date_last_updated": "2026-10-11T11:15:15.593301+00:00",
   "metadata": {
-    "total_cumulative_citations": 16,
-    "fetch_date": "2026-09-29T11:07:40.052011+00:00",
+    "total_cumulative_citations": 0,
+    "fetch_date": "2026-10-11T10:43:26.375902+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 1,
@@ -19,12 +19,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -33,19 +33,19 @@
     "keywords": [
       "EEG",
       "P300",
-      "visual evoked potentials",
-      "oddball paradigm",
+      "brain-computer interface",
+      "visual stimuli",
       "event-related potentials",
-      "visual stimuli"
+      "Electroencephalography"
     ],
-    "methods_description": "EEG recordings were collected from 8 channels (Fz, Cz, P3, Pz, P4, PO7, PO8, Oz) according to the 10-20 electrode placement standard, grounded to AFz and referenced to right mastoid (M2). Sampling frequency was 256 Hz. Participants performed 3 sessions with 7 recordings each, varying stimulus count (4-9) and flash type (standard flash or superimposed cartoon face). Event markers encoded experimental phases (Fixation, Target Presentation, Preparation, Stimulation, Rest) and stimulus identity.",
+    "methods_description": "EEG was recorded from Fz, Cz, P3, Pz, P4, PO7, PO8 and Oz (10-20 system), grounded at AFz and referenced to right mastoid (M2), at 256 Hz. Each experimental block had five phases: Fixation, Target Presentation, Preparation, Stimulation and Rest, with markers denoting phase boundaries and the activated stimulus. Each participant completed 3 sessions of 7 recordings with different numbers of stimuli and flash types.",
     "funding": [],
     "searched_accessions": [
       "on003190",
       "ds003190"
     ],
-    "num_accession_mentions": 3,
-    "num_dataset_citations": 3,
+    "num_accession_mentions": 4,
+    "num_dataset_citations": 4,
     "num_datapaper_citations": 0
   },
   "citation_details": [
@@ -100,6 +100,31 @@
       }
     },
     {
+      "title": "P300 BCI EEG dataset (Chailloux Peguero et al. 2020)",
+      "author": "J. David Chailloux Peguero, Omar Mendoza-Montoya, Javier Mauricio Antelis",
+      "venue": "UC San Diego",
+      "year": 2026,
+      "url": "https://doi.org/10.82901/nemar.nm000262.v1.0.1",
+      "cited_by": 0,
+      "abstract": "A P300 brain-computer interface EEG dataset comprising recordings from 19 healthy participants across 3 sessions. The study investigates the effects of visual stimulation conditions (standard flash versus cartoon face stimuli) on P300-BCI performance using an 8-channel montage sampled at 256 Hz, with data collected using a P300 paradigm across 5 grid sizes and including target and non-target event classifications. This is a BIDS-formatted derivative dataset converted from OpenNeuro ds003190 using the MOABB pipeline.",
+      "doi": "10.82901/nemar.nm000262.v1.0.1",
+      "pmid": null,
+      "openalex_id": "W7165691103",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds003190",
+      "confidence_scoring": {
+        "confidence_score": 0.9131801086664201,
+        "similarity_score": 0.7906321287155151,
+        "citation_text_length": 697,
+        "dataset_text_length": 2251,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Árboles en miniatura: teoría y práctica para su creación",
       "author": "Francisco Javier Alonso de la Paz",
       "venue": "Dialnet (Universidad de la Rioja)",
@@ -127,16 +152,16 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T10:56:01.966567+00:00",
+    "scoring_date": "2026-10-11T11:28:11.430654+00:00",
     "dataset_text_length": 2251,
-    "num_citations_scored": 3,
+    "num_citations_scored": 4,
     "summary_stats": {
-      "mean_confidence": 0.4398972185949485,
-      "median_confidence": 0.3341187067329884,
-      "std_confidence": 0.23194950184565583,
+      "mean_confidence": 0.5582179411128164,
+      "median_confidence": 0.5479042891412974,
+      "std_confidence": 0.28696656370784174,
       "min_confidence": 0.22388307750225067,
-      "max_confidence": 0.7616898715496064,
-      "high_confidence_count": 1,
+      "max_confidence": 0.9131801086664201,
+      "high_confidence_count": 2,
       "medium_confidence_count": 0,
       "low_confidence_count": 2
     }

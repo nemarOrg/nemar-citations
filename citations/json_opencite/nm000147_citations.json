@@ -1,16 +1,14 @@
 {
   "dataset_id": "nm000147",
-  "num_citations": 3,
-  "date_last_updated": "2026-09-30T10:44:24.686987+00:00",
+  "num_citations": 4,
+  "date_last_updated": "2026-10-11T10:15:10.132889+00:00",
   "metadata": {
-    "total_cumulative_citations": 2,
-    "fetch_date": "2026-09-29T10:41:34.562127+00:00",
+    "total_cumulative_citations": 3,
+    "fetch_date": "2026-10-11T10:15:10.132889+00:00",
     "processing_version": "1.0",
-    "fetch_status": "partial",
-    "anchor_count": 2,
-    "anchor_errors": {
-      "10.1101/2025.04.29.651259": "not_found"
-    },
+    "fetch_status": "success",
+    "anchor_count": 3,
+    "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
     "anchor_judgment_model": "claude-sonnet-5-5",
@@ -18,15 +16,15 @@
       {
         "identifier": "10.1101/2025.04.29.651259",
         "identifier_type": "doi",
-        "source_relation": "References",
-        "classification": null,
-        "kept": false,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "unjudged"
+        "source_relation": "IsDescribedBy",
+        "classification": "data_paper",
+        "kept": true,
+        "kept_reason": "judged_data_paper",
+        "paper_title": "The Brain, Body, and Behavior Dataset (BBBD): Multimodal Recordings during Educational Videos",
+        "paper_year": 2026,
+        "paper_venue": "Scientific Data",
+        "reason": "BBBD data descriptor by the same authors (Madsen, Kuppa, Parra) covering the five experiments, including this Experiment 4 with educational videos, in BIDS format.",
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1038/s41597-026-07215-1",
@@ -34,12 +32,12 @@
         "source_relation": "IsDerivedFrom",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "The Brain, Body, and Behavior Dataset (BBBD): Multimodal Recordings during Educational Videos",
         "paper_year": 2026,
         "paper_venue": "Scientific Data",
         "reason": "The BBBD Scientific Data descriptor by Madsen, Kuppa, Parra covers the five experiments, including Experiment 4 (this dataset), with matching authors and title.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.nm000147",
@@ -47,68 +45,65 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
+      "10.1101/2025.04.29.651259",
       "10.1038/s41597-026-07215-1",
       "10.82901/nemar.nm000147"
     ],
     "keywords": [
       "EEG",
-      "eye tracking",
-      "attention",
-      "learning",
+      "Eye Tracking",
+      "Attention",
+      "Electrocardiography",
       "educational videos",
-      "multimodal neuroimaging",
-      "physiological signals",
-      "cardiac",
-      "respiration",
-      "ECG",
-      "cognitive engagement"
+      "multimodal recordings",
+      "EOG",
+      "ADHD",
+      "pupil size",
+      "respiration"
     ],
-    "methods_description": "Data collection involved simultaneous recording of EEG, EOG, ECG, respiration, pupillary responses, gaze coordinates, and head position during two sessions: an attentive condition with post-video comprehension testing (Session 1) and a distracted condition with concurrent backward counting task (Session 2). EEG data were recorded in BDF format; physiological and eye-tracking data were converted to compressed TSV format using MATLAB-based processing pipelines.",
+    "methods_description": "Participants watched three instructional videos in one attentive condition and three different videos in a second attentive condition, and were tested on the second set. In a second session they re-watched the videos while silently counting backwards from a random prime number in steps of 7 (distracted condition). EEG, EOG, ECG, respiration, pupillary responses, gaze, and head position were recorded. Domain-knowledge questions were asked before each video and memory questions after it.",
     "funding": [
       {
         "funder_name": "National Science Foundation",
-        "award_number": "DRL-1660548"
+        "award_number": "DRL-2201835"
       },
       {
         "funder_name": "National Science Foundation",
-        "award_number": "DRL-2201835"
+        "award_number": "DRL-1660548"
       }
-    ],
-    "searched_accessions": [
-      "nm000147"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 3
+    ]
   },
   "citation_details": [
     {
       "title": "Attentional state, not trait, predicts test performance in video-based learning",
       "author": "Jens Madsen, Lucas C. Parra",
-      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+      "venue": "iScience",
       "year": 2025,
-      "url": "https://doi.org/10.1101/2025.05.02.651980",
-      "cited_by": 2,
-      "abstract": "Summary Poor academic performance is often linked to attention deficits, but it remains unclear whether these reflect enduring traits or momentary lapses in focus. In this study, we examined how state and trait-level attention relate to learning from short educational videos. Across four experiments (N = 152), participants completed standardized assessments of inattention, hyperactivity, working memory capacity, and GPA. They then viewed 3-6-minute educational videos while electroencephalography (EEG) tracked neural responses, followed by quizzes assessing short-term retention. Neural synchrony during video viewing, a measure of attentional state, strongly predicted test performance (p &lt; 0.001). In contrast, trait inattention did not predict retention (p &gt; 0.05), although it was negatively associated with GPA. Attentional state was positively associated with working memory capacity but not with trait inattention. These findings suggest that students with attentional difficulties ",
-      "doi": "10.1101/2025.05.02.651980",
+      "url": "https://doi.org/10.1016/j.isci.2025.113622",
+      "cited_by": 3,
+      "abstract": "Summary Poor academic performance is often linked to attention deficits, but it remains unclear whether these reflect enduring traits or momentary lapses in focus. In this study, we examined how state and trait-level attention relate to learning from short educational videos. Across four experiments (N = 152), participants completed standardized assessments of inattention, hyperactivity, working memory capacity, and GPA. They then viewed 3-6-minute educational videos while electroencephalography (EEG) tracked neural responses, followed by quizzes assessing short-term retention. Neural synchrony during video viewing, a measure of attentional state, strongly predicted test performance (p < 0.001). In contrast, trait inattention did not predict retention (p > 0.05), although it was negatively associated with GPA. Attentional state was positively associated with working memory capacity but not with trait inattention. These findings suggest that students with attentional difficulties can st",
+      "doi": "10.1016/j.isci.2025.113622",
       "pmid": "41126884",
-      "openalex_id": "W4410089733",
-      "source_doi": "10.1038/s41597-026-07215-1",
-      "source_relation": "IsDerivedFrom",
+      "openalex_id": "W4414440369",
+      "source_doi": "10.1101/2025.04.29.651259",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
+      "superseded_dois": [
+        "10.1101/2025.05.02.651980"
+      ],
       "confidence_scoring": {
-        "confidence_score": 0.5872482204437257,
-        "similarity_score": 0.5084400177001953,
-        "citation_text_length": 1184,
+        "confidence_score": 0.5805600875616075,
+        "similarity_score": 0.5026494264602661,
+        "citation_text_length": 1153,
         "dataset_text_length": 2289,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -159,21 +154,44 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "EduGage: A Multimodal Dataset and Benchmark for Sensor-Based Momentary Assessment of Engagement in Self-Guided Video Learning",
+      "author": "Zi-Kang Leng, Edan Eyal, Ying-Tian Shi, Jia-Man He, Ya-Qi Liu, T. Plötz",
+      "venue": "n/a",
+      "year": 2026,
+      "url": "https://doi.org/10.1145/3857993",
+      "cited_by": 0,
+      "abstract": "Engagement, which links to attentional, emotional, and cognitive dimensions, plays an important role in learning. In online and video-based learning environments, learners often need to regulate their own interactions with instructional materials. Measuring and reflecting on engagement can therefore support both learners and adaptive learning systems. In this study, we use wearable and camera-based sensing devices to collect physiological and motion signals, including PPG, ECG, EDA, EEG, IMU, heart rate, temperature, and eye-tracking data, to estimate learner engagement. We conducted a user study with 16 participants in a video-based learning scenario, where participants completed learning tasks and provided repeated in-situ engagement-probe ratings on a 1-5 scale, reporting how difficult it was to pay attention during the preceding minute. We establish a benchmark for engagement estimation, compare different sensing modalities, and further analyze the feasibility and effectiveness of ",
+      "doi": "10.1145/3857993",
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.1101/2025.04.29.651259",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.48746265470981603,
+        "similarity_score": 0.42204558849334717,
+        "citation_text_length": 1238,
+        "dataset_text_length": 2289,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T10:50:09.249487+00:00",
+    "scoring_date": "2026-10-11T11:20:02.543511+00:00",
     "dataset_text_length": 2289,
-    "num_citations_scored": 3,
+    "num_citations_scored": 4,
     "summary_stats": {
-      "mean_confidence": 0.5620991426706315,
-      "median_confidence": 0.5847682759165764,
-      "std_confidence": 0.03382773526768087,
-      "min_confidence": 0.5142809316515924,
-      "max_confidence": 0.5872482204437257,
+      "mean_confidence": 0.5417679874598981,
+      "median_confidence": 0.5474205096065999,
+      "std_confidence": 0.04200731852833692,
+      "min_confidence": 0.48746265470981603,
+      "max_confidence": 0.5847682759165764,
       "high_confidence_count": 0,
-      "medium_confidence_count": 3,
+      "medium_confidence_count": 4,
       "low_confidence_count": 0
     }
   }

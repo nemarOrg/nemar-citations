@@ -1,16 +1,14 @@
 {
   "dataset_id": "on004356",
-  "num_citations": 22,
-  "date_last_updated": "2026-09-30T10:45:46.118225+00:00",
+  "num_citations": 28,
+  "date_last_updated": "2026-10-11T11:16:15.527965+00:00",
   "metadata": {
-    "total_cumulative_citations": 134,
-    "fetch_date": "2026-09-29T11:13:50.558615+00:00",
+    "total_cumulative_citations": 146,
+    "fetch_date": "2026-10-11T10:52:15.353467+00:00",
     "processing_version": "1.0",
-    "fetch_status": "partial",
+    "fetch_status": "success",
     "anchor_count": 2,
-    "anchor_errors": {
-      "10.82901/nemar.on004356": "not_found"
-    },
+    "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
     "anchor_judgment_model": "claude-sonnet-5-5",
@@ -18,15 +16,15 @@
       {
         "identifier": "10.1038/s41598-023-50438-0",
         "identifier_type": "doi",
-        "source_relation": "References",
+        "source_relation": "IsDescribedBy",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Subcortical responses to music and speech are alike while cortical responses diverge",
         "paper_year": 2024,
         "paper_venue": "Scientific Reports",
         "reason": "Title and authors match the dataset name exactly; README says experiment details are in Shan et al. (2024), the study reporting this ABR music/speech EEG data.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on004356",
@@ -34,12 +32,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -49,12 +47,12 @@
     "keywords": [
       "EEG",
       "auditory brainstem response",
-      "music perception",
-      "speech perception",
+      "music",
+      "speech",
       "deconvolution",
-      "subcortical auditory processing"
+      "Electroencephalography"
     ],
-    "methods_description": "EEG recordings were collected from subjects seated in a sound-isolating booth using a BrainVision system. The experimental protocol consisted of two phases: Phase 1 involved ten 1-minute trials of click stimuli; Phase 2 presented 12-second clips from 12 stimulus types (6 music genres and 6 speech types) with 40 trials per type in randomized order, separated by 0.5-second pauses. Stimuli were delivered at 65 dB SPL through ER-2 insert earphones at 48 kHz sampling rate. Trigger codes marked stimulus onsets and types, with detailed trial information recorded in event files.",
+    "methods_description": "Participants sat in a sound-isolating booth and heard stimuli through ER-2 insert earphones at 65 dB SPL on average. Phase one presented ten one-minute click trials. Phase two presented 12 s clips of 12 stimulus types (six music genres, six speech types), 40 trials each in shuffled order with 0.5 s pauses. EEG was recorded in BrainVision format, and stimulus presentation was controlled with expyfun.",
     "funding": [
       {
         "funder_name": "the Schmitt Program in Neuroscience"
@@ -67,9 +65,9 @@
       "on004356",
       "ds004356"
     ],
-    "num_accession_mentions": 1,
-    "num_dataset_citations": 1,
-    "num_datapaper_citations": 21
+    "num_accession_mentions": 2,
+    "num_dataset_citations": 9,
+    "num_datapaper_citations": 19
   },
   "citation_details": [
     {
@@ -395,23 +393,26 @@
       }
     },
     {
-      "title": "Chimeric music reveals an interaction of pitch and time in electrophysiological signatures of music encoding",
+      "title": "Chimeric Music Reveals an Interaction of Pitch and Time in Electrophysiological Signatures of Music Encoding",
       "author": "Shan Tong, Edmund C. Lalor, Ross K. Maddox",
-      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
-      "year": 2024,
-      "url": "https://doi.org/10.1101/2024.11.04.621689",
+      "venue": "Journal of Neuroscience",
+      "year": 2025,
+      "url": "https://doi.org/10.1523/jneurosci.2083-24.2025",
       "cited_by": 0,
       "abstract": "Abstract Pitch and time are the essential dimensions defining musical melody. Recent electrophysiological studies have explored the neural encoding of musical pitch and time by leveraging probabilistic models of their sequences, but few have studied how the features might interact. This study examines these interactions by introducing “chimeric music,” which pairs two distinct melodies, and exchanges their pitch contours and note onset-times to create two new melodies, thereby distorting musical pattern while maintaining the marginal statistics of the original pieces’ pitch and temporal sequences. Through this manipulation, we aimed to dissect the music processing and the interaction between pitch and time. Employing the temporal response function (TRF) framework, we analyzed the neural encoding of melodic expectation and musical downbeats in participants with varying levels of musical training. Our findings revealed differences in the encoding of melodic expectation between original a",
-      "doi": "10.1101/2024.11.04.621689",
+      "doi": "10.1523/jneurosci.2083-24.2025",
       "pmid": "41419334",
       "openalex_id": "W4404027480",
-      "source_doi": "10.1038/s41598-023-50438-0",
+      "source_doi": "10.82901/nemar.on004356",
       "source_relation": "References",
       "discovery_backend": "opencite",
+      "superseded_dois": [
+        "10.1101/2024.11.04.621689"
+      ],
       "confidence_scoring": {
-        "confidence_score": 0.5624899090826512,
-        "similarity_score": 0.48700425028800964,
-        "citation_text_length": 1228,
+        "confidence_score": 0.5536888700723649,
+        "similarity_score": 0.47938430309295654,
+        "citation_text_length": 1212,
         "dataset_text_length": 2332,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -441,23 +442,26 @@
       }
     },
     {
-      "title": "Optimal parameters for measuring multiband auditory brainstem responses to continuous speech",
-      "author": "Melissa J. Polonenko, Benjamin R. Eisenreich",
-      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
-      "year": 2025,
-      "url": "https://doi.org/10.64898/2025.12.24.696406",
+      "title": "Optimal Parameters for Measuring Multiband Auditory Brainstem Responses to Continuous Speech",
+      "author": "Melissa Jane Polonenko, Benjamin R. Eisenreich",
+      "venue": "Trends in Hearing",
+      "year": 2026,
+      "url": "https://doi.org/10.1177/23312165261465722",
       "cited_by": 0,
-      "abstract": "Abstract Accurate clinical hearing assessment depends on efficient, engaging measures designed to evaluate ecologically relevant stimuli. Often brief tones or narrowband noise stimuli are used, providing a useful but limited snapshot of hearing function. Including dynamic speech offers a means to capture how the hearing system encodes complex sounds critical for everyday communication. Here we describe the optimal parameters for using audiobook continuous speech with the multiband peaky speech paradigm to measure frequency-specific auditory brainstem responses (ABRs) to standard audiological octave bands from 500–8000 Hz in each ear simultaneously. Using computational modeling and direct human ABR testing in adults with normal hearing, we demonstrate that continuous speech signals with a chirp phase profile and fundamental frequency (f0) lowered to the range of 90–110 Hz evoke the largest ABR wave V amplitudes. This amplitude boost occurs when any narrator’s f0 is lowered to this optim",
-      "doi": "10.64898/2025.12.24.696406",
-      "pmid": null,
-      "openalex_id": "W7117296162",
-      "source_doi": "10.1038/s41598-023-50438-0",
+      "abstract": "Accurate clinical hearing assessment depends on efficient, engaging measures designed to evaluate ecologically relevant stimuli. Often brief tones or narrowband noise stimuli are used, providing a useful but limited snapshot of hearing function. Including dynamic speech offers a means to capture how the hearing system encodes complex sounds critical for everyday communication. Here we describe the optimal parameters for using audiobook continuous speech with the multiband peaky speech paradigm to measure frequency-specific auditory brainstem responses (ABRs) to standard audiological octave bands from 500-8000 Hz in each ear simultaneously. Using computational modeling and direct human ABR testing in adults with normal hearing, we demonstrate that continuous speech signals with a chirp phase profile and fundamental frequency (f0) lowered to the range of 90-110 Hz evoke the largest ABR wave V amplitudes. This amplitude boost occurs when any narrator's f0 is lowered to this optimal range,",
+      "doi": "10.1177/23312165261465722",
+      "pmid": "42411029",
+      "openalex_id": "W7167622465",
+      "source_doi": "10.82901/nemar.on004356",
       "source_relation": "References",
       "discovery_backend": "opencite",
+      "superseded_dois": [
+        "10.64898/2025.12.24.696406"
+      ],
       "confidence_scoring": {
-        "confidence_score": 0.7715311682224275,
-        "similarity_score": 0.667992353439331,
-        "citation_text_length": 1214,
+        "confidence_score": 0.7598542320728303,
+        "similarity_score": 0.6578824520111084,
+        "citation_text_length": 1194,
         "dataset_text_length": 2332,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -556,6 +560,146 @@
       }
     },
     {
+      "title": "Modelling neural coding in the auditory midbrain with high resolution and accuracy",
+      "author": "Fotios Drakopoulos, Lloyd Pellatt, Shievanie Sabesan, Yiqing Xia, Andreas Fragner, Nicholas A. Lesica",
+      "venue": "Nature Machine Intelligence",
+      "year": 2025,
+      "url": "https://doi.org/10.1038/s42256-025-01104-9",
+      "cited_by": 11,
+      "abstract": "Computational models of auditory processing can be valuable tools for research and technology development. Models of the cochlea are highly accurate and widely used, but models of the auditory brain lag far behind in both performance and penetration. Here we present ICNet, a convolutional encoder-decoder model of neural coding in the inferior colliculus. We developed ICNet using large-scale intracranial recordings from anaesthetized gerbils, addressing three key modelling challenges that are common across all sensory systems: capturing the full statistical structure of neuronal response patterns; accounting for physiological and experimental non-stationarity; and extracting features of sensory processing that are shared across different brains. ICNet provides highly accurate simulation of multi-unit neural responses to a wide range of complex sounds, including near-perfect responses to speech. It also reproduces key neurophysiological phenomena such as forward masking and dynamic range",
+      "doi": "10.1038/s42256-025-01104-9",
+      "pmid": "41019457",
+      "openalex_id": "W4414335759",
+      "source_doi": "10.82901/nemar.on004356",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5963958513736726,
+        "similarity_score": 0.5163600444793701,
+        "citation_text_length": 1249,
+        "dataset_text_length": 2332,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Understanding and Correcting Low-Frequency Bias in EEG Foundation Model",
+      "author": "Jun-Jie Yu, Zihan Deng, Jian-Yu Zhang, Junrong Mu, Jia-Hui An, Wenxiao Ma, Zilin Lu, Yue Wang, Yan Zhu, Kexin Lou, Quan-Ying Liu",
+      "venue": "n/a",
+      "year": 2026,
+      "url": "n/a",
+      "cited_by": 1,
+      "abstract": "Increasing EEG pretraining data scale or model capacity does not consistently improve downstream performance. We identify a persistent low-frequency bias in representations learned by diverse EEG foundation models, which remains across dataset scales, model capacities, and pretraining objectives. Our analysis links this bias to the interaction between EEG's $1/f^\\alpha$-like spectral structure and neural networks'tendency to preferentially learn low-frequency components. In masked autoencoders, the $\\ell_2$ reconstruction objective further amplifies this imbalance: under comparable relative reconstruction errors, high-power low-frequency components contribute disproportionately to the loss. To address this issue, we introduce FAME, a frequency-balanced masked autoencoding framework that reconstructs time--frequency activity in predefined EEG bands from masked EEG inputs. FAME independently standardizes the reconstruction targets within each band and assigns equal weight to all band-spe",
+      "doi": null,
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.82901/nemar.on004356",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5204597613215447,
+        "similarity_score": 0.4506145119667053,
+        "citation_text_length": 1241,
+        "dataset_text_length": 2332,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "SPERA: Spherical Prior EEG Foundation Model with Geometry- and Frequency-Aware Latent Prediction",
+      "author": "Minsu Kim, Ye-Sung Kim, Hyeseong Jeon, Wooseok Hyung, Joshua Lee, Chang-Hwan Im",
+      "venue": "n/a",
+      "year": 2026,
+      "url": "n/a",
+      "cited_by": 0,
+      "abstract": "Electroencephalography (EEG) provides a non-invasive measure of ongoing neural activity, but building general-purpose EEG models remains challenging due to the heterogeneity of subjects, devices, and electrode montages. Existing EEG foundation models predominantly rely on reconstruction-based objectives defined on the observed signal, which contains both neural and non-neural components. We introduce SPERA (Spherical Prior EEG Representation Architecture), an EEG foundation model that adopts the joint-embedding predictive architecture (JEPA) to predict in latent space. SPERA introduces a Legendre-polynomial spatial prior, incorporated into attention to encode varying scalp electrode geometries. Two further components adapt the model to EEG: factorized temporal and spatial attention interleaved with periodic full-attention blocks, and a relational spectral regularizer aligning latent similarity structure with spectral views. Pretrained on approximately 80,000 hours of EEG from 29,048 su",
+      "doi": null,
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.82901/nemar.on004356",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5328270587325097,
+        "similarity_score": 0.4613221287727356,
+        "citation_text_length": 1217,
+        "dataset_text_length": 2332,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "A DEEP NEURAL NETWORK FOR PREDICTING CONTINUOUS HUMAN EEG ACROSS THE AUDITORY PATHWAY IN RESPONSE TO SOUND",
+      "author": "Thomas J. Stoll, Ross K. Maddox",
+      "venue": "ArXiv",
+      "year": 2026,
+      "url": "n/a",
+      "cited_by": 0,
+      "abstract": "Computational models of auditory physiology commonly target specific responses or stages of the auditory pathway, limiting their ability to integrate findings across experimental paradigms and neural timescales. We present a foundation model of human auditory electrophysiology: a causal neural network trained to map binaural acoustic waveforms directly to high-sample-rate EEG. The model was trained on approximately 250 hours of EEG data from 92 subjects, with varied electrode montages and stimuli spanning tonebursts, speech, and music. We tested whether the model recovered effects of stimulus rate, frequency, and presentation method on auditory brainstem responses (ABRs); subcortical and cortical temporal response functions (TRFs) to continuous speech; and the click-evoked binaural interaction component (BIC). Predicted ABRs and TRFs reproduced established response morphology and stimulus-dependent effects, with model–grand-average correlations falling within the corresponding subject-",
+      "doi": null,
+      "pmid": "42818211",
+      "openalex_id": null,
+      "source_doi": "10.82901/nemar.on004356",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7668780452013017,
+        "similarity_score": 0.6639636754989624,
+        "citation_text_length": 1181,
+        "dataset_text_length": 2332,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Chirped Speech (Cheech) Enables Rapid Assessment of Multi-Level Auditory Evoked Potentials During Speech-in-Noise Recognition",
+      "author": "May Chao, C. Holloway, L. Miller, K. Mankel",
+      "venue": "bioRxiv",
+      "year": 2026,
+      "url": "https://doi.org/10.64898/2026.08.19.745831",
+      "cited_by": 0,
+      "abstract": "Difficulties understanding speech in noise remain a common complaint even among listeners with normal hearing sensitivity, highlighting the need for objective, more effective measures of real-world listening. The goal of this study was to validate the use of a novel, chirped-speech (Cheech) stimulus—continuous, naturally-spoken speech fused with chirps designed to elicit robust auditory evoked potentials—to characterize relationships between speech recognition, listening effort, and auditory neural encoding. Twenty-five normal-hearing adults completed a sentence-recognition task using both original (unmodified) and Cheech-modified AzBio sentence lists in quiet, +3 dB, and −3 dB signal-to-noise ratio (SNR) conditions while neural responses from the brainstem through cortex were recorded simultaneously. Speech recognition remained near ceiling in quiet but declined with decreasing SNR for both original and Cheech stimuli. Compared with clean speech, Cheech-modified speech showed slightly",
+      "doi": "10.64898/2026.08.19.745831",
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.82901/nemar.on004356",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6809550547599793,
+        "similarity_score": 0.589571475982666,
+        "citation_text_length": 1214,
+        "dataset_text_length": 2332,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "What masking geometry works best for EEG foundation models?",
+      "author": "Pierre Guetschel, Bruno Aristimunha, Yassine El Ouahidi, Arnaud Delorme, Thomas Moreau, Michael Tangermann",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2609.33487",
+      "cited_by": 0,
+      "abstract": "EEG foundation models hold promise for scalable brain-signal decoding across clinical and cognitive neuroscience applications, yet their pre-training pipelines remain poorly understood. Among design choices, the masking strategy is particularly critical: it determines what the network must predict and from which context. Yet it has never been ablated in isolation, as each new model bundles a new masking strategy with a new backbone and objective. In this paper, we formalize the design choices for spatio-temporal masking strategies and train various models with a single pipeline under varying masking configurations across two SSL frameworks (MAE and JEPA). We then systematically evaluate the resulting 58 pre-trained models on the 12 datasets of OpenEEGBench under a linear probe. Both frameworks agree on an optimal masking configuration and on shared failure modes. Outside these, performance is robust: 11 MAE and 9 JEPA configurations are statistically indistinguishable from the best. We further identify a novel JEPA-specific failure mode, tagged bias-inflation collapse, invisible to standard detectors. With a well-chosen mask, our pipeline reaches REVE-level downstream performance at a fraction of REVE's pre-training compute.",
+      "doi": "10.48550/arxiv.2609.33487",
+      "pmid": null,
+      "openalex_id": "W7214740814",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004356",
+      "confidence_scoring": {
+        "confidence_score": 0.49768169492483144,
+        "similarity_score": 0.4308932423591614,
+        "citation_text_length": 1474,
+        "dataset_text_length": 2332,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "MindMix : a multimodal foundation model for auditory perception decoding via deep neural-acoustic alignment",
       "author": "R Liu, Z Chen, S Peng, W You, Huang Za, J Wu, KC Tan",
       "venue": "PolyU Institutional Research Archive (Hong Kong Polytechnic University)",
@@ -583,17 +727,17 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T10:58:55.675874+00:00",
+    "scoring_date": "2026-10-11T11:32:13.650156+00:00",
     "dataset_text_length": 2332,
-    "num_citations_scored": 22,
+    "num_citations_scored": 28,
     "summary_stats": {
-      "mean_confidence": 0.6985988895527342,
-      "median_confidence": 0.7189095720648766,
-      "std_confidence": 0.154416417914433,
+      "mean_confidence": 0.6765676807612183,
+      "median_confidence": 0.6977216497063637,
+      "std_confidence": 0.14962974805452786,
       "min_confidence": 0.20207992136478425,
       "max_confidence": 0.9147578608989716,
-      "high_confidence_count": 13,
-      "medium_confidence_count": 8,
+      "high_confidence_count": 14,
+      "medium_confidence_count": 13,
       "low_confidence_count": 1
     }
   }

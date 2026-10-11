@@ -1,10 +1,10 @@
 {
   "dataset_id": "on003969",
-  "num_citations": 4,
-  "date_last_updated": "2026-09-30T10:45:12.088624+00:00",
+  "num_citations": 7,
+  "date_last_updated": "2026-10-11T11:15:49.014085+00:00",
   "metadata": {
-    "total_cumulative_citations": 4,
-    "fetch_date": "2026-09-30T10:42:04.070914+00:00",
+    "total_cumulative_citations": 0,
+    "fetch_date": "2026-10-11T10:48:25.984354+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 1,
@@ -43,8 +43,8 @@
       "on003969",
       "ds003969"
     ],
-    "num_accession_mentions": 4,
-    "num_dataset_citations": 4,
+    "num_accession_mentions": 7,
+    "num_dataset_citations": 7,
     "num_datapaper_citations": 0
   },
   "citation_details": [
@@ -124,6 +124,81 @@
       }
     },
     {
+      "title": "What masking geometry works best for EEG foundation models?",
+      "author": "Pierre Guetschel, Bruno Aristimunha, Yassine El Ouahidi, Arnaud Delorme, Thomas Moreau, Michael Tangermann",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2609.33487",
+      "cited_by": 0,
+      "abstract": "EEG foundation models hold promise for scalable brain-signal decoding across clinical and cognitive neuroscience applications, yet their pre-training pipelines remain poorly understood. Among design choices, the masking strategy is particularly critical: it determines what the network must predict and from which context. Yet it has never been ablated in isolation, as each new model bundles a new masking strategy with a new backbone and objective. In this paper, we formalize the design choices for spatio-temporal masking strategies and train various models with a single pipeline under varying masking configurations across two SSL frameworks (MAE and JEPA). We then systematically evaluate the resulting 58 pre-trained models on the 12 datasets of OpenEEGBench under a linear probe. Both frameworks agree on an optimal masking configuration and on shared failure modes. Outside these, performance is robust: 11 MAE and 9 JEPA configurations are statistically indistinguishable from the best. We further identify a novel JEPA-specific failure mode, tagged bias-inflation collapse, invisible to standard detectors. With a well-chosen mask, our pipeline reaches REVE-level downstream performance at a fraction of REVE's pre-training compute.",
+      "doi": "10.48550/arxiv.2609.33487",
+      "pmid": null,
+      "openalex_id": "W7214740814",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds003969",
+      "confidence_scoring": {
+        "confidence_score": 0.3188459783792496,
+        "similarity_score": 0.2760571241378784,
+        "citation_text_length": 1474,
+        "dataset_text_length": 1386,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Two timescales of fronto-occipital theta coupling in meditation: slow-scale decoupling coexists with fast-scale coupling",
+      "author": "Qiao Ou",
+      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "year": 2026,
+      "url": "https://doi.org/10.5281/zenodo.23153094",
+      "cited_by": 0,
+      "abstract": "Fronto-occipital theta coupling is treated as a single quantity. We show it decomposes into two timescales with opposite behavior. At the slow timescale (30-s theta power envelope), high spatial coverage correlates with decoupling (rho = -0.252, p = 0.015, N = 93). At the fast timescale (instantaneous phase), the correlation is positive (rho = +0.100, p = 0.34). Across four tasks and two datasets, the two timescales behave oppositely. Applying the same analysis to sleep EEG (N = 69, five stages) separates wakefulness, meditation, and sleep into three distinct regimes: - Wakefulness: positive coupling on both scales- Meditation: slow-scale decoupling with maintained fast-scale coupling- Sleep: slow-scale coupling with fast-scale anti-phase locking The two-dimensional (slow, fast) representation distinguishes states that are indistinguishable on a single synchrony axis.",
+      "doi": "10.5281/zenodo.23153094",
+      "pmid": null,
+      "openalex_id": "W7220477281",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds003969",
+      "confidence_scoring": {
+        "confidence_score": 0.49482452318072323,
+        "similarity_score": 0.4284195005893707,
+        "citation_text_length": 1102,
+        "dataset_text_length": 1386,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Sync × Coverage: A Cross-Dataset EEG Biomarker for Deep Meditative and Altered States of Consciousness",
+      "author": "Qiao Ou",
+      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "year": 2026,
+      "url": "https://doi.org/10.5281/zenodo.23220314",
+      "cited_by": 0,
+      "abstract": "Sync × Coverage: A Cross-Dataset EEG Signature for Deep Meditative States Author: Qiao Ou (ORCID 0009-0008-4540-1381)Date: 2026-10-08Version: 1.0 --- Abstract We report a two-dimensional EEG signature — Sync × Coverage — that separates deep meditative states from sleep, anesthesia, and disorders of consciousness. The signature is validated across six independent public datasets totaling 328 subjects. Two extreme states emerge as isolated points in the Sync × Coverage plane: one at high sync and high coverage (labeled \"Seeming Existence\" for the purposes of this report) and one at near-zero sync with moderate coverage (labeled \"Shou-Ji\"). Neither state is reproduced by any other subject in any of the six datasets. --- 1. Background Consumer EEG devices have become widely available, but they lack objective biomarkers for advanced meditative states. Existing metrics such as device-supplied \"calmness\" or \"focus\" scores are relative, device-dependent, and not validated against independent state categories. There is a practical need for a stable, cross-dataset biomarker that can distinguish deep meditative states from ordinary relaxation, from sleep, and from pathological reductions of consciousness. This preprint reports one candidate signature and its cross-dataset behavior. --- 2. Datasets Six publicly available datasets were used: - ds001787 — 24 subjects, meditation, 256 Hz- ds003969 — 93 subjects, meditation (four tasks), 1024 Hz- ds005620 — 21 subjects, anesthesia, 5000 Hz- Mendeley DOC — 65 subjects, disorders of consciousness- ISRUC-Sleep — 118 subjects, polysomnography- Sleep-EDF — 69 subjects, sleep Total: 328 subjects across six independent recordings. No new data were collected for this report. --- 3. Methods (summary) Two dimensions were computed for each subject: Sync — a measure of spatial synchrony, reflecting the degree to which theta-band activity co-varies across EEG channels. Coverage — a measure of whole-brain coverage, reflecting the proportion of channels that exhibit a specific spectral structure. Both dimensions are scalar values per subject per recording. Detailed computational procedures, including parameter settings and preprocessing choices, are not included in this preprint. They are available to academic collaborators under a data-use agreement. No claim is made that the signature is unique to meditation. The signature is presented as a cross-dataset classifier of conscious state, not as a meditation-specific marker. --- 4. Results The figure (all_two_views_en.png / .pdf) shows each subject as a point in the Sync × Coverage plane. Two panels are shown: (A) sustained state (per-subject average) and (B) peak state (best task or segment per subject). Four observations: 1. Different conscious states occupy different regions of the plane. Sleep and anesthesia cluster in distinct areas. Meditation subjects are broadly distributed. 2. Two extreme points are isolated. One subject at high sync and high coverage (787 sub-017) remains at the top-right of the plane in both panels. One subject at near-zero sync with moderate coverage (969 sub-017) remains at the left of the plane in both panels. Neither position is reproduced by any other subject. 3. The two extremes do not overlap. They differ on both axes: high sync / high coverage versus low sync / moderate coverage. 4. The signature is not meditation-specific. Meditation datasets contain the extremes; the pathology datasets do not. --- 5. Code and Data Availability Source code and preprocessing parameters are retained by the author. A limited version is available for academic review upon request under a data-use agreement. Companion preprints describing related methods and earlier results are available on Zenodo (see References). --- 6. Limitations - Sync and Coverage are not directly comparable across datasets due to differences in channel count and recording length. The signature is intended for relative-position observation within a dataset, not absolute comparison between datasets.- No behavioral data (meditation experience, subjective state reports) are available for the six datasets. The two labeled extremes are descriptive names, not verified state categories.- The signature has not been tested prospectively. Independent replication is required before any clinical or commercial claim. --- 7. Conclusion A two-dimensional EEG signature (Sync × Coverage) separates deep meditative states from sleep, anesthesia, and disorders of consciousness across six independent datasets and 328 subjects. Two extreme positions are observed and appear unique within the current sample. The signature is offered as a candidate biomarker for further independent validation. --- References Companion preprints on Zenodo:- anchor_score methodology (DOI: 10.5281/zenodo.22850972)- A Distinctive Theta-Beta Anticorrelation in Meditation EEG- High Synchrony Is Not Whole-Brain Coordination- Two Time Scales of Fronto-Occipital Theta Coupling- Falsifiable Predictions Registry- (additional preprints listed on the author's Zenodo profile) Correspondence: Qiao Ou ORCID: 0009-0008-4540-1381 ORCID profile: https://orcid.org/0009-0008-4540-1381 Email: qiao.ou@outlook.com",
+      "doi": "10.5281/zenodo.23220314",
+      "pmid": null,
+      "openalex_id": "W7221016864",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds003969",
+      "confidence_scoring": {
+        "confidence_score": 0.5730214981734754,
+        "similarity_score": 0.4961225092411041,
+        "citation_text_length": 1704,
+        "dataset_text_length": 1386,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Where Does the \"I\" Live: From the Metaphor of the Strange Loop to the Hopf Fiber",
       "author": "Roman Rachenko",
       "venue": "PhilPapers (PhilPapers Foundation)",
@@ -151,18 +226,18 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T10:57:35.572941+00:00",
+    "scoring_date": "2026-10-11T11:30:32.066369+00:00",
     "dataset_text_length": 1386,
-    "num_citations_scored": 4,
+    "num_citations_scored": 7,
     "summary_stats": {
-      "mean_confidence": 0.4640787675976753,
-      "median_confidence": 0.48791395425796513,
-      "std_confidence": 0.097629465984103,
+      "mean_confidence": 0.46328672430344986,
+      "median_confidence": 0.49482452318072323,
+      "std_confidence": 0.10143825868911069,
       "min_confidence": 0.31438266634941103,
-      "max_confidence": 0.5661044955253601,
+      "max_confidence": 0.5730214981734754,
       "high_confidence_count": 0,
-      "medium_confidence_count": 3,
-      "low_confidence_count": 1
+      "medium_confidence_count": 5,
+      "low_confidence_count": 2
     }
   }
 }

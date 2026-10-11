@@ -1,30 +1,43 @@
 {
   "dataset_id": "on005594",
-  "num_citations": 1,
-  "date_last_updated": "2026-09-30T16:33:32.353954+00:00",
+  "num_citations": 2,
+  "date_last_updated": "2026-10-11T11:05:24.586428+00:00",
   "metadata": {
     "total_cumulative_citations": 1,
-    "fetch_date": "2026-09-29T11:28:57.590152+00:00",
+    "fetch_date": "2026-10-11T11:05:24.586428+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
-    "anchor_count": 1,
+    "anchor_count": 2,
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
     "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
+        "identifier": "10.1101/2024.11.11.622929",
+        "identifier_type": "doi",
+        "source_relation": "IsDescribedBy",
+        "classification": "data_paper",
+        "kept": true,
+        "kept_reason": "judged_data_paper",
+        "paper_title": "Beyond Letters: Optimal Transport as a Model for Sub-Letter Orthographic Processing",
+        "paper_year": 2024,
+        "paper_venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+        "reason": "Dataset README names this preprint (Taylor et al. 2024) as the full description; same authors and EEG letter-processing data, DataCite IsSupplementTo.",
+        "judgment_model": "claude-sonnet-5-5"
+      },
+      {
         "identifier": "10.21105/joss.01896",
         "identifier_type": "doi",
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
         "paper_year": 2019,
         "paper_venue": "The Journal of Open Source Software",
         "reason": "MNE-BIDS is a software tool paper for organizing data into BIDS; the dataset README says it was generated with MNE-BIDS, so it is not a paper about this dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1038/s41597-019-0104-8",
@@ -32,12 +45,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "EEG-BIDS, an extension to the brain imaging data structure for electroencephalography",
         "paper_year": 2019,
         "paper_venue": "Scientific Data",
         "reason": "EEG-BIDS is a data-organization standard extension used to format this dataset, not a paper describing this alphabetic decision task dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on005594",
@@ -45,59 +58,75 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
+      "10.1101/2024.11.11.622929",
       "10.82901/nemar.on005594"
     ],
     "keywords": [
       "EEG",
-      "orthographic processing",
       "alphabetic decision task",
-      "visual word recognition",
-      "optimal transport"
+      "orthographic processing",
+      "letter perception",
+      "optimal transport",
+      "visual word recognition"
     ],
-    "methods_description": "EEG data were recorded during an alphabetic decision task and converted to BIDS format using MNE-BIDS, combined with behavioural data, stimulus information, and metadata. Known data issues (e.g., restarted recordings, channel swaps, interrupted sessions) were documented and corrected during BIDS conversion. Recording timestamps were anonymised by a constant time shift.",
+    "methods_description": "EEG was recorded during an alphabetic decision task. The data were converted to BIDS with MNE-BIDS and custom code that joins behavioural data, stimulus information, and metadata. A channel wiring swap (FT7 and FC3) was corrected during conversion. Two interrupted recordings for sub-01 were concatenated with a boundary event, and recording dates were anonymised by a constant shift.",
     "funding": [
       {
         "funder_name": "Goethe University Fokus"
       }
-    ],
-    "searched_accessions": [
-      "on005594",
-      "ds005594"
-    ],
-    "num_accession_mentions": 1,
-    "num_dataset_citations": 1,
-    "num_datapaper_citations": 0
+    ]
   },
   "citation_details": [
     {
-      "title": "Beyond Letters: Optimal Transport as a Model for Sub-Letter Orthographic Processing",
-      "author": "Jack Edward Taylor, Rasmus Sinn, Cosimo Iaia, Christian J. Fiebach",
-      "venue": "Neurobiology of Language",
-      "year": 2025,
-      "url": "https://doi.org/10.1162/nol.a.19",
+      "title": "Temporal dynamics of letter processing revealed by multivariate pattern analysis of EEG data",
+      "author": "Miguel Domingues, Susana Araújo, Tânia Fernandes, Inês Bramão",
+      "venue": "NeuroImage",
+      "year": 2026,
+      "url": "https://doi.org/10.1016/j.neuroimage.2026.121750",
       "cited_by": 1,
-      "abstract": "Letter processing plays a key role in visual word recognition. However, word recognition models typically overlook or greatly simplify early perceptual processes of letter recognition. We suggest that optimal transport theory may provide a computational framework for describing letter shape processing. We use representational similarity analysis to show that optimal transport cost (Wasserstein distance) between pairs of letters aligns with neural activity elicited by visually presented letters <225 ms after stimulus onset, outperforming an existing approach based on shape overlap. We additionally show that optimal transport can capture the emergence of geometric invariances (e.g., to position or size) observed in letter perception. Finally, we demonstrate that Wasserstein distance predicts neural activity similarly well to features from artificial networks trained to classify images and letters. However, whereas representations in artificial neural networks emerge in a computationally unconstrained manner, our proposal provides a computationally explicit route to modeling the earliest orthographic processes.",
-      "doi": "10.1162/nol.a.19",
-      "pmid": "41113136",
-      "openalex_id": "W4412201651",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds005594",
+      "abstract": "• Single letter recognition relies on a cascade of continuous orthographic processes • This cascade begins when letter-specific processing emerges in the N1 time-window • Late evaluation processes, indexed by the P3, are part of this cascaded processing • Perceptual letter representations remain active during abstract orthographic stages • Early letter representations are reshaped, suggesting interactive processing stages Letters are the primitives of reading expertise. Single letter recognition relies on a hierarchy of processing stages, in which early visual features gradually evolve into abstract letter representations, but the temporal organization of these stages remains poorly understood. To address it, we applied multivariate pattern analysis (MVPA) to electroencephalography (EEG) data recorded while adult readers (n = 35) performed a one-back repetition detection task on single letters and pseudoletters. Traditional event-related potential (ERP) analyses revealed differences be",
+      "doi": "10.1016/j.neuroimage.2026.121750",
+      "pmid": "41580254",
+      "openalex_id": "W7125401157",
+      "source_doi": "10.1101/2024.11.11.622929",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.46519213601946835,
-        "similarity_score": 0.4027637541294098,
-        "citation_text_length": 1337,
+        "confidence_score": 0.5969123142957689,
+        "similarity_score": 0.5168071985244751,
+        "citation_text_length": 1202,
+        "dataset_text_length": 2263,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Character Iconicity vs. Arbitrariness: An Arabic NLP Perspective",
+      "author": "Dorieh M. Alomari, Irfan Ahmad, Maged Saeed Al-shaibani",
+      "venue": "n/a",
+      "year": 2026,
+      "url": "n/a",
+      "cited_by": 0,
+      "abstract": "Arabic script uses 28 letters, many of which share a common base shape (rasm) and are distinguished only by dot placement. Because early Arabic manuscripts were written without dots yet remained interpretable, dot removal offers a natural test of whether these visual distinctions are functionally necessary. Prior work has shown that dotless Arabic can remain readable and effective for natural language processing (NLP), but it remains unclear whether this success depends on preserving the original rasm groupings or whether arbitrary but consistent remappings to the same reduced rasm set can achieve comparable performance. We address this question by comparing standard dotted and dotless Arabic with arbitrary character remappings constrained to the same 19 undotted rasms. We generated 2,000 random remappings under word- and character-level tokenization and selected four representative mappings with the highest and lowest entropy values. These representations were evaluated across languag",
+      "doi": null,
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.1101/2024.11.11.622929",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.45391184091568,
+        "similarity_score": 0.39299726486206055,
+        "citation_text_length": 1161,
         "dataset_text_length": 2263,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -106,17 +135,17 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T16:39:09.427371+00:00",
+    "scoring_date": "2026-10-11T11:37:54.554353+00:00",
     "dataset_text_length": 2263,
-    "num_citations_scored": 1,
+    "num_citations_scored": 2,
     "summary_stats": {
-      "mean_confidence": 0.46519213601946835,
-      "median_confidence": 0.46519213601946835,
-      "std_confidence": 0.0,
-      "min_confidence": 0.46519213601946835,
-      "max_confidence": 0.46519213601946835,
+      "mean_confidence": 0.5254120776057244,
+      "median_confidence": 0.5254120776057244,
+      "std_confidence": 0.07150023669004443,
+      "min_confidence": 0.45391184091568,
+      "max_confidence": 0.5969123142957689,
       "high_confidence_count": 0,
-      "medium_confidence_count": 1,
+      "medium_confidence_count": 2,
       "low_confidence_count": 0
     }
   }

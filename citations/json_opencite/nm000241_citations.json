@@ -1,49 +1,91 @@
 {
   "dataset_id": "nm000241",
   "num_citations": 0,
-  "date_last_updated": "2026-09-29T10:54:55.657930+00:00",
+  "date_last_updated": "2026-10-11T10:23:54.772235+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
-    "fetch_date": "2026-09-29T10:54:55.657930+00:00",
+    "fetch_date": "2026-10-11T10:23:54.772235+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
-    "anchor_count": 1,
+    "anchor_count": 2,
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
     "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
+        "identifier": "10.5281/zenodo.13332808",
+        "identifier_type": "doi",
+        "source_relation": "IsDerivedFrom",
+        "classification": "data_paper",
+        "kept": true,
+        "kept_reason": "judged_data_paper",
+        "paper_title": "NeuroVox: Bilingual Brain-to-Speech Translation and Neural Activity Detection",
+        "paper_year": 2025,
+        "paper_venue": "Zenodo (CERN European Organization for Nuclear Research)",
+        "reason": "Zenodo record 10.5281/zenodo.13332808 is the source deposit named in the README; it describes the bilingual sEEG dataset (Chinese, English, digit reading) that this derivative redistributes.",
+        "judgment_model": "claude-sonnet-5-5"
+      },
+      {
+        "identifier": "10.21105/joss.01896",
+        "identifier_type": "doi",
+        "source_relation": "References",
+        "classification": "methodology",
+        "kept": false,
+        "kept_reason": "never_anchor",
+        "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
+        "paper_year": 2019,
+        "paper_venue": "The Journal of Open Source Software",
+        "reason": "MNE-BIDS is a software tool for organizing electrophysiological data into BIDS, used in converting this dataset, not a paper describing the CerebroVoice data.",
+        "judgment_model": "claude-sonnet-5-5"
+      },
+      {
+        "identifier": "10.1038/s41597-019-0105-7",
+        "identifier_type": "doi",
+        "source_relation": "References",
+        "classification": "methodology",
+        "kept": false,
+        "kept_reason": "never_anchor",
+        "paper_title": "iEEG-BIDS, extending the Brain Imaging Data Structure specification to human intracranial electrophysiology",
+        "paper_year": 2019,
+        "paper_venue": "Scientific Data",
+        "reason": "iEEG-BIDS is a specification for organizing iEEG data in BIDS, used to format this sEEG dataset; it does not describe the CerebroVoice data.",
+        "judgment_model": "claude-sonnet-5-5"
+      },
+      {
         "identifier": "10.82901/nemar.nm000241",
         "identifier_type": "doi",
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
+      "10.5281/zenodo.13332808",
       "10.82901/nemar.nm000241"
     ],
-    "keywords": [],
-    "methods_description": null,
-    "funding": [],
-    "searched_accessions": [
-      "nm000241"
+    "keywords": [
+      "sEEG",
+      "intracranial EEG",
+      "speech",
+      "bilingual",
+      "Epilepsy",
+      "high-gamma activity",
+      "brain-to-speech decoding"
     ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 0
+    "methods_description": "Intracranial recordings were acquired at 1000 Hz using a Nihon Kohden EEG-1200 system with platinum-iridium depth electrodes. Participants read Chinese, English, and digit stimuli (about 73 min for SUB1 and 76 min for SUB2). Preprocessed NPY derivatives (LFS, HGA, BBS) were converted to BIDS-iEEG.",
+    "funding": []
   },
   "citation_details": [],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T12:00:04.480619+00:00",
+    "scoring_date": "2026-10-11T11:23:55.504851+00:00",
     "dataset_text_length": 1734,
     "num_citations_scored": 0
   }

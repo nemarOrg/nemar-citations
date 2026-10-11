@@ -1,10 +1,10 @@
 {
   "dataset_id": "on003478",
-  "num_citations": 16,
-  "date_last_updated": "2026-09-29T11:44:31.239011+00:00",
+  "num_citations": 17,
+  "date_last_updated": "2026-10-11T11:15:21.188388+00:00",
   "metadata": {
-    "total_cumulative_citations": 290,
-    "fetch_date": "2026-09-29T11:08:31.183854+00:00",
+    "total_cumulative_citations": 0,
+    "fetch_date": "2026-10-11T10:44:13.937173+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 1,
@@ -19,12 +19,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -35,17 +35,17 @@
       "resting state",
       "depression",
       "Beck Depression Inventory",
-      "eyes-open eyes-closed",
-      "electroencephalography"
+      "eyes open",
+      "eyes closed"
     ],
-    "methods_description": "EEG data were collected during two 6-minute resting sessions per participant. The first session occurred immediately after EEG electrode placement, and the second session followed approximately one hour of task performance. Each session included alternating eyes-open and eyes-closed conditions in 1-minute blocks, with triggers marking the instructed condition spans. Participants were selected based on Beck Depression Inventory scores to represent reliably high or low depression phenotypes.",
+    "methods_description": "Resting EEG was recorded circa 2008-2010 in the John J.B. Allen lab at the University of Arizona. The task was programmed in DMDX with instructions alternating one-minute eyes-open and eyes-closed spans (e.g., OCCOCO or COOCOC), marked by triggers. The first 6 minutes followed EEG hook-up and the second 6 minutes followed task performance about 1 hour later. Some files have interpolated channels, and HEOG and VEOG labels may be swapped.",
     "funding": [],
     "searched_accessions": [
       "on003478",
       "ds003478"
     ],
-    "num_accession_mentions": 16,
-    "num_dataset_citations": 16,
+    "num_accession_mentions": 17,
+    "num_dataset_citations": 17,
     "num_datapaper_citations": 0
   },
   "citation_details": [
@@ -55,7 +55,7 @@
       "venue": "International Journal of Methods in Psychiatric Research",
       "year": 2026,
       "url": "https://doi.org/10.1002/mpr.70088",
-      "cited_by": 1,
+      "cited_by": 2,
       "abstract": "BACKGROUND: Depression is a major mental health disorder, and EEG-based automated detection is emerging as a potential objective diagnostic tool. However, achieving both high accuracy and interpretability remains challenging due to the complex spatiotemporal structure of EEG signals. This study proposes an explainable deep learning framework for depression detection using resting-state EEG data. METHODS: A retrospective computational study using deep learning was conducted using EEG data from 122 subjects in the OpenNeuro dataset (ds003478). Based on Beck Depression Inventory (BDI) scores, participants were classified into control (BDI ≤ 13; n = 76) and depressive (BDI ≥ 20; n = 30) groups; intermediate cases (BDI 14-19; n = 16) were excluded to reduce label ambiguity and construct a high-confidence binary classification framework, although this may reduce applicability to mild or subclinical depression, resulting in a final cohort of 106 subjects. Preprocessing included band-pass filtering (1-40 Hz), 50 Hz notch filtering, Independent Component Analysis, and average referencing. A subject-wise 5-fold cross-validation was applied. A CNN-BiLSTM architecture with an attention mechanism integrated with explainable AI techniques (Grad-CAM and SHAP) was developed. RESULTS: The proposed model achieved an accuracy of 89.76%, an F1-score of 89.58%, and an AUC of 0.936. Ablation analysis confirmed the contribution of temporal modeling and attention mechanisms. Explainability analysis using Grad-CAM and SHAP showed that frontal EEG channels were the most influential in classification, consistent with neurophysiological findings. CONCLUSION: The proposed framework provides an accurate and interpretable method for EEG-based depression detection, supporting applications in computational psychiatry and decision-support systems.",
       "doi": "10.1002/mpr.70088",
       "pmid": "42298924",
@@ -155,7 +155,7 @@
       "venue": "IEEE Transactions on Neural Systems and Rehabilitation Engineering",
       "year": 2023,
       "url": "https://doi.org/10.1109/tnsre.2023.3320693",
-      "cited_by": 39,
+      "cited_by": 41,
       "abstract": "In recent years, Graph Neural Networks (GNNs) based on deep learning techniques have achieved promising results in EEG-based depression detection tasks but still have some limitations. Firstly, most existing GNN-based methods use pre-computed graph adjacency matrices, which ignore the differences in brain networks between individuals. Additionally, methods based on graph-structured data do not consider the temporal dependency information of brain networks. To address these issues, we propose a deep learning algorithm that explores adaptive graph topologies and temporal graph networks for EEG-based depression detection. Specifically, we designed an Adaptive Graph Topology Generation (AGTG) module that can adaptively model the real-time connectivity of the brain networks, revealing differences between individuals. In addition, we designed a Graph Convolutional Gated Recurrent Unit (GCGRU) module to capture the temporal dynamical changes of brain networks. To further explore the differential features between depressed and healthy individuals, we adopt Graph Topology-based Max-Pooling (GTMP) module to extract graph representation vectors accurately. We conduct a comparative analysis with several advanced algorithms on both public and our own datasets. The results reveal that our final model achieves the highest Area Under the Receiver Operating Characteristic Curve (AUROC) on both datasets, with values of 83% and 99%, respectively. Furthermore, we perform extensive validation experiments demonstrating our proposed method's effectiveness and advantages. Finally, we present a comprehensive discussion on the differences in brain networks between healthy and depressed individuals based on the outputs of our final model's AGTG and GTMP modules.",
       "doi": "10.1109/tnsre.2023.3320693",
       "pmid": "37773916",
@@ -169,34 +169,6 @@
         "confidence_score": 0.6361204692721367,
         "similarity_score": 0.550753653049469,
         "citation_text_length": 1783,
-        "dataset_text_length": 1445,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Resting-State EEG Alterations of Practice-Related Spectral Activity and Connectivity Patterns in Depression",
-      "author": "Elisa Tatti, Alessandra Cinti, Anna Serbina, Adalgisa Luciani, Giordano D’Urso, Alberto Cacciola, Angelo Quartarone, Maria Felice Ghilardi",
-      "venue": "Biomedicines",
-      "year": 2024,
-      "url": "https://doi.org/10.3390/biomedicines12092054",
-      "cited_by": 13,
-      "abstract": "BACKGROUND: Depression presents with altered energy regulation and neural plasticity. Previous electroencephalography (EEG) studies showed that practice in learning tasks increases power in beta range (13-30 Hz) in healthy subjects but not in those with impaired plasticity. Here, we ascertain whether depression presents with alterations of spectral activity and connectivity before and after a learning task. METHODS: We used publicly available resting-state EEG recordings (64 electrodes) from 122 subjects. Based on Beck Depression Inventory (BDI) scores, they were assigned to either a high BDI (hBDI, BDI > 13, N = 46) or a control (CTL, BDI < 7, N = 75) group. We analyzed spectral activity, theta-beta, and theta-gamma phase-amplitude coupling (PAC) of EEG recorded at rest before and after a learning task. RESULTS: At baseline, compared to CTL, hBDI exhibited greater power in beta over fronto-parietal regions and in gamma over the right parieto-occipital area. At post task, power increased in all frequency ranges only in CTL. Theta-beta and theta-gamma PAC were greater in hBDI at baseline but not after the task. CONCLUSIONS: The lack of substantial post-task growth of beta power in depressed subjects likely represents power saturation due to greater baseline values. We speculate that inhibitory/excitatory imbalance, altered plasticity mechanisms, and energy dysregulation present in depression may contribute to this phenomenon.",
-      "doi": "10.3390/biomedicines12092054",
-      "pmid": "39335567",
-      "openalex_id": "W4402430481",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds003478",
-      "superseded_dois": [
-        "10.20944/preprints202407.2337.v1"
-      ],
-      "confidence_scoring": {
-        "confidence_score": 0.743373474776745,
-        "similarity_score": 0.6436133980751038,
-        "citation_text_length": 1744,
         "dataset_text_length": 1445,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -253,12 +225,37 @@
       }
     },
     {
+      "title": "Resting-State EEG Alterations of Practice-Related Spectral Activity and Connectivity Patterns in Depression",
+      "author": "Elisa Tatti, Alessandra Cinti, Anna Serbina, Adalgisa Luciani, Giordano D’Urso, Alberto Cacciola, Angelo Quartarone, Maria Felice Ghilardi",
+      "venue": "Biomedicines",
+      "year": 2024,
+      "url": "https://doi.org/10.3390/biomedicines12092054",
+      "cited_by": 14,
+      "abstract": "BACKGROUND: Depression presents with altered energy regulation and neural plasticity. Previous electroencephalography (EEG) studies showed that practice in learning tasks increases power in beta range (13-30 Hz) in healthy subjects but not in those with impaired plasticity. Here, we ascertain whether depression presents with alterations of spectral activity and connectivity before and after a learning task. METHODS: We used publicly available resting-state EEG recordings (64 electrodes) from 122 subjects. Based on Beck Depression Inventory (BDI) scores, they were assigned to either a high BDI (hBDI, BDI > 13, N = 46) or a control (CTL, BDI < 7, N = 75) group. We analyzed spectral activity, theta-beta, and theta-gamma phase-amplitude coupling (PAC) of EEG recorded at rest before and after a learning task. RESULTS: At baseline, compared to CTL, hBDI exhibited greater power in beta over fronto-parietal regions and in gamma over the right parieto-occipital area. At post task, power increased in all frequency ranges only in CTL. Theta-beta and theta-gamma PAC were greater in hBDI at baseline but not after the task. CONCLUSIONS: The lack of substantial post-task growth of beta power in depressed subjects likely represents power saturation due to greater baseline values. We speculate that inhibitory/excitatory imbalance, altered plasticity mechanisms, and energy dysregulation present in depression may contribute to this phenomenon.",
+      "doi": "10.3390/biomedicines12092054",
+      "pmid": "39335567",
+      "openalex_id": "W4402430481",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds003478",
+      "confidence_scoring": {
+        "confidence_score": 0.743373474776745,
+        "similarity_score": 0.6436133980751038,
+        "citation_text_length": 1744,
+        "dataset_text_length": 1445,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Modern Methods of Diagnostics and Treatment of Neurodegenerative Diseases and Depression",
       "author": "Natalia Nikolaevna Shusharina, Denis Yukhnenko, Stepan Botman, Viktor Sapunov, Vladimir Savinov, Gleb Kamyshov, Dmitry Sayapin, Igor A. Voznyuk",
       "venue": "Diagnostics",
       "year": 2023,
       "url": "https://doi.org/10.3390/diagnostics13030573",
-      "cited_by": 103,
+      "cited_by": 100,
       "abstract": "This paper discusses the promising areas of research into machine learning applications for the prevention and correction of neurodegenerative and depressive disorders. These two groups of disorders are among the leading causes of decline in the quality of life in the world when estimated using disability-adjusted years. Despite decades of research, the development of new approaches for the assessment (especially pre-clinical) and correction of neurodegenerative diseases and depressive disorders remains among the priority areas of research in neurophysiology, psychology, genetics, and interdisciplinary medicine. Contemporary machine learning technologies and medical data infrastructure create new research opportunities. However, reaching a consensus on the application of new machine learning methods and their integration with the existing standards of care and assessment is still a challenge to overcome before the innovations could be widely introduced to clinics. The research on the development of clinical predictions and classification algorithms contributes towards creating a unified approach to the use of growing clinical data. This unified approach should integrate the requirements of medical professionals, researchers, and governmental regulators. In the current paper, the current state of research into neurodegenerative and depressive disorders is presented.",
       "doi": "10.3390/diagnostics13030573",
       "pmid": "36766678",
@@ -384,7 +381,7 @@
       "year": 2025,
       "url": "https://doi.org/10.48550/arxiv.2502.01678",
       "cited_by": 2,
-      "abstract": "Electroencephalography (EEG) provides a non-invasive, highly accessible, and cost-effective approach for detecting Alzheimer's disease (AD). However, existing methods, whether based on handcrafted feature engineering or standard deep learning, face three major challenges: 1) the lack of large-scale EEG-based AD datasets for robust representation learning; 2) limited generalizability across subjects; and 3) difficulty in adapting to highly heterogeneous data. To address these challenges, we curate the world's largest EEG-AD corpus to date, comprising 2,238 subjects. Leveraging this unique resource, we propose LEAD, the first large-scale foundation model for EEG-based AD detection. Specifically, we design a gated temporal-spatial Transformer that can adapt to EEG recordings with arbitrary lengths, channel configurations, and sampling rates. In addition, we introduce a subject-regularized training strategy to enhance subject-level feature learning. We further employ medical contrastive learning for pre-training on 13 datasets, including 4 AD datasets and 9 non-AD neurological disorder datasets, and fine-tune/test the model on the other 5 AD datasets. LEAD achieves the best average ranking across all 20 evaluations on 5 downstream datasets, substantially outperforming existing approaches, including state-of-the-art (SOTA) EEG foundation models. These results strongly demonstrate the effectiveness and practical potential of the proposed method for real-world EEG-based AD detection. Source code: https://github.com/DL4mHealth/LEAD",
+      "abstract": "Electroencephalography (EEG) provides a non-invasive, highly accessible, and cost-effective approach for detecting Alzheimer's disease (AD). However, existing methods, whether based on handcrafted feature engineering or standard deep learning, face three major challenges: 1) the lack of large-scale EEG-based AD datasets for robust representation learning and evaluation; 2) limited cross-subject generalizability; and 3) difficulty in adapting to highly heterogeneous data. To address these challenges, we curate the world's largest EEG-AD corpus to date, comprising 2,238 subjects. Leveraging this unique resource, we propose LEAD, the first foundation model for EEG-based AD detection. Specifically, we design a gated temporal-spatial Transformer that can adapt to EEG recordings with diverse lengths, channel configurations, and sampling rates. In addition, we introduce a subject-regularized training strategy to enhance end-to-end subject-level detection. We further employ medical contrastive learning to pre-train on 13 datasets, including 4 AD datasets and 9 non-AD neurological disorder datasets, and fine-tune/test the model on the other 5 AD datasets. LEAD achieves the best average ranking across all 20 evaluations on 5 downstream datasets, substantially outperforming existing approaches, including state-of-the-art (SOTA) EEG foundation models. These results strongly demonstrate the effectiveness of our proposed method and significant progress for EEG-based AD detection. Source code: https://github.com/DL4mHealth/LEAD",
       "doi": "10.48550/arxiv.2502.01678",
       "pmid": null,
       "openalex_id": "W4407184772",
@@ -394,8 +391,8 @@
       "discovery_method": "accession_mention",
       "matched_accession": "ds003478",
       "confidence_scoring": {
-        "confidence_score": 0.5874658343195915,
-        "similarity_score": 0.5086284279823303,
+        "confidence_score": 0.5916039401292802,
+        "similarity_score": 0.5122112035751343,
         "citation_text_length": 1690,
         "dataset_text_length": 1445,
         "scoring_method": "sentence_transformers",
@@ -412,15 +409,12 @@
       "abstract": "This compact empirical report analyzes resting-state EEG from OpenNeuro ds003478 with NeuralManifoldDynamics 2.1, using Beck Depression Inventory (BDI) score as the primary clinical axis. The main result is that depressive symptom burden is more clearly expressed in reachability geometry and higher-dimensional local Jacobian dynamics than in coarse 3D state-space summaries, with the dominant pattern looking more like a low-to-elevated symptom regime shift than a simple monotonic severity gradient.",
       "doi": "10.5281/zenodo.20410199",
       "pmid": null,
-      "openalex_id": "W7162485638",
+      "openalex_id": "W7162498263",
       "source_doi": null,
       "source_relation": null,
       "discovery_backend": "openalex",
       "discovery_method": "accession_mention",
       "matched_accession": "ds003478",
-      "superseded_dois": [
-        "10.5281/zenodo.20410200"
-      ],
       "confidence_scoring": {
         "confidence_score": 0.7628671619296075,
         "similarity_score": 0.6604910492897034,
@@ -446,9 +440,6 @@
       "discovery_backend": "openalex",
       "discovery_method": "accession_mention",
       "matched_accession": "ds003478",
-      "superseded_dois": [
-        "10.5281/zenodo.22658808"
-      ],
       "confidence_scoring": {
         "confidence_score": 0.7541958582401276,
         "similarity_score": 0.6529834270477295,
@@ -457,21 +448,46 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "Separating Diagnosis from Disease Representation: Dual-View EEG Learning with Neural-Dynamics-Guided Deformation",
+      "author": "Jiaying Wang, Shouqian Shi, Yutong Chen, Xu Yang, Jie Chen, Xingyu Pan, Lei Zhang, Sheng Zhong",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://openalex.org/W7215000122",
+      "cited_by": 0,
+      "abstract": "Electroencephalography (EEG)-based closed-loop neuromodulation calls for a subject-specific structured state, as opposed to a single disease probability, specifying which brain regions are deviant, at which frequencies, and at which lags. Sensor-space models keep the strongest diagnostic evidence without anatomy, source-space models give anatomy at a loss of predictive signal, and post-hoc attributions stay outside the prediction. We separate the two instead of forcing them into one representation, and propose DMD-EEG (Dual-view Multiscale Deformation for EEG), which keeps a fixed scalp spectral expert for diagnosis and models the source-space disease-related representation as a low-rank, sparse, iterative deformation of a healthy neural-dynamics prior in a $46$-region-of-interest (ROI) $\\times$ $5$-frequency $\\times$ $4$-lag (autocorrelation-timescale) space. The two experts meet only at a fixed decision level, so the source state is architecturally separate from the scalp expert. Across major depressive disorder (MDD), first-episode psychosis (FEP), and Parkinson's disease (PD), decision-level fusion matches the strongest single expert on MDD and FEP and exceeds the source branch on PD. On FEP the source expert is the strongest branch, the task where the deformation contributes most. The source state is an explicit ROI-frequency-lag attribution defined in a shared source coordinate system across montages, which we treat as an anatomically-coordinated predictive representation whose coordinates are directly readable and hypothesis-generating. The highest-saliency coordinates align with established disease circuitry (fronto-limbic-temporal regions in MDD, motor-cortex beta in PD), and the MDD state transfers by rank to an unseen cohort recorded with a different montage.",
+      "doi": null,
+      "pmid": null,
+      "openalex_id": "W7215000122",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds003478",
+      "confidence_scoring": {
+        "confidence_score": 0.6495543569326401,
+        "similarity_score": 0.5623847246170044,
+        "citation_text_length": 1771,
+        "dataset_text_length": 1445,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T12:07:54.402763+00:00",
+    "scoring_date": "2026-10-11T11:28:34.060725+00:00",
     "dataset_text_length": 1445,
-    "num_citations_scored": 16,
+    "num_citations_scored": 17,
     "summary_stats": {
-      "mean_confidence": 0.6113615119550377,
-      "median_confidence": 0.6362577085196972,
-      "std_confidence": 0.1441071716853546,
+      "mean_confidence": 0.613851567883702,
+      "median_confidence": 0.6363949477672577,
+      "std_confidence": 0.1400509730956677,
       "min_confidence": 0.2286628916859627,
       "max_confidence": 0.7688375338912011,
       "high_confidence_count": 5,
-      "medium_confidence_count": 9,
+      "medium_confidence_count": 10,
       "low_confidence_count": 2
     }
   }

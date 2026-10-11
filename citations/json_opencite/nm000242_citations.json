@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000242",
-  "num_citations": 2,
-  "date_last_updated": "2026-09-30T10:44:26.570242+00:00",
+  "num_citations": 3,
+  "date_last_updated": "2026-10-11T10:23:59.955720+00:00",
   "metadata": {
-    "total_cumulative_citations": 0,
-    "fetch_date": "2026-09-29T10:54:59.303617+00:00",
+    "total_cumulative_citations": 2,
+    "fetch_date": "2026-10-11T10:23:59.955720+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 3,
@@ -19,25 +19,25 @@
         "source_relation": "IsDerivedFrom",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "An EEG Dataset for Visual Imagery-Based Brain–Computer Interface",
         "paper_year": 2026,
         "paper_venue": "Scientific Data",
         "reason": "Scientific Data paper presents the EEG visual imagery dataset: 22 participants, ten images, two sessions, 32 channels at 1000 Hz, matching the dataset's authors and metadata.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.6084/m9.figshare.30227503.v1",
         "identifier_type": "doi",
-        "source_relation": "References",
+        "source_relation": "IsDerivedFrom",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "EEG Dataset for Visual Imagery",
         "paper_year": 2025,
         "paper_venue": "Figshare",
         "reason": "Figshare deposit of the same EEG visual imagery data: 22 participants, 10 imagery classes, 32 channels at 1000 Hz, two sessions, matching the dataset's subjects and events.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.21105/joss.01896",
@@ -45,12 +45,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
         "paper_year": 2019,
         "paper_venue": "The Journal of Open Source Software",
         "reason": "MNE-BIDS is a software tool for organizing electrophysiological data into BIDS, used in dataset curation; it does not describe this visual imagery EEG dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1038/s41597-019-0104-8",
@@ -58,12 +58,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "EEG-BIDS, an extension to the brain imaging data structure for electroencephalography",
         "paper_year": 2019,
         "paper_venue": "Scientific Data",
         "reason": "EEG-BIDS is a data-organization standard extension to BIDS, used to format this dataset; it does not describe the visual imagery EEG dataset itself.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.nm000242",
@@ -71,12 +71,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -87,20 +87,13 @@
     "keywords": [
       "EEG",
       "visual imagery",
-      "brain-computer interface",
-      "CSP",
-      "EEGNet",
-      "human-machine interaction",
-      "motor imagery"
+      "Brain-Computer Interfaces",
+      "Electroencephalography",
+      "Imagery, Psychotherapy",
+      "human-machine interaction"
     ],
-    "methods_description": "EEG was recorded from 32 channels using a Neuracle NeuSenW32 system with Ag/AgCl electrodes at a sampling rate of 1000 Hz, referenced to CPz with ground at AFz, following the standard_1005 montage. Subjects performed visual imagery of 10 object/animal/figure categories across 2 sessions of 3 runs each, with trial durations of 4 seconds. Data were bandpass filtered between 5-30 Hz and analyzed using CSP and deep learning (EEGNet) methods within a train-test split, within-subject evaluation scheme.",
-    "funding": [],
-    "searched_accessions": [
-      "nm000242"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 2
+    "methods_description": "EEG was recorded at 1000 Hz with a Neuracle NeuSenW32 system using 32 Ag/AgCl electrodes placed according to the standard 10-05 montage, with CPz as reference and AFz as ground. Participants imagined image-cued stimuli in 4 s trials across 2 sessions of 3 runs each. Benchmarking used EEGNet and CSP+KNN classifiers with 5-30 Hz bandpass filtering.",
+    "funding": []
   },
   "citation_details": [
     {
@@ -148,20 +141,43 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "An EEG Dataset for Visual Imagery-Based Brain–Computer Interface",
+      "author": "Jing’ao Gao, Yao Z. Liu, Zhongyu Li, Kaixin Huang, F. Wang, Jiaping Xu, Lei Zhao, Tianwen Li, Yunfa Fu",
+      "venue": "Scientific Data",
+      "year": 2026,
+      "url": "https://doi.org/10.1038/s41597-025-06512-5",
+      "cited_by": 2,
+      "abstract": "With the advancement of non-invasive brain-computer interface (BCI) technologies, decoding high-level cognitive activity has become pivotal for expanding human-machine interaction. Visual imagery-based BCI (VI-BCI) enable voluntary activation of specific brain regions without external cue, offering novel pathways for immersive applications. However, research on the neural representation of such complex cognitive tasks is still limited, and most existing electroencephalogram (EEG) datasets primarily target motor imagery, hindering the development of robust VI decoding models. Here we present an EEG dataset recorded from 22 participants performing visual imagery tasks involving ten commonly recognized images across three categories: figures, animals, and objects. Each participant completed two sessions, with EEG recorded from 32-channels at 1000 Hz. This resource helps overcome data homogeneity issues in VI studies and provides a foundation for exploring neuroplasticity, adaptive decodin",
+      "doi": "10.1038/s41597-025-06512-5",
+      "pmid": "41484139",
+      "openalex_id": "W7118071963",
+      "source_doi": "10.6084/m9.figshare.30227503.v1",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.8598923152685166,
+        "similarity_score": 0.7444955110549927,
+        "citation_text_length": 1220,
+        "dataset_text_length": 2330,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T10:53:18.005746+00:00",
+    "scoring_date": "2026-10-11T11:23:57.021447+00:00",
     "dataset_text_length": 2330,
-    "num_citations_scored": 2,
+    "num_citations_scored": 3,
     "summary_stats": {
-      "mean_confidence": 0.6991623347997666,
-      "median_confidence": 0.6991623347997666,
-      "std_confidence": 0.06316282331943512,
+      "mean_confidence": 0.7527389949560166,
+      "median_confidence": 0.7623251581192018,
+      "std_confidence": 0.09165485180893623,
       "min_confidence": 0.6359995114803315,
-      "max_confidence": 0.7623251581192018,
-      "high_confidence_count": 1,
+      "max_confidence": 0.8598923152685166,
+      "high_confidence_count": 2,
       "medium_confidence_count": 1,
       "low_confidence_count": 0
     }

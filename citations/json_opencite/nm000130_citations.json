@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000130",
   "num_citations": 31,
-  "date_last_updated": "2026-09-30T10:44:23.904068+00:00",
+  "date_last_updated": "2026-10-11T10:13:28.307893+00:00",
   "metadata": {
-    "total_cumulative_citations": 302,
-    "fetch_date": "2026-09-29T10:38:59.438394+00:00",
+    "total_cumulative_citations": 296,
+    "fetch_date": "2026-10-11T10:13:28.307893+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 3,
@@ -19,25 +19,25 @@
         "source_relation": "IsDerivedFrom",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "eldBETA: A Large Eldercare-oriented Benchmark Database of SSVEP-BCI for the Aging Population",
         "paper_year": 2022,
         "paper_venue": "Scientific Data",
         "reason": "The eldBETA paper presents the 64-channel EEG database from 100 elderly participants doing 9-target SSVEP with 7 blocks, matching this dataset's authors, subjects, and task.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.6084/m9.figshare.18032669",
         "identifier_type": "doi",
-        "source_relation": "References",
+        "source_relation": "IsDerivedFrom",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "eldBETA: A Large Eldercare-oriented Benchmark Database of SSVEP-BCI for the Aging Population",
         "paper_year": 2022,
         "paper_venue": "Figshare",
         "reason": "Figshare record of the eldBETA database (64-channel EEG, 100 elderly subjects, 7 blocks, 9-target SSVEP) matches this dataset's title, authors, and design.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.21105/joss.01896",
@@ -45,12 +45,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
         "paper_year": 2019,
         "paper_venue": "The Journal of Open Source Software",
         "reason": "MNE-BIDS is a software tool for organizing electrophysiological data into BIDS, used for the dataset's BIDS conversion, not a paper describing the eldBETA SSVEP data.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1038/s41597-019-0104-8",
@@ -58,12 +58,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "EEG-BIDS, an extension to the brain imaging data structure for electroencephalography",
         "paper_year": 2019,
         "paper_venue": "Scientific Data",
         "reason": "EEG-BIDS is a data-organization standard extension used to format the dataset, not a paper describing the eldBETA SSVEP data.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.nm000130",
@@ -71,12 +71,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -86,14 +86,14 @@
     ],
     "keywords": [
       "SSVEP",
-      "Brain-Computer Interfaces",
-      "Electroencephalography",
+      "brain-computer interface",
+      "EEG",
       "elderly",
       "aging",
       "benchmark",
-      "JFPM"
+      "joint frequency and phase modulation"
     ],
-    "methods_description": "EEG was recorded from 64 channels at 1000 Hz using a Synamps2 (Neuroscan) amplifier with a standard_1005 montage and Cz reference. Participants performed a 9-target SSVEP speller task using joint frequency and phase modulation (JFPM) visual flicker stimuli, with frequencies ranging from 8.0 to 12.0 Hz in 0.5 Hz steps. Each trial consisted of a 4 s cue, 5 s of SSVEP stimulation, and 1 s rest; each subject completed 7 blocks of 9 trials across 7 sessions.",
+    "methods_description": "EEG was recorded at 1000 Hz with a 64-channel Synamps2 (Neuroscan) amplifier, referenced to Cz, with impedance kept below 20 kOhm. Each trial consisted of a 4 s target cue, 5 s of JFPM SSVEP stimulation in a 3x3 target matrix, and 1 s rest. Each participant completed 7 blocks of 9 trials.",
     "funding": [
       {
         "funder_name": "Doctoral Brain+X Seed Grant Program of Tsinghua University"
@@ -106,45 +106,16 @@
         "funder_name": "Strategic Priority Research Program of Chinese Academy of Sciences",
         "award_number": "XDB32040200"
       }
-    ],
-    "searched_accessions": [
-      "nm000130"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 31
+    ]
   },
   "citation_details": [
-    {
-      "title": "Data Augmentation of SSVEPs Using Source Aliasing Matrix Estimation for Brain–Computer Interfaces",
-      "author": "Ruixin Luo, Minpeng Xu, Xiaoyu Zhou, Xiaolin Xiao, Tzyy‐Ping Jung, Dong Ming",
-      "venue": "IEEE Transactions on Biomedical Engineering",
-      "year": 2022,
-      "url": "https://doi.org/10.1109/tbme.2022.3227036",
-      "cited_by": 53,
-      "abstract": "OBJECTIVE: Currently, ensemble task-related component analysis (eTRCA) and task discriminative component analysis (TDCA) are the state-of-the-art algorithms for steady-state visual evoked potential (SSVEP)-based brain-computer interfaces (BCIs). However, training the BCIs requires multiple calibration trials. With insufficient calibration data, the accuracy of the BCI will degrade, or even become invalid with only one calibration trial. However, collecting a large amount of electroencephalography (EEG) data for calibration is a time-consuming and laborious process, which hinders the practical use of eTRCA and TDCA. METHODS: This study proposed a novel method, namely Source Aliasing Matrix Estimation (SAME), to augment the calibration data for SSVEP-BCIs. SAME could generate artificial EEG trials with the featured SSVEPs. Its effectiveness was evaluated using two public datasets (i.e., Benchmark, BETA). RESULTS: When combined with SAME, both eTRCA and TDCA had significantly improved per",
-      "doi": "10.1109/tbme.2022.3227036",
-      "pmid": "37015587",
-      "openalex_id": "W4313140752",
-      "source_doi": "10.1038/s41597-022-01372-9",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.6958829122781754,
-        "similarity_score": 0.6024960279464722,
-        "citation_text_length": 1255,
-        "dataset_text_length": 2310,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
     {
       "title": "Optimizing Stimulus Frequency Ranges for Building a High-Rate High Frequency SSVEP-BCI",
       "author": "Xiaogang Chen, Bingchuan Liu, Yijun Wang, Hongyan Cui, Jianwei Dong, Ruijuan Ma, Ning Li, Xiaorong Gao",
       "venue": "IEEE Transactions on Neural Systems and Rehabilitation Engineering",
       "year": 2023,
       "url": "https://doi.org/10.1109/tnsre.2023.3243786",
-      "cited_by": 50,
+      "cited_by": 48,
       "abstract": "The brain-computer interfaces (BCIs) based on steady-state visual evoked potential (SSVEP) have been extensively explored due to their advantages in terms of high communication speed and smaller calibration time. The visual stimuli in the low- and medium-frequency ranges are adopted in most of the existing studies for eliciting SSVEPs. However, there is a need to further improve the comfort of these systems. The high-frequency visual stimuli have been used to build BCI systems and are generally considered to significantly improve the visual comfort, but their performance is relatively low. The distinguishability of 16-class SSVEPs encoded by the three frequency ranges, i.e., 31-34.75 Hz with an interval of 0.25 Hz, 31-38.5 Hz with an interval of 0.5 Hz, 31-46 Hz with an interval of 1 Hz, is explored in this study. We compare classification accuracy and information transfer rate (ITR) of the corresponding BCI system. According to the optimized frequency range, this study builds an onlin",
       "doi": "10.1109/tnsre.2023.3243786",
       "pmid": "37022899",
@@ -156,6 +127,29 @@
         "confidence_score": 0.6697126579284669,
         "similarity_score": 0.5798377990722656,
         "citation_text_length": 1293,
+        "dataset_text_length": 2310,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Data Augmentation of SSVEPs Using Source Aliasing Matrix Estimation for Brain–Computer Interfaces",
+      "author": "Ruixin Luo, Minpeng Xu, Xiaoyu Zhou, Xiaolin Xiao, Tzyy‐Ping Jung, Dong Ming",
+      "venue": "IEEE Transactions on Biomedical Engineering",
+      "year": 2022,
+      "url": "https://doi.org/10.1109/tbme.2022.3227036",
+      "cited_by": 48,
+      "abstract": "OBJECTIVE: Currently, ensemble task-related component analysis (eTRCA) and task discriminative component analysis (TDCA) are the state-of-the-art algorithms for steady-state visual evoked potential (SSVEP)-based brain-computer interfaces (BCIs). However, training the BCIs requires multiple calibration trials. With insufficient calibration data, the accuracy of the BCI will degrade, or even become invalid with only one calibration trial. However, collecting a large amount of electroencephalography (EEG) data for calibration is a time-consuming and laborious process, which hinders the practical use of eTRCA and TDCA. METHODS: This study proposed a novel method, namely Source Aliasing Matrix Estimation (SAME), to augment the calibration data for SSVEP-BCIs. SAME could generate artificial EEG trials with the featured SSVEPs. Its effectiveness was evaluated using two public datasets (i.e., Benchmark, BETA). RESULTS: When combined with SAME, both eTRCA and TDCA had significantly improved per",
+      "doi": "10.1109/tbme.2022.3227036",
+      "pmid": "37015587",
+      "openalex_id": "W4313140752",
+      "source_doi": "10.1038/s41597-022-01372-9",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6958829122781754,
+        "similarity_score": 0.6024960279464722,
+        "citation_text_length": 1255,
         "dataset_text_length": 2310,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -369,35 +363,12 @@
       }
     },
     {
-      "title": "Inter- and Intra-Subject transfer learning for High-Performance SSVEP-BCI with extremely little calibration effort",
-      "author": "Hui Li, Guanghua Xu, Zejin Li, Kai Zhang, Hanli Jiang, Xiaobing Guo, Yongzhen Zhu, Xuwei Yang, Yihua Zhao, Chengcheng Han",
-      "venue": "Expert Systems with Applications",
-      "year": 2025,
-      "url": "https://doi.org/10.1016/j.eswa.2025.127208",
-      "cited_by": 7,
-      "abstract": null,
-      "doi": "10.1016/j.eswa.2025.127208",
-      "pmid": null,
-      "openalex_id": "W4408286755",
-      "source_doi": "10.1038/s41597-022-01372-9",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.6206072241067887,
-        "similarity_score": 0.5910544991493225,
-        "citation_text_length": 294,
-        "dataset_text_length": 2310,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Wearable gold–graphene dry electrode-based headband for effective brain–computer interface applications",
       "author": "Yuhang Zheng, Yongyue Sun, Hongji Li, Xiuwei Xuan, Penghai Li, Mingji Li",
       "venue": "Journal of Materials Chemistry C",
       "year": 2024,
       "url": "https://doi.org/10.1039/d4tc00574k",
-      "cited_by": 7,
+      "cited_by": 8,
       "abstract": "A dual-channel headband with Au-doped vertical graphene dry electrodes records electrophysiological signals with low scalp-contact resistance for external-device control.",
       "doi": "10.1039/d4tc00574k",
       "pmid": null,
@@ -409,6 +380,29 @@
         "confidence_score": 0.43808055192232137,
         "similarity_score": 0.37929052114486694,
         "citation_text_length": 416,
+        "dataset_text_length": 2310,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Inter- and Intra-Subject transfer learning for High-Performance SSVEP-BCI with extremely little calibration effort",
+      "author": "Hui Li, Guanghua Xu, Zejin Li, Kai Zhang, Hanli Jiang, Xiaobing Guo, Yongzhen Zhu, Xuwei Yang, Yihua Zhao, Chengcheng Han",
+      "venue": "Expert Systems with Applications",
+      "year": 2025,
+      "url": "https://doi.org/10.1016/j.eswa.2025.127208",
+      "cited_by": 6,
+      "abstract": null,
+      "doi": "10.1016/j.eswa.2025.127208",
+      "pmid": null,
+      "openalex_id": "W4408286755",
+      "source_doi": "10.1038/s41597-022-01372-9",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6206072241067887,
+        "similarity_score": 0.5910544991493225,
+        "citation_text_length": 294,
         "dataset_text_length": 2310,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -484,6 +478,29 @@
       }
     },
     {
+      "title": "SingLEM: Single-Channel Large EEG Model",
+      "author": "Jamiyan Sukhbaatar, S. Imamura, Ibuki Inoue, Shoya Murakami, Kazi Mahmudul Hassan, Seung-Woo Han, Ingon Chanpornpakdi, Toshihisa Tanaka",
+      "venue": "IEEE journal of biomedical and health informatics",
+      "year": 2025,
+      "url": "https://doi.org/10.1109/JBHI.2026.3732223",
+      "cited_by": 4,
+      "abstract": "Current deep learning models for electroencephalography (EEG) are often task-specific and depend on large labeled datasets, limiting their adaptability. Although EEG foundation models seek broader applicability, many still rely on predefined multi-channel inputs, electrode-layout assumptions, or model-specific channel handling. To address these limitations, we introduce the Single-Channel Large EEG Model (SingLEM), a self-supervised foundation model whose hybrid convolutional-Transformer encoder maps each channel independently to a reusable representation capturing local and long-range temporal structure. These representations can be used individually or combined through channel-wise feature concatenation. We assembled 71 public EEG datasets comprising approximately 9,200 subjects and 357,000 single-channel hours. For leakage-controlled evaluation, downstream results were obtained with a model pretrained on 68 datasets after excluding the three source datasets underlying the six tasks.",
+      "doi": "10.1109/JBHI.2026.3732223",
+      "pmid": "42709520",
+      "openalex_id": null,
+      "source_doi": "10.1038/s41597-022-01372-9",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5744314447045327,
+        "similarity_score": 0.4973432421684265,
+        "citation_text_length": 1262,
+        "dataset_text_length": 2310,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Data augmentation using masked principal component representation for deep learning-based SSVEP-BCIs",
       "author": "Wenlong Ding, Aiping Liu, Longlong Cheng, Xun Chen",
       "venue": "Journal of Neural Engineering",
@@ -530,31 +547,8 @@
       }
     },
     {
-      "title": "SingLEM: Single-Channel Large EEG Model",
-      "author": "Jamiyan Sukhbaatar, S. Imamura, Ibuki Inoue, Shoya Murakami, Kazi Mahmudul Hassan, Seung-Woo Han, Ingon Chanpornpakdi, Toshihisa Tanaka",
-      "venue": "IEEE journal of biomedical and health informatics",
-      "year": 2025,
-      "url": "https://doi.org/10.1109/JBHI.2026.3732223",
-      "cited_by": 3,
-      "abstract": "Current deep learning models for electroencephalography (EEG) are often task-specific and depend on large labeled datasets, limiting their adaptability. Although EEG foundation models seek broader applicability, many still rely on predefined multi-channel inputs, electrode-layout assumptions, or model-specific channel handling. To address these limitations, we introduce the Single-Channel Large EEG Model (SingLEM), a self-supervised foundation model whose hybrid convolutional-Transformer encoder maps each channel independently to a reusable representation capturing local and long-range temporal structure. These representations can be used individually or combined through channel-wise feature concatenation. We assembled 71 public EEG datasets comprising approximately 9,200 subjects and 357,000 single-channel hours. For leakage-controlled evaluation, downstream results were obtained with a model pretrained on 68 datasets after excluding the three source datasets underlying the six tasks.",
-      "doi": "10.1109/JBHI.2026.3732223",
-      "pmid": "42709520",
-      "openalex_id": null,
-      "source_doi": "10.1038/s41597-022-01372-9",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5744314447045327,
-        "similarity_score": 0.4973432421684265,
-        "citation_text_length": 1262,
-        "dataset_text_length": 2310,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "ELASTIQ: EEG-Language Alignment with Semantic Task Instruction and Querying",
-      "author": "Muyun Jiang, Shuailei Zhang, Zhenjie Yang, Mengjun Wu, Weibang Jiang, Zhiwei Guo, Wei Zhang, Rui Liu, Shangen Zhang, Yong Li, Yi Ding, Cun-Tai Guan",
+      "author": "Muyun Jiang, Shuailei Zhang, Zhen-Jie Yang, Mengjun Wu, Weibang Jiang, Zhi-Wei Guo, Wei Zhang, Rui Liu, Shangen Zhang, Yong Li, Yi Ding, Cun-Tai Guan",
       "venue": "ArXiv",
       "year": 2025,
       "url": "https://doi.org/10.48550/arXiv.2509.24302",
@@ -567,9 +561,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.4909192800521851,
-        "similarity_score": 0.4675421714782715,
-        "citation_text_length": 254,
+        "confidence_score": 0.49310824871063236,
+        "similarity_score": 0.46962690353393555,
+        "citation_text_length": 256,
         "dataset_text_length": 2310,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -600,7 +594,7 @@
     },
     {
       "title": "Enhancing Individual Calibration Classification in SSVER-Based BCI With Exactly Periodic Component Analysis",
-      "author": "Fu-Long Wang, Fu-Zhi Cao, Jianzhi Yang, Nan An, Miao-Wen Jiang, Shi-Qiang Zheng, Yaxiang Wang, Min Xiang, Chengpeng Chai, Yun-Hsuan Chen, Mohamad Sawan",
+      "author": "Fu-Long Wang, Fu-Zhi Cao, Jianzhi Yang, Nan An, Miao-Wen Jiang, Shi-Qiang Zheng, Yaxiang Wang, Min Xiang, Cheng-Peng Chai, Yun-Hsuan Chen, Mohamad Sawan",
       "venue": "IEEE Transactions on Industrial Informatics",
       "year": 2026,
       "url": "https://doi.org/10.1109/TII.2026.3651463",
@@ -613,9 +607,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5913388243317605,
-        "similarity_score": 0.5119816660881042,
-        "citation_text_length": 1340,
+        "confidence_score": 0.5934198904037477,
+        "similarity_score": 0.5137834548950195,
+        "citation_text_length": 1341,
         "dataset_text_length": 2310,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -669,8 +663,8 @@
     },
     {
       "title": "A Motor Imagery Training System Based on LHE7909 Portable EEG Acquisition Device",
-      "author": "Yuanxi Zhu, Rui Yu, Shiqi Huang, Aijun He",
-      "venue": "2024 5th International Symposium on Computer Engineering and Intelligent Communications (ISCEIC)",
+      "author": "Y. Zhu, Rui Yu, Shiqi Huang, Aijun He",
+      "venue": "International Symposium on Computer Engineering and Intelligent Communications (ISCEIC)",
       "year": 2024,
       "url": "https://doi.org/10.1109/isceic63613.2024.10810249",
       "cited_by": 1,
@@ -682,9 +676,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5379051174223424,
-        "similarity_score": 0.46571871638298035,
-        "citation_text_length": 1059,
+        "confidence_score": 0.5334667512774468,
+        "similarity_score": 0.4618759751319885,
+        "citation_text_length": 1046,
         "dataset_text_length": 2310,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -693,7 +687,7 @@
     {
       "title": "A Flexible Dilated Causal Convolution Model for Steady-State Visual Evoked Potential Signal Classification",
       "author": "Xinyi Jiang, Jinpeng Lyu, Sheng Ge",
-      "venue": "2023 17th International Conference on Complex Medical Engineering (CME)",
+      "venue": "International Conference on Complex Medical Engineering",
       "year": 2023,
       "url": "https://doi.org/10.1109/cme60059.2023.10565555",
       "cited_by": 1,
@@ -705,9 +699,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.71216657102108,
-        "similarity_score": 0.6165944337844849,
-        "citation_text_length": 1250,
+        "confidence_score": 0.7076893427968026,
+        "similarity_score": 0.6127180457115173,
+        "citation_text_length": 1234,
         "dataset_text_length": 2310,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -831,13 +825,13 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T10:49:29.062830+00:00",
+    "scoring_date": "2026-10-11T11:19:04.788867+00:00",
     "dataset_text_length": 2310,
     "num_citations_scored": 31,
     "summary_stats": {
-      "mean_confidence": 0.5987810490592834,
+      "mean_confidence": 0.5986311922967434,
       "median_confidence": 0.5982650488615037,
-      "std_confidence": 0.14071618659343377,
+      "std_confidence": 0.1406095551762294,
       "min_confidence": 0.3024842168390751,
       "max_confidence": 0.9259270083904267,
       "high_confidence_count": 7,

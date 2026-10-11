@@ -1,45 +1,73 @@
 {
   "dataset_id": "on006253",
-  "num_citations": 0,
-  "date_last_updated": "2026-09-22T11:32:08.121780+00:00",
+  "num_citations": 4,
+  "date_last_updated": "2026-10-11T11:08:19.567682+00:00",
   "metadata": {
-    "total_cumulative_citations": 0,
-    "fetch_date": "2026-09-22T11:32:08.121780+00:00",
+    "total_cumulative_citations": 22,
+    "fetch_date": "2026-10-11T11:08:19.567682+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
-    "anchor_count": 1,
+    "anchor_count": 3,
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
     "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
+        "identifier": "10.1101/2024.03.23.586414",
+        "identifier_type": "doi",
+        "source_relation": "IsDescribedBy",
+        "classification": "data_paper",
+        "kept": true,
+        "kept_reason": "judged_data_paper",
+        "paper_title": "A functional overlap between evidence accumulation, confidence, and changes of mind in the pre-supplementary motor area and insula",
+        "paper_year": 2024,
+        "paper_venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+        "reason": "Preprint by the same authors reports intracranial recordings of epilepsy patients doing the random-dot motion and confidence task, matching the MetaRDK dataset (README title is a near-match).",
+        "judgment_model": "claude-sonnet-5-5"
+      },
+      {
+        "identifier": "10.17605/osf.io/2kt97",
+        "identifier_type": "doi",
+        "source_relation": "References",
+        "classification": "data_paper",
+        "kept": true,
+        "kept_reason": "judged_data_paper",
+        "paper_title": "Evidence accumulation in the pre-supplementary motor area and insula drives confidence and changes of mindx",
+        "paper_year": 2023,
+        "paper_venue": "OSF Preprints (OSF Preprints)",
+        "reason": "OSF record with the same title and authors as the MetaRDK study (Goueytes, Pereira, Faivre); it holds scripts and materials for the paper reporting this dataset.",
+        "judgment_model": "claude-sonnet-5-5"
+      },
+      {
         "identifier": "10.82901/nemar.on006253",
         "identifier_type": "doi",
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
+      "10.1101/2024.03.23.586414",
+      "10.17605/osf.io/2kt97",
       "10.82901/nemar.on006253"
     ],
     "keywords": [
-      "intracranial EEG",
-      "Epilepsy",
+      "iEEG",
+      "stereo-EEG",
       "Decision Making",
-      "metacognition",
       "confidence",
+      "metacognition",
       "high-gamma activity",
-      "perceptual decision-making"
+      "Epilepsy"
     ],
-    "methods_description": "Data were recorded intracranially at the bedside using a Micromed recording system, with electrode implantation determined by clinical need. Patients performed a random dot motion discrimination task with an adaptive staircase to titrate difficulty at 70% accuracy, followed by confidence ratings on a 0-100 scale. High-gamma activity (five non-overlapping bands between 70-150Hz) was extracted and segmented from trial onset to offset, sampled at 512Hz. Trials and channels with high epilepsy-related artifacts were excluded.",
+    "methods_description": "Patients with intractable epilepsy were recorded at the bedside with a Micromed system, with electrode implantation determined solely by clinical need. They performed a random-dot motion left/right discrimination task (6 s response window, difficulty titrated to 70% correct with an adaptive staircase), responding by mouse movement and click, then rated confidence on a 0-100 scale. Trials and channels with epilepsy-related artifacts were removed.",
     "funding": [
       {
         "funder_name": "ERC",
@@ -56,20 +84,116 @@
         "award_number": "101125379",
         "award_title": "VOLTA"
       }
-    ],
-    "searched_accessions": [
-      "on006253",
-      "ds006253"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 0
+    ]
   },
-  "citation_details": [],
+  "citation_details": [
+    {
+      "title": "Neural basis of concurrent deliberation toward a choice and confidence judgment",
+      "author": "Miguel Vivar-Lazo, Christopher R. Fetsch",
+      "venue": "Nature Neuroscience",
+      "year": 2025,
+      "url": "https://doi.org/10.1038/s41593-025-02116-9",
+      "cited_by": 14,
+      "abstract": "Decision confidence plays a key role in flexible behavior and (meta)cognition, but its underlying neural mechanisms remain elusive. To uncover the latent dynamics of confidence formation at the level of single neurons and population activity, we trained nonhuman primates to report choice and confidence with a single eye movement on every trial. Monkey behavior was well fit by a bounded accumulator model instantiating parallel processing of evidence, rejecting a serial model in which the choice is resolved first followed by post-decision accumulation for confidence. Neurons in area LIP reflected concurrent accumulation, showing covariation of choice and confidence signals across the population, and within-trial dynamics consistent with parallel updating at near-zero time lag. The results demonstrate that the primate brain can process a single stream of evidence in service of two computational goals simultaneously—a categorical decision and associated level of confidence—and illuminate a",
+      "doi": "10.1038/s41593-025-02116-9",
+      "pmid": "39149300",
+      "openalex_id": "W4416337567",
+      "source_doi": "10.1101/2024.03.23.586414",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7257317429780961,
+        "similarity_score": 0.6283391714096069,
+        "citation_text_length": 1177,
+        "dataset_text_length": 2290,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Cortical evidence accumulation for perceptual experience occurs irrespective of reports",
+      "author": "François Stockart, Ramla Msheik, Alexis Robin, Lenka Jurkovičová, Dorian Goueytes, Martin Rouy, Radek Mareček, D. Hoffmann, Liad Mudrik, Róbert Román, Milan Brázdil, Lorella Minotti, Philippe Kahane, Michael Pereira, Nathan Faivre",
+      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+      "year": 2024,
+      "url": "https://doi.org/10.1101/2024.03.20.585198",
+      "cited_by": 7,
+      "abstract": "Summary Perceptual experience is a multi-faceted, dynamical process, tackled empirically through measures of stimulus detectability and confidence. To assess if stimulus detection and confidence can be explained by evidence accumulation, a form of sequential sampling of sensory evidence, we analyzed high-gamma activity from stereo-electroencephalographic data of 29 participants partaking in 3 pre-registered experiments. In an immediate-response experiment, individual channels and decoded multivariate latent variables in the visual, inferior frontal, and anterior insular cortices displayed functional markers of evidence accumulation. In two further experiments, this signal in the ventral visual cortex differentiated between (1) seen and unseen stimuli in delayed detection, (2) high and low intensity stimuli during passive viewing, and (3) levels of confidence when stimuli were seen. A computational model of leaky evidence accumulation successfully reproduced both behavioral and neural d",
+      "doi": "10.1101/2024.03.20.585198",
+      "pmid": null,
+      "openalex_id": "W4393197980",
+      "source_doi": "10.1101/2024.03.23.586414",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6890846300125123,
+        "similarity_score": 0.5966100692749023,
+        "citation_text_length": 1395,
+        "dataset_text_length": 2290,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Leaky evidence accumulation accounts for perceptual confidence and subjective duration",
+      "author": "Ramla Msheik, Emma Sirouet, Simon P. Kelly, Nathan Faivre, Michael Pereira",
+      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+      "year": 2025,
+      "url": "https://doi.org/10.1101/2025.03.17.643717",
+      "cited_by": 1,
+      "abstract": "Abstract Perceptual consciousness is defined as the subjective experience associated with the processing of sensory cues from the environment. Subjective experience unfolds over time and is accompanied by a sense of confidence, yet the mechanisms underlying these two properties remain elusive. Here, we propose a computational mechanism that accounts not only for the onset of subjective experience but also its subjective duration and associated feeling of confidence. Our model assumes that a percept becomes conscious when an ongoing, leaky accumulation of sensory evidence surpasses a perceptual threshold and stops being conscious when it falls back below the threshold due to leakage. Crucially, this perceptual threshold can be lower than the decision threshold for reporting the percept. Moreover, our model derives confidence in accurately detecting sensory evidence from the maximum reached by the evidence accumulation process following stimulus onset. We conducted a preregistered study ",
+      "doi": "10.1101/2025.03.17.643717",
+      "pmid": null,
+      "openalex_id": "W4408608779",
+      "source_doi": "10.1101/2024.03.23.586414",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.603887042105198,
+        "similarity_score": 0.5228459239006042,
+        "citation_text_length": 1238,
+        "dataset_text_length": 2290,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Electrophysiological and computational study of the role of evidence accumulation in perceptual consciousness.",
+      "author": "François Stockart",
+      "venue": "n/a",
+      "year": 2024,
+      "url": "https://doi.org/10.70675/c4f62883zfadez4797z9c4ezc049226f96a4",
+      "cited_by": 0,
+      "abstract": "Etude électrophysiologique et computationnelle du rôle de l'accumulation d'évidence dans la conscience perceptive Que se passe-t-il dans le cerveau quand nous faisons l'expérience de notre environnement, lorsque nous voyons, entendons, sentons ou ressentons ? La conscience perceptive se réfère aux états subjectifs associés à la perception, ainsi qu’aux sensations de confiance qui y sont associées. Il a été suggéré que la conscience et la confiance perceptives peuvent être expliquées par l’accumulation d’évidence, une forme d'échantillonnage séquentiel d’indices sensoriels. Elles sont typiquement étudiées en comparant l’activité cérébrale de participants lorsqu'ils déclarent percevoir ou ne pas percevoir des stimuli présentés autour du seuil de perception, ainsi que quand leur confiance est basse ou haute. Les substrats neuronaux de la conscience perceptive ont été difficiles à étudier, en raison (1) de la difficulté d'enregistrer l'activité cérébrale avec une haute résolution spatio-te",
+      "doi": "10.70675/c4f62883zfadez4797z9c4ezc049226f96a4",
+      "pmid": null,
+      "openalex_id": "W7152134357",
+      "source_doi": "10.1101/2024.03.23.586414",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6213617599010468,
+        "similarity_score": 0.537975549697876,
+        "citation_text_length": 1169,
+        "dataset_text_length": 2290,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    }
+  ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-22T13:29:19.484112+00:00",
+    "scoring_date": "2026-10-11T11:39:12.395372+00:00",
     "dataset_text_length": 2290,
-    "num_citations_scored": 0
+    "num_citations_scored": 4,
+    "summary_stats": {
+      "mean_confidence": 0.6600162937492132,
+      "median_confidence": 0.6552231949567795,
+      "std_confidence": 0.049518063162865986,
+      "min_confidence": 0.603887042105198,
+      "max_confidence": 0.7257317429780961,
+      "high_confidence_count": 1,
+      "medium_confidence_count": 3,
+      "low_confidence_count": 0
+    }
   }
 }

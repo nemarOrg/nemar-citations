@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000124",
   "num_citations": 7,
-  "date_last_updated": "2026-09-30T10:44:23.778820+00:00",
+  "date_last_updated": "2026-10-11T10:12:44.701744+00:00",
   "metadata": {
     "total_cumulative_citations": 13,
-    "fetch_date": "2026-09-29T10:38:12.516661+00:00",
+    "fetch_date": "2026-10-11T10:12:44.701744+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -19,12 +19,12 @@
         "source_relation": "IsDerivedFrom",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Enhancing SSVEP-BCI Performance Under Fatigue State Using Dynamic Stopping Strategy",
         "paper_year": 2024,
         "paper_venue": "IEEE Transactions on Neural Systems and Rehabilitation Engineering",
         "reason": "The dataset's DOI, authors, 24 subjects, and two 16-target frequency paradigms match this paper, which reports the self-recorded SSVEP fatigue dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.21105/joss.01896",
@@ -32,12 +32,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
         "paper_year": 2019,
         "paper_venue": "The Journal of Open Source Software",
         "reason": "MNE-BIDS is a software tool for organizing electrophysiological data into BIDS; it is used for dataset formatting, not a paper describing the Han2024 SSVEP fatigue data.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1038/s41597-019-0104-8",
@@ -45,12 +45,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "EEG-BIDS, an extension to the brain imaging data structure for electroencephalography",
         "paper_year": 2019,
         "paper_venue": "Scientific Data",
         "reason": "EEG-BIDS is a data-organization standard extension to BIDS, used to format this dataset, not a paper describing the Han2024 SSVEP fatigue data.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.nm000124",
@@ -58,12 +58,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -71,15 +71,13 @@
       "10.82901/nemar.nm000124"
     ],
     "keywords": [
-      "SSVEP",
+      "Electroencephalography",
       "Brain-Computer Interfaces",
-      "EEG",
+      "SSVEP",
       "fatigue",
-      "visual evoked potentials",
-      "mental fatigue",
       "dynamic stopping"
     ],
-    "methods_description": "EEG recordings were acquired from 24 healthy subjects (12 male, 12 female, aged 18-26) using a 64-channel Synamps2 system (Neuroscan) at 1000 Hz sampling rate with Cz reference. Subjects performed two SSVEP-BCI tasks: a low-frequency paradigm with 16 targets (8.0-15.5 Hz, 0.5 Hz step) and a high-frequency paradigm with 16 targets (25.5-33.0 Hz, 0.5 Hz step). Both paradigms used JFPM encoding with phases cycling through 0, 0.5π, π, 1.5π in a 4×4 matrix layout. The experiment consisted of training (6 blocks per condition) and fatigue (24 blocks per condition) phases, with each block containing 16 trials of 2-second stimulation. Online filters applied: bandpass 0.15-200 Hz.",
+    "methods_description": "EEG was recorded at 1000 Hz from 64 channels with a Synamps2 amplifier (Neuroscan), referenced to Cz. Each participant completed a training phase (6 blocks per frequency condition) and a fatigue phase (24 blocks per condition). Each block had 16 trials of 2 s visual flicker stimulation in a 4x4 matrix layout. The data are epoched and distributed as per-subject files.",
     "funding": [
       {
         "funder_name": "National Key Research and Development Program of China",
@@ -93,13 +91,7 @@
         "funder_name": "National Natural Science Foundation of China",
         "award_number": "61806141"
       }
-    ],
-    "searched_accessions": [
-      "nm000124"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 7
+    ]
   },
   "citation_details": [
     {
@@ -197,11 +189,11 @@
     {
       "title": "Dynamics-CUSUM: A Sequential Evidence Accumulation Framework for Robust Online MEG Acquisition",
       "author": "Ling Li, Yujie Ma, Jin Ding, Xuanbo Guo, Ruonan Wang, Xiaolin Ning",
-      "venue": "2026 IEEE International Instrumentation and Measurement Technology Conference (I2MTC)",
+      "venue": "IEEE International Instrumentation and Measurement Technology Conference",
       "year": 2026,
       "url": "https://doi.org/10.1109/i2mtc66907.2026.11694952",
       "cited_by": 0,
-      "abstract": null,
+      "abstract": "Achieving adequate signal-to-noise ratio (SNR) in magnetoencephalography (MEG) is often hindered by deviations from the ideal square-root-N law due to non-stationary noise and subject fatigue. Current stopping criteria typically rely on fixed trial counts or offline calibration, limiting their real-time adaptability. To address this, we introduce Dynamics-CUSUM, a sequential framework that models trial-wise SNR dynamics as an evidence-accumulation process. By integrating local stability, volatility, and drift statistics, the method automatically detects the transition from signal growth to saturation without paradigm-specific modeling. Validated on the data of four MEG subjects, Dynamics-CUSUM consistently exceeds subject-specific SNR thresholds, reducing trial requirements by $\\mathbf{1 0 - 4 0 \\%}$ while preserving high spatiotemporal fidelity relative to fulltrial averages. With millisecond-level latency and high parameter robustness, the proposed method provides an efficient, data-",
       "doi": "10.1109/i2mtc66907.2026.11694952",
       "pmid": null,
       "openalex_id": "W7214383987",
@@ -209,9 +201,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.42061978429555896,
-        "similarity_score": 0.40059027075767517,
-        "citation_text_length": 272,
+        "confidence_score": 0.5296003013849259,
+        "similarity_score": 0.45852839946746826,
+        "citation_text_length": 1271,
         "dataset_text_length": 2303,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -219,7 +211,7 @@
     },
     {
       "title": "Adapting to progressive paralysis: A tongue-brain hybrid robot interface for individuals with amyotrophic lateral sclerosis",
-      "author": "Rasmus Leck Kæseler, Dario Farina, B. Bentsen, I. Obál, L. Vinge, K. Dremstrup, M. Jochumsen, Lotte N. S. Andreasen Struijk",
+      "author": "Rasmus Leck Kæseler, Dario Farina, B. Bentsen, Izabella Obál, L. Vinge, K. Dremstrup, M. Jochumsen, L. N. A. Andreasen Struijk",
       "venue": "Biocybernetics and Biomedical Engineering",
       "year": 2026,
       "url": "https://doi.org/10.1016/j.bbe.2026.02.007",
@@ -232,9 +224,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.29445727765560153,
-        "similarity_score": 0.2804355025291443,
-        "citation_text_length": 314,
+        "confidence_score": 0.2934235632419586,
+        "similarity_score": 0.27945101261138916,
+        "citation_text_length": 317,
         "dataset_text_length": 2303,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -266,13 +258,13 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T10:49:21.644104+00:00",
+    "scoring_date": "2026-10-11T11:18:45.026678+00:00",
     "dataset_text_length": 2303,
     "num_citations_scored": 7,
     "summary_stats": {
-      "mean_confidence": 0.4890516038239002,
-      "median_confidence": 0.44704154849052435,
-      "std_confidence": 0.19777810036168286,
+      "mean_confidence": 0.504472575634718,
+      "median_confidence": 0.5296003013849259,
+      "std_confidence": 0.19621899417035207,
       "min_confidence": 0.18373960152268412,
       "max_confidence": 0.776215821504593,
       "high_confidence_count": 1,

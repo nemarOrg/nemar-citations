@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000329",
   "num_citations": 13,
-  "date_last_updated": "2026-09-30T10:44:27.545086+00:00",
+  "date_last_updated": "2026-10-11T10:32:02.721177+00:00",
   "metadata": {
-    "total_cumulative_citations": 219,
-    "fetch_date": "2026-09-29T11:01:30.823792+00:00",
+    "total_cumulative_citations": 227,
+    "fetch_date": "2026-10-11T10:32:02.721177+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -19,12 +19,12 @@
         "source_relation": "IsDerivedFrom",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Motor Imagery Under Distraction— An Open Access BCI Dataset",
         "paper_year": 2020,
         "paper_venue": "Frontiers in Neuroscience",
         "reason": "Data Report \"Motor Imagery Under Distraction— An Open Access BCI Dataset\" by Brandl & Blankertz matches the dataset's title, authors, DOI, and 16-subject motor imagery data.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.21105/joss.01896",
@@ -32,12 +32,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
         "paper_year": 2019,
         "paper_venue": "The Journal of Open Source Software",
         "reason": "MNE-BIDS is a software tool for organizing electrophysiological data into BIDS, not a paper describing the Brandl motor imagery under distraction dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1038/s41597-019-0104-8",
@@ -45,12 +45,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "EEG-BIDS, an extension to the brain imaging data structure for electroencephalography",
         "paper_year": 2019,
         "paper_venue": "Scientific Data",
         "reason": "EEG-BIDS is a data-organization standard extension used to format the dataset, not a paper describing the Brandl motor imagery under distraction data.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.nm000329",
@@ -58,12 +58,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -71,31 +71,26 @@
       "10.82901/nemar.nm000329"
     ],
     "keywords": [
+      "EEG",
       "brain-computer interface",
       "motor imagery",
-      "EEG",
       "distraction",
-      "attention",
-      "cognitive load",
-      "BCI"
+      "open access",
+      "BCI",
+      "Electroencephalography",
+      "Brain-Computer Interfaces"
     ],
-    "methods_description": "EEG data were recorded from 16 healthy participants at 1000 Hz sampling rate using 63 channels (10-20 standard montage, nose reference) with two BrainAmp amplifiers and EasyCap Fast'n Easy Cap. Each participant completed one session consisting of seven runs of 72 trials each: one calibration run without feedback or distraction, followed by six feedback runs under different distraction conditions. Auditory cues indicated left or right hand motor imagery tasks with 4.5 s trial duration and 2.5 s inter-trial interval. Online classification employed Common Spatial Pattern (CSP) filtering with Linear Discriminant Analysis (LDA).",
+    "methods_description": "Each participant completed a single session of 7 runs with 72 trials per run. Run 1 was a calibration run without feedback or distraction. Runs 2-7 gave auditory feedback, each under one distraction condition. Auditory cues ('links'/'rechts') indicated left- or right-hand motor imagery. Trials lasted 4.5 s with a 2.5 s inter-trial interval. EEG was recorded with two BrainAmp amplifiers and EasyCap Ag/AgCl wet electrodes (63 channels, nose reference, 1000 Hz). Online classification used CSP with LDA in the BBCI Toolbox.",
     "funding": [
       {
-        "funder_name": "BMBF",
+        "funder_name": "BMBF/BIFOLD",
         "award_number": "01IS18025A"
       },
       {
-        "funder_name": "BMBF",
+        "funder_name": "BMBF/BIFOLD",
         "award_number": "01IS18037A"
       }
-    ],
-    "searched_accessions": [
-      "nm000329"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 13
+    ]
   },
   "citation_details": [
     {
@@ -104,7 +99,7 @@
       "venue": "Scientific Data",
       "year": 2024,
       "url": "https://doi.org/10.1038/s41597-023-02787-8",
-      "cited_by": 80,
+      "cited_by": 83,
       "abstract": "The brain-computer interface (BCI) is a technology that involves direct communication with parts of the brain and has evolved rapidly in recent years; it has begun to be used in clinical practice, such as for patient rehabilitation. Patient electroencephalography (EEG) datasets are critical for algorithm optimization and clinical applications of BCIs but are rare at present. We collected data from 50 acute stroke patients with wireless portable saline EEG devices during the performance of two tasks: 1) imagining right-handed movements and 2) imagining left-handed movements. The dataset consists of four types of data: 1) the motor imagery instructions, 2) raw recording data, 3) pre-processed data after removing artefacts and other manipulations, and 4) patient characteristics. This is the first open dataset to address left- and right-handed motor imagery in acute stroke patients. We believe that the dataset will be very helpful for analysing brain activation and designing decoding metho",
       "doi": "10.1038/s41597-023-02787-8",
       "pmid": "38272904",
@@ -127,7 +122,7 @@
       "venue": "Neurocomputing",
       "year": 2024,
       "url": "https://doi.org/10.1016/j.neucom.2024.128577",
-      "cited_by": 56,
+      "cited_by": 59,
       "abstract": null,
       "doi": "10.1016/j.neucom.2024.128577",
       "pmid": null,
@@ -192,7 +187,7 @@
     },
     {
       "title": "Embodiment Comfort Levels During Motor Imagery Training Combined With Immersive Virtual Reality in a Spinal Cord Injury Patient",
-      "author": "Carla Ferreira da Silva Pais-Vieira, Pedro João Soares Gaspar, Demétrio Matos, Leonor Palminha Alves, Bárbara Moreira da Cruz, Maria João Azevedo, Miguel Fernandes Gago, Tânia Poleri, André Perrotta, Miguel Pais-Vieira",
+      "author": "Carla Pais-Vieira, Pedro João Soares Gaspar, Demétrio Matos, Leonor Palminha Alves, Bárbara Moreira da Cruz, Maria João Azevedo, Miguel Fernandes Gago, Tânia Poleri, André Perrotta, Miguel Pais-Vieira",
       "venue": "Frontiers in Human Neuroscience",
       "year": 2022,
       "url": "https://doi.org/10.3389/fnhum.2022.909112",
@@ -205,9 +200,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5603042355179788,
-        "similarity_score": 0.48511189222335815,
-        "citation_text_length": 1415,
+        "confidence_score": 0.5612414002418519,
+        "similarity_score": 0.48592329025268555,
+        "citation_text_length": 1397,
         "dataset_text_length": 2344,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -216,7 +211,7 @@
     {
       "title": "An empirical study to evaluate feature extraction approaches CSP, TSM, and CSP-TSM on a MI-BCI under distraction",
       "author": "Mustapha Moufassih, Ousama Tarahi, Soukaina Hamou, Said Agounad, Hafida Idrissi Azami",
-      "venue": "2023 IEEE International Conference on Systems, Man, and Cybernetics (SMC)",
+      "venue": "Conference proceedings/Conference proceedings - IEEE International Conference on Systems, Man, and Cybernetics",
       "year": 2023,
       "url": "https://doi.org/10.1109/smc53992.2023.10394377",
       "cited_by": 8,
@@ -228,9 +223,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.7205076330900193,
-        "similarity_score": 0.6238161325454712,
-        "citation_text_length": 1192,
+        "confidence_score": 0.7244964176416397,
+        "similarity_score": 0.6272696256637573,
+        "citation_text_length": 1229,
         "dataset_text_length": 2344,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -242,7 +237,7 @@
       "venue": "IEEE journal of biomedical and health informatics",
       "year": 2025,
       "url": "https://doi.org/10.1109/JBHI.2026.3732223",
-      "cited_by": 3,
+      "cited_by": 4,
       "abstract": "Current deep learning models for electroencephalography (EEG) are often task-specific and depend on large labeled datasets, limiting their adaptability. Although EEG foundation models seek broader applicability, many still rely on predefined multi-channel inputs, electrode-layout assumptions, or model-specific channel handling. To address these limitations, we introduce the Single-Channel Large EEG Model (SingLEM), a self-supervised foundation model whose hybrid convolutional-Transformer encoder maps each channel independently to a reusable representation capturing local and long-range temporal structure. These representations can be used individually or combined through channel-wise feature concatenation. We assembled 71 public EEG datasets comprising approximately 9,200 subjects and 357,000 single-channel hours. For leakage-controlled evaluation, downstream results were obtained with a model pretrained on 68 datasets after excluding the three source datasets underlying the six tasks.",
       "doi": "10.1109/JBHI.2026.3732223",
       "pmid": "42709520",
@@ -329,6 +324,29 @@
       }
     },
     {
+      "title": "An intertwined neural network model for EEG classification in brain-computer interfaces",
+      "author": "A. Duggento, M. De Lorenzo, S. Bargione, A. Conti, Vincenzo Catrambone, G. Valenza, N. Toschi",
+      "venue": "ArXiv",
+      "year": 2022,
+      "url": "https://doi.org/10.48550/arXiv.2208.08860",
+      "cited_by": 1,
+      "abstract": "The brain computer interface (BCI) is a nonstimulatory direct and occasionally bidirectional communication link between the brain and a computer or an external device. Classically, EEG-based BCI algorithms have relied on models such as support vector machines and linear discriminant analysis or multiclass common spatial patterns. During the last decade, however, more sophisticated machine learning architectures, such as convolutional neural networks (40, 41), recurrent neural networks, long short-term memory networks and gated recurrent unit networks, have been extensively used to enhance discriminability in multiclass BCI tasks. Additionally, preprocessing and denoising of EEG signals has always been key in the successful decoding of brain activity, and the determination of an optimal and standardized EEG preprocessing activity is an active area of research. In this paper, we present a deep neural network architecture specifically engineered to a) provide state-of-the-art performance ",
+      "doi": "10.48550/arXiv.2208.08860",
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.3389/fnins.2020.566147",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.49016269147396097,
+        "similarity_score": 0.424383282661438,
+        "citation_text_length": 1224,
+        "dataset_text_length": 2344,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Design of EEG Experiments for Motor Imagery Mental Task Classification",
       "author": "Ivaylo Ivaylov, Agata H. Manolova, Milena Kirilova Lazarova",
       "venue": "Proceedings of the Technical University of Sofia",
@@ -373,40 +391,17 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
-    },
-    {
-      "title": "An intertwined neural network model for EEG classification in brain-computer interfaces",
-      "author": "A. Duggento, M. De Lorenzo, S. Bargione, A. Conti, Vincenzo Catrambone, G. Valenza, N. Toschi",
-      "venue": "ArXiv",
-      "year": 2022,
-      "url": "https://doi.org/10.48550/arXiv.2208.08860",
-      "cited_by": 0,
-      "abstract": "The brain computer interface (BCI) is a nonstimulatory direct and occasionally bidirectional communication link between the brain and a computer or an external device. Classically, EEG-based BCI algorithms have relied on models such as support vector machines and linear discriminant analysis or multiclass common spatial patterns. During the last decade, however, more sophisticated machine learning architectures, such as convolutional neural networks (40, 41), recurrent neural networks, long short-term memory networks and gated recurrent unit networks, have been extensively used to enhance discriminability in multiclass BCI tasks. Additionally, preprocessing and denoising of EEG signals has always been key in the successful decoding of brain activity, and the determination of an optimal and standardized EEG preprocessing activity is an active area of research. In this paper, we present a deep neural network architecture specifically engineered to a) provide state-of-the-art performance ",
-      "doi": "10.48550/arXiv.2208.08860",
-      "pmid": null,
-      "openalex_id": null,
-      "source_doi": "10.3389/fnins.2020.566147",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.49016269147396097,
-        "similarity_score": 0.424383282661438,
-        "citation_text_length": 1224,
-        "dataset_text_length": 2344,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T10:54:36.251213+00:00",
+    "scoring_date": "2026-10-11T11:26:05.632010+00:00",
     "dataset_text_length": 2344,
     "num_citations_scored": 13,
     "summary_stats": {
-      "mean_confidence": 0.6371508144529966,
+      "mean_confidence": 0.6375297336280347,
       "median_confidence": 0.6195970416069031,
-      "std_confidence": 0.09816877133226305,
+      "std_confidence": 0.09837849622830336,
       "min_confidence": 0.48997795030474667,
       "max_confidence": 0.8200678056478501,
       "high_confidence_count": 4,

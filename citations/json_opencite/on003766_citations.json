@@ -1,16 +1,14 @@
 {
   "dataset_id": "on003766",
-  "num_citations": 8,
-  "date_last_updated": "2026-09-30T10:44:58.456670+00:00",
+  "num_citations": 9,
+  "date_last_updated": "2026-10-11T11:15:38.890444+00:00",
   "metadata": {
     "total_cumulative_citations": 98,
-    "fetch_date": "2026-09-29T11:11:30.816371+00:00",
+    "fetch_date": "2026-10-11T10:47:06.773028+00:00",
     "processing_version": "1.0",
-    "fetch_status": "partial",
+    "fetch_status": "success",
     "anchor_count": 2,
-    "anchor_errors": {
-      "10.82901/nemar.on003766": "not_found"
-    },
+    "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
     "anchor_judgment_model": "claude-sonnet-5-5",
@@ -18,15 +16,41 @@
       {
         "identifier": "10.1038/s41597-022-01538-5",
         "identifier_type": "doi",
-        "source_relation": "References",
+        "source_relation": "IsDescribedBy",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "A resource for assessing dynamic binary choices in the adult brain using EEG and mouse-tracking",
         "paper_year": 2022,
         "paper_venue": "Scientific Data",
         "reason": "Title, authors, and abstract match the dataset: 128-channel HD-EEG plus mouse-tracking, 31 participants aged 18-33, food preference and semantic tasks; it is the Scientific Data descriptor.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
+      },
+      {
+        "identifier": "10.21105/joss.01896",
+        "identifier_type": "doi",
+        "source_relation": "References",
+        "classification": "methodology",
+        "kept": false,
+        "kept_reason": "never_anchor",
+        "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
+        "paper_year": 2019,
+        "paper_venue": "The Journal of Open Source Software",
+        "reason": "MNE-BIDS is a software tool for organizing electrophysiological data into BIDS, used for dataset formatting, not a paper describing this EEG/mouse-tracking dataset.",
+        "judgment_model": "claude-sonnet-5-5"
+      },
+      {
+        "identifier": "10.1038/s41597-019-0104-8",
+        "identifier_type": "doi",
+        "source_relation": "References",
+        "classification": "methodology",
+        "kept": false,
+        "kept_reason": "never_anchor",
+        "paper_title": "EEG-BIDS, an extension to the brain imaging data structure for electroencephalography",
+        "paper_year": 2019,
+        "paper_venue": "Scientific Data",
+        "reason": "EEG-BIDS is a data-organization specification/extension for EEG that this BIDS-formatted dataset follows; it does not describe this dataset itself.",
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on003766",
@@ -34,12 +58,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -49,13 +73,12 @@
     "keywords": [
       "Electroencephalography",
       "Decision Making",
-      "Mouse-tracking",
-      "Resting state",
-      "Food preferences",
-      "Semantic judgment",
-      "Binary choice"
+      "mouse-tracking",
+      "resting state",
+      "preference choice",
+      "semantic judgment"
     ],
-    "methods_description": "EEG data were acquired using a 128-channel cap based on the standard 10/20 system with an Electrical Geodesics Inc (EGI) system at a sampling rate of 1000 Hz, with the E129 (Cz) electrode as reference and electrode impedances maintained below 50 kΩ. Participants performed food preference choice and semantic judgment tasks while mouse-tracking was recorded concurrently. Preprocessing was performed using EEGLAB.",
+    "methods_description": "EEG was recorded with a 128-channel EGI system (10/20-based cap) at a 1000 Hz sampling rate, with E129 (Cz) as reference and electrode impedances kept below 50 kohm. Participants completed resting-state recordings and two mouse-tracking tasks (food preference choices and semantic judgments). The dataset includes raw .mff files, BIDS-formatted .set files, PsychoPy stimulus scripts, and EEGLAB-preprocessed continuous data.",
     "funding": [
       {
         "funder_name": "National Natural Science Foundation of China",
@@ -71,7 +94,7 @@
       "ds003766"
     ],
     "num_accession_mentions": 0,
-    "num_dataset_citations": 1,
+    "num_dataset_citations": 2,
     "num_datapaper_citations": 7
   },
   "citation_details": [
@@ -204,6 +227,8 @@
       "source_doi": "10.1038/s41597-022-01538-5",
       "source_relation": "References",
       "discovery_backend": "opencite",
+      "mentions_accession": true,
+      "matched_accession": "ds003766",
       "confidence_scoring": {
         "confidence_score": 1.0,
         "similarity_score": 0.9379266500473022,
@@ -211,9 +236,7 @@
         "dataset_text_length": 2381,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      },
-      "mentions_accession": true,
-      "matched_accession": "ds003766"
+      }
     },
     {
       "title": "Towards advanced decision-making support for shipping safety: A functional connectivity analysis",
@@ -260,22 +283,45 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "Bayesian Tensor Interpolative Decomposition for IoT-Based Healthcare Data Multiway Analytics",
+      "author": "Zecan Yang, Hao Wang, Laurence Tianruo Yang, Honglu Zhao, Songhe Yuan, X. Lu",
+      "venue": "IEEE Internet of Things Journal",
+      "year": 2026,
+      "url": "https://doi.org/10.1109/jiot.2026.3663289",
+      "cited_by": 0,
+      "abstract": "The IoT-based Healthcare Industry 5.0 offers intelligent solutions that utilize numerous sensors, generating massive amounts of data. These healthcare data with composite properties can be represented by high-order tensors, which enables the application of tensor multi-way analytics to uncover the latent features in data. However, existing tensor decomposition techniques often face challenges of limited interpretability and weak robustness, which constrain their application in the healthcare industry. To mitigate these challenges, this paper introduces a novel Bayesian Tensor Interpolative Decomposition (BTID) model, which is an extension of the concept of matrix interpolative decomposition and is designed to efficiently and interpretably analyze multi-way tensors. The proposed model performs low-rank approximation using a subset of the original data and employs the Bayesian learning approach to infer the weight matrices, thereby ensuring theoretical interpretability. Additionally, a h",
+      "doi": "10.1109/jiot.2026.3663289",
+      "pmid": null,
+      "openalex_id": "W7128537347",
+      "source_doi": "10.82901/nemar.on003766",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.18253639161586765,
+        "similarity_score": 0.15804016590118408,
+        "citation_text_length": 1238,
+        "dataset_text_length": 2381,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T12:09:16.950703+00:00",
+    "scoring_date": "2026-10-11T11:29:51.447933+00:00",
     "dataset_text_length": 2381,
-    "num_citations_scored": 8,
+    "num_citations_scored": 9,
     "summary_stats": {
-      "mean_confidence": 0.5227851716801525,
-      "median_confidence": 0.4835582721233369,
-      "std_confidence": 0.23084958517516058,
-      "min_confidence": 0.2198868177831173,
+      "mean_confidence": 0.4849797516730097,
+      "median_confidence": 0.4277396589517594,
+      "std_confidence": 0.24249587215326085,
+      "min_confidence": 0.18253639161586765,
       "max_confidence": 1.0,
       "high_confidence_count": 1,
       "medium_confidence_count": 4,
-      "low_confidence_count": 3
+      "low_confidence_count": 4
     }
   }
 }

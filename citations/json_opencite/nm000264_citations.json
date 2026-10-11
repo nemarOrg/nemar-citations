@@ -1,17 +1,14 @@
 {
   "dataset_id": "nm000264",
-  "num_citations": 3,
-  "date_last_updated": "2026-10-04T10:04:58.172036+00:00",
+  "num_citations": 0,
+  "date_last_updated": "2026-10-11T10:26:07.073347+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
-    "fetch_date": "2026-09-29T10:58:13.221072+00:00",
+    "fetch_date": "2026-10-11T10:26:07.073347+00:00",
     "processing_version": "1.0",
-    "fetch_status": "partial",
+    "fetch_status": "success",
     "anchor_count": 1,
-    "anchor_errors": {
-      "10.5281/zenodo.1494163": "not_found",
-      "10.5281/zenodo.2669187": "not_found"
-    },
+    "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
     "anchor_judgment_model": "claude-sonnet-5-5",
@@ -22,12 +19,12 @@
         "source_relation": "IsDerivedFrom",
         "classification": null,
         "kept": false,
+        "kept_reason": "unjudged",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "unjudged"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.5281/zenodo.2649006",
@@ -35,12 +32,12 @@
         "source_relation": "References",
         "classification": "related_work",
         "kept": false,
+        "kept_reason": "judged_not_data_paper",
         "paper_title": "Building Brain Invaders: EEG data of an experimental validation",
         "paper_year": 2019,
         "paper_venue": "Zenodo (CERN European Organization for Nuclear Research)",
         "reason": "Candidate is the Brain Invaders 2012 dataset (BI.EEG.2012-GIPSA, 25 subjects), a sibling of BI2013a (24 subjects, 8 sessions, Zenodo 2669187), not this dataset's data paper.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_not_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.5281/zenodo.2669187",
@@ -48,12 +45,12 @@
         "source_relation": "IsDerivedFrom",
         "classification": null,
         "kept": false,
+        "kept_reason": "unjudged",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "unjudged"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.nm000264",
@@ -61,12 +58,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -74,17 +71,12 @@
     ],
     "keywords": [
       "Electroencephalography",
-      "P300",
-      "Brain-Computer Interface",
-      "Riemannian geometry",
-      "Adaptive calibration",
+      "Brain-Computer Interfaces",
       "Event-Related Potentials, P300",
-      "Experiment",
-      "Calibration",
-      "Brain Invaders",
-      "Gaming"
+      "adaptive calibration",
+      "Riemannian geometry"
     ],
-    "methods_description": "EEG recordings were acquired using 16 wet Silver/Silver Chloride electrodes (standard 10-20 montage) with a g.USBamp amplifier (g.tec) at 512 Hz sampling rate. Reference electrode was placed at left earlobe with ground at FZ. Subjects completed 8 sessions with 2 runs each (adaptive and non-adaptive, randomized order). Each run consisted of training (80 target and 400 non-target flashes) and online phases. Visual stimuli were presented as flashes of 36 symbols arranged in 12 groups on a ViewSonic 22-inch screen at 75-115 cm distance. Online feedback was provided through the Brain Invaders video game interface.",
+    "methods_description": "EEG was recorded with a g.USBamp amplifier (16 Ag/AgCl electrodes, g.GAMMAcap, 512 Hz, left earlobe reference, ground at FZ) using OpenViBE. Each session had two runs (Non-Adaptive and Adaptive, randomized order), each with a Training phase (80 Target and 400 non-Target flashes) and an Online phase. In the Non-Adaptive run the Training data calibrated an MDM classifier. In the Adaptive run the classifier was initialized with generic class geometric means and continuously adapted using a Riemannian method. The interface had 36 symbols in 12 groups, and subjects were blind to the mode of operation.",
     "funding": [
       {
         "funder_name": "Not specified"
@@ -92,105 +84,13 @@
       {
         "funder_name": "No funding"
       }
-    ],
-    "searched_accessions": [
-      "nm000264"
-    ],
-    "num_accession_mentions": 3,
-    "num_dataset_citations": 3,
-    "num_datapaper_citations": 0
+    ]
   },
-  "citation_details": [
-    {
-      "title": "A New Germline Mutation of the PTCH Gene in a Japanese Patient with Nevoid Basal Cell Carcinoma Syndrome Associated with Meningioma",
-      "author": "Genshu Tate, Ming Li, Takao Suzuki, Toshiyuki Mitsuya",
-      "venue": "Japanese Journal of Clinical Oncology",
-      "year": 2003,
-      "url": "https://doi.org/10.1093/jjco/hyg005",
-      "cited_by": 26,
-      "abstract": "We employed polymerase chain reaction and DNA sequencing analysis to characterize the PTCH gene in a Japanese nevoid basal cell carcinoma syndrome (NBCCS) patient suffering from meningioma, multiple basal cell carcinoma and epidermal cysts. Direct sequence analyses revealed a novel single base deletion at nucleotide 2613 in exon 16 (2613delC) in one PTCH allele, resulting in the frame shift and the introduction of a premature termination codon in this mutated allele.",
-      "doi": "10.1093/jjco/hyg005",
-      "pmid": "12604725",
-      "openalex_id": "W2155498419",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "nm000264",
-      "confidence_scoring": {
-        "confidence_score": 0.28635548353195195,
-        "similarity_score": 0.260323166847229,
-        "citation_text_length": 731,
-        "dataset_text_length": 2455,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "A new nonsense mutation of PTCH1 gene in mother and daughter with late-onset nevus basal cell carcinoma syndrome: Case report",
-      "author": "Xin Li, Liya Ai, Chunyu Han, Ya-Qi Cao, Jianwen Han",
-      "venue": "Medicine",
-      "year": 2024,
-      "url": "https://doi.org/10.1097/md.0000000000040471",
-      "cited_by": 1,
-      "abstract": "RATIONALE: Nevoid basal cell carcinoma syndrome (NBCCS) is a rare clinical disease characterized by a disproportionate number of basal cell carcinoma to sun exposure and skin types. Patched 1 (PTCH1) gene is proposed to be implicated in the pathogenesis of NBCCS. This study aimed to investigate whether PTCH1 gene is the causative gene in Chinese patients with NBCCS. PATIENT CONCERNS: Here we detected the first nonsense mutation in PTCH1 gene by Sanger sequencing of blood samples from a mother and her second daughter (NM000264: exon14: c.2080C>T: p.Q694X). DIAGNOSES: Both of the mother and her second daughter had ovarian mature teratomas. INTERVENTIONS: The mother received liquid nitrogen cryotherapy, surgical resection, and radiation therapy, while her second daughter was treated with a GX-III multifunctional ion surgical therapy machine and surgery. OUTCOMES: New rashes continued to appear and contractures of the right eyelid healed in the mother, while her second daughter had multiple pitting depressions on the palms and soles of both hands and feet. CONCLUSION: We detected a new mutation in PTCH1 gene in 2 patients with NBCCS, and both of them had ovarian mature teratomas, which are related to NM000264: exon14: c.2080C>T: p.Q694X.",
-      "doi": "10.1097/md.0000000000040471",
-      "pmid": "39612443",
-      "openalex_id": "W4404846278",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "nm000264",
-      "confidence_scoring": {
-        "confidence_score": 0.24683051794767383,
-        "similarity_score": 0.21370607614517212,
-        "citation_text_length": 1476,
-        "dataset_text_length": 2455,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Multiple Gene Expression Analyses in Paraffin-Embedded Tissues by TaqMan Low-Density Array",
-      "author": "Adam D. Steg, Wenquan Wang, Carmelo Blanquicett, Jessica M. Grunda, Isam A. Eltoum, Kangsheng Wang, Donald J. Buchsbaum, Selwyn Maurice Vickers, Suzanne M. Russo, Robert B. Diasio, Andra R. Frost, Albert F. LoBuglio, William E. Grizzle, Martin R. Johnson",
-      "venue": "Journal of Molecular Diagnostics",
-      "year": 2006,
-      "url": "https://doi.org/10.2353/jmoldx.2006.040402",
-      "cited_by": 82,
-      "abstract": null,
-      "doi": "10.2353/jmoldx.2006.040402",
-      "pmid": "16436637",
-      "openalex_id": "W1553996898",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "nm000264",
-      "confidence_scoring": {
-        "confidence_score": 0.315247118473053,
-        "similarity_score": 0.315247118473053,
-        "citation_text_length": 403,
-        "dataset_text_length": 2455,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    }
-  ],
+  "citation_details": [],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-10-04T10:09:23.015047+00:00",
+    "scoring_date": "2026-10-11T11:24:58.849608+00:00",
     "dataset_text_length": 2455,
-    "num_citations_scored": 3,
-    "summary_stats": {
-      "mean_confidence": 0.28281103998422624,
-      "median_confidence": 0.28635548353195195,
-      "std_confidence": 0.028043182378962014,
-      "min_confidence": 0.24683051794767383,
-      "max_confidence": 0.315247118473053,
-      "high_confidence_count": 0,
-      "medium_confidence_count": 0,
-      "low_confidence_count": 3
-    }
+    "num_citations_scored": 0
   }
 }

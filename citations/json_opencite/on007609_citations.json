@@ -1,10 +1,10 @@
 {
   "dataset_id": "on007609",
   "num_citations": 6,
-  "date_last_updated": "2026-09-30T10:44:34.128369+00:00",
+  "date_last_updated": "2026-10-11T11:12:14.980809+00:00",
   "metadata": {
-    "total_cumulative_citations": 1,
-    "fetch_date": "2026-09-29T11:40:15.829003+00:00",
+    "total_cumulative_citations": 2,
+    "fetch_date": "2026-10-11T11:12:14.980809+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -19,12 +19,12 @@
         "source_relation": "IsDescribedBy",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Rhythmic activity in resting-state EEG predicts trait anxiety",
         "paper_year": 2025,
         "paper_venue": "Imaging Neuroscience",
         "reason": "Same authors and title topic as the dataset's Related Publication (DOI 10.1162/IMAG.a.44); reports the resting-state EEG and BIS trait anxiety study using this data.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on007609",
@@ -32,12 +32,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -48,11 +48,12 @@
       "EEG",
       "resting state",
       "trait anxiety",
-      "alpha rhythm",
-      "theta rhythm",
-      "personality"
+      "alpha oscillations",
+      "theta oscillations",
+      "Anxiety",
+      "Electroencephalography"
     ],
-    "methods_description": "EEG was recorded using a 256-channel EGI HydroCel Geodesic Sensor Net with a Net Amps amplifier at an original sampling rate of 500 Hz, referenced online to Cz. Participants completed a resting-state protocol of alternating 1-minute eyes-open and eyes-closed blocks (EO-EC-EO-EC) for 4 minutes total, with auditory cues signaling transitions. Preprocessing in EEGLAB included 0.1-50 Hz bandpass filtering, CleanLine noise removal at 60/120 Hz, kurtosis-based channel rejection, average re-referencing, ICA decomposition (runica), ICLabel-based artifact removal (>0.8 probability) with visual inspection, and spherical interpolation of removed channels.",
+    "methods_description": "EEG was recorded with a 256-channel EGI HydroCel Geodesic Sensor Net at 500 Hz (online reference Cz). The protocol was four 1-minute blocks (EO-EC-EO-EC) signaled by auditory beeps. Preprocessing in EEGLAB included 0.1-50 Hz bandpass filtering, CleanLine line-noise removal, kurtosis-based channel rejection, average re-referencing, extended runica ICA with ICLabel and visual artifact component removal, and spherical interpolation.",
     "funding": [
       {
         "funder_name": "Social Sciences and Humanities Research Council of Canada (SSHRC)"
@@ -60,19 +61,12 @@
       {
         "funder_name": "Natural Sciences and Engineering Research Council of Canada (NSERC)"
       }
-    ],
-    "searched_accessions": [
-      "on007609",
-      "ds007609"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 6
+    ]
   },
   "citation_details": [
     {
       "title": "Trait anxiety in young adults is more consistently associated with resting-state EEG microstate transitions than with stationary spectral power",
-      "author": "Meng Zhang, Congcong Liu, Xin Wu, Qianqian Yu, Feng Hua Zou, Kun Li",
+      "author": "Meng Zhang, Congcong Liu, Xin Wu, Qianqian Yu, Feng Zou, Kun Li",
       "venue": "International Journal of Psychophysiology",
       "year": 2026,
       "url": "https://doi.org/10.1016/j.ijpsycho.2026.113436",
@@ -85,9 +79,32 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.8730891063809396,
-        "similarity_score": 0.7559213042259216,
-        "citation_text_length": 1290,
+        "confidence_score": 0.8715026798844339,
+        "similarity_score": 0.7545477747917175,
+        "citation_text_length": 1286,
+        "dataset_text_length": 2234,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Psychological, psychophysiological, and psychoendocrine foundations of decision-making",
+      "author": "Ivan A. Rozanov, N.N. Naumov",
+      "venue": "Journal of Modern Foreign Psychology",
+      "year": 2025,
+      "url": "https://doi.org/10.17759/jmfp.2025140313",
+      "cited_by": 1,
+      "abstract": "Context and relevance. The relevance of the research is due to the absence of the fact that understanding decision-making processes, including in conditions of uncertainty and stress, is important both for fundamental psychology and for applied fields such as professional selection of specialists, assessment of their professional reliability and development of adaptive behavior strategies. In this study, modern models of neurophysiological, psychophysiological and psychoendocrine correlators of decision-making, cognitive and emotional components of the choice process, and features of these processes under the influence of stress and extreme factors were considered. The study of neurophysiological, psychophysiological, and psychological correlates of research acceptance mechanisms allows us to develop a specific methodology for studying these phenomena. The aim of the study is to systematize and analytically summarize empirical data on the interrelation of cognitive, emotional and physi",
+      "doi": "10.17759/jmfp.2025140313",
+      "pmid": null,
+      "openalex_id": "W4414858957",
+      "source_doi": "10.1162/imag.a.44",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.39787072598934176,
+        "similarity_score": 0.3444768190383911,
+        "citation_text_length": 1189,
         "dataset_text_length": 2234,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -163,29 +180,6 @@
       }
     },
     {
-      "title": "Psychological, psychophysiological, and psychoendocrine foundations of decision-making",
-      "author": "Ivan A. Rozanov, Nick Naumov",
-      "venue": "Journal of Modern Foreign Psychology",
-      "year": 2025,
-      "url": "https://doi.org/10.17759/jmfp.2025140313",
-      "cited_by": 0,
-      "abstract": "Context and relevance. The relevance of the research is due to the absence of the fact that understanding decision-making processes, including in conditions of uncertainty and stress, is important both for fundamental psychology and for applied fields such as professional selection of specialists, assessment of their professional reliability and development of adaptive behavior strategies. In this study, modern models of neurophysiological, psychophysiological and psychoendocrine correlators of decision-making, cognitive and emotional components of the choice process, and features of these processes under the influence of stress and extreme factors were considered. The study of neurophysiological, psychophysiological, and psychological correlates of research acceptance mechanisms allows us to develop a specific methodology for studying these phenomena. The aim of the study is to systematize and analytically summarize empirical data on the interrelation of cognitive, emotional and physi",
-      "doi": "10.17759/jmfp.2025140313",
-      "pmid": null,
-      "openalex_id": "W4414858957",
-      "source_doi": "10.1162/imag.a.44",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.399802195429802,
-        "similarity_score": 0.3461490869522095,
-        "citation_text_length": 1189,
-        "dataset_text_length": 2234,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Ketamine effects on EEG and their links to therapy differ across treatment-resistant major depression, post-traumatic stress disorder, and obsessive-compulsive disorder",
       "author": "Shabah M. Shadli, Neda Nasrollahi, C. K. Young, Gabrielle S R Schuck, M. Whatson, Tame Kawe, Shona Neehoff, B. Beaglehole, P. Glue, N. McNaughton",
       "venue": "International Journal of Neuropsychopharmacology",
@@ -211,15 +205,15 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T11:03:46.196379+00:00",
+    "scoring_date": "2026-10-11T11:40:56.154231+00:00",
     "dataset_text_length": 2234,
     "num_citations_scored": 6,
     "summary_stats": {
-      "mean_confidence": 0.6387257660925388,
+      "mean_confidence": 0.6381394501030446,
       "median_confidence": 0.6053791876137258,
-      "std_confidence": 0.15347229506788224,
-      "min_confidence": 0.399802195429802,
-      "max_confidence": 0.8730891063809396,
+      "std_confidence": 0.15357191777253468,
+      "min_confidence": 0.39787072598934176,
+      "max_confidence": 0.8715026798844339,
       "high_confidence_count": 2,
       "medium_confidence_count": 3,
       "low_confidence_count": 1

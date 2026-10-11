@@ -1,0 +1,53 @@
+{
+  "dataset_id": "nm000290",
+  "date_retrieved": "2026-10-05T10:00:56.991427+00:00",
+  "dataset_description": {
+    "Name": "PROTEUS BCI Bordeaux — EEG/EMG Foundation Challenge 2026, Track 02",
+    "BIDSVersion": "1.9.0",
+    "DatasetType": "raw",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "Dreyer Pauline",
+      "Bourdil Manon",
+      "Bechon Loic",
+      "Kojima Simon",
+      "Velut Sebastien",
+      "Rimbert Sebastien",
+      "Roy Raphaëlle",
+      "Lotte Fabien"
+    ],
+    "Funding": [
+      "PROTEUS ANR"
+    ],
+    "EthicsApprovals": [
+      "Comité opérationnel d'évaluation des risques légaux et éthiques"
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "PROTEUS BIDS export",
+        "Description": "Manual and MNE-BIDS conversion by the data authors"
+      },
+      {
+        "Name": "make_bids_release.py",
+        "Version": "0.4.0",
+        "Description": "Subset of subject-sessions; relabelled subjects; canonical EDF identity fields"
+      }
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000290",
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000290-blue)](https://doi.org/10.82901/nemar.nm000290)\n\n# PROTEUS BCI Bordeaux — EEG/EMG Foundation Challenge 2026, Track 02\n\nEEG recorded with a 64-channel actiCAP slim / actiCHamp system (Brain Products); 41 EEG channels are provided,\nsampled at 500 Hz, reference M1 (mastoid), ground FpZ, stored as EDF+ (µV, per-file digital scaling).\n\n## Contents\n- 10 participants (labels `sub-P##`), 14 sessions, 112 runs.\n  Sessions per participant: 1, 3. Session labels are chronological.\n- Each session contains up to 8 runs:\n  - `BaselineOE` / `BaselineCE` (run 0): rest, eyes open / eyes closed.\n  - `AcquisitionGraz`, `AcquisitionBH`: calibration runs with sham feedback (Graz and BrainHero interfaces).\n  - `OnlineRawGraz`, `OnlineRawBH` (two runs each): online runs with real feedback.\n- Three cued mental tasks: `mi` (kinesthetic motor imagery of the non-dominant hand), `sub` (mental subtraction),\n  `word` (word generation from a given letter). Cue onsets are the `mi` / `sub` / `word` rows of `*_events.tsv`\n  (OpenViBE codes 33024 / 33025 / 33026, also stored as EDF+ annotations).\n- `participants.tsv`: age (binned). `sub-*_sessions.tsv`: session labels only (questionnaires withheld).\n\n## Known issues\n- `BAD_ACQ_SKIP` marks the padding (< 1 s) at the end of the last 1-s EDF record of each run; it is not a gap.\n- 1 runs have an EDF resolution coarser than 1 µV per bit (per-file digital scaling).\n- 13 cued runs have fewer trials than is usual for their run type.\n\n## Licence\nCreative Commons Attribution 4.0 International (CC-BY-4.0). Authors: Dreyer Pauline, Bourdil Manon, Bechon Loic, Kojima Simon, Velut Sebastien, Rimbert Sebastien, Roy Raphaëlle, Lotte Fabien.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000290",
+    "exists": true,
+    "description": "PROTEUS BCI Bordeaux — EEG/EMG Foundation Challenge 2026, Track 02",
+    "created_at": "2026-10-01T12:22:41+00:00",
+    "updated_at": "2026-10-02T03:00:10+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

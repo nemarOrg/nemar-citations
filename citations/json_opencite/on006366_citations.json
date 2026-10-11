@@ -1,10 +1,10 @@
 {
   "dataset_id": "on006366",
   "num_citations": 0,
-  "date_last_updated": "2026-09-22T11:32:28.746986+00:00",
+  "date_last_updated": "2026-10-11T11:08:42.714121+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
-    "fetch_date": "2026-09-22T11:32:28.746986+00:00",
+    "fetch_date": "2026-10-11T11:08:42.714121+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 1,
@@ -14,17 +14,30 @@
     "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
+        "identifier": "10.1093/sleepadvances/zpaf025",
+        "identifier_type": "doi",
+        "source_relation": "IsDescribedBy",
+        "classification": "related_work",
+        "kept": false,
+        "kept_reason": "judged_not_data_paper",
+        "paper_title": "Probability estimation of narcolepsy type 1 in DTA mice using unlabeled EEG and EMG data",
+        "paper_year": 2025,
+        "paper_venue": "SLEEP Advances",
+        "reason": "Same lab and authors, but the paper trains on 83 WT mice and adds DTA narcolepsy mice, while MSSV holds 92 healthy mice; it is a downstream study, not the data paper.",
+        "judgment_model": "claude-sonnet-5-5"
+      },
+      {
         "identifier": "10.82901/nemar.on006366",
         "identifier_type": "doi",
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -34,29 +47,22 @@
       "EEG",
       "EMG",
       "Sleep Stages",
-      "Mice",
-      "Polysomnography",
-      "BIDS"
+      "mouse",
+      "sleep staging",
+      "multi-lab validation"
     ],
-    "methods_description": "Recordings were collected from 92 healthy mice across five labs, each scored by a single sleep expert. All recordings contain at least one EEG and one EMG channel, with the number of EEG channels varying by lab. Data were downsampled to 128Hz with SI units (volts), using an epoch length of 4 seconds.",
+    "methods_description": "Recordings from 92 healthy mice across five labs each include at least one EEG and one EMG channel, with the number of EEG channels varying by lab. Each mouse was scored by a single sleep expert using 4-second epochs. All recordings were downsampled to 128 Hz, expressed in volts, and stored in EDF format.",
     "funding": [
       {
         "funder_name": "Lundbeck Foundation",
         "award_number": "R344-2020-749"
       }
-    ],
-    "searched_accessions": [
-      "on006366",
-      "ds006366"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 0
+    ]
   },
   "citation_details": [],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-22T13:29:35.456724+00:00",
+    "scoring_date": "2026-10-11T11:39:20.880051+00:00",
     "dataset_text_length": 2232,
     "num_citations_scored": 0
   }

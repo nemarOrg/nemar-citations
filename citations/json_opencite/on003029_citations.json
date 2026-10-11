@@ -1,10 +1,10 @@
 {
   "dataset_id": "on003029",
-  "num_citations": 14,
-  "date_last_updated": "2026-09-30T10:44:28.443606+00:00",
+  "num_citations": 15,
+  "date_last_updated": "2026-10-11T11:15:12.771821+00:00",
   "metadata": {
-    "total_cumulative_citations": 100,
-    "fetch_date": "2026-09-29T11:07:09.646627+00:00",
+    "total_cumulative_citations": 0,
+    "fetch_date": "2026-10-11T10:43:06.065808+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 1,
@@ -19,12 +19,12 @@
         "source_relation": "IsDescribedBy",
         "classification": "related_work",
         "kept": false,
+        "kept_reason": "judged_not_data_paper",
         "paper_title": "Neural Fragility as an EEG Marker of the Seizure Onset Zone",
         "paper_year": 2019,
         "paper_venue": "bioRxiv (Cold Spring Harbor Laboratory)",
         "reason": "The 2019 neural fragility preprint (91 patients) is a subset study the README says was \"featured\"; the dataset's own paper is Bernabei & Li et al. (in preparation), so it isn't the data paper.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_not_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.21105/joss.01896",
@@ -32,12 +32,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
         "paper_year": 2019,
         "paper_venue": "The Journal of Open Source Software",
         "reason": "MNE-BIDS is a software tool for organizing electrophysiological data into BIDS, used to prepare the dataset, not a paper describing this iEEG dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1038/s41597-019-0105-7",
@@ -45,12 +45,25 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "iEEG-BIDS, extending the Brain Imaging Data Structure specification to human intracranial electrophysiology",
         "paper_year": 2019,
         "paper_venue": "Scientific Data",
         "reason": "iEEG-BIDS is a specification for organizing intracranial EEG data, which this BIDS-formatted iEEG dataset uses; it does not describe this dataset itself.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
+      },
+      {
+        "identifier": "10.1038/s41597-019-0104-8",
+        "identifier_type": "doi",
+        "source_relation": "References",
+        "classification": "methodology",
+        "kept": false,
+        "kept_reason": "never_anchor",
+        "paper_title": "EEG-BIDS, an extension to the brain imaging data structure for electroencephalography",
+        "paper_year": 2019,
+        "paper_venue": "Scientific Data",
+        "reason": "EEG-BIDS is a data-organization standard extending BIDS that this dataset's format follows; it does not describe the epilepsy iEEG multicenter data.",
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on003029",
@@ -58,12 +71,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -71,14 +84,13 @@
     ],
     "keywords": [
       "intracranial EEG",
-      "electrocorticography",
-      "stereotactic EEG",
-      "seizure onset zone",
       "Epilepsy",
-      "neural fragility",
-      "epilepsy surgery"
+      "stereoelectroencephalography",
+      "Electrocorticography",
+      "seizure onset zone",
+      "neural fragility"
     ],
-    "methods_description": "iEEG data were acquired as ECoG and SEEG recordings from epilepsy patients undergoing clinical monitoring. Raw EDF files were converted to BrainVision format using mne_bids. For SEEG implantations, electrode anatomical locations were manually marked by clinicians and categorized as white matter, gray matter, ventricle, cerebrospinal fluid, or outside brain. Seizure events were annotated by clinicians with electrographic and clinical onset/offset markers, and surgical resection zones were determined from postoperative MRI or manual visual inspection of CT/MRI coregistrations.",
+    "methods_description": "Raw EDF files were converted to BrainVision format with MNE-BIDS. Clinicians marked electrodes anatomically for SEEG patients, and channels in white matter, ventricle, CSF or outside the brain were labeled as bad. Seizure onset and offset markers came from EDF annotations or clinician spreadsheets. Resected or ablated contacts were identified from surgical notes or by comparing postoperative MRI with CT scans.",
     "funding": [
       {
         "funder_name": "ARCS Scholarship"
@@ -96,15 +108,13 @@
         "funder_name": "Maryland Innovation Initiative"
       },
       {
-        "funder_name": "Burroughs Well CASI Award 1007274"
-      },
-      {
         "funder_name": "NIH",
         "award_number": "T32 EB003383"
       },
       {
         "funder_name": "NSF",
-        "award_number": "DGE-1746891"
+        "award_number": "DGE-1746891",
+        "award_title": "Graduate Research Fellowship Program"
       },
       {
         "funder_name": "NIH",
@@ -112,43 +122,24 @@
       },
       {
         "funder_name": "NSF",
-        "award_number": "1055560"
+        "award_number": "1055560",
+        "award_title": "Career Award"
+      },
+      {
+        "funder_name": "Burroughs Wellcome Fund",
+        "award_number": "1007274",
+        "award_title": "CASI Award"
       }
     ],
     "searched_accessions": [
       "on003029",
       "ds003029"
     ],
-    "num_accession_mentions": 12,
-    "num_dataset_citations": 14,
+    "num_accession_mentions": 15,
+    "num_dataset_citations": 15,
     "num_datapaper_citations": 0
   },
   "citation_details": [
-    {
-      "title": "Quantitative approaches to guide epilepsy surgery from intracranial EEG",
-      "author": "John M. Bernabei, Adam Li, Andrew Y Revell, Rachel June Smith, Kristin M. Gunnarsdottir, Ian Z. Ong, Kathryn A. Davis, Nishant Kumar Sinha, Sridevi V. Sarma, Brian Litt",
-      "venue": "Brain",
-      "year": 2023,
-      "url": "https://doi.org/10.1093/brain/awad007",
-      "cited_by": 84,
-      "abstract": "Over the past 10 years, the drive to improve outcomes from epilepsy surgery has stimulated widespread interest in methods to quantitatively guide epilepsy surgery from intracranial EEG (iEEG). Many patients fail to achieve seizure freedom, in part due to the challenges in subjective iEEG interpretation. To address this clinical need, quantitative iEEG analytics have been developed using a variety of approaches, spanning studies of seizures, interictal periods, and their transitions, and encompass a range of techniques including electrographic signal analysis, dynamical systems modeling, machine learning and graph theory. Unfortunately, many methods fail to generalize to new data and are sensitive to differences in pathology and electrode placement. Here, we critically review selected literature on computational methods of identifying the epileptogenic zone from iEEG. We highlight shared methodological challenges common to many studies in this field and propose ways that they can be add",
-      "doi": "10.1093/brain/awad007",
-      "pmid": "36623936",
-      "openalex_id": "W4313892341",
-      "source_doi": "10.21105/joss.01896",
-      "source_relation": "References",
-      "discovery_backend": "opencite",
-      "mentions_accession": true,
-      "matched_accession": "ds003029",
-      "confidence_scoring": {
-        "confidence_score": 0.690606687963009,
-        "similarity_score": 0.5979278683662415,
-        "citation_text_length": 1283,
-        "dataset_text_length": 2405,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
     {
       "title": "Optimal graph representations and neural networks for multichannel time series data in seizure phase classification",
       "author": "Alan A. Díaz-Montiel, Richard Zhang, Milad Lankarany",
@@ -156,19 +147,44 @@
       "year": 2025,
       "url": "https://doi.org/10.1038/s41598-025-01882-7",
       "cited_by": 6,
-      "abstract": "In recent years, several machine-learning (ML) solutions have been proposed to solve the problems of seizure detection, seizure phase classification, seizure prediction, and seizure onset zone (SOZ) localization, achieving excellent performance with accuracy levels above 95%. However, none of these solutions has been fully deployed in clinical settings. The primary reason has been a lack of trust from clinicians towards the complex decision-making operability of ML. More recently, research efforts have focused on systematized and generalizable frameworks of ML models that are clinician-friendly. In this paper, we propose a generalizable pipeline that leverages graph representation data structures as a flexible tool for graph neural networks. Moreover, we conducted an analysis of graph neural networks (GNN), a paradigm of artificial neural networks optimized to operate on graph-structured data, as a framework to classify seizure phases (preictal vs. ictal vs. postictal) from intracrania",
+      "abstract": "In recent years, several machine-learning (ML) solutions have been proposed to solve the problems of seizure detection, seizure phase classification, seizure prediction, and seizure onset zone (SOZ) localization, achieving excellent performance with accuracy levels above 95%. However, none of these solutions has been fully deployed in clinical settings. The primary reason has been a lack of trust from clinicians towards the complex decision-making operability of ML. More recently, research efforts have focused on systematized and generalizable frameworks of ML models that are clinician-friendly. In this paper, we propose a generalizable pipeline that leverages graph representation data structures as a flexible tool for graph neural networks. Moreover, we conducted an analysis of graph neural networks (GNN), a paradigm of artificial neural networks optimized to operate on graph-structured data, as a framework to classify seizure phases (preictal vs. ictal vs. postictal) from intracranial electroencephalographic (iEEG) data. We employed two multi-center international datasets, comprising 23 and 16 patients and 5 and 7 h of iEEG recordings. We evaluated four GNN models, with the highest performance achieving a seizure phase classification accuracy of 97%, demonstrating its potential for clinical application. Moreover, we show that by leveraging t-SNE, a statistical method for visualizing high-dimensional data, we can analyze how GNN's influence the iEEG and graph representation embedding space. We also discuss the scientific implications of our findings and provide insights into future research directions for enhancing the generalizability of ML models in clinical practice.",
       "doi": "10.1038/s41598-025-01882-7",
       "pmid": "40467655",
       "openalex_id": "W4411039992",
-      "source_doi": "10.1038/s41597-019-0105-7",
-      "source_relation": "References",
-      "discovery_backend": "opencite",
-      "mentions_accession": true,
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
       "matched_accession": "ds003029",
       "confidence_scoring": {
-        "confidence_score": 0.5645684623718262,
-        "similarity_score": 0.4888038635253906,
-        "citation_text_length": 1224,
+        "confidence_score": 0.6754189467430116,
+        "similarity_score": 0.5847783088684082,
+        "citation_text_length": 1724,
+        "dataset_text_length": 2405,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Quantitative approaches to guide epilepsy surgery from intracranial EEG",
+      "author": "John M. Bernabei, Adam Li, Andrew Y Revell, Rachel June Smith, Kristin M. Gunnarsdottir, Ian Z. Ong, Kathryn A. Davis, Nishant Sinha, Sridevi V. Sarma, Brian Litt",
+      "venue": "Brain",
+      "year": 2023,
+      "url": "https://doi.org/10.1093/brain/awad007",
+      "cited_by": 78,
+      "abstract": "Over the past 10 years, the drive to improve outcomes from epilepsy surgery has stimulated widespread interest in methods to quantitatively guide epilepsy surgery from intracranial EEG (iEEG). Many patients fail to achieve seizure freedom, in part due to the challenges in subjective iEEG interpretation. To address this clinical need, quantitative iEEG analytics have been developed using a variety of approaches, spanning studies of seizures, interictal periods, and their transitions, and encompass a range of techniques including electrographic signal analysis, dynamical systems modeling, machine learning and graph theory. Unfortunately, many methods fail to generalize to new data and are sensitive to differences in pathology and electrode placement. Here, we critically review selected literature on computational methods of identifying the epileptogenic zone from iEEG. We highlight shared methodological challenges common to many studies in this field and propose ways that they can be addressed. One fundamental common pitfall is a lack of open-source, high-quality data, which we specifically address by sharing a centralized high-quality, well-annotated, multicentre dataset consisting of >100 patients to support larger and more rigorous studies. Ultimately, we provide a road map to help these tools reach clinical trials and hope to improve the lives of future patients.",
+      "doi": "10.1093/brain/awad007",
+      "pmid": "36623936",
+      "openalex_id": "W4313892341",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds003029",
+      "confidence_scoring": {
+        "confidence_score": 0.7493607133626939,
+        "similarity_score": 0.6487971544265747,
+        "citation_text_length": 1664,
         "dataset_text_length": 2405,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -225,33 +241,8 @@
       }
     },
     {
-      "title": "High-performance Prediction of Epilepsy Surgical Outcomes Based on the Genetic Neural Networks and Hybrid iEEG Marker",
-      "author": "Lipeng Sun, Feng Chen, En Zhang, Huan Chen, Weifeng Jin, Junming Zhu, Li Yu",
-      "venue": "Research Square",
-      "year": 2024,
-      "url": "https://doi.org/10.21203/rs.3.rs-3930495/v1",
-      "cited_by": 0,
-      "abstract": "Abstract Introduction: Accurately identification of the seizure onset zone (SOZ) is pivotal for successful surgery in patients with medically refractory epilepsy. The purpose of this study is to improve the performance of model predicting the epilepsy surgery outcomes using genetic neural network (GNN) model based on a hybrid intracranial electroencephalography (iEEG) marker. Methods We extracted 21 SOZ related markers based on iEEG data from 79 epilepsy patients. The least absolute shrinkage and selection operator (LASSO) regression was employed to integrated seven markers, selected after testing in pairs with all 21 biomarkers and 7 machine learning algorithms, into a hybrid marker. Based on the hybrid marker, we devised a GNN model and compared its predictive performance for surgical outcomes with six other mainstream machine-learning models. Results Compared to the mainstream models, underpinning the GNN with the hybrid iEEG marker resulted in a better prediction of surgical outcomes, showing a significant increase of the prediction accuracy from approximately 87–94.3% (p = 0.0412). Discussion This study suggests that the hybrid iEEG marker can improve the performance of model predicting the epilepsy surgical outcomes, and validates the effectiveness of the GNN in characterizing and analyzing complex relationships between clinical data variables.",
-      "doi": "10.21203/rs.3.rs-3930495/v1",
-      "pmid": null,
-      "openalex_id": "W4391953384",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds003029",
-      "confidence_scoring": {
-        "confidence_score": 0.5872318357229233,
-        "similarity_score": 0.5084258317947388,
-        "citation_text_length": 1618,
-        "dataset_text_length": 2405,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Node Degree Volatility for Seizure Onset Zone Localization",
-      "author": "Igor V. Belykh, Kevin Slote, Kelley E. Smith, Marrium Shamshad, Aditi Trivedi, Charles M. Epstein, Mukesh Dhamala",
+      "author": "Igor V. Belykh, Kevin Slote, Kelley Smith, Marrium Shamshad, Aditi Trivedi, Charles M. Epstein, Mukesh Dhamala",
       "venue": "Research Square",
       "year": 2025,
       "url": "https://doi.org/10.21203/rs.3.rs-8061650/v1",
@@ -266,9 +257,9 @@
       "discovery_method": "accession_mention",
       "matched_accession": "ds003029",
       "confidence_scoring": {
-        "confidence_score": 0.5030502945184708,
-        "similarity_score": 0.4790955185890198,
-        "citation_text_length": 213,
+        "confidence_score": 0.5037427335977555,
+        "similarity_score": 0.4797549843788147,
+        "citation_text_length": 210,
         "dataset_text_length": 2405,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -276,7 +267,7 @@
     },
     {
       "title": "Preictal connectivity dynamics: Exploring inflow and outflow in iEEG networks",
-      "author": "Amirhossein Jahani, Camille Begin, Denahin H. Toffa, Sami Al Obaid, Dang Khoa Nguyen, Elie Bou Assi",
+      "author": "Amirhossein Jahani, Camille Begin, Denahin H. Toffa, Sami Obaïd, Dang Khoa Nguyen, Elie Bou Assi",
       "venue": "Frontiers in Network Physiology",
       "year": 2025,
       "url": "https://doi.org/10.3389/fnetp.2025.1539682",
@@ -291,9 +282,9 @@
       "discovery_method": "accession_mention",
       "matched_accession": "ds003029",
       "confidence_scoring": {
-        "confidence_score": 0.6433880567550659,
-        "similarity_score": 0.5570459365844727,
-        "citation_text_length": 1746,
+        "confidence_score": 0.6425355005264284,
+        "similarity_score": 0.5563077926635742,
+        "citation_text_length": 1743,
         "dataset_text_length": 2405,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -330,7 +321,7 @@
       "venue": "arXiv (Cornell University)",
       "year": 2021,
       "url": "https://doi.org/10.48550/arxiv.2103.14321",
-      "cited_by": 4,
+      "cited_by": 3,
       "abstract": "Electrical neuromodulation as a palliative treatment has been increasingly used in the control of epilepsy. However, current neuromodulations commonly implement predetermined actuation strategies and lack the capability of self-adaptively adjusting stimulation inputs. In this work, rooted in optimal control theory, we propose a Koopman-MPC framework for real-time closed-loop electrical neuromodulation in epilepsy, which integrates i) a deep Koopman operator based dynamical model to predict the temporal evolution of epileptic EEG with an approximate finite-dimensional linear dynamics and ii) a model predictive control (MPC) module to design optimal seizure suppression strategies. The Koopman operator based linear dynamical model is embedded in the latent state space of the autoencoder neural network, in which we can approximate and update the Koopman operator online. The linear dynamical property of the Koopman operator ensures the convexity of the optimization problem for subsequent MPC control. The proposed deep Koopman operator model shows greater predictive capability than the baseline models (e.g., vector autoregressive model, kernel based method and recurrent neural network (RNN)) in both synthetic and real epileptic EEG data. Moreover, compared with the RNN-MPC framework, our Koopman-MPC framework can suppress seizure dynamics with better computational efficiency in both the Jansen-Rit model and the Epileptor model. Koopman-MPC framework opens a new window for model-based closed-loop neuromodulation and sheds light on nonlinear neurodynamics and feedback control policies.",
       "doi": "10.48550/arxiv.2103.14321",
       "pmid": null,
@@ -351,7 +342,7 @@
     },
     {
       "title": "EasyBCI Agent: Towards Universal Neural Data Preprocessing for Brain-Computer Interfaces",
-      "author": "Yu Zhu, Runkai Zhao, 周志敏, Jinyu Cai, Yao, Zhouheng, Chutian Zhang, Peiyuan Li, Xiaoxing Zhang, Qihao Zheng, Jiamin Wu, Mianxin Liu, Chi Zhang, Bo Zhang, Bin Min, Lei Bai, Chengyu Li, Jingpeng Wu, Chunfeng Song",
+      "author": "Yu Zhu, Runkai Zhao, 周志敏, Jinyu Cai, Zhouheng Yao, Chutian Zhang, Peiyuan Li, Xiaoxing Zhang, Qihao Zheng, Jiamin Wu, Mianxin Liu, Chi Zhang, Bo Zhang, Bin Min, Lei Bai, Chengyu Li, Jingpeng Wu, Chunfeng Song",
       "venue": "arXiv (Cornell University)",
       "year": 2026,
       "url": "https://doi.org/10.48550/arxiv.2607.29007",
@@ -366,9 +357,9 @@
       "discovery_method": "accession_mention",
       "matched_accession": "ds003029",
       "confidence_scoring": {
-        "confidence_score": 0.4593201068043709,
-        "similarity_score": 0.39767974615097046,
-        "citation_text_length": 1862,
+        "confidence_score": 0.4562152710556984,
+        "similarity_score": 0.39499157667160034,
+        "citation_text_length": 1861,
         "dataset_text_length": 2405,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -390,13 +381,35 @@
       "discovery_backend": "openalex",
       "discovery_method": "accession_mention",
       "matched_accession": "ds003029",
-      "superseded_dois": [
-        "10.5281/zenodo.20195776"
-      ],
       "confidence_scoring": {
         "confidence_score": 0.5866664940118791,
         "similarity_score": 0.5079363584518433,
         "citation_text_length": 1537,
+        "dataset_text_length": 2405,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Frozen derived outputs and analysis code for: Measurement, not model — three hygiene failures that make open intracranial-EEG seizure-onset-zone benchmarks non-comparable",
+      "author": "WEI LIN, Venkateshwaran Vijayanarasimhan, Richard Byrne",
+      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "year": 2026,
+      "url": "https://doi.org/10.5281/zenodo.23122729",
+      "cited_by": 0,
+      "abstract": "Frozen, pre-specified derived outputs and the analysis code supporting all quantitative results in the companion manuscript (a measurement-audit methods study of open intracranial-EEG seizure-onset-zone benchmarks). Contains derived tables and metrics (T1, T3–T7), analysis/figure-generation scripts, a SHA-256 manifest, and a number-level provenance table mapping each manuscript value to its source file and SHA-256. No raw intracranial-EEG signals are redistributed: all raw data are public OpenNeuro releases (ds004080, ds004696, ds004100, ds003876, ds003498, ds003029). ds004696 carries no seizure-onset-zone labels, and no accuracy metric is reported for it. See README.md for file descriptions and dataset DOIs.",
+      "doi": "10.5281/zenodo.23122729",
+      "pmid": null,
+      "openalex_id": "W7218444197",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds003029",
+      "confidence_scoring": {
+        "confidence_score": 0.6787374722957612,
+        "similarity_score": 0.5876514911651611,
+        "citation_text_length": 1038,
         "dataset_text_length": 2405,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -422,6 +435,31 @@
         "confidence_score": 0.6829895138740539,
         "similarity_score": 0.5913329124450684,
         "citation_text_length": 1685,
+        "dataset_text_length": 2405,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Weakly Supervised Multiple-Instance Learning for Seizure Onset Zone Identification",
+      "author": "Junan Mao, Anne-Cécile Lesage, Liliana Camarillo-Rodriguez, Diosely C Silveira, Yuanyi Zhang, Patrick J. Karas, Jiefei Wang",
+      "venue": "medRxiv",
+      "year": 2026,
+      "url": "https://doi.org/10.64898/2026.09.30.26364032",
+      "cited_by": 0,
+      "abstract": "Abstract Accurate localization of the seizure onset zone (SOZ) is essential for planning resection or ablation in patients with focal drug-resistant epilepsy (DRE). However, the true SOZ cannot be directly observed during clinical evaluation, so precise electrode-level annotations are rarely available. To address this limitation, we developed a weakly supervised multiple-instance learning (MIL) framework in which labels were constructed from electrode resection status and postsurgical outcome. A shared gated recurrent unit (GRU) with temporal attention encoded each electrode’s peri-onset neural fragility sequence. And attention-based pooling integrated information across variable numbers of electrodes to estimate whether each electrode group contained SOZ-related evidence. The cohort comprised 42 patients with DRE from three datasets, including 29 with successful and 13 with failed postsurgical outcomes. These patients contributed 136 seizure epochs. The cohort was divided at the patient level into training, validation and held-out test sets containing 25, 8 and 9 patients, respectively, with all data from each patient retained in the same subset. Predictions from non-resected regions were evaluated at the seizure-epoch and patient levels to assess postsurgical outcome discrimination for individual seizures and after aggregation across seizures from the same patient, respectively. At the seizure-epoch level, the proposed framework achieved an area under the receiver operating characteristic (ROC) curve (AUC) of 0.828, with a 95% confidence interval (CI) of 0.511-1.000, and performed comparably to Manifold Oblique Random Forests (MORF). At the patient level, the framework achieved an AUC of 0.944, with a 95% CI of 0.677-1.000, and yielded a numerically higher AUC than MORF. However, DeLong’s test did not show a statistically significant difference between the methods, with a P value of 0.398. These findings support the feasibility of extracting clinically meaningful SOZ-related information from electrode-wise neural fragility sequences without precise electrode-level labels. Because the held-out test set included only nine patients and the CIs were wide, these preliminary findings require validation in larger independent cohorts.",
+      "doi": "10.64898/2026.09.30.26364032",
+      "pmid": null,
+      "openalex_id": "W7215840361",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds003029",
+      "confidence_scoring": {
+        "confidence_score": 0.6259497570991517,
+        "similarity_score": 0.5419478416442871,
+        "citation_text_length": 1751,
         "dataset_text_length": 2405,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -480,16 +518,16 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T10:55:57.733720+00:00",
+    "scoring_date": "2026-10-11T11:28:00.788662+00:00",
     "dataset_text_length": 2405,
-    "num_citations_scored": 14,
+    "num_citations_scored": 15,
     "summary_stats": {
-      "mean_confidence": 0.6066372426599264,
-      "median_confidence": 0.6153099462389946,
-      "std_confidence": 0.08405044395626642,
-      "min_confidence": 0.4593201068043709,
+      "mean_confidence": 0.6251144231855871,
+      "median_confidence": 0.6476512509584428,
+      "std_confidence": 0.08793035614551728,
+      "min_confidence": 0.4562152710556984,
       "max_confidence": 0.7496543991565705,
-      "high_confidence_count": 1,
+      "high_confidence_count": 2,
       "medium_confidence_count": 13,
       "low_confidence_count": 0
     }

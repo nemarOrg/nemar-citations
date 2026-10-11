@@ -1,59 +1,260 @@
 {
   "dataset_id": "on006695",
-  "num_citations": 0,
-  "date_last_updated": "2026-09-22T11:34:02.406191+00:00",
+  "num_citations": 8,
+  "date_last_updated": "2026-10-11T11:10:04.014474+00:00",
   "metadata": {
-    "total_cumulative_citations": 0,
-    "fetch_date": "2026-09-22T11:34:02.406191+00:00",
+    "total_cumulative_citations": 14,
+    "fetch_date": "2026-10-11T11:10:04.014474+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
-    "anchor_count": 1,
+    "anchor_count": 2,
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
     "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
+        "identifier": "10.3389/frsle.2024.1349537",
+        "identifier_type": "doi",
+        "source_relation": "IsDescribedBy",
+        "classification": "data_paper",
+        "kept": true,
+        "kept_reason": "judged_data_paper",
+        "paper_title": "Validation of spectral sleep scoring with polysomnography using forehead EEG device",
+        "paper_year": 2024,
+        "paper_venue": "Frontiers in Sleep",
+        "reason": "Same authors (Onton), forehead EEG patch vs 32-channel PSG spectral scoring validation; README refers to spectral staging \"see publication\", and relation is IsSupplementTo.",
+        "judgment_model": "claude-sonnet-5-5"
+      },
+      {
         "identifier": "10.82901/nemar.on006695",
         "identifier_type": "doi",
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
+      "10.3389/frsle.2024.1349537",
       "10.82901/nemar.on006695"
     ],
     "keywords": [
       "EEG",
-      "Sleep Stages",
-      "Polysomnography",
       "sleep staging",
-      "forehead patch EEG",
-      "wearable EEG",
-      "spectral scoring"
+      "Polysomnography",
+      "forehead patch",
+      "spectral scoring",
+      "Sleep"
     ],
-    "methods_description": "EEG data were recorded using a three-electrode CGX forehead patch alongside standard 33-channel polysomnography (not included in this release). Sleep stages were manually scored in 30-second epochs (Wake, REM, N1, N2, N3, unknown/movement) to produce a visual hypnogram, and spectral scoring was derived from the forehead patch channels per epoch. Patch data were time-aligned to the cap-based polysomnography recordings using start-time metadata, with occasional discrepancies of a few seconds; hypnograms were trimmed as needed to match patch data length. Two subjects (113, 121) were excluded due to inadequate or unavailable patch data.",
-    "funding": [],
-    "searched_accessions": [
-      "on006695",
-      "ds006695"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 0
+    "methods_description": "Sleep was recorded with a three-electrode CGX forehead patch alongside 33-channel polysomnography. Patch data were aligned to the cap start time using data-collector records, segmented into 30-second windows, and compared with manual visual hypnogram scoring (Wake, REM, N1, N2, N3). Hypnograms were trimmed at the end when the patch recording was shorter.",
+    "funding": []
   },
-  "citation_details": [],
+  "citation_details": [
+    {
+      "title": "ezscore-f: A Set of Freely Available, Validated Sleep Stage Classifiers for Forehead EEG",
+      "author": "William G. Coon, Paul Zerr, Griffin Milsap, Niloy Sikder, Michael S. Smith, Martin Dresler, Matthew J. Reid",
+      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+      "year": 2025,
+      "url": "https://doi.org/10.1101/2025.06.02.657451",
+      "cited_by": 6,
+      "abstract": "Abstract The increasing availability of wearable forehead EEG devices, such as the Hypnodyne ZMax, open-source DCM, CGX PatchEEG, and many others, has significantly expanded opportunities for convenient, at-home sleep monitoring. However, most publicly available sleep classifiers are trained on scalp EEG from traditional polysomnography (PSG) data, and thus generalize poorly to forehead EEG due to differences in electrode placement, referencing montages, and higher susceptibility to artifacts from user movements and electrode displacement. Conventional classifiers typically do not explicitly account for these artifacts, resulting in inaccurate and misleading sleep stage scoring. To address this gap, we developed a suite of artifact-aware sleep stage classifiers trained specifically using forehead EEG data, leveraging two comprehensive datasets—Wearanize+ and Donders2022—that contain concurrent forehead EEG and clinical PSG recordings. We further introduce two classifier variants: one o",
+      "doi": "10.1101/2025.06.02.657451",
+      "pmid": null,
+      "openalex_id": "W4411094826",
+      "source_doi": "10.3389/frsle.2024.1349537",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.8898916375637055,
+        "similarity_score": 0.7704689502716064,
+        "citation_text_length": 1273,
+        "dataset_text_length": 2224,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Forehead and In-Ear EEG Acquisition and Processing: Biomarker Analysis and Memory-Efficient Deep Learning Algorithm for Sleep Staging with Optimized Feature Dimensionality",
+      "author": "Roberto De Fazio, Şule Esma Yalçınkaya, Ilaria Cascella, Carolina Del-Valle-Soto, Massimo De Vittorio, Paolo Visconti",
+      "venue": "Sensors",
+      "year": 2025,
+      "url": "https://doi.org/10.3390/s25196021",
+      "cited_by": 3,
+      "abstract": "Advancements in electroencephalography (EEG) technology and feature extraction methods have paved the way for wearable, non-invasive systems that enable continuous sleep monitoring outside clinical environments. This study presents the development and evaluation of an EEG-based acquisition system for sleep staging, which can be adapted for wearable applications. The system utilizes a custom experimental setup with the ADS1299EEG-FE-PDK evaluation board to acquire EEG signals from the forehead and in-ear regions under various conditions, including visual and auditory stimuli. Afterward, the acquired signals were processed to extract a wide range of features in time, frequency, and non-linear domains, selected based on their physiological relevance to sleep stages and disorders. The feature set was reduced using the Minimum Redundancy Maximum Relevance (mRMR) algorithm and Principal Component Analysis (PCA), resulting in a compact and informative subset of principal components. Experimen",
+      "doi": "10.3390/s25196021",
+      "pmid": "41094844",
+      "openalex_id": "W4414704804",
+      "source_doi": "10.3389/frsle.2024.1349537",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7615881898999215,
+        "similarity_score": 0.6593837141990662,
+        "citation_text_length": 1334,
+        "dataset_text_length": 2224,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "EEG signal acquisition from the forehead and ears through textile-based 3D-printed electrodes to be integrated into a sensorized face-mask for astronauts' sleep monitoring",
+      "author": "Roberto De Fazio, Ilaria Cascella, Paolo Visconti, Massimo De Vittorio, Bassam O. Al-Naami",
+      "venue": "2024 Second Jordanian International Biomedical Engineering Conference (JIBEC)",
+      "year": 2024,
+      "url": "https://doi.org/10.1109/jibec63210.2024.10931977",
+      "cited_by": 3,
+      "abstract": "Continuous research into discrete methods and wearable devices for EEG acquisition has led to advanced solutions for sleep monitoring. This paper explores and tests two strategies to collect single-channel EEG for continuous sleep assessment: forehead and in-ear acquisition methods. First, a literature review was conducted on EEG acquisition methods from forehead, ear-, and in-ear setups, highlighting the benefits of the discussed solutions. Then, two single-channel EEG acquisition strategies were tested and compared by developing dedicated experimental setups: the first for the forehead acquisition, which measures the bipolar Fp1-Fp2 derivation, and the latter for the in-ear acquisition. Two earbuds, manufactured by 3D printing with flexible TPU filament, were realized, including two rectangular electrodes made of flexible conductive fabric (metallic nylon). Experimental results show that the in-ear EEG setup provides signals with greater amplitude and fewer artifacts than traditional",
+      "doi": "10.1109/jibec63210.2024.10931977",
+      "pmid": null,
+      "openalex_id": "W4408860993",
+      "source_doi": "10.3389/frsle.2024.1349537",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7169460904598237,
+        "similarity_score": 0.6207325458526611,
+        "citation_text_length": 1377,
+        "dataset_text_length": 2224,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Sleep Staging for Wearable Electroencephalography Leveraging Machine Learning and Conventional Polysomnography Datasets *",
+      "author": "Gürkan Yılmaz, Cristina Sainz Martinez, Fabian Braun, Oriella Gnarra, Andrea Seiler, Kaspar A. Schindler, Markus Helmut Schmidt, Mathieu Lemay, João Jorge",
+      "venue": "2025 47th Annual International Conference of the IEEE Engineering in Medicine and Biology Society (EMBC)",
+      "year": 2025,
+      "url": "https://doi.org/10.1109/embc58623.2025.11254304",
+      "cited_by": 2,
+      "abstract": "Wearable electroencephalography (EEG) sensors are becoming increasingly accessible, enabling long-term, at-home automatic sleep profiling, with outstanding potential for personalized medicine and wellness applications. However, current devices remain less reliable for sleep stage classification than gold-standard, lab-based polysomnography (PSG). One of the main bottlenecks is the need to collect extensive datasets for each new wearable device together with a gold standard reference, to train robust algorithms. To tackle this challenge, here, we investigated machine learning and feature engineering techniques on a recent PSG dataset containing multi-channel EEG and reference sleep stage labels, to train classifiers tailored for sleep staging on a separate, wearable EEG headband (ULTEEMNite). We found that the classification performance improved when: (i) training on EEG configurations spatially closer to that of the wearable device, (ii) filtering the training data to approximate the s",
+      "doi": "10.1109/embc58623.2025.11254304",
+      "pmid": "41336713",
+      "openalex_id": "W4416962667",
+      "source_doi": "10.3389/frsle.2024.1349537",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.8159592336416246,
+        "similarity_score": 0.7064582109451294,
+        "citation_text_length": 1418,
+        "dataset_text_length": 2224,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Advancing Pediatric Sleep Assessment through Spectral Sleep Scoring: A Comparison with Polysomnography",
+      "author": "Alessandra E. Shuster, J. Onton, N. Nakra, Katharine C. Simon",
+      "venue": "bioRxiv",
+      "year": 2026,
+      "url": "https://doi.org/10.64898/2026.08.28.747921",
+      "cited_by": 0,
+      "abstract": null,
+      "doi": "10.64898/2026.08.28.747921",
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.3389/frsle.2024.1349537",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6445562660694123,
+        "similarity_score": 0.6138631105422974,
+        "citation_text_length": 197,
+        "dataset_text_length": 2224,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Pediatric precision sleep network: a study protocol for identifying sleep signatures of mental health risk in peri-adolescents",
+      "author": "Amanda E. Baker, Rebecca E. Cooper, Daniel J. Buysse, Alyna T. Chien, Raul Gonzalez, J. Levenson, Timothy A. Miller, Sara Rivero-Conil, David Seo, Shyam Visweswaran, Yan-Shan Wang, Allison Caswell, Simey Chan, Kelly A. Chiu, Mary Corcoran, Susan Churchill, Ronna Currie, Maurice Duque, Isabelle Elder, Josefina Freitag, S. Jadhav, R. Locke, Christopher Martin, M. Milla, Rashmi Sahasrabudhe, S. Sathe, Karoline Shellhause, Aishwarya Sritharan, Jerrilyn Robles, Annette Werner, Meredith L. Wallace, M. Jalbrzikowski, Dana L. McMakin, Adriane M. Soehner",
+      "venue": "BMC Pediatrics",
+      "year": 2026,
+      "url": "https://doi.org/10.1186/s12887-026-07253-z",
+      "cited_by": 0,
+      "abstract": "Peri-adolescence (ages 10–13) is a sensitive—and clinically critical—developmental window for the emergence of psychiatric symptoms, yet scalable strategies for early risk detection in pediatric primary care (PPC) remain limited. Sleep disturbances are among the most prevalent, predictive, and modifiable indicators of youth mental health, but current pediatric assessments rely heavily on subjective, single-source reports that fail to capture the multidimensional nature of sleep health. The Pediatric Precision Sleep Network (PPSN) is a longitudinal, multi-site study designed to integrate multimodal sleep data with longitudinal clinical outcomes to improve early identification of psychiatric risk during peri-adolescence—a period marked by rapid changes in sleep–circadian biology and vulnerability to psychopathology. PPSN will enroll 1,200 youth ages 10–13 across three metropolitan areas (Pittsburgh, Boston, Miami). Over three years, participants will complete multimodal sleep assessments",
+      "doi": "10.1186/s12887-026-07253-z",
+      "pmid": "42393597",
+      "openalex_id": null,
+      "source_doi": "10.3389/frsle.2024.1349537",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.49259069368243225,
+        "similarity_score": 0.42648544907569885,
+        "citation_text_length": 1730,
+        "dataset_text_length": 2224,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Smart Wearable EEG Devices: A Review of Lightweight, Multi-Sensor Systems for Sleep and Everyday Neurophysiology",
+      "author": "Helena Kosnáčová, Dušan Horváth, D. Vitazkova, Erik Foltan, Michal Pecik, Erik Vavrinsky",
+      "venue": "Biosensors",
+      "year": 2026,
+      "url": "https://doi.org/10.3390/bios16070374",
+      "cited_by": 0,
+      "abstract": "Wearable electroencephalography (EEG) is rapidly evolving toward lightweight, user-friendly systems that enable brain monitoring in naturalistic settings. Traditional multi-channel, gel-based systems provide broad scalp coverage and high signal fidelity but are impractical for unsupervised or long-term use. This review focuses on the emerging generation of smart wearable EEG devices that are easy to wear, require minimal setup, and typically integrate additional physiological sensors such as photoplethysmography (PPG), temperature, or motion sensors. We review wearable EEG systems across four main form factors: head-worn EEG devices, smart EEG patches and tattoos, in-ear and headphone-based EEG, and glasses-integrated EEG. Head-worn systems offer broader signal coverage and support more complex applications such as sleep staging, human–machine interaction, and epilepsy monitoring. Patch-based systems are well suited to comfortable long-term monitoring, particularly in sleep-related app",
+      "doi": "10.3390/bios16070374",
+      "pmid": "42505450",
+      "openalex_id": null,
+      "source_doi": "10.3389/frsle.2024.1349537",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6650651800632478,
+        "similarity_score": 0.5758140087127686,
+        "citation_text_length": 1249,
+        "dataset_text_length": 2224,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Chemical and biological sensors Viewpoint: Next-Generation Sensor Technologies for Studying Mental Health",
+      "author": "Christina H. Liu, Yvonne Bennett",
+      "venue": "n/a",
+      "year": 0,
+      "url": "n/a",
+      "cited_by": 0,
+      "abstract": null,
+      "doi": null,
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.3389/frsle.2024.1349537",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.28903841972351074,
+        "similarity_score": 0.28903841972351074,
+        "citation_text_length": 167,
+        "dataset_text_length": 2224,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    }
+  ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-22T13:30:42.502389+00:00",
+    "scoring_date": "2026-10-11T11:40:02.731676+00:00",
     "dataset_text_length": 2224,
-    "num_citations_scored": 0
+    "num_citations_scored": 8,
+    "summary_stats": {
+      "mean_confidence": 0.6594544638879598,
+      "median_confidence": 0.6910056352615357,
+      "std_confidence": 0.1791077256493145,
+      "min_confidence": 0.28903841972351074,
+      "max_confidence": 0.8898916375637055,
+      "high_confidence_count": 4,
+      "medium_confidence_count": 3,
+      "low_confidence_count": 1
+    }
   }
 }

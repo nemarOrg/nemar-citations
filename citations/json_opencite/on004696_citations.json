@@ -1,44 +1,58 @@
 {
   "dataset_id": "on004696",
-  "num_citations": 0,
-  "date_last_updated": "2026-09-29T11:18:44.443906+00:00",
+  "num_citations": 24,
+  "date_last_updated": "2026-10-11T10:56:41.970097+00:00",
   "metadata": {
-    "total_cumulative_citations": 0,
-    "fetch_date": "2026-09-29T11:18:44.443906+00:00",
+    "total_cumulative_citations": 159,
+    "fetch_date": "2026-10-11T10:56:41.970097+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
-    "anchor_count": 1,
+    "anchor_count": 2,
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
     "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
+        "identifier": "10.1523/jneurosci.2201-22.2023",
+        "identifier_type": "doi",
+        "source_relation": "IsDescribedBy",
+        "classification": "data_paper",
+        "kept": true,
+        "kept_reason": "judged_data_paper",
+        "paper_title": "Signatures of Electrical Stimulation Driven Network Interactions in the Human Limbic System",
+        "paper_year": 2023,
+        "paper_venue": "Journal of Neuroscience",
+        "reason": "The dataset README names this exact paper as its source publication: 8 epilepsy patients with iEEG single-pulse stimulation, and the authors match.",
+        "judgment_model": "claude-sonnet-5-5"
+      },
+      {
         "identifier": "10.82901/nemar.on004696",
         "identifier_type": "doi",
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
+      "10.1523/jneurosci.2201-22.2023",
       "10.82901/nemar.on004696"
     ],
     "keywords": [
-      "Electroencephalography",
+      "iEEG",
       "intracranial EEG",
       "single pulse electrical stimulation",
-      "human connectome",
       "Limbic System",
-      "Epilepsy"
+      "Electric Stimulation",
+      "human connectome"
     ],
-    "methods_description": "Patients rested in a hospital bed while single pulse electrical stimulation was delivered intracranially. Stimulation pulses were biphasic, 200 microseconds in duration, and delivered at an amplitude of 6mA (reduced to 4mA for subject 7 to minimize interictal responses).",
+    "methods_description": "Patients rested in the hospital bed while biphasic single pulse electrical stimulation (200 microsecond duration, 6 mA amplitude) was delivered. For subject 7, amplitude was sometimes reduced to 4 mA to minimize interictal responses.",
     "funding": [
       {
         "funder_name": "NIH RO1MH122258"
@@ -47,24 +61,583 @@
         "funder_name": "The DERIVE Office and the Mayo Clinic Center for Biomedical Discovery"
       },
       {
-        "funder_name": "National Institute of Mental Health",
+        "funder_name": "National Institute of Mental Health, National Institutes of Health",
         "award_number": "R01 MH122258",
         "award_title": "CRCNS: Processing speed in the human connectome across the lifespan"
+      },
+      {
+        "funder_name": "Mayo Clinic Center for Biomedical Discovery (DERIVE Office)"
       }
-    ],
-    "searched_accessions": [
-      "on004696",
-      "ds004696"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 0
+    ]
   },
-  "citation_details": [],
+  "citation_details": [
+    {
+      "title": "Canonical Response Parameterization: Quantifying the structure of responses to single-pulse intracranial electrical brain stimulation",
+      "author": "Kai Joshua Miller, Klaus‐Robert Müller, Gabriela Ojeda Valencia, Harvey Huang, Nicholas Miller Gregg, Gregory A. Worrell, Dora Hermes",
+      "venue": "PLoS Computational Biology",
+      "year": 2023,
+      "url": "https://doi.org/10.1371/journal.pcbi.1011105",
+      "cited_by": 34,
+      "abstract": "Abstract Single-pulse electrical stimulation in the nervous system, often called cortico-cortical evoked potential (CCEP) measurement, is an important technique to understand how brain regions interact with one another. Voltages are measured from implanted electrodes in one brain area while stimulating another with brief current impulses separated by several seconds. Historically, researchers have tried to understand the significance of evoked voltage polyphasic deflections by visual inspection, but no general-purpose tool has emerged to understand their shapes or describe them mathematically. We describe and illustrate a new technique to parameterize brain stimulation data, where voltage response traces are projected into one another using a semi-normalized dot product. The length of timepoints from stimulation included in the dot product is varied to obtain a temporal profile of structural significance, and the peak of the profile uniquely identifies the duration of the response. Usi",
+      "doi": "10.1371/journal.pcbi.1011105",
+      "pmid": "37228169",
+      "openalex_id": "W4378195091",
+      "source_doi": "10.1523/jneurosci.2201-22.2023",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.753727172613144,
+        "similarity_score": 0.6525776386260986,
+        "citation_text_length": 1331,
+        "dataset_text_length": 2315,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Closed-loop control of theta oscillations enhances human hippocampal network connectivity",
+      "author": "James E. Kragel, Sarah M Lurie, Naoum P. Issa, Hiba Arif Haider, Shasha Wu, James X. Tao, Peter C. Warnke, Stephan Schuele, Joshua M. Rosenow, Christina Zelano, Mark Schatza, John F. Disterhoft, Alik S. Widge, Joel L. Voss",
+      "venue": "Nature Communications",
+      "year": 2025,
+      "url": "https://doi.org/10.1038/s41467-025-59417-7",
+      "cited_by": 25,
+      "abstract": "Theta oscillations are implicated in regulating information flow within cortico-hippocampal networks to support memory and cognition. However, causal evidence tying theta oscillations to network communication in humans is lacking. Here we report experimental findings using a closed-loop, phase-locking algorithm to apply direct electrical stimulation to neocortical nodes of the hippocampal network precisely timed to ongoing hippocampal theta rhythms in human neurosurgical patients. We show that repetitive stimulation of lateral temporal cortex synchronized to hippocampal theta increases hippocampal theta while it is delivered, suggesting theta entrainment of hippocampal neural activity. After stimulation, network connectivity is persistently increased relative to baseline, as indicated by theta-phase synchrony of hippocampus to neocortex and increased amplitudes of the hippocampal evoked response to isolated neocortical stimulation. These indicators of network connectivity are not affec",
+      "doi": "10.1038/s41467-025-59417-7",
+      "pmid": "40307237",
+      "openalex_id": "W4410013803",
+      "source_doi": "10.1523/jneurosci.2201-22.2023",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5615141576528551,
+        "similarity_score": 0.48615944385528564,
+        "citation_text_length": 1371,
+        "dataset_text_length": 2315,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Mapping human thalamocortical connectivity with electrical stimulation and recording",
+      "author": "Dian Lyu, James Stieger, Zoe Lusk, Vivek Buch, Josef Parvizi",
+      "venue": "Nature Neuroscience",
+      "year": 2025,
+      "url": "https://doi.org/10.1038/s41593-025-02009-x",
+      "cited_by": 24,
+      "abstract": null,
+      "doi": "10.1038/s41593-025-02009-x",
+      "pmid": "38853954",
+      "openalex_id": "W4412421487",
+      "source_doi": "10.1523/jneurosci.2201-22.2023",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6074749141931534,
+        "similarity_score": 0.5785475373268127,
+        "citation_text_length": 190,
+        "dataset_text_length": 2315,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "The role of the thalamus in focal human epilepsy: insights from stereoelectroencephalography (SEEG)",
+      "author": "Odile Feys, Francesca Pizzo, Julia Makhalova, Romain Carron, Fabrice Bartoloméi",
+      "venue": "Frontiers in Neurology",
+      "year": 2025,
+      "url": "https://doi.org/10.3389/fneur.2025.1608715",
+      "cited_by": 19,
+      "abstract": "This review explores the role of the thalamus in focal epilepsy, focusing on insights gained from stereoelectroencephalography (SEEG). The thalamus has recently regained attention as a crucial player in seizure dynamics. Thalamic SEEG recordings can be used to assess certain aspects of the thalamus's role in human focal epilepsy, in particular the timing and dynamics of involvement of distinct thalamic nuclei during seizures and in interictal activity. Estimation of thalamic involvement in seizure propagation may be valuable before embarking on surgical resection and provide guidance for neuromodulation strategies. High thalamic epileptogenicity correlates with poorer surgical outcomes, making it a predictive biomarker. Deep brain stimulation (DBS), particularly targeting the anterior and pulvinar nuclei, has effectively reduced seizure frequency and improved consciousness during seizures. However, the effectiveness of DBS varies, emphasizing the need for individual targeting based on ",
+      "doi": "10.3389/fneur.2025.1608715",
+      "pmid": "40529440",
+      "openalex_id": "W4410939982",
+      "source_doi": "10.1523/jneurosci.2201-22.2023",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.520529155433178,
+        "similarity_score": 0.4506745934486389,
+        "citation_text_length": 1239,
+        "dataset_text_length": 2315,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "CARLA: Adjusted common average referencing for cortico-cortical evoked potential data",
+      "author": "Harvey Huang, Gabriela Ojeda Valencia, Nicholas Miller Gregg, Gamaleldin Osman, Morgan N. Montoya, Gregory A. Worrell, Kai Joshua Miller, Dora Hermes",
+      "venue": "Journal of Neuroscience Methods",
+      "year": 2024,
+      "url": "https://doi.org/10.1016/j.jneumeth.2024.110153",
+      "cited_by": 14,
+      "abstract": null,
+      "doi": "10.1016/j.jneumeth.2024.110153",
+      "pmid": "38710234",
+      "openalex_id": "W4396643204",
+      "source_doi": "10.1523/jneurosci.2201-22.2023",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5155080646276474,
+        "similarity_score": 0.4909600615501404,
+        "citation_text_length": 292,
+        "dataset_text_length": 2315,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Electrophysiological connections linking medial pulvinar, anterior nuclei of the thalamus and the hippocampus",
+      "author": "Masaya Togo, Dian Lyu, Weichen Huang, Sofia Pantis, Robert S. Fisher, Riki Matsumoto, Vivek Buch, Josef Parvizi",
+      "venue": "Brain",
+      "year": 2025,
+      "url": "https://doi.org/10.1093/brain/awaf342",
+      "cited_by": 12,
+      "abstract": "The Papez circuit traditionally highlights the anterior nuclei of the thalamus (ANT) as the main relay of hippocampal (HPC) output to the cortex, a view that has shaped neuromodulation strategies in temporal lobe epilepsy (TLE). However, recent studies suggest that the medial subregion of the pulvinar (mPLV)-a thalamic nucleus that has undergone significant evolutionary expansion throughout the mammalian brain evolution-also forms functional connections with medial temporal lobe (MTL) structures, including the HPC. To date, however, there is a lack of causal evidence directly comparing the connectivity between the HPC and the two thalamic nuclei (mPLV and ANT) and between the two thalamic structures within the same brains. In this study, we investigated 41 patients with medial (mTLE, n = 22) and non-medial temporal lobe epilepsy (non-mTLE, n = 19) implanted with simultaneous depth electrodes in the HPC, ANT and mPLV. Repeated single-pulse electrical stimulations were applied to compare",
+      "doi": "10.1093/brain/awaf342",
+      "pmid": "41048168",
+      "openalex_id": "W4414850223",
+      "source_doi": "10.1523/jneurosci.2201-22.2023",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5529907295107842,
+        "similarity_score": 0.4787798523902893,
+        "citation_text_length": 1264,
+        "dataset_text_length": 2315,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Repurposing Saroglitazar for neurodegenerative disorders: insight into molecular signalling pathways and neuroprotective modulations",
+      "author": "Shiv Kumar Kushawaha, Himanshu Kumar, Chandni Chauhan, Sahil Chaudhary, Mahendra Singh Ashawat",
+      "venue": "Inflammopharmacology",
+      "year": 2025,
+      "url": "https://doi.org/10.1007/s10787-025-01805-y",
+      "cited_by": 7,
+      "abstract": null,
+      "doi": "10.1007/s10787-025-01805-y",
+      "pmid": "40549317",
+      "openalex_id": "W4411568473",
+      "source_doi": "10.1523/jneurosci.2201-22.2023",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.3100003570318222,
+        "similarity_score": 0.2952384352684021,
+        "citation_text_length": 273,
+        "dataset_text_length": 2315,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "ER-detect: A pipeline for robust detection of early evoked responses in BIDS-iEEG electrical stimulation data",
+      "author": "Max van den Boom, Max A. van den Boom, Nicholas Miller Gregg, Gabriela Ojeda Valencia, Brian N. Lundstrom, Kai Joshua Miller, Dorien van Blooijs, Geertjan J.M. Huiskamp, Frans S. S. Leijten, Gregory A. Worrell, Dora Hermes",
+      "venue": "Journal of Neuroscience Methods",
+      "year": 2024,
+      "url": "https://doi.org/10.1016/j.jneumeth.2025.110389",
+      "cited_by": 6,
+      "abstract": null,
+      "doi": "10.1016/j.jneumeth.2025.110389",
+      "pmid": "38260687",
+      "openalex_id": "W4407406287",
+      "source_doi": "10.1523/jneurosci.2201-22.2023",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6836428999900818,
+        "similarity_score": 0.6510884761810303,
+        "citation_text_length": 389,
+        "dataset_text_length": 2315,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Brain network localization of anhedonia",
+      "author": "Chenglong Liu, Yu Song, Xufeng Zhao, Zhili Wang, Liping Yan, Yongqiang Yu, Jiajia Zhu",
+      "venue": "Translational Psychiatry",
+      "year": 2026,
+      "url": "https://doi.org/10.1038/s41398-026-04005-6",
+      "cited_by": 5,
+      "abstract": "Anhedonia, encompassing a broad spectrum of deficits in reward processing, is highly prevalent in major depressive disorder (MDD) and constitutes one of its core symptoms. While substantial progress has recently been made in mapping neuropsychiatric symptoms to specific brain networks, focused efforts to examine network localization of anhedonia are limited. We initially synthesized extant neuroimaging literature to identify brain locations with structural or functional alterations related to anhedonia. By integrating these affected brain locations with large-scale discovery (1113 healthy individuals) and validation (1093 healthy individuals and 255 MDD patients) resting-state functional magnetic resonance imaging datasets, we then applied novel functional connectivity network mapping to construct an anhedonia network. The anhedonia network was composed of the dorsal anterior cingulate cortex, insula, lateral prefrontal cortex, and striatum, principally implicating the canonical ventra",
+      "doi": "10.1038/s41398-026-04005-6",
+      "pmid": "41912491",
+      "openalex_id": "W7143392855",
+      "source_doi": "10.1523/jneurosci.2201-22.2023",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.3672615891695023,
+        "similarity_score": 0.31797540187835693,
+        "citation_text_length": 1187,
+        "dataset_text_length": 2315,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Methodologies to detect cortico-cortical evoked potentials: a systematic review",
+      "author": "Tamara Al-Sadek, Aryan Wadhwa, Millen Wadhwa, Aaron E. L. Warren, John David Rolston",
+      "venue": "Frontiers in Human Neuroscience",
+      "year": 2025,
+      "url": "https://doi.org/10.3389/fnhum.2025.1636115",
+      "cited_by": 3,
+      "abstract": "Introduction: Cortico-cortical evoked potentials (CCEPs) are electrophysiological responses elicited by direct electrical stimulation of one cortical region and recorded from another, providing insights into functional connectivity and communication pathways between brain areas. However, no consistent standard for defining and measuring CCEPs currently exists. Methods: We conducted a systematic review of the CCEP literature on detection methods to evaluate commonalities and gaps in methodology. Extracted data included demographics, disease, recording type, montage, recording system, stimulation amplitude and frequency, time window used for epoching around stimulus onset, open access availability, and detection approach. Results: Of 187 studies undergoing full-text review, over half lacked a description of the CCEP detection method. Specifically, 9.1% utilized visual identification, whereas 49.74% did not explicitly state the method. The remaining 72 studies represented 3,424 patients, ",
+      "doi": "10.3389/fnhum.2025.1636115",
+      "pmid": "40958989",
+      "openalex_id": "W4413868552",
+      "source_doi": "10.1523/jneurosci.2201-22.2023",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5594988369941712,
+        "similarity_score": 0.48441457748413086,
+        "citation_text_length": 1233,
+        "dataset_text_length": 2315,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Systematic interventions based on the stress-induced situation, affective, bodily, and cognitive reactions framework to mitigate psychological distress in lung cancer patients post-thoracoscopic surgery: a randomized clinical trial",
+      "author": "Lili Tang, Quanxing Liu, Yuexia He, Huanzhi Peng, Maoyu Luo, Hong Zheng, Qingling Zhang",
+      "venue": "Frontiers in Psychology",
+      "year": 2025,
+      "url": "https://doi.org/10.3389/fpsyg.2025.1511622",
+      "cited_by": 3,
+      "abstract": "Objective: To evaluate the efficacy of a multi-component intervention based on the Situational, Affective, Bodily, and Cognitive (SABC) stress-response model in reducing psychological distress and enhancing quality of life among post-thoracoscopic lung-cancer patients. Methods: = 120) by means of computer-generated, sealed-envelope allocation. Outcome assessors were blinded to group assignment. The intervention comprised psycho-education, SABC-based skills training, a daily-habits checklist and scheduled follow-up. Psychological distress was measured with the NCCN Distress Thermometer (DT); quality of life was assessed with the EORTC QLQ-C30 at baseline and at 1, 3, 6, and 12 months post-surgery. Linear mixed-effects models were used, under both intention-to-treat (ITT) and per-protocol analyses, to test time-by-group interactions. Results: > 0.05). Conclusion: A structured SABC-informed intervention significantly improves functional domains and reduces psychological distress in early-",
+      "doi": "10.3389/fpsyg.2025.1511622",
+      "pmid": "40949342",
+      "openalex_id": "W4413803463",
+      "source_doi": "10.1523/jneurosci.2201-22.2023",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.2993242031335831,
+        "similarity_score": 0.25915515422821045,
+        "citation_text_length": 1380,
+        "dataset_text_length": 2315,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "The Human Insula Encodes Somatotopic Representation of Motor Execution with an Effector-Specific Connectomic Map to Primary Motor Cortex",
+      "author": "Panagiotis Kerezoudis, Michael A. Jensen, Bryan T. Klassen, Gregory A. Worrell, Nicholas Miller Gregg, Nuri F. Ince, Jamie J. Van Gompel, dora Hermes, Kai Joshua Miller",
+      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+      "year": 2025,
+      "url": "https://doi.org/10.1101/2025.05.19.653527",
+      "cited_by": 3,
+      "abstract": "Understanding motor representation in the human brain requires mapping beyond the primary motor cortex, into the distributed networks that coordinate complex movements. The insular cortex, a multifunctional hub buried within the Sylvian fissure, has been implicated in motor control through clinical observations and neuroimaging. Yet its precise relation to movement processing remains one of the least understood aspects of motor neurophysiology. To address this gap, we quantified electrophysiological changes from implanted depth electrodes in patients performing simple movement tasks combined with single-pulse electrical stimulation (SPES) to map functional connectivity. The movement data reveal distinct somatotopic representation bilaterally, as well as inter-effector regions that are active for different movement types. Hand representation is centered along the ventral aspect of the middle and posterior short gyri bilaterally, while tongue/mouth tuned sites cluster in the dorsal poste",
+      "doi": "10.1101/2025.05.19.653527",
+      "pmid": "40475490",
+      "openalex_id": "W4410578133",
+      "source_doi": "10.1523/jneurosci.2201-22.2023",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.4465940666198731,
+        "similarity_score": 0.3866615295410156,
+        "citation_text_length": 1382,
+        "dataset_text_length": 2315,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Rapid strengthening and reversal of hippocampal-neocortical interplay mediates human memory formation",
+      "author": "LH Wang, Qingtian Duan, Jianping Song, Shanshan Liang, Xiaolei Shi, Kaifeng Shen, Shiyong Liu, Hui Yang, Hongbo Jia, Xiang Liao, ChunQing Zhang, Xiaowei Chen",
+      "venue": "Neuron",
+      "year": 2026,
+      "url": "https://doi.org/10.1016/j.neuron.2026.05.016",
+      "cited_by": 1,
+      "abstract": null,
+      "doi": "10.1016/j.neuron.2026.05.016",
+      "pmid": "42296965",
+      "openalex_id": "W7164826256",
+      "source_doi": "10.1523/jneurosci.2201-22.2023",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.45432077050209047,
+        "similarity_score": 0.432686448097229,
+        "citation_text_length": 291,
+        "dataset_text_length": 2315,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Mapping emotion with cortical electrical stimulations: A disrupted landscape",
+      "author": "Olivier Aron",
+      "venue": "Neurophysiologie Clinique",
+      "year": 2026,
+      "url": "https://doi.org/10.1016/j.neucli.2025.103133",
+      "cited_by": 1,
+      "abstract": null,
+      "doi": "10.1016/j.neucli.2025.103133",
+      "pmid": "41499863",
+      "openalex_id": "W7119019599",
+      "source_doi": "10.1523/jneurosci.2201-22.2023",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5959169268608093,
+        "similarity_score": 0.5675399303436279,
+        "citation_text_length": 140,
+        "dataset_text_length": 2315,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Adaptive neuromodulation dialogues: navigating current challenges and emerging innovations in neuromodulation system development",
+      "author": "Frederik Lampert, Matthew R. Baker, Michael A. Jensen, Amir Hossein Ayyoubi, Christian Bentler, Jessica L Bowersock, Rosana Esteller, Jeffrey A. Herron, Graham Walter Johnson, Daryl R. Kipke, Christopher K. Kovach, Václav Křemen, Filip Mívalt, Joseph Samir Neimat, Theoden Ivan Netoff, Enrico Opri, Alexander P. Rockhill, Joshua M. Rosenow, Kristin K. Sellers, Nathan P. Staff, Chandra Prakash Swamy, Ashwin Viswanathan, Gerwin Schalk, Timothy Denison, Dora Hermes, Nuri F. Ince, Peter Brunner, Gregory A. Worrell, Kai Joshua Miller",
+      "venue": "Journal of Neural Engineering",
+      "year": 2025,
+      "url": "https://doi.org/10.1088/1741-2552/ae2359",
+      "cited_by": 1,
+      "abstract": "Adaptive neuromodulation systems and implantable brain-computer interfaces have made notable strides in recent years, translating experimental prototypes into clinical applications and garnering substantial attention from the public. This surge in interest is accompanied by increased scrutiny related to the safety, efficacy, and ethical implications of these systems, all of which must be directly addressed as we introduce new neurotechnologies. In response, we have synthesized the insights resulting from discussions between groups of experts in the field and summarized them into five key domains essential to therapeutic device development: (1) analyzing current landscape of neuromodulation devices and translational platforms (2) identifying clinical need, (3) understanding neural mechanisms, (4) designing viable technologies, and (5) addressing ethical concerns. The role of translational research platforms that allow rapid, iterative testing of hypotheses in both preclinical and clinic",
+      "doi": "10.1088/1741-2552/ae2359",
+      "pmid": "41285049",
+      "openalex_id": "W4416588010",
+      "source_doi": "10.1523/jneurosci.2201-22.2023",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.3927374893426896,
+        "similarity_score": 0.3400324583053589,
+        "citation_text_length": 1728,
+        "dataset_text_length": 2315,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Kainic Acid Pig Model of Hippocampal Epilepsy",
+      "author": "Filip Mívalt, Daniela D. Maltais, Inyong Kim, Jiwon W. Kim, Patrik Began, Andrea Duque Lopez, Veronika Krakorova, Bailey Winter, Cheng Yen Kuo, Shelja Sharma, Elizabeth S. Harty, Luke H. Kim, Nicholas Miller Gregg, Dan Montonye, Christopher K. Gow, Kai Joshua Miller, Jamie J. Van Gompel, Kent W. Leyde, Václav Křemen, Su-Youne Chang, Gregory A. Worrell",
+      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+      "year": 2025,
+      "url": "https://doi.org/10.1101/2025.01.22.634312",
+      "cited_by": 1,
+      "abstract": "Translational animal models are essential for advancing neuromodulation therapies for drug-resistant epilepsy. Large animal epilepsy models capable to accommodate implantable neuromodulation devices designed for humans are needed to advance novel neuromodulation therapies. This study aimed to establish and characterize a kainic acid (KA) porcine model of mesial temporal lobe epilepsy (mTLE) as a platform for pre-clinical stimulation therapy development and testing. We developed a novel platform integrating MRI-guided stereotactic techniques for electrode implantation into bilateral hippocampal (HPC) and anterior nucleus of thalamus (ANT) and intra-hippocampal KA infusion in six domestic pigs. The platform enabled acute intraoperative local field potential (LFP) monitoring in freely behaving animals using a 16-channel fully implantable neural stimulating and recording device designed for human use. Neuropathology was assessed using Cresyl violet staining. Intra-hippocampal KA infusion s",
+      "doi": "10.1101/2025.01.22.634312",
+      "pmid": "39896655",
+      "openalex_id": "W4406716333",
+      "source_doi": "10.1523/jneurosci.2201-22.2023",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5186966483294965,
+        "similarity_score": 0.4490880072116852,
+        "citation_text_length": 1476,
+        "dataset_text_length": 2315,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Network reorganization of anterograde thalamic connectivity during non-periodic patterned deep brain stimulation",
+      "author": "Teryn D. Johnson, Bobby Mohan, Harvey Huang, Justin Cramer, Cornelia Drees, Matthew Hoerth, Amy Crepeau, Joseph Drazkowski, Katherine Noe, Leslie Baxter, Amir Abdallah Mbonde, Christopher Harris, Nuri Ince, Kai Miller, Dora Hermes, Gregory Worrell, Jonathon J. Parker",
+      "venue": "iScience",
+      "year": 2026,
+      "url": "https://doi.org/10.1016/j.isci.2026.117659",
+      "cited_by": 0,
+      "abstract": "Deep brain stimulation (DBS) of the anterior nucleus of the thalamus (ANT) can reduce seizures in patients with drug-resistant epilepsy. However, seizure freedom is rare, and there is no early response biomarker to predict long-term seizure suppression. To evaluate a candidate short-term biomarker of therapeutic response to DBS, we studied 18-min trials of ANT stimulation in patients with drug-resistant epilepsy undergoing intracranial electroencephalography. We compared a standard high-frequency periodic versus a non-periodic pulse pattern. We found that short-term ANT stimulation within the clinically used amplitude range preferentially altered the first 150 ms of anterograde ANT to anterior cingulate and superior frontal connectivity. Non-periodic ANT stimulation selectively modified early cortico-cortical evoked potentials more than periodic stimulation, and these changes were driven by the response phase. These pattern-specific changes in connectivity between the ANT and spatially",
+      "doi": "10.1016/j.isci.2026.117659",
+      "pmid": "42841043",
+      "openalex_id": "W7214649471",
+      "source_doi": "10.1523/jneurosci.2201-22.2023",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5909465548396111,
+        "similarity_score": 0.5116420388221741,
+        "citation_text_length": 1426,
+        "dataset_text_length": 2315,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Causal evidence from invasive recordings reveals distributed acoustic feature encoding underlying categorical voice perception",
+      "author": "Jasmine L. Hect, Daniel A. Silliman, Kyle Rupp, Emily E. Harford, W. Pete Welch, Ruba Al‐Ramadhani, Taylor J. Abel",
+      "venue": "NeuroImage",
+      "year": 2026,
+      "url": "https://doi.org/10.1016/j.neuroimage.2026.122064",
+      "cited_by": 0,
+      "abstract": "The superior temporal cortex has long been implicated in the perception of vocal sounds, yet most evidence remains correlational. Establishing causal necessity requires demonstrating that disruption of specific neural circuits produces selective perceptual deficits. Here, we report a pediatric patient who underwent intracranial EEG following resection of a left temporal pilocytic astrocytoma that removed anterior and middle superior temporal cortex but spared posteromedial Heschl's gyrus (pmHG) and posterior superior temporal gyrus (pSTG). During an auditory task, broadband high-frequency (BHA) activity revealed voice-selective responses in pSTG, whereas pmHG showed robust auditory responses without category sensitivity. During a two-alternative forced-choice voice-nonvoice discrimination task, direct electrical stimulation of either pmHG or pSTG produced acute, reversible knockouts of categorization, whereas control-site stimulation did not. Cortico-cortical evoked potentials, Granger",
+      "doi": "10.1016/j.neuroimage.2026.122064",
+      "pmid": "42314916",
+      "openalex_id": "W7165119444",
+      "source_doi": "10.1523/jneurosci.2201-22.2023",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.46939629703760155,
+        "similarity_score": 0.40640372037887573,
+        "citation_text_length": 1289,
+        "dataset_text_length": 2315,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Pulvinar Subregions Influence Select Cortical Pathways in Humans",
+      "author": "Jordan A. Bilderbeek, Nicholas Miller Gregg, Maria Guadalupe Yanez-Ramos, Harvey Huang, Morgan N. Montoya, Peter Brunner, Jon Timothy Willie, Jamie J. Van Gompel, Gregory A. Worrell, Kai Joshua Miller, Dora Hermes",
+      "venue": "Journal of Neuroscience",
+      "year": 2026,
+      "url": "https://doi.org/10.1523/jneurosci.1604-25.2026",
+      "cited_by": 0,
+      "abstract": "The pulvinar is a large, multisensory thalamic hub with distinct subregions and widespread cortical connectivity. This widespread connectivity is thought to regulate the flow of information across the cortex, and recent studies have leveraged the pulvinar for neuromodulation. The evolutionary expansion, particularly for the medial pulvinar in humans, highlights the importance to study selective pulvinar influence across the human cortex. We therefore used single-pulse electrical stimulation to causally map the influence of pulvinar on the cortex in 30 patients (14 female) implanted with stereotactic EEG for drug-resistant epilepsy monitoring. In individual subjects, we found that stimulation of the lateral pulvinar influenced striate and extrastriate regions, while ventral-medial pulvinar stimulation preferentially influenced lateral temporal cortices. Across all subjects, the dorsomedial pulvinar stimulation influenced the parietal cortex. Furthermore, these effects were captured by a",
+      "doi": "10.1523/jneurosci.1604-25.2026",
+      "pmid": "42236236",
+      "openalex_id": "W7163347925",
+      "source_doi": "10.1523/jneurosci.2201-22.2023",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.570494981110096,
+        "similarity_score": 0.4939350485801697,
+        "citation_text_length": 1339,
+        "dataset_text_length": 2315,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Evoked connectivity of cortical stimulation for memory",
+      "author": "Eric R. Cole, Riley D. DeHaan, Lou T Blanpain, Nealen G. Laxpati, John J. Sakon, Sameer Anil Sheth, Kareem A. Zaghloul, Barbara C. Jobst, Michael R. Sperling, Bradley Charles Lega, Gregory A. Worrell, Michael J. Kahana, Robert E. Gross",
+      "venue": "medRxiv",
+      "year": 2026,
+      "url": "https://doi.org/10.64898/2026.01.10.26343861",
+      "cited_by": 0,
+      "abstract": "Abstract Despite promising results, it remains unclear how to optimally target and personalize closed-loop stimulation to ameliorate deficits in memory and other cognitive functions. We hypothesized that evoked connectivity – the measurement of neural pathway activation using single pulses of electrical stimulation – can guide patient-specific selection of stimulation location and parameters for memory. We characterized brain-wide evoked connectivity profiles of stimulation in memory-related brain regions recorded from 81 patients undergoing intracranial monitoring for epilepsy, showing that greater evoked connectivity between the lateral temporal cortex and the broader memory network (including the mesial temporal lobe, limbic regions and prefrontal cortex) corroborates observations of memory improvement by lateral temporal cortex stimulation. We first found that the lateral temporal cortex, compared to other stimulated regions, evokes the greatest and most distributed connectivity re",
+      "doi": "10.64898/2026.01.10.26343861",
+      "pmid": null,
+      "openalex_id": "W7123747575",
+      "source_doi": "10.1523/jneurosci.2201-22.2023",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5927594760060311,
+        "similarity_score": 0.5132116675376892,
+        "citation_text_length": 1335,
+        "dataset_text_length": 2315,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Dynamic alterations in effective functional connectivity in patients with obstructive sleep apnea: Insights from fMRI and electrochemical sensor testing",
+      "author": "Xiang Liu, Xiqing Hu, Xiangli Yang",
+      "venue": "Microchemical Journal",
+      "year": 2025,
+      "url": "https://doi.org/10.1016/j.microc.2025.116182",
+      "cited_by": 0,
+      "abstract": null,
+      "doi": "10.1016/j.microc.2025.116182",
+      "pmid": null,
+      "openalex_id": "W4416254552",
+      "source_doi": "10.1523/jneurosci.2201-22.2023",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.45872367918491364,
+        "similarity_score": 0.4368796944618225,
+        "citation_text_length": 234,
+        "dataset_text_length": 2315,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Developmental GABAergic signaling and its role in age and gender differences in central serous chorioretinopathy",
+      "author": "Rahil Ummar Faruk Abbu, Manish Jain",
+      "venue": "Medical Hypotheses",
+      "year": 2025,
+      "url": "https://doi.org/10.1016/j.mehy.2025.111737",
+      "cited_by": 0,
+      "abstract": null,
+      "doi": "10.1016/j.mehy.2025.111737",
+      "pmid": null,
+      "openalex_id": "W4413407641",
+      "source_doi": "10.1523/jneurosci.2201-22.2023",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.36924946010112764,
+        "similarity_score": 0.3516661524772644,
+        "citation_text_length": 192,
+        "dataset_text_length": 2315,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "The Interplay of Breath and Emotion: A Novel Cardio-Respiratory-Cortical-Limbic Network Framework",
+      "author": "Ravinder Jerath, Michael A. Jensen",
+      "venue": "Psychology",
+      "year": 2025,
+      "url": "https://doi.org/10.4236/psych.2025.164025",
+      "cited_by": 0,
+      "abstract": "The lung’s influence on our emotional well-being, beyond its primary role in respiration, remains a compelling scientific mystery. Here, we put forth a unique perspective: emotional coordination and regulation are actively influenced by the bioelectric rhythms between respiratory and cardiac activities. Current models emphasize the cognitive basis of emotions, but we posit that dysfunctional breathing patterns can directly drive and amplify emotional experiences. Research suggests that persistent anxiety states are linked to instable, shallow, and irregular breathing. Key neurotransmitters involved in emotional regulation are also found within the lungs and heart, further supporting a direct physiological link as an extension of the limbic system. We believe that the brainstem’s cardio-respiratory center, through continuous engagement, fluctuates limbic and other brain regions, creating a cardio-respiratory-cortical-limbic network. This network, supported by bioelectric rhythms, plays ",
+      "doi": "10.4236/psych.2025.164025",
+      "pmid": null,
+      "openalex_id": "W4409513501",
+      "source_doi": "10.1523/jneurosci.2201-22.2023",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.3387607803940773,
+        "similarity_score": 0.2932993769645691,
+        "citation_text_length": 1180,
+        "dataset_text_length": 2315,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Causal Cortical and Thalamic Connections in the Human Brain",
+      "author": "Dian Lyu, James Stieger, Zoe Lusk, Vivek Buch, Josef Parvizi",
+      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+      "year": 2024,
+      "url": "https://doi.org/10.1101/2024.06.22.600166",
+      "cited_by": 0,
+      "abstract": "The brain's functional architecture is intricately shaped by causal connections between its cortical and subcortical structures. Here, we studied 27 participants with 4864 electrodes implanted across the anterior, mediodorsal, and pulvinar thalamic regions, and the cortex. Using data from electrical stimulation procedures and a data-driven approach informed by neurophysiological standards, we dissociated three unique spectral patterns generated by the perturbation of a given brain area. Among these, a novel waveform emerged, marked by delayed-onset slow oscillations in both ipsilateral and contralateral cortices following thalamic stimulations, suggesting a mechanism by which a thalamic site can influence bilateral cortical activity. Moreover, cortical stimulations evoked earlier signals in the thalamus than in other connected cortical areas suggesting that the thalamus receives a copy of signals before they are exchanged across the cortex. Our causal connectivity data can be used to i",
+      "doi": "10.1101/2024.06.22.600166",
+      "pmid": "38979261",
+      "openalex_id": "W4400067540",
+      "source_doi": "10.1523/jneurosci.2201-22.2023",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5484341248869896,
+        "similarity_score": 0.47483474016189575,
+        "citation_text_length": 1197,
+        "dataset_text_length": 2315,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    }
+  ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T12:13:25.239044+00:00",
+    "scoring_date": "2026-10-11T11:33:59.462135+00:00",
     "dataset_text_length": 2315,
-    "num_citations_scored": 0
+    "num_citations_scored": 24,
+    "summary_stats": {
+      "mean_confidence": 0.5032709723152221,
+      "median_confidence": 0.5196129018813372,
+      "std_confidence": 0.11366970198158473,
+      "min_confidence": 0.2993242031335831,
+      "max_confidence": 0.753727172613144,
+      "high_confidence_count": 1,
+      "medium_confidence_count": 17,
+      "low_confidence_count": 6
+    }
   }
 }
