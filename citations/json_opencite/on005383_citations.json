@@ -1,16 +1,14 @@
 {
   "dataset_id": "on005383",
-  "num_citations": 1,
-  "date_last_updated": "2026-09-30T16:33:04.727320+00:00",
+  "num_citations": 5,
+  "date_last_updated": "2026-10-11T11:02:37.624888+00:00",
   "metadata": {
-    "total_cumulative_citations": 4,
-    "fetch_date": "2026-09-30T10:43:09.047594+00:00",
+    "total_cumulative_citations": 11,
+    "fetch_date": "2026-10-11T11:02:37.624888+00:00",
     "processing_version": "1.0",
-    "fetch_status": "not_found",
+    "fetch_status": "success",
     "anchor_count": 1,
-    "anchor_errors": {
-      "10.82901/nemar.on005383": "not_found"
-    },
+    "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
     "anchor_judgment_model": "claude-sonnet-5-5",
@@ -34,13 +32,13 @@
     ],
     "keywords": [
       "EEG",
-      "Reading",
-      "Semantics",
-      "Chinese language",
       "natural reading",
-      "semantic processing"
+      "semantic processing",
+      "Chinese language",
+      "target identification",
+      "Reading"
     ],
-    "methods_description": "EEG was recorded from 30 right-handed native Chinese speakers (mean age 22.07 years, SD 2.7; 18 females, 12 males) as they read sentences of 15-20 characters, presented as news headlines or short sentences with target and non-target semantic items. Each participant completed 8 blocks of 400 trials, with each trial lasting approximately 2.2 seconds including a fixation cross and inter-stimulus intervals. Sensor-level EEG analyses were performed to validate distinct responses to target and non-target words.",
+    "methods_description": "Thirty healthy right-handed native Chinese speakers read 15-20 character sentences on a screen at their own pace. Each completed 8 blocks totaling 400 trials, with each trial lasting about 2.2 seconds including a fixation cross and inter-stimulus interval. Sensor-level analyses compared responses to target and non-target words.",
     "funding": [
       {
         "funder_name": "National Key R&D Program of China",
@@ -50,36 +48,119 @@
         "funder_name": "National Natural Science Foundation of China",
         "award_number": "82202290"
       }
-    ],
-    "searched_accessions": [
-      "on005383",
-      "ds005383"
-    ],
-    "num_accession_mentions": 1,
-    "num_dataset_citations": 1,
-    "num_datapaper_citations": 0
+    ]
   },
   "citation_details": [
     {
-      "title": "TMNRED, A Chinese Language EEG Dataset for Fuzzy Semantic Target Identification in Natural Reading Environments",
-      "author": "Yanru Bai, Qi Tang, Ran Zhao, Hongxing Liu, Shuming Zhang, Mingkun Guo, Minghan Guo, Junjie Wang, Changjian Wang, Mu Xing, Guangjian Ni, Dong Ming",
+      "title": "An EEG Dataset for Multimodal Semantic Alignment and Neural Decoding during Reading and Listening",
+      "author": "Sitong Chen, B. Li, Cuilin He, D. Li, Mingyan Wu, Xinke Shen, S. M. Wang, Xuetao Wei, Xindi Wang, Haiyan Wu, Quanying Liu",
       "venue": "Scientific Data",
       "year": 2025,
-      "url": "https://doi.org/10.1038/s41597-025-05036-2",
-      "cited_by": 4,
-      "abstract": "Semantic understanding is central to advanced cognitive functions, and the mechanisms by which the brain processes language information are still being explored. Existing EEG datasets often lack natural reading data specific to Chinese, limiting research on Chinese semantic decoding and natural language processing. This study aims to construct a Chinese natural reading EEG dataset, TMNRED, for semantic target identification in natural reading environments. TMNRED was collected from 30 participants reading sentences sourced from public internet resources and media reports. Each participant underwent 400-450 trials in a single day, resulting in a dataset with over 10 hours of continuous EEG data and more than 4000 trials. This dataset provides valuable physiological data for studying Chinese semantics and developing more accurate Chinese natural language processing models.",
-      "doi": "10.1038/s41597-025-05036-2",
-      "pmid": "40280929",
-      "openalex_id": "W4409785360",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds005383",
+      "url": "https://doi.org/10.1038/s41597-025-06466-8",
+      "cited_by": 5,
+      "abstract": "EEG-based neural decoding requires large-scale benchmark datasets. Paired brain-language data across speaking, listening, and reading modalities are essential for aligning neural activity with the semantic representation of large language models (LLMs). However, such datasets are rare, especially for non-English languages. Here, we present ChineseEEG-2, a high-density EEG dataset designed for benchmarking neural decoding models under real-world language tasks. Building on our previous ChineseEEG dataset, which focused on silent reading, ChineseEEG-2 adds two active modalities: Reading Aloud (RA) and Passive Listening (PL), using the same Chinese corpus. EEG and audio were simultaneously recorded from four participants during ~10.8 hours of reading aloud. These recordings were then played to eight other participants, collecting ~21.6 hours of EEG during listening. This setup enables precise temporal and semantic alignment across the RA and PL modalities. ChineseEEG-2 includes EEG signal",
+      "doi": "10.1038/s41597-025-06466-8",
+      "pmid": "41436506",
+      "openalex_id": "W7117148056",
+      "source_doi": "10.82901/nemar.on005383",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 1.0,
-        "similarity_score": 0.9312770366668701,
-        "citation_text_length": 1194,
+        "confidence_score": 0.8919879180192948,
+        "similarity_score": 0.7722839117050171,
+        "citation_text_length": 1272,
+        "dataset_text_length": 2483,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "SingLEM: Single-Channel Large EEG Model",
+      "author": "Jamiyan Sukhbaatar, S. Imamura, Ibuki Inoue, Shoya Murakami, Kazi Mahmudul Hassan, Seung-Woo Han, Ingon Chanpornpakdi, Toshihisa Tanaka",
+      "venue": "IEEE journal of biomedical and health informatics",
+      "year": 2025,
+      "url": "https://doi.org/10.1109/JBHI.2026.3732223",
+      "cited_by": 4,
+      "abstract": "Current deep learning models for electroencephalography (EEG) are often task-specific and depend on large labeled datasets, limiting their adaptability. Although EEG foundation models seek broader applicability, many still rely on predefined multi-channel inputs, electrode-layout assumptions, or model-specific channel handling. To address these limitations, we introduce the Single-Channel Large EEG Model (SingLEM), a self-supervised foundation model whose hybrid convolutional-Transformer encoder maps each channel independently to a reusable representation capturing local and long-range temporal structure. These representations can be used individually or combined through channel-wise feature concatenation. We assembled 71 public EEG datasets comprising approximately 9,200 subjects and 357,000 single-channel hours. For leakage-controlled evaluation, downstream results were obtained with a model pretrained on 68 datasets after excluding the three source datasets underlying the six tasks.",
+      "doi": "10.1109/JBHI.2026.3732223",
+      "pmid": "42709520",
+      "openalex_id": null,
+      "source_doi": "10.82901/nemar.on005383",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5762096343934537,
+        "similarity_score": 0.49888280034065247,
+        "citation_text_length": 1262,
+        "dataset_text_length": 2483,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Neural feature alignment between large language models and brain activities: A knowledge-based framework for cross-modal analysis",
+      "author": "Zhejun Zhang, W H Zhou, Shuo Zhang, Xinhang Li, Xinhang Li, Lin Zhang, Lei Li",
+      "venue": "Neural Networks",
+      "year": 2026,
+      "url": "https://doi.org/10.1016/j.neunet.2026.108916",
+      "cited_by": 1,
+      "abstract": "Recent studies examining the representational alignment between Large Language Models (LLMs) and brain activity show promising correspondences, yet lack detailed analyses of shared cognitive mechanisms. We introduce Feature Alignment (FA), an interpretable knowledge engineering framework that bridges artificial and biological intelligence by transforming LLM eigenspace projections into semantically interpretable feature vectors, enabling systematic mapping of cross-modal correspondences via cognitively linked EEG signatures. Evaluated across diverse LLMs and comprehensive EEG features, FA scores demonstrate strong predictive validity for model capabilities (r=0.736-0.886 across six benchmarks), confirming the framework's capacity to capture functionally relevant model properties. Through layer-wise and region-specific analyses, FA reveals multi-scale correspondences between computational and neural knowledge processing, including a notable alignment decline in deeper LLM layers. Comput",
+      "doi": "10.1016/j.neunet.2026.108916",
+      "pmid": "41962364",
+      "openalex_id": "W7143335915",
+      "source_doi": "10.82901/nemar.on005383",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.4681258271634579,
+        "similarity_score": 0.4053037464618683,
+        "citation_text_length": 1260,
+        "dataset_text_length": 2483,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Brain3D: Generating 3D Objects from fMRI",
+      "author": "Yuankun Yang, Li Zhang, Ziyang Xie, Z. S. Yuan, Jianfeng Feng, Xiatian Zhu, Yu–Gang Jiang",
+      "venue": "International Journal of Computer Vision",
+      "year": 2026,
+      "url": "https://doi.org/10.1007/s11263-025-02609-x",
+      "cited_by": 1,
+      "abstract": "Understanding the hidden mechanisms behind human’s visual perception is a fundamental question in neuroscience. To that end, investigating into the neural responses of human mind activities, such as functional Magnetic Resonance Imaging (fMRI), has been a significant research vehicle. However, analyzing fMRI signals is challenging, costly, daunting, and demanding for professional training. Despite remarkable progress in fMRI analysis, existing approaches are limited to generating 2D images and far away from being biologically meaningful and practically useful. Under this insight, we propose to generate visually plausible and functionally more comprehensive 3D outputs decoded from brain signals, enabling more sophisticated modeling of fMRI data. Conceptually, we reformulate this task as a fMRI conditioned 3D object generation problem. We design a novel 3D object representation learning method, Brain3D, that takes as input the fMRI data of a subject who was presented with a 2D image, and",
+      "doi": "10.1007/s11263-025-02609-x",
+      "pmid": null,
+      "openalex_id": "W7123337823",
+      "source_doi": "10.82901/nemar.on005383",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.368435093164444,
+        "similarity_score": 0.31899142265319824,
+        "citation_text_length": 1208,
+        "dataset_text_length": 2483,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Out of the lab, into real life: Evaluating at‐home EEG self‐monitoring",
+      "author": "Louis Cousyn, Andrea Biondi, Joel S. Winston, Matthew McWilliam, Pedro F. Viana, Martijn Schreuder, Petroula Laiou, Mark P. Richardson",
+      "venue": "Epilepsia Open",
+      "year": 2026,
+      "url": "https://doi.org/10.1002/epi4.70235",
+      "cited_by": 0,
+      "abstract": "Seizure forecasting models require long-term, high-quality data collected in real-life settings using noninvasive or minimally invasive devices, yet, the lack of such systems remains a major barrier to their clinical translation. Here, we aimed to evaluate the signal quality of self-applied at-home EEG monitoring using a wearable system in patients with epilepsy to assess its reliability for future seizure forecasting applications. All EEG recordings were reviewed to identify non-usable data and interictal epileptiform discharges (IEDs). We analyzed power spectral density and the temporal evolution of a signal-to-noise ratio, and applied composite quality criteria for each patient based on spectral profile and the proportion of EEG data discarded. Twelve patients with drug-resistant epilepsy performed self-applied resting-state EEG recordings twice daily over a median period of 173.5 days (min. 12, max. 235). Two-thirds of patients had data of good or moderate quality (N = 3 and 5, res",
+      "doi": "10.1002/epi4.70235",
+      "pmid": "41701004",
+      "openalex_id": "W7129457898",
+      "source_doi": "10.82901/nemar.on005383",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.4597710996866227,
+        "similarity_score": 0.39807021617889404,
+        "citation_text_length": 1257,
         "dataset_text_length": 2483,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -88,18 +169,18 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T16:38:33.470024+00:00",
+    "scoring_date": "2026-10-11T11:36:38.829597+00:00",
     "dataset_text_length": 2483,
-    "num_citations_scored": 1,
+    "num_citations_scored": 5,
     "summary_stats": {
-      "mean_confidence": 1.0,
-      "median_confidence": 1.0,
-      "std_confidence": 0.0,
-      "min_confidence": 1.0,
-      "max_confidence": 1.0,
+      "mean_confidence": 0.5529059144854547,
+      "median_confidence": 0.4681258271634579,
+      "std_confidence": 0.1818850787364703,
+      "min_confidence": 0.368435093164444,
+      "max_confidence": 0.8919879180192948,
       "high_confidence_count": 1,
-      "medium_confidence_count": 0,
-      "low_confidence_count": 0
+      "medium_confidence_count": 3,
+      "low_confidence_count": 1
     }
   }
 }

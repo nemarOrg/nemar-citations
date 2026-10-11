@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000148",
-  "num_citations": 43,
-  "date_last_updated": "2026-10-04T10:04:27.906967+00:00",
+  "num_citations": 41,
+  "date_last_updated": "2026-10-11T10:15:13.336958+00:00",
   "metadata": {
-    "total_cumulative_citations": 951,
-    "fetch_date": "2026-09-29T10:41:37.356438+00:00",
+    "total_cumulative_citations": 957,
+    "fetch_date": "2026-10-11T10:15:13.336958+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 3,
@@ -19,25 +19,25 @@
         "source_relation": "IsDerivedFrom",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Improving the Performance of an EEG-Based Motor Imagery Brain Computer Interface Using Task Evoked Changes in Pupil Diameter",
         "paper_year": 2015,
         "paper_venue": "PLoS ONE",
         "reason": "Same authors (Rozado, Duenser, Howell) and the same motor imagery BCI with pupillometry study; the dataset's DOI field is this paper, so it reports the recorded data.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.7910/dvn/28932",
         "identifier_type": "doi",
-        "source_relation": "References",
+        "source_relation": "IsDerivedFrom",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "EEG And Pupillometry During Hand Motor Imagery",
         "paper_year": 2015,
         "paper_venue": "Harvard Dataverse",
         "reason": "Harvard Dataverse deposit \"EEG And Pupillometry During Hand Motor Imagery\" by David Rozado is the original record of this same left-hand motor imagery data (Rozado2015), matching authors and task.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.21105/joss.01896",
@@ -45,12 +45,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
         "paper_year": 2019,
         "paper_venue": "The Journal of Open Source Software",
         "reason": "MNE-BIDS is a software tool for organizing electrophysiological data into BIDS; it is not a paper describing the Rozado2015 motor imagery pupillometry dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1038/s41597-019-0104-8",
@@ -58,12 +58,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "EEG-BIDS, an extension to the brain imaging data structure for electroencephalography",
         "paper_year": 2019,
         "paper_venue": "Scientific Data",
         "reason": "EEG-BIDS is a specification/standard extension to BIDS for EEG data organization, not a paper describing the Rozado2015 motor imagery pupillometry dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.nm000148",
@@ -71,12 +71,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -85,22 +85,15 @@
       "10.82901/nemar.nm000148"
     ],
     "keywords": [
-      "motor imagery",
-      "Brain-Computer Interfaces",
       "EEG",
+      "motor imagery",
+      "brain-computer interface",
       "pupillometry",
-      "Electroencephalography",
-      "feature extraction",
-      "classification"
+      "Brain-Computer Interfaces",
+      "Electroencephalography"
     ],
-    "methods_description": "EEG data were acquired from 30 healthy participants using a 32-channel BioSemi ActiveTwo system (biosemi32 montage) sampled at 512 Hz with CMS/DRL reference. Participants performed motor imagery tasks involving left-hand grasping imagery versus rest, cued by auditory stimuli in a synchronous, offline paradigm. Each trial lasted 6 seconds, with 2 experimental blocks of 25 trials each per subject. Pupillometry measurements were recorded concurrently. Signal processing included bandpass filtering (8-30 Hz), Common Spatial Pattern (CSP) feature extraction, and Linear Discriminant Analysis (LDA) classification with 10-fold cross-validation.",
-    "funding": [],
-    "searched_accessions": [
-      "nm000148"
-    ],
-    "num_accession_mentions": 2,
-    "num_dataset_citations": 2,
-    "num_datapaper_citations": 41
+    "methods_description": "32-channel EEG was recorded with a BioSemi ActiveTwo system (sintered Ag/AgCl active electrodes, CMS/DRL reference) at 512 Hz. Each participant completed two experiments of 25 trials, each 6 s long, alternating left-hand grasping imagery and rest with auditory cues. Pupil diameter was recorded alongside the EEG. Separately, the MOABB benchmark used 8-30 Hz bandpass filtering, CSP features with pupil diameter, and LDA classification with 10-fold within-subject cross-validation.",
+    "funding": []
   },
   "citation_details": [
     {
@@ -109,7 +102,7 @@
       "venue": "Sensors",
       "year": 2017,
       "url": "https://doi.org/10.3390/s17061385",
-      "cited_by": 167,
+      "cited_by": 166,
       "abstract": "Major depressive disorder (MDD) has become a leading contributor to the global burden of disease; however, there are currently no reliable biological markers or physiological measurements for efficiently and effectively dissecting the heterogeneity of MDD. Here we propose a novel method based on scalp electroencephalography (EEG) signals and a robust spectral-spatial EEG feature extractor called kernel eigen-filter-bank common spatial pattern (KEFB-CSP). The KEFB-CSP first filters the multi-channel raw EEG signals into a set of frequency sub-bands covering the range from theta to gamma bands, then spatially transforms the EEG signals of each sub-band from the original sensor space to a new space where the new signals (i.e., CSPs) are optimal for the classification between MDD and healthy controls, and finally applies the kernel principal component analysis (kernel PCA) to transform the vector containing the CSPs from all frequency sub-bands to a lower-dimensional feature vector called ",
       "doi": "10.3390/s17061385",
       "pmid": "28613237",
@@ -155,7 +148,7 @@
       "venue": "GigaScience",
       "year": 2020,
       "url": "https://doi.org/10.1093/gigascience/giaa098",
-      "cited_by": 85,
+      "cited_by": 86,
       "abstract": "BACKGROUND: Non-invasive brain-computer interfaces (BCIs) have been developed for realizing natural bi-directional interaction between users and external robotic systems. However, the communication between users and BCI systems through artificial matching is a critical issue. Recently, BCIs have been developed to adopt intuitive decoding, which is the key to solving several problems such as a small number of classes and manually matching BCI commands with device control. Unfortunately, the advances in this area have been slow owing to the lack of large and uniform datasets. This study provides a large intuitive dataset for 11 different upper extremity movement tasks obtained during multiple recording sessions. The dataset includes 60-channel electroencephalography, 7-channel electromyography, and 4-channel electro-oculography of 25 healthy participants collected over 3-day sessions for a total of 82,500 trials across all the participants. FINDINGS: We validated our dataset via neurophy",
       "doi": "10.1093/gigascience/giaa098",
       "pmid": "33034634",
@@ -311,12 +304,35 @@
       }
     },
     {
+      "title": "Cognitive Workload Assessment via Eye Gaze and EEG in an Interactive Multi-Modal Driving Task",
+      "author": "Ayca Aygun, Boyang Lyu, Thuan Doan Nguyen, Zachary Haga, Shuchin Aeron, Matthias J. Scheutz",
+      "venue": "INTERNATIONAL CONFERENCE ON MULTIMODAL INTERACTION",
+      "year": 2022,
+      "url": "https://doi.org/10.1145/3536221.3556610",
+      "cited_by": 26,
+      "abstract": "Assessing the cognitive workload of human interactants in mixed-initiative teams is a critical capability for autonomous interactive systems to enable adaptations that improve team performance. Yet, it is still unclear, due to diverging evidence, which sensing modality might work best for the determination of human workload. In this paper, we report results from an empirical study that was designed to answer this question by collecting eye gaze and electroencephalogram (EEG) data from human subjects performing an interactive multi-modal driving task. Different levels of cognitive workload were generated by introducing secondary tasks like dialogue, braking events, and tactile stimulation in the course of driving. Our results show that pupil diameter is a more reliable indicator for workload prediction than EEG. And more importantly, none of the five different machine learning models combining the extracted EEG and pupil diameter features were able to show any improvement in workload cl",
+      "doi": "10.1145/3536221.3556610",
+      "pmid": null,
+      "openalex_id": "W4308222466",
+      "source_doi": "10.1371/journal.pone.0121262",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5186937569081784,
+        "similarity_score": 0.4490855038166046,
+        "citation_text_length": 1273,
+        "dataset_text_length": 2279,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Classification of left and right foot kinaesthetic motor imagery using common spatial pattern",
       "author": "Madiha Tariq, Pavel M. Trivailo, Milan Simić",
       "venue": "Biomedical Physics & Engineering Express",
       "year": 2019,
       "url": "https://doi.org/10.1088/2057-1976/ab54ad",
-      "cited_by": 26,
+      "cited_by": 25,
       "abstract": "BACKGROUND AND OBJECTIVES: Brain-computer interface (BCI) systems typically deploy common spatial pattern (CSP) for feature extraction of mu and beta rhythms based on upper-limbs kinaesthetic motor imageries (KMI). However, it was not used to classify the left versus right foot KMI, due to its location inside the mesial wall of sensorimotor cortex, which makes it difficult to be detected. We report novel classification of mu and beta EEG features, during left and right foot KMI cognitive task, using CSP, and filter bank common spatial pattern (FBCSP) method, to optimize the subject-specific band selection. We initially proposed CSP method, followed by the implementation of FBCSP for optimization of individual spatial patterns, wherein a set of CSP filters was learned, for each of the time/frequency filters in a supervised way. This was followed by the log-variance feature extraction and concatenation of all features (over all chosen spectral-filters). Subsequently, supervised machine l",
       "doi": "10.1088/2057-1976/ab54ad",
       "pmid": "33438596",
@@ -328,29 +344,6 @@
         "confidence_score": 0.6306627869606019,
         "similarity_score": 0.5733298063278198,
         "citation_text_length": 1216,
-        "dataset_text_length": 2279,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Cognitive Workload Assessment via Eye Gaze and EEG in an Interactive Multi-Modal Driving Task",
-      "author": "Ayca Aygun, Boyang Lyu, Thuan Doan Nguyen, Zachary Haga, Shuchin Aeron, Matthias J. Scheutz",
-      "venue": "Proceedings of the 2022 International Conference on Multimodal Interaction",
-      "year": 2022,
-      "url": "https://doi.org/10.1145/3536221.3556610",
-      "cited_by": 25,
-      "abstract": "Assessing the cognitive workload of human interactants in mixed-initiative teams is a critical capability for autonomous interactive systems to enable adaptations that improve team performance. Yet, it is still unclear, due to diverging evidence, which sensing modality might work best for the determination of human workload. In this paper, we report results from an empirical study that was designed to answer this question by collecting eye gaze and electroencephalogram (EEG) data from human subjects performing an interactive multi-modal driving task. Different levels of cognitive workload were generated by introducing secondary tasks like dialogue, braking events, and tactile stimulation in the course of driving. Our results show that pupil diameter is a more reliable indicator for workload prediction than EEG. And more importantly, none of the five different machine learning models combining the extracted EEG and pupil diameter features were able to show any improvement in workload cl",
-      "doi": "10.1145/3536221.3556610",
-      "pmid": null,
-      "openalex_id": "W4308222466",
-      "source_doi": "10.1371/journal.pone.0121262",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5121737051010132,
-        "similarity_score": 0.44344043731689453,
-        "citation_text_length": 1297,
         "dataset_text_length": 2279,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -385,7 +378,7 @@
       "venue": "International Journal of Neural Systems",
       "year": 2021,
       "url": "https://doi.org/10.1142/s0129065721500593",
-      "cited_by": 18,
+      "cited_by": 19,
       "abstract": "Patients with motor impairments need caregivers' help to initiate the operation of brain-computer interfaces (BCI). This study aims to identify and characterize movement intention using multichannel electroencephalography (EEG) signals as a means to initiate BCI systems without extra accessories/methodologies. We propose to discriminate the resting and motor imagery (MI) states with high accuracy using Fourier-based synchrosqueezing transform (FSST) as a feature extractor. FSST has been investigated and compared with other popular approaches in 28 healthy subjects for a total of 6657 trials. The accuracy and f-measure values were obtained as 99.8% and 0.99, respectively, when FSST was used as the feature extractor and singular value decomposition (SVD) as the feature selection method and support vector machines as the classifier. Moreover, this study investigated the use of data that contain certain amount of noise without any preprocessing in addition to the clean counterparts. Furthe",
       "doi": "10.1142/s0129065721500593",
       "pmid": "34806939",
@@ -427,7 +420,7 @@
     },
     {
       "title": "Separability of motor imagery of the self from interpretation of motor intentions of others at the single trial level: an EEG study",
-      "author": "João Sousa Andrade, José Cecílio, Marco A. Simões, Francisco Sales, Miguel Castelo‐Branco",
+      "author": "João Andrade, José Cecílio, Marco A. Simões, Francisco Sales, Miguel Castelo‐Branco",
       "venue": "Journal of NeuroEngineering and Rehabilitation",
       "year": 2017,
       "url": "https://doi.org/10.1186/s12984-017-0276-4",
@@ -440,9 +433,32 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.7115595102310182,
-        "similarity_score": 0.6468722820281982,
-        "citation_text_length": 1305,
+        "confidence_score": 0.7109654247760774,
+        "similarity_score": 0.6463322043418884,
+        "citation_text_length": 1299,
+        "dataset_text_length": 2279,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "A review on the performance of brain-computer interface systems used for patients with locked-in and completely locked-in syndrome",
+      "author": "Sanaz Rezvani, SeyedHooman Hosseini-Zahraei, Amirreza Tootchi, Christoph Guger, Yasmin Chaibakhsh, Alia Saberi, Ali Chaibakhsh",
+      "venue": "Cognitive Neurodynamics",
+      "year": 2023,
+      "url": "https://doi.org/10.1007/s11571-023-09995-3",
+      "cited_by": 16,
+      "abstract": null,
+      "doi": "10.1007/s11571-023-09995-3",
+      "pmid": "39104673",
+      "openalex_id": "W4386002063",
+      "source_doi": "10.1371/journal.pone.0121262",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.45748787820339204,
+        "similarity_score": 0.43570274114608765,
+        "citation_text_length": 306,
         "dataset_text_length": 2279,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -472,35 +488,12 @@
       }
     },
     {
-      "title": "A review on the performance of brain-computer interface systems used for patients with locked-in and completely locked-in syndrome",
-      "author": "Sanaz Rezvani, SeyedHooman Hosseini-Zahraei, Amirreza Tootchi, Christoph Guger, Yasmin Chaibakhsh, Alia Saberi, Ali Chaibakhsh",
-      "venue": "Cognitive Neurodynamics",
-      "year": 2023,
-      "url": "https://doi.org/10.1007/s11571-023-09995-3",
-      "cited_by": 15,
-      "abstract": null,
-      "doi": "10.1007/s11571-023-09995-3",
-      "pmid": "39104673",
-      "openalex_id": "W4386002063",
-      "source_doi": "10.1371/journal.pone.0121262",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.45748787820339204,
-        "similarity_score": 0.43570274114608765,
-        "citation_text_length": 306,
-        "dataset_text_length": 2279,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Effects of vocal demands on pupil dilation",
       "author": "Mareike Brych, Barbara Händel, Eva Riechelmann, Aleksandra Pieczykolan, Lynn Huestegge",
       "venue": "Psychophysiology",
       "year": 2020,
       "url": "https://doi.org/10.1111/psyp.13729",
-      "cited_by": 14,
+      "cited_by": 15,
       "abstract": "Pupil dilation is known to be affected by a variety of factors, including physical (e.g., light) and cognitive sources of influence (e.g., mental load due to working memory demands, stimulus/response competition etc.). In the present experiment, we tested the extent to which vocal demands (speaking) can affect pupil dilation. Based on corresponding preliminary evidence found in a reanalysis of an existing data set from our lab, we setup a new experiment that systematically investigated vocal response-related effects compared to mere jaw/lip movement and button press responses. Conditions changed on a trial-by-trial basis while participants were instructed to keep fixating a central cross on a screen throughout. In line with our prediction (and previous observation), speaking caused the pupils to dilate strongest, followed by nonvocal movements and finally a baseline condition without any vocal or muscular demands. An additional analysis of blink rates showed no difference in blink freq",
       "doi": "10.1111/psyp.13729",
       "pmid": "33231889",
@@ -546,7 +539,7 @@
       "venue": "Journal of Neurophysiology",
       "year": 2023,
       "url": "https://doi.org/10.1152/jn.00024.2023",
-      "cited_by": 10,
+      "cited_by": 11,
       "abstract": "Abstract Pupillary responses have now been reliably identified for cognitive and motor tasks, but less is known about their relation to mentally simulating movements (known as motor imagery). Previous work found pupil dilations during the performance of simple finger movements, where peak pupillary dilation scaled with the complexity of the finger movement and force required. Recently, pupillary dilations were reported during imagery of grasping and piano playing. Here we examined whether pupillary responses are sensitive to the dynamics of the underlying motor task for both executed and imagined reach movements. Participants reached or imagined reaching to one of three targets placed at different distances from a start position. Both executed and imagined movement times scaled with target distance, and they were highly correlated, confirming previous work and suggesting that participants did imagine the respective movement. Increased pupillary dilation was evident during motor executi",
       "doi": "10.1152/jn.00024.2023",
       "pmid": "37283453",
@@ -589,7 +582,7 @@
     {
       "title": "Detecting Memory-Based Interaction Obstacles with a Recurrent Neural Model of User Behavior",
       "author": "Felix Putze, Mazen Salous, Tanja Schultz",
-      "venue": "Proceedings of the 23rd International Conference on Intelligent User Interfaces",
+      "venue": "ACM International Conference on Intelligent User Interfaces (IUI)",
       "year": 2018,
       "url": "https://doi.org/10.1145/3172944.3173006",
       "cited_by": 7,
@@ -601,9 +594,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.35113263130187994,
-        "similarity_score": 0.319211483001709,
-        "citation_text_length": 874,
+        "confidence_score": 0.3526606917381287,
+        "similarity_score": 0.32060062885284424,
+        "citation_text_length": 860,
         "dataset_text_length": 2279,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -612,7 +605,7 @@
     {
       "title": "Time-frequency analysis of red-green visual flickers based on steady-state visual evoked potential recording",
       "author": "Panisa Dechwechprasit, Montri Phothisonothai, Suchada Tantisatirapong",
-      "venue": "2016 9th Biomedical Engineering International Conference (BMEiCON)",
+      "venue": "Biomedical Engineering International Conference",
       "year": 2016,
       "url": "https://doi.org/10.1109/bmeicon.2016.7859643",
       "cited_by": 7,
@@ -624,9 +617,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.4670431882143021,
-        "similarity_score": 0.4245847165584564,
-        "citation_text_length": 1144,
+        "confidence_score": 0.4573271274566651,
+        "similarity_score": 0.41575193405151367,
+        "citation_text_length": 1125,
         "dataset_text_length": 2279,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -635,10 +628,10 @@
     {
       "title": "Integrated Human-Machine Interaction System: ERP-SSVEP and Eye Tracking Based Technologies",
       "author": "Montri Phothisonothai, Suchada Tantisatirapong",
-      "venue": "2019 11th International Conference on Knowledge and Smart Technology (KST)",
+      "venue": "International Conference on Knowledge and Smart Technology",
       "year": 2019,
       "url": "https://doi.org/10.1109/kst.2019.8687804",
-      "cited_by": 5,
+      "cited_by": 6,
       "abstract": "Human-Machine Interaction (HMI) requires a multidisciplinary research study mainly focused on interaction modalities between humans and machines. In this paper, we introduced an integrated HMI system using electrical brainwave signal (or called Electroencephalography: EEG) and eye tracking of pupil movement (or called ET), whose are used as an alternative channel to communicate with others for people with disabilities. In this experiment, the target and non-target visual stimuli of EEG-based HMI system on the basis of event-related potential (ERP) and steady state visually evoked potential (SSVEP) signals have been performed. For the ET based framework, we proposed the user-friendly virtual keyboard typing for Thai language, i.e., free-form and automatic typing modes. The results showed that the integrated HMI using ERP-SSVEP yielded an average accuracy of 97.4% and reaction time approximately was 724.2 millisecond for control commands. The automatic typing mode performed an average ac",
       "doi": "10.1109/kst.2019.8687804",
       "pmid": null,
@@ -647,9 +640,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.4832600295543671,
-        "similarity_score": 0.43932729959487915,
-        "citation_text_length": 1249,
+        "confidence_score": 0.48026993274688723,
+        "similarity_score": 0.43660902976989746,
+        "citation_text_length": 1233,
         "dataset_text_length": 2279,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -658,7 +651,7 @@
     {
       "title": "Time-frequency based coherence analysis of red and green flickering visual stimuli for EEG-controlled applications",
       "author": "Suchada Tantisatirapong, Panisa Dechwechprasit, Wongwit Senavongse, Montri Phothisonothai",
-      "venue": "2017 9th International Conference on Knowledge and Smart Technology (KST)",
+      "venue": "International Conference on Knowledge and Smart Technology",
       "year": 2017,
       "url": "https://doi.org/10.1109/kst.2017.7886130",
       "cited_by": 5,
@@ -670,9 +663,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.36156397461891177,
-        "similarity_score": 0.32869452238082886,
-        "citation_text_length": 1047,
+        "confidence_score": 0.3626341938972473,
+        "similarity_score": 0.32966744899749756,
+        "citation_text_length": 1032,
         "dataset_text_length": 2279,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -681,7 +674,7 @@
     {
       "title": "An analysis of EEG signal combined with pupillary response in the dynamics of human cognitive processing",
       "author": "Małgorzata Plechawska–Wójcik, Magdalena Chmielewska",
-      "venue": "2016 9th International Conference on Human System Interactions (HSI)",
+      "venue": "Conference on Human System Interactions",
       "year": 2016,
       "url": "https://doi.org/10.1109/hsi.2016.7529661",
       "cited_by": 5,
@@ -693,9 +686,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5765805542469025,
-        "similarity_score": 0.5241641402244568,
-        "citation_text_length": 799,
+        "confidence_score": 0.5724288403987885,
+        "similarity_score": 0.5203898549079895,
+        "citation_text_length": 770,
         "dataset_text_length": 2279,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -704,7 +697,7 @@
     {
       "title": "Effects of visual flickering stimuli for event-related potential recording",
       "author": "Karunyapas Dangruan, Pongrawee Jatadhammakorn, Siwatch Luxsameepicheat, Montri Phothisonothai",
-      "venue": "2016 8th International Conference on Knowledge and Smart Technology (KST)",
+      "venue": "International Conference on Knowledge and Smart Technology",
       "year": 2016,
       "url": "https://doi.org/10.1109/kst.2016.7440533",
       "cited_by": 5,
@@ -716,9 +709,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5511859416961671,
-        "similarity_score": 0.5010781288146973,
-        "citation_text_length": 1140,
+        "confidence_score": 0.5555768370628358,
+        "similarity_score": 0.5050698518753052,
+        "citation_text_length": 1125,
         "dataset_text_length": 2279,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -796,7 +789,7 @@
     {
       "title": "Comparison of Pupil Size and Visual Evoked Potentials under 1-6Hz Visual Stimulation",
       "author": "Lu Jiang, Xiaoyang Li, Yijun Wang, Weihua Pei, Xiaorong Gao, Hongda Chen",
-      "venue": "2020 42nd Annual International Conference of the IEEE Engineering in Medicine & Biology Society (EMBC)",
+      "venue": "Proceedings of the Annual International Conference of the IEEE Engineering in Medicine and Biology Society",
       "year": 2020,
       "url": "https://doi.org/10.1109/embc44109.2020.9175893",
       "cited_by": 1,
@@ -808,9 +801,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5749457734823228,
-        "similarity_score": 0.49778854846954346,
-        "citation_text_length": 1176,
+        "confidence_score": 0.5637849560379983,
+        "similarity_score": 0.4881255030632019,
+        "citation_text_length": 1180,
         "dataset_text_length": 2279,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -819,7 +812,7 @@
     {
       "title": "Otago polytechnic accessibility software hub",
       "author": "David Rozado, Patricia Haden",
-      "venue": "Proceedings of the 29th Australian Conference on Computer-Human Interaction",
+      "venue": "Australian Conference on Computer-Human Interaction (OzCHI)",
       "year": 2017,
       "url": "https://doi.org/10.1145/3152771.3156150",
       "cited_by": 1,
@@ -831,9 +824,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.3609900832176209,
-        "similarity_score": 0.32817280292510986,
-        "citation_text_length": 1186,
+        "confidence_score": 0.35608941912651065,
+        "similarity_score": 0.3237176537513733,
+        "citation_text_length": 1170,
         "dataset_text_length": 2279,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1029,13 +1022,13 @@
       "venue": "Behavior Research Methods",
       "year": 2023,
       "url": "https://doi.org/10.3758/s13428-023-02098-1",
-      "cited_by": 67,
+      "cited_by": 68,
       "abstract": "The pupil of the eye provides a rich source of information for cognitive scientists, as it can index a variety of bodily states (e.g., arousal, fatigue) and cognitive processes (e.g., attention, decision-making). As pupillometry becomes a more accessible and popular methodology, researchers have proposed a variety of techniques for analyzing pupil data. Here, we focus on time series-based, signal-to-signal approaches that enable one to relate dynamic changes in pupil size over time with dynamic changes in a stimulus time series, continuous behavioral outcome measures, or other participants' pupil traces. We first introduce pupillometry, its neural underpinnings, and the relation between pupil measurements and other oculomotor behaviors (e.g., blinks, saccades), to stress the importance of understanding what is being measured and what can be inferred from changes in pupillary activity. Next, we discuss possible pre-processing steps, and the contexts in which they may be necessary. Final",
       "doi": "10.3758/s13428-023-02098-1",
       "pmid": "37351785",
       "openalex_id": "W4381716880",
       "source_doi": "10.7910/dvn/28932",
-      "source_relation": "References",
+      "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.4593430316448212,
@@ -1045,72 +1038,22 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
-    },
-    {
-      "title": "Macrophages regulate expression of 1,2-fucosyltransferase genes in human endometrial epithelial cells",
-      "author": "Hitomi Nakamura, Melinda Jane Jasper, Mary Louise Hull, John Aplin, Sarah Anne Robertson",
-      "venue": "Molecular Human Reproduction",
-      "year": 2011,
-      "url": "https://doi.org/10.1093/molehr/gar070",
-      "cited_by": 50,
-      "abstract": "The epithelial cell surface of the endometrium undergoes substantial biochemical changes to allow embryo attachment and implantation in early pregnancy. We hypothesized that tissue macrophages influence these events to promote uterine receptivity. To investigate the role of macrophages in regulating epithelial cell expression of genes linked to glycan-mediated embryo adhesion, Ishikawa, RL95-2 and HEC1A endometrial epithelial cells were cultured alone or with unactivated or lipopolysaccharide-activated monocytic U937 cells, separated using transwell inserts. Expression of mRNAs encoding two α1,2-fucosyltransferases (FUT1, FUT2) was increased in all three epithelial cell lines following co-culture with U937 cells, and was associated with increased fucosylation of cell surface glycoproteins detected using lectins from Ulex europaeus (UEA-1) and Dolichos biflorus (DBA). FUT1 induction by U937 cells also occurred in primary endometrial epithelial cells collected in luteal but not proliferative phase. Activation of the interleukin-6 (IL6)/leukemia inhibitory factor (LIF) cytokine signaling pathway with phosphorylation of STAT3 and elevated SOCS3 mRNA expression was evident in epithelial cells stimulated by U937 co-culture. Several recombinant macrophage-secreted cytokines exerted stimulatory or inhibitory effects on FUT1 and FUT2 mRNA expression, and the macrophage-derived cytokine LIF partially replicated the effects of U937 cells on both FUT1 and FUT2 expression and UEA-1 and DBA lectin reactivity in Ishikawa cells. These results suggest that macrophage-derived factors including LIF might facilitate development of an implantation-receptive endometrium by regulating surface glycan structures in epithelial cells. Abnormal phenotypes or altered abundance of uterine macrophages could contribute to the pathophysiology of primary unexplained infertility in women.",
-      "doi": "10.1093/molehr/gar070",
-      "pmid": "22053055",
-      "openalex_id": "W2138079506",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "nm000148",
-      "confidence_scoring": {
-        "confidence_score": 0.17186103463172914,
-        "similarity_score": 0.15623730421066284,
-        "citation_text_length": 1756,
-        "dataset_text_length": 2279,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Divergent evolution and purifying selection of the H (FUT1) gene in New World monkeys (Primates, Platyrrhini)",
-      "author": "Bárbara do Nascimento Borges, Maria Lúcia Harada",
-      "venue": "Genetics and Molecular Biology",
-      "year": 2004,
-      "url": "https://doi.org/10.1590/s1415-47572004000300007",
-      "cited_by": 1,
-      "abstract": "In the present study, the coding region of the H gene was sequenced and analyzed in fourteen genera of New World primates (Alouatta, Aotus, Ateles, Brachyteles, Cacajao, Callicebus, Callithrix, Cebus, Chiropotes, Lagothrix, Leontopithecus, Pithecia, Saguinus, and Saimiri), in order to investigate the evolution of the gene. The analyses revealed that this coding region contains 1,101 nucleotides, with the exception of Brachyteles, the callitrichines (Callithrix, Leontopithecus, and Saguinus) and one species of Callicebus (moloch), in which one codon was deleted. In the primates studied, the high GC content (63%), the nonrandom distribution of codons and the low evolution rate of the gene (0.513 substitutions/site/MA in the order Primates) suggest the action of a purifying type of selective pressure, confirmed by the Z-test. Our analyses did not identify mutations equivalent to those responsible for the H-deficient phenotypes found in humans, nor any other alteration that might explain the lack of expression of the gene in the erythrocytes of Neotropical monkeys. The phylogenetic trees obtained for the H gene and the distance matrix data suggest the occurrence of divergent evolution in the primates.",
-      "doi": "10.1590/s1415-47572004000300007",
-      "pmid": null,
-      "openalex_id": "W2074697129",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "nm000148",
-      "confidence_scoring": {
-        "confidence_score": 0.18468461930751803,
-        "similarity_score": 0.16789510846138,
-        "citation_text_length": 1442,
-        "dataset_text_length": 2279,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-10-04T10:07:38.900171+00:00",
+    "scoring_date": "2026-10-11T11:20:04.303143+00:00",
     "dataset_text_length": 2279,
-    "num_citations_scored": 43,
+    "num_citations_scored": 41,
     "summary_stats": {
-      "mean_confidence": 0.5226666660364284,
-      "median_confidence": 0.4846917092800141,
-      "std_confidence": 0.13853276038775464,
-      "min_confidence": 0.17186103463172914,
+      "mean_confidence": 0.5389784579051704,
+      "median_confidence": 0.5131994515657425,
+      "std_confidence": 0.11869852812971851,
+      "min_confidence": 0.3526606917381287,
       "max_confidence": 0.7598992556333543,
       "high_confidence_count": 6,
       "medium_confidence_count": 30,
-      "low_confidence_count": 7
+      "low_confidence_count": 5
     }
   }
 }

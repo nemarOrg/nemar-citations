@@ -1,50 +1,58 @@
 {
   "dataset_id": "on003633",
   "num_citations": 2,
-  "date_last_updated": "2026-09-30T10:47:15.185161+00:00",
+  "date_last_updated": "2026-10-11T11:16:22.290630+00:00",
   "metadata": {
-    "total_cumulative_citations": 14,
-    "fetch_date": "2026-09-29T11:10:07.104979+00:00",
+    "total_cumulative_citations": 13,
+    "fetch_date": "2026-10-11T10:45:44.037890+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
-    "anchor_count": 1,
+    "anchor_count": 2,
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
     "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
+        "identifier": "10.1101/2021.06.04.446837",
+        "identifier_type": "doi",
+        "source_relation": "IsDescribedBy",
+        "classification": "data_paper",
+        "kept": true,
+        "kept_reason": "judged_data_paper",
+        "paper_title": "A studyforrest extension, MEG recordings while watching the audio-visual movie “Forrest Gump”",
+        "paper_year": 2021,
+        "paper_venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+        "reason": "The bioRxiv preprint has the same authors and describes the MEG dataset of 11 participants watching the 2h Chinese-dubbed Forrest Gump movie. The README also points to it as the dataset's paper.",
+        "judgment_model": "claude-sonnet-5-5"
+      },
+      {
         "identifier": "10.82901/nemar.on003633",
         "identifier_type": "doi",
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
+      "10.1101/2021.06.04.446837",
       "10.82901/nemar.on003633"
     ],
     "keywords": [
       "MEG",
       "Magnetoencephalography",
-      "movie watching",
       "naturalistic stimuli",
-      "audiovisual perception",
-      "structural MRI",
-      "independent component analysis",
+      "movie watching",
       "Forrest Gump",
-      "CTF MEG",
-      "fMRIPrep",
-      "FreeSurfer",
-      "passive viewing"
+      "audio-visual"
     ],
-    "methods_description": "MEG data were acquired using a 275-channel CTF system during movie watching. Preprocessing involved: (1) bad channel detection and removal, (2) high-pass filtering at 1 Hz to remove slow drifts, and (3) artifact removal using independent component analysis. Structural T1-weighted images were minimally preprocessed using fMRIPrep's anatomical pipeline with default settings. MEG-MRI co-registration and surface reconstruction were performed using MNE-BIDS and FreeSurfer.",
+    "methods_description": "MEG was recorded with a 275-channel CTF system while participants watched the Chinese-dubbed Forrest Gump movie. T1w images were processed with the fMRIPrep anatomical pipeline. MEG data were preprocessed with MNE: bad channel detection and removal, 1 Hz high-pass filtering, and ICA-based artifact removal. Data are organized in MEG-BIDS using MNE-BIDS.",
     "funding": [
       {
         "funder_name": "National Key R&D Program of China",
@@ -70,7 +78,7 @@
       "venue": "Scientific Data",
       "year": 2022,
       "url": "https://doi.org/10.1038/s41597-022-01299-1",
-      "cited_by": 14,
+      "cited_by": 13,
       "abstract": "Naturalistic stimuli, such as movies, are being increasingly used to map brain function because of their high ecological validity. The pioneering studyforrest and other naturalistic neuroimaging projects have provided free access to multiple movie-watching functional magnetic resonance imaging (fMRI) datasets to prompt the community for naturalistic experimental paradigms. However, sluggish blood-oxygenation-level-dependent fMRI signals are incapable of resolving neuronal activity with the temporal resolution at which it unfolds. Instead, magnetoencephalography (MEG) measures changes in the magnetic field produced by neuronal activity and is able to capture rich dynamics of the brain at the millisecond level while watching naturalistic movies. Herein, we present the first public prolonged MEG dataset collected from 11 participants while watching the 2 h long audio-visual movie \"Forrest Gump\". Minimally preprocessed data was also provided to facilitate the use of the dataset. As a studyforrest extension, we envision that this dataset, together with fMRI data from the studyforrest project, will serve as a foundation for exploring the neural dynamics of various cognitive functions in real-world contexts.",
       "doi": "10.1038/s41597-022-01299-1",
       "pmid": "35562378",
@@ -120,7 +128,7 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T10:56:38.843728+00:00",
+    "scoring_date": "2026-10-11T11:29:17.064273+00:00",
     "dataset_text_length": 2194,
     "num_citations_scored": 2,
     "summary_stats": {

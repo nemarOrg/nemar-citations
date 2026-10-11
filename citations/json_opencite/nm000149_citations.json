@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000149",
   "num_citations": 100,
-  "date_last_updated": "2026-09-30T10:44:24.726739+00:00",
+  "date_last_updated": "2026-10-11T10:15:23.592492+00:00",
   "metadata": {
-    "total_cumulative_citations": 2439,
-    "fetch_date": "2026-09-29T10:41:48.961520+00:00",
+    "total_cumulative_citations": 2437,
+    "fetch_date": "2026-10-11T10:15:23.592492+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 3,
@@ -19,25 +19,25 @@
         "source_relation": "IsDerivedFrom",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Attempted Arm and Hand Movements can be Decoded from Low-Frequency EEG from Persons with Spinal Cord Injury",
         "paper_year": 2019,
         "paper_venue": "Scientific Reports",
         "reason": "The paper reports the recording of this exact data: 10 persons with cervical SCI attempting hand open, palmar/lateral grasp, pronation and supination. The authors and DOI match the dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.5281/zenodo.2222268",
         "identifier_type": "doi",
-        "source_relation": "References",
+        "source_relation": "IsDerivedFrom",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Attempted Arm and Hand Movements can be Decoded from Low-Frequency EEG from Persons with Spinal Cord Injury",
         "paper_year": 2018,
         "paper_venue": "Figshare",
         "reason": "Figshare/Zenodo deposit of the Ofner et al. SCI study: 10 cervical SCI persons, five attempted movements (hand open, palmar/lateral grasp, pronation, supination), matching this dataset's events and authors.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.nm000149",
@@ -45,12 +45,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -60,27 +60,20 @@
     ],
     "keywords": [
       "EEG",
+      "Spinal Cord Injuries",
       "motor imagery",
-      "spinal cord injury",
-      "brain-computer interfaces",
+      "Brain-Computer Interfaces",
       "movement-related cortical potentials",
-      "neuroprosthetics",
-      "hand grasp control"
+      "neuroprosthetics"
     ],
-    "methods_description": "EEG data were acquired at 256 Hz using 61 active electrodes in a 10-5 montage (g.tec g.GAMMAsys/g.LADYbird cap) with reference at left earlobe and ground at AFF2h. Participants performed five motor imagery/attempted movement tasks cued visually for 3 seconds followed by 3-second imagery periods. Preprocessing included 0.01-100 Hz bandpass filtering, 50 Hz notch filtering, ICA-based artifact removal, and trial rejection for amplitude (±100 μV), abnormal joint probability, or kurtosis outliers. Final analysis used 0.3-3 Hz bandpass filtering with common average re-referencing.",
+    "methods_description": "61-channel EEG plus 3 EOG channels were recorded at 256 Hz with g.tec active electrodes (10-5 montage, left earlobe reference, AFF2h ground). Participants attempted or executed cued movements over 9 runs, with 72 trials per class (360 trials in total). Preprocessing included bandpass and notch filtering, ICA-based artifact removal, common average referencing and trial rejection. Decoding used shrinkage LDA in 10x10-fold cross-validation.",
     "funding": [
       {
-        "funder_name": "European Commission",
+        "funder_name": "European ICT Programme",
         "award_number": "H2020-643955",
         "award_title": "MoreGrasp"
       }
-    ],
-    "searched_accessions": [
-      "nm000149"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 100
+    ]
   },
   "citation_details": [
     {
@@ -89,7 +82,7 @@
       "venue": "IEEE Reviews in Biomedical Engineering",
       "year": 2024,
       "url": "https://doi.org/10.1109/rbme.2024.3449790",
-      "cited_by": 177,
+      "cited_by": 179,
       "abstract": "Brain-computer interface (BCI) is a rapidly evolving technology that has the potential to widely influence research, clinical and recreational use. Non-invasive BCI approaches are particularly common as they can impact a large number of participants safely and at a relatively low cost. Where traditional non-invasive BCIs were used for simple computer cursor tasks, it is now increasingly common for these systems to control robotic devices for complex tasks that may be useful in daily life. In this review, we provide an overview of the general BCI framework as well as the various methods that can be used to record neural activity, extract signals of interest, and decode brain states. In this context, we summarize the current state-of-the-art of non-invasive BCI research, focusing on trends in both the application of BCIs for controlling external devices and algorithm development to optimize their use. We also discuss various open-source BCI toolboxes and software, and describe their impa",
       "doi": "10.1109/rbme.2024.3449790",
       "pmid": "39186407",
@@ -112,7 +105,7 @@
       "venue": "Scientific Data",
       "year": 2022,
       "url": "https://doi.org/10.1038/s41597-022-01147-2",
-      "cited_by": 127,
+      "cited_by": 125,
       "abstract": "Surface electroencephalography is a standard and noninvasive way to measure electrical brain activity. Recent advances in artificial intelligence led to significant improvements in the automatic detection of brain patterns, allowing increasingly faster, more reliable and accessible Brain-Computer Interfaces. Different paradigms have been used to enable the human-machine interaction and the last few years have broad a mark increase in the interest for interpreting and characterizing the \"inner voice\" phenomenon. This paradigm, called inner speech, raises the possibility of executing an order just by thinking about it, allowing a \"natural\" way of controlling external devices. Unfortunately, the lack of publicly available electroencephalography datasets, restricts the development of new techniques for inner speech recognition. A ten-participant dataset acquired under this and two others related paradigms, recorded with an acquisition system of 136 channels, is presented. The main purpose ",
       "doi": "10.1038/s41597-022-01147-2",
       "pmid": "35165308",
@@ -124,29 +117,6 @@
         "confidence_score": 0.6694927033782005,
         "similarity_score": 0.5796473622322083,
         "citation_text_length": 1235,
-        "dataset_text_length": 2363,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "A novel explainable machine learning approach for EEG-based brain-computer interface systems",
-      "author": "Cosimo Ieracitano, Nadia Mammone, Amir Hussain, Francesco Carlo Morabito",
-      "venue": "Neural Computing and Applications",
-      "year": 2021,
-      "url": "https://doi.org/10.1007/s00521-020-05624-w",
-      "cited_by": 113,
-      "abstract": null,
-      "doi": "10.1007/s00521-020-05624-w",
-      "pmid": null,
-      "openalex_id": "W3135784346",
-      "source_doi": "10.1038/s41598-019-43594-9",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.4678922384977341,
-        "similarity_score": 0.4456116557121277,
-        "citation_text_length": 224,
         "dataset_text_length": 2363,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -176,6 +146,52 @@
       }
     },
     {
+      "title": "A novel explainable machine learning approach for EEG-based brain-computer interface systems",
+      "author": "Cosimo Ieracitano, Nadia Mammone, Amir Hussain, Francesco Carlo Morabito",
+      "venue": "Neural Computing and Applications",
+      "year": 2021,
+      "url": "https://doi.org/10.1007/s00521-020-05624-w",
+      "cited_by": 112,
+      "abstract": null,
+      "doi": "10.1007/s00521-020-05624-w",
+      "pmid": null,
+      "openalex_id": "W3135784346",
+      "source_doi": "10.1038/s41598-019-43594-9",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.4678922384977341,
+        "similarity_score": 0.4456116557121277,
+        "citation_text_length": 224,
+        "dataset_text_length": 2363,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "EEG-based brain-computer interface enables real-time robotic hand control at individual finger level",
+      "author": "Yidan Ding, Chalisa Udompanyawit, Yisha Zhang, Bin He",
+      "venue": "Nature Communications",
+      "year": 2025,
+      "url": "https://doi.org/10.1038/s41467-025-61064-x",
+      "cited_by": 92,
+      "abstract": "Brain-computer interfaces (BCIs) connect human thoughts to external devices, offering the potential to enhance life quality for individuals with motor impairments and general population. Noninvasive BCIs are accessible to a wide audience but currently face challenges, including unintuitive mappings and imprecise control. In this study, we present a real-time noninvasive robotic control system using movement execution (ME) and motor imagery (MI) of individual finger movements to drive robotic finger motions. The proposed system advances state-of-the-art electroencephalography (EEG)-BCI technology by decoding brain signals for intended finger movements into corresponding robotic motions. In a study involving 21 able-bodied experienced BCI users, we achieved real-time decoding accuracies of 80.56% for two-finger MI tasks and 60.61% for three-finger tasks. Brain signal decoding was facilitated using a deep neural network, with fine-tuning enhancing BCI performance. Our findings demonstrate",
+      "doi": "10.1038/s41467-025-61064-x",
+      "pmid": "40588517",
+      "openalex_id": "W4411829903",
+      "source_doi": "10.1038/s41598-019-43594-9",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5610498091578484,
+        "similarity_score": 0.48575741052627563,
+        "citation_text_length": 1213,
+        "dataset_text_length": 2363,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Decoding multiclass motor imagery EEG from the same upper limb by combining Riemannian geometry features and partial least squares regression",
       "author": "Yaqi Chu, Xingang Zhao, Yijun Zou, Wei Xu, Guoli Song, Jianda Han, Yiwen Zhao",
       "venue": "Journal of Neural Engineering",
@@ -199,35 +215,12 @@
       }
     },
     {
-      "title": "EEG-based brain-computer interface enables real-time robotic hand control at individual finger level",
-      "author": "Yidan Ding, Chalisa Udompanyawit, Yisha Zhang, Bin He",
-      "venue": "Nature Communications",
-      "year": 2025,
-      "url": "https://doi.org/10.1038/s41467-025-61064-x",
-      "cited_by": 88,
-      "abstract": "Brain-computer interfaces (BCIs) connect human thoughts to external devices, offering the potential to enhance life quality for individuals with motor impairments and general population. Noninvasive BCIs are accessible to a wide audience but currently face challenges, including unintuitive mappings and imprecise control. In this study, we present a real-time noninvasive robotic control system using movement execution (ME) and motor imagery (MI) of individual finger movements to drive robotic finger motions. The proposed system advances state-of-the-art electroencephalography (EEG)-BCI technology by decoding brain signals for intended finger movements into corresponding robotic motions. In a study involving 21 able-bodied experienced BCI users, we achieved real-time decoding accuracies of 80.56% for two-finger MI tasks and 60.61% for three-finger tasks. Brain signal decoding was facilitated using a deep neural network, with fine-tuning enhancing BCI performance. Our findings demonstrate",
-      "doi": "10.1038/s41467-025-61064-x",
-      "pmid": "40588517",
-      "openalex_id": "W4411829903",
-      "source_doi": "10.1038/s41598-019-43594-9",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5610498091578484,
-        "similarity_score": 0.48575741052627563,
-        "citation_text_length": 1213,
-        "dataset_text_length": 2363,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Eye-blink artifact removal from single channel EEG with k-means and SSA",
       "author": "Ajay Kumar Maddirala, Kalyana Chakravarthy Veluvolu",
       "venue": "Scientific Reports",
       "year": 2021,
       "url": "https://doi.org/10.1038/s41598-021-90437-7",
-      "cited_by": 78,
+      "cited_by": 77,
       "abstract": "In recent years, the usage of portable electroencephalogram (EEG) devices are becoming popular for both clinical and non-clinical applications. In order to provide more comfort to the subject and measure the EEG signals for several hours, these devices usually consists of fewer EEG channels or even with a single EEG channel. However, electrooculogram (EOG) signal, also known as eye-blink artifact, produced by involuntary movement of eyelids, always contaminate the EEG signals. Very few techniques are available to remove these artifacts from single channel EEG and most of these techniques modify the uncontaminated regions of the EEG signal. In this paper, we developed a new framework that combines unsupervised machine learning algorithm (k-means) and singular spectrum analysis (SSA) technique to remove eye blink artifact without modifying actual EEG signal. The novelty of the work lies in the extraction of the eye-blink artifact based on the time-domain features of the EEG signal and th",
       "doi": "10.1038/s41598-021-90437-7",
       "pmid": "34040062",
@@ -296,7 +289,7 @@
       "venue": "International Journal of Neural Systems",
       "year": 2021,
       "url": "https://doi.org/10.1142/s0129065721500386",
-      "cited_by": 60,
+      "cited_by": 61,
       "abstract": "In this paper, a hybrid-domain deep learning (DL)-based neural system is proposed to decode hand movement preparation phases from electroencephalographic (EEG) recordings. The system exploits information extracted from the temporal-domain and time-frequency-domain, as part of a hybrid strategy, to discriminate the temporal windows (i.e. EEG epochs) preceding hand sub-movements (open/close) and the resting state. To this end, for each EEG epoch, the associated cortical source signals in the motor cortex and the corresponding time-frequency (TF) maps are estimated via beamforming and Continuous Wavelet Transform (CWT), respectively. Two Convolutional Neural Networks (CNNs) are designed: specifically, the first CNN is trained over a dataset of temporal (T) data (i.e. EEG sources), and is referred to as T-CNN; the second CNN is trained over a dataset of TF data (i.e. TF-maps of EEG sources), and is referred to as TF-CNN. Two sets of features denoted as T-features and TF-features, extracted",
       "doi": "10.1142/s0129065721500386",
       "pmid": "34376121",
@@ -342,7 +335,7 @@
       "venue": "IEEE Transactions on Neural Systems and Rehabilitation Engineering",
       "year": 2022,
       "url": "https://doi.org/10.1109/tnsre.2022.3176575",
-      "cited_by": 54,
+      "cited_by": 53,
       "abstract": "In recent years, there has been an increase in the usage of consumer based EEG devices with fewer channel configuration. Although independent component analysis has been a popular approach for eye-blink artifact removal from multichannel EEG signals, several studies showed that there is a leak of neural information into the eye-blink artifact associated independent components (ICs). Furthermore, the leak increases as the number of input EEG channels decreases and leads to loss of valuable EEG information. To overcome this problem, we developed a new framework that combines ICA with continuous wavelet transform (CWT), k- means and singular spectrum analysis (SSA) methods. In contrast to the existing approaches, the artifact region in the identified eye-blink artifact IC is detected and suppressed rather than setting it to zero as in classical ICA. As most of the energy in the eye-blink artifact IC is concentrated in the artifact region, CWT and k- means algorithms exploits this feature ",
       "doi": "10.1109/tnsre.2022.3176575",
       "pmid": "35604962",
@@ -354,52 +347,6 @@
         "confidence_score": 0.4432771588861943,
         "similarity_score": 0.3837897479534149,
         "citation_text_length": 1234,
-        "dataset_text_length": 2363,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Distinct cortical networks for hand movement initiation and directional processing: An EEG study",
-      "author": "Reinmar J. Kobler, Elizaveta Kolesnichenko, Andreea Ioana Sburlea, Gernot R Muller-Putz",
-      "venue": "NeuroImage",
-      "year": 2020,
-      "url": "https://doi.org/10.1016/j.neuroimage.2020.117076",
-      "cited_by": 54,
-      "abstract": "Movement preparation and initiation have been shown to involve large scale brain networks. Recent findings suggest that movement preparation and initiation are represented in functionally distinct cortical networks. In electroencephalographic (EEG) recordings, movement initiation is reflected as a strong negative potential at medial central channels that is phase-locked to the movement onset - the movement-related cortical potential (MRCP). Movement preparation describes the process of transforming high level movement goals to low level commands. An integral part of this transformation process is directional processing (i.e., where to move). The processing of movement direction during visuomotor and oculomotor tasks is associated with medial parieto-occipital cortex (PO) activity, phase-locked to the presentation of potential movement goals. We surmised that the network generating the MRCP (movement initiation) would encode less information about movement direction than the parieto-occ",
-      "doi": "10.1016/j.neuroimage.2020.117076",
-      "pmid": "32585349",
-      "openalex_id": "W3036926396",
-      "source_doi": "10.1038/s41598-019-43594-9",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5006073313951492,
-        "similarity_score": 0.43342626094818115,
-        "citation_text_length": 1232,
-        "dataset_text_length": 2363,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Analyzing and Decoding Natural Reach-and-Grasp Actions Using Gel, Water and Dry EEG Systems",
-      "author": "Andreas Schwarz, Carlos Escolano, Luis Montesano, Gernot R Muller-Putz",
-      "venue": "Frontiers in Neuroscience",
-      "year": 2020,
-      "url": "https://doi.org/10.3389/fnins.2020.00849",
-      "cited_by": 53,
-      "abstract": "Reaching and grasping is an essential part of everybody's life, it allows meaningful interaction with the environment and is key to independent lifestyle. Recent electroencephalogram (EEG)-based studies have already shown that neural correlates of natural reach-and-grasp actions can be identified in the EEG. However, it is still in question whether these results obtained in a laboratory environment can make the transition to mobile applicable EEG systems for home use. In the current study, we investigated whether EEG-based correlates of natural reach-and-grasp actions can be successfully identified and decoded using mobile EEG systems, namely the water-based EEG-Versatile™ system and the dry-electrodes EEG-Hero™ headset. In addition, we also analysed gel-based recordings obtained in a laboratory environment (g.USBamp/g.Ladybird, gold standard), which followed the same experimental parameters. For each recording system, 15 study participants performed 80 self-initiated reach-and-grasp a",
-      "doi": "10.3389/fnins.2020.00849",
-      "pmid": "32903775",
-      "openalex_id": "W3048842728",
-      "source_doi": "10.1038/s41598-019-43594-9",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5304277297854424,
-        "similarity_score": 0.4592447876930237,
-        "citation_text_length": 1225,
         "dataset_text_length": 2363,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -423,6 +370,52 @@
         "confidence_score": 0.5564660458266736,
         "similarity_score": 0.4817887842655182,
         "citation_text_length": 1217,
+        "dataset_text_length": 2363,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Analyzing and Decoding Natural Reach-and-Grasp Actions Using Gel, Water and Dry EEG Systems",
+      "author": "Andreas Schwarz, Carlos Escolano, Luis Montesano, Gernot R Muller-Putz",
+      "venue": "Frontiers in Neuroscience",
+      "year": 2020,
+      "url": "https://doi.org/10.3389/fnins.2020.00849",
+      "cited_by": 51,
+      "abstract": "Reaching and grasping is an essential part of everybody's life, it allows meaningful interaction with the environment and is key to independent lifestyle. Recent electroencephalogram (EEG)-based studies have already shown that neural correlates of natural reach-and-grasp actions can be identified in the EEG. However, it is still in question whether these results obtained in a laboratory environment can make the transition to mobile applicable EEG systems for home use. In the current study, we investigated whether EEG-based correlates of natural reach-and-grasp actions can be successfully identified and decoded using mobile EEG systems, namely the water-based EEG-Versatile™ system and the dry-electrodes EEG-Hero™ headset. In addition, we also analysed gel-based recordings obtained in a laboratory environment (g.USBamp/g.Ladybird, gold standard), which followed the same experimental parameters. For each recording system, 15 study participants performed 80 self-initiated reach-and-grasp a",
+      "doi": "10.3389/fnins.2020.00849",
+      "pmid": "32903775",
+      "openalex_id": "W3048842728",
+      "source_doi": "10.1038/s41598-019-43594-9",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5304277297854424,
+        "similarity_score": 0.4592447876930237,
+        "citation_text_length": 1225,
+        "dataset_text_length": 2363,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Distinct cortical networks for hand movement initiation and directional processing: An EEG study",
+      "author": "Reinmar J. Kobler, Elizaveta Kolesnichenko, Andreea Ioana Sburlea, Gernot R Muller-Putz",
+      "venue": "NeuroImage",
+      "year": 2020,
+      "url": "https://doi.org/10.1016/j.neuroimage.2020.117076",
+      "cited_by": 50,
+      "abstract": "Movement preparation and initiation have been shown to involve large scale brain networks. Recent findings suggest that movement preparation and initiation are represented in functionally distinct cortical networks. In electroencephalographic (EEG) recordings, movement initiation is reflected as a strong negative potential at medial central channels that is phase-locked to the movement onset - the movement-related cortical potential (MRCP). Movement preparation describes the process of transforming high level movement goals to low level commands. An integral part of this transformation process is directional processing (i.e., where to move). The processing of movement direction during visuomotor and oculomotor tasks is associated with medial parieto-occipital cortex (PO) activity, phase-locked to the presentation of potential movement goals. We surmised that the network generating the MRCP (movement initiation) would encode less information about movement direction than the parieto-occ",
+      "doi": "10.1016/j.neuroimage.2020.117076",
+      "pmid": "32585349",
+      "openalex_id": "W3036926396",
+      "source_doi": "10.1038/s41598-019-43594-9",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5006073313951492,
+        "similarity_score": 0.43342626094818115,
+        "citation_text_length": 1232,
         "dataset_text_length": 2363,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -457,7 +450,7 @@
       "venue": "Nature Reviews Bioengineering",
       "year": 2023,
       "url": "https://doi.org/10.1038/s44222-023-00054-4",
-      "cited_by": 41,
+      "cited_by": 40,
       "abstract": null,
       "doi": "10.1038/s44222-023-00054-4",
       "pmid": null,
@@ -476,11 +469,11 @@
     },
     {
       "title": "Electroencephalographic Recording of the Movement-Related Cortical Potential in Ecologically Valid Movements: A Scoping Review",
-      "author": "Sharon Olsen, Gemma Alder, Mitra Williams, Seth Chambers, Mads Jochumsen, Nada Elizabeth June Signal, Usman Rashid, Imran Khan Niazi, Denise M. Taylor",
+      "author": "Sharon Olsen, Gemma Alder, Mitra Williams, Seth Chambers, Mads Jochumsen, Nada Signal, Usman Rashid, Imran Khan Niazi, Denise M. Taylor",
       "venue": "Frontiers in Neuroscience",
       "year": 2021,
       "url": "https://doi.org/10.3389/fnins.2021.721387",
-      "cited_by": 37,
+      "cited_by": 38,
       "abstract": "The movement-related cortical potential (MRCP) is a brain signal that can be recorded using surface electroencephalography (EEG) and represents the cortical processes involved in movement preparation. The MRCP has been widely researched in simple, single-joint movements, however, these movements often lack ecological validity. Ecological validity refers to the generalizability of the findings to real-world situations, such as neurological rehabilitation. This scoping review aimed to synthesize the research evidence investigating the MRCP in ecologically valid movement tasks. A search of six electronic databases identified 102 studies that investigated the MRCP during multi-joint movements; 59 of these studies investigated ecologically valid movement tasks and were included in the review. The included studies investigated 15 different movement tasks that were applicable to everyday situations, but these were largely carried out in healthy populations. The synthesized findings suggest th",
       "doi": "10.3389/fnins.2021.721387",
       "pmid": "34650399",
@@ -489,9 +482,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5274928683042527,
-        "similarity_score": 0.456703782081604,
-        "citation_text_length": 1340,
+        "confidence_score": 0.5267043364048004,
+        "similarity_score": 0.4560210704803467,
+        "citation_text_length": 1325,
         "dataset_text_length": 2363,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -503,7 +496,7 @@
       "venue": "Future Internet",
       "year": 2021,
       "url": "https://doi.org/10.3390/fi13050103",
-      "cited_by": 37,
+      "cited_by": 38,
       "abstract": "The classification of different fine hand movements from electroencephalogram (EEG) signals represents a relevant research challenge, e.g., in BCI applications for motor rehabilitation. Here, we analyzed two different datasets where fine hand movements (touch, grasp, palmar, and lateral grasp) were performed in a self-paced modality. We trained and tested a newly proposed CNN, and we compared its classification performance with two well-established machine learning models, namely, shrinkage-linear discriminant analysis (LDA) and Random Forest (RF). Compared to previous literature, we included neuroscientific evidence, and we trained our Convolutional Neural Network (CNN) model on the so-called movement-related cortical potentials (MRCPs). They are EEG amplitude modulations at low frequencies, i.e., (0.3,3) Hz that have been proved to encode several properties of the movements, e.g., type of grasp, force level, and speed. We showed that CNN achieved good performance in both datasets (ac",
       "doi": "10.3390/fi13050103",
       "pmid": null,
@@ -526,7 +519,7 @@
       "venue": "Sensors",
       "year": 2022,
       "url": "https://doi.org/10.3390/s22030931",
-      "cited_by": 34,
+      "cited_by": 35,
       "abstract": "Recently, the use of portable electroencephalogram (EEG) devices to record brain signals in both health care monitoring and in other applications, such as fatigue detection in drivers, has been increased due to its low cost and ease of use. However, the measured EEG signals always mix with the electrooculogram (EOG), which are results due to eyelid blinking or eye movements. The eye-blinking/movement is an uncontrollable activity that results in a high-amplitude slow-time varying component that is mixed in the measured EEG signal. The presence of these artifacts misled our understanding of the underlying brain state. As the portable EEG devices comprise few EEG channels or sometimes a single EEG channel, classical artifact removal techniques such as blind source separation methods cannot be used to remove these artifacts from a single-channel EEG signal. Hence, there is a demand for the development of new single-channel-based artifact removal techniques. Singular spectrum analysis (SSA",
       "doi": "10.3390/s22030931",
       "pmid": "35161676",
@@ -544,35 +537,12 @@
       }
     },
     {
-      "title": "Detection and classification of single-trial movement-related cortical potentials associated with functional lower limb movements",
-      "author": "Mads Jochumsen, Imran Khan Niazi",
-      "venue": "Journal of Neural Engineering",
-      "year": 2020,
-      "url": "https://doi.org/10.1088/1741-2552/ab9a99",
-      "cited_by": 34,
-      "abstract": "OBJECTIVE: Brain-computer interfaces that activate exoskeletons based on decoded movement-related activity have been shown to be useful for stroke rehabilitation. With the advances in the development of exoskeletons it is possible to replicate a number of different functional movements that are relevant to rehabilitate after stroke. In this study, the aim is to detect and classify six different movement tasks of the lower extremities that are used in the activities of daily living. APPROACH: Thirteen healthy subjects performed six movement tasks (1) Stand-to-sit, (2) Sit-to-stand, (3) Walking, (4) Step up, (5) Side step, and (6) Back step. Each movement task was performed 50 times while continuous EEG was recorded. The continuous EEG was divided into epochs containing the movement intention associated with the movements, and idle activity was obtained from recordings during rest. Temporal, spectral and template matching features were extracted from the EEG channels covering the motor c",
-      "doi": "10.1088/1741-2552/ab9a99",
-      "pmid": "32512541",
-      "openalex_id": "W3033993690",
-      "source_doi": "10.1038/s41598-019-43594-9",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.6285914146900178,
-        "similarity_score": 0.5442349910736084,
-        "citation_text_length": 1229,
-        "dataset_text_length": 2363,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Multiple Hand Posture Rehabilitation System Using Vision-Based Intention Detection and Soft-Robotic Glove",
       "author": "Eojin Rho, Lee Ho-Chang, Yechan Lee, Kun-Do Lee, Jungwook Mun, Min Kim, Daekyum Kim, Hyung‐Soon Park, Sungho Jo",
       "venue": "IEEE Transactions on Industrial Informatics",
       "year": 2024,
       "url": "https://doi.org/10.1109/tii.2023.3348826",
-      "cited_by": 34,
+      "cited_by": 35,
       "abstract": "For stroke survivors, diminished hand functions limit their ability to perform activities of daily living (ADLs). Recently, soft-robotic gloves have assisted stroke survivors in active rehabilitation by facilitating their finger movements based on intentions expressed through biosignals, such as electromyogram and electroencephalogram. In this regard, helping stroke survivors actively train multiple hand postures can improve hand functions required for ADLs. However, detecting intentions regarding multiple hand postures remains challenging, often resulting in low online classification performance. To address this, we propose a hand rehabilitation system comprising a vision-based intention detection framework and 8-degree-of-freedom soft-robotic glove. Our proposed framework, depth enhanced hand posture intention network, analyzes images and depths data observing users' arm behavior and hand-object interactions to predict intentions for multiple hand postures. The 8-degrees-of-freedom s",
       "doi": "10.1109/tii.2023.3348826",
       "pmid": null,
@@ -584,6 +554,29 @@
         "confidence_score": 0.4574579970538617,
         "similarity_score": 0.3960675299167633,
         "citation_text_length": 1298,
+        "dataset_text_length": 2363,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Detection and classification of single-trial movement-related cortical potentials associated with functional lower limb movements",
+      "author": "Mads Jochumsen, Imran Khan Niazi",
+      "venue": "Journal of Neural Engineering",
+      "year": 2020,
+      "url": "https://doi.org/10.1088/1741-2552/ab9a99",
+      "cited_by": 33,
+      "abstract": "OBJECTIVE: Brain-computer interfaces that activate exoskeletons based on decoded movement-related activity have been shown to be useful for stroke rehabilitation. With the advances in the development of exoskeletons it is possible to replicate a number of different functional movements that are relevant to rehabilitate after stroke. In this study, the aim is to detect and classify six different movement tasks of the lower extremities that are used in the activities of daily living. APPROACH: Thirteen healthy subjects performed six movement tasks (1) Stand-to-sit, (2) Sit-to-stand, (3) Walking, (4) Step up, (5) Side step, and (6) Back step. Each movement task was performed 50 times while continuous EEG was recorded. The continuous EEG was divided into epochs containing the movement intention associated with the movements, and idle activity was obtained from recordings during rest. Temporal, spectral and template matching features were extracted from the EEG channels covering the motor c",
+      "doi": "10.1088/1741-2552/ab9a99",
+      "pmid": "32512541",
+      "openalex_id": "W3033993690",
+      "source_doi": "10.1038/s41598-019-43594-9",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6285914146900178,
+        "similarity_score": 0.5442349910736084,
+        "citation_text_length": 1229,
         "dataset_text_length": 2363,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -618,7 +611,7 @@
       "venue": "International Journal of Neural Systems",
       "year": 2021,
       "url": "https://doi.org/10.1142/s0129065721500520",
-      "cited_by": 31,
+      "cited_by": 30,
       "abstract": "Hybrid Brain-Computer Interfaces (BCIs) for upper limb rehabilitation after stroke should enable the reinforcement of \"more normal\" brain and muscular activity. Here, we propose the combination of corticomuscular coherence (CMC) and intermuscular coherence (IMC) as control features for a novel hybrid BCI for rehabilitation purposes. Multiple electroencephalographic (EEG) signals and surface electromyography (EMG) from 5 muscles per side were collected in 20 healthy participants performing finger extension (Ext) and grasping (Grasp) with both dominant and non-dominant hand. Grand average of CMC and IMC patterns showed a bilateral sensorimotor area as well as multiple muscles involvement. CMC and IMC values were used as features to classify each task versus rest and Ext versus Grasp. We demonstrated that a combination of CMC and IMC features allows for classification of both movements versus rest with better performance (Area Under the receiver operating characteristic Curve, AUC) for th",
       "doi": "10.1142/s0129065721500520",
       "pmid": "34590990",
@@ -636,35 +629,12 @@
       }
     },
     {
-      "title": "From Brain Models to Robotic Embodied Cognition: How Does Biological Plausibility Inform Neuromorphic Systems?",
-      "author": "Martin Do Pham, Amedeo D’Angiulli, Maryam Mehri Dehnavi, Robin Chhabra",
-      "venue": "Brain Sciences",
-      "year": 2023,
-      "url": "https://doi.org/10.3390/brainsci13091316",
-      "cited_by": 30,
-      "abstract": "We examine the challenging \"marriage\" between computational efficiency and biological plausibility-A crucial node in the domain of spiking neural networks at the intersection of neuroscience, artificial intelligence, and robotics. Through a transdisciplinary review, we retrace the historical and most recent constraining influences that these parallel fields have exerted on descriptive analysis of the brain, construction of predictive brain models, and ultimately, the embodiment of neural networks in an enacted robotic agent. We study models of Spiking Neural Networks (SNN) as the central means enabling autonomous and intelligent behaviors in biological systems. We then provide a critical comparison of the available hardware and software to emulate SNNs for investigating biological entities and their application on artificial systems. Neuromorphics is identified as a promising tool to embody SNNs in real physical systems and different neuromorphic chips are compared. The concepts requir",
-      "doi": "10.3390/brainsci13091316",
-      "pmid": "37759917",
-      "openalex_id": "W4386743108",
-      "source_doi": "10.1038/s41598-019-43594-9",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.3369030421972275,
-        "similarity_score": 0.2916909456253052,
-        "citation_text_length": 1233,
-        "dataset_text_length": 2363,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Disentangling human grasping type from the object's intrinsic properties using low-frequency EEG signals",
       "author": "Andreea Ioana Sburlea, Marilena Wilding, Gernot R Muller-Putz",
       "venue": "Neuroimage Reports",
       "year": 2021,
       "url": "https://doi.org/10.1016/j.ynirp.2021.100012",
-      "cited_by": 30,
+      "cited_by": 29,
       "abstract": "Grasping movements are known to activate the fronto-parietal brain networks both in human and non-human primates. However, it is unclear if these activations represent properties of the objects or hand postures or both at different stages of the movement. We manipulated the intrinsic properties of the objects and the grasping types in order to create twelve unique combinations of grasping movements and we investigated, in healthy adult humans, the low-frequency time-domain EEG representation of grasping over different stages of the movement. Next, we implemented two multiclass decoders for the grasp type and objects' properties and evaluated them over time. Furthermore, we investigated the similarity between these grasping EEG representations and categorical models that encode properties of the movement and intrinsic properties of the objects. We found that properties of the grasping movement (grasp types, number of fingers) and intrinsic object properties (shape and size) as represent",
       "doi": "10.1016/j.ynirp.2021.100012",
       "pmid": "40567869",
@@ -676,6 +646,29 @@
         "confidence_score": 0.5380088987946512,
         "similarity_score": 0.46580857038497925,
         "citation_text_length": 1222,
+        "dataset_text_length": 2363,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "From Brain Models to Robotic Embodied Cognition: How Does Biological Plausibility Inform Neuromorphic Systems?",
+      "author": "Martin Do Pham, Amedeo D’Angiulli, Maryam Mehri Dehnavi, Robin Chhabra",
+      "venue": "Brain Sciences",
+      "year": 2023,
+      "url": "https://doi.org/10.3390/brainsci13091316",
+      "cited_by": 28,
+      "abstract": "We examine the challenging \"marriage\" between computational efficiency and biological plausibility-A crucial node in the domain of spiking neural networks at the intersection of neuroscience, artificial intelligence, and robotics. Through a transdisciplinary review, we retrace the historical and most recent constraining influences that these parallel fields have exerted on descriptive analysis of the brain, construction of predictive brain models, and ultimately, the embodiment of neural networks in an enacted robotic agent. We study models of Spiking Neural Networks (SNN) as the central means enabling autonomous and intelligent behaviors in biological systems. We then provide a critical comparison of the available hardware and software to emulate SNNs for investigating biological entities and their application on artificial systems. Neuromorphics is identified as a promising tool to embody SNNs in real physical systems and different neuromorphic chips are compared. The concepts requir",
+      "doi": "10.3390/brainsci13091316",
+      "pmid": "37759917",
+      "openalex_id": "W4386743108",
+      "source_doi": "10.1038/s41598-019-43594-9",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.3369030421972275,
+        "similarity_score": 0.2916909456253052,
+        "citation_text_length": 1233,
         "dataset_text_length": 2363,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -751,35 +744,12 @@
       }
     },
     {
-      "title": "Robust anticipation of continuous steering actions from electroencephalographic data during simulated driving",
-      "author": "Giovanni M. Di Liberto, Michele Barsotti, Giovanni Vecchiato, Jonas Ambeck-Madsen, Maria Del Vecchio, Pietro Avanzini, Luca Ascari",
-      "venue": "Scientific Reports",
-      "year": 2021,
-      "url": "https://doi.org/10.1038/s41598-021-02750-w",
-      "cited_by": 24,
-      "abstract": "Driving a car requires high cognitive demands, from sustained attention to perception and action planning. Recent research investigated the neural processes reflecting the planning of driving actions, aiming to better understand the factors leading to driving errors and to devise methodologies to anticipate and prevent such errors by monitoring the driver's cognitive state and intention. While such anticipation was shown for discrete driving actions, such as emergency braking, there is no evidence for robust neural signatures of continuous action planning. This study aims to fill this gap by investigating continuous steering actions during a driving task in a car simulator with multimodal recordings of behavioural and electroencephalography (EEG) signals. System identification is used to assess whether robust neurophysiological signatures emerge before steering actions. Linear decoding models are then used to determine whether such cortical signals can predict continuous steering actio",
-      "doi": "10.1038/s41598-021-02750-w",
-      "pmid": "34862442",
-      "openalex_id": "W3214902398",
-      "source_doi": "10.1038/s41598-019-43594-9",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.4232097655534745,
-        "similarity_score": 0.3664153814315796,
-        "citation_text_length": 1296,
-        "dataset_text_length": 2363,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Online detection of movement during natural and self-initiated reach-and-grasp actions from EEG signals",
       "author": "Joana Pereira, Reinmar J. Kobler, Patrick Ofner, Andreas Schwarz, Gernot R Muller-Putz",
       "venue": "Journal of Neural Engineering",
       "year": 2021,
       "url": "https://doi.org/10.1088/1741-2552/ac0b52",
-      "cited_by": 24,
+      "cited_by": 25,
       "abstract": "Abstract Movement intention detection using electroencephalography (EEG) is a challenging but essential component of brain–computer interfaces (BCIs) for people with motor disabilities. Objective. The goal of this study is to develop a new experimental paradigm to perform asynchronous online detection of movement based on low-frequency time-domain EEG features, concretely on movement-related cortical potentials. The paradigm must be easily transferable to people without any residual upper-limb movement function and the BCI must be independent of upper-limb movement onset measurements and external cues. Approach. In a study with non-disabled participants, we evaluated a novel BCI paradigm to detect self-initiated reach-and-grasp movements. Two experimental conditions were involved. In one condition, participants performed reach-and-grasp movements to a target and simultaneously shifted their gaze towards it. In a control condition, participants solely shifted their gaze towards the targ",
       "doi": "10.1088/1741-2552/ac0b52",
       "pmid": "34130267",
@@ -791,6 +761,29 @@
         "confidence_score": 0.6230447047948838,
         "similarity_score": 0.5394326448440552,
         "citation_text_length": 1257,
+        "dataset_text_length": 2363,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Temporal-spatial convolutional residual network for decoding attempted movement related EEG signals of subjects with spinal cord injury",
+      "author": "Hamed Mirzabagherian, Mohammad Bagher Menhaj, Amir Abolfazl Suratgar, Nasibeh Talebi, M. Sardari, Atena Sajedin",
+      "venue": "Computers in Biology and Medicine",
+      "year": 2023,
+      "url": "https://doi.org/10.1016/j.compbiomed.2023.107159",
+      "cited_by": 23,
+      "abstract": "Brain Computer Interface (BCI) offers a promising approach to restoring hand functionality for people with cervical spinal cord injury (SCI). A reliable classification of brain activities based on appropriate flexibility in feature extraction could enhance BCI systems performance. In the present study, based on convolutional layers with temporal-spatial, Separable and Depthwise structures, we develop Temporal-Spatial Convolutional Residual Network)TSCR-Net(and Temporal-Spatial Convolutional Iterative Residual Network)TSCIR-Net(structures to classify electroencephalogram (EEG) signals. Using EEG signals in five different hand movement classes of SCI people, we compare the effectiveness of TSCIR-Net and TSCR-Net models with some competitive methods. We use the bayesian hyperparameter optimization algorithm to tune the hyperparameters of compact convolutional neural networks. In order to show the high generalizability of the proposed models, we compare the results of the models in differe",
+      "doi": "10.1016/j.compbiomed.2023.107159",
+      "pmid": "37531857",
+      "openalex_id": "W4382933823",
+      "source_doi": "10.1038/s41598-019-43594-9",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7121538349986077,
+        "similarity_score": 0.6165834069252014,
+        "citation_text_length": 1318,
         "dataset_text_length": 2363,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -843,29 +836,6 @@
       }
     },
     {
-      "title": "Temporal-spatial convolutional residual network for decoding attempted movement related EEG signals of subjects with spinal cord injury",
-      "author": "Hamed Mirzabagherian, Mohammad Bagher Menhaj, Amir Abolfazl Suratgar, Nasibeh Talebi, M. Sardari, Atena Sajedin",
-      "venue": "Computers in Biology and Medicine",
-      "year": 2023,
-      "url": "https://doi.org/10.1016/j.compbiomed.2023.107159",
-      "cited_by": 22,
-      "abstract": "Brain Computer Interface (BCI) offers a promising approach to restoring hand functionality for people with cervical spinal cord injury (SCI). A reliable classification of brain activities based on appropriate flexibility in feature extraction could enhance BCI systems performance. In the present study, based on convolutional layers with temporal-spatial, Separable and Depthwise structures, we develop Temporal-Spatial Convolutional Residual Network)TSCR-Net(and Temporal-Spatial Convolutional Iterative Residual Network)TSCIR-Net(structures to classify electroencephalogram (EEG) signals. Using EEG signals in five different hand movement classes of SCI people, we compare the effectiveness of TSCIR-Net and TSCR-Net models with some competitive methods. We use the bayesian hyperparameter optimization algorithm to tune the hyperparameters of compact convolutional neural networks. In order to show the high generalizability of the proposed models, we compare the results of the models in differe",
-      "doi": "10.1016/j.compbiomed.2023.107159",
-      "pmid": "37531857",
-      "openalex_id": "W4382933823",
-      "source_doi": "10.1038/s41598-019-43594-9",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.7121538349986077,
-        "similarity_score": 0.6165834069252014,
-        "citation_text_length": 1318,
-        "dataset_text_length": 2363,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Circulant Singular Spectrum Analysis and Discrete Wavelet Transform for Automated Removal of EOG Artifacts from EEG Signals",
       "author": "Jammisetty Yedukondalu, Lakhan Dev Sharma",
       "venue": "Sensors",
@@ -883,6 +853,29 @@
         "confidence_score": 0.5122095380723477,
         "similarity_score": 0.4434714615345001,
         "citation_text_length": 1210,
+        "dataset_text_length": 2363,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Robust anticipation of continuous steering actions from electroencephalographic data during simulated driving",
+      "author": "Giovanni M. Di Liberto, Michele Barsotti, Giovanni Vecchiato, Jonas Ambeck-Madsen, Maria Del Vecchio, Pietro Avanzini, Luca Ascari",
+      "venue": "Scientific Reports",
+      "year": 2021,
+      "url": "https://doi.org/10.1038/s41598-021-02750-w",
+      "cited_by": 22,
+      "abstract": "Driving a car requires high cognitive demands, from sustained attention to perception and action planning. Recent research investigated the neural processes reflecting the planning of driving actions, aiming to better understand the factors leading to driving errors and to devise methodologies to anticipate and prevent such errors by monitoring the driver's cognitive state and intention. While such anticipation was shown for discrete driving actions, such as emergency braking, there is no evidence for robust neural signatures of continuous action planning. This study aims to fill this gap by investigating continuous steering actions during a driving task in a car simulator with multimodal recordings of behavioural and electroencephalography (EEG) signals. System identification is used to assess whether robust neurophysiological signatures emerge before steering actions. Linear decoding models are then used to determine whether such cortical signals can predict continuous steering actio",
+      "doi": "10.1038/s41598-021-02750-w",
+      "pmid": "34862442",
+      "openalex_id": "W3214902398",
+      "source_doi": "10.1038/s41598-019-43594-9",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.4232097655534745,
+        "similarity_score": 0.3664153814315796,
+        "citation_text_length": 1296,
         "dataset_text_length": 2363,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -940,7 +933,7 @@
       "venue": "IEEE Transactions on Neural Systems and Rehabilitation Engineering",
       "year": 2024,
       "url": "https://doi.org/10.1109/tnsre.2024.3454088",
-      "cited_by": 19,
+      "cited_by": 20,
       "abstract": "The EEG is a widely utilized neural signal source, particularly in motor imagery-based brain-computer interface (MI-BCI), offering distinct advantages in applications like stroke rehabilitation. Current research predominantly concentrates on the bilateral limbs paradigm and decoding, but the use scenarios for stroke rehabilitation are typically for unilateral upper limbs. There is a significant challenge to decoding unilateral MI of multitasks due to the overlapped spatial neural activities of the tasks. This study aims to formulate a novel MI-BCI experimental paradigm for unilateral limbs with multitasks. The paradigm encompasses four imagined movement directions: top-bottom, left-right, top right-bottom left, and top left-bottom right. Forty-six healthy subjects participated in this experiment. Commonly used machine learning techniques, such as FBCSP, EEGNet, deepConvNet, and FBCNet, were employed for evaluation. To improve decoding accuracy, we propose an MVCA method that introduces",
       "doi": "10.1109/tnsre.2024.3454088",
       "pmid": "39236133",
@@ -1096,29 +1089,6 @@
       }
     },
     {
-      "title": "Exploring EEG spectral and temporal dynamics underlying a hand grasp movement",
-      "author": "Sandeep Bodda, Shyam Diwakar",
-      "venue": "PLoS ONE",
-      "year": 2022,
-      "url": "https://doi.org/10.1371/journal.pone.0270366",
-      "cited_by": 15,
-      "abstract": "For brain-computer interfaces, resolving the differences between pre-movement and movement requires decoding neural ensemble activity in the motor cortex's functional regions and behavioural patterns. Here, we explored the underlying neural activity and mechanisms concerning a grasped motor task by recording electroencephalography (EEG) signals during the execution of hand movements in healthy subjects. The grasped movement included different tasks; reaching the target, grasping the target, lifting the object upwards, and moving the object in the left or right directions. 163 trials of EEG data were acquired from 30 healthy participants who performed the grasped movement tasks. Rhythmic EEG activity was analysed during the premovement (alert task) condition and compared against grasped movement tasks while the arm was moved towards the left or right directions. The short positive to negative deflection that initiated around -0.5ms as a wave before the onset of movement cue can be used ",
-      "doi": "10.1371/journal.pone.0270366",
-      "pmid": "35737671",
-      "openalex_id": "W4283381593",
-      "source_doi": "10.1038/s41598-019-43594-9",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.6195126271247865,
-        "similarity_score": 0.536374568939209,
-        "citation_text_length": 1152,
-        "dataset_text_length": 2363,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Direct comparison of supervised and semi-supervised retraining approaches for co-adaptive BCIs",
       "author": "Andreas Schwarz, Julia Brandstetter, Joana Pereira, Gernot R Muller-Putz",
       "venue": "Medical & Biological Engineering & Computing",
@@ -1188,6 +1158,29 @@
       }
     },
     {
+      "title": "Spinal cord bioelectronic interfaces: opportunities in neural recording and clinical challenges",
+      "author": "Lei Jiang, Ben J. Woodington, Alejandro Carnicer‐Lombarte, George G. Malliaras, Damiano G. Barone",
+      "venue": "Journal of Neural Engineering",
+      "year": 2022,
+      "url": "https://doi.org/10.1088/1741-2552/ac605f",
+      "cited_by": 14,
+      "abstract": "Bioelectronic stimulation of the spinal cord has demonstrated significant progress in the restoration of motor function in spinal cord injury (SCI). The proximal, uninjured spinal cord presents a viable target for the recording and generation of control signals to drive targeted stimulation. Signals have been directly recorded from the spinal cord in behaving animals and correlated with limb kinematics. Advances in flexible materials, electrode impedance and signal analysis will allow spinal cord recording (SCR) to be used in next-generation neuroprosthetics. In this review, we summarize the technological advances enabling progress in SCR and describe systematically the clinical challenges facing spinal cord bioelectronic interfaces and potential solutions, from device manufacture, surgical implantation to chronic effects of foreign body reaction and stress-strain mismatches between electrodes and neural tissue. Finally, we establish our vision of bi-directional closed-loop spinal cord",
+      "doi": "10.1088/1741-2552/ac605f",
+      "pmid": "35320780",
+      "openalex_id": "W4220677879",
+      "source_doi": "10.1038/s41598-019-43594-9",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6305210942029954,
+        "similarity_score": 0.5459057092666626,
+        "citation_text_length": 1260,
+        "dataset_text_length": 2363,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Automatic estimation of continuous elbow flexion–extension movement based on electromyographic and electroencephalographic signals",
       "author": "Valeria del C. Silva-Acosta, Israel Román-Godínez, Sulema Torres-Ramos, Ricardo Antonio Salido-Ruiz",
       "venue": "Biomedical Signal Processing and Control",
@@ -1211,23 +1204,23 @@
       }
     },
     {
-      "title": "Spinal cord bioelectronic interfaces: opportunities in neural recording and clinical challenges",
-      "author": "Lei Jiang, Ben J. Woodington, Alejandro Carnicer‐Lombarte, George G. Malliaras, Damiano G. Barone",
-      "venue": "Journal of Neural Engineering",
+      "title": "Exploring EEG spectral and temporal dynamics underlying a hand grasp movement",
+      "author": "Sandeep Bodda, Shyam Diwakar",
+      "venue": "PLoS ONE",
       "year": 2022,
-      "url": "https://doi.org/10.1088/1741-2552/ac605f",
+      "url": "https://doi.org/10.1371/journal.pone.0270366",
       "cited_by": 13,
-      "abstract": "Bioelectronic stimulation of the spinal cord has demonstrated significant progress in the restoration of motor function in spinal cord injury (SCI). The proximal, uninjured spinal cord presents a viable target for the recording and generation of control signals to drive targeted stimulation. Signals have been directly recorded from the spinal cord in behaving animals and correlated with limb kinematics. Advances in flexible materials, electrode impedance and signal analysis will allow spinal cord recording (SCR) to be used in next-generation neuroprosthetics. In this review, we summarize the technological advances enabling progress in SCR and describe systematically the clinical challenges facing spinal cord bioelectronic interfaces and potential solutions, from device manufacture, surgical implantation to chronic effects of foreign body reaction and stress-strain mismatches between electrodes and neural tissue. Finally, we establish our vision of bi-directional closed-loop spinal cord",
-      "doi": "10.1088/1741-2552/ac605f",
-      "pmid": "35320780",
-      "openalex_id": "W4220677879",
+      "abstract": "For brain-computer interfaces, resolving the differences between pre-movement and movement requires decoding neural ensemble activity in the motor cortex's functional regions and behavioural patterns. Here, we explored the underlying neural activity and mechanisms concerning a grasped motor task by recording electroencephalography (EEG) signals during the execution of hand movements in healthy subjects. The grasped movement included different tasks; reaching the target, grasping the target, lifting the object upwards, and moving the object in the left or right directions. 163 trials of EEG data were acquired from 30 healthy participants who performed the grasped movement tasks. Rhythmic EEG activity was analysed during the premovement (alert task) condition and compared against grasped movement tasks while the arm was moved towards the left or right directions. The short positive to negative deflection that initiated around -0.5ms as a wave before the onset of movement cue can be used ",
+      "doi": "10.1371/journal.pone.0270366",
+      "pmid": "35737671",
+      "openalex_id": "W4283381593",
       "source_doi": "10.1038/s41598-019-43594-9",
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6305210942029954,
-        "similarity_score": 0.5459057092666626,
-        "citation_text_length": 1260,
+        "confidence_score": 0.6195126271247865,
+        "similarity_score": 0.536374568939209,
+        "citation_text_length": 1152,
         "dataset_text_length": 2363,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1235,7 +1228,7 @@
     },
     {
       "title": "Electroencephalogram Source Imaging and Brain Network Based Natural Grasps Decoding",
-      "author": "Baoguo Xu, Leying Deng, Dalin Zhang, Muhui Xue, Huijun Li, Hong Tao Zeng, Aiguo Song",
+      "author": "Baoguo Xu, Leying Deng, Dalin Zhang, Muhui Xue, Huijun Li, Hong Zeng, Aiguo Song",
       "venue": "Frontiers in Neuroscience",
       "year": 2021,
       "url": "https://doi.org/10.3389/fnins.2021.797990",
@@ -1248,9 +1241,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6203569221496583,
-        "similarity_score": 0.5371055603027344,
-        "citation_text_length": 1231,
+        "confidence_score": 0.6198853451013566,
+        "similarity_score": 0.536697268486023,
+        "citation_text_length": 1227,
         "dataset_text_length": 2363,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1297,6 +1290,29 @@
         "confidence_score": 0.6213063409924509,
         "similarity_score": 0.5379275679588318,
         "citation_text_length": 1266,
+        "dataset_text_length": 2363,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "KITE-BCI: A brain-computer interface system for functional electrical stimulation therapy",
+      "author": "Lazar I. Jovanovic, Miloš R. Popović, César Márquez-Chin",
+      "venue": "Journal of Spinal Cord Medicine",
+      "year": 2021,
+      "url": "https://doi.org/10.1080/10790268.2021.1970895",
+      "cited_by": 12,
+      "abstract": "CONTEXT/OBJECTIVE: Integrating brain-computer interface (BCI) technology with functional electrical stimulation therapy (FEST) is an emerging strategy for upper limb motor rehabilitation after spinal cord injury (SCI). Despite promising results, the combined use of these technologies (BCI-FEST) in clinical practice is minimal. To address this issue, we developed KITE-BCI, a BCI system specifically designed for clinical application and integration with dynamic FEST. In this paper, we report its technical features and performance. In addition, we discuss the differences in distributions of the BCI- and therapist-triggered stimulation latencies. DESIGN: Two single-arm 40-session interventional studies to test the feasibility of BCI-controlled FEST for upper limb motor rehabilitation in individuals with cervical SCI. SETTING: Rehabilitation programs within the University and Lyndhurst Centres of the Toronto Rehabilitation Institute - University Health Network, Toronto, Canada. PARTICIPANTS",
+      "doi": "10.1080/10790268.2021.1970895",
+      "pmid": "34779740",
+      "openalex_id": "W3212739146",
+      "source_doi": "10.1038/s41598-019-43594-9",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.591096426844597,
+        "similarity_score": 0.5117717981338501,
+        "citation_text_length": 1215,
         "dataset_text_length": 2363,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1395,29 +1411,6 @@
       }
     },
     {
-      "title": "KITE-BCI: A brain-computer interface system for functional electrical stimulation therapy",
-      "author": "Lazar I. Jovanovic, Miloš R. Popović, César Márquez-Chin",
-      "venue": "Journal of Spinal Cord Medicine",
-      "year": 2021,
-      "url": "https://doi.org/10.1080/10790268.2021.1970895",
-      "cited_by": 11,
-      "abstract": "CONTEXT/OBJECTIVE: Integrating brain-computer interface (BCI) technology with functional electrical stimulation therapy (FEST) is an emerging strategy for upper limb motor rehabilitation after spinal cord injury (SCI). Despite promising results, the combined use of these technologies (BCI-FEST) in clinical practice is minimal. To address this issue, we developed KITE-BCI, a BCI system specifically designed for clinical application and integration with dynamic FEST. In this paper, we report its technical features and performance. In addition, we discuss the differences in distributions of the BCI- and therapist-triggered stimulation latencies. DESIGN: Two single-arm 40-session interventional studies to test the feasibility of BCI-controlled FEST for upper limb motor rehabilitation in individuals with cervical SCI. SETTING: Rehabilitation programs within the University and Lyndhurst Centres of the Toronto Rehabilitation Institute - University Health Network, Toronto, Canada. PARTICIPANTS",
-      "doi": "10.1080/10790268.2021.1970895",
-      "pmid": "34779740",
-      "openalex_id": "W3212739146",
-      "source_doi": "10.1038/s41598-019-43594-9",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.591096426844597,
-        "similarity_score": 0.5117717981338501,
-        "citation_text_length": 1215,
-        "dataset_text_length": 2363,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "A Comparative Analysis of Different Feature Extraction Techniques for Motor Imagery Based BCI System",
       "author": "Sahar Selim, Manal Mohsen Tantawi, Howida A. Shedeed, Amr Ahmed Badr",
       "venue": "Advances in intelligent systems and computing",
@@ -1466,10 +1459,10 @@
     {
       "title": "Decoding reach and attempted grasp actions from EEG of persons with Spinal Cord Injury",
       "author": "Miriam Kirchhoff, Sebastian Evers, Marvin Wolf, Rüdiger Rupp, Andreas Schwarz",
-      "venue": "2022 IEEE International Conference on Systems, Man, and Cybernetics (SMC)",
+      "venue": "Conference proceedings/Conference proceedings - IEEE International Conference on Systems, Man, and Cybernetics",
       "year": 2022,
       "url": "https://doi.org/10.1109/smc53654.2022.9945603",
-      "cited_by": 9,
+      "cited_by": 10,
       "abstract": "Brain-computer interfaces (BCIs) could enable persons with cervical spinal cord injury (SCI) to intuitively control assistive motor devices for regaining lost grasping function. Previous studies, mostly performed in non-disabled persons, have already shown that complex upper limb movements can be decoded from the low-frequency time domain of the electroencephalogram (EEG).In this work, we attempted to translate these results to persons with cervical SCI and investigated whether executed reach and attempted grasp actions could be decoded from their EEG signals. For this, we chose three different reach-and-grasp actions, two unimanual and one bimanual, towards objects of daily life. During participants’ self-initiated, executed reach and attempted grasp actions, we recorded EEG using mobile, water-based electrodes. We measured two participants with subacute cervical SCI who had preserved shoulder movements and elbow flexion but no wrist and hand functions. Both repeated the session three",
       "doi": "10.1109/smc53654.2022.9945603",
       "pmid": null,
@@ -1478,9 +1471,32 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.7455953943729402,
-        "similarity_score": 0.6455371379852295,
-        "citation_text_length": 1275,
+        "confidence_score": 0.7463154271245004,
+        "similarity_score": 0.6461605429649353,
+        "citation_text_length": 1312,
+        "dataset_text_length": 2363,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Decoding motor execution and motor imagery from EEG with deep learning and source localization",
+      "author": "Sina Makhdoomi Kaviri, Ramana Kumar Vinjamuri",
+      "venue": "Biomedical Engineering Advances",
+      "year": 2025,
+      "url": "https://doi.org/10.1016/j.bea.2025.100156",
+      "cited_by": 9,
+      "abstract": "The use of noninvasive imaging techniques has become pivotal in understanding human brain functionality. While modalities like MEG and fMRI offer excellent spatial resolution, their limited temporal resolution, often measured in seconds, restricts their application in real-time brain activity monitoring. In contrast, EEG provides superior temporal resolution, making it ideal for real-time applications in brain–computer interface systems. In this study, we combined deep learning with source localization to classify two motor task types: motor execution and motor imagery. For motor imagery tasks—left hand, right hand, both feet, and tongue—we transformed EEG signals into cortical activity maps using Minimum Norm Estimation (MNE), dipole fitting, and beamforming. These were analyzed with a custom ResNet CNN, where beamforming achieved the highest accuracy of 99.15%, outperforming most traditional methods. For motor execution involving six types of reach-and-grasp tasks, beamforming achiev",
+      "doi": "10.1016/j.bea.2025.100156",
+      "pmid": null,
+      "openalex_id": "W4408742830",
+      "source_doi": "10.1038/s41598-019-43594-9",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.644693877696991,
+        "similarity_score": 0.5581765174865723,
+        "citation_text_length": 1209,
         "dataset_text_length": 2363,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1535,7 +1551,7 @@
     {
       "title": "Decoding of continuous movement attempt in 2-dimensions from non-invasive low frequency brain signals",
       "author": "Gernot R Muller-Putz, Valeria Mondini, Víctor Martínez-Cagigal, Reinmar J. Kobler, Joana Pereira, Catarina Lopes-Dias, Lea Hehenberger, Andreea Ioana Sburlea",
-      "venue": "n/a",
+      "venue": "International IEEE/EMBS Conference on Neural Engineering",
       "year": 2021,
       "url": "https://doi.org/10.1109/ner49283.2021.9441346",
       "cited_by": 8,
@@ -1547,32 +1563,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.7284863036870957,
-        "similarity_score": 0.6307240724563599,
-        "citation_text_length": 1076,
-        "dataset_text_length": 2363,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Decoding motor execution and motor imagery from EEG with deep learning and source localization",
-      "author": "Sina Makhdoomi Kaviri, Ramana Kumar Vinjamuri",
-      "venue": "Biomedical Engineering Advances",
-      "year": 2025,
-      "url": "https://doi.org/10.1016/j.bea.2025.100156",
-      "cited_by": 7,
-      "abstract": "The use of noninvasive imaging techniques has become pivotal in understanding human brain functionality. While modalities like MEG and fMRI offer excellent spatial resolution, their limited temporal resolution, often measured in seconds, restricts their application in real-time brain activity monitoring. In contrast, EEG provides superior temporal resolution, making it ideal for real-time applications in brain–computer interface systems. In this study, we combined deep learning with source localization to classify two motor task types: motor execution and motor imagery. For motor imagery tasks—left hand, right hand, both feet, and tongue—we transformed EEG signals into cortical activity maps using Minimum Norm Estimation (MNE), dipole fitting, and beamforming. These were analyzed with a custom ResNet CNN, where beamforming achieved the highest accuracy of 99.15%, outperforming most traditional methods. For motor execution involving six types of reach-and-grasp tasks, beamforming achiev",
-      "doi": "10.1016/j.bea.2025.100156",
-      "pmid": null,
-      "openalex_id": "W4408742830",
-      "source_doi": "10.1038/s41598-019-43594-9",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.644693877696991,
-        "similarity_score": 0.5581765174865723,
-        "citation_text_length": 1209,
+        "confidence_score": 0.7294043987989427,
+        "similarity_score": 0.6315189599990845,
+        "citation_text_length": 1129,
         "dataset_text_length": 2363,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1673,7 +1666,7 @@
     {
       "title": "Binary Classification of Spinal Cord Injury Patients’ EEG Data Based on the Local Linear Embedding and Spectral Embedding Methods",
       "author": "Hezzal Kucukselbes, Ebru Sayılgan",
-      "venue": "2023 Medical Technologies Congress (TIPTEKNO)",
+      "venue": "Medical Technologies Congress (TIPTEKNO)",
       "year": 2023,
       "url": "https://doi.org/10.1109/tiptekno59875.2023.10359212",
       "cited_by": 7,
@@ -1685,9 +1678,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6773267340660096,
-        "similarity_score": 0.5864300727844238,
-        "citation_text_length": 1246,
+        "confidence_score": 0.6644396692514419,
+        "similarity_score": 0.5752724409103394,
+        "citation_text_length": 1241,
         "dataset_text_length": 2363,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1763,23 +1756,23 @@
       }
     },
     {
-      "title": "Classification of Upper Limb Movements Using Convolutional Neural Network with 3D Inception Block",
-      "author": "Do-Yeun Lee, Ji-Hoon Jeong, Kyung-Hwan Shim, Dong‐Joo Kim",
+      "title": "Deep Learning Based Recognition of Hand Movement Intention EEG in Patients with Spinal Cord Injury",
+      "author": "Yongyu Jiang, Xiaodong Zhang, Chaoyang Chen, Zhufeng Lu, Yachun Wang",
       "venue": "n/a",
       "year": 2020,
-      "url": "https://doi.org/10.1109/bci48061.2020.9061671",
+      "url": "https://doi.org/10.1109/cyber50695.2020.9279190",
       "cited_by": 7,
-      "abstract": "A brain-machine interface (BMI) based on electroencephalography (EEG) can overcome the movement deficits for patients and real-world applications for healthy people. Ideally, the BMI system detects user movement intentions transforms them into a control signal for a robotic arm movement. In this study, we made progress toward user intention decoding and successfully classified six different reaching movements of the right arm in the movement execution (ME). Notably, we designed an experimental environment using robotic arm movement and proposed a convolutional neural network architecture (CNN) with inception block for robust classify executed movements of the same limb. As a result, we confirmed the classification accuracies of six different directions show 0.45 for the executed session. The results proved that the proposed architecture has approximately 6~13% performance increase compared to its conventional classification models. Hence, we demonstrate the 3D inception CNN architectur",
-      "doi": "10.1109/bci48061.2020.9061671",
+      "abstract": "In the field of medicine and rehabilitation, brain-controlled prosthetic hands can help patients with spinal cord injury to carry out daily activities. However, the recognition of EEG signals aiming at the hand movement intention of disabled patients has been faced with the difficulties of low accuracy, poor stability and weak robustness. Especially for unilateral hand movement control, the EEG intention of distinguishing different movements comes from unilateral cerebral cortex, and the degree of confusion is high. In this paper, deep learning method is introduced for EEG signal perception and recognition. A convolutional neural network model is proposed, combining with Common Spatial Patterns, to identify the intention of unilateral hand movement motion (palm extension, hand grasp). EEG signals from 15 healthy subjects and 10 patients with spinal cord injury were collected. Among the 15 healthy subjects, the average recognition accuracy was 91.57%., among which the optimal accuracy a",
+      "doi": "10.1109/cyber50695.2020.9279190",
       "pmid": null,
-      "openalex_id": "W3013694920",
+      "openalex_id": "W3113353310",
       "source_doi": "10.1038/s41598-019-43594-9",
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5456437656283379,
-        "similarity_score": 0.4724188446998596,
-        "citation_text_length": 1196,
+        "confidence_score": 0.7328806445002557,
+        "similarity_score": 0.6345286965370178,
+        "citation_text_length": 1208,
         "dataset_text_length": 2363,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1855,23 +1848,46 @@
       }
     },
     {
-      "title": "Deep Learning Based Recognition of Hand Movement Intention EEG in Patients with Spinal Cord Injury",
-      "author": "Yongyu Jiang, Xiaodong Zhang, Chaoyang Chen, Zhufeng Lu, Yachun Wang",
+      "title": "MPnnet: a Motion Planning Decoding Convolutional Neural Network for EEG-based Brain Computer Interfaces",
+      "author": "Nadia Mammone, Cosimo Ieracitano, Francesco Carlo Morabito",
       "venue": "n/a",
-      "year": 2020,
-      "url": "https://doi.org/10.1109/cyber50695.2020.9279190",
+      "year": 2021,
+      "url": "https://doi.org/10.1109/ijcnn52387.2021.9534028",
       "cited_by": 6,
-      "abstract": "In the field of medicine and rehabilitation, brain-controlled prosthetic hands can help patients with spinal cord injury to carry out daily activities. However, the recognition of EEG signals aiming at the hand movement intention of disabled patients has been faced with the difficulties of low accuracy, poor stability and weak robustness. Especially for unilateral hand movement control, the EEG intention of distinguishing different movements comes from unilateral cerebral cortex, and the degree of confusion is high. In this paper, deep learning method is introduced for EEG signal perception and recognition. A convolutional neural network model is proposed, combining with Common Spatial Patterns, to identify the intention of unilateral hand movement motion (palm extension, hand grasp). EEG signals from 15 healthy subjects and 10 patients with spinal cord injury were collected. Among the 15 healthy subjects, the average recognition accuracy was 91.57%., among which the optimal accuracy a",
-      "doi": "10.1109/cyber50695.2020.9279190",
+      "abstract": "Being able to decode the subject's intention to move is still a major challenge in the field of Brain Computer Interfaces (BCI). Even more, decoding the intention to perform movements from the motor preparation phase is a still largely unexplored topic, as most of the efforts have been focused so far on motor imagery. The present paper deals with BCIs based on electroencephalography (EEG), the best candidate for future systems meant for widespread use, with the goal of decoding the preparation of hand open/close movement from the EEG recordings of the subject. To this end, a dataset of EEG signals recorded in the 1s frame preceding the onset of movement are extracted from a publicly available database. Epochs are properly pre-filtered between 0.5 and 32 Hz and labelled as pre-hand closing (HC), pre-hand opening (HO) or resting (RE) epochs. A system for motion planning decoding, based on a custom Convolutional Neural Network (CNN) and named “Motion Planning Neural Network” MPnnet, is de",
+      "doi": "10.1109/ijcnn52387.2021.9534028",
       "pmid": null,
-      "openalex_id": "W3113353310",
+      "openalex_id": "W3198983980",
       "source_doi": "10.1038/s41598-019-43594-9",
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.7328806445002557,
-        "similarity_score": 0.6345286965370178,
-        "citation_text_length": 1208,
+        "confidence_score": 0.6526764723658562,
+        "similarity_score": 0.5650878548622131,
+        "citation_text_length": 1203,
+        "dataset_text_length": 2363,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Classification of Upper Limb Movements Using Convolutional Neural Network with 3D Inception Block",
+      "author": "Do-Yeun Lee, Ji-Hoon Jeong, Kyung-Hwan Shim, Dong‐Joo Kim",
+      "venue": "International Winter Conference on Brain-Computer Interface (BCI)",
+      "year": 2020,
+      "url": "https://doi.org/10.1109/bci48061.2020.9061671",
+      "cited_by": 6,
+      "abstract": "A brain-machine interface (BMI) based on electroencephalography (EEG) can overcome the movement deficits for patients and real-world applications for healthy people. Ideally, the BMI system detects user movement intentions transforms them into a control signal for a robotic arm movement. In this study, we made progress toward user intention decoding and successfully classified six different reaching movements of the right arm in the movement execution (ME). Notably, we designed an experimental environment using robotic arm movement and proposed a convolutional neural network architecture (CNN) with inception block for robust classify executed movements of the same limb. As a result, we confirmed the classification accuracies of six different directions show 0.45 for the executed session. The results proved that the proposed architecture has approximately 6~13% performance increase compared to its conventional classification models. Hence, we demonstrate the 3D inception CNN architectur",
+      "doi": "10.1109/bci48061.2020.9061671",
+      "pmid": null,
+      "openalex_id": "W3013694920",
+      "source_doi": "10.1038/s41598-019-43594-9",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.556191119849682,
+        "similarity_score": 0.48155075311660767,
+        "citation_text_length": 1258,
         "dataset_text_length": 2363,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1924,29 +1940,6 @@
       }
     },
     {
-      "title": "Preparatory movement state enhances premovement EEG representations for brain–computer interfaces",
-      "author": "Yuxin Zhang, Mengfan Li, Haili Wang, Mingyu Zhang, Guizhi Xu",
-      "venue": "Journal of Neural Engineering",
-      "year": 2024,
-      "url": "https://doi.org/10.1088/1741-2552/ad5109",
-      "cited_by": 5,
-      "abstract": "Abstract Objective. Motor-related brain–computer interface (BCI) have a broad range of applications, with the detection of premovement intentions being a prominent use case. However, the electroencephalography (EEG) features during the premovement phase are not distinctly evident and are susceptible to attentional influences. These limitations impede the enhancement of performance in motor-based BCI. The objective of this study is to establish a premovement BCI encoding paradigm that integrates the preparatory movement state and validates its feasibility in improving the detection of movement intentions. Methods. Two button tasks were designed to induce subjects into a preparation state for two movement intentions (left and right) based on visual guidance, in contrast to spontaneous premovement. The low frequency movement-related cortical potentials (MRCPs) and high frequency event-related desynchronization (ERD) EEG data of 14 subjects were recorded. Extracted features were fused and ",
-      "doi": "10.1088/1741-2552/ad5109",
-      "pmid": "38806037",
-      "openalex_id": "W4399068438",
-      "source_doi": "10.1038/s41598-019-43594-9",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5898867112398148,
-        "similarity_score": 0.5107244253158569,
-        "citation_text_length": 1225,
-        "dataset_text_length": 2363,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Towards Implantable Brain-Computer Interface for Communication in Locked-In Syndrome patients",
       "author": "Gernot R Muller-Putz, Markus R. Crell, Johanna Egger, Patrick Suwandjieff, Kyriaki Kostoglou",
       "venue": "Current Directions in Biomedical Engineering",
@@ -1972,7 +1965,7 @@
     {
       "title": "Electroencephalogram based Control of Prosthetic Hand using Optimizable Support Vector Machine",
       "author": "Maibam Pooya Chanu, Dingyi Pei, Parthan Olikkal, Ramana Kumar Vinjamuri, Nayan M. Kakoty",
-      "venue": "Proceedings of the 2023 6th International Conference on Advances in Robotics",
+      "venue": "Advances in Robotics - International Conference of The Robotics Society (AIR)",
       "year": 2023,
       "url": "https://doi.org/10.1145/3610419.3610453",
       "cited_by": 5,
@@ -1984,9 +1977,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5443695437908173,
-        "similarity_score": 0.4713156223297119,
-        "citation_text_length": 1297,
+        "confidence_score": 0.5511033542454243,
+        "similarity_score": 0.4771457612514496,
+        "citation_text_length": 1298,
         "dataset_text_length": 2363,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -2062,52 +2055,6 @@
       }
     },
     {
-      "title": "MPnnet: a Motion Planning Decoding Convolutional Neural Network for EEG-based Brain Computer Interfaces",
-      "author": "Nadia Mammone, Cosimo Ieracitano, Francesco Carlo Morabito",
-      "venue": "n/a",
-      "year": 2021,
-      "url": "https://doi.org/10.1109/ijcnn52387.2021.9534028",
-      "cited_by": 5,
-      "abstract": "Being able to decode the subject's intention to move is still a major challenge in the field of Brain Computer Interfaces (BCI). Even more, decoding the intention to perform movements from the motor preparation phase is a still largely unexplored topic, as most of the efforts have been focused so far on motor imagery. The present paper deals with BCIs based on electroencephalography (EEG), the best candidate for future systems meant for widespread use, with the goal of decoding the preparation of hand open/close movement from the EEG recordings of the subject. To this end, a dataset of EEG signals recorded in the 1s frame preceding the onset of movement are extracted from a publicly available database. Epochs are properly pre-filtered between 0.5 and 32 Hz and labelled as pre-hand closing (HC), pre-hand opening (HO) or resting (RE) epochs. A system for motion planning decoding, based on a custom Convolutional Neural Network (CNN) and named “Motion Planning Neural Network” MPnnet, is de",
-      "doi": "10.1109/ijcnn52387.2021.9534028",
-      "pmid": null,
-      "openalex_id": "W3198983980",
-      "source_doi": "10.1038/s41598-019-43594-9",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.6526764723658562,
-        "similarity_score": 0.5650878548622131,
-        "citation_text_length": 1203,
-        "dataset_text_length": 2363,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Spinal Cord Injury Patients Exhibit Changes in Motor-Related Activity and Topographic Distribution *",
-      "author": "Marta Sánchez Borràs, Sergio Romero, Mónica Rojas-Martínez, Leidy Y. Serna, Miguel Ángel Mañanas",
-      "venue": "2023 45th Annual International Conference of the IEEE Engineering in Medicine & Biology Society (EMBC)",
-      "year": 2023,
-      "url": "https://doi.org/10.1109/embc40787.2023.10340794",
-      "cited_by": 5,
-      "abstract": "Spinal Cord Injury (SCI) is a common disease that usually limits the patient's independence by affecting their motor function. SCI patients usually present neuroplasticity, which allows brain signals transmission through spread pathways. Some innovative rehabilitation therapies, such as functional electrical stimulation (FES) or Brain-computer interfaces (BCIs) jointly with motor neuroprostheses, provide hope for functional restoration. BCIs require the analysis of event-related EEG potentials (ERPs). Movement-related cortical potentials (MRCPs) and event-related desynchroni-zation and synchronization (ERD/ERS) are the most commonly studied ERPs during motor activity. ERPs of healthy subjects may vary from SCI patients. Thus, this study aimed to compare ERPs between healthy subjects and SCI patients during upper-limb movements (forearm supination and pronation, and hand open). Differences between controls and SCI patients were shown in terms of ERPs' amplitude as well as in topographic",
-      "doi": "10.1109/embc40787.2023.10340794",
-      "pmid": "38083728",
-      "openalex_id": "W4389542916",
-      "source_doi": "10.1038/s41598-019-43594-9",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.7664293929934504,
-        "similarity_score": 0.6635752320289612,
-        "citation_text_length": 1337,
-        "dataset_text_length": 2363,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Ecological Resonance Is Reflected in Human Brain Activity",
       "author": "Vicente Raja, Klaus Gramann",
       "venue": "Psychophysiology",
@@ -2125,6 +2072,29 @@
         "confidence_score": 0.4099590012431145,
         "similarity_score": 0.35494285821914673,
         "citation_text_length": 1045,
+        "dataset_text_length": 2363,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Spinal Cord Injury Patients Exhibit Changes in Motor-Related Activity and Topographic Distribution *",
+      "author": "Marta Sánchez Borràs, Sergio Romero, Mónica Rojas-Martínez, Leidy Y. Serna, Miguel Ángel Mañanas",
+      "venue": "Proceedings of the Annual International Conference of the IEEE Engineering in Medicine and Biology Society",
+      "year": 2023,
+      "url": "https://doi.org/10.1109/embc40787.2023.10340794",
+      "cited_by": 5,
+      "abstract": "Spinal Cord Injury (SCI) is a common disease that usually limits the patient's independence by affecting their motor function. SCI patients usually present neuroplasticity, which allows brain signals transmission through spread pathways. Some innovative rehabilitation therapies, such as functional electrical stimulation (FES) or Brain-computer interfaces (BCIs) jointly with motor neuroprostheses, provide hope for functional restoration. BCIs require the analysis of event-related EEG potentials (ERPs). Movement-related cortical potentials (MRCPs) and event-related desynchroni-zation and synchronization (ERD/ERS) are the most commonly studied ERPs during motor activity. ERPs of healthy subjects may vary from SCI patients. Thus, this study aimed to compare ERPs between healthy subjects and SCI patients during upper-limb movements (forearm supination and pronation, and hand open). Differences between controls and SCI patients were shown in terms of ERPs' amplitude as well as in topographic",
+      "doi": "10.1109/embc40787.2023.10340794",
+      "pmid": "38083728",
+      "openalex_id": "W4389542916",
+      "source_doi": "10.1038/s41598-019-43594-9",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7690190738439561,
+        "similarity_score": 0.665817379951477,
+        "citation_text_length": 1341,
         "dataset_text_length": 2363,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -2200,6 +2170,29 @@
       }
     },
     {
+      "title": "Preparatory movement state enhances premovement EEG representations for brain–computer interfaces",
+      "author": "Yuxin Zhang, Mengfan Li, Haili Wang, Mingyu Zhang, Guizhi Xu",
+      "venue": "Journal of Neural Engineering",
+      "year": 2024,
+      "url": "https://doi.org/10.1088/1741-2552/ad5109",
+      "cited_by": 4,
+      "abstract": "Abstract Objective. Motor-related brain–computer interface (BCI) have a broad range of applications, with the detection of premovement intentions being a prominent use case. However, the electroencephalography (EEG) features during the premovement phase are not distinctly evident and are susceptible to attentional influences. These limitations impede the enhancement of performance in motor-based BCI. The objective of this study is to establish a premovement BCI encoding paradigm that integrates the preparatory movement state and validates its feasibility in improving the detection of movement intentions. Methods. Two button tasks were designed to induce subjects into a preparation state for two movement intentions (left and right) based on visual guidance, in contrast to spontaneous premovement. The low frequency movement-related cortical potentials (MRCPs) and high frequency event-related desynchronization (ERD) EEG data of 14 subjects were recorded. Extracted features were fused and ",
+      "doi": "10.1088/1741-2552/ad5109",
+      "pmid": "38806037",
+      "openalex_id": "W4399068438",
+      "source_doi": "10.1038/s41598-019-43594-9",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5898867112398148,
+        "similarity_score": 0.5107244253158569,
+        "citation_text_length": 1225,
+        "dataset_text_length": 2363,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "A bimodal registration and attention method for speed imagery brain-computer interface",
       "author": "Zhengkun Liu, Xiaoqian Hao, Tengyu Wu, Guchuan Wang, Yong Li, Biao Sun",
       "venue": "Brain-Apparatus Communication A Journal of Bacomics",
@@ -2225,7 +2218,7 @@
     {
       "title": "Evoked Potentials Detection During Self-Initiated Movements Using Machine Learning Approach",
       "author": "Mikhail Lipkovich, Veronika M. Knyazeva, Aleksander Aleksandrov, Nadezhda Shanarova, Artur Sagatdinov, Аlexander L. Fradkov",
-      "venue": "2023 Fifth International Conference Neurotechnologies and Neurointerfaces (CNN)",
+      "venue": "International Conference Neurotechnologies and Neurointerfaces (CNN)",
       "year": 2023,
       "url": "https://doi.org/10.1109/cnn59923.2023.10275279",
       "cited_by": 4,
@@ -2237,9 +2230,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5549125608801843,
-        "similarity_score": 0.4804437756538391,
-        "citation_text_length": 1332,
+        "confidence_score": 0.5462710663676262,
+        "similarity_score": 0.472961962223053,
+        "citation_text_length": 1321,
         "dataset_text_length": 2363,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -2292,9 +2285,32 @@
       }
     },
     {
+      "title": "Classification of Raw Spinal Cord Injury EEG Data Based on the Temporal-Spatial Inception Deep Convolutional Neural Network",
+      "author": "Hamed Mirzabagherian, M. Sardari, Mohammad Bagher Menhaj, Amir Abolfazl Suratgar",
+      "venue": "RSI International Conference on Robotics and Mechatronics (ICRoM)",
+      "year": 2021,
+      "url": "https://doi.org/10.1109/icrom54204.2021.9663528",
+      "cited_by": 4,
+      "abstract": "Today, decoding electroencephalography (EEG) data is an important and efficient achievement in neuroscience and Brain-Computer Interface (BCI) systems. So that improving the performance of BCI systems can be effective in helping spinal cord injury (SCI) patients to perform daily tasks and rehabilitation work. In contrast, some of the challenges that make this path uneven include low signal-to-noise ratios, various artifacts in EEG signals, Low-performance methods based on handcraft feature extraction, the need for expert people, and differences between different people. However, today the development of deep learning methods and the availability of EEG datasets have reduced the existing limitations. Deep learning frameworks provide an end-to-end approach with the help of various structures that, by extracting automatic features from raw data, they try to reduce the limitation of decoding EEG data and increase the performance of BCI system as much as possible. One of the most practical ",
+      "doi": "10.1109/icrom54204.2021.9663528",
+      "pmid": null,
+      "openalex_id": "W4205940510",
+      "source_doi": "10.1038/s41598-019-43594-9",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7435232090950014,
+        "similarity_score": 0.6437430381774902,
+        "citation_text_length": 1307,
+        "dataset_text_length": 2363,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Brain Computer Interface for Neurorehabilitation with Kinesthetic Feedback",
       "author": "K Adithya, Saurabh Jacob Kuruvila, Sarang Pramode, Niranjana Krupa",
-      "venue": "n/a",
+      "venue": "International Conference on Robotics and Automation Engineering (ICRAE)",
       "year": 2020,
       "url": "https://doi.org/10.1109/icrae50850.2020.9310801",
       "cited_by": 4,
@@ -2306,9 +2322,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6574774020910263,
-        "similarity_score": 0.5692445039749146,
-        "citation_text_length": 1095,
+        "confidence_score": 0.6537833359837533,
+        "similarity_score": 0.5660461783409119,
+        "citation_text_length": 1163,
         "dataset_text_length": 2363,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -2338,46 +2354,23 @@
       }
     },
     {
-      "title": "Detecting the Intention of Object Handover in Human-Robot Collaborations: An EEG Study",
-      "author": "Nona Rajabi, P. Khanna, S. D. Kanik, Elmira Yadollahi, Miguel Vasco, Mårten Björkman, Christian Smith, Danica Kragic",
-      "venue": "2023 32nd IEEE International Conference on Robot and Human Interactive Communication (RO-MAN)",
-      "year": 2023,
-      "url": "https://doi.org/10.1109/RO-MAN57019.2023.10309426",
+      "title": "Dynamical Embedding of Single-Channel Electroencephalogram for Artifact Subspace Reconstruction",
+      "author": "Doli Hazarika, K. Vishnu, R. Ransing, Cota Navin Gupta",
+      "venue": "Sensors (Basel, Switzerland)",
+      "year": 2024,
+      "url": "https://doi.org/10.3390/s24206734",
       "cited_by": 4,
-      "abstract": "Human-robot collaboration (HRC) relies on smooth and safe interactions. In this paper, we focus on the human-to-robot handover scenario, where the robot acts as a taker. We investigate the feasibility of detecting the intention of a human-to-robot handover action through the analysis of electroencephalogram (EEG) signals. Our study confirms that temporal patterns in EEG signals provide information about motor planning and can be leveraged to predict the likelihood of an individual executing a motor task with an average accuracy of 94.7%. We also suggest the effectiveness of the time-frequency features of EEG signals in the final second prior to the movement for distinguishing between handover action and other actions. Furthermore, we classify human intentions for different tasks based on time-frequency representations of pre-movement EEG signals and achieve an average accuracy of 63.5% for contrasting every two tasks against each other. The result encourages the possibility of using EE",
-      "doi": "10.1109/RO-MAN57019.2023.10309426",
-      "pmid": null,
+      "abstract": "This study introduces a novel framework to apply the artifact subspace reconstruction (ASR) algorithm on single-channel electroencephalogram (EEG) data. ASR is known for its ability to remove artifacts like eye-blinks and movement but traditionally relies on multiple channels. Embedded ASR (E-ASR) addresses this by incorporating a dynamical embedding approach. In this method, an embedded matrix is created from single-channel EEG data using delay vectors, followed by ASR application and reconstruction of the cleaned signal. Data from four subjects with eyes open were collected using Fp1 and Fp2 electrodes via the CameraEEG android app. The E-ASR algorithm was evaluated using metrics like relative root mean square error (RRMSE), correlation coefficient (CC), and average power ratio. The number of eye-blinks with and without the E-ASR approach was also estimated. E-ASR achieved an RRMSE of 43.87% and had a CC of 0.91 on semi-simulated data and effectively reduced artifacts in real EEG dat",
+      "doi": "10.3390/s24206734",
+      "pmid": "39460214",
       "openalex_id": null,
       "source_doi": "10.1038/s41598-019-43594-9",
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.49034849971532823,
-        "similarity_score": 0.42454415559768677,
-        "citation_text_length": 1334,
-        "dataset_text_length": 2363,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Detection of Movement Related Cortical Potentials from Single Trial EEG Signals",
-      "author": "Eda Akman Aydın",
-      "venue": "Gazi Üniversitesi Fen Bilimleri Dergisi Part C: Tasarım ve Teknoloji",
-      "year": 2022,
-      "url": "https://doi.org/10.29109/gujsc.1083912",
-      "cited_by": 4,
-      "abstract": "Movement-Related Cortical Potentials (MRCP) are signals that begin to appear approximately two seconds before the onset of voluntary movements and can be recorded with EEG. MRCP is an important sign that the movement will begin. Determining the movement intention before the action is extremely important information especially for real-time BCI systems. By using MRCP, Brain-Computer Interface (BCI) users' movement intention can be determined prior to the move and this sign can be used as a control signal. In this study, it was aimed to determine the movement and resting states with high accuracy with MRCP signals. Furthermore, the effects of filter cutoff frequencies, number of electrodes, and MRCP time interval window on the success of distinguishing movement/resting states in the preprocessing stage were investigated. For this purpose, Katz fractal dimension and nonlinear support vector machine methods were used in the feature extraction and classification stages, respectively. The pr",
-      "doi": "10.29109/gujsc.1083912",
-      "pmid": null,
-      "openalex_id": null,
-      "source_doi": "10.1038/s41598-019-43594-9",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5231458573043347,
-        "similarity_score": 0.4529401361942291,
-        "citation_text_length": 1201,
+        "confidence_score": 0.5031954976916314,
+        "similarity_score": 0.43566709756851196,
+        "citation_text_length": 1216,
         "dataset_text_length": 2363,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -2386,17 +2379,17 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T10:50:13.185316+00:00",
+    "scoring_date": "2026-10-11T11:20:07.200437+00:00",
     "dataset_text_length": 2363,
     "num_citations_scored": 100,
     "summary_stats": {
-      "mean_confidence": 0.5724274982333184,
-      "median_confidence": 0.5725170390307903,
-      "std_confidence": 0.10027138253027142,
+      "mean_confidence": 0.5747100041210651,
+      "median_confidence": 0.575517070144415,
+      "std_confidence": 0.10138191608096556,
       "min_confidence": 0.3369030421972275,
       "max_confidence": 0.7899844944477082,
-      "high_confidence_count": 11,
-      "medium_confidence_count": 85,
+      "high_confidence_count": 12,
+      "medium_confidence_count": 84,
       "low_confidence_count": 4
     }
   }

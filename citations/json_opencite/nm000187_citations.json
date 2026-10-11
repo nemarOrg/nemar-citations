@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000187",
   "num_citations": 2,
-  "date_last_updated": "2026-09-30T10:44:25.412462+00:00",
+  "date_last_updated": "2026-10-11T10:18:30.454074+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
-    "fetch_date": "2026-09-29T10:46:28.135849+00:00",
+    "fetch_date": "2026-10-11T10:18:30.454074+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -19,12 +19,12 @@
         "source_relation": "IsDerivedFrom",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "bigP3BCI: An Open, Diverse and Machine Learning Ready P300-based Brain-Computer Interface Dataset",
         "paper_year": 2024,
         "paper_venue": "PhysioNet",
         "reason": "The DOI is the bigP3BCI PhysioNet dataset record. Its authors match, and this Study N is a subset of that collection, so it is the same deposit the dataset is derived from.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.21105/joss.01896",
@@ -32,12 +32,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
         "paper_year": 2019,
         "paper_venue": "The Journal of Open Source Software",
         "reason": "MNE-BIDS is a software tool for organizing electrophysiological data into BIDS; it is not a paper describing this BigP3BCI dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1038/s41597-019-0104-8",
@@ -45,12 +45,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "EEG-BIDS, an extension to the brain imaging data structure for electroencephalography",
         "paper_year": 2019,
         "paper_venue": "Scientific Data",
         "reason": "EEG-BIDS is a specification/extension of BIDS for EEG data organization, a standard used by this dataset's format, not a paper describing the BigP3BCI Study N data.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.nm000187",
@@ -58,12 +58,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -73,20 +73,13 @@
     "keywords": [
       "EEG",
       "P300",
-      "brain-computer interface",
-      "amyotrophic lateral sclerosis",
-      "event-related potential",
-      "speller paradigm",
-      "electrode comparison"
+      "Brain-Computer Interfaces",
+      "Amyotrophic Lateral Sclerosis",
+      "speller",
+      "dry electrodes"
     ],
-    "methods_description": "EEG data were acquired at 256 Hz sampling rate using a g.USBamp amplifier (g.tec) with 16 channels arranged in a standard 10-20 montage. The study employed a P300 paradigm with visual stimulus presentation in a 9x8 character grid speller configuration. Line frequency was 60 Hz. Subjects completed 2 sessions with target and non-target event classifications. HED 8.4.0 event annotations were applied to classify sensory and experimental stimulus events.",
-    "funding": [],
-    "searched_accessions": [
-      "nm000187"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 2
+    "methods_description": "EEG was recorded with a g.USBamp amplifier (g.tec) from 16 channels at 256 Hz, using a standard 10-20 montage and a 60 Hz line frequency. Participants used a visual P300 speller with a 9x8 grid and online feedback. Each participant had two sessions, comparing dry and wet electrodes. Data are labeled as Target or NonTarget events, with a calibration-then-test evaluation scheme.",
+    "funding": []
   },
   "citation_details": [
     {
@@ -138,7 +131,7 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T10:51:19.053100+00:00",
+    "scoring_date": "2026-10-11T11:21:33.607852+00:00",
     "dataset_text_length": 2339,
     "num_citations_scored": 2,
     "summary_stats": {

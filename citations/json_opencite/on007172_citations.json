@@ -1,30 +1,43 @@
 {
   "dataset_id": "on007172",
   "num_citations": 1,
-  "date_last_updated": "2026-09-30T16:34:47.117526+00:00",
+  "date_last_updated": "2026-10-11T11:11:31.142228+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
-    "fetch_date": "2026-09-29T11:37:17.708987+00:00",
+    "fetch_date": "2026-10-11T11:11:31.142228+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
-    "anchor_count": 1,
+    "anchor_count": 2,
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
     "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
+        "identifier": "10.1080/1357650x.2025.2591660",
+        "identifier_type": "doi",
+        "source_relation": "IsDescribedBy",
+        "classification": "data_paper",
+        "kept": true,
+        "kept_reason": "judged_data_paper",
+        "paper_title": "Hemispheric asymmetries in the EEG: Is there an association between N1 lateralization and alpha asymmetry?",
+        "paper_year": 2025,
+        "paper_venue": "Laterality Asymmetries of Body Brain and Cognition",
+        "reason": "The dataset's own reference is this study (same authors, n=100 participants, resting-state and word/face/house EEG tasks), and DataCite marks the dataset as IsSupplementTo it.",
+        "judgment_model": "claude-sonnet-5-5"
+      },
+      {
         "identifier": "10.21105/joss.01896",
         "identifier_type": "doi",
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
         "paper_year": 2019,
         "paper_venue": "The Journal of Open Source Software",
         "reason": "MNE-BIDS is a software tool for organizing electrophysiological data into BIDS, used to format this dataset; it does not describe the EEG-Asymmetries dataset itself.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1038/s41597-019-0104-8",
@@ -32,12 +45,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "EEG-BIDS, an extension to the brain imaging data structure for electroencephalography",
         "paper_year": 2019,
         "paper_venue": "Scientific Data",
         "reason": "EEG-BIDS is a data-organization standard/extension the dataset follows, not a paper describing this EEG asymmetries dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on007172",
@@ -45,15 +58,16 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
+      "10.1080/1357650x.2025.2591660",
       "10.82901/nemar.on007172"
     ],
     "keywords": [
@@ -62,18 +76,11 @@
       "alpha asymmetry",
       "N1 lateralization",
       "resting state",
-      "event-related potentials",
-      "lateralization"
+      "Functional Laterality",
+      "face processing"
     ],
-    "methods_description": "Participants completed a resting-state recording (~8 minutes, alternating open/closed eyes in 63s blocks) followed by four tasks (words, faces, emotions, houses) presented in randomized order. Each task included a practice block and two response blocks (right-hand and left-hand responses), with stimuli presented for 1 second followed by a fixation cross (500-700ms). Each task consisted of 160 stimulus presentations total, with participants responding via spacebar press only to specific target stimuli (animal names, female faces, houses with pitched roofs).",
-    "funding": [],
-    "searched_accessions": [
-      "on007172",
-      "ds007172"
-    ],
-    "num_accession_mentions": 1,
-    "num_dataset_citations": 1,
-    "num_datapaper_citations": 0
+    "methods_description": "Participants completed a resting-state recording of about 8 minutes (eyes open and closed periods of 63 s each), followed by four tasks in randomized order (words, faces, emotions, houses). Each task had a practice block and separate right-hand and left-hand response blocks (80 stimuli each, 160 total). Stimuli were shown for 1 s, followed by a fixation cross of 500-700 ms. Participants pressed the space bar only for target stimuli (animal names, female faces, houses with pitched roofs).",
+    "funding": []
   },
   "citation_details": [
     {
@@ -83,19 +90,17 @@
       "year": 2026,
       "url": "https://doi.org/10.3389/fpsyg.2026.1879495",
       "cited_by": 0,
-      "abstract": "Introduction Functional hemispheric segregation, the organization of distinct cognitive functions into separate hemispheres, has so far been investigated mainly using behavioral measures or fMRI. Whether such segregation manifests at early perceptual stages, however, remains unknown. The present study is the first to test Gerrits' segregation bias model using EEG, examining lateralization of early ERP components (N1/N170) across language, face, and emotional face processing. Methods The present study is based on an openly available EEG dataset obtained from OpenNeuro. We analyzed data from left-, mixed-, and right-handed participants to investigate the influence of handedness and sex on early functional hemispheric segregation. Hemispheric lateralization was assessed using early event-related potential components (N1/N170) across language, face, and emotional face processing tasks. Results Consistent with predictions, typical lateralization patterns were most frequent, yet substantial individual variability was observed. Notably, “crowding” of multiple functions within one hemisphere – either left or right – was among the most common patterns, highlighting the probabilistic nature of hemispheric organization. These effects emerged at early perceptual stages, indicating that hemispheric segregation is not solely a consequence of later cognitive or decisional processes. Discussion We suggest that differences in individual processing styles may partly explain variability in lateralization, particularly for simple recognition tasks. Our findings extend the segregation bias model by demonstrating that functional hemispheric segregation is already detectable during early perceptual processing and is modulated by both handedness and sex. This study underscores the importance of EEG for capturing the temporal dynamics of hemispheric organization and provides a novel perspective on the interplay between individual differences and early neural specialization.",
+      "abstract": "Introduction: Functional hemispheric segregation, the organization of distinct cognitive functions into separate hemispheres, has so far been investigated mainly using behavioral measures or fMRI. Whether such segregation manifests at early perceptual stages, however, remains unknown. The present study is the first to test Gerrits' segregation bias model using EEG, examining lateralization of early ERP components (N1/N170) across language, face, and emotional face processing. Methods: The present study is based on an openly available EEG dataset obtained from OpenNeuro. We analyzed data from left-, mixed-, and right-handed participants to investigate the influence of handedness and sex on early functional hemispheric segregation. Hemispheric lateralization was assessed using early event-related potential components (N1/N170) across language, face, and emotional face processing tasks. Results: Consistent with predictions, typical lateralization patterns were most frequent, yet substanti",
       "doi": "10.3389/fpsyg.2026.1879495",
-      "pmid": null,
+      "pmid": "42824387",
       "openalex_id": "W7213447181",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds007172",
+      "source_doi": "10.1080/1357650x.2025.2591660",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6518853932619095,
-        "similarity_score": 0.5644029378890991,
-        "citation_text_length": 1679,
+        "confidence_score": 0.6816774970293046,
+        "similarity_score": 0.590196967124939,
+        "citation_text_length": 1179,
         "dataset_text_length": 2210,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -104,15 +109,15 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T16:41:07.603392+00:00",
+    "scoring_date": "2026-10-11T11:40:38.745838+00:00",
     "dataset_text_length": 2210,
     "num_citations_scored": 1,
     "summary_stats": {
-      "mean_confidence": 0.6518853932619095,
-      "median_confidence": 0.6518853932619095,
+      "mean_confidence": 0.6816774970293046,
+      "median_confidence": 0.6816774970293046,
       "std_confidence": 0.0,
-      "min_confidence": 0.6518853932619095,
-      "max_confidence": 0.6518853932619095,
+      "min_confidence": 0.6816774970293046,
+      "max_confidence": 0.6816774970293046,
       "high_confidence_count": 0,
       "medium_confidence_count": 1,
       "low_confidence_count": 0

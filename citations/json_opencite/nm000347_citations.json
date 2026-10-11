@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000347",
-  "num_citations": 7,
-  "date_last_updated": "2026-10-04T10:05:07.887036+00:00",
+  "num_citations": 6,
+  "date_last_updated": "2026-10-11T10:33:29.987675+00:00",
   "metadata": {
     "total_cumulative_citations": 5,
-    "fetch_date": "2026-09-29T11:03:12.869243+00:00",
+    "fetch_date": "2026-10-11T10:33:29.987675+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -19,12 +19,38 @@
         "source_relation": "IsDerivedFrom",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "HEFMI-ICH: a hybrid EEG-fNIRS motor imagery dataset for brain-computer interface in intracerebral hemorrhage",
         "paper_year": 2025,
         "paper_venue": "Scientific Data",
         "reason": "The dataset title, authors, and participants (17 healthy, 20 ICH, hybrid EEG-fNIRS MI) match the HEFMI-ICH Scientific Data paper, and the README lists its DOI.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
+      },
+      {
+        "identifier": "10.21105/joss.01896",
+        "identifier_type": "doi",
+        "source_relation": "References",
+        "classification": "methodology",
+        "kept": false,
+        "kept_reason": "never_anchor",
+        "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
+        "paper_year": 2019,
+        "paper_venue": "The Journal of Open Source Software",
+        "reason": "MNE-BIDS is a software tool for organizing electrophysiological data into BIDS, used in curating the dataset, not a paper describing the HEFMI-ICH dataset.",
+        "judgment_model": "claude-sonnet-5-5"
+      },
+      {
+        "identifier": "10.1038/s41597-019-0104-8",
+        "identifier_type": "doi",
+        "source_relation": "References",
+        "classification": "methodology",
+        "kept": false,
+        "kept_reason": "never_anchor",
+        "paper_title": "EEG-BIDS, an extension to the brain imaging data structure for electroencephalography",
+        "paper_year": 2019,
+        "paper_venue": "Scientific Data",
+        "reason": "EEG-BIDS is a data-organization standard extension used to format the dataset, not a paper describing the HEFMI-ICH motor imagery dataset.",
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.nm000347",
@@ -32,12 +58,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -46,15 +72,14 @@
     ],
     "keywords": [
       "EEG",
-      "motor imagery",
-      "Brain-Computer Interfaces",
-      "intracerebral hemorrhage",
-      "stroke rehabilitation",
       "fNIRS",
-      "hybrid neuroimaging",
+      "motor imagery",
+      "brain-computer interface",
+      "Intracerebral Hemorrhage",
+      "Stroke",
       "rehabilitation"
     ],
-    "methods_description": "EEG data were acquired using a g.HIamp amplifier (g.tec medical engineering GmbH) with 32 channels arranged in a biosemi32 montage at 256 Hz sampling rate. Participants performed motor imagery tasks cued by directional arrows and auditory beeps, with a 2-second cue period followed by 10 seconds of imagery. The study included 37 subjects (17 healthy, 20 ICH patients) across 3 sessions per subject, with 30 trials per session. Data were preprocessed and bandpass filtered between 0.5-30 Hz. fNIRS data were acquired concurrently with EEG to provide complementary hemodynamic measurements during motor imagery tasks.",
+    "methods_description": "32-channel EEG was recorded with a g.HIamp amplifier at 256 Hz. Each trial presented a directional arrow cue with an auditory beep, followed by 10 s of left- or right-hand grasping motor imagery, without feedback. Data were preprocessed with a 0.5-30 Hz band-pass filter. Benchmark classifiers included CSP+SVM, FBCSP+SVM, EEGBaseNet and TF+SVM.",
     "funding": [
       {
         "funder_name": "Not specified"
@@ -62,13 +87,7 @@
       {
         "funder_name": "None"
       }
-    ],
-    "searched_accessions": [
-      "nm000347"
-    ],
-    "num_accession_mentions": 1,
-    "num_dataset_citations": 1,
-    "num_datapaper_citations": 6
+    ]
   },
   "citation_details": [
     {
@@ -208,47 +227,22 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
-    },
-    {
-      "title": "Dioxines dans l'environnement : quels risques pour la santé ?",
-      "author": "Sophie Alexander, Denis Bard, Robert Barouki, Frédéric Y. Bois, Jacques Descotes, Marco Dujardin, André Guillouzo, Cedric R.J.R. Hermans, Gérard Keck, Manolis Kogevinas, Jean‐François Narbonne, François Périn, A. Picot, Thierry Pineau, Jean‐François Savouret",
-      "venue": "HAL (Le Centre pour la Communication Scientifique Directe)",
-      "year": 2000,
-      "url": "https://openalex.org/W2743170817",
-      "cited_by": 7,
-      "abstract": "Les dioxines regroupent deux grandes familles, les polychlorodibenzo-paradioxines(PCDD) et les polychlorodibenzofuranes (PCDF) qui font partie, comme les polychlorobiphényles (PCB) et les polybromobiphényles (PBB), de la classe des hydrocarbures aromatiques polycycliques halogénés (HAPH).Les dioxines sont des contaminants produits au cours de nombreux processus chimiques impliquant du chlore, du carbone, de l’oxygène et une température élevée. Dans les pays développés, les deux principales sources d’émission de dioxines résultent des activités d’incinération de déchets ménagers, de métallurgie et de sidérurgie. Ces émissions ont considérablement diminué au cours des dix dernières années dans ces pays. Cependant, les dioxines font partie des nombreux polluants auxquels les populations sont soumises, à de très faibles doses tout au long de leur vie.Les dioxines sont présentes dans tous les compartiments de l’écosystème (air, sols, sédiments aquatiques et marins, animaux). Très solubles dans les lipides et chimiquement stables, elles se concentrent le long de la chaîne alimentaire, et l’alimentation représente la voie majeure d’exposition pour l’homme. La possibilité d’un contrôle des aliments par la mise en place d’un plan de surveillance des produits d’origine animale, et des produits laitiers en particulier, constitue un élément important de la surveillance. La difficulté réside dans la définition, à des fins de prévention, de niveaux d’exposition tolérables (normes, valeurs guides{), qui ne peuvent être établis qu’à partir du bilan desconnaissances actuelles sur les effets toxiques des dioxines chez l’animal etchez l’homme. La compréhension du mécanisme d’action peut également contribuer à une meilleure définition du risque et en faciliter sa gestion...",
-      "doi": null,
-      "pmid": null,
-      "openalex_id": "W2743170817",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "nm000347",
-      "confidence_scoring": {
-        "confidence_score": 0.09424817264080049,
-        "similarity_score": 0.08568015694618225,
-        "citation_text_length": 1916,
-        "dataset_text_length": 2552,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-10-04T10:10:06.519093+00:00",
+    "scoring_date": "2026-10-11T11:26:33.549964+00:00",
     "dataset_text_length": 2552,
-    "num_citations_scored": 7,
+    "num_citations_scored": 6,
     "summary_stats": {
-      "mean_confidence": 0.5732974189519883,
-      "median_confidence": 0.6637929797172547,
-      "std_confidence": 0.2270678695904727,
-      "min_confidence": 0.09424817264080049,
+      "mean_confidence": 0.653138960003853,
+      "median_confidence": 0.6700789171457291,
+      "std_confidence": 0.12462109996970479,
+      "min_confidence": 0.4153954929113388,
       "max_confidence": 0.8384470564126969,
       "high_confidence_count": 1,
       "medium_confidence_count": 5,
-      "low_confidence_count": 1
+      "low_confidence_count": 0
     }
   }
 }

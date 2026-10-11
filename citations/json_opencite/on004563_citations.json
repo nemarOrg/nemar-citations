@@ -1,16 +1,14 @@
 {
   "dataset_id": "on004563",
-  "num_citations": 12,
-  "date_last_updated": "2026-09-29T11:17:12.480225+00:00",
+  "num_citations": 14,
+  "date_last_updated": "2026-10-11T10:54:55.279212+00:00",
   "metadata": {
     "total_cumulative_citations": 37,
-    "fetch_date": "2026-09-29T11:17:12.480225+00:00",
+    "fetch_date": "2026-10-11T10:54:55.279212+00:00",
     "processing_version": "1.0",
-    "fetch_status": "partial",
+    "fetch_status": "success",
     "anchor_count": 2,
-    "anchor_errors": {
-      "10.82901/nemar.on004563": "not_found"
-    },
+    "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
     "anchor_judgment_model": "claude-sonnet-5-5",
@@ -21,12 +19,12 @@
         "source_relation": "IsDescribedBy",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Vicarious touch: overlapping neural patterns between seeing and feeling touch",
         "paper_year": 2022,
         "paper_venue": "bioRxiv (Cold Spring Harbor Laboratory)",
         "reason": "Title and authors match the dataset exactly; the preprint reports the time-resolved MVPA EEG study of seeing and feeling touch that produced this data.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on004563",
@@ -34,12 +32,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -48,21 +46,14 @@
     ],
     "keywords": [
       "EEG",
-      "touch perception",
-      "vicarious experience",
+      "vicarious touch",
+      "Touch Perception",
       "multivariate pattern analysis",
-      "somatosensory cortex",
+      "tactile perception",
       "visual perception"
     ],
-    "methods_description": "Whole-brain 64-channel EEG data were recorded using an Active Two Biosemi system at 2048 Hz with 10-20 standard electrode placement. Participants completed 12 runs divided into four blocks of 36 trials each, alternating between tactile stimulation to the fingers and viewing matched videos of touch. An 800 ms inter-trial interval separated trials, with each run lasting approximately 7-8 minutes. Stimuli were presented using MATLAB and Psychtoolbox.",
-    "funding": [],
-    "searched_accessions": [
-      "on004563",
-      "ds004563"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 12
+    "methods_description": "Whole-brain EEG was recorded with a 64-channel Biosemi Active Two system at 2048 Hz using 10-20 standard caps. Participants completed 12 runs of four blocks, each with 36 trials alternating between tactile and visual touch. There were 1728 analysed trials (864 tactile, 864 visual) plus 240 target trials that were excluded. The inter-trial interval was 800 ms. Stimuli were presented with MATLAB and Psychtoolbox.",
+    "funding": []
   },
   "citation_details": [
     {
@@ -340,22 +331,68 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "Neural Evidence for Action-Related Somatosensory Predictions",
+      "author": "Caoimhe Moran, Hinze Hogendoorn, Ayelet N. Landau",
+      "venue": "The Journal of Neuroscience",
+      "year": 2026,
+      "url": "https://doi.org/10.1523/JNEUROSCI.0889-25.2026",
+      "cited_by": 0,
+      "abstract": "The tactile consequences of self-initiated movements are thought to be predicted by a forward model (FM), yet the precise neural implementation of these predictions remains unclear. In nonmotor contexts, expectations are thought to activate sensory neurons tuned toward the expected stimulus. This acts as a predictive template against which afferent sensory input is compared. It is unclear whether FM predictions have a similar neural instantiation. Here we employed time-resolved multivariate decoding on human electroencephalography during self-generated movements to examine the content of predictive neural activity. Human participants (males and females) performed index finger movements which were predictably paired with a vibration to either the index or ring finger of the opposite, passive hand. On some trials the tactile stimulus was unexpectedly omitted. Results revealed above-chance finger decoding in the premovement period supporting a predictive representation of expected stimula",
+      "doi": "10.1523/JNEUROSCI.0889-25.2026",
+      "pmid": "42493413",
+      "openalex_id": null,
+      "source_doi": "10.82901/nemar.on004563",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.615167302787304,
+        "similarity_score": 0.5326123833656311,
+        "citation_text_length": 1175,
+        "dataset_text_length": 1837,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Tapping into touch preferences and individual behaviours: assessing and improving the HandsOn mobile app",
+      "author": "Merle T. Fairhurst",
+      "venue": "n/a",
+      "year": 0,
+      "url": "n/a",
+      "cited_by": 0,
+      "abstract": null,
+      "doi": null,
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.82901/nemar.on004563",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.3602447509765625,
+        "similarity_score": 0.3602447509765625,
+        "citation_text_length": 152,
+        "dataset_text_length": 1837,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T12:12:32.446590+00:00",
+    "scoring_date": "2026-10-11T11:33:24.195718+00:00",
     "dataset_text_length": 1837,
-    "num_citations_scored": 12,
+    "num_citations_scored": 14,
     "summary_stats": {
-      "mean_confidence": 0.6900322101637721,
-      "median_confidence": 0.7099913616478444,
-      "std_confidence": 0.13661947321747725,
-      "min_confidence": 0.3791065031290055,
+      "mean_confidence": 0.661128469694938,
+      "median_confidence": 0.675826327353716,
+      "std_confidence": 0.15274795326125568,
+      "min_confidence": 0.3602447509765625,
       "max_confidence": 0.9071833008527757,
       "high_confidence_count": 6,
-      "medium_confidence_count": 5,
-      "low_confidence_count": 1
+      "medium_confidence_count": 6,
+      "low_confidence_count": 2
     }
   }
 }

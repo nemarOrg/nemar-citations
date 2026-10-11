@@ -1,16 +1,14 @@
 {
   "dataset_id": "on004346",
-  "num_citations": 55,
-  "date_last_updated": "2026-09-30T10:44:29.736881+00:00",
+  "num_citations": 61,
+  "date_last_updated": "2026-10-11T10:51:57.898810+00:00",
   "metadata": {
-    "total_cumulative_citations": 462,
-    "fetch_date": "2026-09-29T11:13:32.671998+00:00",
+    "total_cumulative_citations": 480,
+    "fetch_date": "2026-10-11T10:51:57.898810+00:00",
     "processing_version": "1.0",
-    "fetch_status": "partial",
+    "fetch_status": "success",
     "anchor_count": 2,
-    "anchor_errors": {
-      "10.82901/nemar.on004346": "not_found"
-    },
+    "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
     "anchor_judgment_model": "claude-sonnet-5-5",
@@ -21,12 +19,12 @@
         "source_relation": "IsDescribedBy",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "FLUX: A pipeline for MEG analysis",
         "paper_year": 2022,
         "paper_venue": "NeuroImage",
         "reason": "Dataset title and authors match the paper 'FLUX: A pipeline for MEG analysis'; it is the primary reference and the dataset holds the example data the pipeline paper uses.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.21105/joss.01896",
@@ -34,12 +32,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
         "paper_year": 2019,
         "paper_venue": "The Journal of Open Source Software",
         "reason": "MNE-BIDS is a software tool for organizing electrophysiological data into BIDS, used to format this dataset, not a paper describing the FLUX MEG dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1038/sdata.2018.110",
@@ -47,12 +45,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MEG-BIDS, the brain imaging data structure extended to magnetoencephalography",
         "paper_year": 2018,
         "paper_venue": "Scientific Data",
         "reason": "MEG-BIDS is a data-organization specification that the FLUX dataset follows; it does not describe this dataset itself.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on004346",
@@ -60,12 +58,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -74,12 +72,10 @@
     ],
     "keywords": [
       "MEG",
-      "magnetoencephalography",
+      "Magnetoencephalography",
+      "analysis pipeline",
       "BIDS",
-      "neuroimaging pipeline",
-      "data analysis",
-      "multi-site replication",
-      "anatomical MRI"
+      "FLUX"
     ],
     "methods_description": null,
     "funding": [
@@ -96,8 +92,8 @@
       "ds004346"
     ],
     "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 55
+    "num_dataset_citations": 11,
+    "num_datapaper_citations": 50
   },
   "citation_details": [
     {
@@ -356,21 +352,24 @@
     {
       "title": "Optimizing magnetometers arrays and analysis pipelines for multivariate pattern analysis",
       "author": "Yulia Bezsudnova, Andrew J. Quinn, Ole Jensen",
-      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
-      "year": 2023,
-      "url": "https://doi.org/10.1101/2023.09.21.558786",
-      "cited_by": 6,
-      "abstract": "Abstract Background Multivariate pattern analysis (MVPA) has proven an excellent tool in cognitive neuroscience used M/EEG, and MRI. It also holds a strong promise when applied to optically-pumped magnetometer-based magnetoencephalography. New method To optimize OPM-MEG systems for MVPA experiments this study examines data from a conventional MEG magnetometer array, focusing on appropriate noise reduction techniques for magnetometers. We also determined the least required number of sensors needed for robust MVPA for image categorization experiments. Results We found that the use of signal space separation (SSS) significantly lowered the classification accuracy considering a sub-array of 102 magnetometers or a sub-array of 204 gradiometers. We also found that classification accuracy did not improve when going beyond 30 sensors irrespective of whether SSS has been applied. Comparison with existing methods The power spectra of data filtered with SSS has a substantially higher noise floor ",
-      "doi": "10.1101/2023.09.21.558786",
+      "venue": "Journal of Neuroscience Methods",
+      "year": 2024,
+      "url": "https://doi.org/10.1016/j.jneumeth.2024.110279",
+      "cited_by": 10,
+      "abstract": "Background Multivariate pattern analysis (MVPA) has proven an excellent tool in cognitive neuroscience used M/EEG, and MRI. It also holds a strong promise when applied to optically-pumped magnetometer-based magnetoencephalography. New method To optimize OPM-MEG systems for MVPA experiments this study examines data from a conventional MEG magnetometer array, focusing on appropriate noise reduction techniques for magnetometers. We also determined the least required number of sensors needed for robust MVPA for image categorization experiments. Results We found that the use of signal space separation (SSS) significantly lowered the classification accuracy considering a sub-array of 102 magnetometers or a sub-array of 204 gradiometers. We also found that classification accuracy did not improve when going beyond 30 sensors irrespective of whether SSS has been applied. Comparison with existing methods The power spectra of data filtered with SSS has a substantially higher noise floor that data",
+      "doi": "10.1016/j.jneumeth.2024.110279",
       "pmid": "39265820",
-      "openalex_id": "W4386946274",
-      "source_doi": "10.1016/j.neuroimage.2022.119047",
-      "source_relation": "IsDescribedBy",
+      "openalex_id": "W4402533772",
+      "source_doi": "10.82901/nemar.on004346",
+      "source_relation": "References",
       "discovery_backend": "opencite",
+      "superseded_dois": [
+        "10.1101/2023.09.21.558786"
+      ],
       "confidence_scoring": {
-        "confidence_score": 0.6167442977428437,
-        "similarity_score": 0.533977746963501,
-        "citation_text_length": 1211,
+        "confidence_score": 0.6083506393432618,
+        "similarity_score": 0.5267105102539062,
+        "citation_text_length": 1203,
         "dataset_text_length": 1365,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -517,21 +516,24 @@
     {
       "title": "Pre-stimulus alpha power modulates trial-by-trial variability in theta rhythmic multisensory entrainment strength and theta-induced memory effect",
       "author": "Danying Wang, Eleonora Marcantoni, Kimron L. Shapiro, Simon Hanslmayr",
-      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
-      "year": 2025,
-      "url": "https://doi.org/10.1101/2025.07.02.662871",
+      "venue": "Communications Psychology",
+      "year": 2026,
+      "url": "https://doi.org/10.1038/s44271-026-00406-x",
       "cited_by": 3,
-      "abstract": "Abstract Binding multisensory information into episodic memory depends partly on the timing of the hippocampal theta rhythm which provides time windows for synaptic modification. In humans, theta rhythmic sensory stimulation (RSS) enhances episodic memory when the stimuli are synchronised across the visual and auditory domain compared to when they are out-of-synchrony. However, recent studies show mixed evidence if the improvement in episodic memory is the result of modulating hippocampal theta activity. In the current study, we investigated whether pre-stimulus brain state could explain part of this variance in the neural and behavioural effects induced by the RSS, via recording participants’ brain activity with MEG during a multisensory theta RSS memory paradigm. Our findings suggest that pre-stimulus alpha power modulates entrainment strength in sensory regions, which in turn predicts subsequent memory formation. These findings suggest that for non-invasive brain stimulation tools t",
-      "doi": "10.1101/2025.07.02.662871",
+      "abstract": "Binding multisensory information into episodic memory depends partly on the timing of the hippocampal theta rhythm which provides time windows for synaptic modification. In humans, theta rhythmic sensory stimulation (RSS) enhances episodic memory when the stimuli are synchronised across the visual and auditory domain compared to when they are out-of-synchrony. However, recent studies show mixed evidence if the improvement in episodic memory is the result of modulating hippocampal theta activity. In the current study, we investigated whether pre-stimulus brain state could explain part of this variance in the neural and behavioural effects induced by the RSS, via recording 24 participants' brain activity with MEG during a multisensory theta RSS memory paradigm. Our findings suggest that pre-stimulus alpha power modulates entrainment strength in sensory regions, which in turn predicts subsequent memory formation. These findings suggest that for non-invasive brain stimulation tools to be e",
+      "doi": "10.1038/s44271-026-00406-x",
       "pmid": "41606110",
-      "openalex_id": "W4411990650",
-      "source_doi": "10.1016/j.neuroimage.2022.119047",
-      "source_relation": "IsDescribedBy",
+      "openalex_id": "W7125957762",
+      "source_doi": "10.82901/nemar.on004346",
+      "source_relation": "References",
       "discovery_backend": "opencite",
+      "superseded_dois": [
+        "10.1101/2025.07.02.662871"
+      ],
       "confidence_scoring": {
-        "confidence_score": 0.34919003382325176,
-        "similarity_score": 0.30232903361320496,
-        "citation_text_length": 1292,
+        "confidence_score": 0.3489618180692196,
+        "similarity_score": 0.30213144421577454,
+        "citation_text_length": 1278,
         "dataset_text_length": 1365,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -745,23 +747,26 @@
       }
     },
     {
-      "title": "Predictive distractor processing relies on integrated proactive and reactive attentional mechanisms",
+      "title": "Predictive Distractor Processing Relies on Integrated Proactive and Reactive Attentional Mechanisms",
       "author": "Oscar Ferrante, Ole Jensen, Clayton Hickey",
-      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
-      "year": 2025,
-      "url": "https://doi.org/10.1101/2025.04.14.648706",
-      "cited_by": 2,
-      "abstract": "Abstract Visual attention is shaped by statistical regularities in the environment, with spatially predictable distractors being proactively suppressed. The neural mechanisms underpinning this suppression remain poorly understood. In this study, we employed magnetoencephalography (MEG) and multivariate decoding analysis to investigate how predicted distractor locations are proactively processed in the human brain. Male and female human participants engaged in a statistical learning visual search task that required them to identify a target stimulus while ignoring a colour-singleton distractor. Critically, the distractor appeared more frequently on one side of the visual field, creating an implicit spatial prediction. Our results revealed that distractor locations were encoded in temporo-occipital brain regions prior to the presentation of the search array, supporting the hypothesis that proactive suppression guides visual attention away from predictable distractors. The neural activity",
-      "doi": "10.1101/2025.04.14.648706",
+      "venue": "Journal of Neuroscience",
+      "year": 2026,
+      "url": "https://doi.org/10.1523/jneurosci.0740-25.2025",
+      "cited_by": 5,
+      "abstract": "Visual attention is shaped by statistical regularities in the environment, with spatially predictable distractors being proactively suppressed. The neural mechanisms underpinning this suppression remain poorly understood. In this study, we employed magnetoencephalography and multivariate classification analysis to investigate how predicted distractor locations are proactively processed in the human brain. Male and female human participants engaged in a statistical learning visual search task that required them to identify a target stimulus while ignoring a color-singleton distractor. Critically, the distractor appeared more frequently on one side of the visual field, creating an implicit spatial prediction. Our results revealed that distractor locations were encoded in temporo-occipital brain regions prior to the presentation of the search array, supporting the hypothesis that proactive suppression guides visual attention away from predictable distractors. The neural activity patterns ",
+      "doi": "10.1523/jneurosci.0740-25.2025",
       "pmid": "41554649",
-      "openalex_id": "W4409727383",
-      "source_doi": "10.1016/j.neuroimage.2022.119047",
-      "source_relation": "IsDescribedBy",
+      "openalex_id": "W7124831445",
+      "source_doi": "10.82901/nemar.on004346",
+      "source_relation": "References",
       "discovery_backend": "opencite",
+      "superseded_dois": [
+        "10.1101/2025.04.14.648706"
+      ],
       "confidence_scoring": {
-        "confidence_score": 0.4528593979775906,
-        "similarity_score": 0.39208605885505676,
-        "citation_text_length": 1219,
+        "confidence_score": 0.4141152472794057,
+        "similarity_score": 0.358541339635849,
+        "citation_text_length": 1203,
         "dataset_text_length": 1365,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -908,21 +913,24 @@
     {
       "title": "A data-driven approach to identifying and evaluating connectivity-based neural correlates of conscious visual perception",
       "author": "Annie G. Bryant, Christopher J. Whyte",
-      "venue": "bioRxiv",
+      "venue": "Neuroscience of Consciousness",
       "year": 2026,
-      "url": "https://doi.org/10.1101/2025.04.06.646695",
+      "url": "https://doi.org/10.1093/nc/niag029",
       "cited_by": 1,
-      "abstract": "Identifying the neural correlates of conscious visual perception remains a major challenge in neuroscience, requiring theories that bridge between subjective experience and measurable neural correlates. However, theoretical interpretation of empirical evidence is often post hoc and susceptible to confirmation bias. Building upon the adversarial collaboration mediated by the COGITATE Consortium, we present a generalizable approach for the data-driven identification, evaluation, and theoretical modeling of connectivity-based neural correlates of conscious visual perception. Using the same magnetoencephalography (MEG) dataset and accompanying pre-registered hypotheses from the COGITATE Consortium, we systematically compared 246 functional connectivity (FC) measures between regions predicted to underlie conscious vision by Integrated Information Theory (IIT) and/or Global Neuronal Workspace Theory (GNWT). We identified a family of FC measures based on the barycenter—tracking the ‘center of",
-      "doi": "10.1101/2025.04.06.646695",
-      "pmid": null,
-      "openalex_id": null,
-      "source_doi": "10.1016/j.neuroimage.2022.119047",
-      "source_relation": "IsDescribedBy",
+      "abstract": "and susceptible to confirmation bias. Building upon the adversarial collaboration mediated by the COGITATE Consortium, we present a generalizable approach for the data-driven identification, evaluation, and theoretical modeling of connectivity-based neural correlates of conscious visual perception. Using the same magnetoencephalography (MEG) dataset and accompanying pre-registered hypotheses from the COGITATE Consortium, we systematically compared 246 functional connectivity (FC) measures between regions predicted to underlie conscious vision by Integrated Information Theory (IIT) and/or Global Neuronal Workspace Theory (GNWT). We identified a family of FC measures based on the barycenter-tracking the 'center of mass' between two signals-as the top-performing stimulus decoding measures that generalize across regions central to predictions of both IIT and GNWT. To interpret these findings within a theoretical framework, we developed neural mass models that recapitulate the neural dynami",
+      "doi": "10.1093/nc/niag029",
+      "pmid": "42415873",
+      "openalex_id": "W7167585600",
+      "source_doi": "10.82901/nemar.on004346",
+      "source_relation": "References",
       "discovery_backend": "opencite",
+      "superseded_dois": [
+        "10.1101/2025.04.06.646695"
+      ],
       "confidence_scoring": {
-        "confidence_score": 0.4934836265444756,
-        "similarity_score": 0.42725855112075806,
-        "citation_text_length": 1203,
+        "confidence_score": 0.4825012511014939,
+        "similarity_score": 0.4177500009536743,
+        "citation_text_length": 1225,
         "dataset_text_length": 1365,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1228,23 +1236,26 @@
       }
     },
     {
-      "title": "Neural Sharpening of Object Categories Through Parafoveal Priming",
+      "title": "Neural sharpening of object categories through parafoveal priming",
       "author": "Syanah C. Wynn, Yulia Bezsudnova, Ole Jensen",
-      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
-      "year": 2025,
-      "url": "https://doi.org/10.1101/2025.05.16.654463",
+      "venue": "Communications Biology",
+      "year": 2026,
+      "url": "https://doi.org/10.1038/s42003-026-10412-8",
       "cited_by": 0,
-      "abstract": "Abstract During natural vision, humans make saccades approximately every 250 - 300 ms to fixate on important objects in a scene. Given this rapid succession of eye movements, it has been proposed that visual processing begins in the parafovea, prior to fixation. Such parafoveal previewing may serve as a form of priming, facilitating subsequent processing at fixation. In this study, we investigated whether parafoveal priming leads to both a reduced neural response - akin to repetition suppression - and a more selective neural representation, consistent with neuronal sharpening. Participants performed a visual exploration task involving natural object images that were either parafoveally previewed or not, while magnetoencephalographic (MEG) data were recorded. Event-related fields revealed a reduced neural response when an image had been parafoveally presented 250 ms earlier. Moreover, multivariate pattern analysis showed enhanced decoding of object category following parafoveal priming,",
-      "doi": "10.1101/2025.05.16.654463",
+      "abstract": "Abstract During natural vision, humans make saccades approximately every 250–300 ms to fixate on important objects in a scene. Given this rapid succession of eye movements, it has been proposed that visual processing begins in the parafovea, prior to fixation. Such parafoveal previewing may serve as a form of priming, facilitating subsequent processing at fixation. In this study, we investigate whether parafoveal priming leads to both a reduced neural response (akin to repetition suppression) and a more selective neural representation, consistent with neuronal sharpening. Participants perform a visual exploration task involving natural object images that are either parafoveally previewed or not, while magnetoencephalographic (MEG) data is recorded. Event-related fields reveal a reduced neural response when an image is parafoveally presented 250 ms earlier. Moreover, multivariate pattern analysis shows enhanced decoding of object category following parafoveal priming, suggesting increas",
+      "doi": "10.1038/s42003-026-10412-8",
       "pmid": null,
       "openalex_id": "W4410584795",
-      "source_doi": "10.1016/j.neuroimage.2022.119047",
-      "source_relation": "IsDescribedBy",
+      "source_doi": "10.82901/nemar.on004346",
+      "source_relation": "References",
       "discovery_backend": "opencite",
+      "superseded_dois": [
+        "10.1101/2025.05.16.654463"
+      ],
       "confidence_scoring": {
-        "confidence_score": 0.4885200543701649,
-        "similarity_score": 0.4229610860347748,
-        "citation_text_length": 1187,
+        "confidence_score": 0.4819874730706215,
+        "similarity_score": 0.4173051714897156,
+        "citation_text_length": 1170,
         "dataset_text_length": 1365,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1364,21 +1375,159 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "A large-scale heterogeneous 3D magnetic resonance brain imaging dataset for self-supervised learning",
+      "author": "Stefano Cerri, Asbjørn Munk, Sebastian Nørgaard Llambias, Jakob Ambsdorf, Julia Machnio, V. Nersesjan, C. H. Krag, Pei-Rong Liu, Pablo García, Mostafa Mehdipour Ghazi, M. Boesen, M. Benros, J. E. Iglesias, Mads Nielsen",
+      "venue": "Scientific Data",
+      "year": 2025,
+      "url": "https://doi.org/10.1038/s41597-026-07688-0",
+      "cited_by": 10,
+      "abstract": "We present FOMO260K, a large-scale, heterogeneous dataset of 260,927 brain Magnetic Resonance Imaging (MRI) scans from 77,589 MRI sessions and 55,378 subjects, aggregated from 910 publicly available sources. The dataset includes both clinical- and research-grade images, multiple MRI sequences, and a wide range of anatomical and pathological variability, including scans with large brain anomalies. Minimal preprocessing was applied to preserve the original image characteristics while reducing entry barriers for new users. Companion code for self-supervised pretraining and finetuning is provided, along with pretrained models. FOMO260K is intended to support the development and benchmarking of self-supervised learning methods in medical imaging at scale.",
+      "doi": "10.1038/s41597-026-07688-0",
+      "pmid": "42420299",
+      "openalex_id": null,
+      "source_doi": "10.82901/nemar.on004346",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5074574527144432,
+        "similarity_score": 0.43935710191726685,
+        "citation_text_length": 1132,
+        "dataset_text_length": 1365,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Mapping neural activity during naturalistic visual and memory search",
+      "author": "Joaquin E Gonzalez, Markus Bauer, Anthony J. Ries, J. Kamienkowski, Matias J. Ison",
+      "venue": "Frontiers in Human Neuroscience",
+      "year": 2025,
+      "url": "https://doi.org/10.3389/fnhum.2026.1812919",
+      "cited_by": 1,
+      "abstract": "In everyday life, individuals often search for one of several items stored in memory. This cognitive process, known as hybrid search, is critical for tasks like navigating using landmarks. While the behavioral aspects of hybrid search have been extensively studied, the underlying neural mechanisms remain less understood. In this study, we combined concurrent magnetoencephalography (MEG) and eye movement recordings to investigate the oscillatory and evoked neural dynamics supporting hybrid search in naturalistic settings. Twenty-one participants (12 males, 9 females) performed a free-viewing task involving visual search for targets embedded in memory (hybrid search) across naturalistic scenes. Time-Frequency analyses revealed specific neural signatures during memory encoding, retention, and visual search. During encoding and retention, posterior alpha-band power decreased with memory load, reflecting heightened perceptual and mnemonic demands. During visual search, frontoparietal beta-b",
+      "doi": "10.3389/fnhum.2026.1812919",
+      "pmid": "42495568",
+      "openalex_id": null,
+      "source_doi": "10.82901/nemar.on004346",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5166598829627037,
+        "similarity_score": 0.44732457399368286,
+        "citation_text_length": 1220,
+        "dataset_text_length": 1365,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Rhythmic stimulation elicits multiple, concurrent neural responses",
+      "author": "Benjamin James Griffiths, Katharina Duecker, Camille Fakche, Laura Dugué, Andrew Quinn, Ole Jensen",
+      "venue": "Cerebral Cortex",
+      "year": 2026,
+      "url": "https://doi.org/10.1093/cercor/bhag152",
+      "cited_by": 0,
+      "abstract": "Rhythmic light stimulation offers solutions to innumerable cognitive and neurological disorders. However, like any neuromodulatory technique, responses to rhythmic light stimulation are highly variable, producing challenges in replicating lab-based studies and translating findings to the clinic. Across 3 magnetoencephalography (MEG) and electroencephalography (EEG) experiments, we show that this variability can, in part, be attributed to rhythmic light stimulation eliciting multiple, coexisting neural responses which have separable influences on behavior. Specifically, we find that rhythmic light stimulation produces neural responses at both the fundamental (f) and second harmonic (2f) frequencies, and that these responses are differentially shaped by endogenous oscillatory dynamics that vary across participants. Importantly, these harmonic responses separably contribute to perception, with gamma-band responses supporting the representation of stimulus-specific information, and alpha-b",
+      "doi": "10.1093/cercor/bhag152",
+      "pmid": "42771789",
+      "openalex_id": "W7214062211",
+      "source_doi": "10.82901/nemar.on004346",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5213494241237642,
+        "similarity_score": 0.4513847827911377,
+        "citation_text_length": 1218,
+        "dataset_text_length": 1365,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Connectome-Guided Personalization of Optimal TDCS Intervention Selection in Alzheimer's Disease: A Modeling Study",
+      "author": "Janne J. Luppi, Annel P. Koomen, Cornelis J. Stam, Philip Scheltens, Willem de Haan",
+      "venue": "eNeuro",
+      "year": 2026,
+      "url": "https://doi.org/10.1523/eneuro.0407-25.2026",
+      "cited_by": 0,
+      "abstract": "Transcranial direct current stimulation (tDCS) could reduce the neurophysiological effects in Alzheimer's disease (AD), but progress is hampered by variable outcomes across studies, likely related to both methodological and individual differences. We recently described a virtual brain network simulation method for optimizing tDCS interventions and now propose a method for further personalizing this approach. We now personalized the model for six female and four male biomarker-confirmed AD patients based on their brain structure and functional connectivity by using individual structural magnetic resonance imaging data and amplitude envelope correlation-based connectivity matrices extracted from magnetoencephalography (MEG) scans, respectively. We then assessed a set of previously established stimulation strategies based on their ability to improve relevant neurophysiological outcome parameters in each personalized model while undergoing AD damage. Personalized tDCS strategies were able ",
+      "doi": "10.1523/eneuro.0407-25.2026",
+      "pmid": "42527300",
+      "openalex_id": "W7171619627",
+      "source_doi": "10.82901/nemar.on004346",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.47144614264369017,
+        "similarity_score": 0.4081784784793854,
+        "citation_text_length": 1241,
+        "dataset_text_length": 1365,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Enhanced Neural Decoding With Optically Pumped Magnetometer MEG Using Multivariate Pattern Analysis",
+      "author": "Junlin Liang, Yulia Bezsudnova, Anna Kowalczyk, Yu Sun, Ole Jensen",
+      "venue": "IEEE Transactions on Neural Systems and Rehabilitation Engineering",
+      "year": 2026,
+      "url": "https://doi.org/10.1109/tnsre.2026.3719472",
+      "cited_by": 0,
+      "abstract": "Multivariate pattern analysis (MVPA) provides a sensitive means to decode distributed neural activity from magnetoencephalography (MEG) by jointly exploiting temporal and spatial information. Optically pumped magnetometer (OPM)-based MEG enables close-to-scalp measurements and is therefore expected to capture neuromagnetic fields with higher spatial resolution compared to conventional systems based on superconducting quantum interference devices (SQUIDs). In this study, we conducted a within-subject comparison of OPM- and SQUID-MEG using time-resolved MVPA to decode neural responses to visual objects presented as images and corresponding words, recorded from the same participants under an identical experimental paradigm and matched preprocessing. To isolate the contribution of spatial sampling, decoding performance was evaluated under controlled sensor counts and spatial-frequency content, quantified using a spherical harmonic expansion of the sensor topographies. A complementary full-",
+      "doi": "10.1109/tnsre.2026.3719472",
+      "pmid": "42555311",
+      "openalex_id": "W7172520543",
+      "source_doi": "10.82901/nemar.on004346",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.634023569226265,
+        "similarity_score": 0.5489381551742554,
+        "citation_text_length": 1270,
+        "dataset_text_length": 1365,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Aging and reorganization of the neural hierarchy underlying action perception: older adults prioritize affective-communicative information",
+      "author": "Xue-Rui Peng, Qiao-Li Huang, Angelika Lingnau, Christian F. Doeller, Shu-Chen Li",
+      "venue": "bioRxiv",
+      "year": 2026,
+      "url": "https://doi.org/10.64898/2026.08.18.745087",
+      "cited_by": 0,
+      "abstract": "Everyday action perception unfolds in complex contexts, requiring coordinated processing from low-level visual information to higher-level inferences about action types and social interactions. Aging is accompanied by sensory and cognitive changes, raising the question of how these processes may be altered. Here, we combined action similarity judgments with analyses of time-resolved and source-localized brain activity measured with magnetoencephalography (MEG) to investigate age differences in action perception when younger and older adults viewed naturalistic actions. Using cross-validated variance partitioning within a multivariate representational framework, three key findings were uncovered. First, affective-communicative features predicted similarity judgments better than, and independent of, visual and action-related features in both age groups. Second, neural processes in both groups followed a hierarchy from visual to action-related and affective-communicative features and recr",
+      "doi": "10.64898/2026.08.18.745087",
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.82901/nemar.on004346",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.4066121810674668,
+        "similarity_score": 0.3520451784133911,
+        "citation_text_length": 1264,
+        "dataset_text_length": 1365,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T10:58:47.534007+00:00",
+    "scoring_date": "2026-10-11T11:32:00.720837+00:00",
     "dataset_text_length": 1365,
-    "num_citations_scored": 55,
+    "num_citations_scored": 61,
     "summary_stats": {
-      "mean_confidence": 0.4775327489538627,
-      "median_confidence": 0.45237897455692294,
-      "std_confidence": 0.11733437794046335,
+      "mean_confidence": 0.47962244038699103,
+      "median_confidence": 0.4550902672111989,
+      "std_confidence": 0.11392513874877004,
       "min_confidence": 0.34193535447120665,
       "max_confidence": 0.8615839344263078,
       "high_confidence_count": 3,
-      "medium_confidence_count": 38,
+      "medium_confidence_count": 44,
       "low_confidence_count": 14
     }
   }

@@ -1,30 +1,43 @@
 {
   "dataset_id": "on007615",
-  "num_citations": 0,
-  "date_last_updated": "2026-09-30T10:44:34.144913+00:00",
+  "num_citations": 1,
+  "date_last_updated": "2026-10-11T11:12:19.876162+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
-    "fetch_date": "2026-09-29T11:40:26.365719+00:00",
+    "fetch_date": "2026-10-11T11:12:19.876162+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
-    "anchor_count": 1,
+    "anchor_count": 2,
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
     "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
+        "identifier": "10.3389/fnhum.2025.1647425",
+        "identifier_type": "doi",
+        "source_relation": "IsDescribedBy",
+        "classification": "data_paper",
+        "kept": true,
+        "kept_reason": "judged_data_paper",
+        "paper_title": "Hormonal contraceptive use is associated with reduced central serotonergic activity indexed by the loudness dependence of auditory evoked potentials",
+        "paper_year": 2025,
+        "paper_venue": "Frontiers in Human Neuroscience",
+        "reason": "Study paper by the same authors reports the LDAEP EEG of 54 healthy women (HC users vs non-users) with BDI-II, matching the dataset's LDAEP paradigm and stated study purpose; IsSupplementTo.",
+        "judgment_model": "claude-sonnet-5-5"
+      },
+      {
         "identifier": "10.21105/joss.01896",
         "identifier_type": "doi",
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
         "paper_year": 2019,
         "paper_venue": "The Journal of Open Source Software",
         "reason": "MNE-BIDS is a software tool for organizing electrophysiological data into BIDS, likely used to curate this dataset; it does not describe the LDAEP/resting-state data.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1038/sdata.2016.44",
@@ -32,12 +45,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "The brain imaging data structure, a format for organizing and describing outputs of neuroimaging experiments",
         "paper_year": 2016,
         "paper_venue": "Scientific Data",
         "reason": "The paper specifies the Brain Imaging Data Structure (BIDS) standard used to organize this dataset. It is a specification, not a description of this EEG dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1038/s41597-019-0104-8",
@@ -45,12 +58,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "EEG-BIDS, an extension to the brain imaging data structure for electroencephalography",
         "paper_year": 2019,
         "paper_venue": "Scientific Data",
         "reason": "EEG-BIDS is a data-organization standard/specification the dataset uses for its format, not a paper describing this LDAEP/resting-state dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1037/1040-3590.10.2.83",
@@ -58,12 +71,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "judged_not_data_paper",
         "paper_title": "A psychometric evaluation of the Beck Depression Inventory–II.",
         "paper_year": 1998,
         "paper_venue": "Psychological Assessment",
         "reason": "Psychometric evaluation of the BDI-II, the depression questionnaire used in this dataset; an instrument validation paper, not a description of this dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_not_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on007615",
@@ -71,45 +84,73 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
+      "10.3389/fnhum.2025.1647425",
       "10.82901/nemar.on007615"
     ],
     "keywords": [
       "EEG",
-      "resting state",
-      "auditory evoked potentials",
-      "Serotonin",
+      "loudness dependence of auditory evoked potentials",
+      "resting-state",
       "hormonal contraceptives",
-      "impulsivity",
-      "Depression"
+      "serotonin",
+      "Evoked Potentials, Auditory",
+      "healthy women"
     ],
-    "methods_description": "EEG data were recorded using a BioSemi ActiveTwo system with 64 Ag-AgCl electrodes positioned according to the extended 10-20 (10-10) system, plus 4 auxiliary oculogram channels, at a sampling rate of 2048 Hz. Each participant underwent a resting-state recording (4 minutes eyes closed, 4 minutes eyes open) followed by an LDAEP paradigm (1000 Hz tones at 55, 65, 75, 85, and 95 dB SPL; 80 trials per level). Raw data are unfiltered except for a standard anti-aliasing filter, and were stored in BrainVision format.",
+    "methods_description": "EEG was recorded with a BioSemi ActiveTwo system using 64 Ag-AgCl electrodes placed according to the extended 10-20 system, plus 4 EOG channels, at a 2048 Hz sampling rate. The resting-state recording (4 minutes eyes closed, then 4 minutes eyes open) was always done first. The LDAEP paradigm used 1000 Hz tones at five intensities (55, 65, 75, 85 and 95 dB SPL), with 80 trials per level. Raw data are stored in BrainVision format and were organised into BIDS with MNE-BIDS.",
     "funding": [
       {
         "funder_name": "University of Oslo"
       }
-    ],
-    "searched_accessions": [
-      "on007615",
-      "ds007615"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 0
+    ]
   },
-  "citation_details": [],
+  "citation_details": [
+    {
+      "title": "BIDS-formatted resting-state and loudness dependence of auditory evoked potentials (LDAEP) EEG dataset from healthy women",
+      "author": "Henrik Normannseth, Stein Andersson, Christoffer Hatlestad‐Hall",
+      "venue": "Data in Brief",
+      "year": 2026,
+      "url": "https://doi.org/10.1016/j.dib.2026.112940",
+      "cited_by": 0,
+      "abstract": "Here, we describe a publicly available electroencephalography (EEG) dataset recorded from 69 healthy women (aged 19-40). Data were acquired using a 64-channel BioSemi ActiveTwo system (10-10 electrode positions) at a sampling rate of 2048 Hz. The dataset includes two EEG paradigms: (1) a resting-state recording consisting of four minutes with eyes closed followed by four minutes with eyes open (available for all 69 participants), and (2) a loudness dependence of auditory evoked potentials (LDAEP) paradigm comprising 1000 Hz tones at five intensity levels (55-95 dB SPL; available for 54 participants). The dataset also includes demographic variables, hormonal contraceptive (HC) usage information, menstrual cycle data, Beck Depression Inventory-II (BDI-II) scores, and UPPS Impulsive Behavior Scale subscale scores. The data are organized according to the Brain Imaging Data Structure (BIDS) specification and hosted on OpenNeuro. The dataset is suitable for research on resting-state EEG, LDA",
+      "doi": "10.1016/j.dib.2026.112940",
+      "pmid": "42293445",
+      "openalex_id": "W7163756299",
+      "source_doi": "10.3389/fnhum.2025.1647425",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 1.0,
+        "similarity_score": 0.8934569358825684,
+        "citation_text_length": 1236,
+        "dataset_text_length": 2266,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    }
+  ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T11:03:47.816274+00:00",
+    "scoring_date": "2026-10-11T11:40:58.167782+00:00",
     "dataset_text_length": 2266,
-    "num_citations_scored": 0
+    "num_citations_scored": 1,
+    "summary_stats": {
+      "mean_confidence": 1.0,
+      "median_confidence": 1.0,
+      "std_confidence": 0.0,
+      "min_confidence": 1.0,
+      "max_confidence": 1.0,
+      "high_confidence_count": 1,
+      "medium_confidence_count": 0,
+      "low_confidence_count": 0
+    }
   }
 }

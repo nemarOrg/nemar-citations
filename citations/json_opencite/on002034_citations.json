@@ -1,16 +1,14 @@
 {
   "dataset_id": "on002034",
-  "num_citations": 15,
-  "date_last_updated": "2026-10-04T10:05:14.986284+00:00",
+  "num_citations": 16,
+  "date_last_updated": "2026-10-11T10:41:01.718711+00:00",
   "metadata": {
     "total_cumulative_citations": 151,
-    "fetch_date": "2026-09-29T11:04:32.347284+00:00",
+    "fetch_date": "2026-10-11T10:41:01.718711+00:00",
     "processing_version": "1.0",
-    "fetch_status": "partial",
+    "fetch_status": "success",
     "anchor_count": 2,
-    "anchor_errors": {
-      "10.82901/nemar.on002034": "not_found"
-    },
+    "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
     "anchor_judgment_model": "claude-sonnet-5-5",
@@ -18,15 +16,15 @@
       {
         "identifier": "10.1007/s10548-019-00725-9",
         "identifier_type": "doi",
-        "source_relation": "References",
+        "source_relation": "IsDescribedBy",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Real-time EEG Feedback on Alpha Power Lateralization Leads to Behavioral Improvements in a Covert Attention Task",
         "paper_year": 2019,
         "paper_venue": "Brain Topography",
         "reason": "The dataset README says it contains the EEG recordings used in this exact paper (matching title, authors, 14 participants, covert attention task), and DataCite marks it IsDescribedBy.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on002034",
@@ -34,12 +32,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -48,25 +46,18 @@
     ],
     "keywords": [
       "EEG",
-      "neurofeedback",
       "alpha power lateralization",
+      "neurofeedback",
       "covert attention",
       "brain-computer interface",
-      "real-time feedback"
+      "Attention"
     ],
-    "methods_description": "EEG was recorded using a 64-channel active HIamp amplifier (g.tec) at 512 Hz, referenced to linked ears with ground at FCz, positioned according to the international 10-10 system. The experimental paradigm involved three recording sessions across different days. Session 1 included practice and four offline calibration runs (80 trials each). Sessions 2 and 3 employed a single-blinded crossover design with offline runs (80 trials each) at the beginning and end, and two real-time feedback runs (40 trials each) in the middle, alternating between real and sham alpha-power lateralization index feedback.",
+    "methods_description": "64-channel active g.tec HIamp EEG recorded at 512 Hz, referenced to linked ears, with electrodes placed per the 10-10 system and ground at FCz. Three sessions on separate days: day one had practice and four offline calibration runs; days two and three had offline runs plus real-time or sham α-LI feedback runs in a crossover design. Participants responded to target-offset events with a right index finger button press.",
     "funding": [
       {
         "funder_name": "No external funding sources"
       }
-    ],
-    "searched_accessions": [
-      "on002034",
-      "ds002034"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 1,
-    "num_datapaper_citations": 14
+    ]
   },
   "citation_details": [
     {
@@ -97,9 +88,7 @@
       "openalex_id": "W4297474646",
       "source_doi": "10.1007/s10548-019-00725-9",
       "source_relation": "References",
-      "discovery_backend": "opencite",
-      "mentions_accession": true,
-      "matched_accession": "ds002034"
+      "discovery_backend": "opencite"
     },
     {
       "title": "Effects of neurofeedback training on performance in laboratory tasks: A systematic review",
@@ -293,6 +282,21 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1007/s10548-019-00725-9",
+      "source_relation": "References",
+      "discovery_backend": "opencite"
+    },
+    {
+      "title": "Self-regulation of neuronal activity in prefrontal cortex",
+      "author": "Chris S. Ki, Ryan C. Williamson, A. Umakantha, Byron M. Yu, Matthew A. Smith",
+      "venue": "bioRxiv",
+      "year": 2026,
+      "url": "https://doi.org/10.64898/2026.08.18.742749",
+      "cited_by": 0,
+      "abstract": "Despite our best efforts to stay focused on a task, our arousal waxes and wanes over time. Lower levels of arousal are typically associated with drowsiness, whereas higher levels are often associated with stress. These changes in arousal move us away from ideal task performance and manifest as fluctuations in neural activity. We asked whether moment-by-moment neurofeedback could be used to counteract neural fluctuations and thereby regulate arousal levels. Here, we developed an intracortical brain-computer interface (BCI) in which animals used visual neurofeedback to maintain neural population activity in prefrontal cortex near a pre-specified activity target. We found animals used moment-to-moment neurofeedback to reduce neural fluctuations on timescales of seconds to hundreds of milliseconds, and that arousal-related regulation of neural activity was associated with BCI use. Our findings suggest that neurofeedback may enhance or restore regulation of neural activity, with potential c",
+      "doi": "10.64898/2026.08.18.742749",
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.82901/nemar.on002034",
       "source_relation": "References",
       "discovery_backend": "opencite"
     }

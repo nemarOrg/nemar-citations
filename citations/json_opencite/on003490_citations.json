@@ -1,10 +1,10 @@
 {
   "dataset_id": "on003490",
-  "num_citations": 20,
-  "date_last_updated": "2026-09-29T11:44:31.261673+00:00",
+  "num_citations": 21,
+  "date_last_updated": "2026-10-11T11:15:07.246039+00:00",
   "metadata": {
-    "total_cumulative_citations": 64,
-    "fetch_date": "2026-09-29T11:08:37.465711+00:00",
+    "total_cumulative_citations": 0,
+    "fetch_date": "2026-10-11T10:44:20.006905+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 1,
@@ -19,36 +19,35 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
       "10.82901/nemar.on003490"
     ],
     "keywords": [
-      "Parkinson Disease",
       "EEG",
-      "auditory oddball task",
-      "oddball paradigm",
-      "ERP",
+      "Parkinson Disease",
+      "auditory oddball",
       "resting state",
-      "accelerometer",
-      "tremor",
-      "dopaminergic medication"
+      "dopaminergic medication",
+      "accelerometry",
+      "event-related potentials",
+      "tremor"
     ],
-    "methods_description": "EEG was recorded during rest (eyes open and eyes closed, one-minute blocks marked with triggers) and during a 3-stimulus auditory oddball task programmed in MATLAB. An accelerometer was taped to participants' most tremor-affected hand to record X, Y, Z acceleration throughout the session. Parkinson's patients were tested in two sessions one week apart (on or off medication), while controls were tested once.",
+    "methods_description": "Data were collected circa 2015 at the Cognitive Rhythms and Computation Lab, University of New Mexico. Participants completed a Matlab-based three-stimulus auditory oddball task, preceded by instructed one-minute eyes-open and eyes-closed resting periods marked by triggers. An accelerometer taped to the most tremor-affected hand recorded X, Y, and Z dimensions throughout. Patients were tested ON and OFF medication in separate sessions.",
     "funding": [],
     "searched_accessions": [
       "on003490",
       "ds003490"
     ],
-    "num_accession_mentions": 20,
-    "num_dataset_citations": 20,
+    "num_accession_mentions": 21,
+    "num_dataset_citations": 21,
     "num_datapaper_citations": 0
   },
   "citation_details": [
@@ -78,12 +77,37 @@
       }
     },
     {
+      "title": "JU-PDDv1: A harmonized dataset for Parkinson's disease diagnosis from heterogeneous EEG recordings",
+      "author": "Sankhadip Bera, Pawan Kumar Singh",
+      "venue": "Brain Network Disorders",
+      "year": 2026,
+      "url": "https://doi.org/10.1016/j.bnd.2026.07.003",
+      "cited_by": 0,
+      "abstract": "Background Parkinson's disease (PD) is a progressive neurodegenerative disease characterized by both motor and nonmotor symptoms for which early diagnosis of PD remains challenging. Electroencephalography (EEG) has emerged as a promising modality for PD diagnosis owing to its high temporal resolution, non-invasive nature, and cost-effectiveness. However, progress in EEG-based PD research has been hindered by the heterogeneity of publicly available datasets. Existing datasets vary widely in terms of their sampling rates, electrode montages, referencing schemes, amplitude units, and recording protocols, making cross-dataset evaluation and reproducible benchmarking extremely challenging. Methods We introduced Jadavpur University Parkinson's Disease Diagnosis version 1 (JU-PDDv1), a harmonized multi-source EEG dataset integrating six publicly available PD EEG datasets comprising 360 participants. By implementing a unified pre-processing pipeline, we established the necessity of standardizing EEG parameters to mitigate dataset-specific biases that impede cross-study comparisons. A subject-independent split was also provided to ensure fair evaluation. To benchmark our proposed JU-PDDv1 dataset, we tested standard deep learning architectures and a classical machine learning model. Results These baseline models achieved 57%–74% accuracy under subject-independent evaluation for binary PD classification. Intradataset and Leave-One-Dataset-Out (LODO) cross-dataset evaluations were conducted to evaluate the efficacy of the proposed harmonization framework. The harmonized JU-PDDv1 pipeline substantially improves the cross-dataset generalization, increasing the average LODO accuracy from 43.25% to 75.28% following harmonization. The results establish a reliable baseline performance and confirm the learnability of the harmonized dataset. Conclusions Overall, the JU-PDDv1 dataset offers a scalable resource that aims to reduce the pre-processing burden, supports cross-dataset generalization, and provides a strong platform for EEG-based PD research. The JU-PDDv1 dataset is publicly available from Kaggle.",
+      "doi": "10.1016/j.bnd.2026.07.003",
+      "pmid": null,
+      "openalex_id": "W7214789064",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds003490",
+      "confidence_scoring": {
+        "confidence_score": 0.755049447119236,
+        "similarity_score": 0.6537224650382996,
+        "citation_text_length": 1693,
+        "dataset_text_length": 1171,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "TransformEEG: Towards improving model generalizability in deep learning-based EEG Parkinson’s disease detection",
       "author": "Federico Del Pup, Riccardo Brun, Filippo Iotti, Edoardo Paccagnella, Mattia Pezzato, Sabrina Bertozzo, Andrea Zanola, Louis Fabrice Tshimanga, Henning Müller, Manfredo Atzori",
       "venue": "Neurocomputing",
       "year": 2025,
       "url": "https://doi.org/10.1016/j.neucom.2025.132075",
-      "cited_by": 6,
+      "cited_by": 9,
       "abstract": "Electroencephalography (EEG) is establishing itself as an important, low-cost, noninvasive diagnostic tool for the early detection of Parkinson’s Disease (PD). In this context, EEG-based Deep Learning (DL) models have shown promising results due to their ability to discover highly nonlinear patterns within the signal. However, current state-of-the-art DL models suffer from poor generalizability caused by high inter-subject variability. This high variability underscores the need for enhancing model generalizability by developing new architectures better tailored to EEG data. This paper introduces TransformEEG, a hybrid Convolutional-Transformer designed for Parkinson’s disease detection using EEG data. Unlike transformer models based on the EEGNet structure, TransformEEG incorporates a depthwise convolutional tokenizer. This tokenizer is specialized in generating tokens composed by channel-specific features, which enables more effective feature mixing within the self-attention layers of the transformer encoder. To evaluate the proposed model, four public datasets comprising 290 subjects (140 PD patients, 150 healthy controls) were harmonized and aggregated. A 10-outer, 10-inner Nested-Leave-N-Subjects-Out (N-LNSO) cross-validation was performed to provide an unbiased comparison against seven other consolidated EEG deep learning models. TransformEEG achieved the highest balanced accuracy’s median (78.45 %) as well as the lowest interquartile range (6.37 %) across all the N-LNSO partitions. When combined with data augmentation and threshold correction, median accuracy increased to 80.10 %, with an interquartile range of 5.74 %. In conclusion, TransformEEG produces more consistent and less skewed results. It demonstrates a substantial reduction in variability and more reliable PD detection using EEG data compared to the other investigated models. • This work presents TransformEEG, a novel hybrid convolutional-transformer model. • TransformEEG reduces performance variability in Parkinson’s Disease detection. • TransformEEG was evaluated on four public datasets comprising 290 subjects. • Data augmentation further enhance TransformEEG performance. • Classification threshold correction further enhance TransformEEG performance.",
       "doi": "10.1016/j.neucom.2025.132075",
       "pmid": null,
@@ -108,7 +132,7 @@
       "venue": "Brain Communications",
       "year": 2026,
       "url": "https://doi.org/10.1093/braincomms/fcag329",
-      "cited_by": 0,
+      "cited_by": 1,
       "abstract": "Abstract Parkinson’s disease is characterized by a range of motor and non-motor changes that can negatively impact quality of life. Many studies have identified potential clinical electrophysiological correlates of Parkinson’s disease with an aim of developing new methods of identifying at-risk patients and forming the basis of therapeutic interventions. However, these studies do not present consistent results, and a formal meta-analysis is warranted to identify reliable EEG or magnetoencephalography (M/EEG) characteristics across datasets. In this meta-analysis of open-access M/EEG datasets (n = 6; 4 EEG and 2 MEG), we compared periodic and aperiodic characteristics of resting-state recordings in 368 patients with Parkinson’s disease and 570 age-matched healthy controls. Specifically, we compared the power and peak frequency of unadjusted and aperiodic-adjusted alpha- and beta-band oscillations, and the exponent and offset, across the two groups. Parkinson’s patients had a consistently elevated aperiodic exponent and offset. Patients also had higher unadjusted beta-band power, but this was no longer present when the aperiodic features were removed, suggesting that previous findings of elevated beta activity in Parkinson’s disease could be confounded by aperiodic activity rather than reflecting true oscillatory differences. Patients also had higher adjusted and unadjusted alpha-band power and a slower alpha peak frequency compared with controls, whereas no group difference in beta peak frequency was identified. In conclusion, this large cohort meta-analysis points to a broadly consistent pattern of both periodic and aperiodic changes in Parkinson’s patients in M/EEG signals that may be used to develop diagnostics and targeted interventions in the future.",
       "doi": "10.1093/braincomms/fcag329",
       "pmid": "42724388",
@@ -154,11 +178,11 @@
     },
     {
       "title": "EEG Datasets for Healthcare: A Scoping Review",
-      "author": "Caroline Peres da Silva, Salvatore Antonio Tedesco, Brendan O’Flynn",
+      "author": "Caroline Peres da Silva, Salvatore Tedesco, Brendan O’Flynn",
       "venue": "IEEE Access",
       "year": 2024,
       "url": "https://doi.org/10.1109/access.2024.3376254",
-      "cited_by": 19,
+      "cited_by": 18,
       "abstract": "The rapidly evolving landscape of artificial intelligence (AI) and machine learning has placed data at the forefront of healthcare innovation. Electroencephalography (EEG) has gained significant attention for its potential to revolutionize healthcare applications. However, the effective utilization of EEG data in advancing medical diagnoses and treatment hinges on the availability and quality of relevant datasets. In this context, we conducted a scoping review to explore the wealth of EEG datasets designed for healthcare applications. This review serves as a critical exploration of the current landscape, aiming to identify datasets related to healthcare conditions while assessing their reusability. Our findings highlight both the opportunities provided by the wealth of open access EEG datasets available as well as any limitations associated with their use. As AI increasingly relies on high-quality, well labelled data, barriers impeding the sharing and utilization of EEG data for healthcare (such as lack of comprehensive documentation or adherence to FAIR principles) must be addressed so as to leverage the potential of advanced deep learning models to unlock new possibilities for diagnosis and analysis of a wide array of medical conditions.",
       "doi": "10.1109/access.2024.3376254",
       "pmid": null,
@@ -169,9 +193,9 @@
       "discovery_method": "accession_mention",
       "matched_accession": "ds003490",
       "confidence_scoring": {
-        "confidence_score": 0.5451003849506378,
-        "similarity_score": 0.47194838523864746,
-        "citation_text_length": 1421,
+        "confidence_score": 0.5489804658293725,
+        "similarity_score": 0.47530776262283325,
+        "citation_text_length": 1413,
         "dataset_text_length": 1171,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -258,7 +282,7 @@
       "venue": "Journal of Integrative Neuroscience",
       "year": 2021,
       "url": "https://doi.org/10.31083/j.jin2004083",
-      "cited_by": 32,
+      "cited_by": 31,
       "abstract": "The neural processing of incoming stimuli can be analysed from the electroencephalogram (EEG) through event-related potentials (ERPs). The P3 component is largely investigated as it represents an important psychophysiological marker of psychiatric disorders. This is composed by several subcomponents, such as P3a and P3b, reflecting distinct but interrelated sensory and cognitive processes of incoming stimuli. Due to the low EEG signal-to-noise-ratio, ERPs emerge only after an averaging procedure across trials and subjects. Thus, this canonical ERP analysis lacks in the ability to highlight EEG neural signatures at the level of single-subject and single-trial. In this study, a deep learning-based workflow is investigated to enhance EEG neural signatures related to P3 subcomponents already at single-subject and at single-trial level. This was based on the combination of a convolutional neural network (CNN) with an explanation technique (ET). The CNN was trained using two different strategies to produce saliency representations enhancing signatures shared across subjects or more specific for each subject and trial. Cross-subject saliency representations matched the signatures already emerging from ERPs, i.e., P3a and P3b-related activity within 350-400 ms (frontal sites) and 400-650 ms (parietal sites) post-stimulus, validating the CNN+ET respect to canonical ERP analysis. Single-subject and single-trial saliency representations enhanced P3 signatures already at the single-trial scale, while EEG-derived representations at single-subject and single-trial level provided no or only mildly evident signatures. Empowering the analysis of P3 modulations at single-subject and at single-trial level, CNN+ET could be useful to provide insights about neural processes linking sensory stimulation, cognition and behaviour.",
       "doi": "10.31083/j.jin2004083",
       "pmid": "34997705",
@@ -333,7 +357,7 @@
       "venue": "Applied Sciences",
       "year": 2025,
       "url": "https://doi.org/10.3390/app152413275",
-      "cited_by": 3,
+      "cited_by": 4,
       "abstract": "Electroencephalography (EEG) is an important noninvasive diagnostic tool for detecting neurodegenerative disorders. In this context, EEG-based deep learning models show promise due to their ability to capture nonlinear brain dynamics but often suffer from poor generalizability caused by high inter-subject variability. Self-supervised learning (SSL) offers a promising solution by enabling models to learn robust representations from large unlabeled datasets. This study introduces a double-masking representation learning framework for EEG analysis. Using data aggregated from eight multi-center datasets (3156 subjects; 439 h of EEG recordings), a hybrid convolutional-transformer model (TransformEEG) is pretrained to enhance generalization in neurodegenerative disease classification, focusing on Parkinson’s and Alzheimer’s diseases. This approach combines phase-swap data augmentation, designed to facilitate the learning of EEG phase-amplitude coupling, with a double-masking function that operates at both the signal and the transformer’s token levels. The pretrained model was evaluated against a fully supervised baseline using Monte Carlo cross-validation with 100 splits across three public pathology detection datasets. Pretraining led to consistent improvements in both median balanced accuracy and Inter-Quartile Range (IQR) across all fine-tuning datasets. Compared to the fully supervised baseline, the proposed approach increases median balanced accuracy by 2.8% for Parkinson’s disease detection and by 4.2% for Alzheimer’s disease detection, while also reducing performance variability across 100 Monte Carlo splits. These results demonstrate that SSL can enhance EEG deep learning performance, though achieving robust generalization in clinical applications remains an open research challenge.",
       "doi": "10.3390/app152413275",
       "pmid": null,
@@ -468,10 +492,6 @@
       "discovery_backend": "openalex",
       "discovery_method": "accession_mention",
       "matched_accession": "ds003490",
-      "superseded_dois": [
-        "10.5281/zenodo.20527446",
-        "10.5281/zenodo.20597114"
-      ],
       "confidence_scoring": {
         "confidence_score": 0.7800296062231065,
         "similarity_score": 0.6753503084182739,
@@ -559,16 +579,16 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T12:07:58.308720+00:00",
+    "scoring_date": "2026-10-11T11:28:37.557955+00:00",
     "dataset_text_length": 1171,
-    "num_citations_scored": 20,
+    "num_citations_scored": 21,
     "summary_stats": {
-      "mean_confidence": 0.5907968962490558,
-      "median_confidence": 0.5989365845918656,
-      "std_confidence": 0.09492584886592663,
+      "mean_confidence": 0.5988032120466232,
+      "median_confidence": 0.6011050128936768,
+      "std_confidence": 0.09892555062321601,
       "min_confidence": 0.3060453119874001,
       "max_confidence": 0.7800296062231065,
-      "high_confidence_count": 2,
+      "high_confidence_count": 3,
       "medium_confidence_count": 17,
       "low_confidence_count": 1
     }

@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000209",
   "num_citations": 24,
-  "date_last_updated": "2026-09-30T10:44:25.910129+00:00",
+  "date_last_updated": "2026-10-11T10:20:47.141945+00:00",
   "metadata": {
-    "total_cumulative_citations": 365,
-    "fetch_date": "2026-09-29T10:49:55.013023+00:00",
+    "total_cumulative_citations": 379,
+    "fetch_date": "2026-10-11T10:20:47.141945+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -19,12 +19,12 @@
         "source_relation": "IsDerivedFrom",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Integrating Simultaneous Motor Imagery and Spatial Attention for EEG-BCI Control",
         "paper_year": 2023,
         "paper_venue": "IEEE Transactions on Biomedical Engineering",
         "reason": "Dataset is named for Forenzo & He 2023 with the same DOI, 25 subjects, 5 sessions, and MI+spatial attention paradigm; this paper reports the recording of exactly this data.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.21105/joss.01896",
@@ -32,12 +32,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
         "paper_year": 2019,
         "paper_venue": "The Journal of Open Source Software",
         "reason": "MNE-BIDS is a software tool for organizing electrophysiological data into BIDS, used to curate this dataset; it does not describe the Forenzo & He motor imagery data.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1038/s41597-019-0104-8",
@@ -45,12 +45,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "EEG-BIDS, an extension to the brain imaging data structure for electroencephalography",
         "paper_year": 2019,
         "paper_venue": "Scientific Data",
         "reason": "EEG-BIDS is a specification/standard extension for organizing EEG data, used to format this dataset, not a paper describing the Forenzo & He motor imagery data.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.nm000209",
@@ -58,12 +58,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -72,20 +72,14 @@
     ],
     "keywords": [
       "EEG",
-      "motor imagery",
       "Brain-Computer Interfaces",
+      "Motor imagery",
       "spatial attention",
       "cursor control",
-      "HED annotation"
+      "alpha rhythm"
     ],
-    "methods_description": "EEG data were recorded using a 64-channel Neuroscan Quik-Cap with SynAmps 2/RT amplifiers at a 1000 Hz sampling rate, referenced between Cz and CPz, following the standard_1005 montage. Online filters included a lowpass at 200 Hz and a 60 Hz notch filter. Participants performed motor imagery tasks (left_hand, right_hand) with 6-second trial durations, synchronous online feedback via cursor control, and continuous visual pursuit stimuli. Signal processing involved AR spectral estimation, alpha bandpower feature extraction (8-13 Hz), Laplacian spatial filtering, and linear classification evaluated within-subject.",
-    "funding": [],
-    "searched_accessions": [
-      "nm000209"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 24
+    "methods_description": "64-channel EEG was recorded with a Neuroscan Quik-Cap and SynAmps 2/RT amplifier at 1000 Hz, referenced between Cz and CPz, with a 200 Hz lowpass and 60 Hz notch online. Each participant completed 5 sessions of 3 motor imagery runs with 5 trials each, controlling a cursor in continuous pursuit with online feedback. Control used alpha-band power from autoregressive spectral estimation with Laplacian spatial filtering and a linear classifier.",
+    "funding": []
   },
   "citation_details": [
     {
@@ -94,7 +88,7 @@
       "venue": "IEEE Reviews in Biomedical Engineering",
       "year": 2024,
       "url": "https://doi.org/10.1109/rbme.2024.3449790",
-      "cited_by": 177,
+      "cited_by": 179,
       "abstract": "Brain-computer interface (BCI) is a rapidly evolving technology that has the potential to widely influence research, clinical and recreational use. Non-invasive BCI approaches are particularly common as they can impact a large number of participants safely and at a relatively low cost. Where traditional non-invasive BCIs were used for simple computer cursor tasks, it is now increasingly common for these systems to control robotic devices for complex tasks that may be useful in daily life. In this review, we provide an overview of the general BCI framework as well as the various methods that can be used to record neural activity, extract signals of interest, and decode brain states. In this context, we summarize the current state-of-the-art of non-invasive BCI research, focusing on trends in both the application of BCIs for controlling external devices and algorithm development to optimize their use. We also discuss various open-source BCI toolboxes and software, and describe their impa",
       "doi": "10.1109/rbme.2024.3449790",
       "pmid": "39186407",
@@ -117,7 +111,7 @@
       "venue": "Nature Communications",
       "year": 2025,
       "url": "https://doi.org/10.1038/s41467-025-61064-x",
-      "cited_by": 88,
+      "cited_by": 92,
       "abstract": "Brain-computer interfaces (BCIs) connect human thoughts to external devices, offering the potential to enhance life quality for individuals with motor impairments and general population. Noninvasive BCIs are accessible to a wide audience but currently face challenges, including unintuitive mappings and imprecise control. In this study, we present a real-time noninvasive robotic control system using movement execution (ME) and motor imagery (MI) of individual finger movements to drive robotic finger motions. The proposed system advances state-of-the-art electroencephalography (EEG)-BCI technology by decoding brain signals for intended finger movements into corresponding robotic motions. In a study involving 21 able-bodied experienced BCI users, we achieved real-time decoding accuracies of 80.56% for two-finger MI tasks and 60.61% for three-finger tasks. Brain signal decoding was facilitated using a deep neural network, with fine-tuning enhancing BCI performance. Our findings demonstrate",
       "doi": "10.1038/s41467-025-61064-x",
       "pmid": "40588517",
@@ -136,11 +130,11 @@
     },
     {
       "title": "Continuous tracking using deep learning-based decoding for noninvasive brain–computer interface",
-      "author": "Dylan Forenzo, Hao Zhu, J.G. Shanahan, Jaehyun Lim, Bin He",
+      "author": "Dylan Forenzo, Hao Zhu, Jenn Shanahan, Jaehyun Lim, Bin He",
       "venue": "PNAS Nexus",
       "year": 2024,
       "url": "https://doi.org/10.1093/pnasnexus/pgae145",
-      "cited_by": 32,
+      "cited_by": 33,
       "abstract": "Brain-computer interfaces (BCI) using electroencephalography provide a noninvasive method for users to interact with external devices without the need for muscle activation. While noninvasive BCIs have the potential to improve the quality of lives of healthy and motor-impaired individuals, they currently have limited applications due to inconsistent performance and low degrees of freedom. In this study, we use deep learning (DL)-based decoders for online continuous pursuit (CP), a complex BCI task requiring the user to track an object in 2D space. We developed a labeling system to use CP data for supervised learning, trained DL-based decoders based on two architectures, including a newly proposed adaptation of the PointNet architecture, and evaluated the performance over several online sessions. We rigorously evaluated the DL-based decoders in a total of 28 human participants, and found that the DL-based models improved throughout the sessions as more training data became available and",
       "doi": "10.1093/pnasnexus/pgae145",
       "pmid": "38689706",
@@ -149,8 +143,8 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.519355238378048,
-        "similarity_score": 0.44965821504592896,
+        "confidence_score": 0.5192995440959931,
+        "similarity_score": 0.44960999488830566,
         "citation_text_length": 1202,
         "dataset_text_length": 2329,
         "scoring_method": "sentence_transformers",
@@ -209,10 +203,10 @@
       "venue": "IEEE Transactions on Neural Systems and Rehabilitation Engineering",
       "year": 2025,
       "url": "https://doi.org/10.1109/tnsre.2025.3611821",
-      "cited_by": 10,
+      "cited_by": 11,
       "abstract": "Recent advancements in signal processing techniques have enabled non-invasive Brain-Computer Interfaces (BCIs) to control assistive devices, like robotic arms, directly with users' EEG signals. However, the applications of these systems are currently limited by the low signal-to-noise ratio and spatial resolution of EEG from which brain intention is decoded. In this study, we propose a motor-imagery (MI) paradigm, inspired by the mechanisms of a computer mouse, that adds an additional \"click\" signal to an established 2D movement BCI paradigm. The additional output signal increases the degrees of freedom of the BCI system and may enable more complex tasks. We evaluated this paradigm using deep learning (DL) based signal processing on both healthy subjects and stroke-survivors in online BCI tasks derived from two potential applications: clicking on virtual targets and moving physical objects with a robotic arm in a continuous reach-and-grasp task. The results show that subjects were able",
       "doi": "10.1109/tnsre.2025.3611821",
-      "pmid": "40966144",
+      "pmid": "40321282",
       "openalex_id": "W4414321964",
       "source_doi": "10.1109/tbme.2023.3298957",
       "source_relation": "IsDerivedFrom",
@@ -221,6 +215,29 @@
         "confidence_score": 0.6118441647291184,
         "similarity_score": 0.5297352075576782,
         "citation_text_length": 1277,
+        "dataset_text_length": 2329,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "AWKNet: A Lightweight Neural Network for Motor Imagery Electroencephalogram Classification Based on Adaptive Wavelet Transform Kolmogorov-Arnold",
+      "author": "Yu Song, Hang Zhang, Janzhi Man, Xiaoqian Jin, Qi Li",
+      "venue": "IEEE Transactions on Consumer Electronics",
+      "year": 2025,
+      "url": "https://doi.org/10.1109/tce.2025.3540970",
+      "cited_by": 10,
+      "abstract": "Motor imagery electroencephalography (MI-EEG) is widely used in the neural rehabilitation field, including for hybrid device control, such as robotic arms. However, it is difficult to apply large models with good performance in consumer electronics (CE) with limited computing and memory resources. To address this challenge, this study proposes an adaptive wavelet transform Kolmogorov-Arnold network (KAN) approach named AWKNet, which uses wavelet loss to construct personalized discrete wavelet functions for MI-EEG features suited to different topics to learn an effective multiresolution wavelet transform. Second, a depth-separable convolutional layer is used to decouple the cross-channel and frequency domain features of the EEG data, and the conventional multilayer perceptron (MLP) layer is replaced based on the KAN technique. The proposed model is lightweight and improves the performance of the brain-computer interface (BCI) system. The model was employed to classify EEG signals acquir",
+      "doi": "10.1109/tce.2025.3540970",
+      "pmid": null,
+      "openalex_id": "W4407360744",
+      "source_doi": "10.1109/tbme.2023.3298957",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.56639195099473,
+        "similarity_score": 0.4903826415538788,
+        "citation_text_length": 1276,
         "dataset_text_length": 2329,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -250,35 +267,12 @@
       }
     },
     {
-      "title": "AWKNet: A Lightweight Neural Network for Motor Imagery Electroencephalogram Classification Based on Adaptive Wavelet Transform Kolmogorov-Arnold",
-      "author": "Yu Song, Hang Zhang, Jianzhi Man, Xiaoqian Jin, Qi Li",
-      "venue": "IEEE Transactions on Consumer Electronics",
-      "year": 2025,
-      "url": "https://doi.org/10.1109/TCE.2025.3540970",
-      "cited_by": 7,
-      "abstract": "Motor imagery electroencephalography (MI-EEG) is widely used in the neural rehabilitation field, including for hybrid device control, such as robotic arms. However, it is difficult to apply large models with good performance in consumer electronics (CE) with limited computing and memory resources. To address this challenge, this study proposes an adaptive wavelet transform Kolmogorov-Arnold network (KAN) approach named AWKNet, which uses wavelet loss to construct personalized discrete wavelet functions for MI-EEG features suited to different topics to learn an effective multiresolution wavelet transform. Second, a depth-separable convolutional layer is used to decouple the cross-channel and frequency domain features of the EEG data, and the conventional multilayer perceptron (MLP) layer is replaced based on the KAN technique. The proposed model is lightweight and improves the performance of the brain-computer interface (BCI) system. The model was employed to classify EEG signals acquir",
-      "doi": "10.1109/TCE.2025.3540970",
-      "pmid": null,
-      "openalex_id": null,
-      "source_doi": "10.1109/tbme.2023.3298957",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5641416335105897,
-        "similarity_score": 0.4884343147277832,
-        "citation_text_length": 1277,
-        "dataset_text_length": 2329,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "HEAR: An EEG Foundation Model with Heterogeneous Electrode Adaptive Representation",
-      "author": "Zhige Chen, Chengxuan Qin, Wenlong You, Rui Liu, Congying Chu, Rui Yang, Kay Chen Tan, Ji-Bin Wu",
+      "author": "Zhi-Ge Chen, Cheng-Xuan Qin, Wen-Long You, Rui Liu, Congying Chu, Rui Yang, Kay Chen Tan, Ji-Bin Wu",
       "venue": "n/a",
       "year": 2025,
       "url": "n/a",
-      "cited_by": 5,
+      "cited_by": 6,
       "abstract": "Electroencephalography (EEG) is an essential technique for neuroscience research and brain-computer interface (BCI) applications. Recently, large-scale EEG foundation models have been developed, exhibiting robust generalization capabilities across diverse tasks and subjects. However, the heterogeneity of EEG devices not only hinders the widespread adoption of these models but also poses significant challenges to their further scaling and development. In this paper, we introduce HEAR, the first EEG foundation model explicitly designed to support heterogeneous EEG devices, accommodating varying electrode layouts and electrode counts. HEAR employs a learnable, coordinate-based spatial embedding to map electrodes with diverse layouts and varying counts into a unified representational space. This unified spatial representation is then processed by a novel spatially-guided transformer, which effectively captures spatiotemporal dependencies across electrodes. To support the development of HEA",
       "doi": null,
       "pmid": null,
@@ -287,9 +281,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5312915074825288,
-        "similarity_score": 0.4599926471710205,
-        "citation_text_length": 1220,
+        "confidence_score": 0.5272445502877237,
+        "similarity_score": 0.45648878812789917,
+        "citation_text_length": 1223,
         "dataset_text_length": 2329,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -359,6 +353,29 @@
         "confidence_score": 0.6892840003967287,
         "similarity_score": 0.5967826843261719,
         "citation_text_length": 1247,
+        "dataset_text_length": 2329,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "A Hybrid Covert Attention–Augmented Motor Imagery Paradigm for Brain–Computer Interfaces",
+      "author": "Bei-Ning Cao, Yi-Xin Guo, Yutong Tian, Fuqun Cao, Ying Chen, Chin-Teng Lin",
+      "venue": "IEEE Transactions on Neural Systems and Rehabilitation Engineering",
+      "year": 2026,
+      "url": "https://doi.org/10.1109/TNSRE.2026.3683767",
+      "cited_by": 2,
+      "abstract": "Motor imagery (MI) is widely used in brain–computer interfaces (BCIs) and has been applied in neurorehabilitation to support motor recovery in stroke patients. Although numerous decoding algorithms have been developed and achieve comparable performance, their effectiveness fundamentally depends on the availability of robust bio-markers elicited during MI. However, inexperienced users often evoke weak MI-related bio-markers, making reliable classification difficult even with advanced algorithms. Consequently, inaccurate classification lead to erroneous feedback to users, which further undermines the usability of MI. From the perspective of feature representation, augmenting MI with additional cognitive bio-markers can enrich neural features, improve feedback reliability, and facilitate more effective MI training and use. Therefore, a covert attention-augmented motor imagery (CAA-MI) paradigm is proposed as a hybrid BCI approach, which integrates covert spatial attention (CSA) with MI to",
+      "doi": "10.1109/TNSRE.2026.3683767",
+      "pmid": "41979953",
+      "openalex_id": null,
+      "source_doi": "10.1109/tbme.2023.3298957",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7360709148645402,
+        "similarity_score": 0.6372908353805542,
+        "citation_text_length": 1267,
         "dataset_text_length": 2329,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -436,7 +453,7 @@
     {
       "title": "Motor Imagery BCI Extension Using Onomatopoeia Speech Imagery: Discriminating Walking Speeds within the Same Limb",
       "author": "Reo Hirano, Keita Watanabe",
-      "venue": "Proceedings of the Augmented Humans International Conference 2026",
+      "venue": "Augmented Humans International Conference (AHs)",
       "year": 2026,
       "url": "https://doi.org/10.1145/3795011.3795046",
       "cited_by": 0,
@@ -448,9 +465,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.7656867796182634,
-        "similarity_score": 0.662932276725769,
-        "citation_text_length": 1243,
+        "confidence_score": 0.7664888736605645,
+        "similarity_score": 0.6636267304420471,
+        "citation_text_length": 1225,
         "dataset_text_length": 2329,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -504,8 +521,8 @@
     },
     {
       "title": "A Convolutional Neural Network Based Graph Theory for EEG Classification of Motor Imagery",
-      "author": "Xuedou Xiong, Hui Ying Peng, Chaoyue Wang, Xinhang Gu, Yan-Chao Lou, Juan Yang",
-      "venue": "2024 IEEE 16th International Conference on Advanced Infocomm Technology (ICAIT)",
+      "author": "Xuedou Xiong, Hui Ying Peng, Chaoyue Wang, Xinhang Gu, Yanchao Lou, Juan Yang",
+      "venue": "IEEE International Conference on Advanced Infocomm Technology",
       "year": 2024,
       "url": "https://doi.org/10.1109/icait62580.2024.10808116",
       "cited_by": 0,
@@ -517,9 +534,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5659903188049794,
-        "similarity_score": 0.49003490805625916,
-        "citation_text_length": 1285,
+        "confidence_score": 0.559467444419861,
+        "similarity_score": 0.4843873977661133,
+        "citation_text_length": 1266,
         "dataset_text_length": 2329,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -595,29 +612,6 @@
       }
     },
     {
-      "title": "A Hybrid Covert Attention–Augmented Motor Imagery Paradigm for Brain–Computer Interfaces",
-      "author": "Bei-Ning Cao, Yi-Xin Guo, Yutong Tian, Fuqun Cao, Ying Chen, Chin-Teng Lin",
-      "venue": "IEEE Transactions on Neural Systems and Rehabilitation Engineering",
-      "year": 2026,
-      "url": "https://doi.org/10.1109/TNSRE.2026.3683767",
-      "cited_by": 0,
-      "abstract": "Motor imagery (MI) is widely used in brain–computer interfaces (BCIs) and has been applied in neurorehabilitation to support motor recovery in stroke patients. Although numerous decoding algorithms have been developed and achieve comparable performance, their effectiveness fundamentally depends on the availability of robust bio-markers elicited during MI. However, inexperienced users often evoke weak MI-related bio-markers, making reliable classification difficult even with advanced algorithms. Consequently, inaccurate classification lead to erroneous feedback to users, which further undermines the usability of MI. From the perspective of feature representation, augmenting MI with additional cognitive bio-markers can enrich neural features, improve feedback reliability, and facilitate more effective MI training and use. Therefore, a covert attention-augmented motor imagery (CAA-MI) paradigm is proposed as a hybrid BCI approach, which integrates covert spatial attention (CSA) with MI to",
-      "doi": "10.1109/TNSRE.2026.3683767",
-      "pmid": "41979953",
-      "openalex_id": null,
-      "source_doi": "10.1109/tbme.2023.3298957",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.7360709148645402,
-        "similarity_score": 0.6372908353805542,
-        "citation_text_length": 1267,
-        "dataset_text_length": 2329,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Brain-Controlled Wheeled Mobile Robots: A Shared Control Framework Integrating Event-Triggered Mechanism and Deep Reinforcement Learning",
       "author": "Xin-Yu Yu, Xinming He, Bin-Wen Huang, Guo-Qi Li, Xiao-Jun Yu",
       "venue": "IEEE Transactions on Neural Systems and Rehabilitation Engineering",
@@ -643,15 +637,15 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T10:52:10.747287+00:00",
+    "scoring_date": "2026-10-11T11:22:33.589725+00:00",
     "dataset_text_length": 2329,
     "num_citations_scored": 24,
     "summary_stats": {
-      "mean_confidence": 0.5747956760413945,
-      "median_confidence": 0.5650659761577845,
-      "std_confidence": 0.09858576840148048,
+      "mean_confidence": 0.5744801296107471,
+      "median_confidence": 0.5629296977072955,
+      "std_confidence": 0.09875334977925086,
       "min_confidence": 0.39127525627613075,
-      "max_confidence": 0.7656867796182634,
+      "max_confidence": 0.7664888736605645,
       "high_confidence_count": 2,
       "medium_confidence_count": 21,
       "low_confidence_count": 1

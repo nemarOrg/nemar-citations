@@ -1,10 +1,10 @@
 {
   "dataset_id": "on004883",
-  "num_citations": 10,
-  "date_last_updated": "2026-09-30T10:44:30.742397+00:00",
+  "num_citations": 13,
+  "date_last_updated": "2026-10-11T10:58:46.503567+00:00",
   "metadata": {
-    "total_cumulative_citations": 84,
-    "fetch_date": "2026-09-29T11:21:08.072345+00:00",
+    "total_cumulative_citations": 133,
+    "fetch_date": "2026-10-11T10:58:46.503567+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -19,12 +19,12 @@
         "source_relation": "IsDescribedBy",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "A registered report of a two‐site study of variations of the flanker task: ERN experimental effects and data quality",
         "paper_year": 2024,
         "paper_venue": "Psychophysiology",
         "reason": "The dataset README names this registered report (Psychophysiology 2024) as its publication. The paper has the same authors and reports ERN recorded during three flanker task versions, which matches the dataset title.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1111/psyp.14731",
@@ -32,12 +32,12 @@
         "source_relation": "References",
         "classification": "related_work",
         "kept": false,
+        "kept_reason": "judged_not_data_paper",
         "paper_title": "Stability of performance monitoring with prolonged task performance: A study of error‐related negativity and error positivity",
         "paper_year": 2024,
         "paper_venue": "Psychophysiology",
         "reason": "Different Clayson/Baldwin/Larson preregistered study on ERN/Pe stability across two task batteries; the dataset's own paper is the registered report (psyp.14607), not this one.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_not_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on004883",
@@ -45,12 +45,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -61,19 +61,12 @@
       "EEG",
       "error-related negativity",
       "flanker task",
-      "event-related potentials",
+      "performance monitoring",
       "registered report",
-      "error monitoring"
+      "data quality"
     ],
-    "methods_description": "Raw EGI MFF files were imported with EEGLAB, task-specific events were recoded into response-locked and stimulus-locked ERN-relevant event labels, and then exported to BIDS format.",
-    "funding": [],
-    "searched_accessions": [
-      "on004883",
-      "ds004883"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 10
+    "methods_description": "Raw EGI MFF EEG files were imported with EEGLAB, task-specific events were recoded into response-locked and stimulus-locked ERN-relevant event labels, and the data were exported to BIDS.",
+    "funding": []
   },
   "citation_details": [
     {
@@ -82,7 +75,7 @@
       "venue": "Psychophysiology",
       "year": 2024,
       "url": "https://doi.org/10.1111/psyp.14522",
-      "cited_by": 42,
+      "cited_by": 40,
       "abstract": "Although biological measurements are constrained by the same fundamental psychometric principles as self-report measurements, these essential principles are often neglected in most fields of neuroscience, including psychophysiology. Potential reasons for this neglect could include a lack of understanding of appropriate measurement theory or a lack of accessible software for psychometric analysis. Generalizability theory is a flexible and multifaceted measurement theory that is well suited to handling the nuances of psychophysiological data, such as the often unbalanced number of trials and intraindividual variability of scores of event-related brain potential (ERP) data. The ERP Reliability Analysis Toolbox (ERA Toolbox) was designed for psychophysiologists and is tractable software that can support the routine evaluation of psychometrics using generalizability theory. Psychometrics can guide task refinement, data-processing decisions, and selection of candidate biomarkers for clinical",
       "doi": "10.1111/psyp.14522",
       "pmid": "38228400",
@@ -94,6 +87,52 @@
         "confidence_score": 0.47435219317674643,
         "similarity_score": 0.41069453954696655,
         "citation_text_length": 1122,
+        "dataset_text_length": 703,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Beyond single paradigms, pipelines, and outcomes: Embracing multiverse analyses in psychophysiology",
+      "author": "Peter Eugene Clayson",
+      "venue": "International Journal of Psychophysiology",
+      "year": 2024,
+      "url": "https://doi.org/10.1016/j.ijpsycho.2024.112311",
+      "cited_by": 30,
+      "abstract": "Psychophysiological research is an inherently complex undertaking due to the nature of the data, and its analysis is characterized by many decision points that shape the final dataset and a study's findings. These decisions create a \"multiverse\" of possible outcomes, and each decision from study conceptualization to statistical analysis can lead to different results and interpretations. This review describes the concept of multiverse analyses, a methodological approach designed to understand the impact of different decisions on the robustness of a study's findings and interpretation. The emphasis is on transparently showcasing different reasonable approaches for constructing a final dataset and on highlighting the influence of various decision points, from experimental design to data processing and outcome selection. For example, the choice of an experimental task can significantly impact event-related brain potential (ERP) scores or skin conductance responses (SCRs), and different tas",
+      "doi": "10.1016/j.ijpsycho.2024.112311",
+      "pmid": "38296000",
+      "openalex_id": "W4391326429",
+      "source_doi": "10.1111/psyp.14607",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.44501383602619177,
+        "similarity_score": 0.3852933645248413,
+        "citation_text_length": 1199,
+        "dataset_text_length": 703,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Task-specific relationships between error-related ERPs and behavior: Flanker, Stroop, and Go/Nogo tasks",
+      "author": "Bohyun Park, Amanda Holbrook, Miranda Christine Lutz, Scott A. Baldwin, Michael J. Larson, Peter Eugene Clayson",
+      "venue": "International Journal of Psychophysiology",
+      "year": 2024,
+      "url": "https://doi.org/10.1016/j.ijpsycho.2024.112409",
+      "cited_by": 14,
+      "abstract": "Performance monitoring has been widely studied during different forced-choice response tasks. Participants typically show longer response times (RTs) and increased accuracy following errors, but there are inconsistencies regarding the connection between error-related event-related brain potentials (ERPs) and behavior, such as RT and accuracy. The specific task in any given study could contribute to these inconsistencies, as different tasks may require distinct cognitive processes that impact ERP-behavior relationships. The present study sought to determine whether task moderates ERP-behavior relationships and whether these relationships are robustly observed when tasks and stimuli are treated as random effects. ERPs and behavioral indices (RTs, accuracy) recorded during flanker, Stroop, and Go/Nogo tasks from 180 people demonstrated a task-specific effect on ERP-behavior relationships, such that larger previous-trial error-related negativity (ERN) predicted longer RTs and greater likel",
+      "doi": "10.1016/j.ijpsycho.2024.112409",
+      "pmid": "39121995",
+      "openalex_id": "W4401434052",
+      "source_doi": "10.1111/psyp.14607",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7216260623931885,
+        "similarity_score": 0.6247844696044922,
+        "citation_text_length": 1294,
         "dataset_text_length": 703,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -169,6 +208,29 @@
       }
     },
     {
+      "title": "Neural response to errors among mothers with a history of recurrent depression and their adolescent daughters",
+      "author": "Simon Morand‐Beaulieu, Iulia Banica, Clara R. Freeman, Paige Ethridge, Aislinn Sandre, Anna Weinberg",
+      "venue": "Development and Psychopathology",
+      "year": 2024,
+      "url": "https://doi.org/10.1017/s0954579424001780",
+      "cited_by": 5,
+      "abstract": "Depression is transmitted within families, but the mechanisms involved in such transmission are not clearly defined. A potential marker of familial risk is the neural response to errors, which may play a role in depression symptoms and is known to be partially heritable. Here, 97 mother-daughter dyads completed a Flanker task while electroencephalography markers of error monitoring were recorded: the error-related negativity (ERN) and response-locked delta and theta power. We assessed whether these measures of neural response to errors 1) were associated with history of recurrent major depressive disorder (MDD) and current depression symptoms among mothers, 2) were correlated among mother-daughter dyads, and 3) were associated with maternal history of recurrent MDD and maternal symptoms of depression among daughters. A history of recurrent MDD was associated with blunted delta and increased theta among mothers. Across mothers, delta and theta were negatively and positively associated, ",
+      "doi": "10.1017/s0954579424001780",
+      "pmid": "39627968",
+      "openalex_id": "W4405019243",
+      "source_doi": "10.1111/psyp.14607",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.47226159229874615,
+        "similarity_score": 0.4088844954967499,
+        "citation_text_length": 1279,
+        "dataset_text_length": 703,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Intraindividual Variability of Event-Related Potentials in Psychosis: A Registered Report",
       "author": "Amanda Holbrook, Bohyun Park, Philippe Rast, Gregory A. Light, Peter Eugene Clayson",
       "venue": "Biological Psychiatry Global Open Science",
@@ -186,6 +248,52 @@
         "confidence_score": 0.5814045202732087,
         "similarity_score": 0.503380537033081,
         "citation_text_length": 1252,
+        "dataset_text_length": 703,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Spouse Support and Stress: Gender Differences in Neural Measures of Performance Monitoring Under Observation of a Spouse",
+      "author": "Peter Eugene Clayson, Kipras Varkala, Scott A. Baldwin, Patrick R. Steffen, Jonathan G. Sandberg, Michael J. Larson",
+      "venue": "n/a",
+      "year": 2024,
+      "url": "https://doi.org/10.31234/osf.io/argjz",
+      "cited_by": 5,
+      "abstract": "Spousal support can mitigate stress’s impact on daily functioning and neural responses to stressors. However, the effectiveness of spousal support in reducing stress may be moderated by gender. The present study investigated the impact of observer presence in 66 heterosexual married couples, specifically a spouse or a confederate, on two neural indices of performance monitoring: early error detection (error-related negativity [ERN]) and later error awareness (error positivity [Pe]). Contrary to predictions, ERN was consistently smaller in observed conditions, suggesting that being observed, irrespective of the observer’s identity, diminished attention to errors. Notably, only women exhibited an enhanced ERN in the presence of their spouse, suggesting gender-specific differences in neural responses to spousal support during performance monitoring. Pe was larger when completing the task in the presence of a spouse and men displayed larger Pe than women. The present findings underscore th",
+      "doi": "10.31234/osf.io/argjz",
+      "pmid": null,
+      "openalex_id": "W4394745453",
+      "source_doi": "10.1111/psyp.14607",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.4855765530467034,
+        "similarity_score": 0.4204126000404358,
+        "citation_text_length": 1277,
+        "dataset_text_length": 703,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Do cognitive assessment games leave infrequent video game players behind? Evaluating frequent and infrequent players’ gaming experience and data quality",
+      "author": "Benny Markovitch, Jonas C. C. Kamps, Panos Markopoulos, Max Valentin Birk",
+      "venue": "Computers in Human Behavior",
+      "year": 2025,
+      "url": "https://doi.org/10.1016/j.chb.2025.108720",
+      "cited_by": 4,
+      "abstract": "Cognitive assessment games are designed for the purpose of providing engaging and motivating cognitive assessment experiences in clinical and research settings. However, due to oversampling of frequent video game players, it is unclear how well cognitive assessment games serve individuals who rarely, if ever, play video games. This lack of understanding prevents researchers from identifying infrequent gamers’ needs and thus limits efforts to address those needs. To identify whether and how cognitive assessment games under-serve infrequent video game players, we compared the gaming experience and quality of cognitive data between frequent and infrequent video game players in a large-scale online study ( n = 1 , 176 ) with the cognitive assessment game Tunnel Runner. Using Bayesian inference, we found strong evidence that compared to frequent gamers, infrequent gamers provided equally precise data for behaviorally simple measures of baseline reaction time and interference control; yet pr",
+      "doi": "10.1016/j.chb.2025.108720",
+      "pmid": null,
+      "openalex_id": "W4411177814",
+      "source_doi": "10.1111/psyp.14607",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.3670061802864075,
+        "similarity_score": 0.31775426864624023,
+        "citation_text_length": 1291,
         "dataset_text_length": 703,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -215,29 +323,6 @@
       }
     },
     {
-      "title": "Neural response to errors among mothers with a history of recurrent depression and their adolescent daughters",
-      "author": "Simon Morand‐Beaulieu, Iulia Banica, Clara R. Freeman, Paige Ethridge, Aislinn Sandre, Anna Weinberg",
-      "venue": "Development and Psychopathology",
-      "year": 2024,
-      "url": "https://doi.org/10.1017/s0954579424001780",
-      "cited_by": 4,
-      "abstract": "Depression is transmitted within families, but the mechanisms involved in such transmission are not clearly defined. A potential marker of familial risk is the neural response to errors, which may play a role in depression symptoms and is known to be partially heritable. Here, 97 mother-daughter dyads completed a Flanker task while electroencephalography markers of error monitoring were recorded: the error-related negativity (ERN) and response-locked delta and theta power. We assessed whether these measures of neural response to errors 1) were associated with history of recurrent major depressive disorder (MDD) and current depression symptoms among mothers, 2) were correlated among mother-daughter dyads, and 3) were associated with maternal history of recurrent MDD and maternal symptoms of depression among daughters. A history of recurrent MDD was associated with blunted delta and increased theta among mothers. Across mothers, delta and theta were negatively and positively associated, ",
-      "doi": "10.1017/s0954579424001780",
-      "pmid": "39627968",
-      "openalex_id": "W4405019243",
-      "source_doi": "10.1111/psyp.14607",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.47226159229874615,
-        "similarity_score": 0.4088844954967499,
-        "citation_text_length": 1279,
-        "dataset_text_length": 703,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Charting the psychophysiological multiverse: Transparent decisions from theory to inference",
       "author": "Kaylie Amanda Carbine, Peter Eugene Clayson",
       "venue": "International Journal of Psychophysiology",
@@ -255,29 +340,6 @@
         "confidence_score": 0.34383126944303516,
         "similarity_score": 0.32745835185050964,
         "citation_text_length": 202,
-        "dataset_text_length": 703,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Do cognitive assessment games leave infrequent video game players behind? Evaluating frequent and infrequent players’ gaming experience and data quality",
-      "author": "Benny Markovitch, Jonas C. C. Kamps, Panos Markopoulos, Max Valentin Birk",
-      "venue": "Computers in Human Behavior",
-      "year": 2025,
-      "url": "https://doi.org/10.1016/j.chb.2025.108720",
-      "cited_by": 3,
-      "abstract": "Cognitive assessment games are designed for the purpose of providing engaging and motivating cognitive assessment experiences in clinical and research settings. However, due to oversampling of frequent video game players, it is unclear how well cognitive assessment games serve individuals who rarely, if ever, play video games. This lack of understanding prevents researchers from identifying infrequent gamers’ needs and thus limits efforts to address those needs. To identify whether and how cognitive assessment games under-serve infrequent video game players, we compared the gaming experience and quality of cognitive data between frequent and infrequent video game players in a large-scale online study ( n = 1 , 176 ) with the cognitive assessment game Tunnel Runner. Using Bayesian inference, we found strong evidence that compared to frequent gamers, infrequent gamers provided equally precise data for behaviorally simple measures of baseline reaction time and interference control; yet pr",
-      "doi": "10.1016/j.chb.2025.108720",
-      "pmid": null,
-      "openalex_id": "W4411177814",
-      "source_doi": "10.1111/psyp.14607",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.3670061802864075,
-        "similarity_score": 0.31775426864624023,
-        "citation_text_length": 1291,
         "dataset_text_length": 703,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -309,17 +371,17 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T11:00:45.151617+00:00",
+    "scoring_date": "2026-10-11T11:34:58.445240+00:00",
     "dataset_text_length": 703,
-    "num_citations_scored": 10,
+    "num_citations_scored": 13,
     "summary_stats": {
-      "mean_confidence": 0.5222986711710692,
-      "median_confidence": 0.5180334801971913,
-      "std_confidence": 0.1295807165565047,
+      "mean_confidence": 0.5288617817828288,
+      "median_confidence": 0.4855765530467034,
+      "std_confidence": 0.12842373437347349,
       "min_confidence": 0.34383126944303516,
-      "max_confidence": 0.6894791024923326,
-      "high_confidence_count": 0,
-      "medium_confidence_count": 7,
+      "max_confidence": 0.7216260623931885,
+      "high_confidence_count": 1,
+      "medium_confidence_count": 9,
       "low_confidence_count": 3
     }
   }

@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000203",
   "num_citations": 2,
-  "date_last_updated": "2026-09-29T10:48:56.432770+00:00",
+  "date_last_updated": "2026-10-11T10:20:05.718965+00:00",
   "metadata": {
-    "total_cumulative_citations": 14,
-    "fetch_date": "2026-09-29T10:48:56.432770+00:00",
+    "total_cumulative_citations": 15,
+    "fetch_date": "2026-10-11T10:20:05.718965+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 3,
@@ -19,12 +19,12 @@
         "source_relation": "IsDerivedFrom",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Electroencephalogram signals recorded from 13 healthy subjects during an auditory oddball paradigm under different stimulus onset asynchrony conditions",
         "paper_year": 2019,
         "paper_venue": "FreiDok plus (Universitätsbibliothek Freiburg)",
         "reason": "The candidate is the FreiDok deposit of the same data (DOI 10.6094/UNIFR/154576 is the dataset's listed DOI). It has 13 subjects, an auditory oddball task and Sosulski/Tangermann as authors.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.48550/arxiv.2109.06011",
@@ -32,12 +32,38 @@
         "source_relation": "IsDescribedBy",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Online Optimization of Stimulation Speed in an Auditory Brain-Computer Interface under Time Constraints",
         "paper_year": 2021,
         "paper_venue": "arXiv (Cornell University)",
         "reason": "Same authors as the dataset; the paper reports the closed-loop auditory ERP SOA optimization study matching this P300 spot study data, and DataCite marks it IsDescribedBy.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
+      },
+      {
+        "identifier": "10.21105/joss.01896",
+        "identifier_type": "doi",
+        "source_relation": "References",
+        "classification": "methodology",
+        "kept": false,
+        "kept_reason": "never_anchor",
+        "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
+        "paper_year": 2019,
+        "paper_venue": "The Journal of Open Source Software",
+        "reason": "MNE-BIDS is a software tool for organizing electrophysiological data into BIDS, used for dataset conversion, not a paper describing this P300 dataset.",
+        "judgment_model": "claude-sonnet-5-5"
+      },
+      {
+        "identifier": "10.1038/s41597-019-0104-8",
+        "identifier_type": "doi",
+        "source_relation": "References",
+        "classification": "methodology",
+        "kept": false,
+        "kept_reason": "never_anchor",
+        "paper_title": "EEG-BIDS, an extension to the brain imaging data structure for electroencephalography",
+        "paper_year": 2019,
+        "paper_venue": "Scientific Data",
+        "reason": "EEG-BIDS is a data-organization standard/specification extension to BIDS used to format this dataset, not a paper describing the P300 spot study data.",
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.nm000203",
@@ -45,12 +71,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -60,36 +86,31 @@
     ],
     "keywords": [
       "EEG",
-      "Event-Related Potentials, P300",
+      "P300",
+      "auditory event-related potentials",
       "brain-computer interfaces",
       "Bayesian optimization",
-      "auditory oddball",
       "stimulus onset asynchrony",
-      "machine learning classification"
+      "Event-Related Potentials, P300"
     ],
-    "methods_description": "EEG data were acquired from 13 healthy subjects using a BrainProducts BrainAmp DC amplifier with 31 passive Ag/AgCl electrodes sampled at 1000 Hz. Subjects performed an auditory oddball task with target (1000 Hz) and non-target (500 Hz) tones presented at variable stimulus onset asynchronies (60-600 ms). The experiment consisted of an optimization phase (four strategies: AUC-ucb, AUC-rand, P300-ucb, P300-rand, each 20 minutes) and validation phase (20 trials per SOA). Classification employed regularized linear discriminant analysis with automatic shrinkage regularization and 13-fold cross-validation. Features were mean amplitudes in five time intervals across 31 channels.",
+    "methods_description": "The experiment had an optimization part and a validation part. In the optimization part, four strategies (AUC-ucb, AUC-rand, P300-ucb, P300-rand) each had 20 minutes to find an optimal SOA. In the validation part, the resulting SOAs and a fixed 60 ms SOA were tested with 20 trials each. EEG was recorded with a BrainProducts BrainAmp DC and passive Ag/AgCl electrodes, referenced to the nose. Features were mean amplitudes in 5 time intervals across 31 channels and were classified with shrinkage rLDA using 13-fold cross-validation.",
     "funding": [
       {
-        "funder_name": "DFG",
+        "funder_name": "German Research Foundation (DFG)",
         "award_number": "EXC 1086",
         "award_title": "Cluster of Excellence BrainLinks-BrainTools"
       },
       {
-        "funder_name": "DFG",
+        "funder_name": "German Research Foundation (DFG)",
         "award_number": "TA 1258/1-1",
-        "award_title": "SuitAble project"
+        "award_title": "SuitAble"
       },
       {
-        "funder_name": "DFG",
-        "award_number": "INST 39/963-1 FUGG"
+        "funder_name": "German Research Foundation (DFG)",
+        "award_number": "INST 39/963-1 FUGG",
+        "award_title": "bwHPC, state of Baden-Württemberg"
       }
-    ],
-    "searched_accessions": [
-      "nm000203"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 2
+    ]
   },
   "citation_details": [
     {
@@ -121,7 +142,7 @@
       "venue": "Journal of Neural Engineering",
       "year": 2025,
       "url": "https://doi.org/10.1088/1741-2552/add08f",
-      "cited_by": 6,
+      "cited_by": 7,
       "abstract": "Abstract Objective. Extracting universal, task-independent semantic features from electroencephalography (EEG) signals remains an open challenge. Traditional approaches are often task-specific, limiting their generalization across different EEG paradigms. This study aims to develop a robust, unsupervised framework for learning high-level, task-independent neural representations. Approach. We propose a novel framework integrating convolutional neural networks, AutoEncoders, and Transformers to extract both low-level spatiotemporal patterns and high-level semantic features from EEG signals. The model is trained in an unsupervised manner to ensure adaptability across diverse EEG paradigms, including motor imagery (MI), steady-state visually evoked potentials (SSVEPs), and event-related potentials (ERPs, specifically P300). Extensive analyses, including clustering, correlation, and ablation studies, are conducted to validate the quality and interpretability of the extracted features. Main ",
       "doi": "10.1088/1741-2552/add08f",
       "pmid": "40273947",
@@ -141,7 +162,7 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T11:56:02.779678+00:00",
+    "scoring_date": "2026-10-11T11:22:20.054802+00:00",
     "dataset_text_length": 2262,
     "num_citations_scored": 2,
     "summary_stats": {

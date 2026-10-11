@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000196",
   "num_citations": 80,
-  "date_last_updated": "2026-09-29T10:47:41.366370+00:00",
+  "date_last_updated": "2026-10-11T10:19:17.806623+00:00",
   "metadata": {
-    "total_cumulative_citations": 1346,
-    "fetch_date": "2026-09-29T10:47:41.366370+00:00",
+    "total_cumulative_citations": 1340,
+    "fetch_date": "2026-10-11T10:19:17.806623+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 3,
@@ -19,12 +19,12 @@
         "source_relation": "IsDerivedFrom",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Broad-Band Visually Evoked Potentials: Re(con)volution in Brain-Computer Interfacing",
         "paper_year": 2018,
         "paper_venue": "Radboud Repository (Radboud University)",
         "reason": "Candidate DOI 10.34973/1ecz-1232 is the dataset's own Radboud repository DOI; Thielen, Farquhar, Desain describe the BBVEP/c-VEP speller study behind this data.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1371/journal.pone.0133797",
@@ -32,12 +32,38 @@
         "source_relation": "IsDescribedBy",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Broad-Band Visually Evoked Potentials: Re(con)volution in Brain-Computer Interfacing",
         "paper_year": 2015,
         "paper_venue": "PLoS ONE",
         "reason": "Thielen et al. 2015 PLoS ONE is the study paper reporting this c-VEP (Gold code BBVEP) recording; authors match and dataset is named after it.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
+      },
+      {
+        "identifier": "10.21105/joss.01896",
+        "identifier_type": "doi",
+        "source_relation": "References",
+        "classification": "methodology",
+        "kept": false,
+        "kept_reason": "never_anchor",
+        "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
+        "paper_year": 2019,
+        "paper_venue": "The Journal of Open Source Software",
+        "reason": "MNE-BIDS is a software tool for organizing electrophysiology data into BIDS, used for the dataset's conversion, not a paper describing the Thielen c-VEP data.",
+        "judgment_model": "claude-sonnet-5-5"
+      },
+      {
+        "identifier": "10.1038/s41597-019-0104-8",
+        "identifier_type": "doi",
+        "source_relation": "References",
+        "classification": "methodology",
+        "kept": false,
+        "kept_reason": "never_anchor",
+        "paper_title": "EEG-BIDS, an extension to the brain imaging data structure for electroencephalography",
+        "paper_year": 2019,
+        "paper_venue": "Scientific Data",
+        "reason": "EEG-BIDS is a specification/standard extension of BIDS for EEG data, used to organize this dataset, not a paper describing the Thielen 2015 c-VEP data.",
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.nm000196",
@@ -45,12 +71,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -59,34 +85,24 @@
       "10.82901/nemar.nm000196"
     ],
     "keywords": [
+      "Electroencephalography",
       "Brain-Computer Interfaces",
       "Evoked Potentials, Visual",
-      "EEG",
-      "visual stimulation",
+      "c-VEP",
       "Gold codes",
-      "speller BCI",
+      "speller",
       "reconvolution"
     ],
-    "methods_description": "EEG data were acquired from 64 channels using a Biosemi ActiveTwo system at 2048 Hz sampling rate with CMS/DRL reference. Participants completed 3 runs of 36 trials each (4.2 seconds per trial). Data were preprocessed including downsampling to 360 Hz, linear de-trending, common average referencing, and bandpass filtering (5-100 Hz with notch at 50 Hz). Classification employed template matching with correlation and Canonical Correlation Analysis for spatial filtering.",
+    "methods_description": "EEG was recorded with a Biosemi ActiveTwo system (64 active electrodes, 2048 Hz) while participants attended target cells in a 6x6 speller flashing with modulated Gold codes (126 bits, 1.05 s per cycle). Each trial lasted 4.2 s (4 code cycles). Data were downsampled to 360 Hz, linearly de-trended, common-average referenced and spectrally filtered. Classification used template matching with correlation and canonical correlation analysis for spatial filtering.",
     "funding": [
       {
         "funder_name": "BrainGain Smart Mix Program of the Netherlands Ministry of Economic Affairs"
       },
       {
-        "funder_name": "Netherlands Ministry of Economic Affairs",
-        "award_title": "BrainGain Smart Mix Program"
-      },
-      {
         "funder_name": "Netherlands Ministry of Education, Culture and Science",
         "award_number": "SSM06011"
       }
-    ],
-    "searched_accessions": [
-      "nm000196"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 80
+    ]
   },
   "citation_details": [
     {
@@ -118,7 +134,7 @@
       "venue": "Journal of Neural Engineering",
       "year": 2021,
       "url": "https://doi.org/10.1088/1741-2552/ac38cf",
-      "cited_by": 100,
+      "cited_by": 101,
       "abstract": "Abstract Objective. Code-modulated visual evoked potentials (c-VEP) have been consolidated in recent years as robust control signals capable of providing non-invasive brain–computer interfaces (BCIs) for reliable, high-speed communication. Their usefulness for communication and control purposes has been reflected in an exponential increase of related articles in the last decade. The aim of this review is to provide a comprehensive overview of the literature to gain understanding of the existing research on c-VEP-based BCIs, since its inception (1984) until today (2021), as well as to identify promising future research lines. Approach. The literature review was conducted according to the Preferred Reporting Items for Systematic reviews and Meta-Analysis guidelines. After assessing the eligibility of journal manuscripts, conferences, book chapters and non-indexed documents, a total of 70 studies were included. A comprehensive analysis of the main characteristics and design choices of c-V",
       "doi": "10.1088/1741-2552/ac38cf",
       "pmid": "34763331",
@@ -141,7 +157,7 @@
       "venue": "Neurocomputing",
       "year": 2017,
       "url": "https://doi.org/10.1016/j.neucom.2016.08.121",
-      "cited_by": 89,
+      "cited_by": 88,
       "abstract": "Brain–Computer Interface (BCI) systems analyze brain signals to generate control commands for computer applications or external devices. Utilized as alternative communication channel, BCIs have the potential to assist people with severe motor disabilities to interact with their environment and to participate in daily life activities. Handicapped people from all age groups could benefit from such BCI technologies. Although some papers have previously reported slightly worse BCI performance by older subjects, in many studies BCI systems were tested with young subjects only. In the presented paper age-associated differences in BCI performance were investigated. We compared accuracy and speed of a steady-state visual evoked potential (SSVEP)-based BCI spelling application controlled by participants of two different equally sized age groups. Twenty subjects (eleven female and nine male) participated in this study; each age group consisted of ten subjects, ranging from 19 to 27 years and fro",
       "doi": "10.1016/j.neucom.2016.08.121",
       "pmid": null,
@@ -164,7 +180,7 @@
       "venue": "PLoS ONE",
       "year": 2019,
       "url": "https://doi.org/10.1371/journal.pone.0221909",
-      "cited_by": 75,
+      "cited_by": 78,
       "abstract": "We present a novel approach based on deep learning for decoding sensory information from non-invasively recorded Electroencephalograms (EEG). It can either be used in a passive Brain-Computer Interface (BCI) to predict properties of a visual stimulus the person is viewing, or it can be used to actively control a BCI application. Both scenarios were tested, whereby an average information transfer rate (ITR) of 701 bit/min was achieved for the passive BCI approach with the best subject achieving an online ITR of 1237 bit/min. Further, it allowed the discrimination of 500,000 different visual stimuli based on only 2 seconds of EEG data with an accuracy of up to 100%. When using the method for an asynchronous self-paced BCI for spelling, an average utility rate of 175 bit/min was achieved, which corresponds to an average of 35 error-free letters per minute. As the presented method extracts more than three times more information than the previously fastest approach, we suggest that EEG sign",
       "doi": "10.1371/journal.pone.0221909",
       "pmid": "31490999",
@@ -187,7 +203,7 @@
       "venue": "PLoS ONE",
       "year": 2015,
       "url": "https://doi.org/10.1371/journal.pone.0133797",
-      "cited_by": 73,
+      "cited_by": 69,
       "abstract": "Brain-Computer Interfaces (BCIs) allow users to control devices and communicate by using brain activity only. BCIs based on broad-band visual stimulation can outperform BCIs using other stimulation paradigms. Visual stimulation with pseudo-random bit-sequences evokes specific Broad-Band Visually Evoked Potentials (BBVEPs) that can be reliably used in BCI for high-speed communication in speller applications. In this study, we report a novel paradigm for a BBVEP-based BCI that utilizes a generative framework to predict responses to broad-band stimulation sequences. In this study we designed a BBVEP-based BCI using modulated Gold codes to mark cells in a visual speller BCI. We defined a linear generative model that decomposes full responses into overlapping single-flash responses. These single-flash responses are used to predict responses to novel stimulation sequences, which in turn serve as templates for classification. The linear generative model explains on average 50% and up to 66% o",
       "doi": "10.1371/journal.pone.0133797",
       "pmid": "26208328",
@@ -210,7 +226,7 @@
       "venue": "Handbook of clinical neurology",
       "year": 2020,
       "url": "https://doi.org/10.1016/b978-0-444-63934-9.00007-x",
-      "cited_by": 67,
+      "cited_by": 66,
       "abstract": "Locked-in syndrome (LIS) is characterized by an inability to move or speak in the presence of intact cognition and can be caused by brainstem trauma or neuromuscular disease. Quality of life (QoL) in LIS is strongly impaired by the inability to communicate, which cannot always be remedied by traditional augmentative and alternative communication (AAC) solutions if residual muscle activity is insufficient to control the AAC device. Brain-computer interfaces (BCIs) may offer a solution by employing the person's neural signals instead of relying on muscle activity. Here, we review the latest communication BCI research using noninvasive signal acquisition approaches (electroencephalography, functional magnetic resonance imaging, functional near-infrared spectroscopy) and subdural and intracortical implanted electrodes, and we discuss current efforts to translate research knowledge into usable BCI-enabled communication solutions that aim to improve the QoL of individuals with LIS.",
       "doi": "10.1016/b978-0-444-63934-9.00007-x",
       "pmid": "32164869",
@@ -228,35 +244,12 @@
       }
     },
     {
-      "title": "Visual cortex responses reflect temporal structure of continuous quasi-rhythmic sensory stimulation",
-      "author": "Christian Keitel, Gregor Thut, Joachim Groß",
-      "venue": "NeuroImage",
-      "year": 2016,
-      "url": "https://doi.org/10.1016/j.neuroimage.2016.11.043",
-      "cited_by": 63,
-      "abstract": "Neural processing of dynamic continuous visual input, and cognitive influences thereon, are frequently studied in paradigms employing strictly rhythmic stimulation. However, the temporal structure of natural stimuli is hardly ever fully rhythmic but possesses certain spectral bandwidths (e.g. lip movements in speech, gestures). Examining periodic brain responses elicited by strictly rhythmic stimulation might thus represent ideal, yet isolated cases. Here, we tested how the visual system reflects quasi-rhythmic stimulation with frequencies continuously varying within ranges of classical theta (4-7Hz), alpha (8-13Hz) and beta bands (14-20Hz) using EEG. Our findings substantiate a systematic and sustained neural phase-locking to stimulation in all three frequency ranges. Further, we found that allocation of spatial attention enhances EEG-stimulus locking to theta- and alpha-band stimulation. Our results bridge recent findings regarding phase locking (\"entrainment\") to quasi-rhythmic visu",
-      "doi": "10.1016/j.neuroimage.2016.11.043",
-      "pmid": "27867090",
-      "openalex_id": "W2553470216",
-      "source_doi": "10.1371/journal.pone.0133797",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5007487684488297,
-        "similarity_score": 0.4552261531352997,
-        "citation_text_length": 1191,
-        "dataset_text_length": 2271,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "From full calibration to zero training for a code-modulated visual evoked potentials brain computer interface",
       "author": "Jordy Thielen, P Marsman, Jason D. R. Farquhar, Peter Desain",
       "venue": "Journal of Neural Engineering",
       "year": 2021,
       "url": "https://doi.org/10.1088/1741-2552/abecef",
-      "cited_by": 63,
+      "cited_by": 64,
       "abstract": "Objective. Typically, a brain–computer interface (BCI) is calibrated using user- and session-specific data because of the individual idiosyncrasies and the non-stationary signal properties of the electroencephalogram (EEG). Therefore, it is normal for BCIs to undergo a time-consuming passive training stage that prevents users from directly operating them. In this study, we systematically reduce the training data set in a stepwise fashion, to ultimately arrive at a calibration-free method for a code-modulated visually evoked potential (cVEP)-based BCI to fully eliminate the tedious training stage. Approach. In an extensive offline analysis, we compare our sophisticated encoding model with a traditional event-related potential (ERP) technique. We calibrate the encoding model in a standard way, with data limited to a single class while generalizing to all others and without any data. In addition, we investigate the feasibility of the zero-training cVEP BCI in an online setting. Main resul",
       "doi": "10.1088/1741-2552/abecef",
       "pmid": "33690182",
@@ -274,35 +267,12 @@
       }
     },
     {
-      "title": "Transferring Subject-Specific Knowledge Across Stimulus Frequencies in SSVEP-Based BCIs",
-      "author": "Chi Man Wong, Ze Wang, Agostinho C. Rosa, C. L. Philip Chen, Tzyy‐Ping Jung, Yong Hu, Feng Wan",
-      "venue": "IEEE Transactions on Automation Science and Engineering",
-      "year": 2021,
-      "url": "https://doi.org/10.1109/tase.2021.3054741",
-      "cited_by": 62,
-      "abstract": "Learning from subject's calibration data can significantly improve the performance of a steady-state visually evoked potential (SSVEP)-based brain-computer interface (BCI), for example, the state-of-the-art target recognition methods utilize the learned subject-specific and stimulus-specific model parameters. Unfortunately, when dealing with new stimuli or new subjects, new calibration data must be acquired, thus requiring laborious calibration sessions, which becomes a major challenge in developing high-performance BCIs for real-life applications. This study investigates the feasibility of transferring the model parameters (i.e., the spatial filters and the SSVEP templates) across two different groups of visual stimuli in SSVEP-based BCIs. According to our exploration, we can extract a common spatial filter from the spatial filters across different stimulus frequencies and a common impulse response from the SSVEP templates across different neighboring stimulus frequencies, in which th",
-      "doi": "10.1109/tase.2021.3054741",
-      "pmid": null,
-      "openalex_id": "W3129664521",
-      "source_doi": "10.1371/journal.pone.0133797",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5886252254247666,
-        "similarity_score": 0.5096322298049927,
-        "citation_text_length": 1275,
-        "dataset_text_length": 2271,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "The largest EEG-based BCI reproducibility study for open science: the MOABB benchmark",
       "author": "Sylvain Chevallier, Igor Carrara, B. Aristimunha, Pierre Guetschel, Sara Sedlar, Bruna J. Lopes, Sébastien Velut, Salim Khazem, Thomas Moreau",
       "venue": "ArXiv",
       "year": 2024,
       "url": "https://doi.org/10.48550/arXiv.2404.15319",
-      "cited_by": 54,
+      "cited_by": 59,
       "abstract": "Objective. This study conduct an extensive Brain-computer interfaces (BCI) reproducibility analysis on open electroencephalography datasets, aiming to assess existing solutions and establish open and reproducible benchmarks for effective comparison within the field. The need for such benchmark lies in the rapid industrial progress that has given rise to undisclosed proprietary solutions. Furthermore, the scientific literature is dense, often featuring challenging-to-reproduce evaluations, making comparisons between existing approaches arduous. Approach. Within an open framework, 30 machine learning pipelines (separated into raw signal: 11, Riemannian: 13, deep learning: 6) are meticulously re-implemented and evaluated across 36 publicly available datasets, including motor imagery (14), P300 (15), and SSVEP (7). The analysis incorporates statistical meta-analysis techniques for results assessment, encompassing execution time and environmental impact considerations. Main results. The stu",
       "doi": "10.48550/arXiv.2404.15319",
       "pmid": null,
@@ -314,6 +284,52 @@
         "confidence_score": 0.5499724298715591,
         "similarity_score": 0.47616660594940186,
         "citation_text_length": 1270,
+        "dataset_text_length": 2271,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Transferring Subject-Specific Knowledge Across Stimulus Frequencies in SSVEP-Based BCIs",
+      "author": "Chi Man Wong, Ze Wang, Agostinho C. Rosa, C. L. Philip Chen, Tzyy‐Ping Jung, Yong Sheng Hu, Feng Wan",
+      "venue": "IEEE Transactions on Automation Science and Engineering",
+      "year": 2021,
+      "url": "https://doi.org/10.1109/tase.2021.3054741",
+      "cited_by": 58,
+      "abstract": "Learning from subject's calibration data can significantly improve the performance of a steady-state visually evoked potential (SSVEP)-based brain-computer interface (BCI), for example, the state-of-the-art target recognition methods utilize the learned subject-specific and stimulus-specific model parameters. Unfortunately, when dealing with new stimuli or new subjects, new calibration data must be acquired, thus requiring laborious calibration sessions, which becomes a major challenge in developing high-performance BCIs for real-life applications. This study investigates the feasibility of transferring the model parameters (i.e., the spatial filters and the SSVEP templates) across two different groups of visual stimuli in SSVEP-based BCIs. According to our exploration, we can extract a common spatial filter from the spatial filters across different stimulus frequencies and a common impulse response from the SSVEP templates across different neighboring stimulus frequencies, in which th",
+      "doi": "10.1109/tase.2021.3054741",
+      "pmid": null,
+      "openalex_id": "W3129664521",
+      "source_doi": "10.1371/journal.pone.0133797",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5855413869023324,
+        "similarity_score": 0.506962239742279,
+        "citation_text_length": 1281,
+        "dataset_text_length": 2271,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Visual cortex responses reflect temporal structure of continuous quasi-rhythmic sensory stimulation",
+      "author": "Christian Keitel, Gregor Thut, Joachim Groß",
+      "venue": "NeuroImage",
+      "year": 2016,
+      "url": "https://doi.org/10.1016/j.neuroimage.2016.11.043",
+      "cited_by": 56,
+      "abstract": "Neural processing of dynamic continuous visual input, and cognitive influences thereon, are frequently studied in paradigms employing strictly rhythmic stimulation. However, the temporal structure of natural stimuli is hardly ever fully rhythmic but possesses certain spectral bandwidths (e.g. lip movements in speech, gestures). Examining periodic brain responses elicited by strictly rhythmic stimulation might thus represent ideal, yet isolated cases. Here, we tested how the visual system reflects quasi-rhythmic stimulation with frequencies continuously varying within ranges of classical theta (4-7Hz), alpha (8-13Hz) and beta bands (14-20Hz) using EEG. Our findings substantiate a systematic and sustained neural phase-locking to stimulation in all three frequency ranges. Further, we found that allocation of spatial attention enhances EEG-stimulus locking to theta- and alpha-band stimulation. Our results bridge recent findings regarding phase locking (\"entrainment\") to quasi-rhythmic visu",
+      "doi": "10.1016/j.neuroimage.2016.11.043",
+      "pmid": "27867090",
+      "openalex_id": "W2553470216",
+      "source_doi": "10.1371/journal.pone.0133797",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5007487684488297,
+        "similarity_score": 0.4552261531352997,
+        "citation_text_length": 1191,
         "dataset_text_length": 2271,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -394,7 +410,7 @@
       "venue": "Scientific Reports",
       "year": 2021,
       "url": "https://doi.org/10.1038/s41598-021-83795-9",
-      "cited_by": 38,
+      "cited_by": 35,
       "abstract": "Steady-state visual evoked potentials (SSVEPs), the brain response to visual flicker stimulation, have proven beneficial in both research and clinical applications. Despite the practical advantages of stimulation at high frequencies in terms of visual comfort and safety, high frequency-SSVEPs have not received enough attention and little is known about the mechanisms behind their generation and propagation in time and space. In this study, we investigated the origin and propagation of SSVEPs in the gamma frequency band (40-60 Hz) by studying the dynamic properties of EEG in 32 subjects. Using low-resolution brain electromagnetic tomography (sLORETA) we identified the cortical sources involved in SSVEP generation in that frequency range to be in the primary visual cortex, Brodmann areas 17, 18 and 19 with minor contribution from sources in central and frontal sites. We investigated the SSVEP propagation as measured on the scalp in the framework of the existing theories regarding the neu",
       "doi": "10.1038/s41598-021-83795-9",
       "pmid": "33654157",
@@ -417,7 +433,7 @@
       "venue": "PLoS ONE",
       "year": 2018,
       "url": "https://doi.org/10.1371/journal.pone.0206107",
-      "cited_by": 37,
+      "cited_by": 35,
       "abstract": "Visual evoked potentials (VEPs) can be measured in the EEG as response to a visual stimulus. Commonly, VEPs are displayed by averaging multiple responses to a certain stimulus or a classifier is trained to identify the response to a certain stimulus. While the traditional approach is limited to a set of predefined stimulation patterns, we present a method that models the general process of VEP generation and thereby can be used to predict arbitrary visual stimulation patterns from EEG and predict how the brain responds to arbitrary stimulation patterns. We demonstrate how this method can be used to model single-flash VEPs, steady state VEPs (SSVEPs) or VEPs to complex stimulation patterns. It is further shown that this method can also be used for a high-speed BCI in an online scenario where it achieved an average information transfer rate (ITR) of 108.1 bit/min. Furthermore, in an offline analysis, we show the flexibility of the method allowing to modulate a virtually unlimited amount ",
       "doi": "10.1371/journal.pone.0206107",
       "pmid": "30346983",
@@ -440,7 +456,7 @@
       "venue": "IEEE Computational Intelligence Magazine",
       "year": 2018,
       "url": "https://doi.org/10.1109/mci.2018.2807039",
-      "cited_by": 31,
+      "cited_by": 32,
       "abstract": "One of the fundamental challenges in brain-computer interfaces (BCIs) is to tune a brain signal decoder to reliably detect a user's intention. While information about the decoder can partially be transferred between subjects or sessions, optimal decoding performance can only be reached with novel data from the current session. Thus, it is preferable to learn from unlabeled data gained from the actual usage of the BCI application instead of conducting a calibration recording prior to BCI usage. We review such unsupervised machine learning methods for BCIs based on event-related potentials of the electroencephalogram. We present results of an online study with twelve healthy participants controlling a visual speller. Online performance is reported for three completely unsupervised learning methods: (1) learning from label proportions, (2) an expectation-maximization approach and (3) MIX, which combines the strengths of the two other methods. After a short ramp-up, we observed that the MI",
       "doi": "10.1109/mci.2018.2807039",
       "pmid": null,
@@ -459,7 +475,7 @@
     },
     {
       "title": "Introducing chaotic codes for the modulation of code modulated visual evoked potentials (c-VEP) in normal adults for visual fatigue reduction",
-      "author": "Zahra Shirzhiyan, Ahmadreza Keihani, Morteza Farahi, Elham Shamsi, Mina Golmohammadi, Amin Mahnam, Mohsen Reza Haidari, Amir Homayoun Jafari‬",
+      "author": "Zahra Shirzhiyan, Ahmadreza Keihani, Morteza Farahi, Elham Shamsi, Mina GolMohammadi, Amin Mahnam, Mohsen Reza Haidari, Amir Homayoun Jafari‬",
       "venue": "PLoS ONE",
       "year": 2019,
       "url": "https://doi.org/10.1371/journal.pone.0213197",
@@ -472,8 +488,8 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.7102244734764099,
-        "similarity_score": 0.6456586122512817,
+        "confidence_score": 0.7107870221138001,
+        "similarity_score": 0.6461700201034546,
         "citation_text_length": 1329,
         "dataset_text_length": 2271,
         "scoring_method": "sentence_transformers",
@@ -527,12 +543,35 @@
       }
     },
     {
+      "title": "Burst c-VEP Based BCI: Optimizing stimulus design for enhanced classification with minimal calibration data and improved user experience",
+      "author": "Kalou Cabrera Castillos, Simon Ladouce, Ludovic Darmet, Frédéric Dehais",
+      "venue": "NeuroImage",
+      "year": 2023,
+      "url": "https://doi.org/10.1016/j.neuroimage.2023.120446",
+      "cited_by": 24,
+      "abstract": "The utilization of aperiodic flickering visual stimuli under the form of code-modulated Visual Evoked Potentials (c-VEP) represents a pivotal advancement in the field of reactive Brain-Computer Interface (rBCI). A major advantage of the c-VEP approach is that the training of the model is independent of the number and complexity of targets, which helps reduce calibration time. Nevertheless, the existing designs of c-VEP stimuli can be further improved in terms of visual user experience but also to achieve a higher signal-to-noise ratio, while shortening the selection time and calibration process. In this study, we introduce an innovative variant of code-VEP, referred to as \"Burst c-VEP\". This original approach involves the presentation of short bursts of aperiodic visual flashes at a deliberately slow rate, typically ranging from two to four flashes per second. The rationale behind this design is to leverage the sensitivity of the primary visual cortex to transient changes in low-level ",
+      "doi": "10.1016/j.neuroimage.2023.120446",
+      "pmid": "37949256",
+      "openalex_id": "W4388485674",
+      "source_doi": "10.1371/journal.pone.0133797",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.783980389237404,
+        "similarity_score": 0.678770899772644,
+        "citation_text_length": 1256,
+        "dataset_text_length": 2271,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "A Binocular Vision SSVEP Brain–Computer Interface Paradigm for Dual-Frequency Modulation",
       "author": "Yike Sun, Liyan Liang, Jingnan Sun, Xiaogang Chen, Runfa Tian, Yuanfang Chen, Lijian Zhang, Xiaorong Gao",
       "venue": "IEEE Transactions on Biomedical Engineering",
       "year": 2022,
       "url": "https://doi.org/10.1109/tbme.2022.3212192",
-      "cited_by": 24,
+      "cited_by": 23,
       "abstract": "OBJECTIVE: This study presents a novel brain-computer interface paradigm of dual-frequency modulated steady-state visual evoked potential (SSVEP), aiming to suppress the unpredictable intermodulation components in current applications. This paradigm is especially suitable for training-free scenarios. APPROACH: This study built a dual-frequency binocular vision SSVEP brain-computer interface system using circularly polarized light technology. Two experiments, including a 6-target offline experiment and a 40-target online experiment, were taken with this system. Meanwhile, an improved algorithm filter bank dual-frequency canonical correlation analysis (FBDCCA) was presented for the dual-frequency SSVEP paradigm. MAIN RESULTS: Energy analysis was conducted for 9 subjects in the 6-target dual-frequency offline experiment, among which the signal-to-noise ratio of target frequency components have increased by 2 dB compared to the one of unpredictable intermodulation components. Subsequently,",
       "doi": "10.1109/tbme.2022.3212192",
       "pmid": "36197872",
@@ -573,35 +612,12 @@
       }
     },
     {
-      "title": "Burst c-VEP Based BCI: Optimizing stimulus design for enhanced classification with minimal calibration data and improved user experience",
-      "author": "Kalou Cabrera Castillos, Simon Ladouce, Ludovic Darmet, Frédéric Dehais",
-      "venue": "NeuroImage",
-      "year": 2023,
-      "url": "https://doi.org/10.1016/j.neuroimage.2023.120446",
-      "cited_by": 23,
-      "abstract": "The utilization of aperiodic flickering visual stimuli under the form of code-modulated Visual Evoked Potentials (c-VEP) represents a pivotal advancement in the field of reactive Brain-Computer Interface (rBCI). A major advantage of the c-VEP approach is that the training of the model is independent of the number and complexity of targets, which helps reduce calibration time. Nevertheless, the existing designs of c-VEP stimuli can be further improved in terms of visual user experience but also to achieve a higher signal-to-noise ratio, while shortening the selection time and calibration process. In this study, we introduce an innovative variant of code-VEP, referred to as \"Burst c-VEP\". This original approach involves the presentation of short bursts of aperiodic visual flashes at a deliberately slow rate, typically ranging from two to four flashes per second. The rationale behind this design is to leverage the sensitivity of the primary visual cortex to transient changes in low-level ",
-      "doi": "10.1016/j.neuroimage.2023.120446",
-      "pmid": "37949256",
-      "openalex_id": "W4388485674",
-      "source_doi": "10.1371/journal.pone.0133797",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.783980389237404,
-        "similarity_score": 0.678770899772644,
-        "citation_text_length": 1256,
-        "dataset_text_length": 2271,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "A high-performance brain switch based on code-modulated visual evoked potentials",
       "author": "Zheng Li, Weihua Pei, Xiaorong Gao, Lijian Zhang, Yijun Wang",
       "venue": "Journal of Neural Engineering",
       "year": 2022,
       "url": "https://doi.org/10.1088/1741-2552/ac494f",
-      "cited_by": 20,
+      "cited_by": 18,
       "abstract": "Abstract Objective. Asynchronous brain-computer interfaces (BCIs) are more practical and natural compared to synchronous BCIs. A brain switch is a standard asynchronous BCI, which can automatically detect the specified change of the brain and discriminate between the control state and the idle state. The current brain switches still face challenges on relatively long reaction time ( RT ) and high false positive rate ( FPR ). Approach. In this paper, an online electroencephalography-based brain switch is designed to realize a fast reaction and keep long idle time ( IDLE ) without false positives ( FP s) using code-modulated visual evoked potentials (c-VEPs). Two stimulation paradigms were designed and compared in the experiments: multi-code concatenate modulation (concatenation mode) and single-code periodic modulation (periodic mode). Using a task-related component analysis-based detection algorithm, EEG data can be decoded into a series of code indices. Brain states can be detected by",
       "doi": "10.1088/1741-2552/ac494f",
       "pmid": "34996051",
@@ -643,11 +659,11 @@
     },
     {
       "title": "Artificial Intelligence in Science and Society: The Vision of USERN",
-      "author": "T. Dorigo, Gary D. Brown, Carlo Casonato, Artemi Cerdà, Joseph Ciarrochi, Mauro Da Lio, Nicole D’Souza, Nicolas R. Gauger, Steven C. Hayes, Stefan G. Hofmann, Robert Johansson, Marcus Liwicki, Fabien Lotte, Juan J. Nieto, Giulia Olivato, Peter Parnes, George Perry, Alice Plebe, Idupulapati Madhusudana Rao, Nima Rezaei, Fredrik Sandin, A. Ustyuzhanin, Giorgio Vallortígara, P. Vischia, Niloufar Yazdanpanah",
+      "author": "T. Dorigo, Gary D. Brown, Carlo Casonato, Artemi Cerdà, Joseph Ciarrochi, Mauro Da Lio, Nicole D’Souza, Nicolas R. Gauger, Steven C. Hayes, Stefan G. Hofmann, Robert Johansson, Marcus Liwicki, Fabien Lotte, Juan Jose Nieto, Giulia Olivato, Peter Parnes, George L. Perry, Alice Plebe, Idupulapati Madhusudana Rao, Nima Rezaei, Fredrik Sandin, A. Ustyuzhanin, Giorgio Vallortígara, P. Vischia, Niloufar Yazdanpanah",
       "venue": "IEEE Access",
       "year": 2025,
       "url": "https://doi.org/10.1109/access.2025.3529357",
-      "cited_by": 16,
+      "cited_by": 17,
       "abstract": "The recent rise in relevance and diffusion of Artificial Intelligence (AI)-based systems and the increasing number and power of applications of AI methods invites a profound reflection on the impact of these innovative systems on scientific research and society at large. The Universal Scientific Education and Research Network (USERN), an organization that promotes initiatives to support interdisciplinary science and education across borders and actively works to improve science policy, collects here the vision of its Advisory Board members, together with a selection of AI experts, to summarize how we see developments in this exciting technology impacting science and society in the foreseeable future. In this review, we first attempt to establish clear definitions of intelligence and consciousness, then provide an overview of AI’s state of the art and its applications. A discussion of the implications, opportunities, and liabilities of the diffusion of AI for research in a few represent",
       "doi": "10.1109/access.2025.3529357",
       "pmid": null,
@@ -656,9 +672,9 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.15188976958394051,
-        "similarity_score": 0.1315062940120697,
-        "citation_text_length": 1524,
+        "confidence_score": 0.1503992418944836,
+        "similarity_score": 0.13021579384803772,
+        "citation_text_length": 1529,
         "dataset_text_length": 2271,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -670,7 +686,7 @@
       "venue": "IEEE Transactions on Instrumentation and Measurement",
       "year": 2024,
       "url": "https://doi.org/10.1109/tim.2024.3374314",
-      "cited_by": 16,
+      "cited_by": 17,
       "abstract": "To achieve a high information transfer rate (ITR) in steady-state visual evoked potential (SSVEP)-based brain-computer interfaces (BCIs), current decoding methods require extensive calibration efforts to train the model parameters for each stimulus. To facilitate the calibration process, this study proposed a cross-stimulus transfer method, which learns the common spatial filter and impulse response from a few source stimuli and then transfers them to a new target stimulus for SSVEP feature extraction. First, the common spatial filter and impulse response are obtained by minimizing the deviation between the spatially filtered source SSVEPs and the constructed SSVEP templates. Then, the feature vector comprised of two correlation coefficients is utilized for target recognition, one is the correlation coefficient between the spatially filtered target SSVEPs and the constructed templates, and the other is the canonical correlation coefficient between the spatially filtered target SSVEPs a",
       "doi": "10.1109/tim.2024.3374314",
       "pmid": null,
@@ -682,6 +698,29 @@
         "confidence_score": 0.564230269342661,
         "similarity_score": 0.4885110557079315,
         "citation_text_length": 1261,
+        "dataset_text_length": 2271,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "NeuralBench: A Unifying Framework to Benchmark NeuroAI Models",
+      "author": "Hubert J. Banville, Stéphane d'Ascoli, Simon Dahan, Jérémy Rapin, Marlène Careil, Yohann Benchetrit, Jarod Lévy, S. Panchavati, Antoine Ratouchniak, Ming-Fang Zhang, Elisa Cascardi, K. Begany, Teon L Brooks, Jean-Rémi King",
+      "venue": "ArXiv",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arXiv.2605.08495",
+      "cited_by": 16,
+      "abstract": "Deep learning and large public datasets have recently catalyzed the proliferation of AI models for processing brain recordings. However, systematically evaluating these models remains a challenge: not only do the preprocessing pipelines, training and finetuning approaches largely vary across studies, but their downstream evaluation is often limited to small sets of tasks and/or datasets. Here, we present NeuralBench: a unified framework for benchmarking AI models of brain activity. We accompany this framework with NeuralBench-EEG v1.0 -- a large EEG benchmark that includes 36 electroencephalography (EEG) tasks and 14 deep learning architectures, and is evaluated on 94 datasets accessed through a standardized interface. This first EEG-focused release already highlights two main findings. First, current foundation models only marginally outperform task-specific models. Second, a large set of tasks (e.g. cognitive decoding, clinical predictions) remain highly challenging, even for the bes",
+      "doi": "10.48550/arXiv.2605.08495",
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.1371/journal.pone.0133797",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5416520208120347,
+        "similarity_score": 0.46896278858184814,
+        "citation_text_length": 1327,
         "dataset_text_length": 2271,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -705,29 +744,6 @@
         "confidence_score": 0.5554121375083924,
         "similarity_score": 0.5049201250076294,
         "citation_text_length": 1238,
-        "dataset_text_length": 2271,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "NeuralBench: A Unifying Framework to Benchmark NeuroAI Models",
-      "author": "Hubert J. Banville, Stéphane d’Ascoli, Simon Dahan, Jérémy Rapin, Marlène Careil, Yohann Benchetrit, Jarod Lévy, S. Panchavati, Antoine Ratouchniak, Mingfang Zhang, Elisa Cascardi, K. Begany, Teon L Brooks, Jean-Rémi King",
-      "venue": "ArXiv",
-      "year": 2026,
-      "url": "https://doi.org/10.48550/arXiv.2605.08495",
-      "cited_by": 13,
-      "abstract": "Deep learning and large public datasets have recently catalyzed the proliferation of AI models for processing brain recordings. However, systematically evaluating these models remains a challenge: not only do the preprocessing pipelines, training and finetuning approaches largely vary across studies, but their downstream evaluation is often limited to small sets of tasks and/or datasets. Here, we present NeuralBench: a unified framework for benchmarking AI models of brain activity. We accompany this framework with NeuralBench-EEG v1.0 -- a large EEG benchmark that includes 36 electroencephalography (EEG) tasks and 14 deep learning architectures, and is evaluated on 94 datasets accessed through a standardized interface. This first EEG-focused release already highlights two main findings. First, current foundation models only marginally outperform task-specific models. Second, a large set of tasks (e.g. cognitive decoding, clinical predictions) remain highly challenging, even for the bes",
-      "doi": "10.48550/arXiv.2605.08495",
-      "pmid": null,
-      "openalex_id": null,
-      "source_doi": "10.1371/journal.pone.0133797",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5418097409605981,
-        "similarity_score": 0.46909934282302856,
-        "citation_text_length": 1326,
         "dataset_text_length": 2271,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -826,29 +842,6 @@
       }
     },
     {
-      "title": "Minimally Invasive Local-Skull Electrophysiological Modification With Piezoelectric Drill",
-      "author": "Yike Sun, Anruo Shen, Jingnan Sun, Chenlin Du, Xiaogang Chen, Yijun Wang, Weihua Pei, Xiaorong Gao",
-      "venue": "IEEE Transactions on Neural Systems and Rehabilitation Engineering",
-      "year": 2022,
-      "url": "https://doi.org/10.1109/tnsre.2022.3192543",
-      "cited_by": 11,
-      "abstract": "The research on non-invasive BCI is nowadays hitting the bottleneck due to the humble quality of scalp EEG signals. Whereas invasive solutions that offer higher signal quality in contrast are suffocated in their spreading because of the potential surgical complication and health risks caused by electrode implantation. Therefore, it puts forward a necessity to explore a scheme that could both collect high-quality EEG signals and guarantee high-level operation safety.This study proposed a Minimally Invasive Local-skull Electrophysiological Modification method to improve scalp EEG signals qualities at specific brain regions. Six eight-month-old SD rats were used for in vivo verification experiment. A hole with a diameter of about 500 micrometers was drilled in the skull above the visual cortex of rats. Significant changes in rsEEG and SSVEP signals before and after modification were observed. After modification, the skull impedance of rats decreases by about 84 %, the average maximum band",
-      "doi": "10.1109/tnsre.2022.3192543",
-      "pmid": "35857723",
-      "openalex_id": "W4286210919",
-      "source_doi": "10.1371/journal.pone.0133797",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5182108207046987,
-        "similarity_score": 0.44866737723350525,
-        "citation_text_length": 1292,
-        "dataset_text_length": 2271,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Optimization of Visual Stimulus Sequence in a Brain-Computer Interface Based on Code Modulated Visual Evoked Potentials",
       "author": "Mohammadreza Behboodi, Amin Mahnam, Hamid Reza Marateb, Hossein Rabbani",
       "venue": "IEEE Transactions on Neural Systems and Rehabilitation Engineering",
@@ -873,7 +866,7 @@
     },
     {
       "title": "Optimal pseudorandom sequence selection for online c-VEP based BCI control applications",
-      "author": "Jonas L. Isaksen, Ali Mohebbi, Sadasivan K Puthusserypady",
+      "author": "Jonas Lynggaard Isaksen, Ali Mohebbi, Sadasivan K Puthusserypady",
       "venue": "PLoS ONE",
       "year": 2017,
       "url": "https://doi.org/10.1371/journal.pone.0184785",
@@ -886,9 +879,9 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6381248831748962,
-        "similarity_score": 0.5801135301589966,
-        "citation_text_length": 1191,
+        "confidence_score": 0.6386638283729553,
+        "similarity_score": 0.5806034803390503,
+        "citation_text_length": 1198,
         "dataset_text_length": 2271,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -918,6 +911,52 @@
       }
     },
     {
+      "title": "Minimally Invasive Local-Skull Electrophysiological Modification With Piezoelectric Drill",
+      "author": "Yike Sun, Anruo Shen, Jingnan Sun, Chenlin Du, Xiaogang Chen, Yijun Wang, Weihua Pei, Xiaorong Gao",
+      "venue": "IEEE Transactions on Neural Systems and Rehabilitation Engineering",
+      "year": 2022,
+      "url": "https://doi.org/10.1109/tnsre.2022.3192543",
+      "cited_by": 10,
+      "abstract": "The research on non-invasive BCI is nowadays hitting the bottleneck due to the humble quality of scalp EEG signals. Whereas invasive solutions that offer higher signal quality in contrast are suffocated in their spreading because of the potential surgical complication and health risks caused by electrode implantation. Therefore, it puts forward a necessity to explore a scheme that could both collect high-quality EEG signals and guarantee high-level operation safety.This study proposed a Minimally Invasive Local-skull Electrophysiological Modification method to improve scalp EEG signals qualities at specific brain regions. Six eight-month-old SD rats were used for in vivo verification experiment. A hole with a diameter of about 500 micrometers was drilled in the skull above the visual cortex of rats. Significant changes in rsEEG and SSVEP signals before and after modification were observed. After modification, the skull impedance of rats decreases by about 84 %, the average maximum band",
+      "doi": "10.1109/tnsre.2022.3192543",
+      "pmid": "35857723",
+      "openalex_id": "W4286210919",
+      "source_doi": "10.1371/journal.pone.0133797",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5182108207046987,
+        "similarity_score": 0.44866737723350525,
+        "citation_text_length": 1292,
+        "dataset_text_length": 2271,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "A calibration-free c-VEP based BCI employing narrow-band random sequences",
+      "author": "Zheng Li, Yida Dong, Sen Tian, Weihua Pei, Xiaorong Gao, Yijun Wang",
+      "venue": "Journal of Neural Engineering",
+      "year": 2024,
+      "url": "https://doi.org/10.1088/1741-2552/ad3679",
+      "cited_by": 9,
+      "abstract": "Abstract Objective. Code-modulated visual evoked potential (c-VEP) based brain–computer interfaces (BCIs) exhibit high encoding efficiency. Nevertheless, the majority of c-VEP based BCIs necessitate an initial training or calibration session, particularly when the number of targets expands, which impedes the practicality. To address this predicament, this study introduces a calibration-free c-VEP based BCI employing narrow-band random sequences. Approach. For the encoding method, a series of random sequences were generated within a specific frequency band. The c-VEP signals were subsequently elicited through the application of on-type grid flashes that were modulated by these sequences. For the calibration-free decoding algorithm, filter-bank canonical correlation analysis (FBCCA) was utilized with the reference templates generated from the original sequences. Thirty-five subjects participated into an online BCI experiment. The performances of c-VEP based BCIs utilizing narrow-band ran",
+      "doi": "10.1088/1741-2552/ad3679",
+      "pmid": "38513290",
+      "openalex_id": "W4393029624",
+      "source_doi": "10.1371/journal.pone.0133797",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7305337741971017,
+        "similarity_score": 0.6324967741966248,
+        "citation_text_length": 1208,
+        "dataset_text_length": 2271,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "How to build a fast and accurate code-modulated brain-computer interface",
       "author": "Juan Antonio Ramírez Torres, Ian P. Daly",
       "venue": "Journal of Neural Engineering",
@@ -941,23 +980,23 @@
       }
     },
     {
-      "title": "Master classes of the tenth international brain–computer interface meeting: showcasing the research of BCI trainees",
-      "author": "Stephanie Cernera, Tan Gemicioglu, Julia Berezutskaya, Richárd Csáky, Maxime Verwoert, Daniel Polyakov, Sotirios Papadopoulos, Valeria Spagnolo, Juliana Gonzalez-Astudillo, Satyam Kumar, Hussein Alawieh, Dion Kelly, Joanna RG. Keough, Araz Minhas, Matthias Dold, Yiyuan Han, Alexander J. McClanahan, Mousa Mustafa, Juan José González-España, Florencia Garro, Angela Vujic, Kriti Kacker, Christoph Kapeller, Simon H. Geukes, Ceci Verbaarschot, Michael Wimmer, Mushfika Sultana, Sara Ahmadi, Christian Herff, Andreea Ioana Sburlea, Camille Jeunet, David E Thompson, Marianna Semprini, Richard Andersen, Sergey D. Stavisky, Eli Kinney‐Lang, Fabien Lotte, Jordy Thielen, Xing Chen, Victoria Peterson, Aysegul Gunduz, Theresa M. Vaughan, Davide Valeriani",
-      "venue": "Journal of Neural Engineering",
-      "year": 2025,
-      "url": "https://doi.org/10.1088/1741-2552/adb335",
-      "cited_by": 8,
-      "abstract": "The Tenth International brain-computer interface (BCI) meeting was held June 6-9, 2023, in the Sonian Forest in Brussels, Belgium. At that meeting, 21 master classes, organized by the BCI Society's Postdoc & Student Committee, supported the Society's goal of fostering learning opportunities and meaningful interactions for trainees in BCI-related fields. Master classes provide an informal environment where senior researchers can give constructive feedback to the trainee on their chosen and specific pursuit. The topics of the master classes span the whole gamut of BCI research and techniques. These include data acquisition, neural decoding and analysis, invasive and noninvasive stimulation, and ethical and transitional considerations. Additionally, master classes spotlight innovations in BCI research. Herein, we discuss what was presented within the master classes by highlighting each trainee and expert researcher, providing relevant background information and results from each presentat",
-      "doi": "10.1088/1741-2552/adb335",
-      "pmid": "39914028",
-      "openalex_id": "W4407265671",
+      "title": "Re(con)volution: Accurate Response Prediction for Broad-Band Evoked Potentials-Based Brain Computer Interfaces",
+      "author": "Jordy Thielen, P Marsman, Jason D. R. Farquhar, Peter Desain",
+      "venue": "Springer briefs in electrical and computer engineering",
+      "year": 2017,
+      "url": "https://doi.org/10.1007/978-3-319-64373-1_4",
+      "cited_by": 9,
+      "abstract": null,
+      "doi": "10.1007/978-3-319-64373-1_4",
+      "pmid": null,
+      "openalex_id": "W2749075325",
       "source_doi": "10.1371/journal.pone.0133797",
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.450915089249611,
-        "similarity_score": 0.3904026746749878,
-        "citation_text_length": 1932,
+        "confidence_score": 0.4965691566467285,
+        "similarity_score": 0.4965691566467285,
+        "citation_text_length": 251,
         "dataset_text_length": 2271,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -987,29 +1026,6 @@
       }
     },
     {
-      "title": "A calibration-free c-VEP based BCI employing narrow-band random sequences",
-      "author": "Zheng Li, Yida Dong, Sen Tian, Weihua Pei, Xiaorong Gao, Yijun Wang",
-      "venue": "Journal of Neural Engineering",
-      "year": 2024,
-      "url": "https://doi.org/10.1088/1741-2552/ad3679",
-      "cited_by": 8,
-      "abstract": "Abstract Objective. Code-modulated visual evoked potential (c-VEP) based brain–computer interfaces (BCIs) exhibit high encoding efficiency. Nevertheless, the majority of c-VEP based BCIs necessitate an initial training or calibration session, particularly when the number of targets expands, which impedes the practicality. To address this predicament, this study introduces a calibration-free c-VEP based BCI employing narrow-band random sequences. Approach. For the encoding method, a series of random sequences were generated within a specific frequency band. The c-VEP signals were subsequently elicited through the application of on-type grid flashes that were modulated by these sequences. For the calibration-free decoding algorithm, filter-bank canonical correlation analysis (FBCCA) was utilized with the reference templates generated from the original sequences. Thirty-five subjects participated into an online BCI experiment. The performances of c-VEP based BCIs utilizing narrow-band ran",
-      "doi": "10.1088/1741-2552/ad3679",
-      "pmid": "38513290",
-      "openalex_id": "W4393029624",
-      "source_doi": "10.1371/journal.pone.0133797",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.7305337741971017,
-        "similarity_score": 0.6324967741966248,
-        "citation_text_length": 1208,
-        "dataset_text_length": 2271,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "A Real-Time Non-Implantation Bi-Directional Brain–Computer Interface Solution Without Stimulation Artifacts",
       "author": "Yike Sun, Anruo Shen, Chenlin Du, Jingnan Sun, Xiaogang Chen, Xiaorong Gao",
       "venue": "IEEE Transactions on Neural Systems and Rehabilitation Engineering",
@@ -1033,12 +1049,35 @@
       }
     },
     {
+      "title": "Master classes of the tenth international brain–computer interface meeting: showcasing the research of BCI trainees",
+      "author": "Stephanie Cernera, Tan Gemicioglu, Julia Berezutskaya, Richárd Csáky, Maxime Verwoert, Daniel Polyakov, Sotirios Papadopoulos, Valeria Spagnolo, Juliana Gonzalez-Astudillo, Satyam Kumar, Hussein Alawieh, Dion Kelly, Joanna RG. Keough, Araz Minhas, Matthias Dold, Yiyuan Han, Alexander J. McClanahan, Mousa Mustafa, Juan José González-España, Florencia Garro, Angela Vujic, Kriti Kacker, Christoph Kapeller, Simon H. Geukes, Ceci Verbaarschot, Michael Wimmer, Mushfika Sultana, Sara Ahmadi, Christian Herff, Andreea Ioana Sburlea, Camille Jeunet, David E Thompson, Marianna Semprini, Richard Andersen, Sergey D. Stavisky, Eli Kinney‐Lang, Fabien Lotte, Jordy Thielen, Xing Chen, Victoria Peterson, Aysegul Gunduz, Theresa M. Vaughan, Davide Valeriani",
+      "venue": "Journal of Neural Engineering",
+      "year": 2025,
+      "url": "https://doi.org/10.1088/1741-2552/adb335",
+      "cited_by": 7,
+      "abstract": "The Tenth International brain-computer interface (BCI) meeting was held June 6-9, 2023, in the Sonian Forest in Brussels, Belgium. At that meeting, 21 master classes, organized by the BCI Society's Postdoc & Student Committee, supported the Society's goal of fostering learning opportunities and meaningful interactions for trainees in BCI-related fields. Master classes provide an informal environment where senior researchers can give constructive feedback to the trainee on their chosen and specific pursuit. The topics of the master classes span the whole gamut of BCI research and techniques. These include data acquisition, neural decoding and analysis, invasive and noninvasive stimulation, and ethical and transitional considerations. Additionally, master classes spotlight innovations in BCI research. Herein, we discuss what was presented within the master classes by highlighting each trainee and expert researcher, providing relevant background information and results from each presentat",
+      "doi": "10.1088/1741-2552/adb335",
+      "pmid": "39914028",
+      "openalex_id": "W4407265671",
+      "source_doi": "10.1371/journal.pone.0133797",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.450915089249611,
+        "similarity_score": 0.3904026746749878,
+        "citation_text_length": 1932,
+        "dataset_text_length": 2271,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Electrophysiological responses of relatedness to consecutive word stimuli in relation to an actively recollected target word",
       "author": "Karen Dijkstra, Jason D. R. Farquhar, Peter Desain",
       "venue": "Scientific Reports",
       "year": 2019,
       "url": "https://doi.org/10.1038/s41598-019-51011-4",
-      "cited_by": 8,
+      "cited_by": 7,
       "abstract": "In this paper, we investigate the robustness of electrophysiological responses of relatedness to multiple consecutive word stimuli (probes), in relation to an actively recollected target word. Such relatedness information could be used by a Brain Computer Interface to infer the active semantic concept on a user's mind, by integrating the knowledge of the relationship between the multiple probe words and the 'unknown' target. Such a BCI can take advantage of the N400: an event related potential that is sensitive to semantic content of a stimulus in relation to an established semantic context. However, it is unknown whether the N400 is suited for the multiple probing paradigm we propose, as other intervening words might distract from the established context (i.e., the target word). We perform an experiment in which we present up to ten words after an initial target word, and find no attenuation of the strength of the N400 in grand average ERPs and no decrease in classification accuracy f",
       "doi": "10.1038/s41598-019-51011-4",
       "pmid": "31601871",
@@ -1050,29 +1089,6 @@
         "confidence_score": 0.47031390368938447,
         "similarity_score": 0.4275580942630768,
         "citation_text_length": 1231,
-        "dataset_text_length": 2271,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Re(con)volution: Accurate Response Prediction for Broad-Band Evoked Potentials-Based Brain Computer Interfaces",
-      "author": "Jordy Thielen, P Marsman, Jason D. R. Farquhar, Peter Desain",
-      "venue": "Springer briefs in electrical and computer engineering",
-      "year": 2017,
-      "url": "https://doi.org/10.1007/978-3-319-64373-1_4",
-      "cited_by": 8,
-      "abstract": null,
-      "doi": "10.1007/978-3-319-64373-1_4",
-      "pmid": null,
-      "openalex_id": "W2749075325",
-      "source_doi": "10.1371/journal.pone.0133797",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.4965691566467285,
-        "similarity_score": 0.4965691566467285,
-        "citation_text_length": 251,
         "dataset_text_length": 2271,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1103,7 +1119,7 @@
     },
     {
       "title": "Brain–Computer Interfaces for Augmentative and Alternative Communication: Separating the Reality From the Hype",
-      "author": "Jane E. Huggins, Thomas A. Kovacs",
+      "author": "Jane E. Huggins, Thomas Kovacs",
       "venue": "Perspectives of the ASHA Special Interest Groups",
       "year": 2018,
       "url": "https://doi.org/10.1044/persp3.sig12.13",
@@ -1116,9 +1132,32 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.33277784287929535,
-        "similarity_score": 0.3025253117084503,
-        "citation_text_length": 430,
+        "confidence_score": 0.33471565246582036,
+        "similarity_score": 0.3042869567871094,
+        "citation_text_length": 427,
+        "dataset_text_length": 2271,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Addressing BCI inefficiency in c-VEP-based BCIs: A comprehensive study of neurophysiological predictors, binary stimulus sequences, and user comfort",
+      "author": "Jordy Thielen",
+      "venue": "Biomedical Physics & Engineering Express",
+      "year": 2025,
+      "url": "https://doi.org/10.1088/2057-1976/ade316",
+      "cited_by": 5,
+      "abstract": "Abstract Objective. This study investigated the presence of brain-computer interface (BCI) inefficiency in BCIs using the code-modulated visual evoked potential (c-VEP). It further explored neurophysiological predictors of performance variability and evaluated a wide range of binary stimulus sequences in terms of classification accuracy and user comfort, aiming to identify strategies to mitigate c-VEP BCI inefficiency. Approach. In a comprehensive empirical analysis, ten different binary stimulus sequences were offline evaluated. These sequences included five code families (m-sequence, de Bruijn sequence, Golay sequence, Gold code, and a Gold code set), each in original and modulated form. To identify predictors of performance variability, resting-state alpha activity, heart rate and heart rate variability, sustained attention, and flash-VEP characteristics were studied. Main Results. Results confirmed substantial inter-individual variability in c-VEP BCI efficiency. While all particip",
+      "doi": "10.1088/2057-1976/ade316",
+      "pmid": "40494367",
+      "openalex_id": "W4411166688",
+      "source_doi": "10.1371/journal.pone.0133797",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.710454849600792,
+        "similarity_score": 0.6151124238967896,
+        "citation_text_length": 1240,
         "dataset_text_length": 2271,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1171,32 +1210,9 @@
       }
     },
     {
-      "title": "Addressing BCI inefficiency in c-VEP-based BCIs: A comprehensive study of neurophysiological predictors, binary stimulus sequences, and user comfort",
-      "author": "Jordy Thielen",
-      "venue": "Biomedical Physics & Engineering Express",
-      "year": 2025,
-      "url": "https://doi.org/10.1088/2057-1976/ade316",
-      "cited_by": 4,
-      "abstract": "Abstract Objective. This study investigated the presence of brain-computer interface (BCI) inefficiency in BCIs using the code-modulated visual evoked potential (c-VEP). It further explored neurophysiological predictors of performance variability and evaluated a wide range of binary stimulus sequences in terms of classification accuracy and user comfort, aiming to identify strategies to mitigate c-VEP BCI inefficiency. Approach. In a comprehensive empirical analysis, ten different binary stimulus sequences were offline evaluated. These sequences included five code families (m-sequence, de Bruijn sequence, Golay sequence, Gold code, and a Gold code set), each in original and modulated form. To identify predictors of performance variability, resting-state alpha activity, heart rate and heart rate variability, sustained attention, and flash-VEP characteristics were studied. Main Results. Results confirmed substantial inter-individual variability in c-VEP BCI efficiency. While all particip",
-      "doi": "10.1088/2057-1976/ade316",
-      "pmid": "40494367",
-      "openalex_id": "W4411166688",
-      "source_doi": "10.1371/journal.pone.0133797",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.710454849600792,
-        "similarity_score": 0.6151124238967896,
-        "citation_text_length": 1240,
-        "dataset_text_length": 2271,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Exploring new territory II: Calibration-free decoding for ERP BCI",
       "author": "J. Thielen, J. Sosulski, M. Tangermann",
-      "venue": "2025 IEEE International Conference on Systems, Man, and Cybernetics (SMC)",
+      "venue": "Conference proceedings/Conference proceedings - IEEE International Conference on Systems, Man, and Cybernetics",
       "year": 2025,
       "url": "https://doi.org/10.1109/smc58881.2025.11342596",
       "cited_by": 4,
@@ -1208,32 +1224,9 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5543854960799218,
-        "similarity_score": 0.4799874424934387,
-        "citation_text_length": 1215,
-        "dataset_text_length": 2271,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Implementing a calibration-free BCI with a large instruction set of 504 targets",
-      "author": "Li Zheng, Yida Dong, Weihua Pei, Xiaorong Gao, Yijun Wang",
-      "venue": "Biomedical Signal Processing and Control",
-      "year": 2026,
-      "url": "https://doi.org/10.1016/j.bspc.2026.110252",
-      "cited_by": 3,
-      "abstract": null,
-      "doi": "10.1016/j.bspc.2026.110252",
-      "pmid": null,
-      "openalex_id": "W4409150997",
-      "source_doi": "10.1371/journal.pone.0133797",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.541410943865776,
-        "similarity_score": 0.5156294703483582,
-        "citation_text_length": 203,
+        "confidence_score": 0.5505864094197751,
+        "similarity_score": 0.4766981899738312,
+        "citation_text_length": 1252,
         "dataset_text_length": 2271,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1257,29 +1250,6 @@
         "confidence_score": 0.5671347677707672,
         "similarity_score": 0.5401283502578735,
         "citation_text_length": 200,
-        "dataset_text_length": 2271,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Semantic Probing: Feasibility of using sequential probes to decode what is on a user’s mind",
-      "author": "Karen Dijkstra, Jason D. R. Farquhar, Peter Desain",
-      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
-      "year": 2018,
-      "url": "https://doi.org/10.1101/496844",
-      "cited_by": 3,
-      "abstract": "ABSTRACT In this paper, we investigate the feasibility of using multiple sequential probe words to decode their relatedness to an active semantic concept on a user’s mind from the respective electrophysiological brain responses. If feasible, this relatedness information could be used by a Brain Computer Interface to infer that semantic concept, by integrating the knowledge of the relationship between the multiple probe words and the ‘unknown’ target. Such a BCI can take advantage of the N400: an event related potential that is sensitive to semantic content of a stimulus in relation to an established semantic context. However, it is unknown whether the N400 is suited for the multiple probing paradigm we propose, as other intervening words might distract from the established context (i.e., the target word). We perform an experiment in which we present up to ten words after an initial target word, and find no attenuation of the strength of the N400 in grand average ERPs and no decrease in",
-      "doi": "10.1101/496844",
-      "pmid": null,
-      "openalex_id": "W2905138950",
-      "source_doi": "10.1371/journal.pone.0133797",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.45343033075332645,
-        "similarity_score": 0.4122093915939331,
-        "citation_text_length": 1219,
         "dataset_text_length": 2271,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1332,8 +1302,54 @@
       }
     },
     {
+      "title": "Semantic Probing: Feasibility of using sequential probes to decode what is on a user’s mind",
+      "author": "K. Dijkstra, J. Farquhar, P. Desain",
+      "venue": "bioRxiv",
+      "year": 2018,
+      "url": "https://doi.org/10.1101/496844",
+      "cited_by": 3,
+      "abstract": "In this paper, we investigate the feasibility of using multiple sequential probe words to decode their relatedness to an active semantic concept on a user’s mind from the respective electrophysiological brain responses. If feasible, this relatedness information could be used by a Brain Computer Interface to infer that semantic concept, by integrating the knowledge of the relationship between the multiple probe words and the ‘unknown’ target. Such a BCI can take advantage of the N400: an event related potential that is sensitive to semantic content of a stimulus in relation to an established semantic context. However, it is unknown whether the N400 is suited for the multiple probing paradigm we propose, as other intervening words might distract from the established context (i.e., the target word). We perform an experiment in which we present up to ten words after an initial target word, and find no attenuation of the strength of the N400 in grand average ERPs and no decrease in classifi",
+      "doi": "10.1101/496844",
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.1371/journal.pone.0133797",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.45358257293701176,
+        "similarity_score": 0.41234779357910156,
+        "citation_text_length": 1172,
+        "dataset_text_length": 2271,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Implementing a calibration-free BCI with a large instruction set of 504 targets",
+      "author": "Li Zheng, Yida Dong, Weihua Pei, Xiaorong Gao, Yijun Wang",
+      "venue": "Biomedical Signal Processing and Control",
+      "year": 2026,
+      "url": "https://doi.org/10.1016/j.bspc.2026.110252",
+      "cited_by": 2,
+      "abstract": null,
+      "doi": "10.1016/j.bspc.2026.110252",
+      "pmid": null,
+      "openalex_id": "W4409150997",
+      "source_doi": "10.1371/journal.pone.0133797",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.541410943865776,
+        "similarity_score": 0.5156294703483582,
+        "citation_text_length": 203,
+        "dataset_text_length": 2271,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Rapid cortical auditory evoked potentials audiometry",
-      "author": "T. Guyonnet-Hencke, Oscar Portoles, Marianne de Vries, Eva Koderman, Alexandra Winkler, J. Goodall, Peter Desain, Jordy Thielen, Michael Schulte, Andy J. Beynon, M. van Kesteren",
+      "author": "T. Guyonnet-Hencke, Oscar Portoles, M. de Vries, Eva Koderman, Alexandra Winkler, J. Goodall, Peter Desain, Jordy Thielen, Michael Schulte, Andy J. Beynon, M. van Kesteren",
       "venue": "International Journal of Audiology",
       "year": 2025,
       "url": "https://doi.org/10.1080/14992027.2025.2478523",
@@ -1346,9 +1362,9 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5878890144824983,
-        "similarity_score": 0.5089948177337646,
-        "citation_text_length": 1302,
+        "confidence_score": 0.5864266437292099,
+        "similarity_score": 0.5077286958694458,
+        "citation_text_length": 1296,
         "dataset_text_length": 2271,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1418,6 +1434,29 @@
         "confidence_score": 0.45562080860137943,
         "similarity_score": 0.39447689056396484,
         "citation_text_length": 1210,
+        "dataset_text_length": 2271,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Near-invisible c-VEP-based passive BCI for mental workload monitoring",
+      "author": "P Cimarosto, Velut Sebastien, Kalou Cabrera Castillos, Juan Jesús Torre, Raphaëlle N. Roy, Frédéric Dehais",
+      "venue": "Journal of Neural Engineering",
+      "year": 2026,
+      "url": "https://doi.org/10.1088/1741-2552/ae4ff6",
+      "cited_by": 2,
+      "abstract": "Abstract Objective. Flickering visual stimuli, either periodic steady-state visual evoked potential (VEP) or aperiodic code-based VEP (c-VEP), have shown strong potential for implementing reactive brain–computer interfaces (BCIs) and enabling hands-free interaction. Yet, their adaptation to passive BCIs (pBCIs) remains limited, largely due to the distracting nature of flickers and its impact on visual comfort. Approach. In this study, we introduce an unobtrusive approach that embeds near–invisible, texture-based flickers over regions of interest in the user interface, combined with a c-VEP pBCI pipeline to assess mental workload. We validated the approach in two experiments: (i) within an ecologically valid multitasking microworld of flying, and (ii) in a flight Simulator, where cognitive workload was systematically varied across three levels. Main results. Results at the group level disclosed that the amplitude of visual event-related potentials was significantly reduced under higher ",
+      "doi": "10.1088/1741-2552/ae4ff6",
+      "pmid": "41806473",
+      "openalex_id": "W7134925418",
+      "source_doi": "10.1371/journal.pone.0133797",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6478782963752747,
+        "similarity_score": 0.5609335899353027,
+        "citation_text_length": 1243,
         "dataset_text_length": 2271,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1510,6 +1549,29 @@
         "confidence_score": 0.5683878421783447,
         "similarity_score": 0.5413217544555664,
         "citation_text_length": 189,
+        "dataset_text_length": 2271,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Pre-Decision Feedback in Code-Modulated Visual Evoked Potentials Brain-Computer Interface for an 11-class Keypad Typing Task",
+      "author": "J. Gomel, J. J. Torre Tresols, P. Cimarosto, K. Cabrera Castillos, F. Déhais",
+      "venue": "2025 IEEE International Conference on Systems, Man, and Cybernetics (SMC)",
+      "year": 2025,
+      "url": "https://doi.org/10.1109/SMC58881.2025.11342868",
+      "cited_by": 1,
+      "abstract": "This paper proposes to investigate the design of user-friendly reactive Brain-Computer Interfaces (rBCIs) based on Code-Modulated Visual Evoked Potentials (c-VEP). The BCI was implemented using the StAR-Burst paradigm, which features small, randomly-oriented texture patches designed to optimize foveal neural responses while enhancing user visual comfort. We extended this paradigm to support an 11-class selection scenario using dry EEG electrodes. In addition, the study explored the impact of predictive visual feedback on user experience. Two feedback types—Halo and Depth—were compared against a control condition with no feedback, aiming to enhance users’ sense of control during interaction. Results demonstrated that the BCI achieved high classification accuracy with a dry EEG system across all three conditions (mean = 93,3%), using only 33 seconds of calibration data. Contrary to our expectations, predictive feedback did not lead to significant improvements in classification accuracy o",
+      "doi": "10.1109/SMC58881.2025.11342868",
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.1371/journal.pone.0133797",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6595666605234147,
+        "similarity_score": 0.5710533857345581,
+        "citation_text_length": 1312,
         "dataset_text_length": 2271,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1631,31 +1693,8 @@
       }
     },
     {
-      "title": "Near-invisible c-VEP-based passive BCI for mental workload monitoring",
-      "author": "P Cimarosto, Sébastien Velut, Kalou Cabrera Castillos, Juan Jesús Torre, Raphaëlle N. Roy, Frédéric Dehais",
-      "venue": "Journal of Neural Engineering",
-      "year": 2026,
-      "url": "https://doi.org/10.1088/1741-2552/ae4ff6",
-      "cited_by": 0,
-      "abstract": "Abstract Objective. Flickering visual stimuli, either periodic steady-state visual evoked potential (VEP) or aperiodic code-based VEP (c-VEP), have shown strong potential for implementing reactive brain–computer interfaces (BCIs) and enabling hands-free interaction. Yet, their adaptation to passive BCIs (pBCIs) remains limited, largely due to the distracting nature of flickers and its impact on visual comfort. Approach. In this study, we introduce an unobtrusive approach that embeds near–invisible, texture-based flickers over regions of interest in the user interface, combined with a c-VEP pBCI pipeline to assess mental workload. We validated the approach in two experiments: (i) within an ecologically valid multitasking microworld of flying, and (ii) in a flight Simulator, where cognitive workload was systematically varied across three levels. Main results. Results at the group level disclosed that the amplitude of visual event-related potentials was significantly reduced under higher ",
-      "doi": "10.1088/1741-2552/ae4ff6",
-      "pmid": "41806473",
-      "openalex_id": "W7134925418",
-      "source_doi": "10.1371/journal.pone.0133797",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.6495681256055832,
-        "similarity_score": 0.5623966455459595,
-        "citation_text_length": 1243,
-        "dataset_text_length": 2271,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Workshops of the tenth international brain–computer interface meeting: balancing innovation and translation",
-      "author": "Jane E. Huggins, Donatella Mattia, Erik J. Aarnoutse, Brendan Z. Allison, Julia Berezutskaya, Luigi Chieco Bianchi, Ricardo Chavarriaga, Marie‐Constance Corsi, Heather Dean, Francisco Fernandes, Zachary V. Freudenburg, Christian Herff, Katya Hill, Masayuki Hirata, Christoph Kapeller, Spencer Kellis, Eli Kinney‐Lang, Sahana N. Kukke, Gernot R Muller-Putz, Betts Peters, Fabio Rizzoglio, Yalda Shahriari, Michael Tangermann, Luca Tonin, Bouke van Balen, Cecile Verbaarschot",
+      "author": "Jane E. Huggins, Donatella Mattia, Erik J. Aarnoutse, Brendan Z. Allison, Julia Berezutskaya, Luigi Bianchi, Ricardo Chavarriaga, Marie‐Constance Corsi, Heather Dean, Francisco Fernandes, Zachary V. Freudenburg, Christian Herff, Katya Hill, Masayuki Hirata, Christoph Kapeller, Spencer Kellis, Eli Kinney‐Lang, Sahana N. Kukke, Gernot R Muller-Putz, Betts Peters, Fabio Rizzoglio, Yalda Shahriari, Michael Tangermann, Luca Tonin, Bouke van Balen, Cecile Verbaarschot",
       "venue": "Research in Biomedical Engineering and Technology",
       "year": 2026,
       "url": "https://doi.org/10.1080/29960355.2026.2731643",
@@ -1668,9 +1707,9 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.3743808880448342,
-        "similarity_score": 0.3241392970085144,
-        "citation_text_length": 1394,
+        "confidence_score": 0.37608496785163886,
+        "similarity_score": 0.32561469078063965,
+        "citation_text_length": 1387,
         "dataset_text_length": 2271,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1679,7 +1718,7 @@
     {
       "title": "Toward a Gaze-Independent Brain-Computer Interface Using the Code-Modulated Visual Evoked Potentials",
       "author": "Radovan Vodila, Juliette van Lohuizen, Jordy Thielen",
-      "venue": "2025 IEEE 35th International Workshop on Machine Learning for Signal Processing (MLSP)",
+      "venue": "IEEE International Workshop on Machine Learning for Signal Processing (MLSP)",
       "year": 2025,
       "url": "https://doi.org/10.1109/mlsp62443.2025.11204258",
       "cited_by": 0,
@@ -1691,9 +1730,9 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.639368155002594,
-        "similarity_score": 0.553565502166748,
-        "citation_text_length": 1162,
+        "confidence_score": 0.6350822424888611,
+        "similarity_score": 0.5498547554016113,
+        "citation_text_length": 1152,
         "dataset_text_length": 2271,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1724,7 +1763,7 @@
     },
     {
       "title": "Fast and robust objective EEG audiometry",
-      "author": "T. Guyonnet-Hencke, Oscar Portoles, Marianne de Vries, Eva Koderman, Alexandra Winkler, Joanne Goodall, Peter Desain, Jordy Thielen, Michael Schulte, Andy J. Beynon, M. van Kesteren",
+      "author": "T. Guyonnet-Hencke, Oscar Portoles, M. de Vries, Eva Koderman, Alexandra Winkler, J. Goodall, Peter Desain, Jordy Thielen, Michael Schulte, Andy J. Beynon, M. van Kesteren",
       "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
       "year": 2024,
       "url": "https://doi.org/10.1101/2024.05.22.595285",
@@ -1737,9 +1776,9 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5732612796127796,
-        "similarity_score": 0.4963301122188568,
-        "citation_text_length": 1299,
+        "confidence_score": 0.574271865785122,
+        "similarity_score": 0.49720507860183716,
+        "citation_text_length": 1289,
         "dataset_text_length": 2271,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1748,7 +1787,7 @@
     {
       "title": "Fallstudie: Die BrainSense-Plattform",
       "author": "Mark Wijtvliet, Henk Corporaal, Akash S. Kumar",
-      "venue": "n/a",
+      "venue": "Springer eBooks",
       "year": 2023,
       "url": "https://doi.org/10.1007/978-3-031-36650-5_7",
       "cited_by": 0,
@@ -1760,9 +1799,9 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.4448731452226639,
-        "similarity_score": 0.42368870973587036,
-        "citation_text_length": 112,
+        "confidence_score": 0.4505714356899262,
+        "similarity_score": 0.4291156530380249,
+        "citation_text_length": 124,
         "dataset_text_length": 2271,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1771,7 +1810,7 @@
     {
       "title": "Case Study: The BrainSense Platform",
       "author": "Mark Wijtvliet, Henk Corporaal, Akash S. Kumar",
-      "venue": "Blocks, Towards Energy-efficient, Coarse-grained Reconfigurable Architectures",
+      "venue": "Springer eBooks",
       "year": 2021,
       "url": "https://doi.org/10.1007/978-3-030-79774-4_7",
       "cited_by": 0,
@@ -1783,9 +1822,9 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.3768676042556763,
-        "similarity_score": 0.35892152786254883,
-        "citation_text_length": 185,
+        "confidence_score": 0.4542819678783417,
+        "similarity_score": 0.43264949321746826,
+        "citation_text_length": 123,
         "dataset_text_length": 2271,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1832,29 +1871,6 @@
         "confidence_score": 0.725808334350586,
         "similarity_score": 0.6912460327148438,
         "citation_text_length": 198,
-        "dataset_text_length": 2271,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Pre-Decision Feedback in Code-Modulated Visual Evoked Potentials Brain-Computer Interface for an 11-class Keypad Typing Task",
-      "author": "J. Gomel, J. J. Torre Tresols, P. Cimarosto, K. Cabrera Castillos, F. Dehais",
-      "venue": "2025 IEEE International Conference on Systems, Man, and Cybernetics (SMC)",
-      "year": 2025,
-      "url": "https://doi.org/10.1109/SMC58881.2025.11342868",
-      "cited_by": 0,
-      "abstract": "This paper proposes to investigate the design of user-friendly reactive Brain-Computer Interfaces (rBCIs) based on Code-Modulated Visual Evoked Potentials (c-VEP). The BCI was implemented using the StAR-Burst paradigm, which features small, randomly-oriented texture patches designed to optimize foveal neural responses while enhancing user visual comfort. We extended this paradigm to support an 11-class selection scenario using dry EEG electrodes. In addition, the study explored the impact of predictive visual feedback on user experience. Two feedback types—Halo and Depth—were compared against a control condition with no feedback, aiming to enhance users’ sense of control during interaction. Results demonstrated that the BCI achieved high classification accuracy with a dry EEG system across all three conditions (mean = 93,3%), using only 33 seconds of calibration data. Contrary to our expectations, predictive feedback did not lead to significant improvements in classification accuracy o",
-      "doi": "10.1109/SMC58881.2025.11342868",
-      "pmid": null,
-      "openalex_id": null,
-      "source_doi": "10.1371/journal.pone.0133797",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.6597168767452241,
-        "similarity_score": 0.571183443069458,
-        "citation_text_length": 1312,
         "dataset_text_length": 2271,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1932,18 +1948,18 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T11:55:09.712621+00:00",
+    "scoring_date": "2026-10-11T11:22:00.443356+00:00",
     "dataset_text_length": 2271,
     "num_citations_scored": 80,
     "summary_stats": {
-      "mean_confidence": 0.5563642875589431,
+      "mean_confidence": 0.5572755296081304,
       "median_confidence": 0.567761304974556,
-      "std_confidence": 0.1210334484385566,
-      "min_confidence": 0.15188976958394051,
+      "std_confidence": 0.1197673083446572,
+      "min_confidence": 0.1503992418944836,
       "max_confidence": 0.783980389237404,
       "high_confidence_count": 7,
-      "medium_confidence_count": 66,
-      "low_confidence_count": 7
+      "medium_confidence_count": 67,
+      "low_confidence_count": 6
     }
   }
 }

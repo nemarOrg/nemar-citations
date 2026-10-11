@@ -1,10 +1,10 @@
 {
   "dataset_id": "on003848",
   "num_citations": 1,
-  "date_last_updated": "2026-09-30T10:45:07.596222+00:00",
+  "date_last_updated": "2026-10-11T11:15:45.255782+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
-    "fetch_date": "2026-09-29T11:12:16.014524+00:00",
+    "fetch_date": "2026-10-11T10:48:00.730190+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 1,
@@ -14,65 +14,42 @@
     "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
-        "identifier": "10.1038/s41597-021-00862-6",
-        "identifier_type": "doi",
-        "source_relation": "IsDescribedBy",
-        "classification": null,
-        "kept": false,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "unjudged"
-      },
-      {
         "identifier": "10.82901/nemar.on003848",
         "identifier_type": "doi",
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
       "10.82901/nemar.on003848"
     ],
     "keywords": [
-      "intracranial EEG",
-      "electrocorticography",
-      "stereo-encephalography",
+      "iEEG",
+      "Electrocorticography",
+      "stereo-electroencephalography",
+      "Epilepsy",
       "epilepsy surgery",
-      "clinical neurophysiology",
       "BIDS",
-      "RESPect",
-      "electrode grids",
-      "depth electrodes",
-      "intraoperative recording",
-      "long-term monitoring",
-      "surgical epilepsy"
+      "long-term monitoring"
     ],
-    "methods_description": "Intracranial EEG recordings were acquired during epilepsy surgery procedures (intraoperative ECoG) and during long-term clinical monitoring periods. Intraoperative recordings were organized into sessions corresponding to pre-resection, intermediate, and post-resection surgical phases. Long-term recordings were grouped by monitoring period with runs indicating specific days and times of acquisition. Electrode configurations included grids, strips, and depth electrodes for ECoG, and depth electrodes for stereo-encephalography (SEEG). Data were converted to BIDS format following the practical workflow described in Demuru et al. (2021).",
+    "methods_description": "Intraoperative ECoG was grouped into BIDS sessions by surgical situation (pre-resection, intermediate, post-resection) and grid position. Long-term monitoring recordings were grouped into sessions per monitoring period, with runs encoding the day and start time. Task labels (rest, sleep, SPESclin) describe the patient's state during each recording.",
     "funding": [
       {
         "funder_name": "Epi-Sign Project"
       },
       {
+        "funder_name": "Alexandre Suerman Stipendium 2015"
+      },
+      {
         "funder_name": "EpilepsieNL",
         "award_number": "#17-07"
-      },
-      {
-        "funder_name": "Alexandre Suerman Stipendium",
-        "award_number": "2015"
-      },
-      {
-        "funder_name": "EpilepsieNL",
-        "award_number": "17-07"
       }
     ],
     "searched_accessions": [
@@ -112,7 +89,7 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T10:57:23.886555+00:00",
+    "scoring_date": "2026-10-11T11:30:18.980178+00:00",
     "dataset_text_length": 2341,
     "num_citations_scored": 1,
     "summary_stats": {

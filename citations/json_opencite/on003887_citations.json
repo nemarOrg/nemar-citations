@@ -1,10 +1,10 @@
 {
   "dataset_id": "on003887",
-  "num_citations": 2,
-  "date_last_updated": "2026-09-30T10:45:09.476362+00:00",
+  "num_citations": 3,
+  "date_last_updated": "2026-10-11T11:15:46.710882+00:00",
   "metadata": {
-    "total_cumulative_citations": 4,
-    "fetch_date": "2026-09-29T11:12:38.119747+00:00",
+    "total_cumulative_citations": 0,
+    "fetch_date": "2026-10-11T10:48:11.653510+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 1,
@@ -19,12 +19,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -32,21 +32,21 @@
     ],
     "keywords": [
       "EEG",
-      "object recognition",
-      "movement perception",
-      "visual processing",
-      "representational similarity analysis",
+      "object representation",
+      "movement",
+      "animacy",
+      "visual perception",
       "decoding",
-      "neural representation"
+      "representational similarity analysis"
     ],
-    "methods_description": "Participants completed two tasks: (1) a time-pressured classification task where participants classified single images as 'can move' or 'still' with a 1-second timeout, and (2) a passive viewing task with rapid serial visual presentation (RSVP) streams of images where participants indicated fixation cross color changes. EEG data were recorded during both tasks.",
+    "methods_description": "Participants completed two tasks while EEG was recorded. In the classification task they judged single images as 'can move' or 'still', with a 1 second timeout per trial. In the passive viewing task they watched rapid serial visual presentation streams of images and pressed a button when the fixation cross changed colour. Raw data are in BrainVision format. Preprocessed data are in EEGLAB and CoSMoMVPA formats.",
     "funding": [
       {
-        "funder_name": "ARC",
+        "funder_name": "Australian Research Council",
         "award_number": "DP160101300"
       },
       {
-        "funder_name": "ARC",
+        "funder_name": "Australian Research Council",
         "award_number": "DP200101787"
       }
     ],
@@ -54,8 +54,8 @@
       "on003887",
       "ds003887"
     ],
-    "num_accession_mentions": 2,
-    "num_dataset_citations": 2,
+    "num_accession_mentions": 3,
+    "num_dataset_citations": 3,
     "num_datapaper_citations": 0
   },
   "citation_details": [
@@ -86,7 +86,7 @@
     },
     {
       "title": "Capacity for movement is an organisational principle in object representations",
-      "author": "Sophia M. Shatek, Amanda K. Robinson, Tijl Grootswagers, Thomas A. Carlson",
+      "author": "Sophia M. Shatek, Amanda K. Robinson, Tijl Grootswagers, Thomas Carlson",
       "venue": "n/a",
       "year": 2021,
       "url": "https://doi.org/10.31234/osf.io/3x2qh",
@@ -102,8 +102,33 @@
       "matched_accession": "ds003887",
       "confidence_scoring": {
         "confidence_score": 1.0,
-        "similarity_score": 0.8722208738327026,
-        "citation_text_length": 1304,
+        "similarity_score": 0.8734084963798523,
+        "citation_text_length": 1301,
+        "dataset_text_length": 2405,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "What masking geometry works best for EEG foundation models?",
+      "author": "Pierre Guetschel, Bruno Aristimunha, Yassine El Ouahidi, Arnaud Delorme, Thomas Moreau, Michael Tangermann",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2609.33487",
+      "cited_by": 0,
+      "abstract": "EEG foundation models hold promise for scalable brain-signal decoding across clinical and cognitive neuroscience applications, yet their pre-training pipelines remain poorly understood. Among design choices, the masking strategy is particularly critical: it determines what the network must predict and from which context. Yet it has never been ablated in isolation, as each new model bundles a new masking strategy with a new backbone and objective. In this paper, we formalize the design choices for spatio-temporal masking strategies and train various models with a single pipeline under varying masking configurations across two SSL frameworks (MAE and JEPA). We then systematically evaluate the resulting 58 pre-trained models on the 12 datasets of OpenEEGBench under a linear probe. Both frameworks agree on an optimal masking configuration and on shared failure modes. Outside these, performance is robust: 11 MAE and 9 JEPA configurations are statistically indistinguishable from the best. We further identify a novel JEPA-specific failure mode, tagged bias-inflation collapse, invisible to standard detectors. With a well-chosen mask, our pipeline reaches REVE-level downstream performance at a fraction of REVE's pre-training compute.",
+      "doi": "10.48550/arxiv.2609.33487",
+      "pmid": null,
+      "openalex_id": "W7214740814",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds003887",
+      "confidence_scoring": {
+        "confidence_score": 0.47182419598102576,
+        "similarity_score": 0.40850579738616943,
+        "citation_text_length": 1474,
         "dataset_text_length": 2405,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -112,17 +137,17 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T10:57:28.730773+00:00",
+    "scoring_date": "2026-10-11T11:30:24.551101+00:00",
     "dataset_text_length": 2405,
-    "num_citations_scored": 2,
+    "num_citations_scored": 3,
     "summary_stats": {
-      "mean_confidence": 0.7937241396307946,
-      "median_confidence": 0.7937241396307946,
-      "std_confidence": 0.20627586036920548,
-      "min_confidence": 0.587448279261589,
+      "mean_confidence": 0.686424158414205,
+      "median_confidence": 0.587448279261589,
+      "std_confidence": 0.22670037270708576,
+      "min_confidence": 0.47182419598102576,
       "max_confidence": 1.0,
       "high_confidence_count": 1,
-      "medium_confidence_count": 1,
+      "medium_confidence_count": 2,
       "low_confidence_count": 0
     }
   }

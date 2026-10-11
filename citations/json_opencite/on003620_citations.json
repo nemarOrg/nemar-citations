@@ -1,10 +1,10 @@
 {
   "dataset_id": "on003620",
-  "num_citations": 36,
-  "date_last_updated": "2026-09-30T10:47:15.132985+00:00",
+  "num_citations": 37,
+  "date_last_updated": "2026-10-11T11:15:30.039245+00:00",
   "metadata": {
-    "total_cumulative_citations": 549,
-    "fetch_date": "2026-09-29T11:09:56.608314+00:00",
+    "total_cumulative_citations": 493,
+    "fetch_date": "2026-10-11T10:45:29.862759+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -19,12 +19,12 @@
         "source_relation": "IsDescribedBy",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "EEG and behavioral correlates of attentional processing while walking and navigating naturalistic environments",
         "paper_year": 2021,
         "paper_venue": "Scientific Reports",
         "reason": "Same authors and study (44 participants, auditory oddball in lab, field, campus); this is the original manuscript reporting the data collection for the Runabout dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on003620",
@@ -32,12 +32,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -46,18 +46,18 @@
     ],
     "keywords": [
       "EEG",
+      "mobile EEG",
       "auditory oddball",
-      "attention",
-      "mobile neuroimaging",
-      "event-related potentials",
-      "naturalistic environments",
-      "motor demands"
+      "Attention",
+      "Walking",
+      "naturalistic environments"
     ],
-    "methods_description": "EEG signals were recorded from 32 active electrodes using a Brain Vision LiveAmp 32 amplifier. Participants performed an oddball task with complex tone stimuli in three settings: sitting in a quiet laboratory, walking around a sports field, and navigating a university campus route. Each environmental condition was performed twice: once while counting deviant tones (COUNT) and once while ignoring stimuli (IGNORE). Data were preprocessed using EEGLAB with ICA-based artifact removal, bandpass filtering, and epoch extraction.",
+    "methods_description": "EEG was recorded from 32 active electrodes using a Brain Vision LiveAmp 32 amplifier while participants completed an oddball task (piano and horn tones) in LAB, FIELD and CAMPUS settings, each under COUNT and IGNORE instructions. Preprocessing used EEGLAB, ERPLAB, ICLabel and clean_rawdata in MATLAB. Statistical analysis used mixed-effects models in R.",
     "funding": [
       {
         "funder_name": "Australian Research Council",
-        "award_number": "FT160100437"
+        "award_number": "FT160100437",
+        "award_title": "Future Fellowship"
       },
       {
         "funder_name": "University of South Australia",
@@ -70,7 +70,7 @@
     ],
     "num_accession_mentions": 1,
     "num_dataset_citations": 1,
-    "num_datapaper_citations": 35
+    "num_datapaper_citations": 36
   },
   "citation_details": [
     {
@@ -79,7 +79,7 @@
       "venue": "Human Brain Mapping",
       "year": 2022,
       "url": "https://doi.org/10.1002/hbm.25832",
-      "cited_by": 130,
+      "cited_by": 124,
       "abstract": "Removing power line noise and other frequency-specific artifacts from electrophysiological data without affecting neural signals remains a challenging task. Recently, an approach was introduced that combines spectral and spatial filtering to effectively remove line noise: Zapline. This algorithm, however, requires manual selection of the noise frequency and the number of spatial components to remove during spatial filtering. Moreover, it assumes that noise frequency and spatial topography are stable over time, which is often not warranted. To overcome these issues, we introduce Zapline-plus, which allows adaptive and automatic removal of frequency-specific noise artifacts from M/electroencephalography (EEG) and LFP data. To achieve this, our extension first segments the data into periods (chunks) in which the noise is spatially stable. Then, for each chunk, it searches for peaks in the power spectrum, and finally applies Zapline. The exact noise frequency around the found target freque",
       "doi": "10.1002/hbm.25832",
       "pmid": "35278015",
@@ -94,18 +94,15 @@
         "dataset_text_length": 2479,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      },
-      "superseded_dois": [
-        "10.1101/2021.10.18.464805"
-      ]
+      }
     },
     {
       "title": "The reality of virtual reality",
-      "author": "Benjamin Schöne, Joanna Kisker, Leon Lange, Thomas Gruber, Sophia Sylvester, Roman V. Osinsky",
+      "author": "Benjamin Schöne, Joanna Kisker, Leon Lange, Thomas Gruber, Sophia Sylvester, Roman Osinsky",
       "venue": "Frontiers in Psychology",
       "year": 2023,
       "url": "https://doi.org/10.3389/fpsyg.2023.1093014",
-      "cited_by": 79,
+      "cited_by": 76,
       "abstract": "Virtual reality (VR) has become a popular tool for investigating human behavior and brain functions. Nevertheless, it is unclear whether VR constitutes an actual form of reality or is more like an advanced simulation. Determining the nature of VR has been mostly achieved by self-reported presence measurements, defined as the feeling of being submerged in the experience. However, subjective measurements might be prone to bias and, most importantly, do not allow for a comparison with real-life experiences. Here, we show that real-life and VR height exposures using 3D-360° videos are mostly indistinguishable on a psychophysiological level (EEG and HRV), while both differ from a conventional 2D laboratory setting. Using a fire truck, three groups of participants experienced a real-life (N = 25), a virtual (N = 24), or a 2D laboratory (N = 25) height exposure. Behavioral and psychophysiological results suggest that identical exogenous and endogenous cognitive as well as emotional mechanisms",
       "doi": "10.3389/fpsyg.2023.1093014",
       "pmid": "36874824",
@@ -114,9 +111,9 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.3572799897193909,
-        "similarity_score": 0.30933332443237305,
-        "citation_text_length": 1185,
+        "confidence_score": 0.3552571307122708,
+        "similarity_score": 0.30758193135261536,
+        "citation_text_length": 1182,
         "dataset_text_length": 2479,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -128,7 +125,7 @@
       "venue": "Scientific Reports",
       "year": 2022,
       "url": "https://doi.org/10.1038/s41598-022-06296-3",
-      "cited_by": 51,
+      "cited_by": 48,
       "abstract": "Our visual environment impacts multiple aspects of cognition including perception, attention and memory, yet most studies traditionally remove or control the external environment. As a result, we have a limited understanding of neurocognitive processes beyond the controlled lab environment. Here, we aim to study neural processes in real-world environments, while also maintaining a degree of control over perception. To achieve this, we combined mobile EEG (mEEG) and augmented reality (AR), which allows us to place virtual objects into the real world. We validated this AR and mEEG approach using a well-characterised cognitive response-the face inversion effect. Participants viewed upright and inverted faces in three EEG tasks (1) a lab-based computer task, (2) walking through an indoor environment while seeing face photographs, and (3) walking through an indoor environment while seeing virtual faces. We find greater low frequency EEG activity for inverted compared to upright faces in all",
       "doi": "10.1038/s41598-022-06296-3",
       "pmid": "35145166",
@@ -151,7 +148,7 @@
       "venue": "International Review of Sport and Exercise Psychology",
       "year": 2022,
       "url": "https://doi.org/10.1080/1750984X.2022.2155488",
-      "cited_by": 40,
+      "cited_by": 41,
       "abstract": "ABSTRACT Although the acute effect of exercise on behavioral cognitive performance is well-documented in the exercise psychology field, a comprehensive evaluation on neuroelectric brain activity that determines healthy cognitive functioning following acute exercise is lacking. This systematic review included 39 studies examining acute exercise effects on P3 of event-related potential through its amplitude and latency, which reflect the amounts of attentional resources allocated to and the processing speed for categorizing a stimulus. Exercise has small effects on increasing amplitude and decreasing latency. The amplitude effect was moderated by age and the type, intensity, and duration of exercise, with a smaller effect being observed for individuals aged ≤18 and 19–35 than >60 years, for high-intensity than moderate-intensity exercise, for high-intensity interval training exercise than aerobic, resistance, and combined exercise, as well as for exercise lasting ≤10 and 11–20 than exerc",
       "doi": "10.1080/1750984X.2022.2155488",
       "pmid": null,
@@ -174,7 +171,7 @@
       "venue": "Journal of Cognitive Neuroscience",
       "year": 2022,
       "url": "https://doi.org/10.1162/jocn_a_01903",
-      "cited_by": 33,
+      "cited_by": 29,
       "abstract": "The study of cognitive processes underlying natural behaviors implies departing from computerized paradigms and artificial experimental probes. The present study aims to assess the feasibility of capturing neural markers (P300 ERPs) of cognitive processes evoked in response to the identification of task-relevant objects embedded in a real-world environment. To this end, EEG and eye-tracking data were recorded while participants attended stimuli presented on a tablet and while they searched for books in a library. Initial analyses of the library data revealed that P300-like features shifted in time. A Dynamic Time Warping analysis confirmed the presence of P300 ERP in the library condition. Library data were then lag-corrected based on cross-correlation coefficients. Together, these approaches uncovered P300 ERP responses in the library recordings. These findings highlight the relevance of scalable experimental designs, joint brain and body recordings, and template-matching analyses to ",
       "doi": "10.1162/jocn_a_01903",
       "pmid": "36007068",
@@ -197,7 +194,7 @@
       "venue": "Cerebral Cortex",
       "year": 2022,
       "url": "https://doi.org/10.1093/cercor/bhac094",
-      "cited_by": 26,
+      "cited_by": 22,
       "abstract": "Online speech processing imposes significant computational demands on the listening brain, the underlying mechanisms of which remain poorly understood. Here, we exploit the perceptual \"pop-out\" phenomenon (i.e. the dramatic improvement of speech intelligibility after receiving information about speech content) to investigate the neurophysiological effects of prior expectations on degraded speech comprehension. We recorded electroencephalography (EEG) and pupillometry from 21 adults while they rated the clarity of noise-vocoded and sine-wave synthesized sentences. Pop-out was reliably elicited following visual presentation of the corresponding written sentence, but not following incongruent or neutral text. Pop-out was associated with improved reconstruction of the acoustic stimulus envelope from low-frequency EEG activity, implying that improvements in perceptual clarity were mediated via top-down signals that enhanced the quality of cortical speech representations. Spectral analysis f",
       "doi": "10.1093/cercor/bhac094",
       "pmid": "35253871",
@@ -209,29 +206,6 @@
         "confidence_score": 0.5917558085918427,
         "similarity_score": 0.5123426914215088,
         "citation_text_length": 1259,
-        "dataset_text_length": 2479,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Can cognitive neuroscience solve the lab-dilemma by going wild?",
-      "author": "William Vallet, Virginie van Wassenhove",
-      "venue": "Neuroscience & Biobehavioral Reviews",
-      "year": 2023,
-      "url": "https://doi.org/10.1016/j.neubiorev.2023.105463",
-      "cited_by": 21,
-      "abstract": "Reproducibility, measurability, and refutability are the foundation of the scientific method applied to empirical work. In the study of animal and human behavior, experimental protocols conducted in the lab are the most reliable means by which scientists can operationalize behaviors using controlled and parameterized setups. However, whether observations in the lab fully generalize in the real world remain legitimately disputed. The notion of \"experimental design\" was originally intended to ensure the generalizability of experimental findings to real-world situations. Experiments in the wild are more frequently explored and significant technological advances have been made allowing mobile neuroimaging. Yet some methodological limitations remain when testing scientific hypotheses in ecological conditions. Herein, we discuss the limitations of inferential processes derive from empirical observations in the wild. The multi-causal property of an ecological situation often lacks controls, a",
-      "doi": "10.1016/j.neubiorev.2023.105463",
-      "pmid": "37967734",
-      "openalex_id": "W4388639897",
-      "source_doi": "10.1038/s41598-021-01772-8",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.4519468103349209,
-        "similarity_score": 0.3912959396839142,
-        "citation_text_length": 1177,
         "dataset_text_length": 2479,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -261,12 +235,35 @@
       }
     },
     {
+      "title": "Can cognitive neuroscience solve the lab-dilemma by going wild?",
+      "author": "William Vallet, Virginie van Wassenhove",
+      "venue": "Neuroscience & Biobehavioral Reviews",
+      "year": 2023,
+      "url": "https://doi.org/10.1016/j.neubiorev.2023.105463",
+      "cited_by": 21,
+      "abstract": "Reproducibility, measurability, and refutability are the foundation of the scientific method applied to empirical work. In the study of animal and human behavior, experimental protocols conducted in the lab are the most reliable means by which scientists can operationalize behaviors using controlled and parameterized setups. However, whether observations in the lab fully generalize in the real world remain legitimately disputed. The notion of \"experimental design\" was originally intended to ensure the generalizability of experimental findings to real-world situations. Experiments in the wild are more frequently explored and significant technological advances have been made allowing mobile neuroimaging. Yet some methodological limitations remain when testing scientific hypotheses in ecological conditions. Herein, we discuss the limitations of inferential processes derive from empirical observations in the wild. The multi-causal property of an ecological situation often lacks controls, a",
+      "doi": "10.1016/j.neubiorev.2023.105463",
+      "pmid": "37967734",
+      "openalex_id": "W4388639897",
+      "source_doi": "10.1038/s41598-021-01772-8",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.4519468103349209,
+        "similarity_score": 0.3912959396839142,
+        "citation_text_length": 1177,
+        "dataset_text_length": 2479,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Bridging the big (data) gap: levels of control in small- and large-scale cognitive neuroscience research",
       "author": "Roni Tibon, Linda Geerligs, Karen Lucia Campbell",
       "venue": "Trends in Neurosciences",
       "year": 2022,
       "url": "https://doi.org/10.1016/j.tins.2022.03.011",
-      "cited_by": 19,
+      "cited_by": 18,
       "abstract": "Recently, cognitive neuroscience has experienced unprecedented growth in the availability of large-scale datasets. These developments hold great methodological and theoretical promise: they allow increased statistical power, the use of nonparametric and generative models, the examination of individual differences, and more. Nevertheless, unlike most 'traditional' cognitive neuroscience research, which uses controlled experimental designs, large-scale projects often collect neuroimaging data not directly related to a particular task (e.g., resting state). This creates a gap between small- and large-scale studies that is not solely due to differences in sample size. Measures obtained with large-scale studies might tap into different neurocognitive mechanisms and thus show little overlap with the mechanisms probed by small-scale studies. In this opinion article, we aim to address this gap and its potential implications for the interpretation of research findings in cognitive neuroscience.",
       "doi": "10.1016/j.tins.2022.03.011",
       "pmid": "35469691",
@@ -307,35 +304,12 @@
       }
     },
     {
-      "title": "Task-related, intrinsic oscillatory and aperiodic neural activity predict performance in naturalistic team-based training scenarios",
-      "author": "Zachariah R. Cross, Alex Chatburn, Lee Melberzs, Philip Temby, Diane E. Pomeroy, Matthias Schlesewsky, Ina Bornkessel‐Schlesewsky",
-      "venue": "Scientific Reports",
-      "year": 2022,
-      "url": "https://doi.org/10.1038/s41598-022-20704-8",
-      "cited_by": 11,
-      "abstract": "Effective teams are essential for optimally functioning societies. However, little is known regarding the neural basis of two or more individuals engaging cooperatively in real-world tasks, such as in operational training environments. In this exploratory study, we recruited forty individuals paired as twenty dyads and recorded dual-EEG at rest and during realistic training scenarios of increasing complexity using virtual simulation systems. We estimated markers of intrinsic brain activity (i.e., individual alpha frequency and aperiodic activity), as well as task-related theta and alpha oscillations. Using nonlinear modelling and a logistic regression machine learning model, we found that resting-state EEG predicts performance and can also reliably differentiate between members within a dyad. Task-related theta and alpha activity during easy training tasks predicted later performance on complex training to a greater extent than prior behaviour. These findings complement laboratory-base",
-      "doi": "10.1038/s41598-022-20704-8",
-      "pmid": "36171478",
-      "openalex_id": "W4297492474",
-      "source_doi": "10.1038/s41598-021-01772-8",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5190714316070081,
-        "similarity_score": 0.4494124948978424,
-        "citation_text_length": 1317,
-        "dataset_text_length": 2479,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Preprocessing choices for P3 analyses with mobile EEG : A systematic literature review and interactive exploration",
       "author": "Nadine Svenja Josée Jacobsen, Daniel Kristanto, Suong Welp, Yusuf Coşku Inceler, Stefan Debener",
       "venue": "Psychophysiology",
       "year": 2024,
       "url": "https://doi.org/10.1111/psyp.14743",
-      "cited_by": 10,
+      "cited_by": 11,
       "abstract": "Preprocessing is necessary to extract meaningful results from electroencephalography (EEG) data. With many possible preprocessing choices, their impact on outcomes is fundamental. While previous studies have explored the effects of preprocessing on stationary EEG data, this research delves into mobile EEG, where complex processing is necessary to address motion artifacts. Specifically, we describe the preprocessing choices studies reported for analyzing the P3 event-related potential (ERP) during walking and standing. A systematic review of 258 studies of the P3 during walking, identified 27 studies meeting the inclusion criteria. Two independent coders extracted preprocessing choices reported in each study. Analysis of preprocessing choices revealed commonalities and differences, such as the widespread use of offline filters but limited application of line noise correction (3 of 27 studies). Notably, 59% of studies involved manual processing steps, and 56% omitted reporting critical p",
       "doi": "10.1111/psyp.14743",
       "pmid": "39697161",
@@ -347,6 +321,29 @@
         "confidence_score": 0.7004285019636155,
         "similarity_score": 0.6064316034317017,
         "citation_text_length": 1264,
+        "dataset_text_length": 2479,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Task-related, intrinsic oscillatory and aperiodic neural activity predict performance in naturalistic team-based training scenarios",
+      "author": "Zachariah R. Cross, Alex Chatburn, Lee Melberzs, Philip Temby, Diane E. Pomeroy, Matthias Schlesewsky, Ina Bornkessel‐Schlesewsky",
+      "venue": "Scientific Reports",
+      "year": 2022,
+      "url": "https://doi.org/10.1038/s41598-022-20704-8",
+      "cited_by": 10,
+      "abstract": "Effective teams are essential for optimally functioning societies. However, little is known regarding the neural basis of two or more individuals engaging cooperatively in real-world tasks, such as in operational training environments. In this exploratory study, we recruited forty individuals paired as twenty dyads and recorded dual-EEG at rest and during realistic training scenarios of increasing complexity using virtual simulation systems. We estimated markers of intrinsic brain activity (i.e., individual alpha frequency and aperiodic activity), as well as task-related theta and alpha oscillations. Using nonlinear modelling and a logistic regression machine learning model, we found that resting-state EEG predicts performance and can also reliably differentiate between members within a dyad. Task-related theta and alpha activity during easy training tasks predicted later performance on complex training to a greater extent than prior behaviour. These findings complement laboratory-base",
+      "doi": "10.1038/s41598-022-20704-8",
+      "pmid": "36171478",
+      "openalex_id": "W4297492474",
+      "source_doi": "10.1038/s41598-021-01772-8",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5190714316070081,
+        "similarity_score": 0.4494124948978424,
+        "citation_text_length": 1317,
         "dataset_text_length": 2479,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -378,7 +375,7 @@
     {
       "title": "CameraEEG: Synchronous Recording of Electroencephalogram and Video Data for Neuroergonomics Applications",
       "author": "Doli Hazarika, Srihari Madhavan, Cota Navin Gupta",
-      "venue": "2023 IEEE 5th Eurasia Conference on Biomedical Engineering, Healthcare and Sustainability",
+      "venue": "IEEE Eurasia Conference on Biomedical Engineering, Healthcare and Sustainability (ECBIOS)",
       "year": 2023,
       "url": "https://doi.org/10.3390/engproc2023055046",
       "cited_by": 7,
@@ -390,8 +387,8 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6393552124500275,
-        "similarity_score": 0.5535542964935303,
+        "confidence_score": 0.6344326364994051,
+        "similarity_score": 0.5492923259735107,
         "citation_text_length": 1281,
         "dataset_text_length": 2479,
         "scoring_method": "sentence_transformers",
@@ -468,6 +465,29 @@
       }
     },
     {
+      "title": "Cortical activation among young adults during mobility in an indoor real-world environment: A mobile EEG approach",
+      "author": "Samantha Dawn Marshall, Gianna Jeyarajan, Nicholas Hayhow, Raphael Gabiazon, Tia Seleem, Mathew R. Hammerstrom, Olav E. Krigolson, Lindsay S. Nagamatsu",
+      "venue": "Neuropsychologia",
+      "year": 2024,
+      "url": "https://doi.org/10.1016/j.neuropsychologia.2024.108971",
+      "cited_by": 5,
+      "abstract": "Human mobility requires neurocognitive inputs to safely navigate the environment. Previous research has examined neural processes that underly walking using mobile neuroimaging technologies, yet few studies have incorporated true real-world methods without a specific task imposed on participants (e.g., dual-task, motor demands). The present study included 40 young adults (M = 22.60, SD = 2.63, 24 female) and utilized mobile electroencephalography (EEG) to examine and compare theta, alpha, and beta frequency band power (μV2) during sitting and walking in laboratory and real-world environments. EEG data was recorded using the Muse S brain sensing headband, a portable system equipped with four electrodes (two frontal, two temporal) and one reference sensor. Qualitative data detailing the thoughts of each participant were collected after each condition. For the quantitative data, a 2 × 2 repeated measures ANOVA with within subject factors of environment and mobility was conducted with full",
+      "doi": "10.1016/j.neuropsychologia.2024.108971",
+      "pmid": "39128610",
+      "openalex_id": "W4401486109",
+      "source_doi": "10.1038/s41598-021-01772-8",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7199476611614228,
+        "similarity_score": 0.6233313083648682,
+        "citation_text_length": 1319,
+        "dataset_text_length": 2479,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Inter-brain synchrony in real-world and virtual reality search tasks using EEG hyperscanning",
       "author": "Ashkan Farrokh Hayati, Amit Barde, Ihshan Gumilar, Abdul Momin, Gun Lee, Alex Chatburn, Mark Billinghurst",
       "venue": "Frontiers in Virtual Reality",
@@ -537,46 +557,23 @@
       }
     },
     {
-      "title": "Cortical activation among young adults during mobility in an indoor real-world environment: A mobile EEG approach",
-      "author": "Samantha Dawn Marshall, Gianna Jeyarajan, Nicholas Hayhow, Raphael Gabiazon, Tia Seleem, Mathew R. Hammerstrom, Olav E. Krigolson, Lindsay S. Nagamatsu",
-      "venue": "Neuropsychologia",
-      "year": 2024,
-      "url": "https://doi.org/10.1016/j.neuropsychologia.2024.108971",
-      "cited_by": 4,
-      "abstract": "Human mobility requires neurocognitive inputs to safely navigate the environment. Previous research has examined neural processes that underly walking using mobile neuroimaging technologies, yet few studies have incorporated true real-world methods without a specific task imposed on participants (e.g., dual-task, motor demands). The present study included 40 young adults (M = 22.60, SD = 2.63, 24 female) and utilized mobile electroencephalography (EEG) to examine and compare theta, alpha, and beta frequency band power (μV2) during sitting and walking in laboratory and real-world environments. EEG data was recorded using the Muse S brain sensing headband, a portable system equipped with four electrodes (two frontal, two temporal) and one reference sensor. Qualitative data detailing the thoughts of each participant were collected after each condition. For the quantitative data, a 2 × 2 repeated measures ANOVA with within subject factors of environment and mobility was conducted with full",
-      "doi": "10.1016/j.neuropsychologia.2024.108971",
-      "pmid": "39128610",
-      "openalex_id": "W4401486109",
-      "source_doi": "10.1038/s41598-021-01772-8",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.7199476611614228,
-        "similarity_score": 0.6233313083648682,
-        "citation_text_length": 1319,
-        "dataset_text_length": 2479,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Capturing cognitive events embedded in the real-world using mobile EEG and Eye-Tracking",
-      "author": "S. Ladouce, Magda Mustile, F. Dehais",
-      "venue": "bioRxiv",
+      "author": "Simon Ladouce, Magda Mustile, Frédéric Dehais",
+      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
       "year": 2021,
       "url": "https://doi.org/10.1101/2021.11.30.470560",
       "cited_by": 4,
       "abstract": "The study of cognitive processes underlying natural behaviours implies to depart from computerized paradigms and artificial experimental probes. The aim of the present study is to assess the feasibility of capturing neural markers of visual attention (P300 Event-Related Potentials) in response to objects embedded in a real-world environment. To this end, electroencephalography and eye-tracking data were recorded while participants attended stimuli presented on a tablet and while they searched for books in a library. Initial analyses of the library data revealed P300-like features shifted in time. A Dynamic Time Warping analysis confirmed the presence of P300 ERP in the library condition. Library data were then lag-corrected based on cross-correlation co-efficients. Together these approaches uncovered P300 ERP responses in the library recordings. These findings high-light the relevance of scalable experimental designs, joint brain and body recordings and template-matching analyses to ca",
       "doi": "10.1101/2021.11.30.470560",
       "pmid": null,
-      "openalex_id": null,
+      "openalex_id": "W3215409292",
       "source_doi": "10.1038/s41598-021-01772-8",
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.7287388211488725,
-        "similarity_score": 0.630942702293396,
-        "citation_text_length": 1169,
+        "confidence_score": 0.730499559044838,
+        "similarity_score": 0.6324671506881714,
+        "citation_text_length": 1210,
         "dataset_text_length": 2479,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -791,7 +788,7 @@
     },
     {
       "title": "The impact of awareness on affective emoji priming in visual word recognition",
-      "author": "Demian Stoianov, Elisabeth Beyersmann, Nenagh Kemp, Signy V. Wegener, Srđan Popov",
+      "author": "Demian Stoianov, Elisabeth Beyersmann, Nenagh Kemp, Signy V. Wegener, Srdjan Popov",
       "venue": "Scientific Reports",
       "year": 2026,
       "url": "https://doi.org/10.1038/s41598-025-34117-w",
@@ -804,9 +801,9 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.46927058905363084,
-        "similarity_score": 0.40629488229751587,
-        "citation_text_length": 1215,
+        "confidence_score": 0.4699044299125672,
+        "similarity_score": 0.4068436622619629,
+        "citation_text_length": 1216,
         "dataset_text_length": 2479,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -853,6 +850,29 @@
         "confidence_score": 0.6191266223788262,
         "similarity_score": 0.5360403656959534,
         "citation_text_length": 1221,
+        "dataset_text_length": 2479,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "ERP-FM: A Foundation Model for Universal ERP Analysis",
+      "author": "Yi-He Wang, Bo Chen, Tai-Da Li, Yu-Jun Yan, Rui Yin, Xiang Zhang",
+      "venue": "n/a",
+      "year": 2026,
+      "url": "n/a",
+      "cited_by": 0,
+      "abstract": "Foundation models have recently shown strong potential for learning generalizable EEG representations, yet their effectiveness for event-related potential (ERP) analysis remains unclear. In this work, we investigate two fundamental questions: 1) can foundation-model learning benefit ERP analysis, and what limits the transfer of existing EEG foundation models to ERP tasks? 2) can the complementary advantages of single-trial and averaged-trial ERP be integrated into a unified training pipeline? To study these questions, we curate a large-scale ERP corpus comprising 1,517,157 single-trial ERPs from 3,696 subjects across 38 datasets and 18 paradigms. Leveraging this corpus, we introduce ERP-FM, to the best of our knowledge, the first foundation model specifically developed for ERP representation learning. ERP-FM uses single-channel tokenization, temporal and spatial positional embeddings, and mixed masked autoencoding for large-scale single-trial pretraining. We compare our model against 1",
+      "doi": null,
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.1038/s41598-021-01772-8",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5748447458446027,
+        "similarity_score": 0.49770107865333557,
+        "citation_text_length": 1159,
         "dataset_text_length": 2479,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -909,17 +929,17 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T10:56:33.629982+00:00",
+    "scoring_date": "2026-10-11T11:29:11.699980+00:00",
     "dataset_text_length": 2479,
-    "num_citations_scored": 36,
+    "num_citations_scored": 37,
     "summary_stats": {
-      "mean_confidence": 0.542808788480858,
-      "median_confidence": 0.5366091582924128,
-      "std_confidence": 0.13021002119987826,
+      "mean_confidence": 0.5435516290527743,
+      "median_confidence": 0.5438569705188275,
+      "std_confidence": 0.12858551740609592,
       "min_confidence": 0.30661144852638245,
       "max_confidence": 0.8213118052482606,
       "high_confidence_count": 5,
-      "medium_confidence_count": 26,
+      "medium_confidence_count": 27,
       "low_confidence_count": 5
     }
   }

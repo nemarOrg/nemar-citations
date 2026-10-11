@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000217",
-  "num_citations": 12,
-  "date_last_updated": "2026-10-04T10:04:45.017662+00:00",
+  "num_citations": 13,
+  "date_last_updated": "2026-10-11T10:21:32.674921+00:00",
   "metadata": {
-    "total_cumulative_citations": 600,
-    "fetch_date": "2026-09-29T10:51:13.218651+00:00",
+    "total_cumulative_citations": 602,
+    "fetch_date": "2026-10-11T10:21:32.674921+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -14,17 +14,30 @@
     "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
+        "identifier": "10.5281/zenodo.3266930",
+        "identifier_type": "doi",
+        "source_relation": "IsDerivedFrom",
+        "classification": "related_work",
+        "kept": false,
+        "kept_reason": "judged_not_data_paper",
+        "paper_title": "Brain Invaders calibration-less P300-based BCI with modulation of flash duration Dataset (bi2015a)",
+        "paper_year": 2019,
+        "paper_venue": "HAL (Le Centre pour la Communication Scientifique Directe)",
+        "reason": "Candidate is the sibling bi2015a dataset (50 subjects, flash duration conditions), not BI2015b (44 subjects); same lab and game but a different dataset.",
+        "judgment_model": "claude-sonnet-5-5"
+      },
+      {
         "identifier": "10.5281/zenodo.3267307",
         "identifier_type": "doi",
         "source_relation": "IsVersionOf",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Brain Invaders Cooperative versus Competitive: Multi-User P300-based Brain-Computer Interface Dataset (bi2015b)",
         "paper_year": 2019,
         "paper_venue": "HAL (Le Centre pour la Communication Scientifique Directe)",
         "reason": "Zenodo record for bi2015b (same DOI as dataset) describing 44 subjects, P300 Brain Invaders, 32 electrodes, GIPSA-lab 2015; same authors and data.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.nm000217",
@@ -32,12 +45,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -46,20 +59,14 @@
     ],
     "keywords": [
       "Electroencephalography",
+      "Brain-Computer Interfaces",
       "P300",
-      "Brain-Computer Interface",
+      "Brain Invaders",
       "oddball paradigm",
-      "Riemannian geometry",
-      "Event-Related Potentials, P300"
+      "Riemannian classification"
     ],
-    "methods_description": "EEG was recorded using a g.USBamp amplifier (g.tec) with 32 wet Silver/Silver Chloride electrodes in a 10-10 montage, referenced to the right earlobe with ground at Fz, at a sampling rate of 512 Hz with no online digital filtering. Event tagging was synchronized via a USB digital-to-analog converter connected to the amplifier's trigger channel to reduce jitter compared to software tagging. The paradigm involved three game sessions of 9 levels each with different flash durations (110ms, 80ms, 50ms), using pseudo-random flashing of groups of six symbols among 36 aliens to elicit P300 responses, with a real-time adaptive Riemannian Minimum Distance to Mean classifier used for online feedback.",
-    "funding": [],
-    "searched_accessions": [
-      "nm000217"
-    ],
-    "num_accession_mentions": 1,
-    "num_dataset_citations": 12,
-    "num_datapaper_citations": 0
+    "methods_description": "The experiment took place at GIPSA-lab, Grenoble, in 2015. Each participant played three Brain Invaders sessions of 9 levels, each with a different flash duration (110, 80 and 50 ms). Around one minute of resting-state and eyes-closed EEG was recorded before and after the sessions. EEG was acquired with a g.USBamp amplifier and 32 g.tec Ag/AgCl electrodes (10-10 montage, right earlobe reference, Fz ground). No digital filter was applied, and hardware tagging through a USB digital-to-analog converter was used to reduce jitter. A real-time adaptive Riemannian Minimum Distance to Mean classifier determined the participants' commands.",
+    "funding": []
   },
   "citation_details": [
     {
@@ -68,7 +75,7 @@
       "venue": "Nottingham Trent University's Institutional Repository (Nottingham Trent Repository)",
       "year": 2020,
       "url": "https://doi.org/10.1007/s12559-020-09773-x",
-      "cited_by": 446,
+      "cited_by": 439,
       "abstract": "Recent technological advancements in data acquisition tools allowed life scientists to acquire multimodal data from different biological application domains. Categorized in three broad types (i.e. images, signals, and sequences), these data are huge in amount and complex in nature. Mining such enormous amount of data for pattern recognition is a big challenge and requires sophisticated data-intensive machine learning techniques. Artificial neural network-based learning systems are well known for their pattern recognition capabilities, and lately their deep architectures-known as deep learning (DL)-have been successfully applied to solve many complex pattern recognition problems. To investigate how DL-especially its different architectures-has contributed and been utilized in the mining of biological data pertaining to those three types, a meta-analysis has been performed and the resulting resources have been critically analysed. Focusing on the use of DL to analyse patterns in data fro",
       "doi": "10.1007/s12559-020-09773-x",
       "pmid": "33425045",
@@ -91,7 +98,7 @@
       "venue": "ArXiv",
       "year": 2024,
       "url": "https://doi.org/10.48550/arXiv.2404.15319",
-      "cited_by": 54,
+      "cited_by": 59,
       "abstract": "Objective. This study conduct an extensive Brain-computer interfaces (BCI) reproducibility analysis on open electroencephalography datasets, aiming to assess existing solutions and establish open and reproducible benchmarks for effective comparison within the field. The need for such benchmark lies in the rapid industrial progress that has given rise to undisclosed proprietary solutions. Furthermore, the scientific literature is dense, often featuring challenging-to-reproduce evaluations, making comparisons between existing approaches arduous. Approach. Within an open framework, 30 machine learning pipelines (separated into raw signal: 11, Riemannian: 13, deep learning: 6) are meticulously re-implemented and evaluated across 36 publicly available datasets, including motor imagery (14), P300 (15), and SSVEP (7). The analysis incorporates statistical meta-analysis techniques for results assessment, encompassing execution time and environmental impact considerations. Main results. The stu",
       "doi": "10.48550/arXiv.2404.15319",
       "pmid": null,
@@ -137,7 +144,7 @@
       "venue": "Biomedical Signal Processing and Control",
       "year": 2025,
       "url": "https://doi.org/10.1016/j.bspc.2025.107826",
-      "cited_by": 14,
+      "cited_by": 16,
       "abstract": null,
       "doi": "10.1016/j.bspc.2025.107826",
       "pmid": null,
@@ -149,6 +156,29 @@
         "confidence_score": 0.4207067459821701,
         "similarity_score": 0.4006730914115906,
         "citation_text_length": 259,
+        "dataset_text_length": 2369,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Universal semantic feature extraction from EEG signals: a task-independent framework",
+      "author": "Hossein Ahmadi, L. Mesin",
+      "venue": "Journal of Neural Engineering",
+      "year": 2025,
+      "url": "https://doi.org/10.1088/1741-2552/add08f",
+      "cited_by": 11,
+      "abstract": "Objective. Extracting universal, task-independent semantic features from electroencephalography (EEG) signals remains an open challenge. Traditional approaches are often task-specific, limiting their generalization across different EEG paradigms. This study aims to develop a robust, unsupervised framework for learning high-level, task-independent neural representations. Approach. We propose a novel framework integrating convolutional neural networks, AutoEncoders, and Transformers to extract both low-level spatiotemporal patterns and high-level semantic features from EEG signals. The model is trained in an unsupervised manner to ensure adaptability across diverse EEG paradigms, including motor imagery (MI), steady-state visually evoked potentials (SSVEPs), and event-related potentials (ERPs, specifically P300). Extensive analyses, including clustering, correlation, and ablation studies, are conducted to validate the quality and interpretability of the extracted features. Main results. ",
+      "doi": "10.1088/1741-2552/add08f",
+      "pmid": "40273947",
+      "openalex_id": null,
+      "source_doi": "10.5281/zenodo.3267307",
+      "source_relation": "IsVersionOf",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.4770051410794258,
+        "similarity_score": 0.412991464138031,
+        "citation_text_length": 1176,
         "dataset_text_length": 2369,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -172,29 +202,6 @@
         "confidence_score": 0.475061004459858,
         "similarity_score": 0.411308228969574,
         "citation_text_length": 1315,
-        "dataset_text_length": 2369,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Universal semantic feature extraction from EEG signals: a task-independent framework",
-      "author": "Hossein Ahmadi, L. Mesin",
-      "venue": "Journal of Neural Engineering",
-      "year": 2025,
-      "url": "https://doi.org/10.1088/1741-2552/add08f",
-      "cited_by": 9,
-      "abstract": "Objective. Extracting universal, task-independent semantic features from electroencephalography (EEG) signals remains an open challenge. Traditional approaches are often task-specific, limiting their generalization across different EEG paradigms. This study aims to develop a robust, unsupervised framework for learning high-level, task-independent neural representations. Approach. We propose a novel framework integrating convolutional neural networks, AutoEncoders, and Transformers to extract both low-level spatiotemporal patterns and high-level semantic features from EEG signals. The model is trained in an unsupervised manner to ensure adaptability across diverse EEG paradigms, including motor imagery (MI), steady-state visually evoked potentials (SSVEPs), and event-related potentials (ERPs, specifically P300). Extensive analyses, including clustering, correlation, and ablation studies, are conducted to validate the quality and interpretability of the extracted features. Main results. ",
-      "doi": "10.1088/1741-2552/add08f",
-      "pmid": "40273947",
-      "openalex_id": null,
-      "source_doi": "10.5281/zenodo.3267307",
-      "source_relation": "IsVersionOf",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.4770051410794258,
-        "similarity_score": 0.412991464138031,
-        "citation_text_length": 1176,
         "dataset_text_length": 2369,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -270,6 +277,52 @@
       }
     },
     {
+      "title": "SPERA: Spherical Prior EEG Foundation Model with Geometry- and Frequency-Aware Latent Prediction",
+      "author": "Minsu Kim, Ye-Sung Kim, Hyeseong Jeon, Wooseok Hyung, Joshua Lee, Chang-Hwan Im",
+      "venue": "n/a",
+      "year": 2026,
+      "url": "n/a",
+      "cited_by": 0,
+      "abstract": "Electroencephalography (EEG) provides a non-invasive measure of ongoing neural activity, but building general-purpose EEG models remains challenging due to the heterogeneity of subjects, devices, and electrode montages. Existing EEG foundation models predominantly rely on reconstruction-based objectives defined on the observed signal, which contains both neural and non-neural components. We introduce SPERA (Spherical Prior EEG Representation Architecture), an EEG foundation model that adopts the joint-embedding predictive architecture (JEPA) to predict in latent space. SPERA introduces a Legendre-polynomial spatial prior, incorporated into attention to encode varying scalp electrode geometries. Two further components adapt the model to EEG: factorized temporal and spatial attention interleaved with periodic full-attention blocks, and a relational spectral regularizer aligning latent similarity structure with spectral views. Pretrained on approximately 80,000 hours of EEG from 29,048 su",
+      "doi": null,
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.5281/zenodo.3267307",
+      "source_relation": "IsVersionOf",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.4678585427999497,
+        "similarity_score": 0.40507233142852783,
+        "citation_text_length": 1217,
+        "dataset_text_length": 2369,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "What masking geometry works best for EEG foundation models?",
+      "author": "Pierre Guetschel, B. Aristimunha, Y. El Ouahidi, A. Delorme, Thomas Moreau, Michael Tangermann",
+      "venue": "n/a",
+      "year": 2026,
+      "url": "n/a",
+      "cited_by": 0,
+      "abstract": "EEG foundation models hold promise for scalable brain-signal decoding across clinical and cognitive neuroscience applications, yet their pre-training pipelines remain poorly understood. Among design choices, the masking strategy is particularly critical: it determines what the network must predict and from which context. Yet it has never been ablated in isolation, as each new model bundles a new masking strategy with a new backbone and objective. In this paper, we formalize the design choices for spatio-temporal masking strategies and train various models with a single pipeline under varying masking configurations across two SSL frameworks (MAE and JEPA). We then systematically evaluate the resulting 58 pre-trained models on the 12 datasets of OpenEEGBench under a linear probe. Both frameworks agree on an optimal masking configuration and on shared failure modes. Outside these, performance is robust: 11 MAE and 9 JEPA configurations are statistically indistinguishable from the best. We",
+      "doi": null,
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.5281/zenodo.3267307",
+      "source_relation": "IsVersionOf",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.4241590467095375,
+        "similarity_score": 0.36723726987838745,
+        "citation_text_length": 1195,
+        "dataset_text_length": 2369,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "BTTDA: Block-Term Tensor Discriminant Analysis for Brain-Computer Interfacing",
       "author": "Arne Van Den Kerchove, Hakim Si-Mohammed, Franccois Cabestaing, M. Van Hulle",
       "venue": "n/a",
@@ -314,47 +367,22 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
-    },
-    {
-      "title": "Clinical, genetic, neurophysiological and functional study of new mutations in episodic ataxia type 1",
-      "author": "Susan E Tomlinson, Sanjeev Rajakulendran, Stella Veronica Tan, Tracey D. Graves, Doris‐Eva Bamiou, Robyn W. Labrum, David Burke, Carolyn M. Sue, Paola Giunti, Stéphanie Schorge, Dimitri Michael Kullmann, Michael G. Hanna",
-      "venue": "Journal of Neurology Neurosurgery & Psychiatry",
-      "year": 2013,
-      "url": "https://doi.org/10.1136/jnnp-2012-304131",
-      "cited_by": 49,
-      "abstract": "BACKGROUND AND OBJECTIVE: Heterozygous mutations in KCNA1 cause episodic ataxia type 1 (EA1), an ion channel disorder characterised by brief paroxysms of cerebellar dysfunction and persistent neuromyotonia. This paper describes four previously unreported families with EA1, with the aim of understanding the phenotypic spectrum associated with different mutations. METHODS: 15 affected individuals from four families underwent clinical, genetic and neurophysiological evaluation. The functional impact of new mutations identified in the KCNA1 gene was investigated with in vitro electrophysiology and immunocytochemistry. RESULTS: Detailed clinical documentation, dating back to 1928 in one family, indicates that all patients manifested episodic ataxia of varying severity. Four subjects from three families reported hearing impairment, which has not previously been reported in association with EA1. New mutations (R167M, C185W and I407M) were identified in three out of the four families. When expressed in human embryonic kidney cells, all three new mutations resulted in a loss of K(v)1.1 channel function. The fourth family harboured a previously reported A242P mutation, which has not been previously described in association with ataxia. CONCLUSIONS: The genetic basis of EA1 in four families is established and this report presents the earliest documented case from 1928. All three new mutations caused a loss of K(v)1.1 channel function. The finding of deafness in four individuals raises the possibility of a link between K(v)1.1 dysfunction and hearing impairment. Our findings broaden the phenotypic range associated with mutations in KCNA1.",
-      "doi": "10.1136/jnnp-2012-304131",
-      "pmid": "23349320",
-      "openalex_id": "W2160991909",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "nm000217",
-      "confidence_scoring": {
-        "confidence_score": 0.2569240927696228,
-        "similarity_score": 0.23356735706329346,
-        "citation_text_length": 1906,
-        "dataset_text_length": 2369,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-10-04T10:08:41.353060+00:00",
+    "scoring_date": "2026-10-11T11:22:54.307134+00:00",
     "dataset_text_length": 2369,
-    "num_citations_scored": 12,
+    "num_citations_scored": 13,
     "summary_stats": {
-      "mean_confidence": 0.45949866154541574,
-      "median_confidence": 0.47714988425374033,
-      "std_confidence": 0.13070354832176845,
+      "mean_confidence": 0.47300595656037336,
+      "median_confidence": 0.4770051410794258,
+      "std_confidence": 0.11194487632531666,
       "min_confidence": 0.21324396133422852,
       "max_confidence": 0.6810864767432214,
       "high_confidence_count": 0,
-      "medium_confidence_count": 9,
-      "low_confidence_count": 3
+      "medium_confidence_count": 11,
+      "low_confidence_count": 2
     }
   }
 }

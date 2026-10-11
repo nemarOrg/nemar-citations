@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000170",
   "num_citations": 21,
-  "date_last_updated": "2026-09-30T10:44:25.092118+00:00",
+  "date_last_updated": "2026-10-11T10:16:53.615024+00:00",
   "metadata": {
-    "total_cumulative_citations": 491,
-    "fetch_date": "2026-09-29T10:44:02.762125+00:00",
+    "total_cumulative_citations": 495,
+    "fetch_date": "2026-10-11T10:16:53.615024+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -19,12 +19,12 @@
         "source_relation": "IsDerivedFrom",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Continuous 2D trajectory decoding from attempted movement: across-session performance in able-bodied and feasibility in a spinal cord injured participant",
         "paper_year": 2022,
         "paper_venue": "Journal of Neural Engineering",
         "reason": "Dataset's DOI and authors match this paper, which reports the ten able-bodied participants' continuous 2D trajectory attempted-movement EEG study across sessions.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.21105/joss.01896",
@@ -32,12 +32,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
         "paper_year": 2019,
         "paper_venue": "The Journal of Open Source Software",
         "reason": "MNE-BIDS is a software tool for organizing electrophysiological data into BIDS format; it is a tool used for curation, not a paper describing this dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1038/s41597-019-0104-8",
@@ -45,12 +45,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "EEG-BIDS, an extension to the brain imaging data structure for electroencephalography",
         "paper_year": 2019,
         "paper_venue": "Scientific Data",
         "reason": "EEG-BIDS is a specification/extension of BIDS for EEG data, a standard used to organize this dataset, not a paper describing this dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.nm000170",
@@ -58,12 +58,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -71,15 +71,16 @@
       "10.82901/nemar.nm000170"
     ],
     "keywords": [
-      "Electroencephalography",
-      "trajectory decoding",
-      "motor imagery",
+      "EEG",
       "brain-computer interface",
+      "trajectory decoding",
+      "attempted movement",
+      "spinal cord injury",
       "source localization",
-      "motor control",
-      "neuroplasticity"
+      "neuroplasticity",
+      "motor control"
     ],
-    "methods_description": "EEG was recorded from 60 channels using an actiCAP system (Brain Products GmbH) at 200 Hz sampling rate with right mastoid reference and Fpz ground. Participants performed attempted lower arm/hand movements as if wielding a computer mouse while the arm was strapped to an armrest. The experimental protocol included calibration runs (snake-run target tracking and eye-run baseline) followed by online feedback sessions with 50% and 100% EEG feedback conditions. Data were preprocessed including anti-aliasing (25 Hz) and notch (50 Hz) filtering, downsampling to 100 Hz, bad channel interpolation, eye artifact subtraction (SGEYESUB), high-pass filtering (0.18 Hz), common average re-referencing, artifact attenuation (HEAR algorithm), low-pass filtering (3 Hz), and final downsampling to 20 Hz. Feature extraction employed temporal features and sLORETA source localization with PLS regression and UKF smoothing for trajectory decoding.",
+    "methods_description": "60-channel EEG (actiCAP, Brain Products) plus 4 EOG channels were recorded at 200 Hz with a right mastoid reference and Fpz ground, with online anti-aliasing (25 Hz) and 50 Hz notch filters. Participants tracked a moving snake target (snakeruns), traced shapes at their own pace (freeruns), or followed targets with gaze only (eyeruns), while attempting mouse-like movements with the strapped lower arm. Preprocessing included downsampling to 100 Hz, bad channel interpolation, eye-artifact subtraction (SGEYESUB), high-pass filtering at 0.18 Hz, common average referencing, HEAR artifact attenuation, low-pass filtering at 3 Hz, and downsampling to 20 Hz. Decoding used PLS regression with UKF smoothing.",
     "funding": [
       {
         "funder_name": "NTU-TUG joint PhD program"
@@ -89,13 +90,7 @@
         "award_number": "681231",
         "award_title": "Feel Your Reach"
       }
-    ],
-    "searched_accessions": [
-      "nm000170"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 21
+    ]
   },
   "citation_details": [
     {
@@ -104,7 +99,7 @@
       "venue": "IEEE Reviews in Biomedical Engineering",
       "year": 2024,
       "url": "https://doi.org/10.1109/rbme.2024.3449790",
-      "cited_by": 177,
+      "cited_by": 179,
       "abstract": "Brain-computer interface (BCI) is a rapidly evolving technology that has the potential to widely influence research, clinical and recreational use. Non-invasive BCI approaches are particularly common as they can impact a large number of participants safely and at a relatively low cost. Where traditional non-invasive BCIs were used for simple computer cursor tasks, it is now increasingly common for these systems to control robotic devices for complex tasks that may be useful in daily life. In this review, we provide an overview of the general BCI framework as well as the various methods that can be used to record neural activity, extract signals of interest, and decode brain states. In this context, we summarize the current state-of-the-art of non-invasive BCI research, focusing on trends in both the application of BCIs for controlling external devices and algorithm development to optimize their use. We also discuss various open-source BCI toolboxes and software, and describe their impa",
       "doi": "10.1109/rbme.2024.3449790",
       "pmid": "39186407",
@@ -127,7 +122,7 @@
       "venue": "Nature Communications",
       "year": 2025,
       "url": "https://doi.org/10.1038/s41467-025-61064-x",
-      "cited_by": 88,
+      "cited_by": 92,
       "abstract": "Brain-computer interfaces (BCIs) connect human thoughts to external devices, offering the potential to enhance life quality for individuals with motor impairments and general population. Noninvasive BCIs are accessible to a wide audience but currently face challenges, including unintuitive mappings and imprecise control. In this study, we present a real-time noninvasive robotic control system using movement execution (ME) and motor imagery (MI) of individual finger movements to drive robotic finger motions. The proposed system advances state-of-the-art electroencephalography (EEG)-BCI technology by decoding brain signals for intended finger movements into corresponding robotic motions. In a study involving 21 able-bodied experienced BCI users, we achieved real-time decoding accuracies of 80.56% for two-finger MI tasks and 60.61% for three-finger tasks. Brain signal decoding was facilitated using a deep neural network, with fine-tuning enhancing BCI performance. Our findings demonstrate",
       "doi": "10.1038/s41467-025-61064-x",
       "pmid": "40588517",
@@ -150,10 +145,10 @@
       "venue": "Nature Communications",
       "year": 2024,
       "url": "https://doi.org/10.1038/s41467-024-48576-8",
-      "cited_by": 62,
+      "cited_by": 61,
       "abstract": "A brain-computer interface (BCI) enables users to control devices with their minds. Despite advancements, non-invasive BCIs still exhibit high error rates, prompting investigation into the potential reduction through concurrent targeted neuromodulation. Transcranial focused ultrasound (tFUS) is an emerging non-invasive neuromodulation technology with high spatiotemporal precision. This study examines whether tFUS neuromodulation can improve BCI outcomes, and explores the underlying mechanism of action using high-density electroencephalography (EEG) source imaging (ESI). As a result, V5-targeted tFUS significantly reduced the error in a BCI speller task. Source analyses revealed a significantly increase in theta and alpha activities in the tFUS condition at both V5 and downstream in the dorsal visual processing pathway. Correlation analysis indicated that the connection within the dorsal processing pathway was preserved during tFUS stimulation, while the ventral connection was weakened.",
       "doi": "10.1038/s41467-024-48576-8",
-      "pmid": "38862476",
+      "pmid": "37732253",
       "openalex_id": "W4399513419",
       "source_doi": "10.1088/1741-2552/ac689f",
       "source_relation": "IsDerivedFrom",
@@ -196,7 +191,7 @@
       "venue": "Frontiers in Human Neuroscience",
       "year": 2022,
       "url": "https://doi.org/10.3389/fnhum.2022.908050",
-      "cited_by": 28,
+      "cited_by": 27,
       "abstract": "The application study of robot control based brain-computer interface (BCI) not only helps to promote the practicality of BCI but also helps to promote the advancement of robot technology, which is of great significance. Among the many obstacles, the importability of the stimulator brings much inconvenience to the robot control task. In this study, augmented reality (AR) technology was employed as the visual stimulator of steady-state visual evoked potential (SSVEP)-BCI and the robot walking experiment in the maze was designed to testify the applicability of the AR-BCI system. The online experiment was designed to complete the robot maze walking task and the robot walking commands were sent out by BCI system, in which human intentions were decoded by Filter Bank Canonical Correlation Analysis (FBCCA) algorithm. The results showed that all the 12 subjects could complete the robot walking task in the maze, which verified the feasibility of the AR-SSVEP-NAO system. This study provided an ",
       "doi": "10.3389/fnhum.2022.908050",
       "pmid": "35911600",
@@ -492,7 +487,7 @@
     {
       "title": "Continuous Erroneous Feedback Processing during Deviation from the Road within a 2D Steering Task*",
       "author": "Hannah S. Pulferer, Cuntai Guan, Gernot R Muller-Putz",
-      "venue": "2023 45th Annual International Conference of the IEEE Engineering in Medicine & Biology Society (EMBC)",
+      "venue": "Proceedings of the Annual International Conference of the IEEE Engineering in Medicine and Biology Society",
       "year": 2023,
       "url": "https://doi.org/10.1109/embc40787.2023.10340764",
       "cited_by": 1,
@@ -504,9 +499,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6147735875844956,
-        "similarity_score": 0.5322715044021606,
-        "citation_text_length": 1292,
+        "confidence_score": 0.6089592146873475,
+        "similarity_score": 0.5272374153137207,
+        "citation_text_length": 1296,
         "dataset_text_length": 2335,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -584,13 +579,13 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T10:50:47.108169+00:00",
+    "scoring_date": "2026-10-11T11:20:50.304837+00:00",
     "dataset_text_length": 2335,
     "num_citations_scored": 21,
     "summary_stats": {
-      "mean_confidence": 0.5780631583929063,
+      "mean_confidence": 0.5777862834930421,
       "median_confidence": 0.5933524239063264,
-      "std_confidence": 0.08176921507608362,
+      "std_confidence": 0.08165420586564742,
       "min_confidence": 0.3823327785730362,
       "max_confidence": 0.6829037350416184,
       "high_confidence_count": 0,

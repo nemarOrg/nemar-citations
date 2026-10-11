@@ -1,10 +1,10 @@
 {
   "dataset_id": "on005403",
   "num_citations": 0,
-  "date_last_updated": "2026-09-30T10:44:31.823648+00:00",
+  "date_last_updated": "2026-10-11T11:02:53.556878+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
-    "fetch_date": "2026-09-29T11:25:27.483211+00:00",
+    "fetch_date": "2026-10-11T11:02:53.556878+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 1,
@@ -19,12 +19,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
         "paper_year": 2019,
         "paper_venue": "The Journal of Open Source Software",
         "reason": "MNE-BIDS is a software tool for organizing data into BIDS, used to format this dataset; it does not describe the delayed auditory feedback EEG/EGG data.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1038/s41597-019-0104-8",
@@ -32,12 +32,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "EEG-BIDS, an extension to the brain imaging data structure for electroencephalography",
         "paper_year": 2019,
         "paper_venue": "Scientific Data",
         "reason": "EEG-BIDS is a data-organization standard/specification cited in the README for formatting the data, not a paper describing this delayed auditory feedback EEG/EGG dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on005403",
@@ -45,12 +45,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -60,29 +60,21 @@
       "EEG",
       "electroglottography",
       "delayed auditory feedback",
-      "Speech Production Measurement",
-      "auditory feedback",
-      "BIDS"
+      "speech production",
+      "Electroencephalography"
     ],
-    "methods_description": "EGG and audio signals were recorded on the same hardware as the EEG data and are embedded within the EEG files rather than as separate sidecar files. EGG data were minimally preprocessed to correct for phase delays introduced by the amplifier's built-in hardware filter, using a zero-phase-shift software filter. Data were organized according to the BIDS standard using the MNE-BIDS software.",
+    "methods_description": "EEG, EGG, and audio were digitized on the same hardware and stored together in the EEG files. EGG was minimally preprocessed by applying a software filter in the opposite temporal direction to correct phase delays from the amplifier's built-in hardware filter. Data were organized to the EEG-BIDS standard using MNE-BIDS.",
     "funding": [
       {
         "funder_name": "NSF",
         "award_number": "1835181"
       }
-    ],
-    "searched_accessions": [
-      "on005403",
-      "ds005403"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 0
+    ]
   },
   "citation_details": [],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T11:01:42.746559+00:00",
+    "scoring_date": "2026-10-11T11:36:45.773896+00:00",
     "dataset_text_length": 1953,
     "num_citations_scored": 0
   }

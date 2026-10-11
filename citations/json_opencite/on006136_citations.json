@@ -1,54 +1,63 @@
 {
   "dataset_id": "on006136",
-  "num_citations": 0,
-  "date_last_updated": "2026-09-22T11:31:33.465847+00:00",
+  "num_citations": 1,
+  "date_last_updated": "2026-10-11T11:07:57.560271+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
-    "fetch_date": "2026-09-22T11:31:33.465847+00:00",
+    "fetch_date": "2026-10-11T11:07:57.560271+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
-    "anchor_count": 1,
+    "anchor_count": 2,
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
     "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
+        "identifier": "10.1016/j.neuroimage.2026.121718",
+        "identifier_type": "doi",
+        "source_relation": "IsDescribedBy",
+        "classification": "data_paper",
+        "kept": true,
+        "kept_reason": "judged_data_paper",
+        "paper_title": "Frontotemporal bursting supports human working memory",
+        "paper_year": 2026,
+        "paper_venue": "NeuroImage",
+        "reason": "The dataset README names this paper as its associated publication. It reports the same intracranial MFG/MTG recordings from a working memory task, and the authors match.",
+        "judgment_model": "claude-sonnet-5-5"
+      },
+      {
         "identifier": "10.82901/nemar.on006136",
         "identifier_type": "doi",
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
+      "10.1016/j.neuroimage.2026.121718",
       "10.82901/nemar.on006136"
     ],
     "keywords": [
       "intracranial EEG",
       "working memory",
       "Epilepsy",
-      "Prefrontal Cortex",
-      "Temporal Lobe",
-      "electrophysiology"
+      "frontotemporal bursting",
+      "local field potential"
     ],
-    "methods_description": "Each trial lasted 6498 ms, consisting of 1000 ms fixation, 1500 ms encoding, and 3998 ms delay periods. Trials for each channel were concatenated into a single one-dimensional array and padded with zeros to ensure equal length across channels for .edf format compliance. Artifact rejection was performed at the single-trial level, resulting in unmatched trial indices across channels, with trial matching information provided in the sourcedata folder.",
+    "methods_description": "Intracranial EEG was recorded from epilepsy patients during an object working memory task with 1000 ms fixation, 1500 ms encoding, and 3998 ms delay. Data were preprocessed with artifact rejection, and trials per channel were concatenated and zero-padded into EDF format.",
     "funding": [
       {
         "funder_name": "K12 grant from the Neurosurgery Career Development Award, parent award from the NINDS as well as a Neurosurgery Research Education Fund award"
       },
       {
         "funder_name": "NINDS",
-        "award_title": "Neurosurgery Career Development Award (K12)"
-      },
-      {
-        "funder_name": "NIH/NINDS",
         "award_number": "K23 NS114178"
       },
       {
@@ -59,20 +68,47 @@
         "funder_name": "NSF",
         "award_number": "OAC 2417875"
       }
-    ],
-    "searched_accessions": [
-      "on006136",
-      "ds006136"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 0
+    ]
   },
-  "citation_details": [],
+  "citation_details": [
+    {
+      "title": "Processing of different word list lengths during encoding and retrieval in Broca’s area",
+      "author": "Viktors Veliks, Aleksandrs Koļesovs, Juris Porozovs, Dmitrijs Igonins",
+      "venue": "Frontiers in Human Neuroscience",
+      "year": 2026,
+      "url": "https://doi.org/10.3389/fnhum.2026.1757160",
+      "cited_by": 0,
+      "abstract": "Broca's area is a region of the brain involved in the processing of verbal information, including memory encoding and retrieval. This study examined differences in the neural correlates of encoding and retrieval in Broca's area using word lists of varying lengths. Differences in the encoding and retrieval processes were assessed using word lists of different lengths: short (2-29), medium (30-59), and long (60-225) Latvian language nouns. In total, 23 participants completed the memory task. Each participant performed memory tasks with two short lists, two medium lists, and one long list, with varying list lengths within each diapason. We considered the activity of the F3 and F7 to represent our region of interest. We compared time-frequency (TF) data from encoding and retrieval across list lengths. The results revealed significant differences in TF plots for encoding and for correct and incorrect retrieval of information up to a list length of 50 words. Further increases in list length ",
+      "doi": "10.3389/fnhum.2026.1757160",
+      "pmid": "42294098",
+      "openalex_id": "W7162770316",
+      "source_doi": "10.1016/j.neuroimage.2026.121718",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5795800334215165,
+        "similarity_score": 0.5018008947372437,
+        "citation_text_length": 1226,
+        "dataset_text_length": 2271,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    }
+  ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-22T13:29:00.630990+00:00",
+    "scoring_date": "2026-10-11T11:39:02.645891+00:00",
     "dataset_text_length": 2271,
-    "num_citations_scored": 0
+    "num_citations_scored": 1,
+    "summary_stats": {
+      "mean_confidence": 0.5795800334215165,
+      "median_confidence": 0.5795800334215165,
+      "std_confidence": 0.0,
+      "min_confidence": 0.5795800334215165,
+      "max_confidence": 0.5795800334215165,
+      "high_confidence_count": 0,
+      "medium_confidence_count": 1,
+      "low_confidence_count": 0
+    }
   }
 }

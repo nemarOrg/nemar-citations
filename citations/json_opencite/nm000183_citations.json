@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000183",
-  "num_citations": 52,
-  "date_last_updated": "2026-09-30T10:44:25.313244+00:00",
+  "num_citations": 53,
+  "date_last_updated": "2026-10-11T10:18:08.056468+00:00",
   "metadata": {
-    "total_cumulative_citations": 691,
-    "fetch_date": "2026-09-29T10:45:54.120050+00:00",
+    "total_cumulative_citations": 705,
+    "fetch_date": "2026-10-11T10:18:08.056468+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 3,
@@ -16,15 +16,15 @@
       {
         "identifier": "10.1038/s41597-020-0532-5",
         "identifier_type": "doi",
-        "source_relation": "References",
+        "source_relation": "IsDescribedBy",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Multicenter intracranial EEG dataset for classification of graphoelements and artifactual signals",
         "paper_year": 2020,
         "paper_venue": "Scientific Data",
         "reason": "The dataset README says it is converted from the data released with Nejedly et al. 2020 Scientific Data (same DOI). The paper's title and abstract describe this multicenter iEEG graphoelement clip dataset, including the St. Anne's (FNUSA) site.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.6084/m9.figshare.12191868",
@@ -32,12 +32,12 @@
         "source_relation": "IsDerivedFrom",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "BIDS_FNUSA",
         "paper_year": 2020,
         "paper_venue": "Figshare",
         "reason": "Figshare record 'BIDS_FNUSA' by Worrell, Brinkmann, Kremen, Nejedly et al. is the authors' own deposit of the same FNUSA iEEG data described in Nejedly 2020 Sci Data.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.nm000183",
@@ -45,12 +45,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -60,20 +60,15 @@
     ],
     "keywords": [
       "intracranial EEG",
+      "stereo-EEG",
+      "Electroencephalography",
+      "artifact classification",
+      "graphoelements",
       "epilepsy",
-      "signal classification",
-      "artifact detection",
-      "seizure onset zone",
-      "neurophysiology"
+      "seizure onset zone"
     ],
-    "methods_description": "iEEG data were recorded from epilepsy patients and segmented into independent 3-second single-channel clips. The clips were concatenated at 5000 Hz sampling rate, with event markers preserving original labels, segment identifiers, anatomical information, reviewer identifiers, SOZ flags, and electrode types. Data were converted from segmented .mat archives to BIDS format using BrainVision iEEG conversion protocols.",
-    "funding": [],
-    "searched_accessions": [
-      "nm000183"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 52
+    "methods_description": "Independent 3 s single-channel iEEG clips recorded from SEEG contacts were concatenated per subject and contact at 5000 Hz and converted to BrainVision format in BIDS. Events mark clip boundaries and retain the original label, segment_id, anatomy, reviewer_id, SOZ flag, and electrode type. Patient-specific electrode coordinates were not released.",
+    "funding": []
   },
   "citation_details": [
     {
@@ -82,13 +77,13 @@
       "venue": "Advances in Neural Information Processing Systems 36",
       "year": 2023,
       "url": "https://doi.org/10.52202/075280-1144",
-      "cited_by": 104,
+      "cited_by": 112,
       "abstract": "We propose a foundation model named Brant for modeling intracranial recordings, which learns powerful representations of intracranial neural signals by pre-training, providing a large-scale, off-the-shelf model for medicine. Brant is the largest model in the field of brain signals and is pre-trained on a large corpus of intracranial data collected by us. The design of Brant is to capture long-term temporal dependency and spatial correlation from neural signals, combining the information in both time and frequency domains. As a foundation model, Brant achieves SOTA performance on various downstream tasks (i.e. neural signal forecasting, frequency-phase forecasting, imputation and seizure detection), showing the generalization ability to a broad range of tasks. The low-resource label analysis and representation visualization further illustrate the effectiveness of our pre-training strategy. In addition, we explore the effect of model size to show that a larger model with a higher capacit",
       "doi": "10.52202/075280-1144",
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite"
     },
     {
@@ -97,43 +92,13 @@
       "venue": "EClinicalMedicine",
       "year": 2021,
       "url": "https://doi.org/10.1016/j.eclinm.2021.100934",
-      "cited_by": 64,
+      "cited_by": 61,
       "abstract": "BACKGROUND: While the effects of prolonged sleep deprivation (≥24 h) on seizure occurrence has been thoroughly explored, little is known about the effects of day-to-day variations in the duration and quality of sleep on seizure probability. A better understanding of the interaction between sleep and seizures may help to improve seizure management. METHODS: To explore how sleep and epileptic seizures are associated, we analysed continuous intracranial electroencephalography (EEG) recordings collected from 10 patients with refractory focal epilepsy undergoing ordinary life activities between 2010 and 2012 from three clinical centres (Austin Health, The Royal Melbourne Hospital, and St Vincent's Hospital of the Melbourne University Epilepsy Group). A total of 4340 days of sleep-wake data were analysed (average 434 days per patient). EEG data were sleep scored using a semi-automated machine learning approach into wake, stages one, two, and three non-rapid eye movement sleep, and rapid eye ",
       "doi": "10.1016/j.eclinm.2021.100934",
       "pmid": "34386736",
       "openalex_id": "W3167155731",
       "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
-      "discovery_backend": "opencite"
-    },
-    {
-      "title": "Automated Detection of Neurological and Mental Health Disorders Using EEG Signals and Artificial Intelligence: A Systematic Review",
-      "author": "Hakan Uyanık, Abdulkadir Sengur, Massimo Salvi, Ru‐San Tan, Jen Hong Tan, U. Rajendra Acharya",
-      "venue": "Wiley Interdisciplinary Reviews Data Mining and Knowledge Discovery",
-      "year": 2025,
-      "url": "https://doi.org/10.1002/widm.70002",
-      "cited_by": 51,
-      "abstract": "ABSTRACT Mental and neurological disorders significantly impact global health. This systematic review examines the use of artificial intelligence (AI) techniques to automatically detect these conditions using electroencephalography (EEG) signals. Guided by Preferred Reporting Items for Systematic Reviews and Meta‐Analysis (PRISMA), we reviewed 74 carefully selected studies published between 2013 and August 2024 that used machine learning (ML), deep learning (DL), or both of these two methods to detect neurological and mental health disorders automatically using EEG signals. The most common and most prevalent neurological and mental health disorder types were sourced from major databases, including Scopus, Web of Science, Science Direct, PubMed, and IEEE Xplore. Epilepsy, depression, and Alzheimer's disease are the most studied conditions that meet our evaluation criteria, 32, 12, and 10 studies were identified on these topics, respectively. Conversely, the number of studies meeting our",
-      "doi": "10.1002/widm.70002",
-      "pmid": null,
-      "openalex_id": "W4408342712",
-      "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
-      "discovery_backend": "opencite"
-    },
-    {
-      "title": "SEEG-Net: An explainable and deep learning-based cross-subject pathological activity detection method for drug-resistant epilepsy",
-      "author": "Yiping Wang, Yanfeng Yang, Gongpeng Cao, Jinjie Guo, Penghu Wei, Tao Feng, Yang David Dai, Jinguo Huang, Guixia Kang, Guoguang Zhao",
-      "venue": "Computers in Biology and Medicine",
-      "year": 2022,
-      "url": "https://doi.org/10.1016/j.compbiomed.2022.105703",
-      "cited_by": 47,
-      "abstract": "OBJECTIVE: Precise preoperative evaluation of drug-resistant epilepsy (DRE) requires accurate analysis of invasive stereoelectroencephalography (SEEG). With the tremendous breakthrough of Artificial intelligence (AI), previous studies can help clinical experts to identify pathological activities automatically. However, they still face limitations when applied in real-world clinical DRE scenarios, such as sample imbalance, cross-subject domain shift, and poor interpretability. Our objective is to propose a model that can address the above problems and realizes high-sensitivity SEEG pathological activity detection based on two real clinical datasets. METHODS: Our proposed innovative and effective SEEG-Net introduces a multiscale convolutional neural network (MSCNN) to increase the receptive field of the model, and to learn SEEG multiple frequency domain features, local and global features. Moreover, we designed a novel focal domain generalization loss (FDG-loss) function to enhance the t",
-      "doi": "10.1016/j.compbiomed.2022.105703",
-      "pmid": "35791972",
-      "openalex_id": "W4283697529",
-      "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite"
     },
     {
@@ -142,13 +107,58 @@
       "venue": "Journal of Neural Engineering",
       "year": 2026,
       "url": "https://doi.org/10.1088/1741-2552/ae4455",
-      "cited_by": 46,
+      "cited_by": 53,
       "abstract": "Abstract Premise. Patterns of electrical brain activity recorded via electroencephalography (EEG) offer immense value for scientific and clinical investigations. The inability of supervised EEG encoders to learn robust EEG patterns and their over-reliance on expensive signal annotations have sparked a transition towards general-purpose self-supervised EEG encoders, i.e. EEG foundation models (EEG-FMs), for robust and scalable EEG feature extraction. However, the real-world readiness of early EEG-FMs and the rubrics for long-term research progress remain unclear. Objective. In this work, we conduct a review of ten early EEG-FMs to capture common trends and identify key directions for future development of EEG-FMs. Methods. We comparatively analyze each EEG-FM using three fundamental pillars of foundation modeling, namely the representation of input data, self-supervised modeling, and the evaluation strategy. Based on this analysis, we present a critical synthesis of EEG-FM methodology, ",
       "doi": "10.1088/1741-2552/ae4455",
       "pmid": "41666566",
       "openalex_id": "W7128481443",
       "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite"
+    },
+    {
+      "title": "Automated Detection of Neurological and Mental Health Disorders Using EEG Signals and Artificial Intelligence: A Systematic Review",
+      "author": "Hakan Uyanık, Abdulkadir Sengur, Massimo Salvi, Ru‐San Tan, Jen Hong Tan, U. Rajendra Acharya",
+      "venue": "Wiley Interdisciplinary Reviews Data Mining and Knowledge Discovery",
+      "year": 2025,
+      "url": "https://doi.org/10.1002/widm.70002",
+      "cited_by": 52,
+      "abstract": "ABSTRACT Mental and neurological disorders significantly impact global health. This systematic review examines the use of artificial intelligence (AI) techniques to automatically detect these conditions using electroencephalography (EEG) signals. Guided by Preferred Reporting Items for Systematic Reviews and Meta‐Analysis (PRISMA), we reviewed 74 carefully selected studies published between 2013 and August 2024 that used machine learning (ML), deep learning (DL), or both of these two methods to detect neurological and mental health disorders automatically using EEG signals. The most common and most prevalent neurological and mental health disorder types were sourced from major databases, including Scopus, Web of Science, Science Direct, PubMed, and IEEE Xplore. Epilepsy, depression, and Alzheimer's disease are the most studied conditions that meet our evaluation criteria, 32, 12, and 10 studies were identified on these topics, respectively. Conversely, the number of studies meeting our",
+      "doi": "10.1002/widm.70002",
+      "pmid": null,
+      "openalex_id": "W4408342712",
+      "source_doi": "10.1038/s41597-020-0532-5",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite"
+    },
+    {
+      "title": "SEEG-Net: An explainable and deep learning-based cross-subject pathological activity detection method for drug-resistant epilepsy",
+      "author": "Yiping Wang, Yanfeng Yang, Gongpeng Cao, Jinjie Guo, Penghu Wei, Tao Feng, Yang David Dai, Jinguo Huang, Guixia Kang, Guoguang Zhao",
+      "venue": "Computers in Biology and Medicine",
+      "year": 2022,
+      "url": "https://doi.org/10.1016/j.compbiomed.2022.105703",
+      "cited_by": 48,
+      "abstract": "OBJECTIVE: Precise preoperative evaluation of drug-resistant epilepsy (DRE) requires accurate analysis of invasive stereoelectroencephalography (SEEG). With the tremendous breakthrough of Artificial intelligence (AI), previous studies can help clinical experts to identify pathological activities automatically. However, they still face limitations when applied in real-world clinical DRE scenarios, such as sample imbalance, cross-subject domain shift, and poor interpretability. Our objective is to propose a model that can address the above problems and realizes high-sensitivity SEEG pathological activity detection based on two real clinical datasets. METHODS: Our proposed innovative and effective SEEG-Net introduces a multiscale convolutional neural network (MSCNN) to increase the receptive field of the model, and to learn SEEG multiple frequency domain features, local and global features. Moreover, we designed a novel focal domain generalization loss (FDG-loss) function to enhance the t",
+      "doi": "10.1016/j.compbiomed.2022.105703",
+      "pmid": "35791972",
+      "openalex_id": "W4283697529",
+      "source_doi": "10.1038/s41597-020-0532-5",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite"
+    },
+    {
+      "title": "BrainWave: A Brain Signal Foundation Model for Clinical Applications",
+      "author": "Zhi-Zhang Yuan, Fan-Qi Shen, Meng Li, Yu-Guo Yu, Fei-Fan Wu, C. Tan, Yang Yang",
+      "venue": "n/a",
+      "year": 2024,
+      "url": "n/a",
+      "cited_by": 36,
+      "abstract": "Neural electrical activity is fundamental to brain function, underlying a range of cognitive and behavioral processes, including movement, perception, decision-making, and consciousness. Abnormal patterns of neural signaling often indicate the presence of underlying brain diseases. The variability among individuals, the diverse array of clinical symptoms from various brain disorders, and the limited availability of diagnostic classifications, have posed significant barriers to formulating reliable model of neural signals for diverse application contexts. Here, we present BrainWave, the first foundation model for both invasive and non-invasive neural recordings, pretrained on more than 40,000 hours of electrical brain recordings (13.79 TB of data) from approximately 16,000 individuals. Our analysis show that BrainWave outperforms all other competing models and consistently achieves state-of-the-art performance in the diagnosis and identification of neurological disorders. We also demons",
+      "doi": null,
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.1038/s41597-020-0532-5",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite"
     },
     {
@@ -157,43 +167,13 @@
       "venue": "Scientific Data",
       "year": 2020,
       "url": "https://doi.org/10.1038/s41597-020-0532-5",
-      "cited_by": 36,
+      "cited_by": 35,
       "abstract": "EEG signal processing is a fundamental method for neurophysiology research and clinical neurology practice. Historically the classification of EEG into physiological, pathological, or artifacts has been performed by expert visual review of the recordings. However, the size of EEG data recordings is rapidly increasing with a trend for higher channel counts, greater sampling frequency, and longer recording duration and complete reliance on visual data review is not sustainable. In this study, we publicly share annotated intracranial EEG data clips from two institutions: Mayo Clinic, MN, USA and St. Anne's University Hospital Brno, Czech Republic. The dataset contains intracranial EEG that are labeled into three groups: physiological activity, pathological/epileptic activity, and artifactual signals. The dataset published here should support and facilitate training of generalized machine learning and digital signal processing methods for intracranial EEG and promote research reproducibili",
       "doi": "10.1038/s41597-020-0532-5",
       "pmid": "32546753",
       "openalex_id": "W3035703025",
       "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
-      "discovery_backend": "opencite"
-    },
-    {
-      "title": "BrainWave: A Brain Signal Foundation Model for Clinical Applications",
-      "author": "Zhi-Zhang Yuan, Fan-Qi Shen, Meng Li, Yu-Guo Yu, C. Tan, Yang Yang",
-      "venue": "n/a",
-      "year": 2024,
-      "url": "n/a",
-      "cited_by": 34,
-      "abstract": "Neural electrical activity is fundamental to brain function, underlying a range of cognitive and behavioral processes, including movement, perception, decision-making, and consciousness. Abnormal patterns of neural signaling often indicate the presence of underlying brain diseases. The variability among individuals, the diverse array of clinical symptoms from various brain disorders, and the limited availability of diagnostic classifications, have posed significant barriers to formulating reliable model of neural signals for diverse application contexts. Here, we present BrainWave, the first foundation model for both invasive and non-invasive neural recordings, pretrained on more than 40,000 hours of electrical brain recordings (13.79 TB of data) from approximately 16,000 individuals. Our analysis show that BrainWave outperforms all other competing models and consistently achieves state-of-the-art performance in the diagnosis and identification of neurological disorders. We also demons",
-      "doi": null,
-      "pmid": null,
-      "openalex_id": null,
-      "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
-      "discovery_backend": "opencite"
-    },
-    {
-      "title": "Machine Learning in Analysing Invasively Recorded Neuronal Signals: Available Open Access Data Sources",
-      "author": "Marcos I. Fabietti, Mufti Mahmud, Ahmad Lotfi",
-      "venue": "Lecture notes in computer science",
-      "year": 2020,
-      "url": "https://doi.org/10.1007/978-3-030-59277-6_14",
-      "cited_by": 31,
-      "abstract": null,
-      "doi": "10.1007/978-3-030-59277-6_14",
-      "pmid": null,
-      "openalex_id": "W3088123523",
-      "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite"
     },
     {
@@ -202,13 +182,28 @@
       "venue": "PubMed",
       "year": 2025,
       "url": "https://doi.org/10.48550/arXiv.2406.03044",
-      "cited_by": 30,
+      "cited_by": 31,
       "abstract": "We present a self-supervised framework that learns population-level codes for arbitrary ensembles of neural recordings at scale. We address key challenges in scaling models with neural time-series data, namely, sparse and variable electrode distribution across subjects and datasets. The Population Transformer (PopT) stacks on top of pretrained temporal embeddings and enhances downstream decoding by enabling learned aggregation of multiple spatially-sparse data channels. The pretrained PopT lowers the amount of data required for downstream decoding experiments, while increasing accuracy, even on held-out subjects and tasks. Compared to end-to-end methods, this approach is computationally lightweight, while achieving similar or better decoding performance. We further show how our framework is generalizable to multiple time-series embeddings and neural data modalities. Beyond decoding, we interpret the pretrained and fine-tuned PopT models to show how they can be used to extract neuroscie",
       "doi": "10.48550/arXiv.2406.03044",
       "pmid": "38883237",
       "openalex_id": "W4399447774",
       "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite"
+    },
+    {
+      "title": "Machine Learning in Analysing Invasively Recorded Neuronal Signals: Available Open Access Data Sources",
+      "author": "Marcos I. Fabietti, Mufti Mahmud, Ahmad Lotfi",
+      "venue": "Lecture notes in computer science",
+      "year": 2020,
+      "url": "https://doi.org/10.1007/978-3-030-59277-6_14",
+      "cited_by": 29,
+      "abstract": null,
+      "doi": "10.1007/978-3-030-59277-6_14",
+      "pmid": null,
+      "openalex_id": "W3088123523",
+      "source_doi": "10.1038/s41597-020-0532-5",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite"
     },
     {
@@ -217,28 +212,28 @@
       "venue": "SN Computer Science",
       "year": 2023,
       "url": "https://doi.org/10.1007/s42979-023-01958-z",
-      "cited_by": 27,
+      "cited_by": 28,
       "abstract": null,
       "doi": "10.1007/s42979-023-01958-z",
       "pmid": null,
       "openalex_id": "W4380152785",
       "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite"
     },
     {
       "title": "FoME: A foundation model for EEG using adaptive temporal-lateral attention scaling.",
-      "author": "Enze Shi, Kui Zhao, Qilong Yuan, Huawen Hu, Jia-Qi Wang, Sigang Yu, Geng Chen, Dingwen Zhang, Yixuan Yuan, Yan-Ning Zhang, Shu Zhang",
+      "author": "En-Ze Shi, Kui Zhao, Qilong Yuan, Hua-Wen Hu, Jia-Qi Wang, Sigang Yu, Geng Chen, Dingwen Zhang, Yi-Xuan Yuan, Yan-Ning Zhang, Shu Zhang",
       "venue": "Computerized medical imaging and graphics : the official journal of the Computerized Medical Imaging Society",
       "year": 2026,
       "url": "https://doi.org/10.1016/j.compmedimag.2026.102817",
-      "cited_by": 26,
+      "cited_by": 27,
       "abstract": "Electroencephalography (EEG) is a vital tool to measure and record brain activity in neuroscience and clinical applications, yet its potential is constrained by signal heterogeneity, low signal-to-noise ratios, and limited labeled datasets. In this paper, we propose FoME (Foundation Model for EEG), a novel approach using adaptive temporal-lateral attention scaling to address above-mentioned challenges. FoME is pre-trained on a diverse 1.7TB dataset of scalp and intracranial EEG recordings, comprising 745M parameters trained for 1,096k steps. Our model introduces two key innovations: a time-frequency fusion embedding technique and an adaptive temporal-lateral attention scaling (ATLAS) mechanism. These components synergistically capture complex temporal and spectral EEG dynamics, enabling FoME to adapt to varying patterns across diverse data streams and facilitate robust multi-channel modeling. Evaluations across four downstream tasks demonstrate FoME's superior performance in classifica",
       "doi": "10.1016/j.compmedimag.2026.102817",
       "pmid": "42710299",
       "openalex_id": null,
       "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite"
     },
     {
@@ -253,7 +248,7 @@
       "pmid": "36639549",
       "openalex_id": "W4315881085",
       "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite"
     },
     {
@@ -268,12 +263,12 @@
       "pmid": null,
       "openalex_id": "W4399901928",
       "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite"
     },
     {
       "title": "A Simple Review of EEG Foundation Models: Datasets, Advancements and Future Perspectives",
-      "author": "Junhong Lai, Jiyu Wei, Lin Yao, Yueming Wang",
+      "author": "Junhong Lai, Ji-Yu Wei, Lin Yao, Yue-Ming Wang",
       "venue": "ArXiv",
       "year": 2025,
       "url": "https://doi.org/10.48550/arXiv.2504.20069",
@@ -283,7 +278,7 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite"
     },
     {
@@ -298,7 +293,7 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite"
     },
     {
@@ -313,22 +308,7 @@
       "pmid": null,
       "openalex_id": "W4390777748",
       "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
-      "discovery_backend": "opencite"
-    },
-    {
-      "title": "High‐Resolution Recording of Neural Activity in Epilepsy Using Flexible Neural Probes",
-      "author": "Qian Cheng, Gen Li, Ye Tian, Han Wang, Yifei Ye, Cunkai Zhou, Chengjian Xu, Yanyan Nie, Huiran Yang, Zhitao Zhou, Meng Li, Xiaoling Wei, Qiangqiang Liu, Tiger H. Tao, Liuyang Sun",
-      "venue": "Advanced Materials Technologies",
-      "year": 2023,
-      "url": "https://doi.org/10.1002/admt.202301210",
-      "cited_by": 11,
-      "abstract": "Abstract Epilepsy, a prevalent neurological disorder, necessitates precise and reliable electrophysiological recording for accurate study and diagnosis. Although traditional stereo‐electroencephalography and micro‐wire probes are widely used in epilepsy research, they are limited by recording site numbers and mechanical properties. This study explores the use of high‐density, ultra‐flexible neural probes in epilepsy monitoring, highlighting their advantages in terms of recording performance, scalability, and tissue compatibility. This work validates the effectiveness of the probes in detecting characteristic epileptic signals across various stages, including resting, preictal, and ictal stages, in two different mouse models of epilepsy. Additionally, the high spatial resolution of the probes allows to capture fine spatial propagation of epilepsy‐associated high‐frequency oscillations. Furthermore, the flexible probes exhibit superior biocompatibility, reducing inflammation and neuronal",
-      "doi": "10.1002/admt.202301210",
-      "pmid": null,
-      "openalex_id": "W4388300450",
-      "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite"
     },
     {
@@ -343,28 +323,28 @@
       "pmid": "41364564",
       "openalex_id": "W4417169479",
       "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite"
     },
     {
-      "title": "Genetic algorithm designed for optimization of neural network architectures for intracranial EEG recordings analysis",
-      "author": "Kristyna Pijackova, Petr Nejedlý, Václav Křemen, Filip Plešinger, Filip Mívalt, Kamila Lepkova, Martin Pail, Pavel Jurák, Gregory A. Worrell, Milan Brázdil, Petr Klimeš",
-      "venue": "Journal of Neural Engineering",
+      "title": "High‐Resolution Recording of Neural Activity in Epilepsy Using Flexible Neural Probes",
+      "author": "Qian Cheng, Gen Li, Ye Tian, Han Wang, Yifei Ye, Cunkai Zhou, Chengjian Xu, Yanyan Nie, Huiran Yang, Zhitao Zhou, Meng Li, Xiaoling Wei, Qiangqiang Liu, Tiger H. Tao, Liuyang Sun",
+      "venue": "Advanced Materials Technologies",
       "year": 2023,
-      "url": "https://doi.org/10.1088/1741-2552/acdc54",
+      "url": "https://doi.org/10.1002/admt.202301210",
       "cited_by": 10,
-      "abstract": "Abstract Objective. The current practices of designing neural networks rely heavily on subjective judgment and heuristic steps, often dictated by the level of expertise possessed by architecture designers. To alleviate these challenges and streamline the design process, we propose an automatic method, a novel approach to enhance the optimization of neural network architectures for processing intracranial electroencephalogram (iEEG) data. Approach. We present a genetic algorithm, which optimizes neural network architecture and signal pre-processing parameters for iEEG classification. Main results. Our method improved the macro F1 score of the state-of-the-art model in two independent datasets, from St. Anne’s University Hospital (Brno, Czech Republic) and Mayo Clinic (Rochester, MN, USA), from 0.9076 to 0.9673 and from 0.9222 to 0.9400 respectively. Significance. By incorporating principles of evolutionary optimization, our approach reduces the reliance on human intuition and empirical ",
-      "doi": "10.1088/1741-2552/acdc54",
-      "pmid": "37285840",
-      "openalex_id": "W4379616856",
+      "abstract": "Abstract Epilepsy, a prevalent neurological disorder, necessitates precise and reliable electrophysiological recording for accurate study and diagnosis. Although traditional stereo‐electroencephalography and micro‐wire probes are widely used in epilepsy research, they are limited by recording site numbers and mechanical properties. This study explores the use of high‐density, ultra‐flexible neural probes in epilepsy monitoring, highlighting their advantages in terms of recording performance, scalability, and tissue compatibility. This work validates the effectiveness of the probes in detecting characteristic epileptic signals across various stages, including resting, preictal, and ictal stages, in two different mouse models of epilepsy. Additionally, the high spatial resolution of the probes allows to capture fine spatial propagation of epilepsy‐associated high‐frequency oscillations. Furthermore, the flexible probes exhibit superior biocompatibility, reducing inflammation and neuronal",
+      "doi": "10.1002/admt.202301210",
+      "pmid": null,
+      "openalex_id": "W4388300450",
       "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite"
     },
     {
       "title": "IEEG-TCN: A Concise and Robust Temporal Convolutional Network for Intracranial Electroencephalogram Signal Identification",
       "author": "Jinjie Guo, Yiping Wang, Yanfeng Yang, Guixia Kang",
-      "venue": "2021 IEEE International Conference on Bioinformatics and Biomedicine (BIBM)",
+      "venue": "IEEE International Conference on Bioinformatics and Biomedicine (BIBM)",
       "year": 2021,
       "url": "https://doi.org/10.1109/bibm52615.2021.9669301",
       "cited_by": 9,
@@ -373,7 +353,7 @@
       "pmid": null,
       "openalex_id": "W4205166247",
       "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite"
     },
     {
@@ -388,7 +368,22 @@
       "pmid": null,
       "openalex_id": "W4387247746",
       "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite"
+    },
+    {
+      "title": "Genetic algorithm designed for optimization of neural network architectures for intracranial EEG recordings analysis",
+      "author": "Kristyna Pijackova, Petr Nejedlý, Václav Křemen, Filip Plešinger, Filip Mívalt, Kamila Lepkova, Martin Pail, Pavel Jurák, Gregory A. Worrell, Milan Brázdil, Petr Klimeš",
+      "venue": "Journal of Neural Engineering",
+      "year": 2023,
+      "url": "https://doi.org/10.1088/1741-2552/acdc54",
+      "cited_by": 6,
+      "abstract": "Abstract Objective. The current practices of designing neural networks rely heavily on subjective judgment and heuristic steps, often dictated by the level of expertise possessed by architecture designers. To alleviate these challenges and streamline the design process, we propose an automatic method, a novel approach to enhance the optimization of neural network architectures for processing intracranial electroencephalogram (iEEG) data. Approach. We present a genetic algorithm, which optimizes neural network architecture and signal pre-processing parameters for iEEG classification. Main results. Our method improved the macro F1 score of the state-of-the-art model in two independent datasets, from St. Anne’s University Hospital (Brno, Czech Republic) and Mayo Clinic (Rochester, MN, USA), from 0.9076 to 0.9673 and from 0.9222 to 0.9400 respectively. Significance. By incorporating principles of evolutionary optimization, our approach reduces the reliance on human intuition and empirical ",
+      "doi": "10.1088/1741-2552/acdc54",
+      "pmid": "37285840",
+      "openalex_id": "W4379616856",
+      "source_doi": "10.1038/s41597-020-0532-5",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite"
     },
     {
@@ -403,7 +398,22 @@
       "pmid": null,
       "openalex_id": "W4403671195",
       "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite"
+    },
+    {
+      "title": "DMNet: Self-comparison Driven Model for Subject-independent Seizure Detection",
+      "author": "Shihao Tu, Linfeng Cao, Daoze Zhang, Junru Chen, Lvbin Ma, Yin Zhang, Yang Yang",
+      "venue": "Advances in Neural Information Processing Systems 37",
+      "year": 2024,
+      "url": "https://doi.org/10.52202/079017-0886",
+      "cited_by": 6,
+      "abstract": "Automated seizure detection (ASD) using intracranial electroencephalography (iEEG) is critical for effective epilepsy treatment. However, the significant domain shift of iEEG signals across subjects poses a major challenge, limiting their applicability in real-world clinical scenarios. In this paper, we address this issue by analyzing the primary cause behind the failure of existing iEEG models for subject-independent seizure detection, and identify a critical universal seizure pattern: seizure events consistently exhibit higher average amplitude compared to adjacent normal events. To mitigate the domain shifts and preserve the universal seizure patterns, we propose a novel self-comparison mechanism. This mechanism effectively aligns iEEG signals across subjects and time intervals. Based on these findings, we propose Difference Matrix-based Neural Network (DMNet), a subject-independent seizure detection model, which leverages self-comparison based on two constructed ( contextual , chan",
+      "doi": "10.52202/079017-0886",
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.1038/s41597-020-0532-5",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite"
     },
     {
@@ -418,7 +428,7 @@
       "pmid": "40489993",
       "openalex_id": "W4411137277",
       "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite"
     },
     {
@@ -433,7 +443,22 @@
       "pmid": null,
       "openalex_id": "W4406164213",
       "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite"
+    },
+    {
+      "title": "Waveform detection by deep learning reveals multi-area spindles that are selectively modulated by memory load",
+      "author": "Maryam H. Mofrad, Greydon Gilmore, Dominik P. Koller, Seyed M. Mirsattari, Jorge G. Burneo, David A. Steven, ALI RAZA KHAN, Ana Suller Marti, Lyle Muller",
+      "venue": "eLife",
+      "year": 2022,
+      "url": "https://doi.org/10.7554/elife.75769",
+      "cited_by": 5,
+      "abstract": "Sleep is generally considered to be a state of large-scale synchrony across thalamus and neocortex; however, recent work has challenged this idea by reporting isolated sleep rhythms such as slow oscillations and spindles. What is the spatial scale of sleep rhythms? To answer this question, we adapted deep learning algorithms initially developed for detecting earthquakes and gravitational waves in high-noise settings for analysis of neural recordings in sleep. We then studied sleep spindles in non-human primate electrocorticography (ECoG), human electroencephalogram (EEG), and clinical intracranial electroencephalogram (iEEG) recordings in the human. Within each recording type, we find widespread spindles occur much more frequently than previously reported. We then analyzed the spatiotemporal patterns of these large-scale, multi-area spindles and, in the EEG recordings, how spindle patterns change following a visual memory task. Our results reveal a potential role for widespread, multi-",
+      "doi": "10.7554/elife.75769",
+      "pmid": "35766286",
+      "openalex_id": "W4283710252",
+      "source_doi": "10.1038/s41597-020-0532-5",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite"
     },
     {
@@ -448,37 +473,7 @@
       "pmid": null,
       "openalex_id": "W4385466225",
       "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
-      "discovery_backend": "opencite"
-    },
-    {
-      "title": "DMNet: Self-comparison Driven Model for Subject-independent Seizure Detection",
-      "author": "Shihao Tu, Linfeng Cao, Daoze Zhang, Junru Chen, Lvbin Ma, Yin Zhang, Yang Yang",
-      "venue": "Advances in Neural Information Processing Systems 37",
-      "year": 2024,
-      "url": "https://doi.org/10.52202/079017-0886",
-      "cited_by": 5,
-      "abstract": "Automated seizure detection (ASD) using intracranial electroencephalography (iEEG) is critical for effective epilepsy treatment. However, the significant domain shift of iEEG signals across subjects poses a major challenge, limiting their applicability in real-world clinical scenarios. In this paper, we address this issue by analyzing the primary cause behind the failure of existing iEEG models for subject-independent seizure detection, and identify a critical universal seizure pattern: seizure events consistently exhibit higher average amplitude compared to adjacent normal events. To mitigate the domain shifts and preserve the universal seizure patterns, we propose a novel self-comparison mechanism. This mechanism effectively aligns iEEG signals across subjects and time intervals. Based on these findings, we propose Difference Matrix-based Neural Network (DMNet), a subject-independent seizure detection model, which leverages self-comparison based on two constructed ( contextual , chan",
-      "doi": "10.52202/079017-0886",
-      "pmid": null,
-      "openalex_id": null,
-      "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
-      "discovery_backend": "opencite"
-    },
-    {
-      "title": "Waveform detection by deep learning reveals multi-area spindles that are selectively modulated by memory load",
-      "author": "Maryam H. Mofrad, Greydon Gilmore, Dominik P. Koller, Seyed M. Mirsattari, Jorge G. Burneo, David A. Steven, ALI RAZA KHAN, Ana Suller Marti, Lyle Muller",
-      "venue": "eLife",
-      "year": 2022,
-      "url": "https://doi.org/10.7554/elife.75769",
-      "cited_by": 4,
-      "abstract": "Sleep is generally considered to be a state of large-scale synchrony across thalamus and neocortex; however, recent work has challenged this idea by reporting isolated sleep rhythms such as slow oscillations and spindles. What is the spatial scale of sleep rhythms? To answer this question, we adapted deep learning algorithms initially developed for detecting earthquakes and gravitational waves in high-noise settings for analysis of neural recordings in sleep. We then studied sleep spindles in non-human primate electrocorticography (ECoG), human electroencephalogram (EEG), and clinical intracranial electroencephalogram (iEEG) recordings in the human. Within each recording type, we find widespread spindles occur much more frequently than previously reported. We then analyzed the spatiotemporal patterns of these large-scale, multi-area spindles and, in the EEG recordings, how spindle patterns change following a visual memory task. Our results reveal a potential role for widespread, multi-",
-      "doi": "10.7554/elife.75769",
-      "pmid": "35766286",
-      "openalex_id": "W4283710252",
-      "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite"
     },
     {
@@ -493,7 +488,7 @@
       "pmid": null,
       "openalex_id": "W4388691679",
       "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite"
     },
     {
@@ -508,7 +503,7 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite"
     },
     {
@@ -523,7 +518,22 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite"
+    },
+    {
+      "title": "The Therapeutic Loop: Closed-Loop Epilepsy Systems Mirroring the Read–Write Architecture of Brain–Computer Interfaces",
+      "author": "Justo Montoya-Gálvez, Karla Ivankovic, Rodrigo Rocamora, Alessandro Príncipe",
+      "venue": "Applied Sciences",
+      "year": 2025,
+      "url": "https://doi.org/10.3390/app16010294",
+      "cited_by": 2,
+      "abstract": "Drug-resistant epilepsy (DRE) remains a major therapeutic challenge, as a considerable proportion of epilepsy patients fail to achieve seizure control with conventional anti-seizure medications or surgical therapy. Closed-loop systems have emerged as a promising alternative, offering patient-specific, on-demand neuromodulation. Despite notable advances in the academic domain, clinical translation has stagnated, and surgical resection remains the intervention with the highest probability of achieving seizure freedom. In this review, we delineate the principal limitations currently constraining progress in epilepsy neuromodulation and conceptualise these systems as instantiations of the read-write architecture characteristic of brain-computer interfaces. The read component entails the continuous acquisition and analysis of neurophysiological signals to predict or detect imminent seizures. In contrast, the write component involves the delivery of targeted interventions to disrupt epilepti",
+      "doi": "10.3390/app16010294",
+      "pmid": null,
+      "openalex_id": "W7117468716",
+      "source_doi": "10.1038/s41597-020-0532-5",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite"
     },
     {
@@ -538,7 +548,7 @@
       "pmid": "36848970",
       "openalex_id": "W4322012106",
       "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite"
     },
     {
@@ -553,28 +563,13 @@
       "pmid": null,
       "openalex_id": "W4307849840",
       "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
-      "discovery_backend": "opencite"
-    },
-    {
-      "title": "The Therapeutic Loop: Closed-Loop Epilepsy Systems Mirroring the Read–Write Architecture of Brain–Computer Interfaces",
-      "author": "Justo Montoya-Gálvez, Karla Ivankovic, Rodrigo Rocamora, Alessandro Príncipe",
-      "venue": "Applied Sciences",
-      "year": 2025,
-      "url": "https://doi.org/10.3390/app16010294",
-      "cited_by": 2,
-      "abstract": "Drug-resistant epilepsy (DRE) remains a major therapeutic challenge, as a considerable proportion of epilepsy patients fail to achieve seizure control with conventional anti-seizure medications or surgical therapy. Closed-loop systems have emerged as a promising alternative, offering patient-specific, on-demand neuromodulation. Despite notable advances in the academic domain, clinical translation has stagnated, and surgical resection remains the intervention with the highest probability of achieving seizure freedom. In this review, we delineate the principal limitations currently constraining progress in epilepsy neuromodulation and conceptualise these systems as instantiations of the read-write architecture characteristic of brain–computer interfaces. The read component entails the continuous acquisition and analysis of neurophysiological signals to predict or detect imminent seizures. In contrast, the write component involves the delivery of targeted interventions to disrupt epilepti",
-      "doi": "10.3390/app16010294",
-      "pmid": null,
-      "openalex_id": "W7117468716",
-      "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite"
     },
     {
       "title": "Deep Generative Networks for Algorithm Development in Implantable Neural Technology",
       "author": "Filip Mívalt, Vladimir Sladky, Irena Balzekas, Tereza Pridalova, Kai Joshua Miller, Jamie J. Van Gompel, Timothy Denison, Benjamin H. Brinkmann, Václav Křemen, Gregory A. Worrell",
-      "venue": "2022 IEEE International Conference on Systems, Man, and Cybernetics (SMC)",
+      "venue": "Conference proceedings/Conference proceedings - IEEE International Conference on Systems, Man, and Cybernetics",
       "year": 2022,
       "url": "https://doi.org/10.1109/smc53654.2022.9945379",
       "cited_by": 2,
@@ -583,7 +578,22 @@
       "pmid": null,
       "openalex_id": "W4309345276",
       "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite"
+    },
+    {
+      "title": "WaveletDiff: Multilevel Wavelet Diffusion For Time Series Generation",
+      "author": "Yu-Hsiang Wang, Olgica Milenkovic",
+      "venue": "ArXiv",
+      "year": 2025,
+      "url": "https://doi.org/10.48550/arXiv.2510.11839",
+      "cited_by": 2,
+      "abstract": "Time series are ubiquitous in many applications that involve forecasting, classification and causal inference tasks, such as healthcare, finance, audio signal processing and climate sciences. Still, large, high-quality time series datasets remain scarce. Synthetic generation can address this limitation; however, current models confined either to the time or frequency domains struggle to reproduce the inherently multi-scaled structure of real-world time series. We introduce WaveletDiff, a new framework that trains diffusion models directly on wavelet coefficients to exploit the inherent multi-resolution structure of time series data. The model combines dedicated transformers for each decomposition level with cross-level attention mechanisms that enable selective information exchange between temporal and frequency scales through adaptive gating. It is also informed by level-specific energy constraints based on Parseval's theorem which preserve time-frequency properties throughout the dif",
+      "doi": "10.48550/arXiv.2510.11839",
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.1038/s41597-020-0532-5",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite"
     },
     {
@@ -598,7 +608,7 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite"
     },
     {
@@ -613,7 +623,7 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite"
     },
     {
@@ -628,22 +638,7 @@
       "pmid": null,
       "openalex_id": "W4386774668",
       "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
-      "discovery_backend": "opencite"
-    },
-    {
-      "title": "WaveletDiff: Multilevel Wavelet Diffusion For Time Series Generation",
-      "author": "Yu-Hsiang Wang, Olgica Milenkovic",
-      "venue": "ArXiv",
-      "year": 2025,
-      "url": "https://doi.org/10.48550/arXiv.2510.11839",
-      "cited_by": 1,
-      "abstract": "Time series are ubiquitous in many applications that involve forecasting, classification and causal inference tasks, such as healthcare, finance, audio signal processing and climate sciences. Still, large, high-quality time series datasets remain scarce. Synthetic generation can address this limitation; however, current models confined either to the time or frequency domains struggle to reproduce the inherently multi-scaled structure of real-world time series. We introduce WaveletDiff, a new framework that trains diffusion models directly on wavelet coefficients to exploit the inherent multi-resolution structure of time series data. The model combines dedicated transformers for each decomposition level with cross-level attention mechanisms that enable selective information exchange between temporal and frequency scales through adaptive gating. It is also informed by level-specific energy constraints based on Parseval's theorem which preserve time-frequency properties throughout the dif",
-      "doi": "10.48550/arXiv.2510.11839",
-      "pmid": null,
-      "openalex_id": null,
-      "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite"
     },
     {
@@ -658,7 +653,7 @@
       "pmid": null,
       "openalex_id": "W7202260849",
       "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite"
     },
     {
@@ -673,7 +668,7 @@
       "pmid": "42034690",
       "openalex_id": "W7155639035",
       "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite"
     },
     {
@@ -688,7 +683,7 @@
       "pmid": null,
       "openalex_id": "W7123354474",
       "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite"
     },
     {
@@ -703,7 +698,7 @@
       "pmid": null,
       "openalex_id": "W4413963383",
       "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite"
     },
     {
@@ -718,13 +713,13 @@
       "pmid": null,
       "openalex_id": "W4409188030",
       "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite"
     },
     {
       "title": "Epilepsiechirurgie",
       "author": "Vera Cristina Terra, Marcelo Volpon, Hélio Rubens Machado",
-      "venue": "n/a",
+      "venue": "Springer eBooks",
       "year": 2025,
       "url": "https://doi.org/10.1007/978-3-031-72258-5_32",
       "cited_by": 0,
@@ -733,7 +728,7 @@
       "pmid": null,
       "openalex_id": "W4410376079",
       "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite"
     },
     {
@@ -748,13 +743,13 @@
       "pmid": null,
       "openalex_id": "W4415326988",
       "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite"
     },
     {
       "title": "Intraoperative Monitoring in Epilepsy Surgery",
       "author": "Vera Cristina Terra, Marcelo Volpon, Hélio Rubens Machado",
-      "venue": "n/a",
+      "venue": "Springer eBooks",
       "year": 2022,
       "url": "https://doi.org/10.1007/978-3-030-95730-8_32",
       "cited_by": 0,
@@ -763,7 +758,22 @@
       "pmid": null,
       "openalex_id": "W4285239464",
       "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite"
+    },
+    {
+      "title": "PHASE: A Physiology-Guided Hierarchical Foundation Model for Intracranial EEG",
+      "author": "Yi-Peng Zhang, Chen-Da Duan, Yuan-Yi Ding, Tian-Yi Wang, Atsuro Daida, Masaki Izumi, Yuta Tanoue, Naoto Kuroda, Shaun A. Hussain, Nishant Sinha, E. Asano, H. Nariai, V. Roychowdhury",
+      "venue": "n/a",
+      "year": 2026,
+      "url": "n/a",
+      "cited_by": 0,
+      "abstract": "Clinicians and neuroscientists have long analyzed intracranial electroencephalography (iEEG) through directly measurable physiological characteristics, which carry much of the information that downstream tasks depend on. Recent iEEG foundation models learn by reconstructing or predicting their inputs, which leaves the retention of these characteristics implicit. They are also evaluated mainly on cognitive decoding and a narrow clinical task, i.e., seizure detection. On a broad, clinically relevant benchmark such as Omni-iEEG, they remain below task-specific models when used frozen. We introduce PHASE, a physiology-guided foundation model that makes these characteristics explicit learning targets, pairing them with masked latent prediction in a temporal stage (PHASE-T) within each channel and a spatiotemporal stage (PHASE-ST) across synchronized channels. PHASE is pretrained on heterogeneous recordings from 222 participants at nine clinical sites. On all five Omni-iEEG clinical tasks, f",
+      "doi": null,
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.1038/s41597-020-0532-5",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite"
     },
     {
@@ -778,7 +788,7 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite"
     },
     {
@@ -793,7 +803,7 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite"
     },
     {
@@ -808,7 +818,7 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite"
     },
     {
@@ -823,7 +833,7 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite"
     },
     {
@@ -838,7 +848,7 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite"
     },
     {
@@ -853,7 +863,7 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1038/s41597-020-0532-5",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite"
     }
   ]

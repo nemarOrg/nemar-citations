@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000121",
   "num_citations": 41,
-  "date_last_updated": "2026-09-30T10:44:23.702606+00:00",
+  "date_last_updated": "2026-10-11T10:12:29.797848+00:00",
   "metadata": {
-    "total_cumulative_citations": 458,
-    "fetch_date": "2026-09-29T10:37:40.315974+00:00",
+    "total_cumulative_citations": 460,
+    "fetch_date": "2026-10-11T10:12:29.797848+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -19,25 +19,25 @@
         "source_relation": "IsDerivedFrom",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Comparative evaluation of state-of-the-art algorithms for SSVEP-based BCIs",
         "paper_year": 2016,
         "paper_venue": "arXiv (Cornell University)",
         "reason": "The dataset's authors match the paper's authors, and its DOI is this arXiv report (1602.00904). The report introduces the MAMEM SSVEP datasets while comparing algorithms, so it is the source deposit for this data.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.6084/m9.figshare.2068677.v1",
         "identifier_type": "doi",
-        "source_relation": "References",
+        "source_relation": "IsDerivedFrom",
         "classification": "related_work",
         "kept": false,
+        "kept_reason": "judged_not_data_paper",
         "paper_title": "MAMEM EEG SSVEP Dataset I (256 channels, 11 subjects, 5 frequencies)",
         "paper_year": 2016,
         "paper_venue": "Figshare",
         "reason": "Candidate is MAMEM Dataset I (256 channels, 250 Hz); this dataset is MAMEM3 (14 channels, 128 Hz), a sibling SSVEP dataset from the same project, not the same data.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_not_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.21105/joss.01896",
@@ -45,12 +45,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
         "paper_year": 2019,
         "paper_venue": "The Journal of Open Source Software",
         "reason": "MNE-BIDS is a software tool for organizing electrophysiological data into BIDS, used to format this dataset, not a paper describing the SSVEP MAMEM 3 recordings.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1038/s41597-019-0104-8",
@@ -58,12 +58,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "EEG-BIDS, an extension to the brain imaging data structure for electroencephalography",
         "paper_year": 2019,
         "paper_venue": "Scientific Data",
         "reason": "EEG-BIDS is a specification/standard extension for organizing EEG data, used to format this dataset, not a paper describing the MAMEM3 SSVEP recordings.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.nm000121",
@@ -71,12 +71,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -85,32 +85,23 @@
     ],
     "keywords": [
       "SSVEP",
-      "brain-computer interface",
       "EEG",
-      "visual evoked potentials",
+      "brain-computer interface",
+      "Evoked Potentials, Visual",
       "signal processing",
-      "comparative evaluation",
-      "benchmark",
-      "preprocessing",
-      "artifact removal"
+      "comparative evaluation"
     ],
-    "methods_description": "EEG signals were acquired using an EGI 300 Geodesic EEG System (GES 300) with 14 channels at 128 Hz sampling rate. Subjects focused on magenta boxes flickering at frequencies of 6.66, 7.50, 8.57, 10.00, and 12.00 Hz presented on a 22-inch LCD monitor. Each trial lasted 5 seconds followed by 5 seconds of rest. Preprocessing included bandpass filtering (5–48 Hz), notch filtering (50 Hz), artifact removal using AMUSE and ICA, and common average reference (CAR) re-referencing. The study employed leave-one-subject-out cross-validation to evaluate state-of-the-art algorithms for filtering, artifact removal, feature extraction, feature selection, and classification.",
-    "funding": [],
-    "searched_accessions": [
-      "nm000121"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 41
+    "methods_description": "Subjects viewed flickering boxes on a 22-inch LCD monitor, with a yellow arrow marking the target box. Each 5 s flicker window was followed by 5 s of rest, with a single adaptation period before the first of 5 sessions. EEG was recorded at 128 Hz and preprocessed with 5-48 Hz bandpass filtering, 50 Hz notch filtering, AMUSE/ICA artifact removal and common average referencing.",
+    "funding": []
   },
   "citation_details": [
     {
       "title": "Deep learning-based classification for brain-computer interfaces",
-      "author": "John Paul Thomas, Tomasz Maszczyk, Nishant Kumar Sinha, Tilmann Kluge, Justin Dauwels",
-      "venue": "n/a",
+      "author": "John Paul Thomas, Tomasz Maszczyk, Nishant Sinha, Tilmann Kluge, Justin Dauwels",
+      "venue": "Conference proceedings/Conference proceedings - IEEE International Conference on Systems, Man, and Cybernetics",
       "year": 2017,
       "url": "https://doi.org/10.1109/smc.2017.8122608",
-      "cited_by": 97,
+      "cited_by": 96,
       "abstract": "Brain-computer interface (BCI) is an emerging area of research that aims to improve the quality of human-computer applications. It has enormous scope in biomedical applications, neural rehabilitation, biometric authentication, educational programmes, and entertainment applications. A BCI system has four major components: signal acquisition, signal preprocessing, feature extraction, and classification. In this study, we provide a comparison of various traditional classification algorithms to the newer methods of deep learning. We explore two different types of deep learning methods, namely, convolutional neural networks (CNN) and recurrent neural networks (RNN) with long short-term memory (LSTM) architecture. We test the classification accuracies on a recent 5-dass steady-state visual evoked potential (SSVEP) dataset. The results prove the superiority of deep learning methods in comparison with the traditional classification algorithms. Amongst the traditional classifiers, support vecto",
       "doi": "10.1109/smc.2017.8122608",
       "pmid": null,
@@ -119,9 +110,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.4449411898851395,
-        "similarity_score": 0.40449199080467224,
-        "citation_text_length": 1191,
+        "confidence_score": 0.4380423963069916,
+        "similarity_score": 0.39822036027908325,
+        "citation_text_length": 1292,
         "dataset_text_length": 2344,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -133,7 +124,7 @@
       "venue": "ACM Computing Surveys",
       "year": 2024,
       "url": "https://doi.org/10.1145/3652149",
-      "cited_by": 87,
+      "cited_by": 88,
       "abstract": "The rapid growth of the internet has reached the fourth generation, i.e., web 4.0, which supports Sentiment Analysis (SA) in many applications such as social media, marketing, risk management, healthcare, businesses, websites, data mining, e-learning, psychology, and many more. Sentiment analysis is a powerful tool for governments, businesses, and researchers to analyse users’ emotions and mental states in order to generate opinions and reviews about products, services, and daily activities. In the past years, several SA techniques based on Machine Learning (ML), Deep Learning (DL), and other soft computing approaches were proposed. However, growing data size, subjectivity, and diversity pose a significant challenge to enhancing the efficiency of existing techniques and incorporating current development trends, such as Multimodal Sentiment Analysis (MSA) and fusion techniques. With the aim of assisting the enthusiastic researcher to navigating the current trend, this article presents a",
       "doi": "10.1145/3652149",
       "pmid": null,
@@ -156,7 +147,7 @@
       "venue": "Information Fusion",
       "year": 2020,
       "url": "https://doi.org/10.1016/j.inffus.2020.11.008",
-      "cited_by": 76,
+      "cited_by": 77,
       "abstract": null,
       "doi": "10.1016/j.inffus.2020.11.008",
       "pmid": null,
@@ -179,7 +170,7 @@
       "venue": "Journal of Neural Engineering",
       "year": 2023,
       "url": "https://doi.org/10.1088/1741-2552/ad171a",
-      "cited_by": 20,
+      "cited_by": 19,
       "abstract": "Abstract Objective. BCI (Brain–Computer Interfaces) operate in three modes: online, offline, and pseudo-online. In online mode, real-time EEG data is constantly analyzed. In offline mode, the signal is acquired and processed afterwards. The pseudo-online mode processes collected data as if they were received in real-time. The main difference is that the offline mode often analyzes the whole data, while the online and pseudo-online modes only analyze data in short time windows. Offline processing tends to be more accurate, while online analysis is better for therapeutic applications. Pseudo-online implementation approximates online processing without real-time constraints. Many BCI studies being offline introduce biases compared to real-life scenarios, impacting classification algorithm performance. Approach. The objective of this research paper is therefore to extend the current MOABB framework, operating in offline mode, so as to allow a comparison of different algorithms in a pseudo-",
       "doi": "10.1088/1741-2552/ad171a",
       "pmid": "38113535",
@@ -404,8 +395,31 @@
       }
     },
     {
+      "title": "Benchmarking brain–computer interface algorithms: Riemannian approaches vs convolutional neural networks",
+      "author": "Manuel Eder, Jiachen Xu, Moritz Grosse‐Wentrup",
+      "venue": "Journal of Neural Engineering",
+      "year": 2024,
+      "url": "https://doi.org/10.1088/1741-2552/ad6793",
+      "cited_by": 8,
+      "abstract": "Abstract Objective. To date, a comprehensive comparison of Riemannian decoding methods with deep convolutional neural networks for EEG-based brain–computer interfaces remains absent from published work. We address this research gap by using MOABB, The Mother Of All BCI Benchmarks, to compare novel convolutional neural networks to state-of-the-art Riemannian approaches across a broad range of EEG datasets, including motor imagery, P300, and steady-state visual evoked potentials paradigms. Approach. We systematically evaluated the performance of convolutional neural networks, specifically EEGNet, shallow ConvNet, and deep ConvNet, against well-established Riemannian decoding methods using MOABB processing pipelines. This evaluation included within-session, cross-session, and cross-subject methods, to provide a practical analysis of model effectiveness and to find an overall solution that performs well across different experimental settings. Main results. We find no significant difference",
+      "doi": "10.1088/1741-2552/ad6793",
+      "pmid": "39053485",
+      "openalex_id": "W4400969643",
+      "source_doi": "10.48550/arxiv.1602.00904",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5060666102170944,
+        "similarity_score": 0.43815290927886963,
+        "citation_text_length": 1218,
+        "dataset_text_length": 2344,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Extended Control With Hybrid Gaze-BCI for Multi-Robot System Under Hands-Occupied Dual-Tasking",
-      "author": "Hong Tao Zeng, Yitao Shen, Dengfeng Sun, Xuhui Hu, Pengcheng Wen, Aiguo Song",
+      "author": "Hong Zeng, Yitao Shen, Dengfeng Sun, Xuhui Hu, Pengcheng Wen, Aiguo Song",
       "venue": "IEEE Transactions on Neural Systems and Rehabilitation Engineering",
       "year": 2023,
       "url": "https://doi.org/10.1109/tnsre.2023.3234971",
@@ -418,9 +432,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.23712195128202443,
-        "similarity_score": 0.20530039072036743,
-        "citation_text_length": 1275,
+        "confidence_score": 0.23743814885616304,
+        "similarity_score": 0.2055741548538208,
+        "citation_text_length": 1271,
         "dataset_text_length": 2344,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -452,7 +466,7 @@
     {
       "title": "Sparse Bayesian Learning for subject independent classification with application to SSVEP-BCI",
       "author": "Vangelis P. Oikonomou, Anastasios Maronidis, George Liaros, Spiros Nikolopoulos, Ioannis Yiannis Kompatsiaris",
-      "venue": "n/a",
+      "venue": "International IEEE/EMBS Conference on Neural Engineering",
       "year": 2017,
       "url": "https://doi.org/10.1109/ner.2017.8008423",
       "cited_by": 7,
@@ -464,32 +478,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5441508054733277,
-        "similarity_score": 0.49468255043029785,
-        "citation_text_length": 1244,
-        "dataset_text_length": 2344,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Benchmarking brain–computer interface algorithms: Riemannian approaches vs convolutional neural networks",
-      "author": "Manuel Eder, Jiachen Xu, Moritz Grosse‐Wentrup",
-      "venue": "Journal of Neural Engineering",
-      "year": 2024,
-      "url": "https://doi.org/10.1088/1741-2552/ad6793",
-      "cited_by": 6,
-      "abstract": "Abstract Objective. To date, a comprehensive comparison of Riemannian decoding methods with deep convolutional neural networks for EEG-based brain–computer interfaces remains absent from published work. We address this research gap by using MOABB, The Mother Of All BCI Benchmarks, to compare novel convolutional neural networks to state-of-the-art Riemannian approaches across a broad range of EEG datasets, including motor imagery, P300, and steady-state visual evoked potentials paradigms. Approach. We systematically evaluated the performance of convolutional neural networks, specifically EEGNet, shallow ConvNet, and deep ConvNet, against well-established Riemannian decoding methods using MOABB processing pipelines. This evaluation included within-session, cross-session, and cross-subject methods, to provide a practical analysis of model effectiveness and to find an overall solution that performs well across different experimental settings. Main results. We find no significant difference",
-      "doi": "10.1088/1741-2552/ad6793",
-      "pmid": "39053485",
-      "openalex_id": "W4400969643",
-      "source_doi": "10.48550/arxiv.1602.00904",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5060666102170944,
-        "similarity_score": 0.43815290927886963,
-        "citation_text_length": 1218,
+        "confidence_score": 0.5488113045692444,
+        "similarity_score": 0.49891936779022217,
+        "citation_text_length": 1297,
         "dataset_text_length": 2344,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -520,7 +511,7 @@
     },
     {
       "title": "DRT: A new toolbox for the Standard EEG Data Structure in large-scale EEG applications",
-      "author": "Li Ping Dong, Yufan Zhang, Lingling Zhao, Ting Zheng, Weidong Wang, Jianfu Li, Diankun Gong, Tiejun Liu, Dezhong Yao",
+      "author": "Li Dong, Yufan Zhang, Lingling Zhao, Ting Zheng, Weidong Wang, Jianfu Li, Diankun Gong, Tiejun Liu, Dezhong Yao",
       "venue": "SoftwareX",
       "year": 2021,
       "url": "https://doi.org/10.1016/j.softx.2021.100933",
@@ -533,9 +524,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6295414531230927,
-        "similarity_score": 0.5450575351715088,
-        "citation_text_length": 1250,
+        "confidence_score": 0.6305139344930649,
+        "similarity_score": 0.545899510383606,
+        "citation_text_length": 1245,
         "dataset_text_length": 2344,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -544,7 +535,7 @@
     {
       "title": "A Method for SSVEP Recognition Based on Weighted Canonical Correlation Analysis",
       "author": "Minghui Shi, Chang Liu, Tingting Chen, Min Jiang, Fei Chao, Meihong Wu, Enze Wang, Yuan Shi, Tongrui Li, Jianting Liu, Jingkang Lin, Zilong Li",
-      "venue": "n/a",
+      "venue": "IEEE Symposium Series on Computational Intelligence (SSCI)",
       "year": 2019,
       "url": "https://doi.org/10.1109/ssci44817.2019.9003022",
       "cited_by": 4,
@@ -556,9 +547,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5930781781673432,
-        "similarity_score": 0.5391619801521301,
-        "citation_text_length": 1263,
+        "confidence_score": 0.5901742339134217,
+        "similarity_score": 0.5365220308303833,
+        "citation_text_length": 1318,
         "dataset_text_length": 2344,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -566,7 +557,7 @@
     },
     {
       "title": "The feature extraction and estimation of a steady-state visual evoked potential by the Karhunen-Loeve expansion",
-      "author": "Maria Stadnyk, Mykhailo Fryz, Leonid M. Scherbak",
+      "author": "Maria Stadnyk, Михайло Євгенович Фриз, Leonid M. Scherbak",
       "venue": "Eastern-European Journal of Enterprise Technologies",
       "year": 2017,
       "url": "https://doi.org/10.15587/1729-4061.2017.91861",
@@ -579,9 +570,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6084009408950806,
-        "similarity_score": 0.5530917644500732,
-        "citation_text_length": 1249,
+        "confidence_score": 0.6080935716629029,
+        "similarity_score": 0.5528123378753662,
+        "citation_text_length": 1258,
         "dataset_text_length": 2344,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -613,7 +604,7 @@
     {
       "title": "Sparse Graph-based Representations of SSVEP Responses Under the Variational Bayesian Framework",
       "author": "Vangelis P. Oikonomou, Spiros Nikolopoulos, Ioannis Yiannis Kompatsiaris",
-      "venue": "2021 IEEE 21st International Conference on Bioinformatics and Bioengineering (BIBE)",
+      "venue": "IEEE International Conference on Bioinformatics and Bioengineering (BIBE)",
       "year": 2021,
       "url": "https://doi.org/10.1109/bibe52308.2021.9635427",
       "cited_by": 3,
@@ -625,9 +616,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6567338937520981,
-        "similarity_score": 0.5686007738113403,
-        "citation_text_length": 1288,
+        "confidence_score": 0.6525060850381852,
+        "similarity_score": 0.564940333366394,
+        "citation_text_length": 1278,
         "dataset_text_length": 2344,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -636,7 +627,7 @@
     {
       "title": "A SSVEP-Based BCI for Controlling a 4-DOF Robotic Manipulator",
       "author": "Canguang Lin, Xiaoyan Deng, Zhu Liang Yu, Zhenghui Gu",
-      "venue": "n/a",
+      "venue": "Conference proceedings/Conference proceedings - IEEE International Conference on Systems, Man, and Cybernetics",
       "year": 2019,
       "url": "https://doi.org/10.1109/smc.2019.8914313",
       "cited_by": 3,
@@ -648,9 +639,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5831063151359559,
-        "similarity_score": 0.5300966501235962,
-        "citation_text_length": 1156,
+        "confidence_score": 0.5807889819145203,
+        "similarity_score": 0.5279899835586548,
+        "citation_text_length": 1263,
         "dataset_text_length": 2344,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -659,7 +650,7 @@
     {
       "title": "Effect of Artefact Removal Techniques on EEG Signals for Video Category Classification",
       "author": "Aunnoy K Mutasim, Mohammad Raihanul Bashar, Rayhan Sardar Tipu, Md. Kafiul Islam, M. Ashraful Amin",
-      "venue": "n/a",
+      "venue": "Proceedings - International Conference on Pattern Recognition/Proceedings/International Conference on Pattern Recognition",
       "year": 2018,
       "url": "https://doi.org/10.1109/icpr.2018.8545416",
       "cited_by": 3,
@@ -671,9 +662,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5067482709884644,
-        "similarity_score": 0.4606802463531494,
-        "citation_text_length": 1226,
+        "confidence_score": 0.4975230306386948,
+        "similarity_score": 0.45229366421699524,
+        "citation_text_length": 1344,
         "dataset_text_length": 2344,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -728,7 +719,7 @@
     {
       "title": "Steady state visual evoked potential detection using Subclass Marginal Fisher Analysis",
       "author": "Anastasios Maronidis, Vangelis P. Oikonomou, Spiros Nikolopoulos, Ioannis Yiannis Kompatsiaris",
-      "venue": "n/a",
+      "venue": "International IEEE/EMBS Conference on Neural Engineering",
       "year": 2017,
       "url": "https://doi.org/10.1109/ner.2017.8008286",
       "cited_by": 2,
@@ -740,9 +731,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6774176597595215,
-        "similarity_score": 0.6158342361450195,
-        "citation_text_length": 1222,
+        "confidence_score": 0.6867996335029602,
+        "similarity_score": 0.6243633031845093,
+        "citation_text_length": 1275,
         "dataset_text_length": 2344,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -797,7 +788,7 @@
     {
       "title": "Sparse EEG Source Localization Under the Variational Bayesian Framework",
       "author": "Vangelis P. Oikonomou, Ioannis Yiannis Kompatsiaris",
-      "venue": "n/a",
+      "venue": "IEEE International Conference on Bioinformatics and Bioengineering (BIBE)",
       "year": 2019,
       "url": "https://doi.org/10.1109/bibe.2019.00114",
       "cited_by": 1,
@@ -809,9 +800,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5116671621799469,
-        "similarity_score": 0.46515196561813354,
-        "citation_text_length": 953,
+        "confidence_score": 0.5120454728603363,
+        "similarity_score": 0.46549588441848755,
+        "citation_text_length": 1023,
         "dataset_text_length": 2344,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -843,7 +834,7 @@
     {
       "title": "Enhancing SSVEP-Based BCIs Through Using Several Preprocessing and Feature Selection Techniques: A Comparative Study",
       "author": "Negin Amirsoleimani, Luis G. Rueda, Esam Abdel‐Raheem",
-      "venue": "n/a",
+      "venue": "International Symposium on Signals, Circuits and Systems",
       "year": 2025,
       "url": "https://doi.org/10.1109/isscs66034.2025.11105692",
       "cited_by": 0,
@@ -855,9 +846,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6390644180774689,
-        "similarity_score": 0.553302526473999,
-        "citation_text_length": 1057,
+        "confidence_score": 0.6390523016452789,
+        "similarity_score": 0.5532920360565186,
+        "citation_text_length": 1110,
         "dataset_text_length": 2344,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -958,7 +949,7 @@
     {
       "title": "A Novel Regression-based Algorithm for the recognition of SSVEP responses",
       "author": "Vangelis P. Oikonomou, Spiros Nikolopoulos, Ioannis Yiannis Kompatsiaris",
-      "venue": "n/a",
+      "venue": "IEEE International Conference on Bioinformatics and Bioengineering (BIBE)",
       "year": 2020,
       "url": "https://doi.org/10.1109/bibe50027.2020.00090",
       "cited_by": 0,
@@ -970,9 +961,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6401496648788453,
-        "similarity_score": 0.5542421340942383,
-        "citation_text_length": 775,
+        "confidence_score": 0.634803426861763,
+        "similarity_score": 0.549613356590271,
+        "citation_text_length": 845,
         "dataset_text_length": 2344,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -981,7 +972,7 @@
     {
       "title": "Data-driven spatial technique for enhancing the Steady State-Visual Evoked Potentials detection at Brain Computer Interface",
       "author": "S R Ashwini, H. C. Nagaraj",
-      "venue": "2019 International Conference on Smart Systems and Inventive Technology (ICSSIT)",
+      "venue": "International Conference on Smart Systems and Inventive Technology (ICSSIT)",
       "year": 2019,
       "url": "https://doi.org/10.1109/icssit46314.2019.8987798",
       "cited_by": 0,
@@ -993,9 +984,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6413217067718506,
-        "similarity_score": 0.5830197334289551,
-        "citation_text_length": 1268,
+        "confidence_score": 0.6344731688499451,
+        "similarity_score": 0.5767937898635864,
+        "citation_text_length": 1263,
         "dataset_text_length": 2344,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1004,7 +995,7 @@
     {
       "title": "Assistance Robotics and Biosensors",
       "author": "Fernando Torres, Andrés Úbeda, Puente ST",
-      "venue": "n/a",
+      "venue": "MDPI eBooks",
       "year": 2018,
       "url": "https://doi.org/10.3390/books978-3-03897-395-9",
       "cited_by": 0,
@@ -1016,9 +1007,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.30620499253273015,
-        "similarity_score": 0.27836817502975464,
-        "citation_text_length": 554,
+        "confidence_score": 0.31422399878501894,
+        "similarity_score": 0.28565818071365356,
+        "citation_text_length": 562,
         "dataset_text_length": 2344,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1050,15 +1041,15 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T10:49:11.469191+00:00",
+    "scoring_date": "2026-10-11T11:18:34.593643+00:00",
     "dataset_text_length": 2344,
     "num_citations_scored": 41,
     "summary_stats": {
-      "mean_confidence": 0.5377400184186494,
+      "mean_confidence": 0.5373898010282981,
       "median_confidence": 0.5643801987171173,
-      "std_confidence": 0.11722823235725793,
+      "std_confidence": 0.11692625226049505,
       "min_confidence": 0.210172039270401,
-      "max_confidence": 0.6781376838684082,
+      "max_confidence": 0.6867996335029602,
       "high_confidence_count": 0,
       "medium_confidence_count": 35,
       "low_confidence_count": 6

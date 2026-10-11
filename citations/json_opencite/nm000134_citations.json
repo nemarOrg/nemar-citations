@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000134",
   "num_citations": 0,
-  "date_last_updated": "2026-09-30T10:44:24.352721+00:00",
+  "date_last_updated": "2026-10-11T10:13:53.447173+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
-    "fetch_date": "2026-09-29T10:39:38.439286+00:00",
+    "fetch_date": "2026-10-11T10:13:53.447173+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -19,25 +19,25 @@
         "source_relation": "IsDescribedBy",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Alljoined-1.6M: A Million-Trial EEG-Image Dataset for Evaluating Affordable Brain-Computer Interfaces",
         "paper_year": 2025,
         "paper_venue": "arXiv (Cornell University)",
         "reason": "The paper's title, authors, 20 participants, 1.6M trials and 32-channel consumer EEG match the dataset README's own reference, so it is this dataset's data paper.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.nm000134",
         "identifier_type": "doi",
-        "source_relation": "IsVersionOf",
+        "source_relation": "References",
         "classification": null,
         "kept": true,
-        "paper_title": "Alljoined-1.6M",
-        "paper_year": 2026,
-        "paper_venue": "UC San Diego",
+        "kept_reason": "own_doi",
+        "paper_title": null,
+        "paper_year": null,
+        "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -45,27 +45,21 @@
       "10.82901/nemar.nm000134"
     ],
     "keywords": [
-      "Electroencephalography",
-      "Brain-Computer Interfaces",
-      "rapid serial visual presentation",
+      "EEG",
       "consumer-grade EEG",
-      "visual object recognition",
-      "THINGS database",
-      "oddball paradigm"
+      "brain-computer interface",
+      "rapid serial visual presentation",
+      "visual decoding",
+      "THINGS",
+      "natural images"
     ],
-    "methods_description": "EEG was recorded with a 32-channel EMOTIV FLEX2 system (sintered Ag/AgCl gel electrodes, wireless Bluetooth 5.2) at 256 Hz, using an extended 10-20 montage focused on occipital/visual regions, with built-in dual 50/60 Hz notch filtering. Participants viewed a rapid serial visual presentation paradigm (100 ms image, 100 ms blank) drawn from 16,740 THINGS database images, performing an orthogonal oddball detection task (button press for Woody character catch trials, ~6% of sequences) across four sessions of 19 runs each.",
-    "funding": [],
-    "searched_accessions": [
-      "nm000134"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 0
+    "methods_description": "Participants viewed images for 100 ms followed by 100 ms of blank screen in an RSVP paradigm, with an orthogonal oddball detection task (button press on Woody character catch trials). EEG was recorded at 256 Hz with 32 Ag/AgCl gel electrodes in an extended 10-20 montage centered on occipital and visual regions. Each session had 19 blocks of about 5 minutes. Data were exported as EDF and converted to BIDS with MNE-BIDS.",
+    "funding": []
   },
   "citation_details": [],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T10:49:34.654059+00:00",
+    "scoring_date": "2026-10-11T11:19:16.009967+00:00",
     "dataset_text_length": 2280,
     "num_citations_scored": 0
   }

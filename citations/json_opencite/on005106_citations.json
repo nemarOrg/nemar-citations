@@ -1,10 +1,10 @@
 {
   "dataset_id": "on005106",
   "num_citations": 7,
-  "date_last_updated": "2026-09-30T10:44:31.311591+00:00",
+  "date_last_updated": "2026-10-11T11:00:24.051130+00:00",
   "metadata": {
-    "total_cumulative_citations": 61,
-    "fetch_date": "2026-09-29T11:22:50.231157+00:00",
+    "total_cumulative_citations": 67,
+    "fetch_date": "2026-10-11T11:00:24.051130+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 3,
@@ -16,15 +16,15 @@
       {
         "identifier": "10.31234/osf.io/dzrkq",
         "identifier_type": "doi",
-        "source_relation": "References",
+        "source_relation": "IsDescribedBy",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Human infant EEG recordings for 200 object images presented in rapid visual streams.",
         "paper_year": 2024,
         "paper_venue": null,
         "reason": "PsyArXiv preprint with the same title and authors as the Scientific Data paper named in the README. It describes the 42-infant EEG dataset for 200 object images in rapid visual streams.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1038/s41597-025-04744-z",
@@ -32,12 +32,12 @@
         "source_relation": "IsDescribedBy",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Human infant EEG recordings for 200 object images presented in rapid visual streams",
         "paper_year": 2025,
         "paper_venue": "Scientific Data",
         "reason": "The dataset README names this Scientific Data paper (same authors and title, 200 object images in rapid streams, infant EEG) as the paper for the data and code.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on005106",
@@ -45,12 +45,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -60,21 +60,14 @@
     ],
     "keywords": [
       "EEG",
-      "Infant",
-      "Visual Perception",
+      "infant",
+      "object recognition",
       "rapid serial visual presentation",
       "representational similarity analysis",
-      "object recognition"
+      "Visual Perception"
     ],
     "methods_description": "Infants' EEG was recorded while they viewed 200 object images presented in rapid visual streams using PsychoPy. Data were preprocessed and epoched, and representational dissimilarity matrices (RDMs) were computed for representational similarity analysis (RSA) using FieldTrip and CoSMoMVPA toolboxes.",
-    "funding": [],
-    "searched_accessions": [
-      "on005106",
-      "ds005106"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 7
+    "funding": []
   },
   "citation_details": [
     {
@@ -83,7 +76,7 @@
       "venue": "Communications Biology",
       "year": 2025,
       "url": "https://doi.org/10.1038/s42003-025-08464-3",
-      "cited_by": 48,
+      "cited_by": 52,
       "abstract": "Electroencephalography (EEG) preprocessing varies widely between studies, but its impact on classification performance remains poorly understood. To address this gap, we analyzed seven experiments with 40 participants drawn from the public ERP CORE dataset. We systematically varied key preprocessing steps, such as filtering, referencing, baseline interval, detrending, and multiple artifact correction steps, all of which were implemented in MNE-Python. Then we performed trial-wise binary classification (i.e., decoding) using neural networks (EEGNet), or time-resolved logistic regressions. Our findings demonstrate that preprocessing choices influenced decoding performance considerably. All artifact correction steps reduced decoding performance across experiments and models, while higher high-pass filter cutoffs consistently increased decoding performance. For EEGNet, baseline correction further increased decoding performance, and for time-resolved classifiers, linear detrending, and lowe",
       "doi": "10.1038/s42003-025-08464-3",
       "pmid": "40640472",
@@ -129,7 +122,7 @@
       "venue": "IEEE journal of biomedical and health informatics",
       "year": 2025,
       "url": "https://doi.org/10.1109/JBHI.2026.3732223",
-      "cited_by": 3,
+      "cited_by": 4,
       "abstract": "Current deep learning models for electroencephalography (EEG) are often task-specific and depend on large labeled datasets, limiting their adaptability. Although EEG foundation models seek broader applicability, many still rely on predefined multi-channel inputs, electrode-layout assumptions, or model-specific channel handling. To address these limitations, we introduce the Single-Channel Large EEG Model (SingLEM), a self-supervised foundation model whose hybrid convolutional-Transformer encoder maps each channel independently to a reusable representation capturing local and long-range temporal structure. These representations can be used individually or combined through channel-wise feature concatenation. We assembled 71 public EEG datasets comprising approximately 9,200 subjects and 357,000 single-channel hours. For leakage-controlled evaluation, downstream results were obtained with a model pretrained on 68 datasets after excluding the three source datasets underlying the six tasks.",
       "doi": "10.1109/JBHI.2026.3732223",
       "pmid": "42709520",
@@ -147,46 +140,23 @@
       }
     },
     {
-      "title": "Robust Neural Decoding with low-density EEG",
+      "title": "Robust neural decoding with low-density EEG",
       "author": "Ling Huang, Manuel Varlet, Tijl Grootswagers",
-      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
-      "year": 2025,
-      "url": "https://doi.org/10.1101/2025.07.07.663494",
-      "cited_by": 2,
-      "abstract": "Abstract High-density Electroencephalography (EEG) recording enhances spatial resolution for neural signal decoding, yet the relationship between electrode density and decoding performance remains unclear. To address this, we systematically investigated decoding accuracy across electrode configurations of varying densities (16, 32, 64, 96, and 128 electrodes) using visual grating stimuli characterized by orientation, contrast, spatial frequency, and color. As expected, decoding accuracy increased with electrode density. Remarkably, however, reliable above-chance decoding was still achieved with as few as 16 electrodes, highlighting the robustness of decodable neural signals. To test the generalization of these results to more complex natural stimuli, we conducted a similar analysis with a diverse set of naturalistic images categorizable into living/non-living and moving/non-moving. The results consistently showed that effective decoding persists even with a 16-electrode configuration, ",
-      "doi": "10.1101/2025.07.07.663494",
-      "pmid": "41495105",
-      "openalex_id": "W4412183346",
-      "source_doi": "10.1038/s41597-025-04744-z",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.6120807793736458,
-        "similarity_score": 0.5299400687217712,
-        "citation_text_length": 1165,
-        "dataset_text_length": 1305,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Toward general‐purpose foundation models for electroencephalography: A unified data registry",
-      "author": "Shenglei Shi, Yin Song, Yong Wang, Jian Xiao, Xin Lin, Heng Wang, Zhi-Bin Zhao, Pengyu Wang, Zi-Tong Lu, Xiao-Li Li, He Chen",
-      "venue": "Brain‐X",
+      "venue": "Scientific Reports",
       "year": 2026,
-      "url": "https://doi.org/10.1002/brx2.70046",
-      "cited_by": 1,
-      "abstract": "Electroencephalography (EEG) is widely used in cognitive neuroscience, clinical diagnosis, and brain–computer interfaces (BCIs). Recent work has begun to explore large‐scale EEG pretraining for transferable representation learning, which requires diverse and well‐organized EEG data across tasks and populations. Currently, public EEG datasets are scattered across platforms and publications and show substantial variation in experimental paradigms, recording settings, and metadata standards. This fragmentation makes large‐scale discovery, integration, and reuse inefficient, particularly for foundation model pretraining. To address this, we systematically screened publicly available EEG datasets updated from 2020 to 2026 and constructed a unified EEG dataset registry tailored to scalable pretraining and benchmarking. The primary output of this work was a registry with structured metadata enabling efficient dataset discovery, filtering, and direct retrieval for EEG foundation model pretrain",
-      "doi": "10.1002/brx2.70046",
-      "pmid": null,
-      "openalex_id": null,
+      "url": "https://doi.org/10.1038/s41598-025-27703-5",
+      "cited_by": 2,
+      "abstract": "High-density Electroencephalography (EEG) recording enhances spatial resolution for neural signal decoding, yet the relationship between electrode density and decoding performance remains unclear. To address this, we systematically investigated decoding accuracy across electrode configurations of varying densities (16, 32, 64, 96, and 128 electrodes) using visual grating stimuli characterized by orientation, contrast, spatial frequency, and color. As expected, decoding accuracy increased with electrode density. Remarkably, however, reliable above-chance decoding was still achieved with as few as 16 electrodes, highlighting the robustness of decodable neural signals. To test the generalization of these results to more complex natural stimuli, we conducted a similar analysis with a diverse set of naturalistic images categorizable into living/non-living and moving/non-moving. The results consistently showed that effective decoding persists even with a 16-electrode configuration, showing r",
+      "doi": "10.1038/s41598-025-27703-5",
+      "pmid": "41495105",
+      "openalex_id": "W7118789426",
       "source_doi": "10.1038/s41597-025-04744-z",
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.657715393602848,
-        "similarity_score": 0.5694505572319031,
-        "citation_text_length": 1262,
+        "confidence_score": 0.6078041607141496,
+        "similarity_score": 0.5262373685836792,
+        "citation_text_length": 1144,
         "dataset_text_length": 1305,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -198,7 +168,7 @@
       "venue": "Neuron",
       "year": 2026,
       "url": "https://doi.org/10.1016/j.neuron.2026.07.003",
-      "cited_by": 0,
+      "cited_by": 1,
       "abstract": "The goal of artificial intelligence (AI) modeling in neuroscience, or NeuroAI, is to uncover the factors that give rise to human-level intelligence. However, current models overwhelmingly focus on simulating adulthood, the end state of intelligence, and often do not consider how this state was achieved in the first place. We argue that, to understand adult intelligence, it is important to model the developmental process by which intelligence arose. Here, we describe how developmental changes in children's neural architecture, experiences, and learning objectives are adaptively suited to support rapid learning and illustrate how these principles can be incorporated into the AI engineering process. Finally, we describe the early developing capacities of children and how these capacities provide an ideal set of benchmarks for evaluating AI models. Together, by modeling the developmental process by which humans achieve intelligence, we may build more mechanistically plausible models as wel",
       "doi": "10.1016/j.neuron.2026.07.003",
       "pmid": "42480537",
@@ -216,6 +186,29 @@
       }
     },
     {
+      "title": "Toward general‐purpose foundation models for electroencephalography: A unified data registry",
+      "author": "Sheng-Lei Shi, Yin Song, Yong Wang, Jian Xiao, Xin Lin, Heng Wang, Zhi-Bin Zhao, Pengyu Wang, Zi-Tong Lu, Xiao-Li Li, He Chen",
+      "venue": "Brain‐X",
+      "year": 2026,
+      "url": "https://doi.org/10.1002/brx2.70046",
+      "cited_by": 1,
+      "abstract": "Electroencephalography (EEG) is widely used in cognitive neuroscience, clinical diagnosis, and brain–computer interfaces (BCIs). Recent work has begun to explore large‐scale EEG pretraining for transferable representation learning, which requires diverse and well‐organized EEG data across tasks and populations. Currently, public EEG datasets are scattered across platforms and publications and show substantial variation in experimental paradigms, recording settings, and metadata standards. This fragmentation makes large‐scale discovery, integration, and reuse inefficient, particularly for foundation model pretraining. To address this, we systematically screened publicly available EEG datasets updated from 2020 to 2026 and constructed a unified EEG dataset registry tailored to scalable pretraining and benchmarking. The primary output of this work was a registry with structured metadata enabling efficient dataset discovery, filtering, and direct retrieval for EEG foundation model pretrain",
+      "doi": "10.1002/brx2.70046",
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.1038/s41597-025-04744-z",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6573273235559465,
+        "similarity_score": 0.5691145658493042,
+        "citation_text_length": 1263,
+        "dataset_text_length": 1305,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Mapping object space dimensions: New insights from temporal dynamics",
       "author": "Alexis Kidder, Genevieve L. Quek, Tijl Grootswagers",
       "venue": "Imaging Neuroscience",
@@ -225,7 +218,7 @@
       "abstract": "How is object information organized in high-level visual cortex? A recent comprehensive model of object space in macaques defines object space via orthogonal axes of animacy and aspect ratio (i.e., stubby vs. spiky) (Bao et al., 2020). However, when using object stimuli that dissociated category, animacy, and aspect ratio in human fMRI, object space appeared to be principally defined by category and animacy, with limited tuning of aspect ratio in object-selective regions (Yargholi & Op de Beeck, 2023). Here, we aimed to further clarify the contribution of aspect ratio during object processing by using whole-brain electroencephalography (EEG) to systematically investigate the time course underlying aspect ratio, animacy, and category information during visual object processing. Participants (N = 20) viewed the stimulus set used by Yargholi and Op de Beeck (2023), as well as silhouette versions of the stimuli that lacked internal object details (thus increasing reliance on shape informat",
       "doi": "10.1162/imag.a.1051",
       "pmid": "41425258",
-      "openalex_id": "W7106110670",
+      "openalex_id": "W4404593897",
       "source_doi": "10.1038/s41597-025-04744-z",
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
@@ -241,15 +234,15 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T11:01:09.085845+00:00",
+    "scoring_date": "2026-10-11T11:35:38.750768+00:00",
     "dataset_text_length": 1305,
     "num_citations_scored": 7,
     "summary_stats": {
-      "mean_confidence": 0.5606270568072798,
+      "mean_confidence": 0.5599606727063656,
       "median_confidence": 0.5828122982382775,
-      "std_confidence": 0.0734648544818546,
+      "std_confidence": 0.0729769782177204,
       "min_confidence": 0.4456092967092991,
-      "max_confidence": 0.657715393602848,
+      "max_confidence": 0.6573273235559465,
       "high_confidence_count": 0,
       "medium_confidence_count": 7,
       "low_confidence_count": 0

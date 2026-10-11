@@ -1,56 +1,87 @@
 {
   "dataset_id": "nm000280",
   "num_citations": 0,
-  "date_last_updated": "2026-08-24T10:00:36.144514+00:00",
+  "date_last_updated": "2026-10-11T10:27:33.240318+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
-    "fetch_date": "2026-08-24T10:00:36.144514+00:00",
+    "fetch_date": "2026-10-11T10:27:33.240318+00:00",
     "processing_version": "1.0",
-    "fetch_status": "no_data_paper_anchor",
-    "anchor_count": 0,
+    "fetch_status": "success",
+    "anchor_count": 4,
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
-    "anchor_judgment_model": null,
+    "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
         "identifier": "10.5281/zenodo.20848097",
         "identifier_type": "doi",
         "source_relation": "IsDerivedFrom",
-        "classification": null,
-        "kept": false,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": null,
-        "kept_reason": "unjudged"
+        "classification": "data_paper",
+        "kept": true,
+        "kept_reason": "judged_data_paper",
+        "paper_title": "A steady-state visual evoked potential (SSVEP)-based BCI dataset in children and adolescents",
+        "paper_year": 2026,
+        "paper_venue": "Zenodo (CERN European Organization for Nuclear Research)",
+        "reason": "The Zenodo record has the same title and authors as the dataset. It covers the same 47 participants aged 5-18 and is the original distribution (Zenodo v3.0) that the dataset's sourcedata reproduces.",
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.21203/rs.3.rs-9347306/v1",
         "identifier_type": "doi",
         "source_relation": "IsDescribedBy",
+        "classification": "data_paper",
+        "kept": true,
+        "kept_reason": "judged_data_paper",
+        "paper_title": "A steady-state visual evoked potential-based brain-computer interface dataset in children and adolescents",
+        "paper_year": 2026,
+        "paper_venue": "Research Square",
+        "reason": "Title and authors (Schrag, Comadurán Márquez, Kirton, Kinney-Lang) match the dataset's SSVEP-BCI data in children and adolescents; the DataCite relation is IsDescribedBy.",
+        "judgment_model": "claude-sonnet-5-5"
+      },
+      {
+        "identifier": "10.5281/zenodo.19440996",
+        "identifier_type": "doi",
+        "source_relation": "IsDescribedBy",
+        "classification": "data_paper",
+        "kept": true,
+        "kept_reason": "judged_data_paper",
+        "paper_title": "A steady-state visual evoked potential (SSVEP)-based BCI dataset in children and adolescents",
+        "paper_year": 2026,
+        "paper_venue": "Zenodo (CERN European Organization for Nuclear Research)",
+        "reason": "The Zenodo record has the same title and authors as the dataset. It describes the same 47 participants aged 5-18, and the README says sourcedata is the original Zenodo v3.0 distribution.",
+        "judgment_model": "claude-sonnet-5-5"
+      },
+      {
+        "identifier": "10.82901/nemar.nm000280",
+        "identifier_type": "doi",
+        "source_relation": "References",
         "classification": null,
-        "kept": false,
+        "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": null,
-        "kept_reason": "unjudged"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
-    "searched_dois": [],
+    "searched_dois": [
+      "10.5281/zenodo.20848097",
+      "10.21203/rs.3.rs-9347306/v1",
+      "10.5281/zenodo.19440996",
+      "10.82901/nemar.nm000280"
+    ],
     "keywords": [
       "EEG",
-      "Brain-Computer Interfaces",
       "SSVEP",
-      "pediatric neuroimaging",
-      "steady-state visual evoked potential",
+      "brain-computer interface",
+      "pediatric",
+      "visual evoked potentials",
       "children and adolescents",
-      "BIDS"
+      "Electroencephalography"
     ],
-    "methods_description": "EEG was recorded using a g.tec g.GAMMAsys gel-based system (g.USBamp, g.GAMMAcap) with 16 channels sampled at 256 Hz, earlobe reference, and Fpz ground. Participants completed a two-stage protocol: a stimulus personalization task (12 stimuli varying in contrast and size, flickering at 10 Hz) followed by an online 4-target SSVEP game at 6.25/10/11.11/14.28 Hz across two themed maps, using both personalized and standard high-contrast stimuli. Raw XDF recordings were converted to BrainVision format with BIDS sidecars using mne-bids, following channel order, scaling, and montage conventions from the MOABB Schrag2026Pediatric reader.",
+    "methods_description": "EEG was recorded with a g.tec g.GAMMAsys gel-based system (g.USBamp, g.GAMMAcap), 16 channels at 256 Hz, with earlobe reference and Fpz ground. Task T1 presented 12 stimuli (4 contrasts x 3 sizes) flickering at 10 Hz for personalization. Tasks T2 and T3 were an online 4-target SSVEP game at 6.25, 10, 11.11 and 14.28 Hz, played once with the personal stimulus and once with a high-contrast standard. Original XDF recordings were converted to BrainVision format with mne-bids.",
     "funding": [],
     "searched_accessions": [
       "nm000280"
@@ -62,7 +93,7 @@
   "citation_details": [],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-08-25T11:31:40.756032+00:00",
+    "scoring_date": "2026-10-11T11:25:38.668543+00:00",
     "dataset_text_length": 2389,
     "num_citations_scored": 0
   }

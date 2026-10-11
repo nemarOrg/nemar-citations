@@ -1,10 +1,10 @@
 {
   "dataset_id": "on003392",
   "num_citations": 36,
-  "date_last_updated": "2026-09-30T10:44:28.599786+00:00",
+  "date_last_updated": "2026-10-11T10:43:50.842447+00:00",
   "metadata": {
-    "total_cumulative_citations": 738,
-    "fetch_date": "2026-09-29T11:08:05.554231+00:00",
+    "total_cumulative_citations": 726,
+    "fetch_date": "2026-10-11T10:43:50.842447+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -16,15 +16,15 @@
       {
         "identifier": "10.1016/j.neuroimage.2014.02.017",
         "identifier_type": "doi",
-        "source_relation": "References",
+        "source_relation": "IsDescribedBy",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Supramodal processing optimizes visual perceptual learning and plasticity",
         "paper_year": 2014,
         "paper_venue": "NeuroImage",
         "reason": "Dataset's \"Published in\" cites this paper; same authors (Zilber, Ciuciu, Gramfort, Azizi, van Wassenhove) and the hMT+ localizer MEG data come from the vision-only training group in this study.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.21105/joss.01896",
@@ -32,12 +32,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
         "paper_year": 2019,
         "paper_venue": "The Journal of Open Source Software",
         "reason": "MNE-BIDS is a software tool used to convert this dataset to BIDS format; it does not describe this hMT+ localizer MEG dataset itself.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1038/sdata.2018.110",
@@ -45,12 +45,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MEG-BIDS, the brain imaging data structure extended to magnetoencephalography",
         "paper_year": 2018,
         "paper_venue": "Scientific Data",
         "reason": "MEG-BIDS is the standard specification the dataset was formatted with (Niso et al. 2018), not a paper describing this hMT+ localizer dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on003392",
@@ -58,12 +58,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -72,31 +72,27 @@
     ],
     "keywords": [
       "MEG",
-      "motion perception",
-      "visual cortex",
+      "Magnetoencephalography",
       "hMT+",
+      "visual motion perception",
       "perceptual learning",
-      "neuroimaging",
-      "hMT+ localizer",
-      "BIDS",
-      "MEG-BIDS",
+      "localizer task",
       "anatomical MRI"
     ],
-    "methods_description": "MEG data were recorded using a 306-channel Neuromag Elekta system at 2 kHz sampling rate with 0.03–600 Hz band-pass filtering. Head position was tracked with four HPI coils before each block, and anatomical landmarks (nasion, pre-auricular points) were digitized. Concurrent EOG and ECG recordings were obtained. T1-weighted anatomical MRI was acquired on a 3-T Siemens Trio scanner (voxel size 1.0 × 1.0 × 1.1 mm, TR = 2300 ms, TE = 2.98 ms). Empty room recordings (5 min) were acquired for noise covariance estimation.",
+    "methods_description": "MEG was recorded with a 306-channel Neuromag Elekta system at 2 kHz, band-pass filtered 0.03-600 Hz, with HPI coils, EOG and ECG, plus 5 min of empty-room noise recording. T1-weighted anatomical MRI was acquired on a 3T Siemens Trio (TR 2300 ms, TE 2.98 ms, ~1 mm voxels). Each participant viewed 120 trials of moving dots, 50% of which became coherent motion. Data were organized in MEG-BIDS using MNE-BIDS.",
     "funding": [
       {
-        "funder_name": "European Commission",
-        "award_number": "IRG-249222",
-        "award_title": "Marie Curie Individual Research Grant"
+        "funder_name": "Marie Curie",
+        "award_number": "IRG-249222"
       },
       {
         "funder_name": "European Research Council",
         "award_number": "ERC-StG-263584"
       },
       {
-        "funder_name": "ANR",
+        "funder_name": "Agence Nationale de la Recherche",
         "award_number": "ANR-0909-JCJC-071",
-        "award_title": "Schubert"
+        "award_title": "ANR Schubert"
       }
     ],
     "searched_accessions": [
@@ -120,7 +116,7 @@
       "pmid": "24675649",
       "openalex_id": "W2166500681",
       "source_doi": "10.1016/j.neuroimage.2014.02.017",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.3956004291772843,
@@ -137,13 +133,13 @@
       "venue": "NeuroImage",
       "year": 2015,
       "url": "https://doi.org/10.1016/j.neuroimage.2015.09.045",
-      "cited_by": 119,
+      "cited_by": 111,
       "abstract": null,
       "doi": "10.1016/j.neuroimage.2015.09.045",
       "pmid": "26419391",
       "openalex_id": "W1769676696",
       "source_doi": "10.1016/j.neuroimage.2014.02.017",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.46299728751182556,
@@ -166,7 +162,7 @@
       "pmid": "36456401",
       "openalex_id": "W4310102767",
       "source_doi": "10.1016/j.neuroimage.2014.02.017",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.44153311550617225,
@@ -183,13 +179,13 @@
       "venue": "Journal of the Association for Research in Otolaryngology",
       "year": 2021,
       "url": "https://doi.org/10.1007/s10162-021-00789-0",
-      "cited_by": 65,
+      "cited_by": 64,
       "abstract": "In a naturalistic environment, auditory cues are often accompanied by information from other senses, which can be redundant with or complementary to the auditory information. Although the multisensory interactions derived from this combination of information and that shape auditory function are seen across all sensory modalities, our greatest body of knowledge to date centers on how vision influences audition. In this review, we attempt to capture the state of our understanding at this point in time regarding this topic. Following a general introduction, the review is divided into 5 sections. In the first section, we review the psychophysical evidence in humans regarding vision's influence in audition, making the distinction between vision's ability to enhance versus alter auditory performance and perception. Three examples are then described that serve to highlight vision's ability to modulate auditory processes: spatial ventriloquism, cross-modal dynamic capture, and the McGurk effec",
       "doi": "10.1007/s10162-021-00789-0",
       "pmid": "34014416",
       "openalex_id": "W3163104790",
       "source_doi": "10.1016/j.neuroimage.2014.02.017",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.46031468689441685,
@@ -202,7 +198,7 @@
     },
     {
       "title": "Alpha Oscillations Reduce Temporal Long-Range Dependence in Spontaneous Human Brain Activity",
-      "author": "Robert O. Becker, Dimitri Van De Ville, Andreas K. Kleinschmidt",
+      "author": "Robert Becker, Dimitri Van De Ville, Andreas K. Kleinschmidt",
       "venue": "Journal of Neuroscience",
       "year": 2017,
       "url": "https://doi.org/10.1523/jneurosci.0831-17.2017",
@@ -212,12 +208,12 @@
       "pmid": "29167403",
       "openalex_id": "W2770926192",
       "source_doi": "10.1016/j.neuroimage.2014.02.017",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.3740029871463776,
-        "similarity_score": 0.34000271558761597,
-        "citation_text_length": 1217,
+        "confidence_score": 0.37316676974296575,
+        "similarity_score": 0.33924251794815063,
+        "citation_text_length": 1214,
         "dataset_text_length": 2265,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -230,16 +226,16 @@
       "year": 2018,
       "url": "https://doi.org/10.1016/j.jneumeth.2018.09.010",
       "cited_by": 53,
-      "abstract": "Abstract Background The temporal structure of macroscopic brain activity displays both oscillatory and scale-free dynamics. While the functional relevance of neural oscillations has been largely investigated, both the nature and the role of scale-free dynamics in brain processing have been disputed. New Method Here, we offer a novel method to rigorously enrich the characterization of scale-free brain activity using a robust wavelet-based assessment of self-similarity and multifractality. For this, we analyzed human brain activity recorded with magnetoencephalography (MEG) while participants were at rest or performing a task. Results First, we report consistent infraslow (from 0.1 to 1.5 Hz) scalefree dynamics (i.e., self-similarity and multifractality) in resting-state and task data. Second, we observed a fronto-occipital gradient of self-similarity reminiscent of the known hierarchy of temporal scales from sensory to higherorder cortices; the anatomical gradient was more pronounced in",
+      "abstract": "Background The temporal structure of macroscopic brain activity displays both oscillatory and scale-free dynamics. While the functional relevance of neural oscillations has been largely investigated, both the nature and the role of scale-free dynamics in brain processing have been disputed. New Method Here, we offer a novel method to rigorously enrich the characterization of scale-free brain activity using a robust wavelet-based assessment of self-similarity and multifractality. For this, we analyzed human brain activity recorded with magnetoencephalography (MEG) while participants were at rest or performing a task. Results First, we report consistent infraslow (from 0.1 to 1.5 Hz) scalefree dynamics (i.e., self-similarity and multifractality) in resting-state and task data. Second, we observed a fronto-occipital gradient of self-similarity reminiscent of the known hierarchy of temporal scales from sensory to higherorder cortices; the anatomical gradient was more pronounced in task tha",
       "doi": "10.1016/j.jneumeth.2018.09.010",
       "pmid": "30213548",
       "openalex_id": "W2949151678",
       "source_doi": "10.1016/j.neuroimage.2014.02.017",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.43293408751487733,
-        "similarity_score": 0.393576443195343,
+        "confidence_score": 0.442202240228653,
+        "similarity_score": 0.4020020365715027,
         "citation_text_length": 1270,
         "dataset_text_length": 2265,
         "scoring_method": "sentence_transformers",
@@ -252,13 +248,13 @@
       "venue": "Nature Communications",
       "year": 2022,
       "url": "https://doi.org/10.1038/s41467-022-29687-6",
-      "cited_by": 32,
+      "cited_by": 30,
       "abstract": "Neural mechanisms that arbitrate between integrating and segregating multisensory information are essential for complex scene analysis and for the resolution of the multisensory correspondence problem. However, these mechanisms and their dynamics remain largely unknown, partly because classical models of multisensory integration are static. Here, we used the Multisensory Correlation Detector, a model that provides a good explanatory power for human behavior while incorporating dynamic computations. Participants judged whether sequences of auditory and visual signals originated from the same source (causal inference) or whether one modality was leading the other (temporal order), while being recorded with magnetoencephalography. First, we confirm that the Multisensory Correlation Detector explains causal inference and temporal order behavioral judgments well. Second, we found strong fits of brain activity to the two outputs of the Multisensory Correlation Detector in temporo-parietal co",
       "doi": "10.1038/s41467-022-29687-6",
       "pmid": "35513362",
       "openalex_id": "W4229069210",
       "source_doi": "10.1016/j.neuroimage.2014.02.017",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.5702365775406361,
@@ -281,7 +277,7 @@
       "pmid": "28316841",
       "openalex_id": "W2591405119",
       "source_doi": "10.1016/j.neuroimage.2014.02.017",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.4195995211601258,
@@ -298,13 +294,13 @@
       "venue": "Frontiers in Human Neuroscience",
       "year": 2014,
       "url": "https://doi.org/10.3389/fnhum.2014.00829",
-      "cited_by": 19,
+      "cited_by": 20,
       "abstract": "In a series of studies we have been investigating how multisensory training affects unisensory perceptual learning with speech stimuli. Previously, we reported that audiovisual (AV) training with speech stimuli can promote auditory-only (AO) perceptual learning in normal-hearing adults but can impede learning in congenitally deaf adults with late-acquired cochlear implants. Here, impeder and promoter effects were sought in normal-hearing adults who participated in lipreading training. In Experiment 1, visual-only (VO) training on paired associations between CVCVC nonsense word videos and nonsense pictures demonstrated that VO words could be learned to a high level of accuracy even by poor lipreaders. In Experiment 2, visual-auditory (VA) training in the same paradigm but with the addition of synchronous vocoded acoustic speech impeded VO learning of the stimuli in the paired-associates paradigm. In Experiment 3, the vocoded AO stimuli were shown to be less informative than the VO speec",
       "doi": "10.3389/fnhum.2014.00829",
       "pmid": "25400566",
       "openalex_id": "W2131877984",
       "source_doi": "10.1016/j.neuroimage.2014.02.017",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.4763018667697907,
@@ -327,7 +323,7 @@
       "pmid": "33941832",
       "openalex_id": "W3159384913",
       "source_doi": "10.1016/j.neuroimage.2014.02.017",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.5135128806531429,
@@ -350,7 +346,7 @@
       "pmid": null,
       "openalex_id": "W2973705981",
       "source_doi": "10.1016/j.neuroimage.2014.02.017",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.38032533228397375,
@@ -373,7 +369,7 @@
       "pmid": null,
       "openalex_id": "W2546457849",
       "source_doi": "10.1016/j.neuroimage.2014.02.017",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.32086502313613896,
@@ -396,7 +392,7 @@
       "pmid": "33488390",
       "openalex_id": "W3119172780",
       "source_doi": "10.1016/j.neuroimage.2014.02.017",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.43849189102649694,
@@ -419,7 +415,7 @@
       "pmid": "25873869",
       "openalex_id": "W1970094907",
       "source_doi": "10.1016/j.neuroimage.2014.02.017",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.545712959766388,
@@ -442,7 +438,7 @@
       "pmid": "27768194",
       "openalex_id": "W2534210227",
       "source_doi": "10.1016/j.neuroimage.2014.02.017",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.4567834615707398,
@@ -465,7 +461,7 @@
       "pmid": "31676416",
       "openalex_id": "W2989171428",
       "source_doi": "10.1016/j.neuroimage.2014.02.017",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.5686911046504974,
@@ -488,7 +484,7 @@
       "pmid": "28622759",
       "openalex_id": "W2577589571",
       "source_doi": "10.1016/j.neuroimage.2014.02.017",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.4426011383533478,
@@ -511,7 +507,7 @@
       "pmid": "31572264",
       "openalex_id": "W2970066681",
       "source_doi": "10.1016/j.neuroimage.2014.02.017",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.40722076296806337,
@@ -523,41 +519,18 @@
       }
     },
     {
-      "title": "Decoding the categorization of visual motion with magnetoencephalography",
-      "author": "Yousra Bekhti, Alexandre Gramfort, Nicolas Zilber, Virginie van Wassenhove",
-      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
-      "year": 2017,
-      "url": "https://doi.org/10.1101/103044",
-      "cited_by": 7,
-      "abstract": "ABSTRACT Brain decoding techniques are particularly efficient at deciphering weak and distributed neural patterns. Brain decoding has primarily been used in cognitive neurosciences to predict differences between pairs of stimuli (e.g. faces vs. houses), but how distinct brain/perceptual states can be decoded following the presentation of continuous sensory stimuli is unclear. Here, we developed a novel approach to decode brain activity recorded with magnetoencephalography while participants discriminated the coherence of two intermingled clouds of dots. Seven levels of visual motion coherence were tested and participants reported the colour of the most coherent cloud. The decoding approach was formulated as a ranked-classification problem, in which the model was evaluated by its capacity to predict the order of a pair of trials, each tested with two distinct visual motion coherence levels. Two brain states were decoded as a function of the degree of visual motion coherence. Importantly",
-      "doi": "10.1101/103044",
-      "pmid": null,
-      "openalex_id": "W2582450115",
-      "source_doi": "10.1016/j.neuroimage.2014.02.017",
-      "source_relation": "References",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.6634925484657288,
-        "similarity_score": 0.6031750440597534,
-        "citation_text_length": 1224,
-        "dataset_text_length": 2265,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Hysteresis in Audiovisual Synchrony Perception",
       "author": "Jean‐Rémy Martin, Anne Kösem, Virginie van Wassenhove",
       "venue": "PLoS ONE",
       "year": 2015,
       "url": "https://doi.org/10.1371/journal.pone.0119365",
-      "cited_by": 7,
+      "cited_by": 8,
       "abstract": "The effect of stimulation history on the perception of a current event can yield two opposite effects, namely: adaptation or hysteresis. The perception of the current event thus goes in the opposite or in the same direction as prior stimulation, respectively. In audiovisual (AV) synchrony perception, adaptation effects have primarily been reported. Here, we tested if perceptual hysteresis could also be observed over adaptation in AV timing perception by varying different experimental conditions. Participants were asked to judge the synchrony of the last (test) stimulus of an AV sequence with either constant or gradually changing AV intervals (constant and dynamic condition, respectively). The onset timing of the test stimulus could be cued or not (prospective vs. retrospective condition, respectively). We observed hysteretic effects for AV synchrony judgments in the retrospective condition that were independent of the constant or dynamic nature of the adapted stimuli; these effects dis",
       "doi": "10.1371/journal.pone.0119365",
       "pmid": "25774653",
       "openalex_id": "W2082266501",
       "source_doi": "10.1016/j.neuroimage.2014.02.017",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.4815925776958466,
@@ -571,7 +544,7 @@
     {
       "title": "Multivariate hurst exponent estimation in FMRI. Application to brain decoding of perceptual learning",
       "author": "H. Pelle, Ph. Ciuciu, M. Rahim, Elvis Dohmatob, Patrice Abry, Virginie van Wassenhove",
-      "venue": "2016 IEEE 13th International Symposium on Biomedical Imaging (ISBI)",
+      "venue": "IEEE International Symposium on Biomedical Imaging (ISBI)",
       "year": 2016,
       "url": "https://doi.org/10.1109/isbi.2016.7493433",
       "cited_by": 7,
@@ -580,12 +553,12 @@
       "pmid": null,
       "openalex_id": "W2437438233",
       "source_doi": "10.1016/j.neuroimage.2014.02.017",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5862373113632202,
-        "similarity_score": 0.5329430103302002,
-        "citation_text_length": 1291,
+        "confidence_score": 0.5840681552886964,
+        "similarity_score": 0.5309710502624512,
+        "citation_text_length": 1281,
         "dataset_text_length": 2265,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -603,7 +576,7 @@
       "pmid": null,
       "openalex_id": "W3154516499",
       "source_doi": "10.1016/j.neuroimage.2014.02.017",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.4346013459563256,
@@ -617,7 +590,7 @@
     {
       "title": "Scale-Free Functional Connectivity Analysis from Source Reconstructed MEG Data",
       "author": "Daria La Rocca, Philippe Ciuciu, Virginie van Wassenhove, Herwig Wendt, Patrice Abry, Roberto Leonarduzzi",
-      "venue": "2018 26th European Signal Processing Conference (EUSIPCO)",
+      "venue": "European Signal Processing Conference (EUSIPCO)",
       "year": 2018,
       "url": "https://doi.org/10.23919/eusipco.2018.8553319",
       "cited_by": 4,
@@ -626,12 +599,35 @@
       "pmid": null,
       "openalex_id": "W2901173943",
       "source_doi": "10.1016/j.neuroimage.2014.02.017",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5080823570489884,
-        "similarity_score": 0.4618930518627167,
-        "citation_text_length": 1279,
+        "confidence_score": 0.5062595814466477,
+        "similarity_score": 0.46023598313331604,
+        "citation_text_length": 1269,
+        "dataset_text_length": 2265,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Decoding the categorization of visual motion with magnetoencephalography",
+      "author": "Yousra Bekhti, Alexandre Gramfort, Nicolas Zilber, Virginie van Wassenhove",
+      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+      "year": 2017,
+      "url": "https://doi.org/10.1101/103044",
+      "cited_by": 4,
+      "abstract": "ABSTRACT Brain decoding techniques are particularly efficient at deciphering weak and distributed neural patterns. Brain decoding has primarily been used in cognitive neurosciences to predict differences between pairs of stimuli (e.g. faces vs. houses), but how distinct brain/perceptual states can be decoded following the presentation of continuous sensory stimuli is unclear. Here, we developed a novel approach to decode brain activity recorded with magnetoencephalography while participants discriminated the coherence of two intermingled clouds of dots. Seven levels of visual motion coherence were tested and participants reported the colour of the most coherent cloud. The decoding approach was formulated as a ranked-classification problem, in which the model was evaluated by its capacity to predict the order of a pair of trials, each tested with two distinct visual motion coherence levels. Two brain states were decoded as a function of the degree of visual motion coherence. Importantly",
+      "doi": "10.1101/103044",
+      "pmid": null,
+      "openalex_id": "W2582450115",
+      "source_doi": "10.1016/j.neuroimage.2014.02.017",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6634925484657288,
+        "similarity_score": 0.6031750440597534,
+        "citation_text_length": 1224,
         "dataset_text_length": 2265,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -640,7 +636,7 @@
     {
       "title": "Decoding perceptual thresholds from MEG/EEG",
       "author": "Yousra Bekhti, Nicolas Zilber, Fabián Pedregosa, Philippe Ciuciu, Virginie van Wassenhove, Alexandre Gramfort",
-      "venue": "2014 International Workshop on Pattern Recognition in Neuroimaging",
+      "venue": "International Workshop on Pattern Recognition in NeuroImaging",
       "year": 2014,
       "url": "https://doi.org/10.1109/prni.2014.6858510",
       "cited_by": 4,
@@ -649,12 +645,12 @@
       "pmid": null,
       "openalex_id": "W2000737070",
       "source_doi": "10.1016/j.neuroimage.2014.02.017",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6696752071380616,
-        "similarity_score": 0.6087956428527832,
-        "citation_text_length": 1257,
+        "confidence_score": 0.6687432646751404,
+        "similarity_score": 0.6079484224319458,
+        "citation_text_length": 1252,
         "dataset_text_length": 2265,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -672,7 +668,7 @@
       "pmid": "35913386",
       "openalex_id": "W4289456678",
       "source_doi": "10.1016/j.neuroimage.2014.02.017",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.3740548458695412,
@@ -695,7 +691,7 @@
       "pmid": null,
       "openalex_id": "W4388960081",
       "source_doi": "10.1016/j.neuroimage.2014.02.017",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.4704805800318719,
@@ -718,7 +714,7 @@
       "pmid": null,
       "openalex_id": "W3110782667",
       "source_doi": "10.1016/j.neuroimage.2014.02.017",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.4726810204982758,
@@ -741,7 +737,7 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1016/j.neuroimage.2014.02.017",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.5335335981845856,
@@ -764,7 +760,7 @@
       "pmid": "38010315",
       "openalex_id": "W4389046175",
       "source_doi": "10.1016/j.neuroimage.2014.02.017",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.486135285794735,
@@ -787,7 +783,7 @@
       "pmid": null,
       "openalex_id": "W4323567235",
       "source_doi": "10.1016/j.neuroimage.2014.02.017",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.4801799216866494,
@@ -810,7 +806,7 @@
       "pmid": null,
       "openalex_id": "W2909084692",
       "source_doi": "10.1016/j.neuroimage.2014.02.017",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.5019673943519593,
@@ -824,7 +820,7 @@
     {
       "title": "Impact of perceptual learning on resting-state fMRI connectivity: A supervised classification study",
       "author": "Mehdi Rahim, Philippe Ciuciu, Salma Bougacha",
-      "venue": "2016 24th European Signal Processing Conference (EUSIPCO)",
+      "venue": "European Signal Processing Conference (EUSIPCO)",
       "year": 2016,
       "url": "https://doi.org/10.1109/eusipco.2016.7760248",
       "cited_by": 1,
@@ -833,12 +829,12 @@
       "pmid": null,
       "openalex_id": "W2564759046",
       "source_doi": "10.1016/j.neuroimage.2014.02.017",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5636022686958313,
-        "similarity_score": 0.5123656988143921,
-        "citation_text_length": 1239,
+        "confidence_score": 0.5669308125972748,
+        "similarity_score": 0.5153916478157043,
+        "citation_text_length": 1229,
         "dataset_text_length": 2265,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -856,7 +852,7 @@
       "pmid": null,
       "openalex_id": "W2971777447",
       "source_doi": "10.1016/j.neuroimage.2014.02.017",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.5191888898611069,
@@ -879,7 +875,7 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1016/j.neuroimage.2014.02.017",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.5634893774986267,
@@ -892,7 +888,7 @@
     },
     {
       "title": "La convergence de l'activité neurale vers des attracteurs multifractals localisés prédit la capacité d'apprentissage",
-      "author": "Philippe Ciuciu, Nicolas Zilber, P. Abry, V. van Wassenhove",
+      "author": "Philippe Ciuciu, N. Zilber, P. Abry, V. van Wassenhove",
       "venue": "n/a",
       "year": 2015,
       "url": "n/a",
@@ -902,12 +898,12 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1016/j.neuroimage.2014.02.017",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.4036250710487366,
-        "similarity_score": 0.4036250710487366,
-        "citation_text_length": 205,
+        "confidence_score": 0.40581363439559937,
+        "similarity_score": 0.40581363439559937,
+        "citation_text_length": 200,
         "dataset_text_length": 2265,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -925,7 +921,7 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1016/j.neuroimage.2014.02.017",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.42319053411483765,
@@ -939,15 +935,15 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T10:56:08.488609+00:00",
+    "scoring_date": "2026-10-11T11:28:24.021527+00:00",
     "dataset_text_length": 2265,
     "num_citations_scored": 36,
     "summary_stats": {
-      "mean_confidence": 0.4789870902482007,
+      "mean_confidence": 0.4792377893709475,
       "median_confidence": 0.4715808002650739,
-      "std_confidence": 0.077301181716428,
+      "std_confidence": 0.07707404300497342,
       "min_confidence": 0.32086502313613896,
-      "max_confidence": 0.6696752071380616,
+      "max_confidence": 0.6687432646751404,
       "high_confidence_count": 0,
       "medium_confidence_count": 31,
       "low_confidence_count": 5

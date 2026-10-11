@@ -1,16 +1,14 @@
 {
   "dataset_id": "on002158",
-  "num_citations": 68,
-  "date_last_updated": "2026-09-29T11:04:38.533681+00:00",
+  "num_citations": 70,
+  "date_last_updated": "2026-10-11T10:41:07.748221+00:00",
   "metadata": {
     "total_cumulative_citations": 1603,
-    "fetch_date": "2026-09-29T11:04:38.533681+00:00",
+    "fetch_date": "2026-10-11T10:41:07.748221+00:00",
     "processing_version": "1.0",
-    "fetch_status": "partial",
+    "fetch_status": "success",
     "anchor_count": 3,
-    "anchor_errors": {
-      "10.82901/nemar.on002158": "not_found"
-    },
+    "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
     "anchor_judgment_model": "claude-sonnet-5-5",
@@ -18,15 +16,15 @@
       {
         "identifier": "10.1073/pnas.1918335117",
         "identifier_type": "doi",
-        "source_relation": "References",
+        "source_relation": "IsDescribedBy",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Disentangling the origins of confidence in speeded perceptual judgments through multimodal imaging",
         "paper_year": 2020,
         "paper_venue": "Proceedings of the National Academy of Sciences",
         "reason": "Dataset README names this exact PNAS paper (same title, authors, abstract) as the study reporting the data; DataCite relation is IsDescribedBy.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1101/496877",
@@ -34,12 +32,12 @@
         "source_relation": "IsVersionOf",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Disentangling the origins of confidence in speeded perceptual judgments through multimodal imaging",
         "paper_year": 2018,
         "paper_venue": "bioRxiv (Cold Spring Harbor Laboratory)",
         "reason": "bioRxiv preprint with the same title, authors, and abstract as the dataset's README, which names it as the preprint of the study reporting this data.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on002158",
@@ -47,12 +45,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -63,13 +61,13 @@
     "keywords": [
       "EEG",
       "fMRI",
-      "metacognition",
-      "confidence judgment",
-      "decision making",
-      "prefrontal cortex",
-      "multimodal imaging"
+      "confidence",
+      "Metacognition",
+      "Decision Making",
+      "simultaneous EEG-fMRI",
+      "perceptual judgment"
     ],
-    "methods_description": "Participants performed speeded perceptual judgments (numerosity discrimination) in active and observation conditions while reporting confidence. Data were acquired using concurrent EEG and fMRI. EEG preprocessing included MR-gradient artifact removal, ballistocardiogram correction, bandpass filtering (1-10 Hz), independent component analysis, and dipolar source localization. fMRI analysis employed general linear modeling with parametric modulation by confidence ratings, response times, and perceptual evidence, with group-level results corrected for multiple comparisons using cluster-extent family-wise error correction.",
+    "methods_description": "EEG was recorded concurrently with fMRI. MR-gradient artifacts were removed by sliding window template subtraction, and ballistocardiogram artifacts were removed in BrainVision Analyzer 2. Data were band-pass filtered at 1-10 Hz, epoched around response onset, re-referenced to a common average, and cleaned with ICA and dipole localization in EEGLAB. fMRI was modeled with a GLM using regressors for the active and observation conditions, parametrically modulated by confidence, response time, and perceptual evidence. Group-level results used cluster-extent FWE correction.",
     "funding": [
       {
         "funder_name": "Bertarelli Foundation"
@@ -81,14 +79,7 @@
         "funder_name": "European Research Council",
         "award_number": "803122"
       }
-    ],
-    "searched_accessions": [
-      "on002158",
-      "ds002158"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 1,
-    "num_datapaper_citations": 67
+    ]
   },
   "citation_details": [
     {
@@ -1112,6 +1103,36 @@
       "openalex_id": "W4313390083",
       "source_doi": "10.1101/496877",
       "source_relation": "IsVersionOf",
+      "discovery_backend": "opencite"
+    },
+    {
+      "title": "Towards a unified view of metacognition : Insights from metamemory",
+      "author": "Audrey Mazancieux",
+      "venue": "n/a",
+      "year": 2020,
+      "url": "https://doi.org/10.70675/f37dcebbz4e30z4da4za014z74039ef3666f",
+      "cited_by": 0,
+      "abstract": "Vers une vision unifiée de la métacognition : Apports de la métamémoire La métacognition et en particulier les jugements métacognitifs ont été largement étudiés de façon séparée dans le domaine de la mémoire épisodique (métamémoire) ou de la perception visuelle (métaperception). Malgré cette tradition historique d’évaluer la métacognition de façon disparate, des similitudes dans les cadres méthodologiques et théoriques peuvent être observées et des travaux récents proposent de comparer les jugements métacognitifs à travers une variété de tâches (nommés tâches de premier ordre) proposant l'idée que la métacognition pourrait être domaine-général. Dans cette thèse, nous nous sommes concentrés sur la « cue-utilization view » issue de la littérature sur la métamémoire afin d’explorer l’étendue de la métacognition via deux études corrélationnelles et trois études expérimentales. En particulier, nous avons cherché à savoir si les individus utilisent une ressource commune dans leurs jugements ",
+      "doi": "10.70675/f37dcebbz4e30z4da4za014z74039ef3666f",
+      "pmid": null,
+      "openalex_id": "W7148911696",
+      "source_doi": "10.82901/nemar.on002158",
+      "source_relation": "References",
+      "discovery_backend": "opencite"
+    },
+    {
+      "title": "Fixing “iOS Simulator failed to install the application”",
+      "author": "John Romkey",
+      "venue": "n/a",
+      "year": 2012,
+      "url": "n/a",
+      "cited_by": 0,
+      "abstract": null,
+      "doi": null,
+      "pmid": null,
+      "openalex_id": "W38909014",
+      "source_doi": "10.82901/nemar.on002158",
+      "source_relation": "References",
       "discovery_backend": "opencite"
     }
   ]

@@ -1,10 +1,10 @@
 {
   "dataset_id": "on006018",
-  "num_citations": 6,
-  "date_last_updated": "2026-09-30T16:33:52.393473+00:00",
+  "num_citations": 8,
+  "date_last_updated": "2026-10-11T11:07:19.396941+00:00",
   "metadata": {
-    "total_cumulative_citations": 9,
-    "fetch_date": "2026-09-29T11:31:08.832321+00:00",
+    "total_cumulative_citations": 12,
+    "fetch_date": "2026-10-11T11:07:19.396941+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -19,12 +19,12 @@
         "source_relation": "IsDescribedBy",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Cognitive Electrophysiology in Socioeconomic Context in Adulthood",
         "paper_year": 2025,
         "paper_venue": "Scientific Data",
         "reason": "Scientific Data descriptor with the same title, authors, and 127 young adults EEG/SES/ERP CORE content as this dataset; DataCite marks IsDescribedBy.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on006018",
@@ -32,12 +32,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -46,14 +46,14 @@
     ],
     "keywords": [
       "EEG",
-      "Electroencephalography",
-      "Low Socioeconomic Status",
       "event-related potentials",
-      "Attention Deficit Disorder with Hyperactivity",
-      "Cognition",
-      "adulthood"
+      "socioeconomic status",
+      "ERP CORE",
+      "ADHD symptoms",
+      "young adults",
+      "Electroencephalography"
     ],
-    "methods_description": "EEG data were recorded using a Brain Products actiCHamp Plus system with BrainVision Recorder (v1.25.0101) and a 32-channel actiCAP slim active electrode system mounted per the international 10/20 system. The ground electrode was placed at FPz, two electrodes were repurposed for mastoid referencing, and three electrodes recorded EOG (horizontal and vertical). Data were sampled at 500 Hz and referenced to Cz. StimTrak was used to assess stimulus presentation delays (~20 ms) for visual and auditory stimuli.",
+    "methods_description": "EEG was recorded with a Brain Products actiCHamp Plus system and BrainVision Recorder, using a 32-channel actiCAP slim active electrode cap. Twenty-seven channels were scalp electrodes placed per the 10/20 system, two were mastoid references, and three were EOG electrodes. Data were sampled at 500 Hz with a Cz reference and an FPz ground. StimTrak measured a stimulus presentation delay of about 20 ms for both visual and auditory stimuli.",
     "funding": [
       {
         "funder_name": "Research start-up funds awarded to Elif Isbell by University of California Merced."
@@ -62,46 +62,16 @@
         "funder_name": "University of California Merced",
         "award_title": "Research start-up funds awarded to Elif Isbell"
       }
-    ],
-    "searched_accessions": [
-      "on006018",
-      "ds006018"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 1,
-    "num_datapaper_citations": 5
+    ]
   },
   "citation_details": [
     {
-      "title": "Benchmarking ERP Analysis: Manual Features, Deep Learning, and Foundation Models",
-      "author": "Yihe Wang, Zhiqi Kang, Bo Chen, Yu Zhang, Xiang Zhang",
-      "venue": "IEEE transactions on bio-medical engineering",
-      "year": 2026,
-      "url": "https://doi.org/10.1109/TBME.2026.3686229",
-      "cited_by": 5,
-      "abstract": "Event-related potential (ERP), a specialized paradigm of electroencephalographic (EEG), reflects neurological responses to external stimuli or events, generally associated with the brain's processing of specific cognitive tasks. ERP plays a critical role in cognitive analysis, the detection of neurological diseases, and the assessment of psychological states. Recent years have seen substantial advances in deep learning-based methods for spontaneous EEG and other non-time-locked task-related EEG signals. However, their effectiveness on ERP data remains underexplored, and many existing ERP studies still rely heavily on manually extracted features. In this paper, we conduct a comprehensive benchmark study that systematically compares traditional manual features (followed by a linear classifier), deep learning models, and pre-trained EEG foundation models for ERP analysis. We establish a unified data preprocessing and training pipeline and evaluate these approaches on two representative ta",
-      "doi": "10.1109/TBME.2026.3686229",
-      "pmid": "42060433",
-      "openalex_id": null,
-      "source_doi": "10.1038/s41597-025-05209-z",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.6027684062719345,
-        "similarity_score": 0.5218774080276489,
-        "citation_text_length": 1216,
-        "dataset_text_length": 2348,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Laya: A LeJEPA Approach to EEG via Latent Prediction over Reconstruction",
-      "author": "S. Panchavati, Uddhav Panchavati, Hiroki Nariai, Corey W. Arnold, W. Speier",
+      "author": "S. Panchavati, Uddhav Panchavati, H. Nariai, Corey W. Arnold, W. Speier",
       "venue": "ArXiv",
       "year": 2026,
       "url": "https://doi.org/10.48550/arXiv.2603.16281",
-      "cited_by": 4,
+      "cited_by": 6,
       "abstract": "Electroencephalography (EEG) is a widely used tool for studying brain function, with applications in clinical neuroscience, diagnosis, and brain-computer interfaces (BCIs). Recent EEG foundation models trained on large unlabeled corpora aim to learn transferable representations, but their effectiveness remains unclear; reported improvements over smaller task-specific models are often modest, sensitive to downstream adaptation and fine-tuning strategies, and limited under linear probing. We hypothesize that one contributing factor is the reliance on signal reconstruction as the primary self-supervised learning (SSL) objective, which biases representations toward high-variance artifacts rather than task-relevant neural structure. To address this limitation, we explore an SSL paradigm based on Joint Embedding Predictive Architectures (JEPA), which learn by predicting latent representations instead of reconstructing raw signals. We introduce Laya, the first EEG foundation model based on Le",
       "doi": "10.48550/arXiv.2603.16281",
       "pmid": null,
@@ -110,9 +80,32 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5221223285794259,
-        "similarity_score": 0.452053964138031,
-        "citation_text_length": 1191,
+        "confidence_score": 0.5235278002917767,
+        "similarity_score": 0.453270822763443,
+        "citation_text_length": 1187,
+        "dataset_text_length": 2348,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Benchmarking ERP Analysis: Manual Features, Deep Learning, and Foundation Models",
+      "author": "Yi-He Wang, Zhiqi Kang, Bo Chen, Yu Zhang, Xiang Zhang",
+      "venue": "IEEE transactions on bio-medical engineering",
+      "year": 2026,
+      "url": "https://doi.org/10.1109/TBME.2026.3686229",
+      "cited_by": 6,
+      "abstract": "Event-related potential (ERP), a specialized paradigm of electroencephalographic (EEG), reflects neurological responses to external stimuli or events, generally associated with the brain's processing of specific cognitive tasks. ERP plays a critical role in cognitive analysis, the detection of neurological diseases, and the assessment of psychological states. Recent years have seen substantial advances in deep learning-based methods for spontaneous EEG and other non-time-locked task-related EEG signals. However, their effectiveness on ERP data remains underexplored, and many existing ERP studies still rely heavily on manually extracted features. In this paper, we conduct a comprehensive benchmark study that systematically compares traditional manual features (followed by a linear classifier), deep learning models, and pre-trained EEG foundation models for ERP analysis. We establish a unified data preprocessing and training pipeline and evaluate these approaches on two representative ta",
+      "doi": "10.1109/TBME.2026.3686229",
+      "pmid": "42060433",
+      "openalex_id": null,
+      "source_doi": "10.1038/s41597-025-05209-z",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6004289022088052,
+        "similarity_score": 0.5198518633842468,
+        "citation_text_length": 1217,
         "dataset_text_length": 2348,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -162,9 +155,7 @@
         "dataset_text_length": 2348,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      },
-      "mentions_accession": true,
-      "matched_accession": "ds006018"
+      }
     },
     {
       "title": "A Minimal EEG Montage for Adult ADHD Detection: Discovering the Frontoparietal Beta–Theta Framework Via Explainable AI",
@@ -192,7 +183,7 @@
     {
       "title": "Adaptive Split-MMD Training for Small-Sample Cross-Dataset P300 EEG Classification",
       "author": "Weiyu Chen, Arnaud Delorme",
-      "venue": "2025 IEEE International Conference on Bioinformatics and Biomedicine (BIBM)",
+      "venue": "IEEE International Conference on Bioinformatics and Biomedicine (BIBM)",
       "year": 2025,
       "url": "https://doi.org/10.1109/bibm66473.2025.11356119",
       "cited_by": 0,
@@ -204,9 +195,55 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5800110617280008,
-        "similarity_score": 0.5021740794181824,
-        "citation_text_length": 1222,
+        "confidence_score": 0.5762942428886891,
+        "similarity_score": 0.4989560544490814,
+        "citation_text_length": 1217,
+        "dataset_text_length": 2348,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "SPERA: Spherical Prior EEG Foundation Model with Geometry- and Frequency-Aware Latent Prediction",
+      "author": "Minsu Kim, Ye-Sung Kim, Hyeseong Jeon, Wooseok Hyung, Joshua Lee, Chang-Hwan Im",
+      "venue": "n/a",
+      "year": 2026,
+      "url": "n/a",
+      "cited_by": 0,
+      "abstract": "Electroencephalography (EEG) provides a non-invasive measure of ongoing neural activity, but building general-purpose EEG models remains challenging due to the heterogeneity of subjects, devices, and electrode montages. Existing EEG foundation models predominantly rely on reconstruction-based objectives defined on the observed signal, which contains both neural and non-neural components. We introduce SPERA (Spherical Prior EEG Representation Architecture), an EEG foundation model that adopts the joint-embedding predictive architecture (JEPA) to predict in latent space. SPERA introduces a Legendre-polynomial spatial prior, incorporated into attention to encode varying scalp electrode geometries. Two further components adapt the model to EEG: factorized temporal and spatial attention interleaved with periodic full-attention blocks, and a relational spectral regularizer aligning latent similarity structure with spectral views. Pretrained on approximately 80,000 hours of EEG from 29,048 su",
+      "doi": null,
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.1038/s41597-025-05209-z",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5702577468752862,
+        "similarity_score": 0.4937296509742737,
+        "citation_text_length": 1217,
+        "dataset_text_length": 2348,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "ERP-FM: A Foundation Model for Universal ERP Analysis",
+      "author": "Yi-He Wang, Bo Chen, Tai-Da Li, Yu-Jun Yan, Rui Yin, Xiang Zhang",
+      "venue": "n/a",
+      "year": 2026,
+      "url": "n/a",
+      "cited_by": 0,
+      "abstract": "Foundation models have recently shown strong potential for learning generalizable EEG representations, yet their effectiveness for event-related potential (ERP) analysis remains unclear. In this work, we investigate two fundamental questions: 1) can foundation-model learning benefit ERP analysis, and what limits the transfer of existing EEG foundation models to ERP tasks? 2) can the complementary advantages of single-trial and averaged-trial ERP be integrated into a unified training pipeline? To study these questions, we curate a large-scale ERP corpus comprising 1,517,157 single-trial ERPs from 3,696 subjects across 38 datasets and 18 paradigms. Leveraging this corpus, we introduce ERP-FM, to the best of our knowledge, the first foundation model specifically developed for ERP representation learning. ERP-FM uses single-channel tokenization, temporal and spatial positional embeddings, and mixed masked autoencoding for large-scale single-trial pretraining. We compare our model against 1",
+      "doi": null,
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.1038/s41597-025-05209-z",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5250063148140908,
+        "similarity_score": 0.45455092191696167,
+        "citation_text_length": 1159,
         "dataset_text_length": 2348,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -215,17 +252,17 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T12:17:58.960083+00:00",
+    "scoring_date": "2026-10-11T11:38:45.037226+00:00",
     "dataset_text_length": 2348,
-    "num_citations_scored": 6,
+    "num_citations_scored": 8,
     "summary_stats": {
-      "mean_confidence": 0.6733618840575218,
-      "median_confidence": 0.6343195268511772,
-      "std_confidence": 0.12188707885858702,
-      "min_confidence": 0.5221223285794259,
+      "mean_confidence": 0.6413480643555522,
+      "median_confidence": 0.5883615725487472,
+      "std_confidence": 0.11947798016533383,
+      "min_confidence": 0.5235278002917767,
       "max_confidence": 0.8497296577692033,
       "high_confidence_count": 2,
-      "medium_confidence_count": 4,
+      "medium_confidence_count": 6,
       "low_confidence_count": 0
     }
   }

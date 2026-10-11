@@ -1,10 +1,10 @@
 {
   "dataset_id": "on005557",
   "num_citations": 0,
-  "date_last_updated": "2026-09-22T11:27:49.320836+00:00",
+  "date_last_updated": "2026-10-11T11:05:04.660327+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
-    "fetch_date": "2026-09-22T11:27:49.320836+00:00",
+    "fetch_date": "2026-10-11T11:05:04.660327+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 1,
@@ -19,12 +19,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -34,31 +34,23 @@
       "intracranial EEG",
       "free recall",
       "closed-loop stimulation",
-      "Deep Brain Stimulation",
-      "Memory",
-      "Electrocorticography",
+      "memory encoding",
+      "Electric Stimulation",
       "classifier"
     ],
-    "methods_description": "Intracranial EEG was recorded during a delayed free recall task with word encoding, distractor arithmetic, and free recall phases. An L2 logistic regression classifier trained on FR1 session data predicted subsequent recall from spectral power features (Morlet wavelet transform, 8 frequencies 3-180 Hz) computed from bipolar recordings 0-1366 ms post-word presentation, after removing line noise with a Butterworth band-stop filter. Classifier performance was validated via leave-one-session-out cross-validation with permutation testing. During closed-loop sessions, stimulation was delivered to a single electrode pair based on real-time classifier output relative to a training-derived median threshold, with stimulation parameters (anode/cathode, amplitude, frequency, pulse width, pulse count) recorded in behavioral event files.",
+    "methods_description": "Participants studied visually presented word lists, completed arithmetic distractor problems, and freely recalled the words. Each session had 26 lists, with no stimulation on the first 4. The remaining lists were split evenly between stimulation and no-stimulation conditions. On stimulation lists, classifier output for the 0-1366 ms after word onset was compared with the training median. If it was below the median, 500 ms of stimulation was delivered to a single electrode. The classifier was an L2 logistic regression on Morlet wavelet spectral power features (3-180 Hz), validated by leave-one-session-out cross-validation.",
     "funding": [
       {
         "funder_name": "DARPA",
         "award_number": "N66001-14-2-4032",
         "award_title": "RAM"
       }
-    ],
-    "searched_accessions": [
-      "on005557",
-      "ds005557"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 0
+    ]
   },
   "citation_details": [],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-22T13:25:58.389807+00:00",
+    "scoring_date": "2026-10-11T11:37:44.812939+00:00",
     "dataset_text_length": 2298,
     "num_citations_scored": 0
   }

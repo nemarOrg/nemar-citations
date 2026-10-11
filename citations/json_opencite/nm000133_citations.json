@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000133",
-  "num_citations": 6,
-  "date_last_updated": "2026-10-04T10:04:23.682757+00:00",
+  "num_citations": 5,
+  "date_last_updated": "2026-10-11T10:13:48.344203+00:00",
   "metadata": {
-    "total_cumulative_citations": 92,
-    "fetch_date": "2026-09-29T10:39:28.756142+00:00",
+    "total_cumulative_citations": 98,
+    "fetch_date": "2026-10-11T10:13:48.344203+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -19,25 +19,25 @@
         "source_relation": "IsDescribedBy",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Alljoined1 -- A dataset for EEG-to-Image decoding",
         "paper_year": 2024,
         "paper_venue": "arXiv (Cornell University)",
         "reason": "Alljoined1 paper introduces this dataset: 8 participants, 10,000 natural images, 64-channel EEG; matches the README's cited reference and title.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.nm000133",
         "identifier_type": "doi",
-        "source_relation": "IsVersionOf",
+        "source_relation": "References",
         "classification": null,
         "kept": true,
-        "paper_title": "Alljoined1",
-        "paper_year": 2026,
-        "paper_venue": "UC San Diego",
+        "kept_reason": "own_doi",
+        "paper_title": null,
+        "paper_year": null,
+        "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -46,28 +46,22 @@
     ],
     "keywords": [
       "EEG",
-      "Visual Perception",
+      "Electroencephalography",
+      "rapid serial visual presentation",
       "natural images",
       "EEG-to-image decoding",
-      "rapid serial visual presentation",
       "Natural Scenes Dataset",
-      "BioSemi ActiveTwo",
+      "visual perception",
       "oddball detection",
       "MS-COCO"
     ],
-    "methods_description": "EEG was recorded using a 64-channel BioSemi ActiveTwo system (Ag/AgCl sintered electrodes, International 10-20 system) at 512 Hz, referenced to CMS/DRL with average reference applied during preprocessing. Participants viewed images for 300 ms followed by 300 ms black screen with jitter, performing an oddball detection task. Preprocessing by original authors included 0.5-125 Hz band-pass filtering, 60 Hz notch filtering, FastICA (95% variance retained), epoching (-50 to 600 ms), AutoReject artifact rejection, baseline correction, and average re-referencing.",
-    "funding": [],
-    "searched_accessions": [
-      "nm000133"
-    ],
-    "num_accession_mentions": 1,
-    "num_dataset_citations": 1,
-    "num_datapaper_citations": 5
+    "methods_description": "EEG was recorded with a 64-channel BioSemi ActiveTwo system at 512 Hz. Participants viewed natural images for 300 ms each, followed by 300 ms of black screen plus 0-50 ms of jitter, and pressed a key on consecutive repeated images (oddball detection). Derivative preprocessing comprised 0.5-125 Hz band-pass filtering, a 60 Hz notch filter, FastICA, epoching from -50 to 600 ms, AutoReject artifact rejection, baseline correction and average re-referencing.",
+    "funding": []
   },
   "citation_details": [
     {
       "title": "Spurious reconstruction from brain activity",
-      "author": "Ken Shirakawa, Yoshihiro Nagano, Misato Tanaka, Shuntaro Aoki, Y. Muraki, Kei Majima, Yukiyasu Kamitani",
+      "author": "Ken Shirakawa, Yoshihiro Nagano, Misato Tanaka, Shuntaro Aoki, Yusuke Muraki, Kei Majima, Yukiyasu Kamitani",
       "venue": "Neural Networks",
       "year": 2025,
       "url": "https://doi.org/10.1016/j.neunet.2025.107515",
@@ -80,9 +74,9 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5135555635392667,
-        "similarity_score": 0.44463685154914856,
-        "citation_text_length": 1200,
+        "confidence_score": 0.5136227890849114,
+        "similarity_score": 0.44469505548477173,
+        "citation_text_length": 1204,
         "dataset_text_length": 2185,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -90,11 +84,11 @@
     },
     {
       "title": "Scaling laws for decoding images from brain activity",
-      "author": "Hubert J. Banville, Yohann Benchetrit, Stéphane d’Ascoli, Jérémy Rapin, Jean-Rémi King",
+      "author": "Hubert J. Banville, Yohann Benchetrit, Stéphane d'Ascoli, Jérémy Rapin, Jean-Rémi King",
       "venue": "ArXiv",
       "year": 2025,
       "url": "https://doi.org/10.48550/arXiv.2501.15322",
-      "cited_by": 30,
+      "cited_by": 33,
       "abstract": "Generative AI has recently propelled the decoding of images from brain activity. How do these approaches scale with the amount and type of neural recordings? Here, we systematically compare image decoding from four types of non-invasive devices: electroencephalography (EEG), magnetoencephalography (MEG), high-field functional Magnetic Resonance Imaging (3T fMRI) and ultra-high field (7T) fMRI. For this, we evaluate decoding models on the largest benchmark to date, encompassing 8 public datasets, 84 volunteers, 498 hours of brain recording and 2.3 million brain responses to natural images. Unlike previous work, we focus on single-trial decoding performance to simulate real-time settings. This systematic comparison reveals three main findings. First, the most precise neuroimaging devices tend to yield the best decoding performances, when the size of the training sets are similar. However, the gain enabled by deep learning - in comparison to linear models - is obtained with the noisiest d",
       "doi": "10.48550/arXiv.2501.15322",
       "pmid": null,
@@ -103,8 +97,8 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5941097009181977,
-        "similarity_score": 0.514380693435669,
+        "confidence_score": 0.5930767750740052,
+        "similarity_score": 0.513486385345459,
         "citation_text_length": 1182,
         "dataset_text_length": 2185,
         "scoring_method": "sentence_transformers",
@@ -117,7 +111,7 @@
       "venue": "ArXiv",
       "year": 2025,
       "url": "https://doi.org/10.48550/arXiv.2502.12048",
-      "cited_by": 10,
+      "cited_by": 13,
       "abstract": "Decoding neural activity into human-interpretable representations is a key research direction in brain-computer interfaces (BCIs) and computational neuroscience. Recent progress in machine learning and generative AI has driven growing interest in transforming non-invasive Electroencephalography (EEG) signals into images, text, and audio. This survey consolidates and analyzes developments across EEG-to-image synthesis, EEG-to-text generation, and EEG-to-audio reconstruction. We conducted a structured literature search across major databases (2017-2025), extracting key information on datasets, generative architectures (GANs, VAEs, transformers, diffusion models), EEG feature-encoding techniques, evaluation metrics, and the major challenges shaping current work in this area. Our review finds that EEG-to-image models predominantly employ encoder-decoder architectures built on GANs, VAEs, or diffusion models; EEG-to-text approaches increasingly leverage transformer-based language models for",
       "doi": "10.48550/arXiv.2502.12048",
       "pmid": null,
@@ -136,7 +130,7 @@
     },
     {
       "title": "CrossPT-EEG: A Benchmark for Cross-Participant and Cross-Time Generalization of EEG-based Visual Decoding",
-      "author": "Shu-Qi Zhu, Ziyi Ye, Qing-Yao Ai, Yi-Qun Liu",
+      "author": "Shu-Qi Zhu, Zi-Yi Ye, Qing-Yao Ai, Yi-Qun Liu",
       "venue": "n/a",
       "year": 2024,
       "url": "n/a",
@@ -149,9 +143,9 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.7240055644512178,
-        "similarity_score": 0.6268446445465088,
-        "citation_text_length": 1191,
+        "confidence_score": 0.7239714181423188,
+        "similarity_score": 0.6268150806427002,
+        "citation_text_length": 1192,
         "dataset_text_length": 2185,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -179,47 +173,22 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
-    },
-    {
-      "title": "Characterization of the Mutations Causing Hemophilia B in 2 Domestic Cats",
-      "author": "Michelle Goree, James L. Catalfamo, Shelly Aber, Mary K. Boudreaux",
-      "venue": "Journal of Veterinary Internal Medicine",
-      "year": 2005,
-      "url": "https://doi.org/10.1892/0891-6640(2005)19<200:cotmch>2.0.co;2",
-      "cited_by": 19,
-      "abstract": "The purpose of the present study was to determine the normal sequence for the gene encoding factor IX in cats and to characterize the genetic basis for hemophilia B in 2 unrelated male, domestic, mixed-breed cats. Genomic DNA sequence for the entire coding region of the factor IX gene was determined in the affected cats and compared to the sequence obtained from a healthy cat. The factor IX gene in cats encodes a mature protein consisting of 420 amino acids, unlike genes in humans and dogs that encode 415 and 413 amino acid proteins, respectively. Affected cat 1 had a single nucleotide change in exon 8 at the 1st nucleotide position of the codon encoding an arginine (CGA to TGA) at amino acid position 338. This mutation would be predicted to result in the appearance of a premature stop codon in the portion of the gene encoding much of the catalytic domain of the protein. Affected cat 2 had a single nucleotide change in exon 4 at the 2nd nucleotide position of the codon encoding amino acid 82 (TGT to TAT), which would be predicted to result in the substitution of a tyrosine for a cysteine. This substitution would likely result in disruption of a disulfide bond crucial to normal protein structure and function. This study represents the 1st time hemophilia B has been characterized at the molecular level in cats.",
-      "doi": "10.1892/0891-6640(2005)19<200:cotmch>2.0.co;2",
-      "pmid": "15822564",
-      "openalex_id": "W2129004252",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "nm000133",
-      "confidence_scoring": {
-        "confidence_score": 0.13219134062528612,
-        "similarity_score": 0.12017394602298737,
-        "citation_text_length": 1547,
-        "dataset_text_length": 2185,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-10-04T10:07:13.289078+00:00",
+    "scoring_date": "2026-10-11T11:19:14.215680+00:00",
     "dataset_text_length": 2185,
-    "num_citations_scored": 6,
+    "num_citations_scored": 5,
     "summary_stats": {
-      "mean_confidence": 0.5555669167886178,
-      "median_confidence": 0.6193725997209549,
-      "std_confidence": 0.20309158847763853,
-      "min_confidence": 0.13219134062528612,
+      "mean_confidence": 0.6400420626997948,
+      "median_confidence": 0.6446354985237122,
+      "std_confidence": 0.08056590760850807,
+      "min_confidence": 0.5136227890849114,
       "max_confidence": 0.7249038326740266,
       "high_confidence_count": 2,
       "medium_confidence_count": 3,
-      "low_confidence_count": 1
+      "low_confidence_count": 0
     }
   }
 }

@@ -1,16 +1,14 @@
 {
   "dataset_id": "on005863",
-  "num_citations": 1,
-  "date_last_updated": "2026-09-30T16:33:44.491579+00:00",
+  "num_citations": 8,
+  "date_last_updated": "2026-10-11T11:06:32.265980+00:00",
   "metadata": {
-    "total_cumulative_citations": 0,
-    "fetch_date": "2026-09-30T10:43:24.745153+00:00",
+    "total_cumulative_citations": 12,
+    "fetch_date": "2026-10-11T11:06:32.265980+00:00",
     "processing_version": "1.0",
-    "fetch_status": "not_found",
+    "fetch_status": "success",
     "anchor_count": 1,
-    "anchor_errors": {
-      "10.82901/nemar.on005863": "not_found"
-    },
+    "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
     "anchor_judgment_model": "claude-sonnet-5-5",
@@ -35,33 +33,69 @@
     "keywords": [
       "EEG",
       "event-related potentials",
-      "Low Socioeconomic Status",
-      "attention-deficit/hyperactivity disorder",
-      "Cognition",
-      "adulthood",
-      "ERP CORE",
-      "income",
-      "food security"
+      "socioeconomic status",
+      "young adults",
+      "ADHD symptoms",
+      "ERP CORE"
     ],
-    "methods_description": "EEG data were recorded using tasks directly acquired from or adapted from the ERP CORE battery, designed to capture neural correlates of perception, cognition, and action. Identifiable information (date of birth, race/ethnicity, zip code, languages spoken) was removed prior to sharing, and participant IDs and raw EEG files were renamed for BIDS compatibility.",
+    "methods_description": "EEG was recorded during tasks obtained directly from ERP CORE or adapted from it. Each participant completed each task once. Participants also completed questionnaires on childhood and adult SES and an adult ADHD symptoms checklist. Identifiable information was removed and participant IDs were recoded before sharing.",
     "funding": [
       {
         "funder_name": "research start-up funds awarded to Elif Isbell by University of California Merced."
       },
       {
         "funder_name": "University of California Merced",
-        "award_title": "research start-up funds awarded to Elif Isbell"
+        "award_title": "Research start-up funds awarded to Elif Isbell"
       }
-    ],
-    "searched_accessions": [
-      "on005863",
-      "ds005863"
-    ],
-    "num_accession_mentions": 1,
-    "num_dataset_citations": 1,
-    "num_datapaper_citations": 0
+    ]
   },
   "citation_details": [
+    {
+      "title": "Laya: A LeJEPA Approach to EEG via Latent Prediction over Reconstruction",
+      "author": "S. Panchavati, Uddhav Panchavati, H. Nariai, Corey W. Arnold, W. Speier",
+      "venue": "ArXiv",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arXiv.2603.16281",
+      "cited_by": 6,
+      "abstract": "Electroencephalography (EEG) is a widely used tool for studying brain function, with applications in clinical neuroscience, diagnosis, and brain-computer interfaces (BCIs). Recent EEG foundation models trained on large unlabeled corpora aim to learn transferable representations, but their effectiveness remains unclear; reported improvements over smaller task-specific models are often modest, sensitive to downstream adaptation and fine-tuning strategies, and limited under linear probing. We hypothesize that one contributing factor is the reliance on signal reconstruction as the primary self-supervised learning (SSL) objective, which biases representations toward high-variance artifacts rather than task-relevant neural structure. To address this limitation, we explore an SSL paradigm based on Joint Embedding Predictive Architectures (JEPA), which learn by predicting latent representations instead of reconstructing raw signals. We introduce Laya, the first EEG foundation model based on Le",
+      "doi": "10.48550/arXiv.2603.16281",
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.82901/nemar.on005863",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5051962924003601,
+        "similarity_score": 0.43739938735961914,
+        "citation_text_length": 1187,
+        "dataset_text_length": 2316,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Benchmarking ERP Analysis: Manual Features, Deep Learning, and Foundation Models",
+      "author": "Yi-He Wang, Zhiqi Kang, Bo Chen, Yu Zhang, Xiang Zhang",
+      "venue": "IEEE transactions on bio-medical engineering",
+      "year": 2026,
+      "url": "https://doi.org/10.1109/TBME.2026.3686229",
+      "cited_by": 6,
+      "abstract": "Event-related potential (ERP), a specialized paradigm of electroencephalographic (EEG), reflects neurological responses to external stimuli or events, generally associated with the brain's processing of specific cognitive tasks. ERP plays a critical role in cognitive analysis, the detection of neurological diseases, and the assessment of psychological states. Recent years have seen substantial advances in deep learning-based methods for spontaneous EEG and other non-time-locked task-related EEG signals. However, their effectiveness on ERP data remains underexplored, and many existing ERP studies still rely heavily on manually extracted features. In this paper, we conduct a comprehensive benchmark study that systematically compares traditional manual features (followed by a linear classifier), deep learning models, and pre-trained EEG foundation models for ERP analysis. We establish a unified data preprocessing and training pipeline and evaluate these approaches on two representative ta",
+      "doi": "10.1109/TBME.2026.3686229",
+      "pmid": "42060433",
+      "openalex_id": null,
+      "source_doi": "10.82901/nemar.on005863",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5832988831400873,
+        "similarity_score": 0.5050206780433655,
+        "citation_text_length": 1217,
+        "dataset_text_length": 2316,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
     {
       "title": "Integrating socioeconomic context with multimodal EEG data for improved ADHD risk screening",
       "author": "Sadikul Haque Sadi, Md. Arman Hossain, Md. Nurul Ahad Tawhid",
@@ -69,19 +103,132 @@
       "year": 2026,
       "url": "https://doi.org/10.1371/journal.pone.0357213",
       "cited_by": 0,
-      "abstract": "Attention-deficit/hyperactivity disorder (ADHD) affects millions globally, yet current diagnostic approaches rely on subjective behavioral assessments without objective neurophysiological markers. While machine learning on electroencephalogram (EEG) data shows promise for automated ADHD risk screening, current methods focus only on brain signals and ignore socioeconomic factors that strongly affect neurodevelopment and ADHD risk. We introduce a novel multimodal deep learning architecture integrating three complementary streams: temporal EEG dynamics via one-dimensional convolutional-recurrent networks, spectro-temporal patterns via two-dimensional convolutional networks with spatial and channel attention, and socioeconomic context via feedforward processing, combined through an attention-based fusion mechanism. Using the Cognitive Electrophysiology in Socioeconomic Context dataset, we evaluate performance across four cognitive tasks with 5-fold stratified cross-validation, ablation studies and benchmarking against a state-of-the-art EEG classification model. Under epoch-level cross-validation, the multimodal approach outperforms EEG-only baselines across all four tasks, achieving accuracy improvements of 2.1-5.9% and sensitivity gains up to 12.2%, with strong positive-class F1-scores (96.4-99.8%). Results showed higher epoch-level performance when socioeconomic context was incorporated alongside neurophysiological signals, a pattern that held across diverse cognitive paradigms. Leave-One-Subject-Out Cross-Validation across all four tasks yielded accuracy of 0.86-0.91 for the EEG-only model and 0.92-0.96 for the multimodal model, with sensitivity of 0.71-0.96 and specificity of 0.95-1.00 for the multimodal model. These subject-independent estimates are more modest than the epoch-level figures and McNemar's test on paired predictions did not reach significance on any task. The EEG backbone, evaluated without modification on an independent paediatric dataset, also achieved 80.4% subject-independent accuracy, outperforming the prior benchmark. Labels derive from a validated self-report screening instrument rather than clinical diagnosis; this model should be understood as a proof-of-concept for ADHD risk screening, not a diagnostic tool. This work suggests the feasibility of context-aware ADHD risk screening that accounts for environmental influences on neurodevelopment alongside neurophysiological signals.",
+      "abstract": "Attention-deficit/hyperactivity disorder (ADHD) affects millions globally, yet current diagnostic approaches rely on subjective behavioral assessments without objective neurophysiological markers. While machine learning on electroencephalogram (EEG) data shows promise for automated ADHD risk screening, current methods focus only on brain signals and ignore socioeconomic factors that strongly affect neurodevelopment and ADHD risk. We introduce a novel multimodal deep learning architecture integrating three complementary streams: temporal EEG dynamics via one-dimensional convolutional-recurrent networks, spectro-temporal patterns via two-dimensional convolutional networks with spatial and channel attention, and socioeconomic context via feedforward processing, combined through an attention-based fusion mechanism. Using the Cognitive Electrophysiology in Socioeconomic Context dataset, we evaluate performance across four cognitive tasks with 5-fold stratified cross-validation, ablation stu",
       "doi": "10.1371/journal.pone.0357213",
       "pmid": "42678972",
       "openalex_id": "W7204872270",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds005863",
+      "source_doi": "10.82901/nemar.on005863",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.7999476438760759,
-        "similarity_score": 0.692595362663269,
-        "citation_text_length": 1698,
+        "confidence_score": 0.8022611939907075,
+        "similarity_score": 0.6945984363555908,
+        "citation_text_length": 1198,
+        "dataset_text_length": 2316,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Early-life family socioeconomic and educational impacts on adult EEG and behavioral signatures of visual cognitive function",
+      "author": "Shuxuan Mao, Xuan Zhang, Fengrui Zhang",
+      "venue": "Scientific Reports",
+      "year": 2026,
+      "url": "https://doi.org/10.1038/s41598-026-62347-z",
+      "cited_by": 0,
+      "abstract": "Socioeconomic and educational background is associated with individual differences in cognitive performance, yet how different socioeconomic indicators relate to adult brain function remains unclear. Using an open-access dataset, we analyzed electroencephalography (EEG) and behavioral data from 73 young adults performing the flanker and visual search tasks. Event-related potentials (P1, P2, N2, and P3) and alpha-beta band time-frequency features were extracted to characterize sensory processing, cognitive control, and attentional engagement. Four socioeconomic indicators were examined: subjective family socioeconomic status (SES), household income, parental education, and participants' own educational attainment. Behaviorally, higher household income was associated with faster reaction times and higher accuracy. Neurally, parental education was associated with ERP latencies during the flanker task, whereas subjective family SES was associated with alpha-beta event-related desynchroniza",
+      "doi": "10.1038/s41598-026-62347-z",
+      "pmid": "42469350",
+      "openalex_id": "W4414442997",
+      "source_doi": "10.82901/nemar.on005863",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.8600753009319307,
+        "similarity_score": 0.7446539402008057,
+        "citation_text_length": 1218,
+        "dataset_text_length": 2316,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "A Minimal EEG Montage for Adult ADHD Detection: Discovering the Frontoparietal Beta–Theta Framework Via Explainable AI",
+      "author": "Sadikul Haque Sadi, Md. Nurul Ahad Tawhid",
+      "venue": "IEEE Access",
+      "year": 2026,
+      "url": "https://doi.org/10.1109/access.2026.3730615",
+      "cited_by": 0,
+      "abstract": "Current deep learning models for Attention-Deficit/Hyperactivity Disorder (ADHD) diagnostics rely on opaque, high-density electroencephalography (EEG) arrays, limiting their clinical utility. This study aims to transition adult ADHD screening from an uninterpretable “closed box” into a transparent, scalable framework by identifying the minimal neurobiological features required for accurate detection. We have developed a multimodal deep learning architecture to classify adult ADHD-screened-positive individuals versus neurotypical controls using EEG data recorded during demanding executive functioning tasks. To achieve clinical transparency, we have applied a systematic Explainable Artificial Intelligence (XAI) ablation and occlusion pipeline. This approach has deconstructed the global 26-channel, 5-band network to assess the independent diagnostic sufficiency and contextual necessity of specific spatial lobes and spectral frequencies. Our analysis has revealed that full-scalp, wide-band",
+      "doi": "10.1109/access.2026.3730615",
+      "pmid": null,
+      "openalex_id": "W7207615850",
+      "source_doi": "10.82901/nemar.on005863",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6661834716796875,
+        "similarity_score": 0.5767822265625,
+        "citation_text_length": 1209,
+        "dataset_text_length": 2316,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Adaptive Split-MMD Training for Small-Sample Cross-Dataset P300 EEG Classification",
+      "author": "Weiyu Chen, Arnaud Delorme",
+      "venue": "IEEE International Conference on Bioinformatics and Biomedicine (BIBM)",
+      "year": 2025,
+      "url": "https://doi.org/10.1109/bibm66473.2025.11356119",
+      "cited_by": 0,
+      "abstract": "Detecting single-trial P300 from EEG is difficult when only a few labeled trials are available. When attempting to boost a small target set with a large source dataset through transfer learning, cross-dataset shift arises. To address this challenge, we study transfer between two public visual-oddball ERP datasets using five shared electrodes (Fz, Pz, P3, P4, Oz) under a strict small-sample regime (target: 10 trials/subject; source: 80 trials/subject). We introduce Adaptive Split Maximum Mean Discrepancy Training (AS-MMD), which combines (i) a target-weighted loss with warm-up tied to the square root of the source/target size ratio, (ii) Split Batch Normalization (Split-BN) with shared affine parameters and per-domain running statistics, and (iii) a parameter-free logit-level Radial Basis Function kernel Maximum Mean Discrepancy (RBF-MMD) term using the median-bandwidth heuristic. Implemented on an EEG Conformer, AS-MMD is backbone-agnostic and leaves the inference-time model unchanged.",
+      "doi": "10.1109/bibm66473.2025.11356119",
+      "pmid": null,
+      "openalex_id": "W7126114115",
+      "source_doi": "10.82901/nemar.on005863",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.564145695269108,
+        "similarity_score": 0.48843783140182495,
+        "citation_text_length": 1217,
+        "dataset_text_length": 2316,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "SPERA: Spherical Prior EEG Foundation Model with Geometry- and Frequency-Aware Latent Prediction",
+      "author": "Minsu Kim, Ye-Sung Kim, Hyeseong Jeon, Wooseok Hyung, Joshua Lee, Chang-Hwan Im",
+      "venue": "n/a",
+      "year": 2026,
+      "url": "n/a",
+      "cited_by": 0,
+      "abstract": "Electroencephalography (EEG) provides a non-invasive measure of ongoing neural activity, but building general-purpose EEG models remains challenging due to the heterogeneity of subjects, devices, and electrode montages. Existing EEG foundation models predominantly rely on reconstruction-based objectives defined on the observed signal, which contains both neural and non-neural components. We introduce SPERA (Spherical Prior EEG Representation Architecture), an EEG foundation model that adopts the joint-embedding predictive architecture (JEPA) to predict in latent space. SPERA introduces a Legendre-polynomial spatial prior, incorporated into attention to encode varying scalp electrode geometries. Two further components adapt the model to EEG: factorized temporal and spatial attention interleaved with periodic full-attention blocks, and a relational spectral regularizer aligning latent similarity structure with spectral views. Pretrained on approximately 80,000 hours of EEG from 29,048 su",
+      "doi": null,
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.82901/nemar.on005863",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5514006887376309,
+        "similarity_score": 0.4774031937122345,
+        "citation_text_length": 1217,
+        "dataset_text_length": 2316,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "ERP-FM: A Foundation Model for Universal ERP Analysis",
+      "author": "Yi-He Wang, Bo Chen, Tai-Da Li, Yu-Jun Yan, Rui Yin, Xiang Zhang",
+      "venue": "n/a",
+      "year": 2026,
+      "url": "n/a",
+      "cited_by": 0,
+      "abstract": "Foundation models have recently shown strong potential for learning generalizable EEG representations, yet their effectiveness for event-related potential (ERP) analysis remains unclear. In this work, we investigate two fundamental questions: 1) can foundation-model learning benefit ERP analysis, and what limits the transfer of existing EEG foundation models to ERP tasks? 2) can the complementary advantages of single-trial and averaged-trial ERP be integrated into a unified training pipeline? To study these questions, we curate a large-scale ERP corpus comprising 1,517,157 single-trial ERPs from 3,696 subjects across 38 datasets and 18 paradigms. Leveraging this corpus, we introduce ERP-FM, to the best of our knowledge, the first foundation model specifically developed for ERP representation learning. ERP-FM uses single-channel tokenization, temporal and spatial positional embeddings, and mixed masked autoencoding for large-scale single-trial pretraining. We compare our model against 1",
+      "doi": null,
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.82901/nemar.on005863",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.503354491442442,
+        "similarity_score": 0.4358047544956207,
+        "citation_text_length": 1159,
         "dataset_text_length": 2316,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -90,17 +237,17 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T16:39:30.181781+00:00",
+    "scoring_date": "2026-10-11T11:38:24.075655+00:00",
     "dataset_text_length": 2316,
-    "num_citations_scored": 1,
+    "num_citations_scored": 8,
     "summary_stats": {
-      "mean_confidence": 0.7999476438760759,
-      "median_confidence": 0.7999476438760759,
-      "std_confidence": 0.0,
-      "min_confidence": 0.7999476438760759,
-      "max_confidence": 0.7999476438760759,
-      "high_confidence_count": 1,
-      "medium_confidence_count": 0,
+      "mean_confidence": 0.6294895021989942,
+      "median_confidence": 0.5737222892045977,
+      "std_confidence": 0.1266029262989549,
+      "min_confidence": 0.503354491442442,
+      "max_confidence": 0.8600753009319307,
+      "high_confidence_count": 2,
+      "medium_confidence_count": 6,
       "low_confidence_count": 0
     }
   }
