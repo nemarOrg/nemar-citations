@@ -1,30 +1,43 @@
 {
   "dataset_id": "on006720",
   "num_citations": 1,
-  "date_last_updated": "2026-09-30T16:34:21.845217+00:00",
+  "date_last_updated": "2026-10-11T11:10:08.955655+00:00",
   "metadata": {
-    "total_cumulative_citations": 20,
-    "fetch_date": "2026-09-29T11:34:37.041697+00:00",
+    "total_cumulative_citations": 0,
+    "fetch_date": "2026-10-11T11:10:08.955655+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
-    "anchor_count": 1,
+    "anchor_count": 2,
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
     "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
+        "identifier": "10.1101/2025.05.12.653390",
+        "identifier_type": "doi",
+        "source_relation": "IsDescribedBy",
+        "classification": "data_paper",
+        "kept": true,
+        "kept_reason": "judged_data_paper",
+        "paper_title": "Alpha power indexes working memory load for durations",
+        "paper_year": 2025,
+        "paper_venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+        "reason": "Title matches the dataset name exactly, with the same authors and the same MEG n-item delayed temporal reproduction task, so this is the study paper reporting this data.",
+        "judgment_model": "claude-sonnet-5-5"
+      },
+      {
         "identifier": "10.21105/joss.01896",
         "identifier_type": "doi",
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
         "paper_year": 2019,
         "paper_venue": "The Journal of Open Source Software",
         "reason": "MNE-BIDS is a software tool for organizing electrophysiological data into BIDS, used to format this dataset, not a paper describing the dataset itself.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1038/sdata.2018.110",
@@ -32,12 +45,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MEG-BIDS, the brain imaging data structure extended to magnetoencephalography",
         "paper_year": 2018,
         "paper_venue": "Scientific Data",
         "reason": "MEG-BIDS is a data-organization standard/specification used to structure this MEG dataset, not a paper describing the alpha-power working memory dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on006720",
@@ -45,27 +58,27 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
+      "10.1101/2025.05.12.653390",
       "10.82901/nemar.on006720"
     ],
     "keywords": [
-      "MEG",
-      "working memory",
+      "Magnetoencephalography",
+      "Memory, Short-Term",
+      "alpha oscillations",
       "temporal reproduction",
-      "Magnetic Resonance Imaging",
-      "alpha power",
-      "neural dynamics",
-      "resting state"
+      "time perception",
+      "MEG"
     ],
-    "methods_description": "MEG data were recorded using a whole-head Elekta Neuromag Vector View 306 MEG system (102 triple-sensor elements) in a magnetically shielded room, sampled at 1 kHz with 0.03 Hz high-pass and 330 Hz low-pass filters. EOG and ECG were recorded via external electrodes, and EEG electrode, HPI coil, and fiducial positions were digitized with a Polhemus 3D digitizer. Eight task runs (~10 min each) were recorded, followed by a two-minute eyes-open resting-state recording used for noise covariance estimation. Structural MRI scans were acquired on a separate day using a Siemens 3T Magnetom Prisma Fit scanner (slice thickness 1 mm, TR = 2300 ms, TE = 2.98 ms, flip angle = 9°). Data were formatted into BIDS using MNE-Python (v1.8.0) and MNE-BIDS (v1.6.0).",
+    "methods_description": "MEG was recorded in a magnetically shielded room with a 306-channel Elekta Neuromag Vector View system, sampled at 1 kHz with 0.03-330 Hz online filtering, across 8 task runs of about 10 min each. Head position was measured with HPI coils before each run, and EEG electrode, HPI and fiducial positions were digitized with a Polhemus system. EOG and ECG were recorded, and a resting-state recording followed the task. Individual T1 anatomical MRI was acquired on a Siemens 3T Prisma Fit scanner (1 mm slices, TR 2300 ms, TE 2.98 ms, flip angle 9°). Data were converted to BIDS with MNE-BIDS.",
     "funding": [
       {
         "funder_name": "Agence Nationale de la Recherche",
@@ -78,40 +91,31 @@
         "award_title": "meegBIDS.fr"
       },
       {
-        "funder_name": "European Union's Horizon 2020 research and innovation program",
+        "funder_name": "European Union Horizon 2020",
         "award_number": "101017727",
         "award_title": "FET Experience"
       }
-    ],
-    "searched_accessions": [
-      "on006720",
-      "ds006720"
-    ],
-    "num_accession_mentions": 1,
-    "num_dataset_citations": 1,
-    "num_datapaper_citations": 0
+    ]
   },
   "citation_details": [
     {
-      "title": "An updated herpetofaunal species inventory of Iona National Park in southwestern Angola",
-      "author": "Javier Lobón‐Rovira, Pedro Vaz Pinto, François S. Becker, Krystal A. Tolley, John G. Measey, Bruce Bennet, Bastiaan Boon, Sango dos Anjos Carlos de Sá, Werner Conradie",
-      "venue": "Check List",
-      "year": 2022,
-      "url": "https://doi.org/10.15560/18.2.289",
-      "cited_by": 20,
-      "abstract": "Angola has experienced an incredible increase of the knowledge of its herpetofauna over the past decade. However, accurate biodiversity inventories remain deficient for certain regions of particular conservation interest. We therefore provide an updated checklist of Iona National Park’s herpetofauna, with 75 recorded species, including five amphibians and 70 reptiles, 40 of these recorded for the first time in Iona National Park. These species comprise ~80% of the reptile diversity of Namibe Province. Therefore, this work recognises Iona National Park as the most reptile-diverse protected area in Angola and is potentially one of the richest in southern Africa. Consequently, this work enhances the importance of specific conservation plans in the area and the need for further investigation into the hidden biodiversity of this region.",
-      "doi": "10.15560/18.2.289",
+      "title": "Supra second timing reflects oscillatory and aperiodic EEG dynamics",
+      "author": "Lorenzo Guarnieri, Ayelet N. Landau",
+      "venue": "bioRxiv",
+      "year": 2026,
+      "url": "https://doi.org/10.64898/2026.07.02.736244",
+      "cited_by": 0,
+      "abstract": "The perception of timing has been investigated across short and long timescales, with the latter usually underrepresented. Previous accounts of supra-second timing have often emphasised dedicated neural signals, yet whether timing performance over longer durations reflects specialised temporal mechanisms or domain-general neural excitability remains unclear. We examined this question in an interval reproduction task (2–4 s) using EEG, decomposing neural activity into oscillatory (alpha, theta) and aperiodic components and relating both to behavioural performance. At the neural level, separate analyses were performed on the interval encoding epoch and the following delay period. Time-resolved analyses revealed a coordinated decrease in posterior alpha power and aperiodic offset during interval encoding. In contrast, interval duration did not produce consistent modulation of oscillatory or aperiodic activity during the delay period, providing limited support for a workload-based account ",
+      "doi": "10.64898/2026.07.02.736244",
       "pmid": null,
-      "openalex_id": "W4220789369",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "on006720",
+      "openalex_id": null,
+      "source_doi": "10.1101/2025.05.12.653390",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.1507522362470627,
-        "similarity_score": 0.13052141666412354,
-        "citation_text_length": 1146,
+        "confidence_score": 0.6337477138638498,
+        "similarity_score": 0.5486993193626404,
+        "citation_text_length": 1148,
         "dataset_text_length": 2724,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -120,18 +124,18 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T16:40:32.784490+00:00",
+    "scoring_date": "2026-10-11T11:40:04.360696+00:00",
     "dataset_text_length": 2724,
     "num_citations_scored": 1,
     "summary_stats": {
-      "mean_confidence": 0.1507522362470627,
-      "median_confidence": 0.1507522362470627,
+      "mean_confidence": 0.6337477138638498,
+      "median_confidence": 0.6337477138638498,
       "std_confidence": 0.0,
-      "min_confidence": 0.1507522362470627,
-      "max_confidence": 0.1507522362470627,
+      "min_confidence": 0.6337477138638498,
+      "max_confidence": 0.6337477138638498,
       "high_confidence_count": 0,
-      "medium_confidence_count": 0,
-      "low_confidence_count": 1
+      "medium_confidence_count": 1,
+      "low_confidence_count": 0
     }
   }
 }

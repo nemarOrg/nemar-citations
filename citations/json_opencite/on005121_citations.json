@@ -1,10 +1,10 @@
 {
   "dataset_id": "on005121",
-  "num_citations": 12,
-  "date_last_updated": "2026-09-29T11:43:33.645764+00:00",
+  "num_citations": 13,
+  "date_last_updated": "2026-10-11T11:15:07.747970+00:00",
   "metadata": {
-    "total_cumulative_citations": 61,
-    "fetch_date": "2026-09-29T11:23:03.941836+00:00",
+    "total_cumulative_citations": 48,
+    "fetch_date": "2026-10-11T11:00:41.956621+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -19,12 +19,12 @@
         "source_relation": "IsDescribedBy",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Memory Reactivation during Sleep Does Not Act Holistically on Object Memory",
         "paper_year": 2024,
         "paper_venue": "Journal of Neuroscience",
         "reason": "Dataset README states it is the sleep EEG data from this Siefert et al. 2024 J Neurosci paper (34 participants, TMR), matching the abstract's participants and paradigm.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on005121",
@@ -32,12 +32,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -46,20 +46,19 @@
     ],
     "keywords": [
       "EEG",
-      "sleep",
-      "memory consolidation",
-      "targeted memory reactivation",
       "Sleep",
-      "Memory Consolidation"
+      "targeted memory reactivation",
+      "memory consolidation",
+      "Memory"
     ],
-    "methods_description": "Sleep EEG data were collected while Targeted Memory Reactivation (TMR) was administered, with auditory cues corresponding to studied satellite stimuli played during sleep. Data were organized into BIDS format using the FieldTrip data2bids function. Event files record cueing information including sound index and corresponding satellite category (blocked, interleaved, or uncued).",
+    "methods_description": "Sleep EEG was recorded while a TMR system played sound cues associated with studied objects (satellites) during sleep. Events files log the cue sound index and satellite number, including slow oscillation-tagged trials with no sound. Data were converted to BIDS with FieldTrip data2bids; for five participants a system restart resulted in two EEG files.",
     "funding": [],
     "searched_accessions": [
       "on005121",
       "ds005121"
     ],
-    "num_accession_mentions": 1,
-    "num_dataset_citations": 1,
+    "num_accession_mentions": 2,
+    "num_dataset_citations": 2,
     "num_datapaper_citations": 11
   },
   "citation_details": [
@@ -69,7 +68,7 @@
       "venue": "npj Science of Learning",
       "year": 2024,
       "url": "https://doi.org/10.1038/s41539-024-00244-8",
-      "cited_by": 28,
+      "cited_by": 30,
       "abstract": "Targeted Memory Reactivation (TMR) is a noninvasive tool to manipulate memory consolidation during sleep. TMR builds on the brain's natural processes of memory reactivation during sleep and aims to facilitate or bias these processes in a certain direction. The basis of this technique is the association of learning content with sensory cues, such as odors or sounds, that are presented during subsequent sleep to promote memory reactivation. Research on TMR has drastically increased over the last decade with rapid developments. The aim of the present review is to highlight the most recent advances of this research. We focus on effects of TMR on the strengthening of memories in the declarative, procedural and emotional memory domain as well as on ways in which TMR can be used to promote forgetting. We then discuss advanced technical approaches to determine the optimal timing of TMR within the ongoing oscillatory activity of the sleeping brain as well as the specificity of TMR for certain m",
       "doi": "10.1038/s41539-024-00244-8",
       "pmid": "38622159",
@@ -325,7 +324,7 @@
       "cited_by": 15,
       "abstract": "Memory reactivation during sleep is thought to facilitate memory consolidation. Most sleep reactivation research has examined how reactivation of specific facts, objects, and associations benefits their overall retention. However, our memories are not unitary, and not all features of a memory persist in tandem over time. Instead, our memories are transformed, with some features strengthened and others weakened. Does sleep reactivation drive memory transformation? We leveraged the Targeted Memory Reactivation technique in an object category learning paradigm to examine this question. Participants (20 female, 14 male) learned three categories of novel objects, where each object had unique, distinguishing features as well as features shared with other members of its category. We used a real-time EEG protocol to cue the reactivation of these objects during sleep at moments optimized to generate reactivation events. We found that reactivation improved memory for distinguishing features while worsening memory for shared features, suggesting a differentiation process. The results indicate that sleep reactivation does not act holistically on object memories, instead supporting a transformation where some features are enhanced over others.",
       "doi": "10.1523/jneurosci.0022-24.2024",
-      "pmid": "38604779",
+      "pmid": "38168451",
       "openalex_id": "W4394727913",
       "source_doi": null,
       "source_relation": null,
@@ -340,21 +339,46 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "What masking geometry works best for EEG foundation models?",
+      "author": "Pierre Guetschel, Bruno Aristimunha, Yassine El Ouahidi, Arnaud Delorme, Thomas Moreau, Michael Tangermann",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2609.33487",
+      "cited_by": 0,
+      "abstract": "EEG foundation models hold promise for scalable brain-signal decoding across clinical and cognitive neuroscience applications, yet their pre-training pipelines remain poorly understood. Among design choices, the masking strategy is particularly critical: it determines what the network must predict and from which context. Yet it has never been ablated in isolation, as each new model bundles a new masking strategy with a new backbone and objective. In this paper, we formalize the design choices for spatio-temporal masking strategies and train various models with a single pipeline under varying masking configurations across two SSL frameworks (MAE and JEPA). We then systematically evaluate the resulting 58 pre-trained models on the 12 datasets of OpenEEGBench under a linear probe. Both frameworks agree on an optimal masking configuration and on shared failure modes. Outside these, performance is robust: 11 MAE and 9 JEPA configurations are statistically indistinguishable from the best. We further identify a novel JEPA-specific failure mode, tagged bias-inflation collapse, invisible to standard detectors. With a well-chosen mask, our pipeline reaches REVE-level downstream performance at a fraction of REVE's pre-training compute.",
+      "doi": "10.48550/arxiv.2609.33487",
+      "pmid": null,
+      "openalex_id": "W7214740814",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds005121",
+      "confidence_scoring": {
+        "confidence_score": 0.4757599711418153,
+        "similarity_score": 0.4119133949279785,
+        "citation_text_length": 1474,
+        "dataset_text_length": 1937,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T12:15:20.796067+00:00",
+    "scoring_date": "2026-10-11T11:35:44.104453+00:00",
     "dataset_text_length": 1937,
-    "num_citations_scored": 12,
+    "num_citations_scored": 13,
     "summary_stats": {
-      "mean_confidence": 0.6122208537161351,
-      "median_confidence": 0.5996670815348626,
-      "std_confidence": 0.10052845321555044,
-      "min_confidence": 0.49000462710857395,
+      "mean_confidence": 0.6017238627488797,
+      "median_confidence": 0.5947133195400238,
+      "std_confidence": 0.10320285576405384,
+      "min_confidence": 0.4757599711418153,
       "max_confidence": 0.7613050371408464,
       "high_confidence_count": 4,
-      "medium_confidence_count": 8,
+      "medium_confidence_count": 9,
       "low_confidence_count": 0
     }
   }

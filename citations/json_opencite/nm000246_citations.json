@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000246",
-  "num_citations": 48,
-  "date_last_updated": "2026-10-04T10:04:52.986634+00:00",
+  "num_citations": 49,
+  "date_last_updated": "2026-10-11T10:24:26.489842+00:00",
   "metadata": {
-    "total_cumulative_citations": 100,
-    "fetch_date": "2026-09-29T10:55:46.111886+00:00",
+    "total_cumulative_citations": 110,
+    "fetch_date": "2026-10-11T10:24:26.489842+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -19,12 +19,12 @@
         "source_relation": "IsDerivedFrom",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "A multi-day and high-quality EEG dataset for motor imagery brain-computer interface",
         "paper_year": 2025,
         "paper_venue": "Scientific Data",
         "reason": "The Yang et al. 2025 Scientific Data paper describes this multi-day MI EEG dataset (WBCIC-SHU, left/right hand grasping, three sessions), matching the authors and the dataset DOI.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.21105/joss.01896",
@@ -32,12 +32,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
         "paper_year": 2019,
         "paper_venue": "The Journal of Open Source Software",
         "reason": "MNE-BIDS is a software tool for organizing electrophysiology data into BIDS, used for the dataset's formatting, not a paper describing this MI-BCI dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1038/s41597-019-0104-8",
@@ -45,12 +45,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "EEG-BIDS, an extension to the brain imaging data structure for electroencephalography",
         "paper_year": 2019,
         "paper_venue": "Scientific Data",
         "reason": "EEG-BIDS is a specification extending BIDS for EEG, used to organize this dataset; it does not describe the WBCIC-SHU MI-BCI data itself.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.nm000246",
@@ -58,12 +58,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -74,30 +74,21 @@
       "EEG",
       "motor imagery",
       "Brain-Computer Interfaces",
-      "motor control",
-      "classification algorithms",
-      "common spatial patterns",
-      "deep learning",
-      "signal processing",
-      "feature extraction"
+      "multi-day recording",
+      "left/right hand imagery",
+      "BCI benchmark"
     ],
-    "methods_description": "EEG data were acquired using a Neuracle NeuSen W system at 1000 Hz sampling rate with 59 EEG channels arranged in the standard 10-05 montage, plus ECG and EOG channels. Participants performed motor imagery tasks cued by visual and auditory stimuli with 1.5 s cue duration followed by 4.0 s imagery period. Data were collected across 3 sessions per subject on different days. Online bandpass filtering (0.5-40 Hz) and 50 Hz line frequency notch filtering were applied during acquisition.",
-    "funding": [],
-    "searched_accessions": [
-      "nm000246"
-    ],
-    "num_accession_mentions": 1,
-    "num_dataset_citations": 1,
-    "num_datapaper_citations": 47
+    "methods_description": "EEG was recorded with a Neuracle NeuSen W system (59 EEG channels, Ag/AgCl sensors, plus ECG and EOG channels) at 1000 Hz. Each trial used a video cue of 1.5 s followed by 4 s of motor imagery, without feedback (offline). Each subject completed 3 sessions on different days, with 200 trials per session for the 2-class task and 300 trials for the 3-class task.",
+    "funding": []
   },
   "citation_details": [
     {
       "title": "BrainOmni: A Brain Foundation Model for Unified EEG and MEG Signals",
-      "author": "Qinfan Xiao, Ziyun Cui, Chi Zhang, Si-Qi Chen, Wen Wu, Andrew Thwaites, Alexandra Woolgar, Bowen Zhou, Chao Zhang",
+      "author": "Qinfan Xiao, Zi-Yun Cui, Chi Zhang, Si-Qi Chen, Wen Wu, Andrew Thwaites, Alexandra Woolgar, Bo-Wen Zhou, Chao Zhang",
       "venue": "ArXiv",
       "year": 2025,
       "url": "https://doi.org/10.48550/arXiv.2505.18185",
-      "cited_by": 36,
+      "cited_by": 40,
       "abstract": "Electroencephalography (EEG) and magnetoencephalography (MEG) measure neural activity non-invasively by capturing electromagnetic fields generated by dendritic currents. Although rooted in the same biophysics, EEG and MEG exhibit distinct signal patterns, further complicated by variations in sensor configurations across modalities and recording devices. Existing approaches typically rely on separate, modality- and dataset-specific models, which limits the performance and cross-domain scalability. This paper proposes BrainOmni, the first brain foundation model that generalises across heterogeneous EEG and MEG recordings. To unify diverse data sources, we introduce BrainTokenizer,the first tokenizer that quantises spatiotemporal brain activity into discrete representations. Central to BrainTokenizer is a novel Sensor Encoder that encodes sensor properties such as spatial layout, orientation, and type, enabling compatibility across devices and modalities. Building upon the discrete repres",
       "doi": "10.48550/arXiv.2505.18185",
       "pmid": null,
@@ -106,9 +97,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5152557536959649,
-        "similarity_score": 0.446108877658844,
-        "citation_text_length": 1224,
+        "confidence_score": 0.5132871088385582,
+        "similarity_score": 0.4444044232368469,
+        "citation_text_length": 1226,
         "dataset_text_length": 2337,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -139,11 +130,11 @@
     },
     {
       "title": "SciTS: Scientific Time Series Understanding and Generation with LLMs",
-      "author": "Wen Wu, Ziyang Zhang, Liwei Liu, Xuenan Xu, Junli Liu, Ke Fan, Qitan Lv, Jimin Zhuang, Chen Zhang, Zheqi Yuan, Siyuan Hou, Tianyi Lin, Kai Chen, Bowen Zhou, Chao Zhang",
+      "author": "Wen Wu, Ziyang Zhang, Liwei Liu, Xuenan Xu, Junli Liu, Ke Fan, Qitan Lv, Jimin Zhuang, Chen Zhang, Zhe-Qi Yuan, Si-Yuan Hou, Tianyi Lin, Kai Chen, Bowen Zhou, Chao Zhang",
       "venue": "ArXiv",
       "year": 2025,
       "url": "https://doi.org/10.48550/arXiv.2510.03255",
-      "cited_by": 11,
+      "cited_by": 12,
       "abstract": "The scientific reasoning ability of large language models (LLMs) has recently attracted significant attention. Time series, as a fundamental modality in scientific data, presents unique challenges that are often overlooked in current multimodal LLMs, which either encode numerical sequences as text or convert them into images. Such approaches may be insufficient for comprehensive scientific time series understanding and generation. Existing unified time series models typically specialise in either forecasting or analysis, and their effectiveness on non-periodic, heterogeneous scientific signals remains unclear. To address these gaps, we introduce SciTS, a benchmark spanning 12 scientific domains and 43 tasks, with over 50k+ instances, both univariate and multivariate signals ranging from $10^0$ to $10^7$ in length and up to 10~MHz in frequency. We benchmark 17 models, including text-only LLMs, multimodal LLMs, and unified time series models, and find that general-purpose LLMs exhibit st",
       "doi": "10.48550/arXiv.2510.03255",
       "pmid": null,
@@ -152,9 +143,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.38137234479188925,
-        "similarity_score": 0.330192506313324,
-        "citation_text_length": 1279,
+        "confidence_score": 0.3841090406477452,
+        "similarity_score": 0.3325619399547577,
+        "citation_text_length": 1281,
         "dataset_text_length": 2337,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -207,6 +198,52 @@
       }
     },
     {
+      "title": "Brain-OF: An Omnifunctional Foundation Model for fMRI, EEG and MEG",
+      "author": "Han-Ning Guo, Farah Abdellatif, Han-Wen Bi, Andrei Galbenus, Nadim Joni Shah, Abigail Morrison, J. Dammers",
+      "venue": "ArXiv",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arXiv.2602.23410",
+      "cited_by": 4,
+      "abstract": "Brain foundation models have achieved remarkable advances across a wide range of neuroscience tasks. However, most existing models are limited to a single functional modality, restricting their ability to exploit complementary spatiotemporal dynamics and the collective data scale across different neuroimaging techniques. This limitation largely arises from severe semantic heterogeneity and resolution discrepancies among modalities. To address these challenges, we propose Brain-OF, an omnifunctional brain foundation model jointly pretrained on fMRI, EEG and MEG, capable of handling both unimodal and multimodal inputs within a unified framework. To reconcile heterogeneous spatiotemporal resolutions, we introduce the Any-Resolution Neural Signal Sampler, which projects diverse brain signals into a shared semantic space. To further manage semantic shifts, the Brain-OF backbone integrates DINT attention with a Sparse Mixture of Experts, where shared experts capture modality-invariant repres",
+      "doi": "10.48550/arXiv.2602.23410",
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.1038/s41597-025-04826-y",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5542334899306297,
+        "similarity_score": 0.47985583543777466,
+        "citation_text_length": 1216,
+        "dataset_text_length": 2337,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "SingLEM: Single-Channel Large EEG Model",
+      "author": "Jamiyan Sukhbaatar, S. Imamura, Ibuki Inoue, Shoya Murakami, Kazi Mahmudul Hassan, Seung-Woo Han, Ingon Chanpornpakdi, Toshihisa Tanaka",
+      "venue": "IEEE journal of biomedical and health informatics",
+      "year": 2025,
+      "url": "https://doi.org/10.1109/JBHI.2026.3732223",
+      "cited_by": 4,
+      "abstract": "Current deep learning models for electroencephalography (EEG) are often task-specific and depend on large labeled datasets, limiting their adaptability. Although EEG foundation models seek broader applicability, many still rely on predefined multi-channel inputs, electrode-layout assumptions, or model-specific channel handling. To address these limitations, we introduce the Single-Channel Large EEG Model (SingLEM), a self-supervised foundation model whose hybrid convolutional-Transformer encoder maps each channel independently to a reusable representation capturing local and long-range temporal structure. These representations can be used individually or combined through channel-wise feature concatenation. We assembled 71 public EEG datasets comprising approximately 9,200 subjects and 357,000 single-channel hours. For leakage-controlled evaluation, downstream results were obtained with a model pretrained on 68 datasets after excluding the three source datasets underlying the six tasks.",
+      "doi": "10.1109/JBHI.2026.3732223",
+      "pmid": "42709520",
+      "openalex_id": null,
+      "source_doi": "10.1038/s41597-025-04826-y",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5114388021826745,
+        "similarity_score": 0.44280415773391724,
+        "citation_text_length": 1262,
+        "dataset_text_length": 2337,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Optimized Deep Learning Approach for Motor Imagery EEG Classification",
       "author": "Virendra Kumar Tiwari, Priyanka Singh",
       "venue": "American Journal of Networks and Communications",
@@ -230,46 +267,23 @@
       }
     },
     {
-      "title": "Brain-OF: An Omnifunctional Foundation Model for fMRI, EEG and MEG",
-      "author": "Han-Ning Guo, Farah Abdellatif, Han-Wen Bi, Andrei Galbenus, Nadim Joni Shah, Abigail Morrison, J. Dammers",
-      "venue": "ArXiv",
-      "year": 2026,
-      "url": "https://doi.org/10.48550/arXiv.2602.23410",
+      "title": "LEAF: Language-EEG Aligned Foundation Model for Brain-Computer Interfaces",
+      "author": "Muyun Jiang, Shuai-Lei Zhang, Zhen-Jie Yang, Mengjun Wu, Weibang Jiang, Zhi-Wei Guo, Wei Zhang, Rui Liu, Shangen Zhang, Yong Li, Yi Ding, Cun-Tai Guan",
+      "venue": "n/a",
+      "year": 2025,
+      "url": "n/a",
       "cited_by": 3,
-      "abstract": "Brain foundation models have achieved remarkable advances across a wide range of neuroscience tasks. However, most existing models are limited to a single functional modality, restricting their ability to exploit complementary spatiotemporal dynamics and the collective data scale across different neuroimaging techniques. This limitation largely arises from severe semantic heterogeneity and resolution discrepancies among modalities. To address these challenges, we propose Brain-OF, an omnifunctional brain foundation model jointly pretrained on fMRI, EEG and MEG, capable of handling both unimodal and multimodal inputs within a unified framework. To reconcile heterogeneous spatiotemporal resolutions, we introduce the Any-Resolution Neural Signal Sampler, which projects diverse brain signals into a shared semantic space. To further manage semantic shifts, the Brain-OF backbone integrates DINT attention with a Sparse Mixture of Experts, where shared experts capture modality-invariant repres",
-      "doi": "10.48550/arXiv.2602.23410",
+      "abstract": "Recent advances in electroencephalography (EEG) foundation models, which capture transferable EEG representations, have greatly accelerated the development of brain-computer interfaces (BCIs). However, existing approaches still struggle to incorporate language instructions as prior constraints for EEG representation learning, limiting their ability to leverage the semantic knowledge inherent in language to unify different labels and tasks. To address this challenge, we present LEAF, a foundation model for EEG--Language Alignment with Semantic Task Instruction and Querying. LEAF integrates task-aware semantic guidance to produce structured and linguistically aligned EEG embeddings, thereby enhancing decoding robustness and transferability. In the pretraining stage, we introduce a joint Spectral--Temporal Reconstruction (STR) framework that captures the coupled spectral rhythms and temporal dynamics of EEG signals. STR applies randomized spectral perturbation to enhance frequency robustn",
+      "doi": null,
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1038/s41597-025-04826-y",
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5542334899306297,
-        "similarity_score": 0.47985583543777466,
-        "citation_text_length": 1216,
-        "dataset_text_length": 2337,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "SingLEM: Single-Channel Large EEG Model",
-      "author": "Jamiyan Sukhbaatar, S. Imamura, Ibuki Inoue, Shoya Murakami, Kazi Mahmudul Hassan, Seung-Woo Han, Ingon Chanpornpakdi, Toshihisa Tanaka",
-      "venue": "IEEE journal of biomedical and health informatics",
-      "year": 2025,
-      "url": "https://doi.org/10.1109/JBHI.2026.3732223",
-      "cited_by": 3,
-      "abstract": "Current deep learning models for electroencephalography (EEG) are often task-specific and depend on large labeled datasets, limiting their adaptability. Although EEG foundation models seek broader applicability, many still rely on predefined multi-channel inputs, electrode-layout assumptions, or model-specific channel handling. To address these limitations, we introduce the Single-Channel Large EEG Model (SingLEM), a self-supervised foundation model whose hybrid convolutional-Transformer encoder maps each channel independently to a reusable representation capturing local and long-range temporal structure. These representations can be used individually or combined through channel-wise feature concatenation. We assembled 71 public EEG datasets comprising approximately 9,200 subjects and 357,000 single-channel hours. For leakage-controlled evaluation, downstream results were obtained with a model pretrained on 68 datasets after excluding the three source datasets underlying the six tasks.",
-      "doi": "10.1109/JBHI.2026.3732223",
-      "pmid": "42709520",
-      "openalex_id": null,
-      "source_doi": "10.1038/s41597-025-04826-y",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5114388021826745,
-        "similarity_score": 0.44280415773391724,
-        "citation_text_length": 1262,
+        "confidence_score": 0.5626432232558728,
+        "similarity_score": 0.48713698983192444,
+        "citation_text_length": 1265,
         "dataset_text_length": 2337,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -277,7 +291,7 @@
     },
     {
       "title": "ELASTIQ: EEG-Language Alignment with Semantic Task Instruction and Querying",
-      "author": "Muyun Jiang, Shuailei Zhang, Zhenjie Yang, Mengjun Wu, Weibang Jiang, Zhiwei Guo, Wei Zhang, Rui Liu, Shangen Zhang, Yong Li, Yi Ding, Cun-Tai Guan",
+      "author": "Muyun Jiang, Shuailei Zhang, Zhen-Jie Yang, Mengjun Wu, Weibang Jiang, Zhi-Wei Guo, Wei Zhang, Rui Liu, Shangen Zhang, Yong Li, Yi Ding, Cun-Tai Guan",
       "venue": "ArXiv",
       "year": 2025,
       "url": "https://doi.org/10.48550/arXiv.2509.24302",
@@ -290,9 +304,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.4592074915766716,
-        "similarity_score": 0.43734046816825867,
-        "citation_text_length": 254,
+        "confidence_score": 0.4613647297024727,
+        "similarity_score": 0.4393949806690216,
+        "citation_text_length": 256,
         "dataset_text_length": 2337,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -351,7 +365,7 @@
       "year": 2025,
       "url": "https://doi.org/10.3390/app16010294",
       "cited_by": 2,
-      "abstract": "Drug-resistant epilepsy (DRE) remains a major therapeutic challenge, as a considerable proportion of epilepsy patients fail to achieve seizure control with conventional anti-seizure medications or surgical therapy. Closed-loop systems have emerged as a promising alternative, offering patient-specific, on-demand neuromodulation. Despite notable advances in the academic domain, clinical translation has stagnated, and surgical resection remains the intervention with the highest probability of achieving seizure freedom. In this review, we delineate the principal limitations currently constraining progress in epilepsy neuromodulation and conceptualise these systems as instantiations of the read-write architecture characteristic of brain–computer interfaces. The read component entails the continuous acquisition and analysis of neurophysiological signals to predict or detect imminent seizures. In contrast, the write component involves the delivery of targeted interventions to disrupt epilepti",
+      "abstract": "Drug-resistant epilepsy (DRE) remains a major therapeutic challenge, as a considerable proportion of epilepsy patients fail to achieve seizure control with conventional anti-seizure medications or surgical therapy. Closed-loop systems have emerged as a promising alternative, offering patient-specific, on-demand neuromodulation. Despite notable advances in the academic domain, clinical translation has stagnated, and surgical resection remains the intervention with the highest probability of achieving seizure freedom. In this review, we delineate the principal limitations currently constraining progress in epilepsy neuromodulation and conceptualise these systems as instantiations of the read-write architecture characteristic of brain-computer interfaces. The read component entails the continuous acquisition and analysis of neurophysiological signals to predict or detect imminent seizures. In contrast, the write component involves the delivery of targeted interventions to disrupt epilepti",
       "doi": "10.3390/app16010294",
       "pmid": null,
       "openalex_id": "W7117468716",
@@ -359,8 +373,8 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.41789378419518475,
-        "similarity_score": 0.3618128001689911,
+        "confidence_score": 0.42066090881824497,
+        "similarity_score": 0.3642085790634155,
         "citation_text_length": 1248,
         "dataset_text_length": 2337,
         "scoring_method": "sentence_transformers",
@@ -391,31 +405,8 @@
       }
     },
     {
-      "title": "LEAF: Language-EEG Aligned Foundation Model for Brain-Computer Interfaces",
-      "author": "Muyun Jiang, Shuailei Zhang, Zhenjie Yang, Mengjun Wu, Weibang Jiang, Zhiwei Guo, Wei Zhang, Rui Liu, Shangen Zhang, Yong Li, Yi Ding, Cun-Tai Guan",
-      "venue": "n/a",
-      "year": 2025,
-      "url": "n/a",
-      "cited_by": 2,
-      "abstract": "Recent advances in electroencephalography (EEG) foundation models, which capture transferable EEG representations, have greatly accelerated the development of brain-computer interfaces (BCIs). However, existing approaches still struggle to incorporate language instructions as prior constraints for EEG representation learning, limiting their ability to leverage the semantic knowledge inherent in language to unify different labels and tasks. To address this challenge, we present LEAF, a foundation model for EEG--Language Alignment with Semantic Task Instruction and Querying. LEAF integrates task-aware semantic guidance to produce structured and linguistically aligned EEG embeddings, thereby enhancing decoding robustness and transferability. In the pretraining stage, we introduce a joint Spectral--Temporal Reconstruction (STR) framework that captures the coupled spectral rhythms and temporal dynamics of EEG signals. STR applies randomized spectral perturbation to enhance frequency robustn",
-      "doi": null,
-      "pmid": null,
-      "openalex_id": null,
-      "source_doi": "10.1038/s41597-025-04826-y",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5654386769235136,
-        "similarity_score": 0.48955729603767395,
-        "citation_text_length": 1262,
-        "dataset_text_length": 2337,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "EgoBrain: Synergizing Minds and Eyes For Human Action Understanding",
-      "author": "Nie Lin, Yansen Wang, Dongqi Han, Weibang Jiang, Jingyuan Li, Ryosuke Furuta, Yoichi Sato, Dongsheng Li",
+      "author": "Nie Lin, Yansen Wang, Dong-Qi Han, Weibang Jiang, Jingyuan Li, Ryosuke Furuta, Yoichi Sato, Dong-Sheng Li",
       "venue": "ArXiv",
       "year": 2025,
       "url": "https://doi.org/10.48550/arXiv.2506.01353",
@@ -428,9 +419,32 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6332751041650773,
-        "similarity_score": 0.5482901334762573,
-        "citation_text_length": 1214,
+        "confidence_score": 0.6319470468163492,
+        "similarity_score": 0.5471403002738953,
+        "citation_text_length": 1216,
+        "dataset_text_length": 2337,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Adaptive Spatial Filtering and Linear Discriminant Learning for Robust Motor Imagery EEG Classification",
+      "author": "Sricheta Parui, Ayush Das, Sayan Banerjee, Mahendra Kumar Gourisaria, Rakesh Kumar Rai",
+      "venue": "International Conference on Research in Computational Intelligence and Communication Networks (ICRCICN)",
+      "year": 2025,
+      "url": "https://doi.org/10.1109/icrcicn68210.2025.11364727",
+      "cited_by": 1,
+      "abstract": "This study explores the use of electroencephalography (EEG) signals for classifying motor imagery (MI) tasks involving imagined left- and right-hand movements. To achieve accurate discrimination, we integrate Common Spatial Patterns (CSP) for spatial feature extraction along with Linear Discriminant Analysis (LDA) for classification. EEG recordings were obtained from 59 scalp electrodes positioned to capture neural activity in motor-related cortical regions. The signals were preprocessed using an $\\mathbf{8 - 1 5 ~ H z}$ band-pass filter to suppress noise and emphasize the sensorimotor rhythms relevant to movement imagination. Experimental evaluations on MI data demonstrate that the proposed CSP-LDA pipeline effectively distinguishes between different hand-imagery classes, suggesting its potential use in developing reliable and user-adaptive Brain-Computer Interface (BCI) systems for neurorehabilitation and assistive technology applications.",
+      "doi": "10.1109/icrcicn68210.2025.11364727",
+      "pmid": null,
+      "openalex_id": "W7127307080",
+      "source_doi": "10.1038/s41597-025-04826-y",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6937147593498231,
+        "similarity_score": 0.600618839263916,
+        "citation_text_length": 1286,
         "dataset_text_length": 2337,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -438,7 +452,7 @@
     },
     {
       "title": "Channel Mix-Enhanced Attention Temporal Convolutional Network for EEG-Based Motor-Imagery Classification",
-      "author": "Quang Huy Đinh, Isao Nambu",
+      "author": "Quang Pham Lam Dinh, Isao Nambu",
       "venue": "IEEE Access",
       "year": 2025,
       "url": "https://doi.org/10.1109/access.2025.3646269",
@@ -451,9 +465,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6923710745573044,
-        "similarity_score": 0.5994554758071899,
-        "citation_text_length": 1180,
+        "confidence_score": 0.6910309696197511,
+        "similarity_score": 0.5982952117919922,
+        "citation_text_length": 1185,
         "dataset_text_length": 2337,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -461,7 +475,7 @@
     },
     {
       "title": "iFuzz-Meta: An Interpretable Fuzzy Learning Framework Bridging Top-Down and Bottom-Up Knowledge Integration",
-      "author": "Xiaowei Jiang, Daniel J. Leong, Beining Cao, Nan Zhou, Yingtao Ren, Yu‐Cheng Chang, Thomas Do, Chin‐Teng Lin",
+      "author": "Xiaowei Jiang, Daniel Leong, Beining Cao, Nan Zhou, Yingtao Ren, Yu‐Cheng Chang, Thomas Do, Chin‐Teng Lin",
       "venue": "IEEE Transactions on Fuzzy Systems",
       "year": 2026,
       "url": "https://doi.org/10.1109/tfuzz.2026.3683688",
@@ -474,9 +488,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.28451572000980385,
-        "similarity_score": 0.24633395671844482,
-        "citation_text_length": 1288,
+        "confidence_score": 0.2866253216564656,
+        "similarity_score": 0.2481604516506195,
+        "citation_text_length": 1285,
         "dataset_text_length": 2337,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -523,6 +537,29 @@
         "confidence_score": 0.578115528523922,
         "similarity_score": 0.5005329251289368,
         "citation_text_length": 1223,
+        "dataset_text_length": 2337,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "BandVQ: Band-Wise Vector-Quantized EEG Foundation Model",
+      "author": "Jamiyan Sukhbaatar, S. Imamura, Toshihisa Tanaka",
+      "venue": "ArXiv",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arXiv.2605.24921",
+      "cited_by": 1,
+      "abstract": "A central challenge in electroencephalography (EEG) foundation modeling is learning transferable representations across recordings with diverse tasks, montages, references, and spectral characteristics. Existing masked modeling approaches often rely on broadband continuous patches or a single discrete representation, which may underrepresent frequency-specific activity. This paper proposes BandVQ, a band-wise vector-quantized EEG foundation model that decomposes EEG into delta, theta, alpha, beta, and gamma bands, trains an independent VQ-VAE tokenizer for each band, and pretrains a shared Transformer encoder on the resulting discrete VQ code indices. The encoder uses masked code tokens, quantized absolute log-power tokens, channel and temporal embeddings, and metadata prefix tokens representing reference, band, task family, and phase. Region-based masking is also introduced to reduce the trivial reconstruction of spatially adjacent electrodes. The model is pretrained on 71 public EEG ",
+      "doi": "10.48550/arXiv.2605.24921",
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.1038/s41597-025-04826-y",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.4721737137436867,
+        "similarity_score": 0.4088084101676941,
+        "citation_text_length": 1147,
         "dataset_text_length": 2337,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -667,6 +704,29 @@
       }
     },
     {
+      "title": "CogniQ: An MCP-Driven Architecture for Hybrid Classical-Quantum Brain-Computer Interfaces",
+      "author": "Parth Gopakumar, Reena Moncy, Savio Winson, Swastik Sharma",
+      "venue": "IEEE World Conference on Applied Intelligence and Computing (AIC)",
+      "year": 2026,
+      "url": "https://doi.org/10.1109/aic70896.2026.11716934",
+      "cited_by": 0,
+      "abstract": "Brain–Computer Interfaces (BCIs) enable direct neural interaction with external systems, yet their development is hindered by rigid software architectures that struggle to integrate emerging computational paradigms. This paper proposes CogniQ, a scalable Machine Learning Operations (MLOps) framework designed to provide a standardized environment for the execution and comparative evaluation of classical and quantum-enhanced EEG processing pipelines. The framework abandons monolithic scripts in favor of a distributed multiagent architecture orchestrated by an asynchronous ZeroMQ message broker and a custom Model Context Protocol (MCP).We establish a robust classical baseline by dynamically injecting two denoising autoencoders—a convolutional baseline (CDAE) and our Phase-Locked Spatiotemporal Residual Autoencoder (PLSRAE)—alongside parameter-efficient classifiers (EEGNet, EEGNet Fusion). To circumvent the strict dependency conflicts between classical deep learning libraries and quantum s",
+      "doi": "10.1109/aic70896.2026.11716934",
+      "pmid": null,
+      "openalex_id": "W7220736297",
+      "source_doi": "10.1038/s41597-025-04826-y",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5123203414678574,
+        "similarity_score": 0.4435673952102661,
+        "citation_text_length": 1251,
+        "dataset_text_length": 2337,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Motor Imagery Classification on the WBCIC-MI Dataset: A Comparative Study",
       "author": "Nazifa Sultana Raisa, Mohammad Ashfak Habib",
       "venue": "2026 International Conference on Power, Electronics, Communications, Computing, and Intelligent Infrastructure (PECCII)",
@@ -692,7 +752,7 @@
     {
       "title": "A Robust EEGNet-Based Framework with Advanced Preprocessing for Cross-Subject and Cross-Session Motor-Imagery BCI",
       "author": "Bakynam Yahia, Raouf Fareh, Kheireddine Choutri, Abir Hussain, Maâmar Bettayeb",
-      "venue": "2026 8th International Congress on Human-Computer Interaction, Optimization and Robotic Applications (ICHORA)",
+      "venue": "International Congress on Human-Computer Interaction, Optimization and Robotic Applications (ICHORA)",
       "year": 2026,
       "url": "https://doi.org/10.1109/ichora69329.2026.11537167",
       "cited_by": 0,
@@ -704,9 +764,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.7051212787628174,
-        "similarity_score": 0.6104946136474609,
-        "citation_text_length": 1339,
+        "confidence_score": 0.7003290233016015,
+        "similarity_score": 0.6063454747200012,
+        "citation_text_length": 1330,
         "dataset_text_length": 2337,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -738,7 +798,7 @@
     {
       "title": "Rethinking the Relationship between Attention and ERD in Motor Imagery BCI",
       "author": "Xintian Yang, Haian Mao",
-      "venue": "Proceedings of the 2026 7th International Conference on Computer Information and Big Data Applications",
+      "venue": "International Conference on Computer Information and Big Data Applications (CIBDA)",
       "year": 2026,
       "url": "https://doi.org/10.1145/3813822.3813887",
       "cited_by": 0,
@@ -750,9 +810,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6562288588285448,
-        "similarity_score": 0.5681635141372681,
-        "citation_text_length": 1238,
+        "confidence_score": 0.6493351596593858,
+        "similarity_score": 0.5621949434280396,
+        "citation_text_length": 1218,
         "dataset_text_length": 2337,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -805,32 +865,9 @@
       }
     },
     {
-      "title": "Adaptive Spatial Filtering and Linear Discriminant Learning for Robust Motor Imagery EEG Classification",
-      "author": "Sricheta Parui, Anirban Das, Sayanti Banerjee, Mahendra Kumar Gourisaria, Rakesh Kumar Rai",
-      "venue": "2025 Seventh International Conference on Research in Computational Intelligence and Communication Networks (ICRCICN)",
-      "year": 2025,
-      "url": "https://doi.org/10.1109/icrcicn68210.2025.11364727",
-      "cited_by": 0,
-      "abstract": "This study explores the use of electroencephalography (EEG) signals for classifying motor imagery (MI) tasks involving imagined left- and right-hand movements. To achieve accurate discrimination, we integrate Common Spatial Patterns (CSP) for spatial feature extraction along with Linear Discriminant Analysis (LDA) for classification. EEG recordings were obtained from 59 scalp electrodes positioned to capture neural activity in motor-related cortical regions. The signals were preprocessed using an $\\mathbf{8 - 1 5 ~ H z}$ band-pass filter to suppress noise and emphasize the sensorimotor rhythms relevant to movement imagination. Experimental evaluations on MI data demonstrate that the proposed CSP-LDA pipeline effectively distinguishes between different hand-imagery classes, suggesting its potential use in developing reliable and user-adaptive Brain-Computer Interface (BCI) systems for neurorehabilitation and assistive technology applications.",
-      "doi": "10.1109/icrcicn68210.2025.11364727",
-      "pmid": null,
-      "openalex_id": "W7127307080",
-      "source_doi": "10.1038/s41597-025-04826-y",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.70133386105299,
-        "similarity_score": 0.6072154641151428,
-        "citation_text_length": 1303,
-        "dataset_text_length": 2337,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Resting-State EEG's Influence on Ipsilateral Motor Imagery ERS Could Enhance BCI Generalizability",
       "author": "Mohammad Y. M. Naser, Sylvia Bhattacharya",
-      "venue": "2025 12th International IEEE/EMBS Conference on Neural Engineering (NER)",
+      "venue": "International IEEE/EMBS Conference on Neural Engineering",
       "year": 2025,
       "url": "https://doi.org/10.1109/ner61569.2025.11589024",
       "cited_by": 0,
@@ -842,9 +879,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6644250744581224,
-        "similarity_score": 0.575259804725647,
-        "citation_text_length": 1249,
+        "confidence_score": 0.6575430098176004,
+        "similarity_score": 0.5693013072013855,
+        "citation_text_length": 1233,
         "dataset_text_length": 2337,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -852,7 +889,7 @@
     },
     {
       "title": "Beyond One-Size-Fits-All: A Study of Neural and Behavioural Variability Across Different Recommendation Categories",
-      "author": "Georgios Koutroumpas, Sebastián Idesis, Mireia Masias, Carlos Segura, Joemon M. Jose, Sergi Abadal, I. Arapakis",
+      "author": "Georgios Koutroumpas, Sebastián Idesis, Mireia Masias, Carlos Segura, Joemon M. Jose, Sergi Abadal, Ioannis Arapakis",
       "venue": "Proceedings of the 2025 International ACM SIGIR Conference on Innovative Concepts and Theories in Information Retrieval (ICTIR)",
       "year": 2025,
       "url": "https://doi.org/10.1145/3731120.3744616",
@@ -865,9 +902,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.35242412298917775,
-        "similarity_score": 0.30512911081314087,
-        "citation_text_length": 1391,
+        "confidence_score": 0.35375290319323544,
+        "similarity_score": 0.30627956986427307,
+        "citation_text_length": 1396,
         "dataset_text_length": 2337,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -897,8 +934,31 @@
       }
     },
     {
+      "title": "Low-Budget Active Learning through Entropic Optimal Transport",
+      "author": "Rim Hajal, Mathieu Besançon, Jérôme Malick",
+      "venue": "n/a",
+      "year": 2026,
+      "url": "n/a",
+      "cited_by": 0,
+      "abstract": "We consider low-budget active learning, which consists of selecting a limited number of points, the coreset, such that a model can be trained to high accuracy on the selection only. This problem is particularly relevant in contexts where labeling requires costly expert intervention, as in medical applications. We leverage features extracted from a pretrained self-supervised model to represent the data, and perform coreset selection directly in this feature space. In this paper, we use entropic optimal transport, specifically the Sinkhorn divergence, as the coreset selection criterion, which first allows us to get dimension-free sample complexity results, and second admits computationally efficient gradient evaluations. This opens the way to using gradient-based algorithms to rapidly compute solution candidates, further improved by a swap-based local search, with guarantees on the solution quality. Experiments on image benchmarks and medical datasets show that our method outperforms sta",
+      "doi": null,
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.1038/s41597-025-04826-y",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.34123728275299076,
+        "similarity_score": 0.2954435348510742,
+        "citation_text_length": 1145,
+        "dataset_text_length": 2337,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "ATCNet-CIAM for Multi-Session Motor Imagery EEG Signal Classification",
-      "author": "L. Hai, Hải Chí Nguyễn, Truong V. Vu, Nguyen Phuc Nguyen, Anh Thai Nguyen, Ngo Hoang Tu",
+      "author": "L. Hai, Hải Chí Nguyễn, T. Vu, N. P. Nguyen, Anh Thai Nguyen, Ngo Hoang Tu",
       "venue": "ArXiv",
       "year": 2026,
       "url": "https://doi.org/10.48550/arXiv.2607.23522",
@@ -911,9 +971,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.7462064480781556,
-        "similarity_score": 0.6460661888122559,
-        "citation_text_length": 1200,
+        "confidence_score": 0.7465636074543001,
+        "similarity_score": 0.6463754177093506,
+        "citation_text_length": 1187,
         "dataset_text_length": 2337,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -966,31 +1026,8 @@
       }
     },
     {
-      "title": "BandVQ: Band-Wise Vector-Quantized EEG Foundation Model",
-      "author": "Jamiyan Sukhbaatar, S. Imamura, Toshihisa Tanaka",
-      "venue": "ArXiv",
-      "year": 2026,
-      "url": "https://doi.org/10.48550/arXiv.2605.24921",
-      "cited_by": 0,
-      "abstract": "A central challenge in electroencephalography (EEG) foundation modeling is learning transferable representations across recordings with diverse tasks, montages, references, and spectral characteristics. Existing masked modeling approaches often rely on broadband continuous patches or a single discrete representation, which may underrepresent frequency-specific activity. This paper proposes BandVQ, a band-wise vector-quantized EEG foundation model that decomposes EEG into delta, theta, alpha, beta, and gamma bands, trains an independent VQ-VAE tokenizer for each band, and pretrains a shared Transformer encoder on the resulting discrete VQ code indices. The encoder uses masked code tokens, quantized absolute log-power tokens, channel and temporal embeddings, and metadata prefix tokens representing reference, band, task family, and phase. Region-based masking is also introduced to reduce the trivial reconstruction of spatially adjacent electrodes. The model is pretrained on 71 public EEG ",
-      "doi": "10.48550/arXiv.2605.24921",
-      "pmid": null,
-      "openalex_id": null,
-      "source_doi": "10.1038/s41597-025-04826-y",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.4721737137436867,
-        "similarity_score": 0.4088084101676941,
-        "citation_text_length": 1147,
-        "dataset_text_length": 2337,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Design and Experimental Investigation of a Multi-Level Heartbeat Sound Feedback-Based Neurofeedback System: Neural Mechanisms",
-      "author": "Xiuyan Hu, Mingge Kang, Yijing Liu, Ting Shi, Xin-Yu Shi, Yun-Fa Fu, An-Min Gong",
+      "author": "Xiu-Yan Hu, Mingge Kang, Yijing Liu, Ting Shi, Xin-Yu Shi, Yun-Fa Fu, An-Min Gong",
       "venue": "Sensors (Basel, Switzerland)",
       "year": 2026,
       "url": "https://doi.org/10.3390/s26103187",
@@ -1003,9 +1040,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6122346442937852,
-        "similarity_score": 0.5300732851028442,
-        "citation_text_length": 1272,
+        "confidence_score": 0.612223078608513,
+        "similarity_score": 0.530063271522522,
+        "citation_text_length": 1273,
         "dataset_text_length": 2337,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1059,22 +1096,22 @@
     },
     {
       "title": "Robotic Grasping and Placement Controlled by EEG-Based Hybrid Visual and Motor Imagery",
-      "author": "Yichang Liu, Tian-Yu Wang, Ziyi Ye, Yawei Li, Yu-Gang Jiang, Shouyan Wang, Yanwei Fu",
-      "venue": "ArXiv",
+      "author": "Yi-Chang Liu, Tian-Yu Wang, Zi-Yi Ye, Yawei Li, Yu-Gang Jiang, Shou-Yan Wang, Yan-Wei Fu",
+      "venue": "2026 IEEE International Conference on Robotics and Automation (ICRA)",
       "year": 2026,
-      "url": "https://doi.org/10.48550/arXiv.2603.03181",
+      "url": "https://doi.org/10.1109/ICRA57385.2026.11697488",
       "cited_by": 0,
       "abstract": "We present a framework that integrates EEG-based visual and motor imagery (VI/MI) with robotic control to enable real-time, intention-driven grasping and placement. Motivated by the promise of BCI-driven robotics to enhance human-robot interaction, this system bridges neural signals with physical control by deploying offline-pretrained decoders in a zero-shot manner within an online streaming pipeline. This establishes a dual-channel intent interface that translates visual intent into robotic actions, with VI identifying objects for grasping and MI determining placement poses, enabling intuitive control over both what to grasp and where to place. The system operates solely on EEG via a cue-free imagery protocol, achieving integration and online validation. Implemented on a Base robotic platform and evaluated across diverse scenarios, including occluded targets or varying participant postures, the system achieves online decoding accuracies of 40.23% (VI) and 62.59% (MI), with an end-to-",
-      "doi": "10.48550/arXiv.2603.03181",
+      "doi": "10.1109/ICRA57385.2026.11697488",
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1038/s41597-025-04826-y",
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6323362872004509,
-        "similarity_score": 0.5474773049354553,
-        "citation_text_length": 1214,
+        "confidence_score": 0.6156691020727159,
+        "similarity_score": 0.5330468416213989,
+        "citation_text_length": 1281,
         "dataset_text_length": 2337,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1082,7 +1119,7 @@
     },
     {
       "title": "One Brain, Omni Modalities: Towards Unified Non-Invasive Brain Decoding with Large Language Models",
-      "author": "Changli Tang, Shurui Li, Junliang Wang, Qinfan Xiao, Z. Zhai, Lei Bai, Yu Qiao, Bowen Zhou, Wen Wu, Yuanning Li, ChaoBin Zhang",
+      "author": "Changli Tang, Shurui Li, Junliang Wang, Qinfan Xiao, Z. Zhai, Lei Bai, Yu Qiao, Bowen Zhou, Wen Wu, Yuan-Ning Li, ChaoBin Zhang",
       "venue": "ArXiv",
       "year": 2026,
       "url": "https://doi.org/10.48550/arXiv.2602.21522",
@@ -1095,9 +1132,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5022932021319867,
-        "similarity_score": 0.4348858892917633,
-        "citation_text_length": 1268,
+        "confidence_score": 0.4984481281042099,
+        "similarity_score": 0.4315568208694458,
+        "citation_text_length": 1269,
         "dataset_text_length": 2337,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1171,46 +1208,21 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
-    },
-    {
-      "title": "Major Histocompatibility Class II Transactivator (CIITA) Mediates Repression of Collagen (COL1A2) Transcription by Interferon γ (IFN-γ)",
-      "author": "Yong Xu, Lin Wang, Giovanna Butticè, Pritam K. Sengupta, Barbara D. Smith",
-      "venue": "Journal of Biological Chemistry",
-      "year": 2004,
-      "url": "https://doi.org/10.1074/jbc.m404174200",
-      "cited_by": 59,
-      "abstract": "Interferon gamma (IFN-gamma) plays an important role during inflammation by repressing collagen and activating major histocompatibility class II (MHC-II) expression. Activation of MHC-II by IFN-gamma requires regulatory factor for X-box 5 (RFX5) complex as well as class II transactivator (CIITA). We have shown that the RFX family binds to the COL1A2 transcription start site, and the RFX5 complex represses COL1A2 gene expression during IFN-gamma response. In this report, we demonstrate that CIITA is a key mediator of COL1A2 repression by IFN-gamma. IFN-gamma up-regulates the expression of CIITA in a time-dependent manner in lung fibroblasts and promotes CIITA protein occupancy on COL1A2 transcription start site in vivo as judged by chromatin immunoprecipitation (ChIP) assays. There are coordinate decreases in the occupancy of RNA polymerase II on the collagen transcription start site with increasing CIITA occupancy during IFN-gamma treatment. In addition, we are able to specifically knockdown the IFN-gamma-stimulated expression of CIITA utilizing short hairpin interference RNA (shRNA) against CIITA. This leads to the alleviation of COL1A2 repression and MHC-II activation by IFN-gamma. RFX5 recruits CIITA to the collagen site as evidenced by DNA affinity chromatography. The presence of RFX5 complex proteins enhances the collagen repression by CIITA reaching levels occurring during IFN-gamma treatment. Co-expression of CIITA with deletion mutations and collagen promoter constructs demonstrates that CIITA represses collagen promoter mainly through its N-terminal region including the acidic domain and the proline/serine/threonine domain. Our data suggest that CIITA is a crucial member of a repressor complex responsible for mediating COL1A2 transcription repression by IFN-gamma.",
-      "doi": "10.1074/jbc.m404174200",
-      "pmid": "15247294",
-      "openalex_id": "W2095163170",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "nm000246",
-      "confidence_scoring": {
-        "confidence_score": 0.22525499761104587,
-        "similarity_score": 0.20477727055549622,
-        "citation_text_length": 1778,
-        "dataset_text_length": 2337,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-10-04T10:09:07.130431+00:00",
+    "scoring_date": "2026-10-11T11:24:10.770150+00:00",
     "dataset_text_length": 2337,
-    "num_citations_scored": 48,
+    "num_citations_scored": 49,
     "summary_stats": {
-      "mean_confidence": 0.5918519985085974,
-      "median_confidence": 0.6152063181996346,
-      "std_confidence": 0.12814260211308529,
-      "min_confidence": 0.22525499761104587,
+      "mean_confidence": 0.5917247336373038,
+      "median_confidence": 0.612223078608513,
+      "std_confidence": 0.12068616093000742,
+      "min_confidence": 0.2866253216564656,
       "max_confidence": 0.7712499430775643,
-      "high_confidence_count": 11,
-      "medium_confidence_count": 32,
+      "high_confidence_count": 10,
+      "medium_confidence_count": 34,
       "low_confidence_count": 5
     }
   }

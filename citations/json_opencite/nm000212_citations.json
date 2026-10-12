@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000212",
   "num_citations": 48,
-  "date_last_updated": "2026-09-30T10:44:25.980084+00:00",
+  "date_last_updated": "2026-10-11T10:21:02.656161+00:00",
   "metadata": {
-    "total_cumulative_citations": 1308,
-    "fetch_date": "2026-09-29T10:50:19.383289+00:00",
+    "total_cumulative_citations": 1296,
+    "fetch_date": "2026-10-11T10:21:02.656161+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -19,12 +19,12 @@
         "source_relation": "IsDerivedFrom",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Exploring motion VEPs for gaze-independent communication",
         "paper_year": 2012,
         "paper_venue": "Journal of Neural Engineering",
         "reason": "Dataset DOI and authors match this paper (Schaeff et al. 2012); 16 subjects, mVEP speller study reporting the recorded data.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1088/1741-2560/11/2/026009",
@@ -32,38 +32,38 @@
         "source_relation": "References",
         "classification": "related_work",
         "kept": false,
+        "kept_reason": "judged_not_data_paper",
         "paper_title": "Decoding auditory attention to instruments in polyphonic music using single-trial EEG classification",
         "paper_year": 2014,
         "paper_venue": "Journal of Neural Engineering",
         "reason": "Auditory polyphonic-music attention BCI study (2014), not the visual motion VEP speller data paper (Schaeff 2012); overlapping authors but a different experiment.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_not_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.21105/joss.01896",
         "identifier_type": "doi",
-        "source_relation": "IsDescribedBy",
+        "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
         "paper_year": 2019,
         "paper_venue": "The Journal of Open Source Software",
         "reason": "MNE-BIDS is a software tool for organizing electrophysiology data into BIDS, used for dataset conversion, not a paper describing the mVEP speller data.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1038/s41597-019-0104-8",
         "identifier_type": "doi",
-        "source_relation": "IsDescribedBy",
+        "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "EEG-BIDS, an extension to the brain imaging data structure for electroencephalography",
         "paper_year": 2019,
         "paper_venue": "Scientific Data",
         "reason": "EEG-BIDS is a data-organization standard/specification extending BIDS, used to format this dataset, not a paper describing the mVEP speller data.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.nm000212",
@@ -71,12 +71,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -84,21 +84,15 @@
       "10.82901/nemar.nm000212"
     ],
     "keywords": [
-      "motion visually evoked potentials",
-      "mVEP",
-      "Brain-Computer Interfaces",
-      "P300",
-      "N200",
       "EEG",
+      "motion visually evoked potentials",
+      "brain-computer interface",
+      "P300",
       "speller",
-      "visual speller",
-      "gaze-independent",
       "covert attention",
-      "hierarchical selection",
-      "Cake Speller",
-      "Motion Center Speller"
+      "gaze-independent communication"
     ],
-    "methods_description": "EEG data were acquired using a 63-channel BrainAmp amplifier with actiCap active electrodes in a 10-10 montage, sampled at 100 Hz with online hardware bandpass filtering (0.016–250 Hz). Participants performed copy-spelling and free-spelling tasks with motion VEP stimuli presented at 200 ms (Cake Spellers) or 266 ms (Motion Center Speller) stimulus onset asynchrony. Preprocessing included downsampling, low-pass filtering (42 Hz passband), baseline correction, and artifact rejection using min-max criterion (≥70 μV) and variance-based methods. Classification employed linear discriminant analysis with shrinkage-regularized covariance matrices on signed square point-biserial correlation coefficients.",
+    "methods_description": "EEG was recorded with a BrainAmp amplifier and actiCap active electrodes (63 channels, 10-10 montage, linked-mastoid reference, hardware bandpass 0.016-250 Hz). Stimuli were presented with Pyff and VisionEgg. The SOA was 200 ms for the Cake Spellers and 266 ms for the Motion Center Speller, with 10 repetitions per selection level. Preprocessing included downsampling, low-pass filtering, baseline correction and artifact rejection (min-max 70 μV and variance criteria). Classification used shrinkage LDA trained on calibration data and tested on copy-spelling and free-spelling.",
     "funding": [
       {
         "funder_name": "DFG grant"
@@ -117,20 +111,8 @@
       },
       {
         "funder_name": "BMBF"
-      },
-      {
-        "funder_name": "Deutsche Forschungsgemeinschaft (DFG)"
-      },
-      {
-        "funder_name": "Bundesministerium für Bildung und Forschung (BMBF)"
       }
-    ],
-    "searched_accessions": [
-      "nm000212"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 48
+    ]
   },
   "citation_details": [
     {
@@ -185,7 +167,7 @@
       "venue": "IEEE Transactions on Biomedical Engineering",
       "year": 2019,
       "url": "https://doi.org/10.1109/tbme.2019.2958641",
-      "cited_by": 115,
+      "cited_by": 113,
       "abstract": "Event-related potentials (ERPs) are one of the most popular control signals for brain-computer interfaces (BCIs). However, they are very weak and sensitive to the experimental settings including paradigms, stimulation parameters and even surrounding environments, resulting in a diversity of ERP patterns across different BCI experiments. It's still a challenge to develop a general decoding algorithm that can adapt to the ERP diversities of different BCI datasets with small training sets. This study compared a recently developed algorithm, i.e., discriminative canonical pattern matching (DCPM), with seven ERP-BCI classification methods, i.e., linear discriminant analysis (LDA), stepwise LDA, bayesian LDA, shrinkage LDA, spatial-temporal discriminant analysis (STDA), xDAWN and EEGNet for the single-trial classification of two private EEG datasets and three public EEG datasets with small training sets. The feature ERPs of the five datasets included P300, motion visual evoked potential (mVE",
       "doi": "10.1109/tbme.2019.2958641",
       "pmid": "31831401",
@@ -277,7 +259,7 @@
       "venue": "Biomedical Signal Processing and Control",
       "year": 2015,
       "url": "https://doi.org/10.1016/j.bspc.2015.05.012",
-      "cited_by": 60,
+      "cited_by": 61,
       "abstract": "Abstract The goal of this study was to develop a hybrid mental speller that can effectively prevent unexpected typing errors in the steady-state visual evoked potential (SSVEP)-based mental speller by simultaneously using the information of eye-gaze direction detected by a low-cost webcam without calibration. In the implemented hybrid mental speller, a character corresponding to the strongest SSVEP response was typed only when the position of the selected character coincided with the horizontal eye-gaze direction (‘left’, ‘no direction’, or ‘right’) detected by the webcam-based eye tracker. When the character detected by the SSVEP-based mental speller was located in the direction opposite the eye-gaze direction, the character was not typed at all (a beep sound was generated instead), and thus the users of the speller did not need to correct the mistyped character using a ‘BACKSPACE’ key. To verify the feasibility and usefulness of the developed hybrid mental spelling system, we conduct",
       "doi": "10.1016/j.bspc.2015.05.012",
       "pmid": null,
@@ -323,7 +305,7 @@
       "venue": "NeuroImage",
       "year": 2013,
       "url": "https://doi.org/10.1016/j.neuroimage.2012.12.069",
-      "cited_by": 49,
+      "cited_by": 50,
       "abstract": null,
       "doi": "10.1016/j.neuroimage.2012.12.069",
       "pmid": "23313779",
@@ -364,6 +346,29 @@
       }
     },
     {
+      "title": "The cost of space independence in P300-BCI spellers",
+      "author": "Srivas Chennu, Abdulmajeed Alsufyani, Marco Filetti, Adrian Mark Owen, Howard Bowman",
+      "venue": "Journal of NeuroEngineering and Rehabilitation",
+      "year": 2013,
+      "url": "https://doi.org/10.1186/1743-0003-10-82",
+      "cited_by": 36,
+      "abstract": "BACKGROUND: Though non-invasive EEG-based Brain Computer Interfaces (BCI) have been researched extensively over the last two decades, most designs require control of spatial attention and/or gaze on the part of the user. METHODS: In healthy adults, we compared the offline performance of a space-independent P300-based BCI for spelling words using Rapid Serial Visual Presentation (RSVP), to the well-known space-dependent Matrix P300 speller. RESULTS: EEG classifiability with the RSVP speller was as good as with the Matrix speller. While the Matrix speller's performance was significantly reliant on early, gaze-dependent Visual Evoked Potentials (VEPs), the RSVP speller depended only on the space-independent P300b. However, there was a cost to true spatial independence: the RSVP speller was less efficient in terms of spelling speed. CONCLUSIONS: The advantage of space independence in the RSVP speller was concomitant with a marked reduction in spelling efficiency. Nevertheless, with key imp",
+      "doi": "10.1186/1743-0003-10-82",
+      "pmid": "23895406",
+      "openalex_id": "W2054104542",
+      "source_doi": "10.1088/1741-2560/9/4/045006",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6794453263282776,
+        "similarity_score": 0.6176775693893433,
+        "citation_text_length": 1220,
+        "dataset_text_length": 2308,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Maximizing Information Transfer in SSVEP-Based Brain–Computer Interfaces",
       "author": "Malte Sengelmann, Andreas Karl Engel, Alexander Maÿe",
       "venue": "IEEE Transactions on Biomedical Engineering",
@@ -387,35 +392,12 @@
       }
     },
     {
-      "title": "The cost of space independence in P300-BCI spellers",
-      "author": "Srivas Chennu, Abdulmajeed Alsufyani, Marco Filetti, Adrian Mark Owen, Howard Bowman",
-      "venue": "Journal of NeuroEngineering and Rehabilitation",
-      "year": 2013,
-      "url": "https://doi.org/10.1186/1743-0003-10-82",
-      "cited_by": 35,
-      "abstract": "BACKGROUND: Though non-invasive EEG-based Brain Computer Interfaces (BCI) have been researched extensively over the last two decades, most designs require control of spatial attention and/or gaze on the part of the user. METHODS: In healthy adults, we compared the offline performance of a space-independent P300-based BCI for spelling words using Rapid Serial Visual Presentation (RSVP), to the well-known space-dependent Matrix P300 speller. RESULTS: EEG classifiability with the RSVP speller was as good as with the Matrix speller. While the Matrix speller's performance was significantly reliant on early, gaze-dependent Visual Evoked Potentials (VEPs), the RSVP speller depended only on the space-independent P300b. However, there was a cost to true spatial independence: the RSVP speller was less efficient in terms of spelling speed. CONCLUSIONS: The advantage of space independence in the RSVP speller was concomitant with a marked reduction in spelling efficiency. Nevertheless, with key imp",
-      "doi": "10.1186/1743-0003-10-82",
-      "pmid": "23895406",
-      "openalex_id": "W2054104542",
-      "source_doi": "10.1088/1741-2560/9/4/045006",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.6794453263282776,
-        "similarity_score": 0.6176775693893433,
-        "citation_text_length": 1220,
-        "dataset_text_length": 2308,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Enhancement for P300-speller classification using multi-window discriminative canonical pattern matching",
       "author": "Xiaolin Xiao, Minpeng Xu, Jin Ho Han, Erwei Yin, Shuang Liu, Xin Zhang, Tzyy‐Ping Jung, Dong Ming",
       "venue": "Journal of Neural Engineering",
       "year": 2021,
       "url": "https://doi.org/10.1088/1741-2552/ac028b",
-      "cited_by": 33,
+      "cited_by": 32,
       "abstract": "Abstract Objective. P300s are one of the most studied event-related potentials (ERPs), which have been widely used for brain–computer interfaces (BCIs). Thus, fast and accurate recognition of P300s is an important issue for BCI study. Recently, there emerges a lot of novel classification algorithms for P300-speller. Among them, discriminative canonical pattern matching (DCPM) has been proven to work effectively, in which discriminative spatial pattern (DSP) filter can significantly enhance the spatial features of P300s. However, the pattern of ERPs in space varies with time, which was not taken into consideration in the traditional DCPM algorithm. Approach. In this study, we developed an advanced version of DCPM, i.e. multi-window DCPM, which contained a series of time-dependent DSP filters to fine-tune the extraction of spatial ERP features. To verify its effectiveness, 25 subjects were recruited and they were asked to conduct the typical P300-speller experiment. Main results. As a re",
       "doi": "10.1088/1741-2552/ac028b",
       "pmid": "34096888",
@@ -480,11 +462,11 @@
     },
     {
       "title": "A Gaze Independent Brain-Computer Interface Based on Visual Stimulation through Closed Eyelids",
-      "author": "Han‐Jeong Hwang, Valeria Y. Ferreria, Daniel K. Ulrich, Tayfun Kilic, Xenofon Chatziliadis, Benjamin Blankertz, Matthias Sebastian Treder",
+      "author": "Han‐Jeong Hwang, Valeria Y. Ferreria, Daniel Ulrich, Tayfun Kilic, Xenofon Chatziliadis, Benjamin Blankertz, Matthias Sebastian Treder",
       "venue": "Scientific Reports",
       "year": 2015,
       "url": "https://doi.org/10.1038/srep15890",
-      "cited_by": 26,
+      "cited_by": 27,
       "abstract": "A classical brain-computer interface (BCI) based on visual event-related potentials (ERPs) is of limited application value for paralyzed patients with severe oculomotor impairments. In this study, we introduce a novel gaze independent BCI paradigm that can be potentially used for such end-users because visual stimuli are administered on closed eyelids. The paradigm involved verbally presented questions with 3 possible answers. Online BCI experiments were conducted with twelve healthy subjects, where they selected one option by attending to one of three different visual stimuli. It was confirmed that typical cognitive ERPs can be evidently modulated by the attention of a target stimulus in eyes-closed and gaze independent condition, and further classified with high accuracy during online operation (74.58% ± 17.85 s.d.; chance level 33.33%), demonstrating the effectiveness of the proposed novel visual ERP paradigm. Also, stimulus-specific eye movements observed during stimulation were ve",
       "doi": "10.1038/srep15890",
       "pmid": "26510583",
@@ -493,32 +475,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.556577754020691,
-        "similarity_score": 0.5059797763824463,
-        "citation_text_length": 1288,
-        "dataset_text_length": 2308,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Robust asynchronous control of ERP-Based brain-Computer interfaces using deep learning",
-      "author": "Eduardo Santamaría-Vázquez, Víctor Martínez-Cagigal, Sergio Pérez-Velasco, Diego Marcos-Martínez, Roberto Hornero",
-      "venue": "Computer Methods and Programs in Biomedicine",
-      "year": 2022,
-      "url": "https://doi.org/10.1016/j.cmpb.2022.106623",
-      "cited_by": 21,
-      "abstract": "BACKGROUND AND OBJECTIVE: Brain-computer interfaces (BCI) based on event-related potentials (ERP) are a promising technology for alternative and augmented communication in an assistive context. However, most approaches to date are synchronous, requiring the intervention of a supervisor when the user wishes to turn his attention away from the BCI system. In order to bring these BCIs into real-life applications, a robust asynchronous control of the system is required through monitoring of user attention. Despite the great importance of this limitation, which prevents the deployment of these systems outside the laboratory, it is often overlooked in research articles. This study was aimed to propose a novel method to solve this problem, taking advantage of deep learning for the first time in this context to overcome the limitations of previous strategies based on hand-crafted features. METHODS: The proposed method, based on EEG-Inception, a novel deep convolutional neural network, divides ",
-      "doi": "10.1016/j.cmpb.2022.106623",
-      "pmid": "35030477",
-      "openalex_id": "W4205146881",
-      "source_doi": "10.1088/1741-2560/9/4/045006",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.45955985382199294,
-        "similarity_score": 0.39788731932640076,
-        "citation_text_length": 1282,
+        "confidence_score": 0.5577404201030731,
+        "similarity_score": 0.5070367455482483,
+        "citation_text_length": 1285,
         "dataset_text_length": 2308,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -571,8 +530,31 @@
       }
     },
     {
+      "title": "Robust asynchronous control of ERP-Based brain-Computer interfaces using deep learning",
+      "author": "Eduardo Santamaría-Vázquez, Víctor Martínez-Cagigal, Sergio Pérez-Velasco, Diego Marcos-Martínez, Roberto Hornero",
+      "venue": "Computer Methods and Programs in Biomedicine",
+      "year": 2022,
+      "url": "https://doi.org/10.1016/j.cmpb.2022.106623",
+      "cited_by": 19,
+      "abstract": "BACKGROUND AND OBJECTIVE: Brain-computer interfaces (BCI) based on event-related potentials (ERP) are a promising technology for alternative and augmented communication in an assistive context. However, most approaches to date are synchronous, requiring the intervention of a supervisor when the user wishes to turn his attention away from the BCI system. In order to bring these BCIs into real-life applications, a robust asynchronous control of the system is required through monitoring of user attention. Despite the great importance of this limitation, which prevents the deployment of these systems outside the laboratory, it is often overlooked in research articles. This study was aimed to propose a novel method to solve this problem, taking advantage of deep learning for the first time in this context to overcome the limitations of previous strategies based on hand-crafted features. METHODS: The proposed method, based on EEG-Inception, a novel deep convolutional neural network, divides ",
+      "doi": "10.1016/j.cmpb.2022.106623",
+      "pmid": "35030477",
+      "openalex_id": "W4205146881",
+      "source_doi": "10.1088/1741-2560/9/4/045006",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.45955985382199294,
+        "similarity_score": 0.39788731932640076,
+        "citation_text_length": 1282,
+        "dataset_text_length": 2308,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Applying Functional Animation to Pictorial Symbols for Supporting P300–Brain–Computer Interface Access to Augmentative and Alternative Communication Devices by Children",
-      "author": "Kevin M. Pitt, Zachary Jay Cole, Joshua E. Zosky",
+      "author": "Kevin M. Pitt, Zachary J. Cole, Joshua E. Zosky",
       "venue": "International Journal of Human-Computer Interaction",
       "year": 2022,
       "url": "https://doi.org/10.1080/10447318.2022.2121566",
@@ -585,9 +567,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5626599177718162,
-        "similarity_score": 0.48715144395828247,
-        "citation_text_length": 1306,
+        "confidence_score": 0.5647414313256741,
+        "similarity_score": 0.4889536201953888,
+        "citation_text_length": 1305,
         "dataset_text_length": 2308,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -617,23 +599,23 @@
       }
     },
     {
-      "title": "Computer Methods and Programs in Biomedicine",
-      "author": "E. Santamaría-Vázquez, V. Martínez-Cagigal, S. Pérez-Velasco, D. Marcos-Martínez, R. Hornero",
-      "venue": "n/a",
-      "year": 0,
-      "url": "n/a",
+      "title": "NeuralBench: A Unifying Framework to Benchmark NeuroAI Models",
+      "author": "Hubert J. Banville, Stéphane d'Ascoli, Simon Dahan, Jérémy Rapin, Marlène Careil, Yohann Benchetrit, Jarod Lévy, S. Panchavati, Antoine Ratouchniak, Ming-Fang Zhang, Elisa Cascardi, K. Begany, Teon L Brooks, Jean-Rémi King",
+      "venue": "ArXiv",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arXiv.2605.08495",
       "cited_by": 16,
-      "abstract": null,
-      "doi": null,
+      "abstract": "Deep learning and large public datasets have recently catalyzed the proliferation of AI models for processing brain recordings. However, systematically evaluating these models remains a challenge: not only do the preprocessing pipelines, training and finetuning approaches largely vary across studies, but their downstream evaluation is often limited to small sets of tasks and/or datasets. Here, we present NeuralBench: a unified framework for benchmarking AI models of brain activity. We accompany this framework with NeuralBench-EEG v1.0 -- a large EEG benchmark that includes 36 electroencephalography (EEG) tasks and 14 deep learning architectures, and is evaluated on 94 datasets accessed through a standardized interface. This first EEG-focused release already highlights two main findings. First, current foundation models only marginally outperform task-specific models. Second, a large set of tasks (e.g. cognitive decoding, clinical predictions) remain highly challenging, even for the bes",
+      "doi": "10.48550/arXiv.2605.08495",
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1088/1741-2560/9/4/045006",
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.3217858672142029,
-        "similarity_score": 0.3217858672142029,
-        "citation_text_length": 166,
+        "confidence_score": 0.5859403342008591,
+        "similarity_score": 0.5073076486587524,
+        "citation_text_length": 1327,
         "dataset_text_length": 2308,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -686,29 +668,6 @@
       }
     },
     {
-      "title": "NeuralBench: A Unifying Framework to Benchmark NeuroAI Models",
-      "author": "Hubert J. Banville, Stéphane d’Ascoli, Simon Dahan, Jérémy Rapin, Marlène Careil, Yohann Benchetrit, Jarod Lévy, S. Panchavati, Antoine Ratouchniak, Mingfang Zhang, Elisa Cascardi, K. Begany, Teon L Brooks, Jean-Rémi King",
-      "venue": "ArXiv",
-      "year": 2026,
-      "url": "https://doi.org/10.48550/arXiv.2605.08495",
-      "cited_by": 13,
-      "abstract": "Deep learning and large public datasets have recently catalyzed the proliferation of AI models for processing brain recordings. However, systematically evaluating these models remains a challenge: not only do the preprocessing pipelines, training and finetuning approaches largely vary across studies, but their downstream evaluation is often limited to small sets of tasks and/or datasets. Here, we present NeuralBench: a unified framework for benchmarking AI models of brain activity. We accompany this framework with NeuralBench-EEG v1.0 -- a large EEG benchmark that includes 36 electroencephalography (EEG) tasks and 14 deep learning architectures, and is evaluated on 94 datasets accessed through a standardized interface. This first EEG-focused release already highlights two main findings. First, current foundation models only marginally outperform task-specific models. Second, a large set of tasks (e.g. cognitive decoding, clinical predictions) remain highly challenging, even for the bes",
-      "doi": "10.48550/arXiv.2605.08495",
-      "pmid": null,
-      "openalex_id": null,
-      "source_doi": "10.1088/1741-2560/9/4/045006",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5854927146434785,
-        "similarity_score": 0.5069200992584229,
-        "citation_text_length": 1326,
-        "dataset_text_length": 2308,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "The University of Birmingham (Live System) The cost of space independence in P300-BCI spellers",
       "author": "Srivas Chennu, Abdulmajeed Alsufyani, M. Filetti, A. Owen, H. Bowman",
       "venue": "n/a",
@@ -726,6 +685,29 @@
         "confidence_score": 0.5521217584609985,
         "similarity_score": 0.5521217584609985,
         "citation_text_length": 192,
+        "dataset_text_length": 2308,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Improving P300 Speller performance by means of optimization and machine learning",
+      "author": "Luigi Bianchi, Chiara Liti, Giampaolo Liuzzi, Veronica Piccialli, Cecilia Salvatore",
+      "venue": "Annals of Operations Research",
+      "year": 2021,
+      "url": "https://doi.org/10.1007/s10479-020-03921-0",
+      "cited_by": 12,
+      "abstract": "Abstract Brain-Computer Interfaces (BCIs) are systems allowing people to interact with the environment bypassing the natural neuromuscular and hormonal outputs of the peripheral nervous system (PNS). These interfaces record a user’s brain activity and translate it into control commands for external devices, thus providing the PNS with additional artificial outputs. In this framework, the BCIs based on the P300 Event-Related Potentials (ERP), which represent the electrical responses recorded from the brain after specific events or stimuli, have proven to be particularly successful and robust. The presence or the absence of a P300 evoked potential within the EEG features is determined through a classification algorithm. Linear classifiers such as stepwise linear discriminant analysis and support vector machine (SVM) are the most used discriminant algorithms for ERPs’ classification. Due to the low signal-to-noise ratio of the EEG signals, multiple stimulation sequences (a.k.a. iterations",
+      "doi": "10.1007/s10479-020-03921-0",
+      "pmid": null,
+      "openalex_id": "W3042122387",
+      "source_doi": "10.1088/1741-2560/9/4/045006",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6688810989260674,
+        "similarity_score": 0.5791178345680237,
+        "citation_text_length": 1231,
         "dataset_text_length": 2308,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -755,23 +737,23 @@
       }
     },
     {
-      "title": "Improving P300 Speller performance by means of optimization and machine learning",
-      "author": "Luigi Chieco Bianchi, Chiara Liti, Giampaolo Liuzzi, Veronica Piccialli, Cecilia Salvatore",
-      "venue": "Annals of Operations Research",
-      "year": 2021,
-      "url": "https://doi.org/10.1007/s10479-020-03921-0",
-      "cited_by": 12,
-      "abstract": "Abstract Brain-Computer Interfaces (BCIs) are systems allowing people to interact with the environment bypassing the natural neuromuscular and hormonal outputs of the peripheral nervous system (PNS). These interfaces record a user’s brain activity and translate it into control commands for external devices, thus providing the PNS with additional artificial outputs. In this framework, the BCIs based on the P300 Event-Related Potentials (ERP), which represent the electrical responses recorded from the brain after specific events or stimuli, have proven to be particularly successful and robust. The presence or the absence of a P300 evoked potential within the EEG features is determined through a classification algorithm. Linear classifiers such as stepwise linear discriminant analysis and support vector machine (SVM) are the most used discriminant algorithms for ERPs’ classification. Due to the low signal-to-noise ratio of the EEG signals, multiple stimulation sequences (a.k.a. iterations",
-      "doi": "10.1007/s10479-020-03921-0",
-      "pmid": null,
-      "openalex_id": "W3042122387",
+      "title": "A New Early Stopping Method for P300 Spellers",
+      "author": "Luigi Bianchi, Chiara Liti, Veronica Piccialli",
+      "venue": "IEEE Transactions on Neural Systems and Rehabilitation Engineering",
+      "year": 2019,
+      "url": "https://doi.org/10.1109/tnsre.2019.2924080",
+      "cited_by": 10,
+      "abstract": "In event-related potentials based brain-computer interfaces, the responses evoked by a well defined stimuli sequence are usually averaged to overcome the limitations caused by the intrinsic poor EEG signal-to-noise ratio. This, however, implies that the time necessary to detect the brain signals increases and then that the communication rate can be dramatically reduced. A common approach is then at first to estimate an optimal fixed number of responses to be averaged on a calibration data set and then to use this number on the online/testing dataset. In contrast to this strategy, several early stopping methods have been successfully proposed, aiming at dynamically stopping the stimulation sequence when a certain condition is met. We propose an efficient and easy to implement early stopping method that outperforms the ones proposed in the literature, showing its effectiveness on several publicly available datasets recorded from either healthy subjects or amyotrophic lateral sclerosis pa",
+      "doi": "10.1109/tnsre.2019.2924080",
+      "pmid": "31226078",
+      "openalex_id": "W2951485060",
       "source_doi": "10.1088/1741-2560/9/4/045006",
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6770450270175935,
-        "similarity_score": 0.5861861705780029,
-        "citation_text_length": 1238,
+        "confidence_score": 0.6293113589286805,
+        "similarity_score": 0.5721012353897095,
+        "citation_text_length": 1196,
         "dataset_text_length": 2308,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -801,35 +783,12 @@
       }
     },
     {
-      "title": "A New Early Stopping Method for P300 Spellers",
-      "author": "Luigi Chieco Bianchi, Chiara Liti, Veronica Piccialli",
-      "venue": "IEEE Transactions on Neural Systems and Rehabilitation Engineering",
-      "year": 2019,
-      "url": "https://doi.org/10.1109/tnsre.2019.2924080",
-      "cited_by": 10,
-      "abstract": "In event-related potentials based brain-computer interfaces, the responses evoked by a well defined stimuli sequence are usually averaged to overcome the limitations caused by the intrinsic poor EEG signal-to-noise ratio. This, however, implies that the time necessary to detect the brain signals increases and then that the communication rate can be dramatically reduced. A common approach is then at first to estimate an optimal fixed number of responses to be averaged on a calibration data set and then to use this number on the online/testing dataset. In contrast to this strategy, several early stopping methods have been successfully proposed, aiming at dynamically stopping the stimulation sequence when a certain condition is met. We propose an efficient and easy to implement early stopping method that outperforms the ones proposed in the literature, showing its effectiveness on several publicly available datasets recorded from either healthy subjects or amyotrophic lateral sclerosis pa",
-      "doi": "10.1109/tnsre.2019.2924080",
-      "pmid": "31226078",
-      "openalex_id": "W2951485060",
-      "source_doi": "10.1088/1741-2560/9/4/045006",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.6320188045501709,
-        "similarity_score": 0.5745625495910645,
-        "citation_text_length": 1203,
-        "dataset_text_length": 2308,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Promoting Simple and Engaging Brain–Computer Interface Designs for Children by Evaluating Contrasting Motion Techniques",
-      "author": "Kevin M. Pitt, Zachary Jay Cole, Joshua E. Zosky",
+      "author": "Kevin M. Pitt, Zachary J. Cole, Joshua E. Zosky",
       "venue": "Journal of Speech Language and Hearing Research",
       "year": 2023,
       "url": "https://doi.org/10.1044/2023_jslhr-23-00292",
-      "cited_by": 5,
+      "cited_by": 6,
       "abstract": "PURPOSE: There is an increasing focus on using motion in augmentative and alternative communication (AAC) systems. In considering brain-computer interface access to AAC (BCI-AAC), motion may provide a simpler or more intuitive avenue for BCI-AAC control. Different motion techniques may be utilized in supporting competency with AAC devices including simple (e.g., zoom) and complex (behaviorally relevant animation) methods. However, how different pictorial symbol animation techniques impact BCI-AAC is unclear. METHOD: Sixteen healthy children completed two experimental conditions. These conditions included highlighting of pictorial symbols via both functional (complex) and zoom (simple) animation to evaluate the effects of motion techniques on P300-based BCI-AAC signals and offline (predicted) BCI-AAC performance. RESULTS: Functional (complex) animation significantly increased attentional-related P200/P300 event-related potential (ERP) amplitudes in the parieto-occipital area. Zoom (simp",
       "doi": "10.1044/2023_jslhr-23-00292",
       "pmid": "37696046",
@@ -838,9 +797,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5838842582702637,
-        "similarity_score": 0.5055274963378906,
-        "citation_text_length": 1253,
+        "confidence_score": 0.5823717007040978,
+        "similarity_score": 0.5042179226875305,
+        "citation_text_length": 1252,
         "dataset_text_length": 2308,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -870,29 +829,6 @@
       }
     },
     {
-      "title": "Shifting stimuli for brain computer interface based on rapid serial visual presentation",
-      "author": "Dong-Ok Won, Han‐Jeong Hwang, Klaus‐Robert Müller, Seong–Whan Lee",
-      "venue": "2017 5th International Winter Conference on Brain-Computer Interface (BCI)",
-      "year": 2017,
-      "url": "https://doi.org/10.1109/iww-bci.2017.7858152",
-      "cited_by": 4,
-      "abstract": "Most of event-related potential (ERP)-based brain-computer interface (BCI) spellers are limited practical value for paralyzed patients with severe oculomotor impairments. Recently, a gaze-independent BCI speller was proposed that uses rapid serial visual presentation (RSVP), but it is difficult to recognize targets because of the rapid presentation of characters. We developed two ERP-based BCI spellers using RSVP with motion, and non-motion stimulation. We evaluated the effect of the two different stimulus conditions on the performance of the speller system with eight participants. The stimulation methods that employ motion stimulation inside the foveal vision demonstrate not only gaze-independence but also higher performance than method that uses non-motion stimulation (88.9% for non-motion RSVP, 90.3% for motion RSVP). The performance of the different stimulation methods was susceptible to ERP latency and amplitudes. As a result, motion-type RSVP stimulation condition (i.e., motion R",
-      "doi": "10.1109/iww-bci.2017.7858152",
-      "pmid": null,
-      "openalex_id": "W2588363759",
-      "source_doi": "10.1088/1741-2560/9/4/045006",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.6880363881587983,
-        "similarity_score": 0.6254876255989075,
-        "citation_text_length": 1265,
-        "dataset_text_length": 2308,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Correcting for ERP latency jitter improves gaze-independent BCI decoding",
       "author": "Arne Van Den Kerchove, Hakim Si-Mohammed, Marc M. Van Hulle, François Cabestaing",
       "venue": "Journal of Neural Engineering",
@@ -910,6 +846,52 @@
         "confidence_score": 0.5996659111976624,
         "similarity_score": 0.5191912651062012,
         "citation_text_length": 1220,
+        "dataset_text_length": 2308,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Effect of stimulus direction on motion-onset visual evoked potentials decoded using spatiotemporal beamforming Abstract",
+      "author": "Arno Libert, Benjamin Wittevrongel, Marc M. Van Hulle",
+      "venue": "International IEEE/EMBS Conference on Neural Engineering",
+      "year": 2021,
+      "url": "https://doi.org/10.1109/ner49283.2021.9441240",
+      "cited_by": 4,
+      "abstract": "Brain-computer interfaces (BCIs) establish a direct communication channel between the brain and a computer bypassing the former's output pathways. A less explored yet less taxing visual BCI paradigm relies on a briefly moving stimulus, the onset of which elicits a lateralized potential over the parieto-occipital scalp area called motion-onset visual evoked potental (mVEP). In this study, the effect of stimulation direction on this potential is investigated both in terms of scalp activation and BCI performance. A novel regularized spatiotemporal beamforming algorithm for mYEP decoding is introduced, and its performance compared to that of traditional mVEP decoders. While a clear dependency in scalp activation for stimulus direction is observed, it does not affect BCI performance for any of the considered decoders.",
+      "doi": "10.1109/ner49283.2021.9441240",
+      "pmid": null,
+      "openalex_id": "W3171113932",
+      "source_doi": "10.1088/1741-2560/9/4/045006",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6802682733535768,
+        "similarity_score": 0.5889768600463867,
+        "citation_text_length": 1091,
+        "dataset_text_length": 2308,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Shifting stimuli for brain computer interface based on rapid serial visual presentation",
+      "author": "Dong-Ok Won, Han‐Jeong Hwang, Klaus‐Robert Müller, Seong–Whan Lee",
+      "venue": "International Winter Conference on Brain-Computer Interface (BCI)",
+      "year": 2017,
+      "url": "https://doi.org/10.1109/iww-bci.2017.7858152",
+      "cited_by": 4,
+      "abstract": "Most of event-related potential (ERP)-based brain-computer interface (BCI) spellers are limited practical value for paralyzed patients with severe oculomotor impairments. Recently, a gaze-independent BCI speller was proposed that uses rapid serial visual presentation (RSVP), but it is difficult to recognize targets because of the rapid presentation of characters. We developed two ERP-based BCI spellers using RSVP with motion, and non-motion stimulation. We evaluated the effect of the two different stimulus conditions on the performance of the speller system with eight participants. The stimulation methods that employ motion stimulation inside the foveal vision demonstrate not only gaze-independence but also higher performance than method that uses non-motion stimulation (88.9% for non-motion RSVP, 90.3% for motion RSVP). The performance of the different stimulation methods was susceptible to ERP latency and amplitudes. As a result, motion-type RSVP stimulation condition (i.e., motion R",
+      "doi": "10.1109/iww-bci.2017.7858152",
+      "pmid": null,
+      "openalex_id": "W2588363759",
+      "source_doi": "10.1088/1741-2560/9/4/045006",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6835188210010529,
+        "similarity_score": 0.6213807463645935,
+        "citation_text_length": 1256,
         "dataset_text_length": 2308,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -939,32 +921,9 @@
       }
     },
     {
-      "title": "Effect of stimulus direction on motion-onset visual evoked potentials decoded using spatiotemporal beamforming Abstract",
-      "author": "Arno Libert, Benjamin Wittevrongel, Marc M. Van Hulle",
-      "venue": "2021 10th International IEEE/EMBS Conference on Neural Engineering (NER)",
-      "year": 2021,
-      "url": "https://doi.org/10.1109/ner49283.2021.9441240",
-      "cited_by": 3,
-      "abstract": "Brain-computer interfaces (BCIs) establish a direct communication channel between the brain and a computer bypassing the former's output pathways. A less explored yet less taxing visual BCI paradigm relies on a briefly moving stimulus, the onset of which elicits a lateralized potential over the parieto-occipital scalp area called motion-onset visual evoked potental (mVEP). In this study, the effect of stimulation direction on this potential is investigated both in terms of scalp activation and BCI performance. A novel regularized spatiotemporal beamforming algorithm for mYEP decoding is introduced, and its performance compared to that of traditional mVEP decoders. While a clear dependency in scalp activation for stimulus direction is observed, it does not affect BCI performance for any of the considered decoders.",
-      "doi": "10.1109/ner49283.2021.9441240",
-      "pmid": null,
-      "openalex_id": "W3171113932",
-      "source_doi": "10.1088/1741-2560/9/4/045006",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.681650303900242,
-        "similarity_score": 0.5901734232902527,
-        "citation_text_length": 1107,
-        "dataset_text_length": 2308,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Control of a humanoid robot via N200 potentials",
       "author": "Mengfan Li, Wei Li, Jing Zhao, Qing‐Hao Meng, Genshe Chen",
-      "venue": "Proceeding of the 11th World Congress on Intelligent Control and Automation",
+      "venue": "World Congress on Intelligent Control and Automation",
       "year": 2014,
       "url": "https://doi.org/10.1109/wcica.2014.7053096",
       "cited_by": 3,
@@ -976,9 +935,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5169542670249939,
-        "similarity_score": 0.46995842456817627,
-        "citation_text_length": 1102,
+        "confidence_score": 0.5165341258049012,
+        "similarity_score": 0.46957647800445557,
+        "citation_text_length": 1079,
         "dataset_text_length": 2308,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1032,7 +991,7 @@
     },
     {
       "title": "A Review and Classification of Widely used Offline Brain Datasets",
-      "author": "Muhammad Wasim, Muhammad Husain As Sajjad, Farheen Ramzan, Usman Ghani, Waqar Mahmood",
+      "author": "Muhammad Wasim, Muhammad Sajjad, Farheen Ramzan, Usman Ghani, Waqar Mahmood",
       "venue": "International Journal of Advanced Computer Science and Applications",
       "year": 2018,
       "url": "https://doi.org/10.14569/ijacsa.2018.090254",
@@ -1045,9 +1004,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.443575730919838,
-        "similarity_score": 0.40325066447257996,
-        "citation_text_length": 1082,
+        "confidence_score": 0.4437280058860779,
+        "similarity_score": 0.4033890962600708,
+        "citation_text_length": 1072,
         "dataset_text_length": 2308,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1056,7 +1015,7 @@
     {
       "title": "Exploring motion visual-evoked potentials for multi-objective gaze-independent brain-computer interfaces",
       "author": "Sijie Zhou, Long Chen, Jing Jin, Yu Zhang, Xingyu Wang",
-      "venue": "2016 3rd International Conference on Systems and Informatics (ICSAI)",
+      "venue": "International Conference on Systems and Informatics (ICSAI)",
       "year": 2016,
       "url": "https://doi.org/10.1109/icsai.2016.7810935",
       "cited_by": 2,
@@ -1068,9 +1027,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6637951970100403,
-        "similarity_score": 0.6034501791000366,
-        "citation_text_length": 1265,
+        "confidence_score": 0.6640204131603241,
+        "similarity_score": 0.6036549210548401,
+        "citation_text_length": 1256,
         "dataset_text_length": 2308,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1078,7 +1037,7 @@
     },
     {
       "title": "Current Developments in Automatic Drug Delivery in Anesthesia",
-      "author": "Olaf Simanski, Alexander Sievert, Matthias Janda, J. Bajorat",
+      "author": "Olaf Simanski, A Sievert, Matthias Janda, J. Bajorat",
       "venue": "Biomedizinische Technik/Biomedical Engineering",
       "year": 2013,
       "url": "https://doi.org/10.1515/bmt-2013-4426",
@@ -1091,9 +1050,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.3133060872554779,
-        "similarity_score": 0.2848237156867981,
-        "citation_text_length": 407,
+        "confidence_score": 0.3137704193592072,
+        "similarity_score": 0.2852458357810974,
+        "citation_text_length": 399,
         "dataset_text_length": 2308,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1102,7 +1061,7 @@
     {
       "title": "How fast can f-VEP BCIs ever be?",
       "author": "Malte Sengelmann, Andreas Karl Engel, Alexander Maÿe",
-      "venue": "2013 6th International IEEE/EMBS Conference on Neural Engineering (NER)",
+      "venue": "International IEEE/EMBS Conference on Neural Engineering",
       "year": 2013,
       "url": "https://doi.org/10.1109/ner.2013.6696117",
       "cited_by": 1,
@@ -1114,9 +1073,32 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.593438196182251,
-        "similarity_score": 0.5394892692565918,
-        "citation_text_length": 1038,
+        "confidence_score": 0.5954133450984955,
+        "similarity_score": 0.5412848591804504,
+        "citation_text_length": 1023,
+        "dataset_text_length": 2308,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "A visual Brain-Computer Interface for gaze-free communication : Algorithms & applications",
+      "author": "Arne Van Den Kerchove",
+      "venue": "n/a",
+      "year": 2024,
+      "url": "https://doi.org/10.70675/7ee5680eze506z4dbdz8078z01924f3e063a",
+      "cited_by": 0,
+      "abstract": "Interface Cerveau-Ordinateur visuelle pour la communication sans le regard : algorithmes & applications Les individus ayant des handicaps moteurs sévères, tels que ceux atteints desyndrome d'enfermement ou de dysfonctionnement oculomoteur, rencontrentdes défis considérables lors de l'utilisation d'interfaces cerveau-ordinateur (BCI)traditionnelles. Ces systèmes nécessitent que les utilisateurs dirigent leur regardvers des cibles spécifiques, une tâche qui devient impraticable pour les personnesayant un contrôle oculaire limité ou inexistant. Ce travail vise à palier cettelimitation en développant des méthodes de BCI indépendantes du regard, en seconcentrant sur l'amélioration de l'attention visuo-spatiale (VSA) cachée, oùles utilisateurs peuvent diriger leur attention vers une cible sans mouvementsoculaires correspondants. Une contribution clé de ce travail est la compensationpour la compensation de la variabilité de latence des potentiels évoqués (ERP),laquelle impacte la performance ",
+      "doi": "10.70675/7ee5680eze506z4dbdz8078z01924f3e063a",
+      "pmid": null,
+      "openalex_id": "W7152061085",
+      "source_doi": "10.1088/1741-2560/9/4/045006",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6021979013085366,
+        "similarity_score": 0.5213834643363953,
+        "citation_text_length": 1152,
         "dataset_text_length": 2308,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1125,7 +1107,7 @@
     {
       "title": "Data-driven spatial technique for enhancing the Steady State-Visual Evoked Potentials detection at Brain Computer Interface",
       "author": "S R Ashwini, H. C. Nagaraj",
-      "venue": "2019 International Conference on Smart Systems and Inventive Technology (ICSSIT)",
+      "venue": "International Conference on Smart Systems and Inventive Technology (ICSSIT)",
       "year": 2019,
       "url": "https://doi.org/10.1109/icssit46314.2019.8987798",
       "cited_by": 0,
@@ -1137,9 +1119,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5803079962730409,
-        "similarity_score": 0.5275527238845825,
-        "citation_text_length": 1268,
+        "confidence_score": 0.5788657605648041,
+        "similarity_score": 0.5262416005134583,
+        "citation_text_length": 1263,
         "dataset_text_length": 2308,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1240,18 +1222,18 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T10:52:16.699344+00:00",
+    "scoring_date": "2026-10-11T11:22:41.109088+00:00",
     "dataset_text_length": 2308,
     "num_citations_scored": 48,
     "summary_stats": {
-      "mean_confidence": 0.5505347361198316,
-      "median_confidence": 0.5596188358962536,
-      "std_confidence": 0.10307318771390109,
+      "mean_confidence": 0.5560925465263427,
+      "median_confidence": 0.5675831370800735,
+      "std_confidence": 0.09733110113561395,
       "min_confidence": 0.30642353743314743,
       "max_confidence": 0.7492364510893823,
       "high_confidence_count": 2,
-      "medium_confidence_count": 43,
-      "low_confidence_count": 3
+      "medium_confidence_count": 44,
+      "low_confidence_count": 2
     }
   }
 }

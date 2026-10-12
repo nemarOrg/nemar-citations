@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000274",
   "num_citations": 1,
-  "date_last_updated": "2026-09-30T10:44:27.246522+00:00",
+  "date_last_updated": "2026-10-11T10:27:00.056802+00:00",
   "metadata": {
-    "total_cumulative_citations": 6,
-    "fetch_date": "2026-09-29T10:59:32.507244+00:00",
+    "total_cumulative_citations": 8,
+    "fetch_date": "2026-10-11T10:27:00.056802+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -19,12 +19,12 @@
         "source_relation": "IsDescribedBy",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "2021 BEETL Competition: Advancing Transfer Learning for Subject Independence & Heterogenous EEG Data Sets",
         "paper_year": 2022,
         "paper_venue": "arXiv (Cornell University)",
         "reason": "The BEETL 2021 competition paper describes the competition and its datasets, including the motor imagery task data; its authors match the dataset's author list.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.nm000274",
@@ -32,12 +32,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -47,12 +47,12 @@
     "keywords": [
       "EEG",
       "motor imagery",
-      "Brain-Computer Interfaces",
       "transfer learning",
       "domain adaptation",
-      "cross-dataset"
+      "brain-computer interface",
+      "Machine Learning"
     ],
-    "methods_description": "EEG data were acquired at 200 Hz using 32 channels positioned around the motor cortex (standard 1005 montage), with online bandpass filtering (1-100 Hz) applied during acquisition. Data were preprocessed with frequency-domain bandpass filtering (1-100 Hz) and organized into 4-second trials under a motor imagery paradigm with visual cues for four classes: left hand, right hand, feet, and rest. Block-wise 5-fold cross-validation was employed for evaluation with cross-subject and cross-dataset assessment.",
+    "methods_description": "EEG was acquired at 200 Hz from 32 channels placed around the motor cortex (standard 1005 montage) with online bandpass filtering (1-100 Hz). Data were bandpass filtered in the frequency domain (1-100 Hz) and segmented into 4-second trials. Visual cues indicated four motor imagery classes, and evaluation used block-wise 5-fold cross-validation with cross-subject and cross-dataset assessment.",
     "funding": [
       {
         "funder_name": "CEA NUMERICS program"
@@ -66,7 +66,7 @@
       {
         "funder_name": "UKRI",
         "award_number": "EP/V025449/1",
-        "award_title": "Turing AI Fellowship Grant"
+        "award_title": "Turing AI Fellowship"
       },
       {
         "funder_name": "ANR",
@@ -74,16 +74,15 @@
         "award_title": "BrAIN AI chair"
       },
       {
+        "funder_name": "CEA",
+        "award_title": "NUMERICS program"
+      },
+      {
         "funder_name": "European Union Horizon 2020",
-        "award_number": "800945"
+        "award_number": "800945",
+        "award_title": "Marie Sklodowska-Curie grant"
       }
-    ],
-    "searched_accessions": [
-      "nm000274"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 1
+    ]
   },
   "citation_details": [
     {
@@ -92,7 +91,7 @@
       "venue": "Journal of Neural Engineering",
       "year": 2024,
       "url": "https://doi.org/10.1088/1741-2552/ad6793",
-      "cited_by": 6,
+      "cited_by": 8,
       "abstract": "Abstract Objective. To date, a comprehensive comparison of Riemannian decoding methods with deep convolutional neural networks for EEG-based brain–computer interfaces remains absent from published work. We address this research gap by using MOABB, The Mother Of All BCI Benchmarks, to compare novel convolutional neural networks to state-of-the-art Riemannian approaches across a broad range of EEG datasets, including motor imagery, P300, and steady-state visual evoked potentials paradigms. Approach. We systematically evaluated the performance of convolutional neural networks, specifically EEGNet, shallow ConvNet, and deep ConvNet, against well-established Riemannian decoding methods using MOABB processing pipelines. This evaluation included within-session, cross-session, and cross-subject methods, to provide a practical analysis of model effectiveness and to find an overall solution that performs well across different experimental settings. Main results. We find no significant difference",
       "doi": "10.1088/1741-2552/ad6793",
       "pmid": "39053485",
@@ -112,7 +111,7 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T10:54:16.295929+00:00",
+    "scoring_date": "2026-10-11T11:25:24.328978+00:00",
     "dataset_text_length": 2655,
     "num_citations_scored": 1,
     "summary_stats": {

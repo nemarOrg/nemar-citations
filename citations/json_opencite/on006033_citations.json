@@ -1,10 +1,10 @@
 {
   "dataset_id": "on006033",
-  "num_citations": 1,
-  "date_last_updated": "2026-09-30T16:33:52.995573+00:00",
+  "num_citations": 0,
+  "date_last_updated": "2026-10-11T11:07:24.309324+00:00",
   "metadata": {
-    "total_cumulative_citations": 6,
-    "fetch_date": "2026-09-22T11:30:30.152629+00:00",
+    "total_cumulative_citations": 0,
+    "fetch_date": "2026-10-11T11:07:24.309324+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 1,
@@ -19,12 +19,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -33,77 +33,34 @@
     "keywords": [
       "EEG",
       "fMRI",
+      "simultaneous EEG-fMRI",
       "inner speech",
-      "multimodal neuroimaging",
-      "Speech, Alaryngeal",
-      "Brain Mapping"
+      "Electroencephalography",
+      "Magnetic Resonance Imaging"
     ],
-    "methods_description": "Simultaneous EEG-fMRI recordings were collected using a 3T MRI scanner and a 64-channel BrainProducts EEG system sampled at 5000 Hz. Each trial consisted of a fixation period (2s), stimulus display (2s), and rest (12s), with 8 words presented in random order and repeated 40 times each. EEG data underwent preprocessing including pulse artifact removal using BrainVision Analyzer software; no further transformations were applied to maintain BIDS-raw compliance.",
+    "methods_description": "Simultaneous EEG-fMRI was acquired using a 3T MRI scanner and a 64-channel BrainProducts EEG system (5000 Hz sampling), with fMRI TR of 2 s. Each trial comprised a 2 s fixation, 2 s word stimulus display, and 12 s rest; 8 words were each repeated 40 times in random order. Pulse artifacts were removed with BrainVision Analyzer.",
     "funding": [
       {
-        "funder_name": "Lulea University of Technology, Sweden",
+        "funder_name": "Luleå University of Technology",
         "award_number": "LTU-154-2023",
         "award_title": "Kompetensutveckling till professor"
       },
       {
-        "funder_name": "Lulea University of Technology, Sweden",
+        "funder_name": "Luleå University of Technology",
         "award_number": "LTU-4908-2022",
-        "award_title": "Labbfonden Medel för infrastruktur vid Luleå tekniska universitet, 2023"
+        "award_title": "Labbfonden Medel för infrastruktur vid Luleå tekniska universitet"
       },
       {
-        "funder_name": "Kempe Foundation, Sweden",
+        "funder_name": "Kempe Foundation",
         "award_number": "JCSMK23-0102"
       }
-    ],
-    "searched_accessions": [
-      "on006033",
-      "ds006033"
-    ],
-    "num_accession_mentions": 1,
-    "num_dataset_citations": 1,
-    "num_datapaper_citations": 0
+    ]
   },
-  "citation_details": [
-    {
-      "title": "Deep learning for inner speech recognition: a pilot comparative study of EEGNet and a spectro-temporal Transformer on bimodal EEG-fMRI data",
-      "author": "Ahmad H. Milyani, Eyad Talal Attar",
-      "venue": "Frontiers in Human Neuroscience",
-      "year": 2025,
-      "url": "https://doi.org/10.3389/fnhum.2025.1668935",
-      "cited_by": 6,
-      "abstract": "Background Inner speech—the covert articulation of words in one’s mind—is a fundamental phenomenon in human cognition with growing interest across BCI. This pilot study evaluates and compares deep learning models for inner-speech classification using non-invasive EEG derived from a bimodal EEG-fMRI dataset (4 participants, 8 words). The study assesses a compact CNN (EEGNet) and a spectro-temporal Transformer using leave-one-subject-out validation, reporting accuracy. Macro-F 1 , precision, and recall. Objective This study aims to evaluate and compare deep learning models for inner speech classification using non-invasive electroencephalography (EEG) data, derived from a bimodal EEG-fMRI dataset. The goal is to assess the performance and generalizability of two architectures: the compact convolutional EEGNet and a novel spectro-temporal Transformer. Methods Data were obtained from four healthy participants who performed structured inner speech tasks involving eight target words. EEG signals were preprocessed and segmented into epochs for each imagined word. EEGNet and Transformer models were trained using a leave-one-subject-out (LOSO) cross-validation strategy. Performance metrics included accuracy, macro-averaged F 1 score, precision, and recall. An ablation study examined the contribution of Transformer components, including wavelet decomposition and self-attention mechanisms. Results The spectro-temporal Transformer achieved the highest classification accuracy (82.4%) and macro-F 1 score (0.70), outperforming both the standard and improved EEGNet models. Discriminative power was also substantially improved by using wavelet-based time-frequency features and attention mechanisms. Results showed that confusion patterns of social word categories outperformed those of number concepts, corresponding to different mental processing strategies. Conclusion Deep learning models, in particular attention-based Transformers, demonstrate great promise in decoding internal speech from EEG. These findings lay the groundwork for non-invasive, real-time BCIs for communication rehabilitation in severely disabled patients. Future work will take into account vocabulary expansion, wider participant variety, and real-time validation in clinical settings.",
-      "doi": "10.3389/fnhum.2025.1668935",
-      "pmid": "41209398",
-      "openalex_id": "W4415373284",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds006033",
-      "confidence_scoring": {
-        "confidence_score": 0.8595430040359497,
-        "similarity_score": 0.7441930770874023,
-        "citation_text_length": 1743,
-        "dataset_text_length": 1377,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    }
-  ],
+  "citation_details": [],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T16:39:41.524361+00:00",
+    "scoring_date": "2026-10-11T11:38:46.720632+00:00",
     "dataset_text_length": 1377,
-    "num_citations_scored": 1,
-    "summary_stats": {
-      "mean_confidence": 0.8595430040359497,
-      "median_confidence": 0.8595430040359497,
-      "std_confidence": 0.0,
-      "min_confidence": 0.8595430040359497,
-      "max_confidence": 0.8595430040359497,
-      "high_confidence_count": 1,
-      "medium_confidence_count": 0,
-      "low_confidence_count": 0
-    }
+    "num_citations_scored": 0
   }
 }

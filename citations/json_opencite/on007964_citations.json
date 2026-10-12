@@ -1,16 +1,14 @@
 {
   "dataset_id": "on007964",
-  "num_citations": 0,
-  "date_last_updated": "2026-09-30T10:44:34.442652+00:00",
+  "num_citations": 2,
+  "date_last_updated": "2026-10-11T11:13:28.862219+00:00",
   "metadata": {
-    "total_cumulative_citations": 0,
-    "fetch_date": "2026-09-29T11:42:45.275347+00:00",
+    "total_cumulative_citations": 2,
+    "fetch_date": "2026-10-11T11:13:28.862219+00:00",
     "processing_version": "1.0",
-    "fetch_status": "partial",
+    "fetch_status": "success",
     "anchor_count": 1,
-    "anchor_errors": {
-      "10.82901/nemar.on007964": "not_found"
-    },
+    "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
     "anchor_judgment_model": "claude-sonnet-5-5",
@@ -21,12 +19,12 @@
         "source_relation": "IsDescribedBy",
         "classification": null,
         "kept": false,
+        "kept_reason": "unjudged",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "unjudged"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on007964",
@@ -34,12 +32,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -47,38 +45,82 @@
     ],
     "keywords": [
       "EEG",
-      "neural decoding",
       "object recognition",
-      "object representation",
-      "representational dissimilarity analysis",
       "contextual associations",
-      "perceptual attributes",
-      "conceptual attributes",
-      "visual perception",
-      "time-resolved decoding",
-      "temporal dynamics",
-      "semantic representation"
+      "neural decoding",
+      "representational dissimilarity matrices",
+      "rapid visual presentation"
     ],
-    "methods_description": "EEG data were recorded from 128 channels while 20 observers (19 included in final analysis) viewed object images presented at 3.33 Hz (100 ms image duration, 200 ms interstimulus interval). Representational dissimilarity matrices were computed from the neural data.",
+    "methods_description": "128-channel EEG was recorded from 20 observers viewing object images at a rate of 3.33 Hz (image duration 100 ms, ISI 200 ms). One participant (sub-02) was excluded due to a technical error in the EEG recording, leaving a final sample of 19.",
     "funding": [
       {
         "funder_name": "Australian Research Council",
         "award_number": "DP200101787"
       }
-    ],
-    "searched_accessions": [
-      "on007964",
-      "ds007964"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 0
+    ]
   },
-  "citation_details": [],
+  "citation_details": [
+    {
+      "title": "Spatiotemporal Representations of Contextual Associations for Real-World Objects",
+      "author": "Lu-Chun Yeh, Marius V. Peelen, Daniel Kaiser",
+      "venue": "Journal of Neuroscience",
+      "year": 2026,
+      "url": "https://doi.org/10.1523/jneurosci.1967-25.2026",
+      "cited_by": 2,
+      "abstract": "In the real world, objects always appear in context. Many objects are reliably associated with a certain scene context (e.g., pots appear in kitchens) and other objects that appear in the same context (e.g., pans appear together with pots). Previous neuroimaging work suggests that such contextual associations shape the neural representation of isolated objects even in the absence of the scene context. Yet, three key questions remain unanswered: (1) How do representations of contextual associations relate to perceptual and categorical representation in visual cortex, (2) how do they emerge across time, and (3) how are they mechanistically implemented? To answer these questions, we recorded fMRI and EEG while participants (human, both sexes) viewed isolated objects stemming from two scene contexts. Multivariate pattern analysis on the neural data revealed that objects from the same context were coded more similarly than objects from different contexts in object-selective LOC and scene-se",
+      "doi": "10.1523/jneurosci.1967-25.2026",
+      "pmid": "41963088",
+      "openalex_id": "W4415354488",
+      "source_doi": "10.82901/nemar.on007964",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.8079396700859071,
+        "similarity_score": 0.6995148658752441,
+        "citation_text_length": 1186,
+        "dataset_text_length": 1139,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Statistically efficient neural encoding of natural object variability shapes the temporal dynamics of visual processing",
+      "author": "David Mark Watson, Richard Aveyard, Timothy J. Andrews",
+      "venue": "NeuroImage",
+      "year": 2026,
+      "url": "https://doi.org/10.1016/j.neuroimage.2026.122012",
+      "cited_by": 0,
+      "abstract": "• Neural representations of objects develop dynamically on millisecond timescales • THINGS EEG and MEG datasets measure time-resolved neural responses to objects • A data-driven approach finds a small set of components predicting neural responses • Components embody lower-level (visual) and higher-level (semantic) properties • The brain encodes natural variation among objects in a statistically efficient way Object perception unfolds dynamically over millisecond timescales, yet the organisational principles that shape the emerging neural responses are not fully understood. Traditional hypothesis-driven approaches risk constraining interpretations by focusing on pre-selected object features. To circumvent this limitation, we applied a data-driven framework to behavioural and neuroimaging data obtained from the THINGS initiative, which provides a systematic sampling of real-world objects. Behaviourally relevant stimulus dimensions were derived from prior large-scale similarity judgements",
+      "doi": "10.1016/j.neuroimage.2026.122012",
+      "pmid": "42167705",
+      "openalex_id": "W7161843676",
+      "source_doi": "10.82901/nemar.on007964",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7446186447143556,
+        "similarity_score": 0.6446914672851562,
+        "citation_text_length": 1222,
+        "dataset_text_length": 1139,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    }
+  ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T11:03:59.672167+00:00",
+    "scoring_date": "2026-10-11T11:41:29.509126+00:00",
     "dataset_text_length": 1139,
-    "num_citations_scored": 0
+    "num_citations_scored": 2,
+    "summary_stats": {
+      "mean_confidence": 0.7762791574001313,
+      "median_confidence": 0.7762791574001313,
+      "std_confidence": 0.031660512685775744,
+      "min_confidence": 0.7446186447143556,
+      "max_confidence": 0.8079396700859071,
+      "high_confidence_count": 2,
+      "medium_confidence_count": 0,
+      "low_confidence_count": 0
+    }
   }
 }

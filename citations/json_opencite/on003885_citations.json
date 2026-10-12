@@ -1,10 +1,10 @@
 {
   "dataset_id": "on003885",
-  "num_citations": 18,
-  "date_last_updated": "2026-09-30T10:45:08.822929+00:00",
+  "num_citations": 20,
+  "date_last_updated": "2026-10-11T11:16:22.365611+00:00",
   "metadata": {
-    "total_cumulative_citations": 172,
-    "fetch_date": "2026-09-29T11:12:32.738566+00:00",
+    "total_cumulative_citations": 194,
+    "fetch_date": "2026-10-11T10:48:06.580598+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -19,12 +19,12 @@
         "source_relation": "IsDescribedBy",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Capacity for movement is an organisational principle in object representations",
         "paper_year": 2021,
         "paper_venue": null,
         "reason": "The preprint has the same title, authors and abstract as the dataset README, which names it as the source paper for Experiment 1 (EEG, aliveness).",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on003885",
@@ -32,12 +32,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -46,20 +46,21 @@
     ],
     "keywords": [
       "EEG",
-      "object recognition",
-      "movement perception",
-      "visual processing",
-      "neural representation",
-      "decoding analysis"
+      "object representation",
+      "animacy",
+      "capacity for movement",
+      "decoding",
+      "representational similarity analysis",
+      "Visual Perception"
     ],
-    "methods_description": "EEG data were recorded while participants completed two tasks: (1) a time-pressured classification task where participants classified images as alive or not alive (1-second timeout), and (2) a passive viewing task with rapid serial visual presentation (RSVP) streams where participants detected fixation cross color changes. Raw EEG data are provided in BrainVision format (.eeg, .vmrk, .vhdr), with preprocessed data available in EEGlab (.set, .fdt) and cosmoMVPA (.mat) formats.",
+    "methods_description": "EEG was recorded with BrainVision while participants classified single images as alive or not alive (1 s timeout) and, in a passive viewing task, watched rapid serial visual presentation streams while pressing a button when the fixation cross changed colour. Analyses included decoding, representational similarity analysis and GLMs.",
     "funding": [
       {
-        "funder_name": "ARC",
+        "funder_name": "Australian Research Council",
         "award_number": "DP160101300"
       },
       {
-        "funder_name": "ARC",
+        "funder_name": "Australian Research Council",
         "award_number": "DP200101787"
       }
     ],
@@ -69,7 +70,7 @@
     ],
     "num_accession_mentions": 1,
     "num_dataset_citations": 1,
-    "num_datapaper_citations": 17
+    "num_datapaper_citations": 19
   },
   "citation_details": [
     {
@@ -78,7 +79,7 @@
       "venue": "ArXiv",
       "year": 2025,
       "url": "https://doi.org/10.48550/arXiv.2510.21585",
-      "cited_by": 90,
+      "cited_by": 111,
       "abstract": "Foundation models have transformed AI by reducing reliance on task-specific data through large-scale pretraining. While successful in language and vision, their adoption in EEG has lagged due to the heterogeneity of public datasets, which are collected under varying protocols, devices, and electrode configurations. Existing EEG foundation models struggle to generalize across these variations, often restricting pretraining to a single setup, resulting in suboptimal performance, in particular under linear probing. We present REVE (Representation for EEG with Versatile Embeddings), a pretrained model explicitly designed to generalize across diverse EEG signals. REVE introduces a novel 4D positional encoding scheme that enables it to process signals of arbitrary length and electrode arrangement. Using a masked autoencoding objective, we pretrain REVE on over 60,000 hours of EEG data from 92 datasets spanning 25,000 subjects, representing the largest EEG pretraining effort to date. REVE ach",
       "doi": "10.48550/arXiv.2510.21585",
       "pmid": null,
@@ -101,7 +102,7 @@
       "venue": "PLOS Computational Biology",
       "year": 2023,
       "url": "https://doi.org/10.1371/journal.pcbi.1011760",
-      "cited_by": 26,
+      "cited_by": 28,
       "abstract": "The basic computations performed in the human early visual cortex are the foundation for visual perception. While we know a lot about these computations, a key missing piece is how the coding of visual features relates to our perception of the environment. To investigate visual feature coding, interactions, and their relationship to human perception, we investigated neural responses and perceptual similarity judgements to a large set of visual stimuli that varied parametrically along four feature dimensions. We measured neural responses using electroencephalography (N=16) to 256 grating stimuli that varied in orientation, spatial frequency, contrast, and colour. We then mapped the response profiles of the neural coding of each visual feature and their interactions, and related these to independently obtained behavioural judgements of stimulus similarity. The results confirmed fundamental principles of feature coding in the visual system, such that all four features were processed simul",
       "doi": "10.1371/journal.pcbi.1011760",
       "pmid": "38190390",
@@ -124,7 +125,7 @@
       "venue": "NeuroImage",
       "year": 2022,
       "url": "https://doi.org/10.1016/j.neuroimage.2022.119350",
-      "cited_by": 15,
+      "cited_by": 13,
       "abstract": "The human brain is able to quickly and accurately identify objects in a dynamic visual world. Objects evoke different patterns of neural activity in the visual system, which reflect object category memberships. However, the underlying dimensions of object representations in the brain remain unclear. Recent research suggests that objects similarity to humans is one of the main dimensions used by the brain to organise objects, but the nature of the human-similarity features driving this organisation are still unknown. Here, we investigate the relative contributions of perceptual and conceptual features of humanness to the representational organisation of objects in the human visual system. We collected behavioural judgements of human-similarity of various objects, which were compared with time-resolved neuroimaging responses to the same objects. The behavioural judgement tasks targeted either perceptual or conceptual humanness features to determine their respective contribution to percei",
       "doi": "10.1016/j.neuroimage.2022.119350",
       "pmid": "35659994",
@@ -211,6 +212,29 @@
       }
     },
     {
+      "title": "Principles of coarse-scale functional organization in occipitotemporal cortex",
+      "author": "Laura M. Stoinski, Talia Konkle, M. Hebart",
+      "venue": "bioRxiv",
+      "year": 2026,
+      "url": "https://doi.org/10.64898/2026.02.18.706551",
+      "cited_by": 2,
+      "abstract": "Occipitotemporal cortex is known to process visually perceived objects, yet identifying general principles underlying its coarse-scale functional organization remains challenging for two reasons. First, previous work leaves open whether proposed organizational dimensions, such as animacy or real-world size, are useful for characterizing high-level vision and whether they generalize to more diverse, naturalistic stimuli. Second, object properties are often highly intercorrelated, making it difficult to determine which dimensions, if any, dominate coarse-scale occipitotemporal cortex organization. We addressed these challenges through detailed analyses of the cortical topography underlying 15 object properties, using densely-sampled fMRI responses to thousands of natural images, and focusing on animacy and size given their established prominence. Although our results confirmed many characteristics of the purported animacy-size organization, they revealed distinctions that challenge domin",
+      "doi": "10.64898/2026.02.18.706551",
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.31234/osf.io/3x2qh",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5371379613876343,
+        "similarity_score": 0.4650545120239258,
+        "citation_text_length": 1165,
+        "dataset_text_length": 2405,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Robust neural decoding with low-density EEG",
       "author": "Ling Huang, Manuel Varlet, Tijl Grootswagers",
       "venue": "Scientific Reports",
@@ -257,31 +281,8 @@
       }
     },
     {
-      "title": "Principles of coarse-scale functional organization in occipitotemporal cortex",
-      "author": "Laura M. Stoinski, Talia Konkle, M. Hebart",
-      "venue": "bioRxiv",
-      "year": 2026,
-      "url": "https://doi.org/10.64898/2026.02.18.706551",
-      "cited_by": 1,
-      "abstract": "Occipitotemporal cortex is known to process visually perceived objects, yet identifying general principles underlying its coarse-scale functional organization remains challenging for two reasons. First, previous work leaves open whether proposed organizational dimensions, such as animacy or real-world size, are useful for characterizing high-level vision and whether they generalize to more diverse, naturalistic stimuli. Second, object properties are often highly intercorrelated, making it difficult to determine which dimensions, if any, dominate coarse-scale occipitotemporal cortex organization. We addressed these challenges through detailed analyses of the cortical topography underlying 15 object properties, using densely-sampled fMRI responses to thousands of natural images, and focusing on animacy and size given their established prominence. Although our results confirmed many characteristics of the purported animacy-size organization, they revealed distinctions that challenge domin",
-      "doi": "10.64898/2026.02.18.706551",
-      "pmid": null,
-      "openalex_id": null,
-      "source_doi": "10.31234/osf.io/3x2qh",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5371379613876343,
-        "similarity_score": 0.4650545120239258,
-        "citation_text_length": 1165,
-        "dataset_text_length": 2405,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Toward general‐purpose foundation models for electroencephalography: A unified data registry",
-      "author": "Shenglei Shi, Yin Song, Yong Wang, Jian Xiao, Xin Lin, Heng Wang, Zhi-Bin Zhao, Pengyu Wang, Zi-Tong Lu, Xiao-Li Li, He Chen",
+      "author": "Sheng-Lei Shi, Yin Song, Yong Wang, Jian Xiao, Xin Lin, Heng Wang, Zhi-Bin Zhao, Pengyu Wang, Zi-Tong Lu, Xiao-Li Li, He Chen",
       "venue": "Brain‐X",
       "year": 2026,
       "url": "https://doi.org/10.1002/brx2.70046",
@@ -294,9 +295,9 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5976825338602066,
-        "similarity_score": 0.5174740552902222,
-        "citation_text_length": 1262,
+        "confidence_score": 0.5991634234786034,
+        "similarity_score": 0.5187562108039856,
+        "citation_text_length": 1263,
         "dataset_text_length": 2405,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -343,6 +344,55 @@
         "confidence_score": 0.5723600855469705,
         "similarity_score": 0.49554985761642456,
         "citation_text_length": 1174,
+        "dataset_text_length": 2405,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "SPERA: Spherical Prior EEG Foundation Model with Geometry- and Frequency-Aware Latent Prediction",
+      "author": "Minsu Kim, Ye-Sung Kim, Hyeseong Jeon, Wooseok Hyung, Joshua Lee, Chang-Hwan Im",
+      "venue": "n/a",
+      "year": 2026,
+      "url": "n/a",
+      "cited_by": 0,
+      "abstract": "Electroencephalography (EEG) provides a non-invasive measure of ongoing neural activity, but building general-purpose EEG models remains challenging due to the heterogeneity of subjects, devices, and electrode montages. Existing EEG foundation models predominantly rely on reconstruction-based objectives defined on the observed signal, which contains both neural and non-neural components. We introduce SPERA (Spherical Prior EEG Representation Architecture), an EEG foundation model that adopts the joint-embedding predictive architecture (JEPA) to predict in latent space. SPERA introduces a Legendre-polynomial spatial prior, incorporated into attention to encode varying scalp electrode geometries. Two further components adapt the model to EEG: factorized temporal and spatial attention interleaved with periodic full-attention blocks, and a relational spectral regularizer aligning latent similarity structure with spectral views. Pretrained on approximately 80,000 hours of EEG from 29,048 su",
+      "doi": null,
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.31234/osf.io/3x2qh",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5142232064902783,
+        "similarity_score": 0.4452148973941803,
+        "citation_text_length": 1217,
+        "dataset_text_length": 2405,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "What masking geometry works best for EEG foundation models?",
+      "author": "Pierre Guetschel, B. Aristimunha, Y. El Ouahidi, A. Delorme, Thomas Moreau, Michael Tangermann",
+      "venue": "n/a",
+      "year": 2026,
+      "url": "n/a",
+      "cited_by": 0,
+      "abstract": "EEG foundation models hold promise for scalable brain-signal decoding across clinical and cognitive neuroscience applications, yet their pre-training pipelines remain poorly understood. Among design choices, the masking strategy is particularly critical: it determines what the network must predict and from which context. Yet it has never been ablated in isolation, as each new model bundles a new masking strategy with a new backbone and objective. In this paper, we formalize the design choices for spatio-temporal masking strategies and train various models with a single pipeline under varying masking configurations across two SSL frameworks (MAE and JEPA). We then systematically evaluate the resulting 58 pre-trained models on the 12 datasets of OpenEEGBench under a linear probe. Both frameworks agree on an optimal masking configuration and on shared failure modes. Outside these, performance is robust: 11 MAE and 9 JEPA configurations are statistically indistinguishable from the best. We",
+      "doi": null,
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.31234/osf.io/3x2qh",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "superseded_dois": [
+        "10.48550/arxiv.2609.33487"
+      ],
+      "confidence_scoring": {
+        "confidence_score": 0.46323581412434583,
+        "similarity_score": 0.4010699689388275,
+        "citation_text_length": 1195,
         "dataset_text_length": 2405,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -465,7 +515,7 @@
     },
     {
       "title": "Capacity for movement is an organisational principle in object representations",
-      "author": "Sophia M. Shatek, Amanda K. Robinson, Tijl Grootswagers, Thomas A. Carlson",
+      "author": "Sophia M. Shatek, Amanda K. Robinson, Tijl Grootswagers, Thomas Carlson",
       "venue": "n/a",
       "year": 2021,
       "url": "https://doi.org/10.31234/osf.io/3x2qh",
@@ -480,9 +530,9 @@
       "discovery_method": "accession_mention",
       "matched_accession": "ds003885",
       "confidence_scoring": {
-        "confidence_score": 0.9992749321460725,
-        "similarity_score": 0.8651731014251709,
-        "citation_text_length": 1304,
+        "confidence_score": 1.0,
+        "similarity_score": 0.8663493990898132,
+        "citation_text_length": 1301,
         "dataset_text_length": 2405,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -491,17 +541,17 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T10:57:26.946438+00:00",
+    "scoring_date": "2026-10-11T11:30:22.471156+00:00",
     "dataset_text_length": 2405,
-    "num_citations_scored": 18,
+    "num_citations_scored": 20,
     "summary_stats": {
-      "mean_confidence": 0.5631854148291879,
-      "median_confidence": 0.5628863780200483,
-      "std_confidence": 0.13798165433936027,
+      "mean_confidence": 0.5558501222506165,
+      "median_confidence": 0.5496869020164015,
+      "std_confidence": 0.13318206252861312,
       "min_confidence": 0.3616639696061612,
-      "max_confidence": 0.9992749321460725,
+      "max_confidence": 1.0,
       "high_confidence_count": 2,
-      "medium_confidence_count": 14,
+      "medium_confidence_count": 16,
       "low_confidence_count": 2
     }
   }

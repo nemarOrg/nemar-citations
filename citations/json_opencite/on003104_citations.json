@@ -1,10 +1,10 @@
 {
   "dataset_id": "on003104",
-  "num_citations": 1,
-  "date_last_updated": "2026-09-29T11:43:49.826871+00:00",
+  "num_citations": 0,
+  "date_last_updated": "2026-10-11T10:43:23.397869+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
-    "fetch_date": "2026-09-29T11:07:36.852251+00:00",
+    "fetch_date": "2026-10-11T10:43:23.397869+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 1,
@@ -19,12 +19,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -34,61 +34,26 @@
       "MEG",
       "somatosensory",
       "BIDS",
-      "MRI",
+      "MNE-Python",
+      "FreeSurfer",
       "forward model",
-      "FreeSurfer"
+      "Magnetoencephalography"
     ],
-    "methods_description": "MEG data were acquired and subsequently converted to BIDS format using MNE-BIDS. Anatomical T1-weighted MRI images were processed using FreeSurfer's recon-all pipeline with default parameters. Additional FreeSurfer processing included scalp surface generation (mne make_scalp_surfaces) and watershed-based boundary element model computation (mne watershed_bem). Forward models were computed from source space definitions, head-MRI transformation matrices, and conductor models.",
+    "methods_description": "Anatomical MRI was processed with FreeSurfer recon-all using default options. Scalp surfaces and BEM models were then generated with MNE make_scalp_surfaces and watershed_bem. A forward solution was computed from the source space, a head-MRI transform, and the BEM solution. The BIDS conversion is reproducible via a Python script in the /code directory.",
     "funding": [],
     "searched_accessions": [
       "on003104",
       "ds003104"
     ],
-    "num_accession_mentions": 1,
-    "num_dataset_citations": 1,
+    "num_accession_mentions": 0,
+    "num_dataset_citations": 0,
     "num_datapaper_citations": 0
   },
-  "citation_details": [
-    {
-      "title": "mne-tools/mne-bids-pipeline: v1.10.0",
-      "author": "Richard Höchenberger, Eric Larson, Alexandre Gramfort, Stefan Appelhoff, Sophie K. Herbst, Daniel McCloy, Mainak Jas, Charbel-Raphaël Segerie, Apolline Mellot, Harrison Ritz, Denis Alexander Engemann, Joan Massich, Mathias Sablé-Meyer, mne[bot], Máté Aller, Kambiz Tavabi, Simon Kern, Rob Luke, Merlin Dumeur, Julia Guiomar Niso Galán, Adonay Nunes, Benedikt Ehinger, Boshra Ariguib, Izem, Judith Schepers, Okimoka, Pierre Guetschel, Thomas S. Binns",
-      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
-      "year": 2026,
-      "url": "https://doi.org/10.5281/zenodo.19440738",
-      "cited_by": 0,
-      "abstract": "<!-- Release notes generated using configuration in .github/release.yaml at main --> What's Changed fix split strings (presumably from autoformatter) by @drammock in https://github.com/mne-tools/mne-bids-pipeline/pull/965 Switch to absolute imports and ensure the Ruff (linter and formatter) exclude patterns are correctly represented in pyproject.toml by @hoechenberger in https://github.com/mne-tools/mne-bids-pipeline/pull/969 MAINT: Use Python CircleCI image by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/970 Choose documentation color scheme automatically based on operating system setting by @hoechenberger in https://github.com/mne-tools/mne-bids-pipeline/pull/979 Be stricter when building documentation by @hoechenberger in https://github.com/mne-tools/mne-bids-pipeline/pull/980 don't fail if emptyroom is missing cHPI channels by @drammock in https://github.com/mne-tools/mne-bids-pipeline/pull/977 allow emptyroom match to vary by session by @drammock in https://github.com/mne-tools/mne-bids-pipeline/pull/976 Vendor external JavaScript with our documentation to better preserve users' privacy by @hoechenberger in https://github.com/mne-tools/mne-bids-pipeline/pull/982 clarify maxfilter log message by @drammock in https://github.com/mne-tools/mne-bids-pipeline/pull/991 Allow separate MRIs per session (for longitudinal studies) by @drammock in https://github.com/mne-tools/mne-bids-pipeline/pull/987 document need for xvfb/osmesa on headless by @drammock in https://github.com/mne-tools/mne-bids-pipeline/pull/997 allow missing sessions by @drammock in https://github.com/mne-tools/mne-bids-pipeline/pull/1000 FIX: noise_cov_method for raw as well by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/1010 MAINT: Add and check type hints by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/995 MAINT: Better type checking by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/1013 BUG: Fix bug with forward creation by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/1014 MAINT: Dont use continue-on-error by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/1015 ENH: Full mypy by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/1016 add config for passing extra kwargs to maxwell_filter by @drammock in https://github.com/mne-tools/mne-bids-pipeline/pull/1038 remove EEG channels from emptyroom when preparing it for maxwell filter by @drammock in https://github.com/mne-tools/mne-bids-pipeline/pull/1040 validate extra_config by @drammock in https://github.com/mne-tools/mne-bids-pipeline/pull/1044 fix ignoring sessions that have no data by @drammock in https://github.com/mne-tools/mne-bids-pipeline/pull/1035 add funloc dataset by @drammock in https://github.com/mne-tools/mne-bids-pipeline/pull/1045 Improve (and test) support for session-specific MRIs by @drammock in https://github.com/mne-tools/mne-bids-pipeline/pull/1039 add framework for TWA head pos as MF destination by @drammock in https://github.com/mne-tools/mne-bids-pipeline/pull/1043 Added implementation of zapline for power noise removal by @ariguiba in https://github.com/mne-tools/mne-bids-pipeline/pull/1032 fix config example in docs by @drammock in https://github.com/mne-tools/mne-bids-pipeline/pull/1054 MAINT: Refactor and document CIs better by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/1053 fixup for TWA-HP (gh1043) by @drammock in https://github.com/mne-tools/mne-bids-pipeline/pull/1055 raise error if loaded SourceSpaces has unexpected subject by @drammock in https://github.com/mne-tools/mne-bids-pipeline/pull/1056 allow calibration and ctc files to be None by @harrisonritz in https://github.com/mne-tools/mne-bids-pipeline/pull/1057 allow dict for ssp_ecg_channel by @drammock in https://github.com/mne-tools/mne-bids-pipeline/pull/1062 extra keyword arguments to find_bad_channels_maxwell, notch_filter, and filter_data; bugfix compute_rank channel types by @harrisonritz in https://github.com/mne-tools/mne-bids-pipeline/pull/1061 intersphinx by @drammock in https://github.com/mne-tools/mne-bids-pipeline/pull/1066 make late pipeline steps robust to missing sessions by @drammock in https://github.com/mne-tools/mne-bids-pipeline/pull/1067 Drop Raw.pick_types and Epochs.pick_types by @PierreGtch in https://github.com/mne-tools/mne-bids-pipeline/pull/1073 fixup generation of template config files by @drammock in https://github.com/mne-tools/mne-bids-pipeline/pull/1074 avoid backslash in fstring and frontload fsaverage download by @drammock in https://github.com/mne-tools/mne-bids-pipeline/pull/1078 Properly compute rank by @harrisonritz in https://github.com/mne-tools/mne-bids-pipeline/pull/1069 fix mf_int_order; add mf_ext_order by @harrisonritz in https://github.com/mne-tools/mne-bids-pipeline/pull/1092 Custom metadata by @harrisonritz in https://github.com/mne-tools/mne-bids-pipeline/pull/1088 FIX: sanitize tags by @harrisonritz in https://github.com/mne-tools/mne-bids-pipeline/pull/1097 fix config validation bug with ica_l_freq by @drammock in https://github.com/mne-tools/mne-bids-pipeline/pull/1119 ENH: Report bad channel statuses by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/1138 BUG: Fix bug with missing sessions by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/1133 ENH: add process_raw_clean and short circuit n_jobs=1 by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/1137 BUG: Fix bug with TWA caching by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/1135 Add support for MNE-ICALabel by @jschepers in https://github.com/mne-tools/mne-bids-pipeline/pull/1018 BUG: Remove unused config vars from steps by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/1152 add more information about how to run test suite by @skjerns in https://github.com/mne-tools/mne-bids-pipeline/pull/1154 MAINT: Work around persistent ds000248 failure by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/1156 MAINT: Remove Makefile by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/1157 Add subject-specific EOG channels with dictionary by @skjerns in https://github.com/mne-tools/mne-bids-pipeline/pull/1151 MAINT: Use openneuro-py main by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/1163 Fix raw.filter only being applied to first run in _06a1_fit_ica.py by @Okimoka in https://github.com/mne-tools/mne-bids-pipeline/pull/1164 Move to lefthook, ty, and dependency groups by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/1166 MAINT: Update lefthook config by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/1170 ENH: Add cov_rank option by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/1159 MAINT: Verify sizes on download by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/1179 Fix outdated docs in steps-ica in CLI by @behinger in https://github.com/mne-tools/mne-bids-pipeline/pull/1180 TST: Add test for gh-1140 by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/1176 BEH: Use union of bads when Maxwell filtering by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/1158 ENH: Allow multiple tasks to be processed jointly by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/1141 don't use subj+session for fs_subj unnecessarily by @drammock in https://github.com/mne-tools/mne-bids-pipeline/pull/1130 ENH: Add support for smoothing steps by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/1195 looser type def for arbitrarycontrast values by @drammock in https://github.com/mne-tools/mne-bids-pipeline/pull/1197 FIX: More flexible ssp_ecg_channel by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/1198 Work around ds003104 issue by @larsoner in https://github.com/mne-tools/mne-bids-pipeline/pull/1200 New Contributors @ariguiba made their first contribution in https://github.com/mne-tools/mne-bids-pipeline/pull/1032 @harrisonritz made their first contribution in https://github.com/mne-tools/mne-bids-pipeline/pull/1057 @PierreGtch made their first contribution in https://github.com/mne-tools/mne-bids-pipeline/pull/1073 @jschepers made their first contribution in https://github.com/mne-tools/mne-bids-pipeline/pull/1018 @skjerns made their first contribution in https://github.com/mne-tools/mne-bids-pipeline/pull/1154 @Okimoka made their first contribution in https://github.com/mne-tools/mne-bids-pipeline/pull/1164 @mne-bot made their first contribution in https://github.com/mne-tools/mne-bids-pipeline/pull/1167 @behinger made their first contribution in https://github.com/mne-tools/mne-bids-pipeline/pull/1180 Full Changelog: https://github.com/mne-tools/mne-bids-pipeline/compare/v1.9.0...v1.10.0",
-      "doi": "10.5281/zenodo.19440738",
-      "pmid": null,
-      "openalex_id": "W7150991254",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds003104",
-      "confidence_scoring": {
-        "confidence_score": 0.6949732849001885,
-        "similarity_score": 0.6017084717750549,
-        "citation_text_length": 2080,
-        "dataset_text_length": 1846,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    }
-  ],
+  "citation_details": [],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T12:07:24.441633+00:00",
+    "scoring_date": "2026-10-11T11:28:09.920948+00:00",
     "dataset_text_length": 1846,
-    "num_citations_scored": 1,
-    "summary_stats": {
-      "mean_confidence": 0.6949732849001885,
-      "median_confidence": 0.6949732849001885,
-      "std_confidence": 0.0,
-      "min_confidence": 0.6949732849001885,
-      "max_confidence": 0.6949732849001885,
-      "high_confidence_count": 0,
-      "medium_confidence_count": 1,
-      "low_confidence_count": 0
-    }
+    "num_citations_scored": 0
   }
 }

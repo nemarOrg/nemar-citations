@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000162",
   "num_citations": 4,
-  "date_last_updated": "2026-09-29T10:43:05.849121+00:00",
+  "date_last_updated": "2026-10-11T10:16:18.181689+00:00",
   "metadata": {
-    "total_cumulative_citations": 15,
-    "fetch_date": "2026-09-29T10:43:05.849121+00:00",
+    "total_cumulative_citations": 18,
+    "fetch_date": "2026-10-11T10:16:18.181689+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -19,12 +19,12 @@
         "source_relation": "IsDerivedFrom",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Simultaneous encoding of speed, distance, and direction in discrete reaching: an EEG study",
         "paper_year": 2024,
         "paper_venue": "Journal of Neural Engineering",
         "reason": "Study paper by the same authors reports the 4-direction center-out reaching EEG with speed/distance/direction conditions, matching the dataset's events and DOI 10.1088/1741-2552/ada0ea.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.nm000162",
@@ -32,12 +32,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -45,15 +45,15 @@
       "10.82901/nemar.nm000162"
     ],
     "keywords": [
+      "EEG",
       "Electroencephalography",
       "Brain-Computer Interfaces",
-      "motor imagery",
-      "reaching task",
+      "reaching movement",
+      "motor kinematics",
       "source localization",
-      "artifact correction",
-      "independent component analysis"
+      "center-out task"
     ],
-    "methods_description": "EEG data were acquired at 500 Hz using a 67-channel BrainAmp system (Zebris ELPOS cap) with 4 EOG channels. Participants performed a cue-paced discrete reaching task with four directions (up, down, left, right), two speeds (slow, fast), and two distances (near, far), yielding 16 classes. Preprocessing included low-pass filtering (100 Hz), 50 Hz notch filtering, downsampling to 200 Hz, bad channel rejection and interpolation, bandpass filtering (0.3-80 Hz), eye artifact correction via SGEYESUB, ICA with FastICA, IC artifact removal, and common average reference. Final analysis used 55 channels after frontal and EOG channel removal.",
+    "methods_description": "EEG was recorded with a BrainAmp amplifier at 500 Hz using an ELPOS cap with 67 channels and a 50 Hz notch filter. Participants followed a visual cue with their eyes and then performed self-paced reaching movements with the right arm, for 960 trials over 10 blocks. Preprocessing included band-pass filtering at 0.3-80 Hz, SGEYESUB eye artifact correction, FastICA with IClabel-based component removal, common average referencing, and bad trial rejection.",
     "funding": [
       {
         "funder_name": "Royal Thai Government (scholar funding for N.S.)"
@@ -63,24 +63,18 @@
       },
       {
         "funder_name": "Royal Thai Government",
-        "award_title": "Scholar funding"
+        "award_title": "Scholar funding for N.S."
       }
-    ],
-    "searched_accessions": [
-      "nm000162"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 4
+    ]
   },
   "citation_details": [
     {
       "title": "NeuralBench: A Unifying Framework to Benchmark NeuroAI Models",
-      "author": "Hubert J. Banville, Stéphane d’Ascoli, Simon Dahan, Jérémy Rapin, Marlène Careil, Yohann Benchetrit, Jarod Lévy, S. Panchavati, Antoine Ratouchniak, Mingfang Zhang, Elisa Cascardi, K. Begany, Teon L Brooks, Jean-Rémi King",
+      "author": "Hubert J. Banville, Stéphane d'Ascoli, Simon Dahan, Jérémy Rapin, Marlène Careil, Yohann Benchetrit, Jarod Lévy, S. Panchavati, Antoine Ratouchniak, Ming-Fang Zhang, Elisa Cascardi, K. Begany, Teon L Brooks, Jean-Rémi King",
       "venue": "ArXiv",
       "year": 2026,
       "url": "https://doi.org/10.48550/arXiv.2605.08495",
-      "cited_by": 13,
+      "cited_by": 16,
       "abstract": "Deep learning and large public datasets have recently catalyzed the proliferation of AI models for processing brain recordings. However, systematically evaluating these models remains a challenge: not only do the preprocessing pipelines, training and finetuning approaches largely vary across studies, but their downstream evaluation is often limited to small sets of tasks and/or datasets. Here, we present NeuralBench: a unified framework for benchmarking AI models of brain activity. We accompany this framework with NeuralBench-EEG v1.0 -- a large EEG benchmark that includes 36 electroencephalography (EEG) tasks and 14 deep learning architectures, and is evaluated on 94 datasets accessed through a standardized interface. This first EEG-focused release already highlights two main findings. First, current foundation models only marginally outperform task-specific models. Second, a large set of tasks (e.g. cognitive decoding, clinical predictions) remain highly challenging, even for the bes",
       "doi": "10.48550/arXiv.2605.08495",
       "pmid": null,
@@ -89,9 +83,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6055857521295548,
-        "similarity_score": 0.524316668510437,
-        "citation_text_length": 1326,
+        "confidence_score": 0.6049464726448059,
+        "similarity_score": 0.5237631797790527,
+        "citation_text_length": 1327,
         "dataset_text_length": 2265,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -169,13 +163,13 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T11:51:43.698702+00:00",
+    "scoring_date": "2026-10-11T11:20:32.132596+00:00",
     "dataset_text_length": 2265,
     "num_citations_scored": 4,
     "summary_stats": {
-      "mean_confidence": 0.5727899090945722,
-      "median_confidence": 0.5747381418943406,
-      "std_confidence": 0.07465874138519438,
+      "mean_confidence": 0.5726300892233849,
+      "median_confidence": 0.5744185021519661,
+      "std_confidence": 0.07458901686961934,
       "min_confidence": 0.4699026399850846,
       "max_confidence": 0.6717807126045228,
       "high_confidence_count": 0,

@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000192",
   "num_citations": 87,
-  "date_last_updated": "2026-09-30T10:44:25.532110+00:00",
+  "date_last_updated": "2026-10-11T10:18:55.380837+00:00",
   "metadata": {
-    "total_cumulative_citations": 1795,
-    "fetch_date": "2026-09-29T10:47:13.672802+00:00",
+    "total_cumulative_citations": 1734,
+    "fetch_date": "2026-10-11T10:18:55.380837+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -19,12 +19,12 @@
         "source_relation": "IsDerivedFrom",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Decoding auditory attention to instruments in polyphonic music using single-trial EEG classification",
         "paper_year": 2014,
         "paper_venue": "Journal of Neural Engineering",
         "reason": "Treder et al. paper reports the 11-participant polyphonic music oddball P300 EEG experiment that is this BNCI 2015-006 dataset; same authors and dataset DOI.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.nm000192",
@@ -32,12 +32,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -46,13 +46,14 @@
     ],
     "keywords": [
       "Brain-Computer Interfaces",
-      "EEG",
-      "auditory attention",
-      "oddball paradigm",
-      "Event-Related Potentials, P300",
-      "music perception"
+      "Electroencephalography",
+      "Auditory Perception",
+      "Music",
+      "Attention",
+      "P300",
+      "oddball paradigm"
     ],
-    "methods_description": "EEG data were acquired from 64 active electrodes (10-10 montage, Brain Products actiCAP) at 1000 Hz with left mastoid reference and forehead ground. Online bandpass filtering (0.016-250 Hz) was applied. Preprocessing included downsampling to 250 Hz, Chebyshev lowpass filtering (42 Hz passband, 49 Hz stopband), epoching (-200 to 1200 ms relative to stimulus), baseline correction, and artifact rejection using min-max criterion (100 μV threshold on Fp1/Fp2). Classification employed linear discriminant analysis with shrinkage covariance on spatio-temporal features extracted from three time intervals across 63 electrodes, evaluated using leave-one-clip-out cross-validation.",
+    "methods_description": "64-channel active-electrode EEG (Brain Products actiCAP, left mastoid reference) was recorded at 1000 Hz while participants listened to 40-second polyphonic music clips and attended to a cued instrument. Data were downsampled, low-pass filtered (Chebyshev, 42 Hz), epoched (-200 to 1200 ms), baseline corrected and artifact rejected. Classification used LDA with shrinkage covariance and leave-one-clip-out cross-validation.",
     "funding": [
       {
         "funder_name": "German Bundesministerium für Bildung und Forschung",
@@ -62,13 +63,7 @@
         "funder_name": "German Bundesministerium für Bildung und Forschung",
         "award_number": "01GQ0850"
       }
-    ],
-    "searched_accessions": [
-      "nm000192"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 87
+    ]
   },
   "citation_details": [
     {
@@ -77,7 +72,7 @@
       "venue": "Frontiers in Neuroscience",
       "year": 2020,
       "url": "https://doi.org/10.3389/fnins.2020.00289",
-      "cited_by": 252,
+      "cited_by": 224,
       "abstract": "MVPA-Light is a MATLAB toolbox for multivariate pattern analysis (MVPA). It provides native implementations of a range of classifiers and regression models, using modern optimization algorithms. High-level functions allow for the multivariate analysis of multi-dimensional data, including generalization (e.g., time x time) and searchlight analysis. The toolbox performs cross-validation, hyperparameter tuning, and nested preprocessing. It computes various classification and regression metrics and establishes their statistical significance, is modular and easily extendable. Furthermore, it offers interfaces for LIBSVM and LIBLINEAR as well as an integration into the FieldTrip neuroimaging toolbox. After introducing MVPA-Light, example analyses of MEG and fMRI datasets, and benchmarking results on the classifiers and regression models are presented.",
       "doi": "10.3389/fnins.2020.00289",
       "pmid": "32581662",
@@ -95,35 +90,12 @@
       }
     },
     {
-      "title": "Decoding the auditory brain with canonical component analysis",
-      "author": "Alain de Cheveigné, Daniel D.E. Wong, Giovanni M. Di Liberto, Jens Hjortkjær, Malcolm Slaney, Edmund C. Lalor",
-      "venue": "NeuroImage",
-      "year": 2018,
-      "url": "https://doi.org/10.1016/j.neuroimage.2018.01.033",
-      "cited_by": 228,
-      "abstract": "The relation between a stimulus and the evoked brain response can shed light on perceptual processes within the brain. Signals derived from this relation can also be harnessed to control external devices for Brain Computer Interface (BCI) applications. While the classic event-related potential (ERP) is appropriate for isolated stimuli, more sophisticated \"decoding\" strategies are needed to address continuous stimuli such as speech, music or environmental sounds. Here we describe an approach based on Canonical Correlation Analysis (CCA) that finds the optimal transform to apply to both the stimulus and the response to reveal correlations between the two. Compared to prior methods based on forward or backward models for stimulus-response mapping, CCA finds significantly higher correlation scores, thus providing increased sensitivity to relatively small effects, and supports classifier schemes that yield higher classification scores. CCA strips the brain response of variance unrelated to ",
-      "doi": "10.1016/j.neuroimage.2018.01.033",
-      "pmid": "29378317",
-      "openalex_id": "W2767841979",
-      "source_doi": "10.1088/1741-2560/11/2/026009",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5797148942947388,
-        "similarity_score": 0.5270135402679443,
-        "citation_text_length": 1219,
-        "dataset_text_length": 2250,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "The Berlin Brain-Computer Interface: Progress Beyond Communication and Control",
       "author": "Benjamin Blankertz, Laura Acqualagna, Sven Dähne, Stefan Haufe, Matthias Schultze-Kraft, Irene Sturm, Marija Ušćumlić, Markus A. Wenzel, Gabriel Curio, Klaus‐Robert Müller",
       "venue": "Frontiers in Neuroscience",
       "year": 2016,
       "url": "https://doi.org/10.3389/fnins.2016.00530",
-      "cited_by": 212,
+      "cited_by": 213,
       "abstract": "The combined effect of fundamental results about neurocognitive processes and advancements in decoding mental states from ongoing brain signals has brought forth a whole range of potential neurotechnological applications. In this article, we review our developments in this area and put them into perspective. These examples cover a wide range of maturity levels with respect to their applicability. While we assume we are still a long way away from integrating Brain-Computer Interface (BCI) technology in general interaction with computers, or from implementing neurotechnological measures in safety-critical workplaces, results have already now been obtained involving a BCI as research tool. In this article, we discuss the reasons why, in some of the prospective application domains, considerable effort is still required to make the systems ready to deal with the full complexity of the real world.",
       "doi": "10.3389/fnins.2016.00530",
       "pmid": "27917107",
@@ -135,6 +107,29 @@
         "confidence_score": 0.4403881847858429,
         "similarity_score": 0.4003528952598572,
         "citation_text_length": 1217,
+        "dataset_text_length": 2250,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Decoding the auditory brain with canonical component analysis",
+      "author": "Alain de Cheveigné, Daniel D.E. Wong, Giovanni M. Di Liberto, Jens Hjortkjær, Malcolm Slaney, Edmund C. Lalor",
+      "venue": "NeuroImage",
+      "year": 2018,
+      "url": "https://doi.org/10.1016/j.neuroimage.2018.01.033",
+      "cited_by": 205,
+      "abstract": "The relation between a stimulus and the evoked brain response can shed light on perceptual processes within the brain. Signals derived from this relation can also be harnessed to control external devices for Brain Computer Interface (BCI) applications. While the classic event-related potential (ERP) is appropriate for isolated stimuli, more sophisticated \"decoding\" strategies are needed to address continuous stimuli such as speech, music or environmental sounds. Here we describe an approach based on Canonical Correlation Analysis (CCA) that finds the optimal transform to apply to both the stimulus and the response to reveal correlations between the two. Compared to prior methods based on forward or backward models for stimulus-response mapping, CCA finds significantly higher correlation scores, thus providing increased sensitivity to relatively small effects, and supports classifier schemes that yield higher classification scores. CCA strips the brain response of variance unrelated to ",
+      "doi": "10.1016/j.neuroimage.2018.01.033",
+      "pmid": "29378317",
+      "openalex_id": "W2767841979",
+      "source_doi": "10.1088/1741-2560/11/2/026009",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5797148942947388,
+        "similarity_score": 0.5270135402679443,
+        "citation_text_length": 1219,
         "dataset_text_length": 2250,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -169,7 +164,7 @@
       "venue": "IEEE Access",
       "year": 2019,
       "url": "https://doi.org/10.1109/access.2019.2919143",
-      "cited_by": 94,
+      "cited_by": 93,
       "abstract": "The process of recording electroencephalography (EEG) signals is onerous and requires massive storage to store signals at an applicable frequency rate. In this paper, we propose the event-related potential encoder network (ERPENet), a multi-task autoencoder-based model, that can be applied to any ERP-related tasks. The strength of ERPENet lies in its capability to handle various kinds of ERP datasets and its robustness across multiple recording setups, enabling joint training across datasets. The ERPENet incorporates convolutional neural networks (CNNs) and long short-term memory (LSTM), in an autoencoder setup, which tries to simultaneously compress the input EEG signal and extract related P300 features into a latent vector. Here, we can infer the process for generating the latent vector as universal joint feature extraction. The network also includes a classification part for attended and unattended events classification as an auxiliary task. We experimented on six different P300 dat",
       "doi": "10.1109/access.2019.2919143",
       "pmid": null,
@@ -192,7 +187,7 @@
       "venue": "PLoS ONE",
       "year": 2014,
       "url": "https://doi.org/10.1371/journal.pone.0098322",
-      "cited_by": 57,
+      "cited_by": 56,
       "abstract": "Realizing the decoding of brain signals into control commands, brain-computer interfaces (BCI) aim to establish an alternative communication pathway for locked-in patients. In contrast to most visual BCI approaches which use event-related potentials (ERP) of the electroencephalogram, auditory BCI systems are challenged with ERP responses, which are less class-discriminant between attended and unattended stimuli. Furthermore, these auditory approaches have more complex interfaces which imposes a substantial workload on their users. Aiming for a maximally user-friendly spelling interface, this study introduces a novel auditory paradigm: \"CharStreamer\". The speller can be used with an instruction as simple as \"please attend to what you want to spell\". The stimuli of CharStreamer comprise 30 spoken sounds of letters and actions. As each of them is represented by the sound of itself and not by an artificial substitute, it can be selected in a one-step procedure. The mental mapping effort (s",
       "doi": "10.1371/journal.pone.0098322",
       "pmid": "24886978",
@@ -215,7 +210,7 @@
       "venue": "PLoS Biology",
       "year": 2023,
       "url": "https://doi.org/10.1371/journal.pbio.3002176",
-      "cited_by": 56,
+      "cited_by": 55,
       "abstract": "Music is core to human experience, yet the precise neural dynamics underlying music perception remain unknown. We analyzed a unique intracranial electroencephalography (iEEG) dataset of 29 patients who listened to a Pink Floyd song and applied a stimulus reconstruction approach previously used in the speech domain. We successfully reconstructed a recognizable song from direct neural recordings and quantified the impact of different factors on decoding accuracy. Combining encoding and decoding analyses, we found a right-hemisphere dominance for music perception with a primary role of the superior temporal gyrus (STG), evidenced a new STG subregion tuned to musical rhythm, and defined an anterior-posterior STG organization exhibiting sustained and onset responses to musical elements. Our findings show the feasibility of applying predictive modeling on short datasets acquired in single patients, paving the way for adding musical elements to brain-computer interface (BCI) applications.",
       "doi": "10.1371/journal.pbio.3002176",
       "pmid": "37582062",
@@ -238,7 +233,7 @@
       "venue": "NeuroImage",
       "year": 2016,
       "url": "https://doi.org/10.1016/j.neuroimage.2016.01.019",
-      "cited_by": 49,
+      "cited_by": 47,
       "abstract": null,
       "doi": "10.1016/j.neuroimage.2016.01.019",
       "pmid": "26804780",
@@ -302,37 +297,14 @@
       }
     },
     {
-      "title": "Auditory stimulus-response modeling with a match-mismatch task",
-      "author": "Alain de Cheveigné, Malcolm Slaney, Søren A. Fuglsang, Jens Hjortkjær",
-      "venue": "Journal of Neural Engineering",
-      "year": 2021,
-      "url": "https://doi.org/10.1088/1741-2552/abf771",
-      "cited_by": 36,
-      "abstract": "Abstract Objective. An auditory stimulus can be related to the brain response that it evokes by a stimulus-response model fit to the data. This offers insight into perceptual processes within the brain and is also of potential use for devices such as brain computer interfaces (BCIs). The quality of the model can be quantified by measuring the fit with a regression problem, or by applying it to a classification task and measuring its performance. Approach. Here we focus on a match-mismatch (MM) task that entails deciding whether a segment of brain signal matches, via a model, the auditory stimulus that evoked it. Main results . Using these metrics, we describe a range of models of increasing complexity that we compare to methods in the literature, showing state-of-the-art performance. We document in detail one particular implementation, calibrated on a publicly-available database, that can serve as a robust reference to evaluate future developments. Significance. The MM task allows stim",
-      "doi": "10.1088/1741-2552/abf771",
-      "pmid": "33849003",
-      "openalex_id": "W3094833027",
-      "source_doi": "10.1088/1741-2560/11/2/026009",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5855698192119599,
-        "similarity_score": 0.5069868564605713,
-        "citation_text_length": 1199,
-        "dataset_text_length": 2250,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Nmed-T: A Tempo-Focused Dataset Of Cortical And Behavioral Responses To Naturalistic Music.",
       "author": "Steven D. Losorelli, Duc T. Nguyen, Jacek Dmochowski, Blair Kaneshiro",
       "venue": "Zenodo (CERN European Organization for Nuclear Research)",
       "year": 2017,
-      "url": "https://doi.org/10.5281/zenodo.1417917",
+      "url": "https://doi.org/10.5281/zenodo.1417916",
       "cited_by": 32,
       "abstract": "[TODO] Add abstract here.",
-      "doi": "10.5281/zenodo.1417917",
+      "doi": "10.5281/zenodo.1417916",
       "pmid": null,
       "openalex_id": "W2772946543",
       "source_doi": "10.1088/1741-2560/11/2/026009",
@@ -371,12 +343,35 @@
       }
     },
     {
+      "title": "Auditory stimulus-response modeling with a match-mismatch task",
+      "author": "Alain de Cheveigné, Malcolm Slaney, Søren A. Fuglsang, Jens Hjortkjær",
+      "venue": "Journal of Neural Engineering",
+      "year": 2021,
+      "url": "https://doi.org/10.1088/1741-2552/abf771",
+      "cited_by": 31,
+      "abstract": "Abstract An auditory stimulus can be related to the brain response that it evokes by a stimulus-response model fit to the data. This offers insight into perceptual processes within the brain and is also of potential use for devices such as Brain Computer Interfaces (BCI). The quality of the model can be quantified by measuring the fit with a regression problem, or by applying it to a classification task and measuring its performance. Here we focus on a match-mismatch (MM) task that entails deciding whether a segment of brain signal matches, via a model, the auditory stimulus that evoked it. The MM task allows stimulus-response models to be evaluated in the limit of very high model accuracy, making it an attractive alternative to the more commonly used task of auditory attention detection (AAD). The MM task does not require class labels, so it is immune to mislabeling, and it is applicable to data recorded in listening scenarios with only one sound source, thus it is cheap to obtain lar",
+      "doi": "10.1088/1741-2552/abf771",
+      "pmid": "33849003",
+      "openalex_id": "W3094833027",
+      "source_doi": "10.1088/1741-2560/11/2/026009",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6111629596352578,
+        "similarity_score": 0.5291454195976257,
+        "citation_text_length": 1199,
+        "dataset_text_length": 2250,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Workshops of the Sixth International Brain–Computer Interface Meeting: brain–computer interfaces past, present, and future",
-      "author": "J. E. Huggins, C. Guger, Mounia Ziat, T. Zander, Denise Taylor, M. Tangermann, A. Soria-Frisch, J. Simeral, Reinhold Scherer, R. Rupp, G. Ruffini, Douglas K. R. Robinson, N. Ramsey, A. Nijholt, G. Müller-Putz, D. McFarland, D. Mattia, B. Lance, Pieter-Jan Kindermans, I. Iturrate, Christian Herff, D. Gupta, An H. Do, J. Collinger, Ricardo Chavarriaga, S. Chase, M. Bleichner, A. Batista, C. Anderson, E. Aarnoutse, Erik",
+      "author": "J. E. Huggins, C. Guger, Mounia Ziat, T. Zander, Denise Taylor, M. Tangermann, A. Soria-Frisch, John D. Simeral, Reinhold Scherer, R. Rupp, G. Ruffini, Douglas K. R. Robinson, N. Ramsey, A. Nijholt, G. Müller-Putz, D. McFarland, D. Mattia, B. Lance, Pieter-Jan Kindermans, I. Iturrate, C. Herff, D. Gupta, An H. Do, J. Collinger, Ricardo Chavarriaga, S. Chase, M. Bleichner, A. Batista, C. Anderson, E. Aarnoutse, Erik",
       "venue": "Brain-Computer Interfaces",
       "year": 2017,
       "url": "https://doi.org/10.1080/2326263x.2016.1275488",
-      "cited_by": 31,
+      "cited_by": 30,
       "abstract": "The Sixth International Brain-Computer Interface (BCI) Meeting was held 30 May-3 June 2016 at the Asilomar Conference Grounds, Pacific Grove, California, USA. The conference included 28 workshops covering topics in BCI and brain-machine interface research. Topics included BCI for specific populations or applications, advancing BCI research through use of specific signals or technological advances, and translational and commercial issues to bring both implanted and non-invasive BCIs to market. BCI research is growing and expanding in the breadth of its applications, the depth of knowledge it can produce, and the practical benefit it can provide both for those with physical impairments and the general public. Here we provide summaries of each workshop, illustrating the breadth and depth of BCI research and highlighting important issues and calls for action to support future research and development.",
       "doi": "10.1080/2326263x.2016.1275488",
       "pmid": "29152523",
@@ -385,32 +380,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.49629709422588353,
-        "similarity_score": 0.451179176568985,
-        "citation_text_length": 1516,
-        "dataset_text_length": 2250,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Generalizable EEG Encoding Models with Naturalistic Audiovisual Stimuli",
-      "author": "Maansi Desai, Jade Holder, Cassandra Villarreal, Nat Clark, Brittany Hoang, Liberty S. Hamilton",
-      "venue": "Journal of Neuroscience",
-      "year": 2021,
-      "url": "https://doi.org/10.1523/jneurosci.2891-20.2021",
-      "cited_by": 25,
-      "abstract": "In natural conversations, listeners must attend to what others are saying while ignoring extraneous background sounds. Recent studies have used encoding models to predict electroencephalography (EEG) responses to speech in noise-free listening situations, sometimes referred to as “speech tracking.” Researchers have analyzed how speech tracking changes with different types of background noise. It is unclear, however, whether neural responses from acoustically rich, naturalistic environments with and without background noise can be generalized to more controlled stimuli. If encoding models for acoustically rich, naturalistic stimuli are generalizable to other tasks, this could aid in data collection from populations of individuals who may not tolerate listening to more controlled and less engaging stimuli for long periods of time. We recorded noninvasive scalp EEG while 17 human participants (8 male/9 female) listened to speech without noise and audiovisual speech stimuli containing over",
-      "doi": "10.1523/jneurosci.2891-20.2021",
-      "pmid": "34503996",
-      "openalex_id": "W3198638008",
-      "source_doi": "10.1088/1741-2560/11/2/026009",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5455948179960252,
-        "similarity_score": 0.4723764657974243,
-        "citation_text_length": 1228,
+        "confidence_score": 0.49784118533134464,
+        "similarity_score": 0.4525828957557678,
+        "citation_text_length": 1514,
         "dataset_text_length": 2250,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -440,23 +412,23 @@
       }
     },
     {
-      "title": "EEG-Based Decoding of Auditory Attention to a Target Instrument in Polyphonic Music",
-      "author": "Giorgia Cantisani, Slim Essid, Gaël Richard",
-      "venue": "2019 IEEE Workshop on Applications of Signal Processing to Audio and Acoustics (WASPAA)",
-      "year": 2019,
-      "url": "https://doi.org/10.1109/waspaa.2019.8937219",
+      "title": "Generalizable EEG Encoding Models with Naturalistic Audiovisual Stimuli",
+      "author": "Maansi Desai, Jade Holder, Cassandra Villarreal, Nat Clark, Brittany Hoang, Liberty S. Hamilton",
+      "venue": "Journal of Neuroscience",
+      "year": 2021,
+      "url": "https://doi.org/10.1523/jneurosci.2891-20.2021",
       "cited_by": 23,
-      "abstract": "Auditory attention decoding aims at determining which sound source a subject is \"focusing on\". In this work, we address the problem of EEG-based decoding of auditory attention to a target instrument in realistic polyphonic music. To this end, we exploit a stimulus reconstruction model which was proven to decode successfully the attention to speech in multi-speaker environments. To our knowledge, this model was never applied to musical stimuli for decoding attention. The task we consider here is quite complex as the stimuli used are polyphonic, including duets and trios, and are reproduced using loudspeakers instead of headphones. We consider the decoding of three different audio representations and investigate the influence on the decoding performance of multiple variants of musical stimuli, such as the number and type of instruments in the mixture, the spatial rendering, the music genre and the melody/rhythmical pattern that is played. We obtain promising results, comparable to those ",
-      "doi": "10.1109/waspaa.2019.8937219",
-      "pmid": null,
-      "openalex_id": "W2997111061",
+      "abstract": "Abstract In natural conversations, listeners must attend to what others are saying while ignoring extraneous background sounds. Recent studies have used encoding models to predict electroencephalography (EEG) responses to speech in noise-free listening situations, sometimes referred to as “speech tracking” in EEG. Researchers have analyzed how speech tracking changes with different types of background noise. It is unclear, however, whether neural responses from noisy and naturalistic environments can be generalized to more controlled stimuli. If encoding models for noisy, naturalistic stimuli are generalizable to other tasks, this could aid in data collection from populations who may not tolerate listening to more controlled, less-engaging stimuli for long periods of time. We recorded non-invasive scalp EEG while participants listened to speech without noise and audiovisual speech stimuli containing overlapping speakers and background sounds. We fit multivariate temporal receptive fiel",
+      "doi": "10.1523/jneurosci.2891-20.2021",
+      "pmid": "34503996",
+      "openalex_id": "W3198638008",
       "source_doi": "10.1088/1741-2560/11/2/026009",
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6054867029190064,
-        "similarity_score": 0.5504424571990967,
-        "citation_text_length": 1252,
+        "confidence_score": 0.5497921979427338,
+        "similarity_score": 0.4760105609893799,
+        "citation_text_length": 1228,
         "dataset_text_length": 2250,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -532,23 +504,23 @@
       }
     },
     {
-      "title": "Cortical Auditory Attention Decoding During Music and Speech Listening",
-      "author": "Adèle Simon, Gérard Loquet, Jan Stubbe Østergaard, Søren Bech",
-      "venue": "IEEE Transactions on Neural Systems and Rehabilitation Engineering",
-      "year": 2023,
-      "url": "https://doi.org/10.1109/tnsre.2023.3291239",
-      "cited_by": 19,
-      "abstract": "It has been demonstrated that from cortical recordings, it is possible to detect which speaker a person is attending in a cocktail party scenario. The stimulus reconstruction approach, based on linear regression, has been shown to be useable to reconstruct an approximation of the envelopes of the sounds attended to and not attended to by a listener from the electroencephalogram data (EEG). Comparing the reconstructed envelopes with the envelopes of the stimuli, a higher correlation between the envelopes of the attended sound is observed. Most of the studies focused on speech listening, and only a few studies investigated the performances and the mechanisms of auditory attention decoding during music listening. In the present study, auditory attention detection (AAD) techniques that have been proven successful for speech listening were applied to a situation where the listener is actively listening to music concomitant with a distracting sound. Results show that AAD can be successful fo",
-      "doi": "10.1109/tnsre.2023.3291239",
-      "pmid": "37390005",
-      "openalex_id": "W4382751087",
+      "title": "EEG-Based Decoding of Auditory Attention to a Target Instrument in Polyphonic Music",
+      "author": "Giorgia Cantisani, Slim Essid, Gaël Richard",
+      "venue": "IEEE Workshop on Applications of Signal Processing to Audio and Acoustics (WASPAA)",
+      "year": 2019,
+      "url": "https://doi.org/10.1109/waspaa.2019.8937219",
+      "cited_by": 20,
+      "abstract": "Auditory attention decoding aims at determining which sound source a subject is \"focusing on\". In this work, we address the problem of EEG-based decoding of auditory attention to a target instrument in realistic polyphonic music. To this end, we exploit a stimulus reconstruction model which was proven to decode successfully the attention to speech in multi-speaker environments. To our knowledge, this model was never applied to musical stimuli for decoding attention. The task we consider here is quite complex as the stimuli used are polyphonic, including duets and trios, and are reproduced using loudspeakers instead of headphones. We consider the decoding of three different audio representations and investigate the influence on the decoding performance of multiple variants of musical stimuli, such as the number and type of instruments in the mixture, the spatial rendering, the music genre and the melody/rhythmical pattern that is played. We obtain promising results, comparable to those ",
+      "doi": "10.1109/waspaa.2019.8937219",
+      "pmid": null,
+      "openalex_id": "W2997111061",
       "source_doi": "10.1088/1741-2560/11/2/026009",
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6012224596738815,
-        "similarity_score": 0.5205389261245728,
-        "citation_text_length": 1236,
+        "confidence_score": 0.6004623830318452,
+        "similarity_score": 0.5458748936653137,
+        "citation_text_length": 1247,
         "dataset_text_length": 2250,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -560,7 +532,7 @@
       "venue": "Frontiers in Human Neuroscience",
       "year": 2018,
       "url": "https://doi.org/10.3389/fnhum.2018.00444",
-      "cited_by": 19,
+      "cited_by": 20,
       "abstract": "To investigate the brain's response to music, many researchers have examined cortical entrainment in relation to periodic tunes, periodic beats, and music. Music familiarity is another factor that affects cortical entrainment, and electroencephalogram (EEG) studies have shown that stronger entrainment occurs while listening to unfamiliar music than while listening to familiar music. In the present study, we hypothesized that not only the level of familiarity but also the level of attention affects the level of entrainment. We simultaneously presented music and a silent movie to participants and we recorded an EEG while participants paid attention to either the music or the movie in order to investigate whether cortical entrainment is related to attention and music familiarity. The average cross-correlation function across channels, trials, and participants exhibited a pronounced positive peak at time lags around 130 ms and a negative peak at time lags around 260 ms. The statistical ana",
       "doi": "10.3389/fnhum.2018.00444",
       "pmid": "30459583",
@@ -580,7 +552,7 @@
     {
       "title": "A preliminary study on the effects of music on human brainwaves",
       "author": "V. Straticiuc, Irina-Emilia Nicolae, Rodica Strungaru, M. Vasile, O. A. Bajenaru, Georgeta Mihaela Ungureanu",
-      "venue": "2016 8th International Conference on Electronics, Computers and Artificial Intelligence (ECAI)",
+      "venue": "International Conference on Electronics, Computers and Artificial Intelligence (ECAI)",
       "year": 2016,
       "url": "https://doi.org/10.1109/ecai.2016.7861196",
       "cited_by": 19,
@@ -592,9 +564,32 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6865552067756653,
-        "similarity_score": 0.6241410970687866,
-        "citation_text_length": 817,
+        "confidence_score": 0.6914800643920899,
+        "similarity_score": 0.6286182403564453,
+        "citation_text_length": 808,
+        "dataset_text_length": 2250,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Cortical Auditory Attention Decoding During Music and Speech Listening",
+      "author": "Adèle Simon, Gérard Loquet, Jan Stubbe Østergaard, Søren Bech",
+      "venue": "IEEE Transactions on Neural Systems and Rehabilitation Engineering",
+      "year": 2023,
+      "url": "https://doi.org/10.1109/tnsre.2023.3291239",
+      "cited_by": 18,
+      "abstract": "It has been demonstrated that from cortical recordings, it is possible to detect which speaker a person is attending in a cocktail party scenario. The stimulus reconstruction approach, based on linear regression, has been shown to be useable to reconstruct an approximation of the envelopes of the sounds attended to and not attended to by a listener from the electroencephalogram data (EEG). Comparing the reconstructed envelopes with the envelopes of the stimuli, a higher correlation between the envelopes of the attended sound is observed. Most of the studies focused on speech listening, and only a few studies investigated the performances and the mechanisms of auditory attention decoding during music listening. In the present study, auditory attention detection (AAD) techniques that have been proven successful for speech listening were applied to a situation where the listener is actively listening to music concomitant with a distracting sound. Results show that AAD can be successful fo",
+      "doi": "10.1109/tnsre.2023.3291239",
+      "pmid": "37390005",
+      "openalex_id": "W4382751087",
+      "source_doi": "10.1088/1741-2560/11/2/026009",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6012224596738815,
+        "similarity_score": 0.5205389261245728,
+        "citation_text_length": 1236,
         "dataset_text_length": 2250,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -672,7 +667,7 @@
     {
       "title": "Decoding Music Attention from “EEG Headphones”: A User-Friendly Auditory Brain-Computer Interface",
       "author": "Winko Wenkang An, Barbara G. Shinn‐Cunningham, Hannes Gamper, Dimitra Emmanouilidou, David Johnston, Mihai Jalobeanu, Edward B. Cutrell, Andrew D. Wilson, Kuan-Jung Chiang, Ivan Tashev",
-      "venue": "ICASSP 2021 - 2021 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)",
+      "venue": "IEEE International Conference on Acoustics Speech and Signal Processing",
       "year": 2021,
       "url": "https://doi.org/10.1109/icassp39728.2021.9414492",
       "cited_by": 16,
@@ -684,9 +679,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.7541283917427064,
-        "similarity_score": 0.6529250144958496,
-        "citation_text_length": 1171,
+        "confidence_score": 0.7503269299864771,
+        "similarity_score": 0.6496337056159973,
+        "citation_text_length": 1142,
         "dataset_text_length": 2250,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -710,6 +705,29 @@
         "confidence_score": 0.6925359964370728,
         "similarity_score": 0.6925359964370728,
         "citation_text_length": 226,
+        "dataset_text_length": 2250,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "NeuralBench: A Unifying Framework to Benchmark NeuroAI Models",
+      "author": "Hubert J. Banville, Stéphane d'Ascoli, Simon Dahan, Jérémy Rapin, Marlène Careil, Yohann Benchetrit, Jarod Lévy, S. Panchavati, Antoine Ratouchniak, Ming-Fang Zhang, Elisa Cascardi, K. Begany, Teon L Brooks, Jean-Rémi King",
+      "venue": "ArXiv",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arXiv.2605.08495",
+      "cited_by": 16,
+      "abstract": "Deep learning and large public datasets have recently catalyzed the proliferation of AI models for processing brain recordings. However, systematically evaluating these models remains a challenge: not only do the preprocessing pipelines, training and finetuning approaches largely vary across studies, but their downstream evaluation is often limited to small sets of tasks and/or datasets. Here, we present NeuralBench: a unified framework for benchmarking AI models of brain activity. We accompany this framework with NeuralBench-EEG v1.0 -- a large EEG benchmark that includes 36 electroencephalography (EEG) tasks and 14 deep learning architectures, and is evaluated on 94 datasets accessed through a standardized interface. This first EEG-focused release already highlights two main findings. First, current foundation models only marginally outperform task-specific models. Second, a large set of tasks (e.g. cognitive decoding, clinical predictions) remain highly challenging, even for the bes",
+      "doi": "10.48550/arXiv.2605.08495",
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.1088/1741-2560/11/2/026009",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5690054172277451,
+        "similarity_score": 0.49264538288116455,
+        "citation_text_length": 1327,
         "dataset_text_length": 2250,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -785,35 +803,12 @@
       }
     },
     {
-      "title": "NeuralBench: A Unifying Framework to Benchmark NeuroAI Models",
-      "author": "Hubert J. Banville, Stéphane d’Ascoli, Simon Dahan, Jérémy Rapin, Marlène Careil, Yohann Benchetrit, Jarod Lévy, S. Panchavati, Antoine Ratouchniak, Mingfang Zhang, Elisa Cascardi, K. Begany, Teon L Brooks, Jean-Rémi King",
-      "venue": "ArXiv",
-      "year": 2026,
-      "url": "https://doi.org/10.48550/arXiv.2605.08495",
-      "cited_by": 13,
-      "abstract": "Deep learning and large public datasets have recently catalyzed the proliferation of AI models for processing brain recordings. However, systematically evaluating these models remains a challenge: not only do the preprocessing pipelines, training and finetuning approaches largely vary across studies, but their downstream evaluation is often limited to small sets of tasks and/or datasets. Here, we present NeuralBench: a unified framework for benchmarking AI models of brain activity. We accompany this framework with NeuralBench-EEG v1.0 -- a large EEG benchmark that includes 36 electroencephalography (EEG) tasks and 14 deep learning architectures, and is evaluated on 94 datasets accessed through a standardized interface. This first EEG-focused release already highlights two main findings. First, current foundation models only marginally outperform task-specific models. Second, a large set of tasks (e.g. cognitive decoding, clinical predictions) remain highly challenging, even for the bes",
-      "doi": "10.48550/arXiv.2605.08495",
-      "pmid": null,
-      "openalex_id": null,
-      "source_doi": "10.1088/1741-2560/11/2/026009",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5686660538613797,
-        "similarity_score": 0.49235156178474426,
-        "citation_text_length": 1326,
-        "dataset_text_length": 2250,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Electroencephalogram (EEG) Based Imagined Speech Decoding and Recognition",
       "author": "Sani Saminu, Guizhi Xu, Shuai Zhang, Isselmou Abd El Kader, Adamu Halilu Jabire, Ibrahim Abdullahi Karaye, Isah Salim Ahmad, Abubakar Abdulkarim",
       "venue": "Journal of Applied Materials and Technology",
       "year": 2021,
       "url": "https://doi.org/10.31258/jamt.2.2.74-84",
-      "cited_by": 12,
+      "cited_by": 13,
       "abstract": "The recent investigations and advances in imagined speech decoding and recognition has tremendously improved the decoding of speech directly from brain activity with the help of several neuroimaging techniques that assist us in exploring the neurological processes of imagined speech. This development leads to assist people with disabilities to benefit from neuroprosthetic devices that improve the life of those suffering from neurological disorders. This paper presents the summary of recent progress in decoding imagined speech using Electroenceplography (EEG) signal, as this neuroimaging method enable us to monitor brain activity with high temporal resolution, it is very portable, low cost, and safer as compared to other methods. Therefore, it is a good candidate in investigating an imagined speech decoding from the human cortex which remains a challenging task. The paper also reviews some recent techniques, challenges, future recommendations and possible solutions to improve prosthetic",
       "doi": "10.31258/jamt.2.2.74-84",
       "pmid": null,
@@ -825,29 +820,6 @@
         "confidence_score": 0.45625939965248113,
         "similarity_score": 0.39502978324890137,
         "citation_text_length": 1299,
-        "dataset_text_length": 2250,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Speech stream segregation to control an ERP-based auditory BCI",
-      "author": "Francisco Velasco-Álvarez, Álvaro Fernández-Rodríguez, María Teresa Medina-Juliá, Ricardo Ron-Angevín",
-      "venue": "Journal of Neural Engineering",
-      "year": 2021,
-      "url": "https://doi.org/10.1088/1741-2552/abdd44",
-      "cited_by": 11,
-      "abstract": "Abstract Objective . The use of natural sounds in auditory brain–computer interfaces (BCI) has been shown to improve classification results and usability. Some auditory BCIs are based on stream segregation, in which the subjects must attend one audio stream and ignore the other(s); these streams include some kind of stimuli to be detected. In this work we focus on event-related potentials (ERP) and study whether providing intelligible content to each audio stream could help the users to better concentrate on the desired stream and so to better attend the target stimuli and to ignore the non-target ones. Approach . In addition to a control condition, two experimental conditions, based on the selective attention and the cocktail party effect, were tested using two simultaneous and spatialized audio streams: (a) the condition A2 consisted of an overlap of auditory stimuli (single syllables) on a background consisting of natural speech for each stream, (b) in condition A3, brief alteration",
-      "doi": "10.1088/1741-2552/abdd44",
-      "pmid": "33470970",
-      "openalex_id": "W3123077230",
-      "source_doi": "10.1088/1741-2560/11/2/026009",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.6412446185946464,
-        "similarity_score": 0.5551901459693909,
-        "citation_text_length": 1231,
         "dataset_text_length": 2250,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -877,6 +849,29 @@
       }
     },
     {
+      "title": "Speech stream segregation to control an ERP-based auditory BCI",
+      "author": "Francisco Velasco-Álvarez, Álvaro Fernández-Rodríguez, María Teresa Medina-Juliá, Ricardo Ron-Angevín",
+      "venue": "Journal of Neural Engineering",
+      "year": 2021,
+      "url": "https://doi.org/10.1088/1741-2552/abdd44",
+      "cited_by": 10,
+      "abstract": "Abstract Objective . The use of natural sounds in auditory brain–computer interfaces (BCI) has been shown to improve classification results and usability. Some auditory BCIs are based on stream segregation, in which the subjects must attend one audio stream and ignore the other(s); these streams include some kind of stimuli to be detected. In this work we focus on event-related potentials (ERP) and study whether providing intelligible content to each audio stream could help the users to better concentrate on the desired stream and so to better attend the target stimuli and to ignore the non-target ones. Approach . In addition to a control condition, two experimental conditions, based on the selective attention and the cocktail party effect, were tested using two simultaneous and spatialized audio streams: (a) the condition A2 consisted of an overlap of auditory stimuli (single syllables) on a background consisting of natural speech for each stream, (b) in condition A3, brief alteration",
+      "doi": "10.1088/1741-2552/abdd44",
+      "pmid": "33470970",
+      "openalex_id": "W3123077230",
+      "source_doi": "10.1088/1741-2560/11/2/026009",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6412446185946464,
+        "similarity_score": 0.5551901459693909,
+        "citation_text_length": 1231,
+        "dataset_text_length": 2250,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "An investigation of the neural association between auditory imagery and perception of complex sounds",
       "author": "Jin Gu, Hairuo Zhang, Baolin Liu, Xianglin Li, Peiyuan Wang, Bin Wang",
       "venue": "Brain Structure and Function",
@@ -900,31 +895,8 @@
       }
     },
     {
-      "title": "MAD-EEG: an EEG dataset for decoding auditory attention to a target instrument in polyphonic music",
-      "author": "Giorgia Cantisani, Gabriel Trégoat, Slim Essid, Gaël Richard",
-      "venue": "Workshop on Speech, Music and Mind (SMM 2019)",
-      "year": 2019,
-      "url": "https://doi.org/10.21437/smm.2019-11",
-      "cited_by": 9,
-      "abstract": "We present MAD-EEG, a new, freely available dataset for studying EEG-based auditory attention decoding considering the challenging case of subjects attending to a target instrument in polyphonic music. The dataset represents the first music-related EEG dataset of its kind, enabling, in particular, studies on single-trial EEG-based attention decoding, while also opening the path for research on other EEG-based music analysis tasks. MAD-EEG has so far collected 20-channel EEG signals recorded from 8 subjects listening to solo, duo and trio music excerpts and attending to one pre-specified instrument. The proposed experimental setting differs from the ones previously considered as the stimuli are polyphonic and are played to the subject using speakers instead of headphones. The stimuli were designed considering variations in terms of number and type of instruments in the mixture, spatial rendering, music genre and melody that is played. Preliminary results obtained with a state-of-the-art",
-      "doi": "10.21437/smm.2019-11",
-      "pmid": null,
-      "openalex_id": "W2986004185",
-      "source_doi": "10.1088/1741-2560/11/2/026009",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.706101018190384,
-        "similarity_score": 0.6419100165367126,
-        "citation_text_length": 1242,
-        "dataset_text_length": 2250,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Classification of familiarity based on cross-correlation features between EEG and music",
-      "author": "Yuiko Kumagai, Mahnaz Arvaneh, H. Okawa, Tomoya Wada, Toshihisa Tanaka",
+      "author": "Yuiko Kumagai, Mahnaz Arvaneh, Haruki Okawa, Tomoya Wada, Toshihisa Tanaka",
       "venue": "2017 39th Annual International Conference of the IEEE Engineering in Medicine and Biology Society (EMBC)",
       "year": 2017,
       "url": "https://doi.org/10.1109/embc.2017.8037458",
@@ -937,9 +909,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5755957007408142,
-        "similarity_score": 0.5232688188552856,
-        "citation_text_length": 1060,
+        "confidence_score": 0.5768631398677826,
+        "similarity_score": 0.5244210362434387,
+        "citation_text_length": 1064,
         "dataset_text_length": 2250,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -971,7 +943,7 @@
     {
       "title": "Neuro-Steered Music Source Separation With EEG-Based Auditory Attention Decoding And Contrastive-NMF",
       "author": "Giorgia Cantisani, Slim Essid, Gaël Richard",
-      "venue": "ICASSP 2021 - 2021 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)",
+      "venue": "IEEE International Conference on Acoustics Speech and Signal Processing",
       "year": 2021,
       "url": "https://doi.org/10.1109/icassp39728.2021.9413841",
       "cited_by": 8,
@@ -983,32 +955,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6176101407408715,
-        "similarity_score": 0.5347273945808411,
-        "citation_text_length": 1204,
-        "dataset_text_length": 2250,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Quantifying Brain Activity State: EEG analysis of Background Music in A Serious Game on Attention of Children",
-      "author": "Ömer Soysal, Fettah Kiran, Jianhua Chen",
-      "venue": "2020 4th International Symposium on Multidisciplinary Studies and Innovative Technologies (ISMSIT)",
-      "year": 2020,
-      "url": "https://doi.org/10.1109/ismsit50672.2020.9255308",
-      "cited_by": 8,
-      "abstract": "Music and Serious Games are separately useful alternative therapy methods for helping people with a cognitive disorder such as Attention Deficit Hyperactivity Disorder (ADHD). In this study, we aim to explore the effect of background music in game playing on children with and without ADHD. In addition, we propose an algorithm and a measure to quantify the activity of the brain. We designed Tetris, a well-known serious game, which plays Beethoven, Mozart, or no-music in the background. The brain activity of the subjects is recorded by means of electroencephalography (EEG) signals via a brain computer interface (BCI) device. We analyzed the effect of music utilizing time-domain features extracted from Alpha and Beta band of the EEG signals. The results showed that different music types have varying impact on the attention of children. In general, Mozart increases Beta-level brain activity while decreasing the Alpha-level one. On the other hand, Beethoven music increased concurrently both",
-      "doi": "10.1109/ismsit50672.2020.9255308",
-      "pmid": null,
-      "openalex_id": "W3105559371",
-      "source_doi": "10.1088/1741-2560/11/2/026009",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.6663055309653283,
-        "similarity_score": 0.5768879055976868,
-        "citation_text_length": 1285,
+        "confidence_score": 0.6096784213185311,
+        "similarity_score": 0.5278601050376892,
+        "citation_text_length": 1175,
         "dataset_text_length": 2250,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1038,6 +987,29 @@
       }
     },
     {
+      "title": "MAD-EEG: an EEG dataset for decoding auditory attention to a target instrument in polyphonic music",
+      "author": "Giorgia Cantisani, Gabriel Trégoat, Slim Essid, Gaël Richard",
+      "venue": "Workshop on Speech, Music and Mind (SMM 2019)",
+      "year": 2019,
+      "url": "https://doi.org/10.21437/smm.2019-11",
+      "cited_by": 8,
+      "abstract": "We present MAD-EEG, a new, freely available dataset for studying EEG-based auditory attention decoding considering the challenging case of subjects attending to a target instrument in polyphonic music. The dataset represents the first music-related EEG dataset of its kind, enabling, in particular, studies on single-trial EEG-based attention decoding, while also opening the path for research on other EEG-based music analysis tasks. MAD-EEG has so far collected 20-channel EEG signals recorded from 8 subjects listening to solo, duo and trio music excerpts and attending to one pre-specified instrument. The proposed experimental setting differs from the ones previously considered as the stimuli are polyphonic and are played to the subject using speakers instead of headphones. The stimuli were designed considering variations in terms of number and type of instruments in the mixture, spatial rendering, music genre and melody that is played. Preliminary results obtained with a state-of-the-art",
+      "doi": "10.21437/smm.2019-11",
+      "pmid": null,
+      "openalex_id": "W2986004185",
+      "source_doi": "10.1088/1741-2560/11/2/026009",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.706101018190384,
+        "similarity_score": 0.6419100165367126,
+        "citation_text_length": 1242,
+        "dataset_text_length": 2250,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Shared Generative Representation of Auditory Concepts and EEG to Reconstruct Perceived and Imagined Music",
       "author": "André Ofner, Sebastian Stober",
       "venue": "n/a",
@@ -1055,6 +1027,29 @@
         "confidence_score": 0.5881392955780029,
         "similarity_score": 0.5881392955780029,
         "citation_text_length": 164,
+        "dataset_text_length": 2250,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Quantifying Brain Activity State: EEG analysis of Background Music in A Serious Game on Attention of Children",
+      "author": "Ömer Soysal, Fettah Kiran, Jianhua Chen",
+      "venue": "International Symposium on Multidisciplinary Studies and Innovative Technologies (ISMSIT)",
+      "year": 2020,
+      "url": "https://doi.org/10.1109/ismsit50672.2020.9255308",
+      "cited_by": 7,
+      "abstract": "Music and Serious Games are separately useful alternative therapy methods for helping people with a cognitive disorder such as Attention Deficit Hyperactivity Disorder (ADHD). In this study, we aim to explore the effect of background music in game playing on children with and without ADHD. In addition, we propose an algorithm and a measure to quantify the activity of the brain. We designed Tetris, a well-known serious game, which plays Beethoven, Mozart, or no-music in the background. The brain activity of the subjects is recorded by means of electroencephalography (EEG) signals via a brain computer interface (BCI) device. We analyzed the effect of music utilizing time-domain features extracted from Alpha and Beta band of the EEG signals. The results showed that different music types have varying impact on the attention of children. In general, Mozart increases Beta-level brain activity while decreasing the Alpha-level one. On the other hand, Beethoven music increased concurrently both",
+      "doi": "10.1109/ismsit50672.2020.9255308",
+      "pmid": null,
+      "openalex_id": "W3105559371",
+      "source_doi": "10.1088/1741-2560/11/2/026009",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6614328664541245,
+        "similarity_score": 0.5726691484451294,
+        "citation_text_length": 1276,
         "dataset_text_length": 2250,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1135,7 +1130,7 @@
       "venue": "Applied Acoustics",
       "year": 2024,
       "url": "https://doi.org/10.1016/j.apacoust.2024.110291",
-      "cited_by": 5,
+      "cited_by": 6,
       "abstract": null,
       "doi": "10.1016/j.apacoust.2024.110291",
       "pmid": null,
@@ -1201,7 +1196,7 @@
     {
       "title": "Real-time Measures for Brain Activity Detection to Live Indian Classical Music Stimulus",
       "author": "Satyam Panda, Dasari Shivakumar, Yagnyaseni Majumder, Cota Navin Gupta, Budhaditya Hazra",
-      "venue": "2023 IEEE 20th India Council International Conference (INDICON)",
+      "venue": "IEEE India Council International Conference (INDICON)",
       "year": 2023,
       "url": "https://doi.org/10.1109/indicon59947.2023.10440829",
       "cited_by": 4,
@@ -1213,9 +1208,55 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.562291123867035,
-        "similarity_score": 0.4868321418762207,
-        "citation_text_length": 1277,
+        "confidence_score": 0.547904822677374,
+        "similarity_score": 0.47437646985054016,
+        "citation_text_length": 1267,
+        "dataset_text_length": 2250,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Neural underpinnnings of auditory salience natural soundscapes",
+      "author": "Nicholas J. Huang, Mounya Elhilali",
+      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+      "year": 2018,
+      "url": "https://doi.org/10.1101/376525",
+      "cited_by": 4,
+      "abstract": "Salience is the mechanism whereby attention is automatically directed towards critical stimuli. Measuring the salience of a stimulus using behavioral methods risks confounds with top-down attention, particularly in the case of natural soundscapes. A distraction paradigm is employed here to measure physiological effects of salient auditory stimuli using electroencephalography. Several such effects are presented. In particular, a stimulus entrainment response is reduced by the presentation of distractor salient sounds. A reduction in oscillatory neural responses in the gamma frequency band is also observed following salient stimuli. These measures are used to identify salient portions of the natural scene. Finally, envelope decoding methods also indicate that salient stimuli attract attention away from other, task-related sounds.",
+      "doi": "10.1101/376525",
+      "pmid": null,
+      "openalex_id": "W2886137627",
+      "source_doi": "10.1088/1741-2560/11/2/026009",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.4971848458051682,
+        "similarity_score": 0.4519862234592438,
+        "citation_text_length": 1013,
+        "dataset_text_length": 2250,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Trace: A research media player measuring real-time audience engagement",
+      "author": "Ana Levordashka, Mike Richardson, Rebecca J. Hirst, Iain Donald Gilchrist, Danaë Stanton Fraser",
+      "venue": "Behavior Research Methods",
+      "year": 2025,
+      "url": "https://doi.org/10.3758/s13428-024-02522-0",
+      "cited_by": 4,
+      "abstract": "Measuring attention and engagement is essential for understanding a wide range of psychological phenomena. Advances in technology have made it possible to measure real-time attention to naturalistic stimuli, providing ecologically valid insight into temporal dynamics. We developed a research protocol called Trace, which records anonymous facial landmarks, expressions, and patterns of movement associated with engagement in screen-based media. Trace runs in a standard internet browser and resembles a contemporary media player. It is embedded in the open-source package PsychoJS (the JavaScript sister library of PsychoPy) hosted via Pavlovia, and can be integrated with a wide range of behavioral research methods. Developed over multiple iterations and tested with over 200 participants in three studies, including the official broadcast of a major theatre production, Trace is a powerful, user-friendly protocol allowing behavioral researchers to capture audience attention and engagement in sc",
+      "doi": "10.3758/s13428-024-02522-0",
+      "pmid": "39762468",
+      "openalex_id": "W4406089535",
+      "source_doi": "10.1088/1741-2560/11/2/026009",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.4757212123274803,
+        "similarity_score": 0.41187983751296997,
+        "citation_text_length": 1229,
         "dataset_text_length": 2250,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1228,7 +1269,7 @@
       "year": 2024,
       "url": "https://doi.org/10.1523/eneuro.0122-24.2024",
       "cited_by": 4,
-      "abstract": "Reverberation, a ubiquitous feature of real-world acoustic environments, exhibits statistical regularities that human listeners leverage to self-orient, facilitate auditory perception, and understand their environment. Despite the extensive research on sound source representation in the auditory system, it remains unclear how the brain represents real-world reverberant environments. Here, we characterized the neural response to reverberation of varying realism by applying multivariate pattern analysis to electroencephalographic (EEG) brain signals. Human listeners (12 males and 8 females) heard speech samples convolved with real-world and synthetic reverberant impulse responses and judged whether the speech samples were in a \"real\" or \"fake\" environment, focusing on the reverberant background rather than the properties of speech itself. Participants distinguished real from synthetic reverberation with ∼75% accuracy; EEG decoding reveals a multistage decoding time course, with dissociab",
+      "abstract": "ABSTRACT Reverberation, a ubiquitous feature of real-world acoustic environments, exhibits statistical regularities that human listeners leverage to self-orient, facilitate auditory perception, and understand their environment. Despite the extensive research on sound source representation in the auditory system, it remains unclear how the brain represents real-world reverberant environments. Here, we characterized the neural response to reverberation of varying realism by applying multivariate pattern analysis to electroencephalographic (EEG) brain signals. Human listeners (12 male and 8 female) heard speech samples convolved with real-world and synthetic reverberant impulse responses and judged whether the speech samples were in a “real” or “fake” environment, focusing on the reverberant background rather than the properties of speech itself. Participants distinguished real from synthetic reverberation with ∼75% accuracy; EEG decoding reveals a multistage decoding time course, with di",
       "doi": "10.1523/eneuro.0122-24.2024",
       "pmid": "39122554",
       "openalex_id": "W4401443556",
@@ -1236,9 +1277,32 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5429359839856626,
-        "similarity_score": 0.47007444500923157,
+        "confidence_score": 0.5516804337501526,
+        "similarity_score": 0.4776453971862793,
         "citation_text_length": 1195,
+        "dataset_text_length": 2250,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Systematic errors in the perception of rhythm",
+      "author": "Jiaan Mansuri, Hassan Aleem, Norberto Mauricio Grzywacz",
+      "venue": "Frontiers in Human Neuroscience",
+      "year": 2022,
+      "url": "https://doi.org/10.3389/fnhum.2022.1009219",
+      "cited_by": 4,
+      "abstract": "One hypothesis for why humans enjoy musical rhythms relates to their prediction of when each beat should occur. The ability to predict the timing of an event is important from an evolutionary perspective. Therefore, our brains have evolved internal mechanisms for processing the progression of time. However, due to inherent noise in neural signals, this prediction is not always accurate. Theoretical considerations of optimal estimates suggest the occurrence of certain systematic errors made by the brain when estimating the timing of beats in rhythms. Here, we tested psychophysically whether these systematic errors exist and if so, how they depend on stimulus parameters. Our experimental data revealed two main types of systematic errors. First, observers perceived the time of the last beat of a rhythmic pattern as happening earlier than actual when the inter-beat interval was short. Second, the perceived time of the last beat was later than the actual when the inter-beat interval was lon",
+      "doi": "10.3389/fnhum.2022.1009219",
+      "pmid": "36438641",
+      "openalex_id": "W4308652071",
+      "source_doi": "10.1088/1741-2560/11/2/026009",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.46054297149181367,
+        "similarity_score": 0.3987385034561157,
+        "citation_text_length": 1170,
         "dataset_text_length": 2250,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1268,29 +1332,6 @@
       }
     },
     {
-      "title": "Systematic errors in the perception of rhythm",
-      "author": "Jiaan Mansuri, Hassan Aleem, Norberto Mauricio Grzywacz",
-      "venue": "Frontiers in Human Neuroscience",
-      "year": 2022,
-      "url": "https://doi.org/10.3389/fnhum.2022.1009219",
-      "cited_by": 3,
-      "abstract": "One hypothesis for why humans enjoy musical rhythms relates to their prediction of when each beat should occur. The ability to predict the timing of an event is important from an evolutionary perspective. Therefore, our brains have evolved internal mechanisms for processing the progression of time. However, due to inherent noise in neural signals, this prediction is not always accurate. Theoretical considerations of optimal estimates suggest the occurrence of certain systematic errors made by the brain when estimating the timing of beats in rhythms. Here, we tested psychophysically whether these systematic errors exist and if so, how they depend on stimulus parameters. Our experimental data revealed two main types of systematic errors. First, observers perceived the time of the last beat of a rhythmic pattern as happening earlier than actual when the inter-beat interval was short. Second, the perceived time of the last beat was later than the actual when the inter-beat interval was lon",
-      "doi": "10.3389/fnhum.2022.1009219",
-      "pmid": "36438641",
-      "openalex_id": "W4308652071",
-      "source_doi": "10.1088/1741-2560/11/2/026009",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.46054297149181367,
-        "similarity_score": 0.3987385034561157,
-        "citation_text_length": 1170,
-        "dataset_text_length": 2250,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "EEG-based decoding and recognition of imagined music",
       "author": "Marthe Tibo, Simon Geirnaert, Alexander Bertrand",
       "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
@@ -1314,29 +1355,6 @@
       }
     },
     {
-      "title": "Neural underpinnnings of auditory salience natural soundscapes",
-      "author": "Nicholas J. Huang, Mounya Elhilali",
-      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
-      "year": 2018,
-      "url": "https://doi.org/10.1101/376525",
-      "cited_by": 3,
-      "abstract": "Salience is the mechanism whereby attention is automatically directed towards critical stimuli. Measuring the salience of a stimulus using behavioral methods risks confounds with top-down attention, particularly in the case of natural soundscapes. A distraction paradigm is employed here to measure physiological effects of salient auditory stimuli using electroencephalography. Several such effects are presented. In particular, a stimulus entrainment response is reduced by the presentation of distractor salient sounds. A reduction in oscillatory neural responses in the gamma frequency band is also observed following salient stimuli. These measures are used to identify salient portions of the natural scene. Finally, envelope decoding methods also indicate that salient stimuli attract attention away from other, task-related sounds.",
-      "doi": "10.1101/376525",
-      "pmid": null,
-      "openalex_id": "W2886137627",
-      "source_doi": "10.1088/1741-2560/11/2/026009",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.4971848458051682,
-        "similarity_score": 0.4519862234592438,
-        "citation_text_length": 1013,
-        "dataset_text_length": 2250,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Improving SNR and Reducing Training Time of Classifiers in Large Datasets via Kernel Averaging",
       "author": "Matthias Sebastian Treder",
       "venue": "Lecture notes in computer science",
@@ -1354,29 +1372,6 @@
         "confidence_score": 0.34402546286582947,
         "similarity_score": 0.34402546286582947,
         "citation_text_length": 179,
-        "dataset_text_length": 2250,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Trace: A research media player measuring real-time audience engagement",
-      "author": "Ana Levordashka, Mike Richardson, Rebecca J. Hirst, Iain Donald Gilchrist, Danaë Stanton Fraser",
-      "venue": "Behavior Research Methods",
-      "year": 2025,
-      "url": "https://doi.org/10.3758/s13428-024-02522-0",
-      "cited_by": 3,
-      "abstract": "Measuring attention and engagement is essential for understanding a wide range of psychological phenomena. Advances in technology have made it possible to measure real-time attention to naturalistic stimuli, providing ecologically valid insight into temporal dynamics. We developed a research protocol called Trace, which records anonymous facial landmarks, expressions, and patterns of movement associated with engagement in screen-based media. Trace runs in a standard internet browser and resembles a contemporary media player. It is embedded in the open-source package PsychoJS (the JavaScript sister library of PsychoPy) hosted via Pavlovia, and can be integrated with a wide range of behavioral research methods. Developed over multiple iterations and tested with over 200 participants in three studies, including the official broadcast of a major theatre production, Trace is a powerful, user-friendly protocol allowing behavioral researchers to capture audience attention and engagement in sc",
-      "doi": "10.3758/s13428-024-02522-0",
-      "pmid": "39762468",
-      "openalex_id": "W4406089535",
-      "source_doi": "10.1088/1741-2560/11/2/026009",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.4757212123274803,
-        "similarity_score": 0.41187983751296997,
-        "citation_text_length": 1229,
         "dataset_text_length": 2250,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1453,7 +1448,7 @@
     },
     {
       "title": "Correlation of EEG Responses Reflects Structural Similarity of Choruses in Popular Music",
-      "author": "Neha Rajagopalan, Blair Kaneshiro",
+      "author": "N. Rajagopalan, Blair Kaneshiro",
       "venue": "n/a",
       "year": 2023,
       "url": "https://doi.org/10.5281/zenodo.10265273",
@@ -1466,9 +1461,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5249542504549026,
-        "similarity_score": 0.4999564290046692,
-        "citation_text_length": 151,
+        "confidence_score": 0.5179136395454407,
+        "similarity_score": 0.49325108528137207,
+        "citation_text_length": 149,
         "dataset_text_length": 2250,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1523,7 +1518,7 @@
     {
       "title": "Classification of auditory attention focuses during speech perception",
       "author": "Haiqing Yu, Minpeng Xu, Jiayuan Meng, Zhen Ma, Dong Ming",
-      "venue": "2020 42nd Annual International Conference of the IEEE Engineering in Medicine & Biology Society (EMBC)",
+      "venue": "Proceedings of the Annual International Conference of the IEEE Engineering in Medicine and Biology Society",
       "year": 2020,
       "url": "https://doi.org/10.1109/embc44109.2020.9176300",
       "cited_by": 1,
@@ -1535,9 +1530,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6519270434975625,
-        "similarity_score": 0.5644389986991882,
-        "citation_text_length": 1266,
+        "confidence_score": 0.641694716513157,
+        "similarity_score": 0.5555798411369324,
+        "citation_text_length": 1270,
         "dataset_text_length": 2250,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1776,7 +1771,7 @@
     {
       "title": "Decoding Musical Timbre Perception from Single-Trial EEG Data",
       "author": "Praveena Satkunarajah, Sarah Power, Benjamin Rich Zendel",
-      "venue": "2024 IEEE International Conference on Systems, Man, and Cybernetics (SMC)",
+      "venue": "Conference proceedings/Conference proceedings - IEEE International Conference on Systems, Man, and Cybernetics",
       "year": 2024,
       "url": "https://doi.org/10.1109/smc54092.2024.10831757",
       "cited_by": 0,
@@ -1788,9 +1783,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6534692037105562,
-        "similarity_score": 0.5657742023468018,
-        "citation_text_length": 1229,
+        "confidence_score": 0.6478513097763062,
+        "similarity_score": 0.5609102249145508,
+        "citation_text_length": 1266,
         "dataset_text_length": 2250,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -2005,7 +2000,7 @@
     },
     {
       "title": "Pushing the boundaries of Brain-Computer Interface technology: challenges in novel applications and large-scale studies",
-      "author": "S. Haufe, Sven Dähne, Anne Porbadnigk, Claudia Sannelli",
+      "author": "S. Haufe, Sven Dähne, Anne Porbadnigk, C. Sannelli",
       "venue": "n/a",
       "year": 2017,
       "url": "https://doi.org/10.14279/DEPOSITONCE-5704",
@@ -2018,9 +2013,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.4489641785621643,
-        "similarity_score": 0.4489641785621643,
-        "citation_text_length": 204,
+        "confidence_score": 0.45298051834106445,
+        "similarity_score": 0.45298051834106445,
+        "citation_text_length": 199,
         "dataset_text_length": 2250,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -2028,7 +2023,7 @@
     },
     {
       "title": "Sound and Music Computing at Aalborg University in Copenhagen",
-      "author": "S. Serafin, S. Dahl, A. Götzen, Cumhur Erkut, Dan Overholt, H. Purwins, Bob L. Sturm",
+      "author": "Stefania Serafin, S. Dahl, A. Götzen, Cumhur Erkut, Dan Overholt, H. Purwins, Bob L. Sturm",
       "venue": "n/a",
       "year": 2014,
       "url": "n/a",
@@ -2041,9 +2036,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.3729369640350342,
-        "similarity_score": 0.3729369640350342,
-        "citation_text_length": 175,
+        "confidence_score": 0.3706851005554199,
+        "similarity_score": 0.3706851005554199,
+        "citation_text_length": 181,
         "dataset_text_length": 2250,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -2075,15 +2070,15 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T10:51:32.231520+00:00",
+    "scoring_date": "2026-10-11T11:21:47.270962+00:00",
     "dataset_text_length": 2250,
     "num_citations_scored": 87,
     "summary_stats": {
-      "mean_confidence": 0.5609423757490072,
-      "median_confidence": 0.5755957007408142,
-      "std_confidence": 0.08670748518907836,
+      "mean_confidence": 0.5608213171174473,
+      "median_confidence": 0.5768631398677826,
+      "std_confidence": 0.08650076033328483,
       "min_confidence": 0.2933115065097809,
-      "max_confidence": 0.7541283917427064,
+      "max_confidence": 0.7503269299864771,
       "high_confidence_count": 3,
       "medium_confidence_count": 80,
       "low_confidence_count": 4

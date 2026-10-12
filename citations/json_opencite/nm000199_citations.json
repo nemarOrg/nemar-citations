@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000199",
-  "num_citations": 57,
-  "date_last_updated": "2026-09-30T10:44:25.686545+00:00",
+  "num_citations": 58,
+  "date_last_updated": "2026-10-11T10:19:40.206546+00:00",
   "metadata": {
-    "total_cumulative_citations": 660,
-    "fetch_date": "2026-09-29T10:48:13.153798+00:00",
+    "total_cumulative_citations": 672,
+    "fetch_date": "2026-10-11T10:19:40.206546+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 3,
@@ -19,25 +19,25 @@
         "source_relation": "IsDerivedFrom",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Learning from label proportions in brain-computer interfaces: Online unsupervised learning with guarantees",
         "paper_year": 2017,
         "paper_venue": "PLoS ONE",
         "reason": "Dataset is Hübner et al. 2017 (Huebner2017) with the same authors and DOI; the paper reports the LLP visual matrix speller ERP recordings that make up this dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.5281/zenodo.192684",
         "identifier_type": "doi",
-        "source_relation": "References",
+        "source_relation": "IsDerivedFrom",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Eeg Data For: \"Learning From Label Proportions In Brain-Computer Interfaces\"",
         "paper_year": 2016,
         "paper_venue": "INFM-OAR (INFN Catania)",
         "reason": "Zenodo deposit of the same EEG data (N=13 visual ERP matrix speller, Hübner et al. 2017 LLP); a different deposit of this dataset by the same authors.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.21105/joss.01896",
@@ -45,12 +45,25 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
         "paper_year": 2019,
         "paper_venue": "The Journal of Open Source Software",
         "reason": "MNE-BIDS is a software tool for organizing electrophysiology data into BIDS, used in the dataset's conversion, not a paper describing this Hübner 2017 visual speller dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
+      },
+      {
+        "identifier": "10.1038/s41597-019-0104-8",
+        "identifier_type": "doi",
+        "source_relation": "References",
+        "classification": "methodology",
+        "kept": false,
+        "kept_reason": "never_anchor",
+        "paper_title": "EEG-BIDS, an extension to the brain imaging data structure for electroencephalography",
+        "paper_year": 2019,
+        "paper_venue": "Scientific Data",
+        "reason": "EEG-BIDS is a data-organization standard extension used to format the dataset, not a paper describing the Hübner 2017 visual matrix speller data.",
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.nm000199",
@@ -58,12 +71,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -73,31 +86,31 @@
     ],
     "keywords": [
       "Brain-Computer Interfaces",
+      "Electroencephalography",
       "Event-Related Potentials, P300",
-      "P300",
-      "EEG",
-      "unsupervised learning",
+      "learning from label proportions",
       "visual speller",
-      "learning from label proportions"
+      "unsupervised learning",
+      "calibrationless BCI"
     ],
-    "methods_description": "EEG data were acquired at 1000 Hz from 31 channels using a BrainAmp DC amplifier with passive Ag/AgCl electrodes in a standard 10-20 montage (reference: nose, ground: FCz). Subjects performed a visual P300 speller task with a 6×7 grid, spelling a German pangram sentence three times across three sessions. Two stimulus sequences with different target/non-target ratios were employed: sequence 1 (3 targets/8 stimuli) and sequence 2 (2 targets/18 stimuli). Stimulus onset asynchrony was 250 ms with 100 ms stimulus duration. The LLP classifier was trained online using known class proportions without explicit trial labels.",
+    "methods_description": "Participants copy-spelled a German pangram three times using a 6x7 visual matrix speller with 250 ms SOA and salient highlighting. Each character comprised 68 highlighting events (4 sequences of 8 stimuli and 2 sequences of 18). EEG was recorded with a BrainAmp DC amplifier and 31 passive Ag/AgCl electrodes at 1000 Hz, with a nose reference and FCz ground. EOG, pulse and respiration were recorded as auxiliary channels. The LLP classifier was reset at the start of each sentence and retrained after each character.",
     "funding": [
       {
         "funder_name": "Special Research Fund from Ghent University"
       },
       {
-        "funder_name": "DFG",
+        "funder_name": "German Research Foundation (DFG)",
         "award_number": "EXC 1086",
         "award_title": "BrainLinks-BrainTools Cluster of Excellence"
       },
       {
-        "funder_name": "bwHPC",
+        "funder_name": "bwHPC initiative",
         "award_number": "INST 39/963-1 FUGG"
       },
       {
-        "funder_name": "European Union",
+        "funder_name": "European Union's Horizon 2020 research and innovation programme",
         "award_number": "657679",
-        "award_title": "Marie Sklodowska-Curie grant (Horizon 2020)"
+        "award_title": "Marie Sklodowska-Curie grant agreement"
       },
       {
         "funder_name": "Ghent University",
@@ -108,13 +121,7 @@
         "award_number": "2012-005741",
         "award_title": "BK21 program"
       }
-    ],
-    "searched_accessions": [
-      "nm000199"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 57
+    ]
   },
   "citation_details": [
     {
@@ -123,7 +130,7 @@
       "venue": "Annals of Translational Medicine",
       "year": 2020,
       "url": "https://doi.org/10.21037/atm.2019.11.109",
-      "cited_by": 124,
+      "cited_by": 126,
       "abstract": "Brain-computer interfaces (BCIs) have shown great prospects as real-time bidirectional links between living brains and actuators. Artificial intelligence (AI), which can advance the analysis and decoding of neural activity, has turbocharged the field of BCIs. Over the past decade, a wide range of BCI applications with AI assistance have emerged. These \"smart\" BCIs including motor and sensory BCIs have shown notable clinical success, improved the quality of paralyzed patients' lives, expanded the athletic ability of common people and accelerated the evolution of robots and neurophysiological discoveries. However, despite technological improvements, challenges remain with regard to the long training periods, real-time feedback, and monitoring of BCIs. In this article, the authors review the current state of AI as applied to BCIs and describe advances in BCI applications, their challenges and where they could be headed in the future.",
       "doi": "10.21037/atm.2019.11.109",
       "pmid": "32617332",
@@ -146,7 +153,7 @@
       "venue": "Journal of Neural Engineering",
       "year": 2021,
       "url": "https://doi.org/10.1088/1741-2552/abecef",
-      "cited_by": 63,
+      "cited_by": 64,
       "abstract": "Objective. Typically, a brain–computer interface (BCI) is calibrated using user- and session-specific data because of the individual idiosyncrasies and the non-stationary signal properties of the electroencephalogram (EEG). Therefore, it is normal for BCIs to undergo a time-consuming passive training stage that prevents users from directly operating them. In this study, we systematically reduce the training data set in a stepwise fashion, to ultimately arrive at a calibration-free method for a code-modulated visually evoked potential (cVEP)-based BCI to fully eliminate the tedious training stage. Approach. In an extensive offline analysis, we compare our sophisticated encoding model with a traditional event-related potential (ERP) technique. We calibrate the encoding model in a standard way, with data limited to a single class while generalizing to all others and without any data. In addition, we investigate the feasibility of the zero-training cVEP BCI in an online setting. Main resul",
       "doi": "10.1088/1741-2552/abecef",
       "pmid": "33690182",
@@ -192,7 +199,7 @@
       "venue": "ArXiv",
       "year": 2024,
       "url": "https://doi.org/10.48550/arXiv.2404.15319",
-      "cited_by": 54,
+      "cited_by": 59,
       "abstract": "Objective. This study conduct an extensive Brain-computer interfaces (BCI) reproducibility analysis on open electroencephalography datasets, aiming to assess existing solutions and establish open and reproducible benchmarks for effective comparison within the field. The need for such benchmark lies in the rapid industrial progress that has given rise to undisclosed proprietary solutions. Furthermore, the scientific literature is dense, often featuring challenging-to-reproduce evaluations, making comparisons between existing approaches arduous. Approach. Within an open framework, 30 machine learning pipelines (separated into raw signal: 11, Riemannian: 13, deep learning: 6) are meticulously re-implemented and evaluated across 36 publicly available datasets, including motor imagery (14), P300 (15), and SSVEP (7). The analysis incorporates statistical meta-analysis techniques for results assessment, encompassing execution time and environmental impact considerations. Main results. The stu",
       "doi": "10.48550/arXiv.2404.15319",
       "pmid": null,
@@ -238,7 +245,7 @@
       "venue": "IEEE Computational Intelligence Magazine",
       "year": 2018,
       "url": "https://doi.org/10.1109/mci.2018.2807039",
-      "cited_by": 31,
+      "cited_by": 32,
       "abstract": "One of the fundamental challenges in brain-computer interfaces (BCIs) is to tune a brain signal decoder to reliably detect a user's intention. While information about the decoder can partially be transferred between subjects or sessions, optimal decoding performance can only be reached with novel data from the current session. Thus, it is preferable to learn from unlabeled data gained from the actual usage of the BCI application instead of conducting a calibration recording prior to BCI usage. We review such unsupervised machine learning methods for BCIs based on event-related potentials of the electroencephalogram. We present results of an online study with twelve healthy participants controlling a visual speller. Online performance is reported for three completely unsupervised learning methods: (1) learning from label proportions, (2) an expectation-maximization approach and (3) MIX, which combines the strengths of the two other methods. After a short ramp-up, we observed that the MI",
       "doi": "10.1109/mci.2018.2807039",
       "pmid": null,
@@ -279,6 +286,29 @@
       }
     },
     {
+      "title": "Introducing block-Toeplitz covariance matrices to remaster linear discriminant analysis for event-related potential brain–computer interfaces",
+      "author": "Jan Sosulski, Michael Tangermann",
+      "venue": "Journal of Neural Engineering",
+      "year": 2022,
+      "url": "https://doi.org/10.1088/1741-2552/ac9c98",
+      "cited_by": 25,
+      "abstract": "Abstract Objective. Covariance matrices of noisy multichannel electroencephalogram (EEG) time series data provide essential information for the decoding of brain signals using machine learning methods. However, small datasets and high dimensionality make it hard to estimate these matrices. In brain–computer interfaces (BCI) based on event-related potentials (ERP) and a linear discriminant analysis (LDA) classifier, the state of the art covariance estimation uses shrinkage regularization. As this is a general covariance regularization approach, we aim at improving LDA further by better exploiting the domain-specific characteristics of the EEG to regularize the covariance estimates. Approach. We propose to enforce a block-Toeplitz structure for the covariance matrix of the LDA, which implements an assumption of signal stationarity in short time windows for each channel. Main results. An offline re-analysis of data collected from 213 subjects under 13 different event-related potential BCI",
+      "doi": "10.1088/1741-2552/ac9c98",
+      "pmid": "36270502",
+      "openalex_id": "W4307023523",
+      "source_doi": "10.1371/journal.pone.0175856",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5825821548700333,
+        "similarity_score": 0.5044001340866089,
+        "citation_text_length": 1241,
+        "dataset_text_length": 2373,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "A Single-Stimulus, Multitarget BCI Based on Retinotopic Mapping of Motion-Onset VEPs",
       "author": "Jingjing Chen, Zhuoran Li, Bo Hong, Alexander Maÿe, Andreas Karl Engel, Dan Zhang",
       "venue": "IEEE Transactions on Biomedical Engineering",
@@ -296,29 +326,6 @@
         "confidence_score": 0.5182483911514283,
         "similarity_score": 0.47113490104675293,
         "citation_text_length": 1247,
-        "dataset_text_length": 2373,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Introducing block-Toeplitz covariance matrices to remaster linear discriminant analysis for event-related potential brain–computer interfaces",
-      "author": "Jan Sosulski, Michael Tangermann",
-      "venue": "Journal of Neural Engineering",
-      "year": 2022,
-      "url": "https://doi.org/10.1088/1741-2552/ac9c98",
-      "cited_by": 24,
-      "abstract": "Abstract Objective. Covariance matrices of noisy multichannel electroencephalogram (EEG) time series data provide essential information for the decoding of brain signals using machine learning methods. However, small datasets and high dimensionality make it hard to estimate these matrices. In brain–computer interfaces (BCI) based on event-related potentials (ERP) and a linear discriminant analysis (LDA) classifier, the state of the art covariance estimation uses shrinkage regularization. As this is a general covariance regularization approach, we aim at improving LDA further by better exploiting the domain-specific characteristics of the EEG to regularize the covariance estimates. Approach. We propose to enforce a block-Toeplitz structure for the covariance matrix of the LDA, which implements an assumption of signal stationarity in short time windows for each channel. Main results. An offline re-analysis of data collected from 213 subjects under 13 different event-related potential BCI",
-      "doi": "10.1088/1741-2552/ac9c98",
-      "pmid": "36270502",
-      "openalex_id": "W4307023523",
-      "source_doi": "10.1371/journal.pone.0175856",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5825821548700333,
-        "similarity_score": 0.5044001340866089,
-        "citation_text_length": 1241,
         "dataset_text_length": 2373,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -353,7 +360,7 @@
       "venue": "Handbook of clinical neurology",
       "year": 2020,
       "url": "https://doi.org/10.1016/b978-0-444-63934-9.00023-8",
-      "cited_by": 21,
+      "cited_by": 20,
       "abstract": "Brain-computer interfaces (BCIs) are systems that translate brain activity patterns into commands that can be executed by an artificial device. This enables the possibility of controlling devices such as a prosthetic arm or exoskeleton, a wheelchair, typewriting applications, or games directly by modulating our brain activity. For this purpose, BCI systems rely on signal processing and machine learning algorithms to decode the brain activity. This chapter provides an overview of the main steps required to do such a process, including signal preprocessing, feature extraction and selection, and decoding. Given the large amount of possible methods that can be used for these processes, a comprehensive review of them is beyond the scope of this chapter, and it is focused instead on the general principles that should be taken into account, as well as discussing good practices on how these methods should be applied and evaluated for proper design of reliable BCI systems.",
       "doi": "10.1016/b978-0-444-63934-9.00023-8",
       "pmid": "32164862",
@@ -365,6 +372,29 @@
         "confidence_score": 0.3682051219046117,
         "similarity_score": 0.31879231333732605,
         "citation_text_length": 1171,
+        "dataset_text_length": 2373,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "NeuralBench: A Unifying Framework to Benchmark NeuroAI Models",
+      "author": "Hubert J. Banville, Stéphane d'Ascoli, Simon Dahan, Jérémy Rapin, Marlène Careil, Yohann Benchetrit, Jarod Lévy, S. Panchavati, Antoine Ratouchniak, Ming-Fang Zhang, Elisa Cascardi, K. Begany, Teon L Brooks, Jean-Rémi King",
+      "venue": "ArXiv",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arXiv.2605.08495",
+      "cited_by": 16,
+      "abstract": "Deep learning and large public datasets have recently catalyzed the proliferation of AI models for processing brain recordings. However, systematically evaluating these models remains a challenge: not only do the preprocessing pipelines, training and finetuning approaches largely vary across studies, but their downstream evaluation is often limited to small sets of tasks and/or datasets. Here, we present NeuralBench: a unified framework for benchmarking AI models of brain activity. We accompany this framework with NeuralBench-EEG v1.0 -- a large EEG benchmark that includes 36 electroencephalography (EEG) tasks and 14 deep learning architectures, and is evaluated on 94 datasets accessed through a standardized interface. This first EEG-focused release already highlights two main findings. First, current foundation models only marginally outperform task-specific models. Second, a large set of tasks (e.g. cognitive decoding, clinical predictions) remain highly challenging, even for the bes",
+      "doi": "10.48550/arXiv.2605.08495",
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.1371/journal.pone.0175856",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5501456397771837,
+        "similarity_score": 0.47631657123565674,
+        "citation_text_length": 1327,
         "dataset_text_length": 2373,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -417,31 +447,8 @@
       }
     },
     {
-      "title": "NeuralBench: A Unifying Framework to Benchmark NeuroAI Models",
-      "author": "Hubert J. Banville, Stéphane d’Ascoli, Simon Dahan, Jérémy Rapin, Marlène Careil, Yohann Benchetrit, Jarod Lévy, S. Panchavati, Antoine Ratouchniak, Mingfang Zhang, Elisa Cascardi, K. Begany, Teon L Brooks, Jean-Rémi King",
-      "venue": "ArXiv",
-      "year": 2026,
-      "url": "https://doi.org/10.48550/arXiv.2605.08495",
-      "cited_by": 13,
-      "abstract": "Deep learning and large public datasets have recently catalyzed the proliferation of AI models for processing brain recordings. However, systematically evaluating these models remains a challenge: not only do the preprocessing pipelines, training and finetuning approaches largely vary across studies, but their downstream evaluation is often limited to small sets of tasks and/or datasets. Here, we present NeuralBench: a unified framework for benchmarking AI models of brain activity. We accompany this framework with NeuralBench-EEG v1.0 -- a large EEG benchmark that includes 36 electroencephalography (EEG) tasks and 14 deep learning architectures, and is evaluated on 94 datasets accessed through a standardized interface. This first EEG-focused release already highlights two main findings. First, current foundation models only marginally outperform task-specific models. Second, a large set of tasks (e.g. cognitive decoding, clinical predictions) remain highly challenging, even for the bes",
-      "doi": "10.48550/arXiv.2605.08495",
-      "pmid": null,
-      "openalex_id": null,
-      "source_doi": "10.1371/journal.pone.0175856",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5498430731892587,
-        "similarity_score": 0.4760546088218689,
-        "citation_text_length": 1326,
-        "dataset_text_length": 2373,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Workshops of the seventh international brain-computer interface meeting: not getting lost in translation",
-      "author": "Jane E. Huggins, Christoph Guger, Erik J. Aarnoutse, Brendan Z. Allison, Charles W. Anderson, Steven D. Bedrick, Walter G. Besio, Ricardo Chavarriaga, Jennifer L. Collinger, An H., Christian Herff, Matthias R. Hohmann, Michelle Kinsella, Kyuhwa Lee, Fabien Lotte, Gernot R Muller-Putz, Anton Nijholt, Elmar Pels, Betts Peters, Felix Putze, Rüdiger Rupp, Gerwin Schalk, Stephanie Scott, Michael Tangermann, Paul A. Tubig, Thorsten O. Zander",
+      "author": "Jane E. Huggins, Christoph Guger, Erik J. Aarnoutse, Brendan Z. Allison, Charles W. Anderson, Steven D. Bedrick, Walter G. Besio, Ricardo Chavarriaga, Jennifer L. Collinger, An H. Do, Christian Herff, Matthias R. Hohmann, Michelle Kinsella, Kyuhwa Lee, Fabien Lotte, Gernot R Muller-Putz, Anton Nijholt, Elmar Pels, Betts Peters, Felix Putze, Rüdiger Rupp, Gerwin Schalk, Stephanie Scott, Michael Tangermann, Paul A. Tubig, Thorsten O. Zander",
       "venue": "Brain-Computer Interfaces",
       "year": 2019,
       "url": "https://doi.org/10.1080/2326263x.2019.1697163",
@@ -454,9 +461,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.3102574408054352,
-        "similarity_score": 0.282052218914032,
-        "citation_text_length": 1607,
+        "confidence_score": 0.3112299025058747,
+        "similarity_score": 0.2829362750053406,
+        "citation_text_length": 1610,
         "dataset_text_length": 2373,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -488,7 +495,7 @@
     {
       "title": "Guess What I Attend: Interface-Free Object Selection Using Brain Signals",
       "author": "Henrich Kolkhorst, Michael Tangermann, Wolfram Burgard",
-      "venue": "2018 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)",
+      "venue": "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)",
       "year": 2018,
       "url": "https://doi.org/10.1109/iros.2018.8593992",
       "cited_by": 11,
@@ -500,9 +507,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.413276618719101,
-        "similarity_score": 0.3757060170173645,
-        "citation_text_length": 997,
+        "confidence_score": 0.41722226142883306,
+        "similarity_score": 0.37929296493530273,
+        "citation_text_length": 992,
         "dataset_text_length": 2373,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -603,7 +610,7 @@
     {
       "title": "Inverse extreme learning machine for learning with label proportions",
       "author": "Limeng Cui, Jiawei Zhang, Zhen‐Song Chen, Yong Shi, Philip S. Yu",
-      "venue": "2017 IEEE International Conference on Big Data (Big Data)",
+      "venue": "IEEE International Conference on Big Data (BigData)",
       "year": 2017,
       "url": "https://doi.org/10.1109/bigdata.2017.8257973",
       "cited_by": 8,
@@ -615,9 +622,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5335278153419495,
-        "similarity_score": 0.4850252866744995,
-        "citation_text_length": 1228,
+        "confidence_score": 0.5344632983207703,
+        "similarity_score": 0.4858757257461548,
+        "citation_text_length": 1222,
         "dataset_text_length": 2373,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -649,7 +656,7 @@
     {
       "title": "Local Binary Patterning Approach for Movement Related Potentials based Brain Computer Interface",
       "author": "Giovanni Mezzina, Daniela De Venuto",
-      "venue": "2019 IEEE 8th International Workshop on Advances in Sensors and Interfaces (IWASI)",
+      "venue": "IEEE International Workshop on Advances in Sensors and Interfaces",
       "year": 2019,
       "url": "https://doi.org/10.1109/iwasi.2019.8791266",
       "cited_by": 5,
@@ -661,9 +668,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.4677273273468018,
-        "similarity_score": 0.42520666122436523,
-        "citation_text_length": 1251,
+        "confidence_score": 0.4712797105312348,
+        "similarity_score": 0.4284361004829407,
+        "citation_text_length": 1234,
         "dataset_text_length": 2373,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -764,7 +771,7 @@
     {
       "title": "Language Model-Guided Classifier Adaptation for Brain-Computer Interfaces for Communication",
       "author": "Xinlin J. Chen, Leslie M. Collins, Boyla O. Mainsah",
-      "venue": "2022 IEEE International Conference on Systems, Man, and Cybernetics (SMC)",
+      "venue": "Conference proceedings/Conference proceedings - IEEE International Conference on Systems, Man, and Cybernetics",
       "year": 2022,
       "url": "https://doi.org/10.1109/smc53654.2022.9945561",
       "cited_by": 3,
@@ -776,9 +783,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5911530160903932,
-        "similarity_score": 0.5118207931518555,
-        "citation_text_length": 1254,
+        "confidence_score": 0.6016722822189332,
+        "similarity_score": 0.5209283828735352,
+        "citation_text_length": 1291,
         "dataset_text_length": 2373,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -993,7 +1000,7 @@
     },
     {
       "title": "Self-Calibrating BCIs: Ranking and Recovery of Mental Targets Without Labels",
-      "author": "Jonathan Grizou, Carlos de la Torre-Ortiz, Tuukka Ruotsalo",
+      "author": "Jonathan Grizou, Carlos de la Torre-Ortiz, T. Ruotsalo",
       "venue": "ArXiv",
       "year": 2025,
       "url": "https://doi.org/10.48550/arXiv.2506.11151",
@@ -1006,9 +1013,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6871145394444467,
-        "similarity_score": 0.594904363155365,
-        "citation_text_length": 1109,
+        "confidence_score": 0.6867496696114541,
+        "similarity_score": 0.5945884585380554,
+        "citation_text_length": 1105,
         "dataset_text_length": 2373,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1040,7 +1047,7 @@
     {
       "title": "Modular Integration Optimization of SSVEP for UGV Control",
       "author": "G. Zhang, Duanling Li, Tongchuan Xia, Junwei Zhang",
-      "venue": "2025 IEEE International Conference on Robotics and Biomimetics (ROBIO)",
+      "venue": "IEEE International Conference on Robotics and Biomimetics (ROBIO)",
       "year": 2025,
       "url": "https://doi.org/10.1109/robio66223.2025.11377860",
       "cited_by": 0,
@@ -1052,9 +1059,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.3255754172801972,
-        "similarity_score": 0.28188347816467285,
-        "citation_text_length": 1216,
+        "confidence_score": 0.33174484983086594,
+        "similarity_score": 0.28722497820854187,
+        "citation_text_length": 1211,
         "dataset_text_length": 2373,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1063,7 +1070,7 @@
     {
       "title": "Exploring new territory II: Calibration-free decoding for ERP BCI",
       "author": "Jordy Thielen, Michael Tangermann",
-      "venue": "2025 IEEE International Conference on Systems, Man, and Cybernetics (SMC)",
+      "venue": "Conference proceedings/Conference proceedings - IEEE International Conference on Systems, Man, and Cybernetics",
       "year": 2025,
       "url": "https://doi.org/10.1109/smc58881.2025.11342596",
       "cited_by": 0,
@@ -1075,9 +1082,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6201062634587288,
-        "similarity_score": 0.5368885397911072,
-        "citation_text_length": 1210,
+        "confidence_score": 0.630538855791092,
+        "similarity_score": 0.5459210872650146,
+        "citation_text_length": 1247,
         "dataset_text_length": 2373,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1086,7 +1093,7 @@
     {
       "title": "Toward a Gaze-Independent Brain-Computer Interface Using the Code-Modulated Visual Evoked Potentials",
       "author": "Radovan Vodila, Juliette van Lohuizen, Jordy Thielen",
-      "venue": "2025 IEEE 35th International Workshop on Machine Learning for Signal Processing (MLSP)",
+      "venue": "IEEE International Workshop on Machine Learning for Signal Processing (MLSP)",
       "year": 2025,
       "url": "https://doi.org/10.1109/mlsp62443.2025.11204258",
       "cited_by": 0,
@@ -1098,9 +1105,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6087137192487717,
-        "similarity_score": 0.5270248651504517,
-        "citation_text_length": 1162,
+        "confidence_score": 0.6040536430478096,
+        "similarity_score": 0.5229901671409607,
+        "citation_text_length": 1152,
         "dataset_text_length": 2373,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1178,7 +1185,7 @@
     {
       "title": "Automatic Time-Frequency Analysis of MRPs for Mind-controlled Mechatronic Devices",
       "author": "Daniela De Venuto, Giovanni Mezzina",
-      "venue": "2019 Design, Automation & Test in Europe Conference & Exhibition (DATE)",
+      "venue": "Design, Automation, and Test in Europe",
       "year": 2019,
       "url": "https://doi.org/10.23919/date.2019.8714994",
       "cited_by": 0,
@@ -1190,9 +1197,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.521727341413498,
-        "similarity_score": 0.47429758310317993,
-        "citation_text_length": 1226,
+        "confidence_score": 0.5193862408399582,
+        "similarity_score": 0.47216930985450745,
+        "citation_text_length": 1193,
         "dataset_text_length": 2373,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1224,7 +1231,7 @@
     {
       "title": "From measurement to machine learning: Towards analysing cognition",
       "author": "K. Robert Müller",
-      "venue": "2017 5th International Winter Conference on Brain-Computer Interface (BCI)",
+      "venue": "International Winter Conference on Brain-Computer Interface (BCI)",
       "year": 2017,
       "url": "https://doi.org/10.1109/iww-bci.2017.7858157",
       "cited_by": 0,
@@ -1236,9 +1243,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.4233175873756409,
-        "similarity_score": 0.3848341703414917,
-        "citation_text_length": 1194,
+        "confidence_score": 0.4283362030982972,
+        "similarity_score": 0.3893965482711792,
+        "citation_text_length": 1185,
         "dataset_text_length": 2373,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1262,6 +1269,29 @@
         "confidence_score": 0.8629243671894075,
         "similarity_score": 0.7844766974449158,
         "citation_text_length": 1150,
+        "dataset_text_length": 2373,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "CortexBridge: Cortical Alignment of EEG Montages for Foundation Models",
+      "author": "Jia-Zhen Hong, Xiao-Tian Zhou, Zi-Hao Ding, Kai-Long Wang, Yu Wu",
+      "venue": "n/a",
+      "year": 2026,
+      "url": "n/a",
+      "cited_by": 0,
+      "abstract": "Electroencephalography (EEG) foundation models are often pretrained with a fixed channel vocabulary or a limited set of montages, making transfer difficult when electrode layouts change. We propose CortexBridge, a lightweight adapter that combines EEG features with electrode and atlas coordinates to map arbitrary montages into a shared cortical latent space. Evaluated with three frozen foundation models on five brain-computer interface (BCI) datasets from the Mother of All BCI Benchmarks (MOABB), CortexBridge improves performance in 13 of 15 evaluations. The gains in balanced accuracy average 0.80% for EEGPT, 0.70% for LaBraM, and 3.26% for CBraMod, with a maximum gain of 13.02% on 12-class steady-state visual evoked potential (SSVEP) classification. Visualizations of the learned atlas representations reveal task-dependent spatial patterns, with SSVEP showing a more concentrated representation in the Yeo Visual network than auditory P300. These results establish cortical alignment as a",
+      "doi": null,
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.1371/journal.pone.0175856",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5309783045947553,
+        "similarity_score": 0.45972147583961487,
+        "citation_text_length": 1176,
         "dataset_text_length": 2373,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1338,7 +1368,7 @@
     },
     {
       "title": "More than one Author with different Affiliations",
-      "author": "Jerónimo Hernández-González, Iñaki Inza, Igor Granado, O. C. Basurko, J. A. Fernandes, J. A. Lozano",
+      "author": "Jerónimo Hernández-González, I. Inza, Igor Granado, O. C. Basurko, J. A. Fernandes, J. A. Lozano",
       "venue": "n/a",
       "year": 2019,
       "url": "n/a",
@@ -1351,9 +1381,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.1462695598602295,
-        "similarity_score": 0.1462695598602295,
-        "citation_text_length": 177,
+        "confidence_score": 0.15958133339881897,
+        "similarity_score": 0.15958133339881897,
+        "citation_text_length": 174,
         "dataset_text_length": 2373,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1431,17 +1461,17 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T10:51:51.110958+00:00",
+    "scoring_date": "2026-10-11T11:22:10.747861+00:00",
     "dataset_text_length": 2373,
-    "num_citations_scored": 57,
+    "num_citations_scored": 58,
     "summary_stats": {
-      "mean_confidence": 0.48789673887193197,
-      "median_confidence": 0.5025574229657651,
-      "std_confidence": 0.12465716860631156,
-      "min_confidence": 0.1462695598602295,
+      "mean_confidence": 0.48946356191588886,
+      "median_confidence": 0.5026207696646452,
+      "std_confidence": 0.12309075160045149,
+      "min_confidence": 0.15958133339881897,
       "max_confidence": 0.8629243671894075,
       "high_confidence_count": 1,
-      "medium_confidence_count": 44,
+      "medium_confidence_count": 45,
       "low_confidence_count": 12
     }
   }

@@ -1,16 +1,14 @@
 {
   "dataset_id": "on005028",
-  "num_citations": 2,
-  "date_last_updated": "2026-09-30T10:46:52.889254+00:00",
+  "num_citations": 1,
+  "date_last_updated": "2026-10-11T10:59:36.501345+00:00",
   "metadata": {
-    "total_cumulative_citations": 4,
-    "fetch_date": "2026-09-29T11:22:11.390417+00:00",
+    "total_cumulative_citations": 1,
+    "fetch_date": "2026-10-11T10:59:36.501345+00:00",
     "processing_version": "1.0",
-    "fetch_status": "partial",
+    "fetch_status": "success",
     "anchor_count": 2,
-    "anchor_errors": {
-      "10.82901/nemar.on005028": "not_found"
-    },
+    "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
     "anchor_judgment_model": "claude-sonnet-5-5",
@@ -21,12 +19,12 @@
         "source_relation": "IsDescribedBy",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Comparing P300 flashing paradigms in online typing with language models",
         "paper_year": 2022,
         "paper_venue": "medRxiv",
         "reason": "Title matches the dataset name exactly, and the README cites this medRxiv paper (Chandravadia et al.) as the study describing the P300 flashing paradigm data; the authors are the same.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on005028",
@@ -34,12 +32,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -49,26 +47,19 @@
     "keywords": [
       "EEG",
       "P300",
-      "brain-computer interface",
-      "speller",
+      "P300 speller",
+      "Brain-Computer Interfaces",
       "language models",
-      "motor imagery"
+      "flashing paradigms"
     ],
-    "methods_description": "Data were acquired using BCI2000. The study employed P300-based speller paradigms with multiple flashing conditions during online typing tasks. EEG signals were recorded and processed to evaluate typing performance across different flashing paradigms in conjunction with language model integration.",
+    "methods_description": "Data were recorded using the BCI2000 platform during online P300 speller typing sessions with multiple flashing paradigms and language model integration. Subject 5 did not complete all three flashing paradigms in the testing stage and was excluded from the analysis.",
     "funding": [
       {
         "funder_name": "National Science Foundation",
         "award_number": "DGE-2034835",
         "award_title": "Graduate Research Fellowship Program"
       }
-    ],
-    "searched_accessions": [
-      "on005028",
-      "ds005028"
-    ],
-    "num_accession_mentions": 1,
-    "num_dataset_citations": 1,
-    "num_datapaper_citations": 1
+    ]
   },
   "citation_details": [
     {
@@ -93,45 +84,20 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
-    },
-    {
-      "title": "Comparing P300 flashing paradigms in online typing with language models",
-      "author": "Nand Chandravadia, Shrita Pendekanti, Dustin G. Roberts, Robert K. Tran, Saarang Panchavati, Corey W Arnold, Nader Pouratian, William F Speier",
-      "venue": "PLoS ONE",
-      "year": 2025,
-      "url": "https://doi.org/10.1371/journal.pone.0303390",
-      "cited_by": 3,
-      "abstract": "The P300 Speller is a brain-computer interface system that allows victims of motor neuron diseases to regain the ability to communicate by typing characters into a computer by thought. Since the system has a relatively slow typing speed, different stimulus presentation paradigms have been proposed designed to allow users to input information faster by reducing the number of required stimuli or increase signal fidelity. This study compares the typing speeds of the Row-Column, Checkerboard, and Combinatorial Paradigms to examine how their performance compares in online and offline settings. When the different flashing patterns were tested in conjunction with other established optimization techniques such as language models and dynamic stopping, they did not make a significant impact on P300 speller performance. This result could indicate that further performance improvements on the system lie beyond optimizing flashing patterns.",
-      "doi": "10.1371/journal.pone.0303390",
-      "pmid": "39899514",
-      "openalex_id": "W4407098039",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds005028",
-      "confidence_scoring": {
-        "confidence_score": 0.8644798994064332,
-        "similarity_score": 0.7484674453735352,
-        "citation_text_length": 1200,
-        "dataset_text_length": 1052,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T11:01:00.870955+00:00",
+    "scoring_date": "2026-10-11T11:35:21.563840+00:00",
     "dataset_text_length": 1052,
-    "num_citations_scored": 2,
+    "num_citations_scored": 1,
     "summary_stats": {
-      "mean_confidence": 0.7899262529611588,
-      "median_confidence": 0.7899262529611588,
-      "std_confidence": 0.07455364644527435,
+      "mean_confidence": 0.7153726065158845,
+      "median_confidence": 0.7153726065158845,
+      "std_confidence": 0.0,
       "min_confidence": 0.7153726065158845,
-      "max_confidence": 0.8644798994064332,
-      "high_confidence_count": 2,
+      "max_confidence": 0.7153726065158845,
+      "high_confidence_count": 1,
       "medium_confidence_count": 0,
       "low_confidence_count": 0
     }

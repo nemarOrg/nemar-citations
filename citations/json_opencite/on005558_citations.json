@@ -1,10 +1,10 @@
 {
   "dataset_id": "on005558",
   "num_citations": 0,
-  "date_last_updated": "2026-09-22T11:27:52.679760+00:00",
+  "date_last_updated": "2026-10-11T11:05:07.682929+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
-    "fetch_date": "2026-09-22T11:27:52.679760+00:00",
+    "fetch_date": "2026-10-11T11:05:07.682929+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 1,
@@ -19,46 +19,41 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
       "10.82901/nemar.on005558"
     ],
     "keywords": [
-      "Electroencephalography",
       "intracranial EEG",
       "free recall",
+      "categorized free recall",
       "closed-loop stimulation",
+      "Electric Stimulation",
       "memory encoding",
-      "Deep Brain Stimulation",
-      "semantic categorization"
+      "classifier",
+      "epilepsy",
+      "Memory"
     ],
-    "methods_description": "Intracranial EEG was recorded during a categorized free recall task involving word list encoding, arithmetic distraction, and free recall. Closed-loop stimulation was delivered to a single electrode during encoding when an L2 logistic regression classifier, trained on spectral power features (Morlet wavelet transform, 3-180 Hz, 60 Hz line noise removed via Butterworth filter) from prior catFR1 sessions, predicted low likelihood of subsequent recall. Classifier performance was validated via leave-one-session-out cross-validation with permutation testing, and stimulation thresholds were set using Youden's J statistic. Recordings were labeled as monopolar or bipolar, with electrode locations provided in MNI and Talairach coordinates.",
+    "methods_description": "Participants with implanted intracranial electrodes performed categorized free recall of 12-word lists drawn from 25 semantic categories. An L2 logistic regression classifier was trained on spectral power features (Morlet wavelets, 3-180 Hz) from 0-1366 ms after word onset in prior catFR1 sessions. It was validated with leave-one-session-out cross-validation and permutation testing. During stimulation lists, 500 ms stimulation was delivered to a single electrode when classifier output fell below a participant-specific Youden's J threshold. Each session comprised 26 lists, and the first 4 lists had no stimulation.",
     "funding": [
       {
         "funder_name": "DARPA",
         "award_number": "N66001-14-2-4032",
-        "award_title": "Restoring Active Memory (RAM)"
+        "award_title": "RAM"
       }
-    ],
-    "searched_accessions": [
-      "on005558",
-      "ds005558"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 0
+    ]
   },
   "citation_details": [],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-22T13:26:02.534881+00:00",
+    "scoring_date": "2026-10-11T11:37:46.321698+00:00",
     "dataset_text_length": 2322,
     "num_citations_scored": 0
   }

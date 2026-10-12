@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000201",
-  "num_citations": 37,
-  "date_last_updated": "2026-10-04T10:04:40.233686+00:00",
+  "num_citations": 36,
+  "date_last_updated": "2026-10-11T10:19:55.612619+00:00",
   "metadata": {
-    "total_cumulative_citations": 451,
-    "fetch_date": "2026-09-29T10:48:37.404569+00:00",
+    "total_cumulative_citations": 461,
+    "fetch_date": "2026-10-11T10:19:55.612619+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -19,38 +19,38 @@
         "source_relation": "IsDerivedFrom",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Mobile BCI dataset of scalp- and ear-EEGs with ERP and SSVEP paradigms while standing, walking, and running",
         "paper_year": 2021,
         "paper_venue": "Scientific Data",
         "reason": "Scientific Data descriptor of the Mobile BCI dataset (24 participants, ERP/SSVEP while standing/walking/running); the same authors and data as this ERP-paradigm derivative dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.21105/joss.01896",
         "identifier_type": "doi",
-        "source_relation": "IsDescribedBy",
+        "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
         "paper_year": 2019,
         "paper_venue": "The Journal of Open Source Software",
         "reason": "MNE-BIDS is a software tool paper (JOSS) for organizing electrophysiological data into BIDS; it is not the Lee2021 Mobile BCI data descriptor.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1038/s41597-019-0104-8",
         "identifier_type": "doi",
-        "source_relation": "IsDescribedBy",
+        "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "EEG-BIDS, an extension to the brain imaging data structure for electroencephalography",
         "paper_year": 2019,
         "paper_venue": "Scientific Data",
         "reason": "EEG-BIDS is a specification/standard extension for organizing EEG data, used for this dataset's formatting; it does not describe the Mobile BCI ERP dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.nm000201",
@@ -58,12 +58,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -71,15 +71,15 @@
       "10.82901/nemar.nm000201"
     ],
     "keywords": [
-      "EEG",
-      "event-related potentials",
-      "P300",
-      "brain-computer interfaces",
+      "Electroencephalography",
+      "Brain-Computer Interfaces",
+      "Event-Related Potentials, P300",
+      "ear-EEG",
       "mobile BCI",
-      "visual oddball",
-      "locomotion"
+      "locomotion",
+      "SSVEP"
     ],
-    "methods_description": "EEG data were acquired using a 73-channel BrainAmp system (Brain Products GmbH) with Ag/AgCl electrodes in a standard 1005 montage, referenced to FCz with ground at Fpz. Sampling rate was 100 Hz with 60 Hz line frequency filtering. Impedance was maintained below 50 kOhm. Four auxiliary EOG channels recorded vertical and horizontal eye movements. Participants performed visual oddball P300 tasks during standing, walking, and running conditions.",
+    "methods_description": "EEG was recorded with a BrainAmp amplifier (Brain Products) using 73 Ag/AgCl electrodes referenced to FCz and grounded at Fpz, plus 4 EOG channels. Participants performed a visual oddball task with Target and NonTarget stimuli during standing, walking, and running. Data were sampled at 100 Hz, with impedance kept below 50 kOhm.",
     "funding": [
       {
         "funder_name": "IITP",
@@ -93,19 +93,13 @@
         "funder_name": "IITP",
         "award_number": "2019-0-00079"
       }
-    ],
-    "searched_accessions": [
-      "nm000201"
-    ],
-    "num_accession_mentions": 2,
-    "num_dataset_citations": 2,
-    "num_datapaper_citations": 35
+    ]
   },
   "citation_details": [
     {
       "title": "EEG-Transformer: Self-attention from Transformer Architecture for Decoding EEG of Imagined Speech",
       "author": "Young-Eun Lee, Seo‐Hyun Lee",
-      "venue": "2022 10th International Winter Conference on Brain-Computer Interface (BCI)",
+      "venue": "International Winter Conference on Brain-Computer Interface (BCI)",
       "year": 2022,
       "url": "https://doi.org/10.1109/bci53720.2022.9735124",
       "cited_by": 90,
@@ -117,9 +111,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5168767051398755,
-        "similarity_score": 0.44751229882240295,
-        "citation_text_length": 1238,
+        "confidence_score": 0.5028258776664735,
+        "similarity_score": 0.4353470802307129,
+        "citation_text_length": 1228,
         "dataset_text_length": 2258,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -131,7 +125,7 @@
       "venue": "Nature Communications",
       "year": 2024,
       "url": "https://doi.org/10.1038/s41467-024-48682-7",
-      "cited_by": 83,
+      "cited_by": 86,
       "abstract": "Neural wearables can enable life-saving drowsiness and health monitoring for pilots and drivers. While existing in-cabin sensors may provide alerts, wearables can enable monitoring across more environments. Current neural wearables are promising but most require wet-electrodes and bulky electronics. This work showcases in-ear, dry-electrode earpieces used to monitor drowsiness with compact hardware. The employed system integrates additive-manufacturing for dry, user-generic earpieces, existing wireless electronics, and offline classification algorithms. Thirty-five hours of electrophysiological data were recorded across nine subjects performing drowsiness-inducing tasks. Three classifier models were trained with user-specific, leave-one-trial-out, and leave-one-user-out splits. The support-vector-machine classifier achieved an accuracy of 93.2% while evaluating users it has seen before and 93.3% when evaluating a never-before-seen user. These results demonstrate wireless, dry, user-gen",
       "doi": "10.1038/s41467-024-48682-7",
       "pmid": "39095399",
@@ -154,7 +148,7 @@
       "venue": "Frontiers in Human Neuroscience",
       "year": 2022,
       "url": "https://doi.org/10.3389/fnhum.2022.898300",
-      "cited_by": 73,
+      "cited_by": 79,
       "abstract": "The brain-computer interface (BCI) has been investigated as a form of communication tool between the brain and external devices. BCIs have been extended beyond communication and control over the years. The 2020 international BCI competition aimed to provide high-quality neuroscientific data for open access that could be used to evaluate the current degree of technical advances in BCI. Although there are a variety of remaining challenges for future BCI advances, we discuss some of more recent application directions: (i) few-shot EEG learning, (ii) micro-sleep detection (iii) imagined speech decoding, (iv) cross-session classification, and (v) EEG(+ear-EEG) detection in an ambulatory environment. Not only did scientists from the BCI field compete, but scholars with a broad variety of backgrounds and nationalities participated in the competition to address these challenges. Each dataset was prepared and separated into three data that were released to the competitors in the form of trainin",
       "doi": "10.3389/fnhum.2022.898300",
       "pmid": "35937679",
@@ -200,7 +194,7 @@
       "venue": "IEEE Access",
       "year": 2023,
       "url": "https://doi.org/10.1109/access.2023.3268551",
-      "cited_by": 26,
+      "cited_by": 25,
       "abstract": "Human brain activities—electroencephalogram (EEG) signals—are likely to provide a secure biometric approach for user identification because they are more sensitive, secretive, and difficult to replicate. Many studies have recently focused on identifying and quantifying important frequency patterns in motor imagery (MI), recorded through EEG. However, there is still a lack of an optimal methodology for recognizing users with EEG-based MI. Therefore, we aimed to propose an EEG-MI methodology that utilizes optimized feature extraction methods and classifiers to improve user-aware accuracy. To accomplish this goal, we extracted four features related to MI and compared the accuracies for recognizing users using a support vector machine (SVM) and Gaussian Naïve Bayes (GNB). We then used the half-total error rate (HTER) to determine whether the results were reliable due to an imbalance problem caused by the differences in the data sizes. Thus, we used a common spatial pattern (CSP) to achieve",
       "doi": "10.1109/access.2023.3268551",
       "pmid": null,
@@ -246,7 +240,7 @@
       "venue": "Proceedings of the National Academy of Sciences",
       "year": 2025,
       "url": "https://doi.org/10.1073/pnas.2419304122",
-      "cited_by": 15,
+      "cited_by": 16,
       "abstract": "Modern brain–computer interfaces (BCI), utilizing electroencephalograms for bidirectional human–machine communication, face significant limitations from movement-vulnerable rigid sensors, inconsistent skin–electrode impedance, and bulky electronics, diminishing the system’s continuous use and portability. Here, we introduce motion artifact–controlled micro–brain sensors between hair strands, enabling ultralow impedance density on skin contact for long-term usable, persistent BCI with augmented reality (AR). An array of low-profile microstructured electrodes with a highly conductive polymer is seamlessly inserted into the space between hair follicles, offering high-fidelity neural signal capture for up to 12 h while maintaining the lowest contact impedance density (0.03 kΩ·cm −2 ) among reported articles. Implemented wireless BCI, detecting steady-state visually evoked potentials, offers 96.4% accuracy in signal classification with a train-free algorithm even during the subject’s excess",
       "doi": "10.1073/pnas.2419304122",
       "pmid": "40193612",
@@ -379,29 +373,6 @@
       }
     },
     {
-      "title": "Dual-Alpha: a large EEG study for dual-frequency SSVEP brain–computer interface",
-      "author": "Yike Sun, Liyan Liang, Yuhan Li, Xiaogang Chen, Xiaorong Gao",
-      "venue": "GigaScience",
-      "year": 2024,
-      "url": "https://doi.org/10.1093/gigascience/giae041",
-      "cited_by": 7,
-      "abstract": "BACKGROUND: The domain of brain-computer interface (BCI) technology has experienced significant expansion in recent years. However, the field continues to face a pivotal challenge due to the dearth of high-quality datasets. This lack of robust datasets serves as a bottleneck, constraining the progression of algorithmic innovations and, by extension, the maturation of the BCI field. FINDINGS: This study details the acquisition and compilation of electroencephalogram data across 3 distinct dual-frequency steady-state visual evoked potential (SSVEP) paradigms, encompassing over 100 participants. Each experimental condition featured 40 individual targets with 5 repetitions per target, culminating in a comprehensive dataset consisting of 21,000 trials of dual-frequency SSVEP recordings. We performed an exhaustive validation of the dataset through signal-to-noise ratio analyses and task-related component analysis, thereby substantiating its reliability and effectiveness for classification ta",
-      "doi": "10.1093/gigascience/giae041",
-      "pmid": "39110623",
-      "openalex_id": "W4401438631",
-      "source_doi": "10.1038/s41597-021-01094-4",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.6494233480095865,
-        "similarity_score": 0.5622712969779968,
-        "citation_text_length": 1189,
-        "dataset_text_length": 2258,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "EEG-Based Methods for Diagnosing Color Vision Deficiency: A Comprehensive Review",
       "author": "Ghada Naje AlEssa, Saleh I. Alzahrani",
       "venue": "Applied Sciences",
@@ -425,9 +396,32 @@
       }
     },
     {
+      "title": "Dual-Alpha: a large EEG study for dual-frequency SSVEP brain–computer interface",
+      "author": "Yike Sun, Liyan Liang, Yuhan Li, Xiaogang Chen, Xiaorong Gao",
+      "venue": "GigaScience",
+      "year": 2024,
+      "url": "https://doi.org/10.1093/gigascience/giae041",
+      "cited_by": 7,
+      "abstract": "BACKGROUND: The domain of brain-computer interface (BCI) technology has experienced significant expansion in recent years. However, the field continues to face a pivotal challenge due to the dearth of high-quality datasets. This lack of robust datasets serves as a bottleneck, constraining the progression of algorithmic innovations and, by extension, the maturation of the BCI field. FINDINGS: This study details the acquisition and compilation of electroencephalogram data across 3 distinct dual-frequency steady-state visual evoked potential (SSVEP) paradigms, encompassing over 100 participants. Each experimental condition featured 40 individual targets with 5 repetitions per target, culminating in a comprehensive dataset consisting of 21,000 trials of dual-frequency SSVEP recordings. We performed an exhaustive validation of the dataset through signal-to-noise ratio analyses and task-related component analysis, thereby substantiating its reliability and effectiveness for classification ta",
+      "doi": "10.1093/gigascience/giae041",
+      "pmid": "39110623",
+      "openalex_id": "W4401438631",
+      "source_doi": "10.1038/s41597-021-01094-4",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6494233480095865,
+        "similarity_score": 0.5622712969779968,
+        "citation_text_length": 1189,
+        "dataset_text_length": 2258,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Speech Synthesis from Brain Signals Based on Generative Model",
       "author": "Young-Eun Lee, Sangho Kim, Seo‐Hyun Lee, Jung‐Sun Lee, Soo-Won Kim, Seong–Whan Lee",
-      "venue": "2023 11th International Winter Conference on Brain-Computer Interface (BCI)",
+      "venue": "International Winter Conference on Brain-Computer Interface (BCI)",
       "year": 2023,
       "url": "https://doi.org/10.1109/bci57258.2023.10078574",
       "cited_by": 6,
@@ -439,9 +433,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.44578797966241845,
-        "similarity_score": 0.3859636187553406,
-        "citation_text_length": 1257,
+        "confidence_score": 0.4242002838850022,
+        "similarity_score": 0.3672729730606079,
+        "citation_text_length": 1247,
         "dataset_text_length": 2258,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -496,7 +490,7 @@
     {
       "title": "Enhanced Generative Adversarial Networks for Unseen Word Generation from EEG Signals",
       "author": "Young-Eun Lee, Seo‐Hyun Lee, Soo-Won Kim, Jung‐Sun Lee, Deok-Seon Kim",
-      "venue": "2024 12th International Winter Conference on Brain-Computer Interface (BCI)",
+      "venue": "International Winter Conference on Brain-Computer Interface (BCI)",
       "year": 2024,
       "url": "https://doi.org/10.1109/bci60775.2024.10480505",
       "cited_by": 4,
@@ -508,9 +502,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5278446234762669,
-        "similarity_score": 0.45700833201408386,
-        "citation_text_length": 1267,
+        "confidence_score": 0.5266019663214685,
+        "similarity_score": 0.4559324383735657,
+        "citation_text_length": 1257,
         "dataset_text_length": 2258,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -534,29 +528,6 @@
         "confidence_score": 0.5436402516067029,
         "similarity_score": 0.4706842005252838,
         "citation_text_length": 1383,
-        "dataset_text_length": 2258,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "The Future of iEEG: What Are the Promises and Challenges of Mobile iEEG Recordings?",
-      "author": "Sabrina L. Maoz, Matthias Stangl, Uros Topalovic, Nanthia Suthana",
-      "venue": "Studies in neuroscience, psychology and behavioral economics",
-      "year": 2023,
-      "url": "https://doi.org/10.1007/978-3-031-20910-9_53",
-      "cited_by": 3,
-      "abstract": null,
-      "doi": "10.1007/978-3-031-20910-9_53",
-      "pmid": null,
-      "openalex_id": "W4385447526",
-      "source_doi": "10.1038/s41597-021-01094-4",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.546002608537674,
-        "similarity_score": 0.5200024843215942,
-        "citation_text_length": 235,
         "dataset_text_length": 2258,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -609,9 +580,32 @@
       }
     },
     {
+      "title": "Human-as-a-Sensor: Harnessing Brain Signals for Intelligent Multimodal Sensing in Spatially-Aware Systems",
+      "author": "Sherif Mostafa, Khaled A. Harras, Moustafa A. Youssef",
+      "venue": "ACM International Conference on Advances in Geographic Information Systems (SIGSPATIAL)",
+      "year": 2025,
+      "url": "https://doi.org/10.1145/3748636.3760460",
+      "cited_by": 2,
+      "abstract": "Brain-Computer Interfaces (BCIs), e.g., Neuralink, are evolving to enable seamless interaction and control across various domains, such as assistive systems and virtual environments. While conventional BCI applications treat users as control units that transmit commands to devices, our vision introduces a paradigm shift toward the novel concept of Human-as-a-Sensor (HaaS), where users themselves function as intelligent multimodal sensing agents. HaaS leverages BCIs to extract contextual spatial information from brain signals as individuals naturally interact with their environment. By decoding neural activity, HaaS complements the limitations of traditional sensors and offers unique advantages for spatially-aware systems. We explore a range of opportunities enabled by HaaS for enhancing spatial awareness and outline multi-disciplinary research challenges in realizing our vision. We also present a feasibility study on using HaaS to track human mobility, showcasing the promise of HaaS fo",
+      "doi": "10.1145/3748636.3760460",
+      "pmid": null,
+      "openalex_id": "W4417283695",
+      "source_doi": "10.1038/s41597-021-01094-4",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.4585918128490449,
+        "similarity_score": 0.3970491886138916,
+        "citation_text_length": 1284,
+        "dataset_text_length": 2258,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "HFD-CCA for SSVEP classification in Mobile Environment",
       "author": "Himadri Panthadas, Mohammed Imamul Hassan Bhuiyan",
-      "venue": "2024 IEEE International Conference on Electronics, Computing and Communication Technologies (CONECCT)",
+      "venue": "IEEE International Conference on Electronics, Computing and Communication Technologies (CONECCT)",
       "year": 2024,
       "url": "https://doi.org/10.1109/conecct62155.2024.10677051",
       "cited_by": 2,
@@ -623,9 +617,32 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6430561628937722,
-        "similarity_score": 0.5567585825920105,
-        "citation_text_length": 1084,
+        "confidence_score": 0.6383147138357164,
+        "similarity_score": 0.552653431892395,
+        "citation_text_length": 1079,
+        "dataset_text_length": 2258,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "The Future of iEEG: What Are the Promises and Challenges of Mobile iEEG Recordings?",
+      "author": "Sabrina L. Maoz, Matthias Stangl, Uros Topalovic, Nanthia Suthana",
+      "venue": "Studies in neuroscience, psychology and behavioral economics",
+      "year": 2023,
+      "url": "https://doi.org/10.1007/978-3-031-20910-9_53",
+      "cited_by": 2,
+      "abstract": null,
+      "doi": "10.1007/978-3-031-20910-9_53",
+      "pmid": null,
+      "openalex_id": "W4385447526",
+      "source_doi": "10.1038/s41597-021-01094-4",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.546002608537674,
+        "similarity_score": 0.5200024843215942,
+        "citation_text_length": 235,
         "dataset_text_length": 2258,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -655,35 +672,12 @@
       }
     },
     {
-      "title": "Human-as-a-Sensor: Harnessing Brain Signals for Intelligent Multimodal Sensing in Spatially-Aware Systems",
-      "author": "Sherif Mostafa, Khaled A. Harras, Moustafa A. Youssef",
-      "venue": "Proceedings of the 33rd ACM International Conference on Advances in Geographic Information Systems",
-      "year": 2025,
-      "url": "https://doi.org/10.1145/3748636.3760460",
-      "cited_by": 1,
-      "abstract": "Brain-Computer Interfaces (BCIs), e.g., Neuralink, are evolving to enable seamless interaction and control across various domains, such as assistive systems and virtual environments. While conventional BCI applications treat users as control units that transmit commands to devices, our vision introduces a paradigm shift toward the novel concept of Human-as-a-Sensor (HaaS), where users themselves function as intelligent multimodal sensing agents. HaaS leverages BCIs to extract contextual spatial information from brain signals as individuals naturally interact with their environment. By decoding neural activity, HaaS complements the limitations of traditional sensors and offers unique advantages for spatially-aware systems. We explore a range of opportunities enabled by HaaS for enhancing spatial awareness and outline multi-disciplinary research challenges in realizing our vision. We also present a feasibility study on using HaaS to track human mobility, showcasing the promise of HaaS fo",
-      "doi": "10.1145/3748636.3760460",
-      "pmid": null,
-      "openalex_id": "W4417283695",
-      "source_doi": "10.1038/s41597-021-01094-4",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.4590743359923363,
-        "similarity_score": 0.3974669575691223,
-        "citation_text_length": 1295,
-        "dataset_text_length": 2258,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "From Ear-EEG to Ear-ExG: The Jaw Artifact is a Keeper",
       "author": "Ioanna Avramidou, Ralph Peter Derleth, Matthias Keller, Milan Djilas, Stefan Launer, Leontios J. Hadjileontiadis",
-      "venue": "Proceedings of the 11th International Conference on Software Development and Technologies for Enhancing Accessibility and Fighting Info-exclusion",
+      "venue": "International Conference on Software Development and Technologies for Enhancing Accessibility and Fighting Info-exclusion (DSAI)",
       "year": 2024,
       "url": "https://doi.org/10.1145/3696593.3696601",
-      "cited_by": 1,
+      "cited_by": 2,
       "abstract": "Ear-EEG sensing is on the horizon for ear-worn devices, such as hearing instruments, and it is anticipated to revolutionize cognitive state monitoring outside the clinical setting, owing to its unobtrusive nature.Like scalp-EEG, ear-EEG is prone to non-neural physiological artifacts, such as ocular, muscular, and cardiac.Although artifacts are typically treated as non-desirable signals intended for rejection, they could serve as a source of information about the individual, thus advancing ear-EEG to ear-ExG.As there is still a scarcity of literature within this area, using the cEEGrid around-the-ear electrode array, we systematically recorded the jaw artifact in a series of experimental scenarios engaging the muscles involved in mastication and speech production.Within the scope of preliminary data analysis, we evaluated the statistical significance of a state-of-art-based feature set in terms of chewingspeaking classification by means of a Wilcoxon rank sum test.The resulting 𝑝-values",
       "doi": "10.1145/3696593.3696601",
       "pmid": null,
@@ -692,9 +686,32 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.4443532150983811,
-        "similarity_score": 0.38472139835357666,
-        "citation_text_length": 1349,
+        "confidence_score": 0.442817939221859,
+        "similarity_score": 0.3833921551704407,
+        "citation_text_length": 1332,
+        "dataset_text_length": 2258,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Human-as-a-Sensor: Toward Autonomous Multimodal Sensing for Self-Determined Technology Engagement",
+      "author": "Sherif Mostafa, Khaled A. Harras, Moustafa A. Youssef",
+      "venue": "IEEE Pervasive Computing",
+      "year": 2026,
+      "url": "https://doi.org/10.1109/mprv.2026.3667609",
+      "cited_by": 1,
+      "abstract": "Recent advancements in brain–computer interfaces (BCIs), e.g., Neuralink, have enabled seamless interaction and control across various applications, from assistive technologies to virtual environments. Traditional BCI applications treat users as control units that issue commands to interact with systems. In this work, we propose the novel concept of Human-as-a-Sensor (HaaS), where users function as seamless intelligent multimodal sensors and BCIs extract contextual sensing data from brain signals as they engage naturally with their environment. By tapping directly into neural activity and relaying information through neuronal feedback, HaaS reduces reliance on handheld sensors/screens, with fusion-first perception and feedback. We explore various HaaS-enabled opportunities for sensing applications and demonstrate how HaaS fosters self-determined technology engagement by supporting opt-in local monitoring and management. Moreover, we discuss critical challenges in realizing HaaS, includ",
+      "doi": "10.1109/mprv.2026.3667609",
+      "pmid": null,
+      "openalex_id": "W7135049250",
+      "source_doi": "10.1038/s41597-021-01094-4",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.44320587158203134,
+        "similarity_score": 0.38372802734375,
+        "citation_text_length": 1213,
         "dataset_text_length": 2258,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -726,7 +743,7 @@
     {
       "title": "Detection Performance Analysis based on EEG Signal for Visual BCI",
       "author": "Kibae Lee, Ghun Hyeok Ko, Chong Hyun Lee, Yoon Sang Jeong",
-      "venue": "2023 International Conference on Electronics, Information, and Communication (ICEIC)",
+      "venue": "International Conference on Electronics, Information, and Communication (ICEIC)",
       "year": 2023,
       "url": "https://doi.org/10.1109/iceic57457.2023.10049806",
       "cited_by": 1,
@@ -738,32 +755,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.7264003497362137,
-        "similarity_score": 0.6289180517196655,
-        "citation_text_length": 899,
-        "dataset_text_length": 2258,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Human-as-a-Sensor: Toward Autonomous Multimodal Sensing for Self-Determined Technology Engagement",
-      "author": "Sherif Mostafa, Khaled A. Harras, Moustafa A. Youssef",
-      "venue": "IEEE Pervasive Computing",
-      "year": 2026,
-      "url": "https://doi.org/10.1109/mprv.2026.3667609",
-      "cited_by": 1,
-      "abstract": "Recent advancements in brain–computer interfaces (BCIs), e.g., Neuralink, have enabled seamless interaction and control across various applications, from assistive technologies to virtual environments. Traditional BCI applications treat users as control units that issue commands to interact with systems. In this work, we propose the novel concept of Human-as-a-Sensor (HaaS), where users function as seamless intelligent multimodal sensors and BCIs extract contextual sensing data from brain signals as they engage naturally with their environment. By tapping directly into neural activity and relaying information through neuronal feedback, HaaS reduces reliance on handheld sensors/screens, with fusion-first perception and feedback. We explore various HaaS-enabled opportunities for sensing applications and demonstrate how HaaS fosters self-determined technology engagement by supporting opt-in local monitoring and management. Moreover, we discuss critical challenges in realizing HaaS, includ",
-      "doi": "10.1109/mprv.2026.3667609",
-      "pmid": null,
-      "openalex_id": "W7135049250",
-      "source_doi": "10.1038/s41597-021-01094-4",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.44320587158203134,
-        "similarity_score": 0.38372802734375,
-        "citation_text_length": 1213,
+        "confidence_score": 0.7167642062902452,
+        "similarity_score": 0.6205750703811646,
+        "citation_text_length": 894,
         "dataset_text_length": 2258,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -771,7 +765,7 @@
     },
     {
       "title": "IMU-Enhanced EEG Motion Artifact Removal with Fine-Tuned Large Brain Models",
-      "author": "Yuhong Zhang, Xu-Sheng Zhu, Yuchen Xu, ChiaEn Lu, Hsinyu Shih, G. Cauwenberghs, Tzyy-Ping Jung",
+      "author": "Yuhong Zhang, Xu-Sheng Zhu, Yu-Chen Xu, ChiaEn Lu, Hsinyu Shih, G. Cauwenberghs, Tzyy-Ping Jung",
       "venue": "ArXiv",
       "year": 2025,
       "url": "https://doi.org/10.48550/arXiv.2509.01073",
@@ -784,9 +778,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5813476556539536,
-        "similarity_score": 0.5033313035964966,
-        "citation_text_length": 1213,
+        "confidence_score": 0.5826753687858582,
+        "similarity_score": 0.5044808387756348,
+        "citation_text_length": 1214,
         "dataset_text_length": 2258,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -795,7 +789,7 @@
     {
       "title": "An Energy Efficient Convolutional SNN for EEG Analytics towards Wearable BCI Applications",
       "author": "Dighanchal Banerjee, Sankhadip Bera, Shreyasi Datta, Sounak Dey",
-      "venue": "2026 IEEE International Conference on Pervasive Computing and Communications Workshops and other Affiliated Events (PerCom Workshops)",
+      "venue": "IEEE International Conference on Pervasive Computing and Communications Workshops and other Affiliated Events (PerCom Workshops)",
       "year": 2026,
       "url": "https://doi.org/10.1109/percomworkshops68308.2026.11585273",
       "cited_by": 0,
@@ -807,9 +801,32 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.533469849228859,
-        "similarity_score": 0.4618786573410034,
-        "citation_text_length": 1324,
+        "confidence_score": 0.5271791490912439,
+        "similarity_score": 0.45643216371536255,
+        "citation_text_length": 1319,
+        "dataset_text_length": 2258,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "A Stable-Contact-Oriented In-Ear EEG Sensor With Contact-Mechanics-Guided Electrode Placement",
+      "author": "Wenzhi Wu, Tao Wang, Le Song, Fangyu Fu, Zhenming Liu, Pengfei Zhu, Yong Min Yang, Shuang Liu, Dong Ming",
+      "venue": "IEEE Transactions on Instrumentation and Measurement",
+      "year": 2026,
+      "url": "https://doi.org/10.1109/tim.2026.3736118",
+      "cited_by": 0,
+      "abstract": "Long-term ear electroencephalography (Ear-EEG) recording in naturalistic settings requires stable sensor-ear-canal contact. This study proposes a stable-contact-oriented in-Ear-EEG sensor that combines a flexible multiflange substrate, a fin-like stabilizer, and contact-mechanics-guided electrode placement. Impedance comparison in 30 participants verified the effectiveness of the simulation-guided site selection. In a 4-h continuous-wear experiment with 20 participants, contact impedance showed no upward drift, recovery-stage root mean square (rms) was close to the baseline level after motion perturbation, with no significant recovery-versus-baseline difference detected (p = 0.622), and no significant Rest-1/Rest-2 difference was detected in resting-state coefficient of variation (CV) after prolonged wear (left ear: p = 0.416; right ear: p = 0.936). Functional experiments showed that the sensor could record eyes-open/eyes-closed alpha modulation and decodable four-target steady-state v",
+      "doi": "10.1109/tim.2026.3736118",
+      "pmid": null,
+      "openalex_id": "W7214002413",
+      "source_doi": "10.1038/s41597-021-01094-4",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5164726978540422,
+        "similarity_score": 0.4471625089645386,
+        "citation_text_length": 1288,
         "dataset_text_length": 2258,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -841,7 +858,7 @@
     {
       "title": "The ear-EEG artifact as a predictor of motion states on a treadmill: A bispectral analysis approach",
       "author": "Anna-Maria Patsiali, Ioanna Avramidou, Peter Derleth, Matthias Keller, Stefan Launer, Leontios J. Hadjileontiadis",
-      "venue": "2025 IEEE International Conference on E-health Networking, Application & Services (Healthcom)",
+      "venue": "IEEE International Conference on E-health Networking, Application & Services (HealthCom)",
       "year": 2025,
       "url": "https://doi.org/10.1109/healthcom60686.2025.11343601",
       "cited_by": 0,
@@ -853,9 +870,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6356804224848749,
-        "similarity_score": 0.5503726601600647,
-        "citation_text_length": 1344,
+        "confidence_score": 0.6325453644990922,
+        "similarity_score": 0.5476583242416382,
+        "citation_text_length": 1339,
         "dataset_text_length": 2258,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -906,72 +923,22 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
-    },
-    {
-      "title": "An Order Estimation Based Approach to Identify Response Genes for Microarray Time Course Data",
-      "author": "Zhiheng K Lu, Allen O. Brian, Anthony F. Desmond",
-      "venue": "Statistical Applications in Genetics and Molecular Biology",
-      "year": 2012,
-      "url": "https://doi.org/10.1515/1544-6115.1818",
-      "cited_by": 2,
-      "abstract": "Gene expression profiles from microarray time course experiments provide a unique opportunity to examine genome-wide signal processing and gene responses. A fundamental issue in microarray experiments is that the treatment condition can only be controlled at the cell level rather than at the gene level. The treatment condition does not affect all genes equally. Some genes depend on other genes to detect external changes. The dependency between genes is not fully deterministic and may vary with treatment condition. Thus the expression of each gene is potentially affected by two confounding effects: the treatment effect and the gene context effect arising from the regulatory interactions among genes. This gene context effect is hard to isolate. Neither can it be simply ignored. Instead, this gene context information which may be different under different treatment conditions is of primary biological interest. We introduce an approach which deals with the confounding effects and takes into account the uncontrollable gene context effect. Our method is based on the estimation of the number of hidden states, which, in our development, corresponds to the order of a hidden Markov model (HMM). For each gene, its observed expression is modeled by a gamma distribution determined by the corresponding hidden state at each time point. Those genes showing evidence for more than one hidden state can be categorized as the signalling genes, or in a wider sense, as the response genes which are coordinated by a cell system in reaction to a specific external condition. These response genes can be used in the comparison of different treatment conditions, to investigate the gene context effect under different treatments. Microarray time course data are also analyzed to demonstrate our method.",
-      "doi": "10.1515/1544-6115.1818",
-      "pmid": "23241685",
-      "openalex_id": "W2265464824",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "nm000201",
-      "confidence_scoring": {
-        "confidence_score": 0.2831084042787552,
-        "similarity_score": 0.25737127661705017,
-        "citation_text_length": 1738,
-        "dataset_text_length": 2258,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Etablierung einer cDNA-Microarray-Technologie zur Genexpressionsanalyse bei akuter und chronischer allogener Lungenschädigung nach Lungentransplantation",
-      "author": "Brendel, Michael",
-      "venue": "Elektronische Hochschulschriften der LMU München (Ludwig-Maximilians-Universität München)",
-      "year": 2009,
-      "url": "https://doi.org/10.5282/edoc.10435",
-      "cited_by": 0,
-      "abstract": null,
-      "doi": "10.5282/edoc.10435",
-      "pmid": null,
-      "openalex_id": "W1708470998",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "nm000201",
-      "confidence_scoring": {
-        "confidence_score": 0.25714659690856934,
-        "similarity_score": 0.25714659690856934,
-        "citation_text_length": 284,
-        "dataset_text_length": 2258,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-10-04T10:08:26.626399+00:00",
+    "scoring_date": "2026-10-11T11:22:15.909835+00:00",
     "dataset_text_length": 2258,
-    "num_citations_scored": 37,
+    "num_citations_scored": 36,
     "summary_stats": {
-      "mean_confidence": 0.543791264601656,
-      "median_confidence": 0.546002608537674,
-      "std_confidence": 0.09626543384839377,
-      "min_confidence": 0.25714659690856934,
-      "max_confidence": 0.7264003497362137,
+      "mean_confidence": 0.5565311075001955,
+      "median_confidence": 0.5569883416593076,
+      "std_confidence": 0.07247685496759014,
+      "min_confidence": 0.4242002838850022,
+      "max_confidence": 0.7167642062902452,
       "high_confidence_count": 1,
-      "medium_confidence_count": 34,
-      "low_confidence_count": 2
+      "medium_confidence_count": 35,
+      "low_confidence_count": 0
     }
   }
 }

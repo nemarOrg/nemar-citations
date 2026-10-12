@@ -1,10 +1,10 @@
 {
   "dataset_id": "on003876",
-  "num_citations": 5,
-  "date_last_updated": "2026-09-30T10:45:08.225539+00:00",
+  "num_citations": 6,
+  "date_last_updated": "2026-10-11T11:15:45.678044+00:00",
   "metadata": {
-    "total_cumulative_citations": 198,
-    "fetch_date": "2026-09-29T11:12:25.444624+00:00",
+    "total_cumulative_citations": 0,
+    "fetch_date": "2026-10-11T10:48:03.737564+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 1,
@@ -19,12 +19,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
         "paper_year": 2019,
         "paper_venue": "The Journal of Open Source Software",
         "reason": "MNE-BIDS is a software tool for organizing electrophysiology data into BIDS, used to curate this dataset, not a paper describing the epilepsy iEEG data.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1038/s41597-019-0105-7",
@@ -32,12 +32,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "iEEG-BIDS, extending the Brain Imaging Data Structure specification to human intracranial electrophysiology",
         "paper_year": 2019,
         "paper_venue": "Scientific Data",
         "reason": "iEEG-BIDS is a specification for organizing intracranial EEG data, which this BIDS-formatted iEEG dataset uses; it does not describe this dataset itself.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on003876",
@@ -45,25 +45,24 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
       "10.82901/nemar.on003876"
     ],
     "keywords": [
-      "intracranial EEG",
+      "iEEG",
       "Epilepsy",
       "interictal",
-      "high-frequency oscillations",
-      "source-sink connectivity",
       "seizure onset zone",
-      "multicenter study"
+      "source-sink connectivity",
+      "high-frequency oscillations"
     ],
     "methods_description": "Intracranial EEG recordings were collected during interictal periods from subjects with epilepsy across multiple clinical centers. Data were de-identified and organized according to BIDS and iEEG-BIDS specifications using MNE-BIDS. Sleep and awake states were annotated where available. High-frequency oscillations were detected using both RMS and Hilbert transform methods.",
     "funding": [
@@ -82,7 +81,8 @@
       },
       {
         "funder_name": "NSF",
-        "award_number": "DGE-1746891"
+        "award_number": "DGE-1746891",
+        "award_title": "Graduate Research Fellowship Program (GRFP)"
       },
       {
         "funder_name": "NIH",
@@ -90,19 +90,21 @@
       },
       {
         "funder_name": "NSF",
-        "award_number": "1055560"
+        "award_number": "1055560",
+        "award_title": "Career Award"
       },
       {
         "funder_name": "Burroughs Wellcome Fund",
-        "award_number": "CASI Award 1007274"
+        "award_number": "1007274",
+        "award_title": "CASI Award"
       }
     ],
     "searched_accessions": [
       "on003876",
       "ds003876"
     ],
-    "num_accession_mentions": 5,
-    "num_dataset_citations": 5,
+    "num_accession_mentions": 6,
+    "num_dataset_citations": 6,
     "num_datapaper_citations": 0
   },
   "citation_details": [
@@ -137,7 +139,7 @@
       "venue": "Brain",
       "year": 2022,
       "url": "https://doi.org/10.1093/brain/awac300",
-      "cited_by": 113,
+      "cited_by": 106,
       "abstract": "Over 15 million epilepsy patients worldwide have drug-resistant epilepsy. Successful surgery is a standard of care treatment but can only be achieved through complete resection or disconnection of the epileptogenic zone, the brain region(s) where seizures originate. Surgical success rates vary between 20% and 80%, because no clinically validated biological markers of the epileptogenic zone exist. Localizing the epileptogenic zone is a costly and time-consuming process, which often requires days to weeks of intracranial EEG (iEEG) monitoring. Clinicians visually inspect iEEG data to identify abnormal activity on individual channels occurring immediately before seizures or spikes that occur interictally (i.e. between seizures). In the end, the clinical standard mainly relies on a small proportion of the iEEG data captured to assist in epileptogenic zone localization (minutes of seizure data versus days of recordings), missing opportunities to leverage these largely ignored interictal data to better diagnose and treat patients. IEEG offers a unique opportunity to observe epileptic cortical network dynamics but waiting for seizures increases patient risks associated with invasive monitoring. In this study, we aimed to leverage interictal iEEG data by developing a new network-based interictal iEEG marker of the epileptogenic zone. We hypothesized that when a patient is not clinically seizing, it is because the epileptogenic zone is inhibited by other regions. We developed an algorithm that identifies two groups of nodes from the interictal iEEG network: those that are continuously inhibiting a set of neighbouring nodes ('sources') and the inhibited nodes themselves ('sinks'). Specifically, patient-specific dynamical network models were estimated from minutes of iEEG and their connectivity properties revealed top sources and sinks in the network, with each node being quantified by source-sink metrics. We validated the algorithm in a retrospective analysis of 65 patients. The source-sink metrics identified epileptogenic regions with 73% accuracy and clinicians agreed with the algorithm in 93% of seizure-free patients. The algorithm was further validated by using the metrics of the annotated epileptogenic zone to predict surgical outcomes. The source-sink metrics predicted outcomes with an accuracy of 79% compared to an accuracy of 43% for clinicians' predictions (surgical success rate of this dataset). In failed outcomes, we identified brain regions with high metrics that were untreated. When compared with high frequency oscillations, the most commonly proposed interictal iEEG feature for epileptogenic zone localization, source-sink metrics outperformed in predictive power (by a factor of 1.2), suggesting they may be an interictal iEEG fingerprint of the epileptogenic zone.",
       "doi": "10.1093/brain/awac300",
       "pmid": "36412516",
@@ -158,11 +160,11 @@
     },
     {
       "title": "Quantitative approaches to guide epilepsy surgery from intracranial EEG",
-      "author": "John M. Bernabei, Adam Li, Andrew Y Revell, Rachel June Smith, Kristin M. Gunnarsdottir, Ian Z. Ong, Kathryn A. Davis, Nishant Kumar Sinha, Sridevi V. Sarma, Brian Litt",
+      "author": "John M. Bernabei, Adam Li, Andrew Y Revell, Rachel June Smith, Kristin M. Gunnarsdottir, Ian Z. Ong, Kathryn A. Davis, Nishant Sinha, Sridevi V. Sarma, Brian Litt",
       "venue": "Brain",
       "year": 2023,
       "url": "https://doi.org/10.1093/brain/awad007",
-      "cited_by": 83,
+      "cited_by": 78,
       "abstract": "Over the past 10 years, the drive to improve outcomes from epilepsy surgery has stimulated widespread interest in methods to quantitatively guide epilepsy surgery from intracranial EEG (iEEG). Many patients fail to achieve seizure freedom, in part due to the challenges in subjective iEEG interpretation. To address this clinical need, quantitative iEEG analytics have been developed using a variety of approaches, spanning studies of seizures, interictal periods, and their transitions, and encompass a range of techniques including electrographic signal analysis, dynamical systems modeling, machine learning and graph theory. Unfortunately, many methods fail to generalize to new data and are sensitive to differences in pathology and electrode placement. Here, we critically review selected literature on computational methods of identifying the epileptogenic zone from iEEG. We highlight shared methodological challenges common to many studies in this field and propose ways that they can be addressed. One fundamental common pitfall is a lack of open-source, high-quality data, which we specifically address by sharing a centralized high-quality, well-annotated, multicentre dataset consisting of >100 patients to support larger and more rigorous studies. Ultimately, we provide a road map to help these tools reach clinical trials and hope to improve the lives of future patients.",
       "doi": "10.1093/brain/awad007",
       "pmid": "36623936",
@@ -173,9 +175,9 @@
       "discovery_method": "accession_mention",
       "matched_accession": "ds003876",
       "confidence_scoring": {
-        "confidence_score": 0.7863596159219743,
-        "similarity_score": 0.6808308362960815,
-        "citation_text_length": 1670,
+        "confidence_score": 0.7864105600118638,
+        "similarity_score": 0.6808749437332153,
+        "citation_text_length": 1664,
         "dataset_text_length": 2621,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -230,20 +232,45 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "Frozen derived outputs and analysis code for: Measurement, not model — three hygiene failures that make open intracranial-EEG seizure-onset-zone benchmarks non-comparable",
+      "author": "WEI LIN, Venkateshwaran Vijayanarasimhan, Richard Byrne",
+      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "year": 2026,
+      "url": "https://doi.org/10.5281/zenodo.23122729",
+      "cited_by": 0,
+      "abstract": "Frozen, pre-specified derived outputs and the analysis code supporting all quantitative results in the companion manuscript (a measurement-audit methods study of open intracranial-EEG seizure-onset-zone benchmarks). Contains derived tables and metrics (T1, T3–T7), analysis/figure-generation scripts, a SHA-256 manifest, and a number-level provenance table mapping each manuscript value to its source file and SHA-256. No raw intracranial-EEG signals are redistributed: all raw data are public OpenNeuro releases (ds004080, ds004696, ds004100, ds003876, ds003498, ds003029). ds004696 carries no seizure-onset-zone labels, and no accuracy metric is reported for it. See README.md for file descriptions and dataset DOIs.",
+      "doi": "10.5281/zenodo.23122729",
+      "pmid": null,
+      "openalex_id": "W7218444197",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds003876",
+      "confidence_scoring": {
+        "confidence_score": 0.7381015187501908,
+        "similarity_score": 0.6390489339828491,
+        "citation_text_length": 1038,
+        "dataset_text_length": 2621,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T10:57:25.360074+00:00",
+    "scoring_date": "2026-10-11T11:30:20.681574+00:00",
     "dataset_text_length": 2621,
-    "num_citations_scored": 5,
+    "num_citations_scored": 6,
     "summary_stats": {
-      "mean_confidence": 0.7239264358878137,
-      "median_confidence": 0.7261448031663895,
-      "std_confidence": 0.07819273648957063,
+      "mean_confidence": 0.7262974403798581,
+      "median_confidence": 0.7321231609582901,
+      "std_confidence": 0.07158222195181849,
       "min_confidence": 0.6082141229510308,
       "max_confidence": 0.8268349707126619,
-      "high_confidence_count": 3,
+      "high_confidence_count": 4,
       "medium_confidence_count": 2,
       "low_confidence_count": 0
     }

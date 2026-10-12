@@ -1,10 +1,10 @@
 {
   "dataset_id": "on005506",
-  "num_citations": 19,
-  "date_last_updated": "2026-09-30T16:33:17.360665+00:00",
+  "num_citations": 22,
+  "date_last_updated": "2026-10-11T11:03:46.464492+00:00",
   "metadata": {
-    "total_cumulative_citations": 139,
-    "fetch_date": "2026-09-29T11:26:48.211167+00:00",
+    "total_cumulative_citations": 168,
+    "fetch_date": "2026-10-11T11:03:46.464492+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -16,15 +16,15 @@
       {
         "identifier": "10.1101/2024.10.03.615261",
         "identifier_type": "doi",
-        "source_relation": "References",
+        "source_relation": "IsDescribedBy",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "HBN-EEG: The FAIR implementation of the Healthy Brain Network (HBN) electroencephalography dataset",
         "paper_year": 2024,
         "paper_venue": "bioRxiv (Cold Spring Harbor Laboratory)",
         "reason": "HBN-EEG preprint by the same authors (Shirazi, Franco, Delorme, Makeig) describes the BIDS-formatted HBN EEG data and six tasks that this Release 2 dataset contains.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1038/sdata.2017.181",
@@ -32,12 +32,12 @@
         "source_relation": "References",
         "classification": "umbrella",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "An open resource for transdiagnostic research in pediatric mental health and learning disorders",
         "paper_year": 2017,
         "paper_venue": "Scientific Data",
         "reason": "Alexander et al. 2017 describes the overall Healthy Brain Network initiative and biobank, which includes this EEG release, but it is not the data paper for HBN-EEG Release 2.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1038/sdata.2017.40",
@@ -45,12 +45,12 @@
         "source_relation": "References",
         "classification": "umbrella",
         "kept": false,
+        "kept_reason": "judged_not_data_paper",
         "paper_title": "A resource for assessing information processing in the developing brain using EEG and eye tracking",
         "paper_year": 2017,
         "paper_venue": "Scientific Data",
         "reason": "Langer et al. 2017 describes an earlier 126-participant EEG/eye-tracking resource from the HBN initiative, not this Release 2 dataset; it is an initiative-level paper.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_not_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on005506",
@@ -58,12 +58,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -72,48 +72,23 @@
     ],
     "keywords": [
       "EEG",
-      "child development",
-      "adolescent",
-      "cognitive tasks",
-      "resting state",
-      "behavioral assessment",
-      "BIDS",
-      "HED annotation",
-      "psychopathology",
-      "mental health",
-      "CBCL",
-      "developmental neuroscience",
       "Healthy Brain Network",
-      "passive tasks",
-      "active tasks",
-      "contrast change detection",
-      "sequence learning",
-      "symbol search",
-      "surround suppression",
-      "movie watching"
+      "pediatric mental health",
+      "Hierarchical Event Descriptors",
+      "child development",
+      "BIDS"
     ],
-    "methods_description": "EEG data were collected during six tasks: three passive tasks (resting state with eyes open/closed, surround suppression with flashing peripheral disks, and movie watching) and three active tasks requiring participant responses (contrast change detection, sequence learning, and symbol search). Behavioral responses including reaction times and accuracy were recorded during task performance and are included in the events.tsv files. Events have been annotated using Hierarchical Event Descriptors (HED version 8.3.0) to enable systematic meta and mega-analysis. Data quality control was performed to ensure data integrity, task event completeness, and preprocessing readiness, with results documented in the participants.tsv file.",
+    "methods_description": "EEG was recorded while participants performed three passive tasks (resting state, surround suppression, movie watching) and three active tasks (contrast change detection, sequence learning, symbol search). Behavioral responses were merged into the events.tsv files with HED annotations. Minimal quality control checked for file integrity and the presence of required events for each task.",
     "funding": [
       {
         "funder_name": "See https://childmind.org/science/global-open-science/healthy-brain-network/#donors"
       },
       {
-        "funder_name": "NIH",
+        "funder_name": "NIH/NIMH",
         "award_number": "R01MH125934",
         "award_title": "BIDS data preparation"
-      },
-      {
-        "funder_name": "Child Mind Institute",
-        "award_title": "Healthy Brain Network Project"
       }
-    ],
-    "searched_accessions": [
-      "on005506",
-      "ds005506"
-    ],
-    "num_accession_mentions": 1,
-    "num_dataset_citations": 1,
-    "num_datapaper_citations": 18
+    ]
   },
   "citation_details": [
     {
@@ -122,13 +97,13 @@
       "venue": "ArXiv",
       "year": 2025,
       "url": "https://doi.org/10.48550/arXiv.2510.21585",
-      "cited_by": 90,
+      "cited_by": 111,
       "abstract": "Foundation models have transformed AI by reducing reliance on task-specific data through large-scale pretraining. While successful in language and vision, their adoption in EEG has lagged due to the heterogeneity of public datasets, which are collected under varying protocols, devices, and electrode configurations. Existing EEG foundation models struggle to generalize across these variations, often restricting pretraining to a single setup, resulting in suboptimal performance, in particular under linear probing. We present REVE (Representation for EEG with Versatile Embeddings), a pretrained model explicitly designed to generalize across diverse EEG signals. REVE introduces a novel 4D positional encoding scheme that enables it to process signals of arbitrary length and electrode arrangement. Using a masked autoencoding objective, we pretrain REVE on over 60,000 hours of EEG data from 92 datasets spanning 25,000 subjects, representing the largest EEG pretraining effort to date. REVE ach",
       "doi": "10.48550/arXiv.2510.21585",
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2024.10.03.615261",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.5844757604599,
@@ -145,13 +120,13 @@
       "venue": "ArXiv",
       "year": 2025,
       "url": "https://doi.org/10.48550/arXiv.2506.19141",
-      "cited_by": 16,
+      "cited_by": 19,
       "abstract": "Current electroencephalogram (EEG) decoding models are typically trained on small numbers of subjects performing a single task. Here, we introduce a large-scale, code-submission-based competition comprising two challenges. First, the Transfer Challenge asks participants to build and test a model that can zero-shot decode new tasks and new subjects from their EEG data. Second, the Psychopathology factor prediction Challenge asks participants to infer subject measures of mental health from EEG data. For this, we use an unprecedented, multi-terabyte dataset of high-density EEG signals (128 channels) recorded from over 3,000 child to young adult subjects engaged in multiple active and passive tasks. We provide several tunable neural network baselines for each of these two challenges, including a simple network and demographic-based regression models. Developing models that generalise across tasks and individuals will pave the way for ML network architectures capable of adapting to EEG data",
       "doi": "10.48550/arXiv.2506.19141",
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2024.10.03.615261",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.6794140648841859,
@@ -164,22 +139,22 @@
     },
     {
       "title": "NeuralBench: A Unifying Framework to Benchmark NeuroAI Models",
-      "author": "Hubert J. Banville, Stéphane d’Ascoli, Simon Dahan, Jérémy Rapin, Marlène Careil, Yohann Benchetrit, Jarod Lévy, S. Panchavati, Antoine Ratouchniak, Mingfang Zhang, Elisa Cascardi, K. Begany, Teon L Brooks, Jean-Rémi King",
+      "author": "Hubert J. Banville, Stéphane d'Ascoli, Simon Dahan, Jérémy Rapin, Marlène Careil, Yohann Benchetrit, Jarod Lévy, S. Panchavati, Antoine Ratouchniak, Ming-Fang Zhang, Elisa Cascardi, K. Begany, Teon L Brooks, Jean-Rémi King",
       "venue": "ArXiv",
       "year": 2026,
       "url": "https://doi.org/10.48550/arXiv.2605.08495",
-      "cited_by": 13,
+      "cited_by": 16,
       "abstract": "Deep learning and large public datasets have recently catalyzed the proliferation of AI models for processing brain recordings. However, systematically evaluating these models remains a challenge: not only do the preprocessing pipelines, training and finetuning approaches largely vary across studies, but their downstream evaluation is often limited to small sets of tasks and/or datasets. Here, we present NeuralBench: a unified framework for benchmarking AI models of brain activity. We accompany this framework with NeuralBench-EEG v1.0 -- a large EEG benchmark that includes 36 electroencephalography (EEG) tasks and 14 deep learning architectures, and is evaluated on 94 datasets accessed through a standardized interface. This first EEG-focused release already highlights two main findings. First, current foundation models only marginally outperform task-specific models. Second, a large set of tasks (e.g. cognitive decoding, clinical predictions) remain highly challenging, even for the bes",
       "doi": "10.48550/arXiv.2605.08495",
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2024.10.03.615261",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6997802728414536,
-        "similarity_score": 0.6058703660964966,
-        "citation_text_length": 1326,
+        "confidence_score": 0.7013918271660806,
+        "similarity_score": 0.6072656512260437,
+        "citation_text_length": 1327,
         "dataset_text_length": 2351,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -197,7 +172,7 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2024.10.03.615261",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.7045996525883675,
@@ -220,12 +195,35 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2024.10.03.615261",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.5728287023305894,
         "similarity_score": 0.49595558643341064,
         "citation_text_length": 1211,
+        "dataset_text_length": 2351,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Toward OpenEEG-Bench: A Live Community-Driven Benchmark for EEG Foundation Models",
+      "author": "Pierre Guetschel, B. Aristimunha, D. Truong, Kuntal Kokate, Michael Tangermann, A. Delorme",
+      "venue": "n/a",
+      "year": 0,
+      "url": "n/a",
+      "cited_by": 3,
+      "abstract": null,
+      "doi": null,
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.1101/2024.10.03.615261",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5656869411468506,
+        "similarity_score": 0.5656869411468506,
+        "citation_text_length": 201,
         "dataset_text_length": 2351,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -243,7 +241,7 @@
       "pmid": null,
       "openalex_id": "W7165619877",
       "source_doi": "10.1101/2024.10.03.615261",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.5357389953732491,
@@ -266,7 +264,7 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2024.10.03.615261",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.6348363339900971,
@@ -289,35 +287,12 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2024.10.03.615261",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.5960185208916665,
         "similarity_score": 0.5160333514213562,
         "citation_text_length": 1174,
-        "dataset_text_length": 2351,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Toward OpenEEG-Bench: A Live Community-Driven Benchmark for EEG Foundation Models",
-      "author": "Pierre Guetschel, B. Aristimunha, D. Truong, Kuntal Kokate, Michael Tangermann, A. Delorme",
-      "venue": "n/a",
-      "year": 0,
-      "url": "n/a",
-      "cited_by": 1,
-      "abstract": null,
-      "doi": null,
-      "pmid": null,
-      "openalex_id": null,
-      "source_doi": "10.1101/2024.10.03.615261",
-      "source_relation": "References",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5656869411468506,
-        "similarity_score": 0.5656869411468506,
-        "citation_text_length": 201,
         "dataset_text_length": 2351,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -335,12 +310,104 @@
       "pmid": null,
       "openalex_id": "W7163894970",
       "source_doi": "10.1101/2024.10.03.615261",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.5802284002304078,
         "similarity_score": 0.5525984764099121,
         "citation_text_length": 204,
+        "dataset_text_length": 2351,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Scaling subjects in cross-modal alignment: video decoding with EEG foundation model",
+      "author": "D. Truong, Kuntal Kokate, A. Delorme",
+      "venue": "n/a",
+      "year": 2026,
+      "url": "n/a",
+      "cited_by": 0,
+      "abstract": "Naturalistic visual decoding from EEG has long been constrained by cohort size: existing scaling literature caps out at a few dozen subjects, leading prior work to conclude that scaling subject cohorts yields minimal performance gains. Training a cross-modal EEG--video contrastive encoder on a cohort larger by more than an order of magnitude, we find the axis is productive but has an onset. Below $S\\approx50$ --- the entirety of the range prior work occupies --- no model improves meaningfully over an untrained encoder; above it, decoding rises log-linearly in subject count with no saturation at the top of our ladder, on a fitted stimulus-feature probe and on fit-free movie-moment retrieval alike, and the gain transfers to a second, unseen film. How far the axis carries then depends on initialisation more than on capacity: an encoder initialised from an EEG foundation model scales ${\\sim}1.6\\times$ faster per doubling of the cohort than randomly initialised encoders at two depths, is th",
+      "doi": null,
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.1101/2024.10.03.615261",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.527736986875534,
+        "similarity_score": 0.45691514015197754,
+        "citation_text_length": 1161,
+        "dataset_text_length": 2351,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "SPERA: Spherical Prior EEG Foundation Model with Geometry- and Frequency-Aware Latent Prediction",
+      "author": "Minsu Kim, Ye-Sung Kim, Hyeseong Jeon, Wooseok Hyung, Joshua Lee, Chang-Hwan Im",
+      "venue": "n/a",
+      "year": 2026,
+      "url": "n/a",
+      "cited_by": 0,
+      "abstract": "Electroencephalography (EEG) provides a non-invasive measure of ongoing neural activity, but building general-purpose EEG models remains challenging due to the heterogeneity of subjects, devices, and electrode montages. Existing EEG foundation models predominantly rely on reconstruction-based objectives defined on the observed signal, which contains both neural and non-neural components. We introduce SPERA (Spherical Prior EEG Representation Architecture), an EEG foundation model that adopts the joint-embedding predictive architecture (JEPA) to predict in latent space. SPERA introduces a Legendre-polynomial spatial prior, incorporated into attention to encode varying scalp electrode geometries. Two further components adapt the model to EEG: factorized temporal and spatial attention interleaved with periodic full-attention blocks, and a relational spectral regularizer aligning latent similarity structure with spectral views. Pretrained on approximately 80,000 hours of EEG from 29,048 su",
+      "doi": null,
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.1101/2024.10.03.615261",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5403089900314808,
+        "similarity_score": 0.46779999136924744,
+        "citation_text_length": 1217,
+        "dataset_text_length": 2351,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Representational and Functional Robustness to Electrode Montages in EEG Foundation Models",
+      "author": "Jakob Steglich, Justus Meyer zu Bexten, Shakiba Moradi, Laure Ciernik, S. Hofmann, M. J. Idaji",
+      "venue": "n/a",
+      "year": 2026,
+      "url": "n/a",
+      "cited_by": 0,
+      "abstract": "EEG foundation models (EEG-FMs) are intended to generalize across different datasets by learning representations that, ideally, are invariant to dataset-specific EEG configurations such as electrode montages. However, EEG-FMs that accept different montages as input do not guarantee that representations and predictions remain stable across different electrode configurations, especially outside the training setting. In this work, we investigate the effects of different electrode montages through a joint functional and representational analysis of four EEG foundation models selected to span distinct montage-handling designs. We evaluate embeddings on cross-subject resting-state eyes-open/closed and within-subject motor-imagery classification under spatially informed channel reduction. Functional robustness is tested through the generalizability of linear probes across channel counts, while representational robustness is assessed through within-subject similarity and preservation of betwee",
+      "doi": null,
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.1101/2024.10.03.615261",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5774961447715761,
+        "similarity_score": 0.4999966621398926,
+        "citation_text_length": 1225,
+        "dataset_text_length": 2351,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "ERP-FM: A Foundation Model for Universal ERP Analysis",
+      "author": "Yi-He Wang, Bo Chen, Tai-Da Li, Yu-Jun Yan, Rui Yin, Xiang Zhang",
+      "venue": "n/a",
+      "year": 2026,
+      "url": "n/a",
+      "cited_by": 0,
+      "abstract": "Foundation models have recently shown strong potential for learning generalizable EEG representations, yet their effectiveness for event-related potential (ERP) analysis remains unclear. In this work, we investigate two fundamental questions: 1) can foundation-model learning benefit ERP analysis, and what limits the transfer of existing EEG foundation models to ERP tasks? 2) can the complementary advantages of single-trial and averaged-trial ERP be integrated into a unified training pipeline? To study these questions, we curate a large-scale ERP corpus comprising 1,517,157 single-trial ERPs from 3,696 subjects across 38 datasets and 18 paradigms. Leveraging this corpus, we introduce ERP-FM, to the best of our knowledge, the first foundation model specifically developed for ERP representation learning. ERP-FM uses single-channel tokenization, temporal and spatial positional embeddings, and mixed masked autoencoding for large-scale single-trial pretraining. We compare our model against 1",
+      "doi": null,
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.1101/2024.10.03.615261",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5139735804498197,
+        "similarity_score": 0.44499877095222473,
+        "citation_text_length": 1159,
         "dataset_text_length": 2351,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -358,7 +425,7 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2024.10.03.615261",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.6048608314990997,
@@ -381,7 +448,7 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2024.10.03.615261",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.5152837041020394,
@@ -404,7 +471,7 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2024.10.03.615261",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.6191430759429932,
@@ -427,7 +494,7 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2024.10.03.615261",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.5331135848164559,
@@ -450,7 +517,7 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2024.10.03.615261",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.5438616862893105,
@@ -473,7 +540,7 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2024.10.03.615261",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.3913941143453121,
@@ -496,7 +563,7 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2024.10.03.615261",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.6527799439430237,
@@ -519,7 +586,7 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2024.10.03.615261",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.7224942460656167,
@@ -529,46 +596,21 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
-    },
-    {
-      "title": "Learning transferable human physiology from two million hours of sleep with SleepFM-2",
-      "author": "Rahul Thapa, Christopher Sun, William Theodor Lehn-Schiøler, Sophia Claire Kivelson, Umaer Hanif, H. D. Moore, Harrison G. Zhang, Hafsa Ahmed, Marcus Dige, Niels Rasmus Lorenzen, Elisabeth Roxane M. Heremans, Adrien Specht, Ulysse Gimenez, Robin Guillard, Andreas Brink-Kjær, James Zou, Emmanuel Mignot",
-      "venue": "arXiv (Cornell University)",
-      "year": 2026,
-      "url": "https://doi.org/10.48550/arxiv.2609.06849",
-      "cited_by": 0,
-      "abstract": "Sleep provides a nightly window into health by capturing coordinated activity across the brain, heart, muscles and respiratory system. We introduce SleepFM-2, a sleep foundation model developed and evaluated on 282,511 polysomnography recordings from 26 cohorts, including 235,865 used for pretraining. These data span more than two million hours of multimodal physiology. Compared with SleepFM, SleepFM-2 improves disease prediction and sleep scoring, supports arousal, limb movement and respiratory event detection, and transfers to wearable sensing and subjective sleep phenotypes. A model combining its PSG representation with age, sex and BMI met a prespecified discrimination and significance criterion for 215 subsequently recorded EHR phenotypes in two held-out cohorts, including one health system unseen during pretraining. For 155 phenotypes, the PSG representation added reproducible information beyond demographics. SleepFM-2 also outperformed a 480-feature baseline derived from the same recordings. Its disease scores revealed a reproducible principal component associated with reduced sigma-band spatial coupling and increased hypnodensity entropy. The frozen encoder performed within the observed range of expert scorers for sleep events and transferred to wakeful EEG, headband and in-ear EEG, wrist PPG and wrist accelerometry. It improved sleep staging across six accelerometry cohorts and achieved disease-prediction performance in UK Biobank similar to models pretrained directly on accelerometry. Finally, SleepFM-2 captured aspects of subjective sleep not recovered by conventional PSG summaries, particularly reports of the recorded night. These results show that multimodal sleep physiology can provide a transferable representation of human health across diseases, clinical tasks, sensors and subjective experience.",
-      "doi": "10.48550/arxiv.2609.06849",
-      "pmid": null,
-      "openalex_id": "W7212021959",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds005506",
-      "confidence_scoring": {
-        "confidence_score": 0.41598806217312817,
-        "similarity_score": 0.3601628243923187,
-        "citation_text_length": 1952,
-        "dataset_text_length": 2351,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T16:38:52.122135+00:00",
+    "scoring_date": "2026-10-11T11:37:11.703589+00:00",
     "dataset_text_length": 2351,
-    "num_citations_scored": 19,
+    "num_citations_scored": 22,
     "summary_stats": {
-      "mean_confidence": 0.5869750996796709,
-      "median_confidence": 0.5844757604599,
-      "std_confidence": 0.08652549493844958,
+      "mean_confidence": 0.586257549463348,
+      "median_confidence": 0.578862272500992,
+      "std_confidence": 0.07521810786739667,
       "min_confidence": 0.3913941143453121,
       "max_confidence": 0.7224942460656167,
-      "high_confidence_count": 2,
-      "medium_confidence_count": 16,
+      "high_confidence_count": 3,
+      "medium_confidence_count": 18,
       "low_confidence_count": 1
     }
   }

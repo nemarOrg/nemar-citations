@@ -1,16 +1,14 @@
 {
   "dataset_id": "on005408",
-  "num_citations": 7,
-  "date_last_updated": "2026-09-30T16:33:08.709557+00:00",
+  "num_citations": 6,
+  "date_last_updated": "2026-10-11T11:02:59.656790+00:00",
   "metadata": {
-    "total_cumulative_citations": 8,
-    "fetch_date": "2026-09-29T11:25:38.979591+00:00",
+    "total_cumulative_citations": 6,
+    "fetch_date": "2026-10-11T11:02:59.656790+00:00",
     "processing_version": "1.0",
-    "fetch_status": "partial",
+    "fetch_status": "success",
     "anchor_count": 2,
-    "anchor_errors": {
-      "10.82901/nemar.on005408": "not_found"
-    },
+    "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
     "anchor_judgment_model": "claude-sonnet-5-5",
@@ -21,12 +19,12 @@
         "source_relation": "IsDescribedBy",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "The Effect of Speech Masking on the Human Subcortical Response to Continuous Speech",
         "paper_year": 2025,
         "paper_venue": "eNeuro",
         "reason": "The eNeuro paper by Polonenko & Maddox shares its title and authors with the dataset. The README names it as the paper for the \"peaky_snr\" dataset, which holds the ABR recordings to masked speech.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on005408",
@@ -34,12 +32,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -48,26 +46,20 @@
     ],
     "keywords": [
       "EEG",
-      "Auditory Brainstem Response",
-      "Speech Perception",
-      "auditory masking",
-      "continuous speech encoding",
-      "subcortical auditory processing"
+      "auditory brainstem response",
+      "continuous speech",
+      "speech masking",
+      "peaky speech",
+      "subcortical encoding",
+      "Speech Perception"
     ],
-    "methods_description": "EEG was recorded from participants seated in a darkened sound-isolating booth who rested or watched silent captioned videos. Stimuli included randomized click trains (40 Hz average rate, 60 x 10s trials) and peaky speech from up to five male narrators at four SNR levels (clean, 0 dB, -3 dB, -6 dB), presented at 65 dB SPL via ER-2 insert earphones connected to an RME Babyface Pro sound card at 48 kHz sampling rate. Stimulus presentation was controlled using custom Python scripts with expyfun. Raw EEG data are provided in BrainVision format (.eeg, .vhdr, .vmrk), with stimulus regressor files provided in HDF5 format.",
+    "methods_description": "Participants sat in a darkened sound-isolating booth and rested or watched silent captioned videos while stimuli were presented through ER-2 insert earphones at 65 dB SPL per story (48 kHz, RME Babyface Pro). Conditions were 40 Hz randomized click trains (10 minutes) and peaky speech at four SNRs (clean, 0, -3, -6 dB; 1, 2, 3, or 5 talkers), 30 minutes per SNR, with randomized story tokens. Stimulus control used custom Python scripts with expyfun, and trial information was encoded in trigger values.",
     "funding": [
       {
         "funder_name": "NIDCD",
         "award_number": "R01DC017962"
       }
-    ],
-    "searched_accessions": [
-      "on005408",
-      "ds005408"
-    ],
-    "num_accession_mentions": 1,
-    "num_dataset_citations": 1,
-    "num_datapaper_citations": 6
+    ]
   },
   "citation_details": [
     {
@@ -187,47 +179,25 @@
     },
     {
       "title": "The relationship between auditory brainstem responses, cognitive ability, and speech-in-noise perception among young adults with normal hearing thresholds",
-      "author": "Mishaela DiNino, J. Crowell, Ilsa Kloiber, Melissa J. Polonenko",
-      "venue": "bioRxiv",
+      "author": "Mishaela DiNino, Jenna Crowell, Ilsa Kloiber, Melissa Jane Polonenko",
+      "venue": "Hearing Research",
       "year": 2025,
-      "url": "https://doi.org/10.1101/2024.12.19.629463",
+      "url": "https://doi.org/10.1016/j.heares.2025.109243",
       "cited_by": 0,
-      "abstract": "The goal of this research was to determine the contributions of auditory neural processing and cognitive abilities to predict performance on a speech-in-noise perception task in young, normal hearing adults. Two experiments were performed, each with separate cohorts of ∼30 young adults with normal hearing who performed a competing talker task which included a high-pass filtered condition that was designed to be more sensitive to auditory nerve functioning than are commonly used speech-in-noise perception tests. Predictors of performance on this competing talker task included ABR waves I and V metrics and cognitive test scores. Experiment one included click ABRs at a moderate level commensurate with the level of the competing talker task, as well as the cognitive digit span working memory test. Experiment two included high-intensity click clinical ABRs and three cognitive tests from the NIH Toolbox V3 that assessed working memory, cognitive flexibility and attention, and inhibitory cont",
-      "doi": "10.1101/2024.12.19.629463",
+      "abstract": null,
+      "doi": "10.1016/j.heares.2025.109243",
       "pmid": "40101342",
-      "openalex_id": null,
-      "source_doi": "10.1523/eneuro.0561-24.2025",
+      "openalex_id": "W4408328525",
+      "source_doi": "10.82901/nemar.on005408",
       "source_relation": "References",
       "discovery_backend": "opencite",
+      "superseded_dois": [
+        "10.1101/2024.12.19.629463"
+      ],
       "confidence_scoring": {
-        "confidence_score": 0.6812823361158372,
-        "similarity_score": 0.5898548364639282,
-        "citation_text_length": 1263,
-        "dataset_text_length": 2317,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "The effect of speech masking on the human subcortical response to continuous speech",
-      "author": "Melissa Jane Polonenko, Ross K. Maddox",
-      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
-      "year": 2024,
-      "url": "https://doi.org/10.1101/2024.12.10.627771",
-      "cited_by": 2,
-      "abstract": "Abstract Auditory masking—the interference of the encoding and processing of an acoustic stimulus imposed by one or more competing stimuli—is nearly omnipresent in daily life, and presents a critical barrier to many listeners, including people with hearing loss, users of hearing aids and cochlear implants, and people with auditory processing disorders. The perceptual aspects of masking have been actively studied for several decades, and particular emphasis has been placed on masking of speech by other speech sounds. The neural effects of such masking, especially at the subcortical level, have been much less studied, in large part due to the technical limitations of making such measurements. Recent work has allowed estimation of the auditory brainstem response (ABR), whose characteristic waves are linked to specific subcortical areas, to naturalistic speech. In this study, we used those techniques to measure the encoding of speech stimuli that were masked by one or more simultaneous other speech stimuli. We presented listeners with simultaneous speech from one, two, three, or five simultaneous talkers, corresponding to a range of signal-to-noise ratios (SNR; Clean, 0, −3, and −6 dB), and derived the ABR to each talker in the mixture. Each talker in a mixture was treated in turn as a target sound masked by other talkers, making the response quicker to acquire. We found consistently across listeners that ABR wave V amplitudes decreased and latencies increased as the number of competing talkers increased. Significance statement Trying to listen to someone speak in a noisy setting is a common challenge for most people, due to auditory masking. Masking has been studied extensively at the behavioral level, and more recently in the cortex using EEG and other neurophysiological methods. Much less is known, however, about how masking affects speech encoding in the subcortical auditory system. Here we presented listeners with mixtures of simultaneous speech streams ranging from one to five talkers. We used recently developed tools for measuring subcortical speech encoding to determine how the encoding of each speech stream was impacted by the masker speech. We show that the subcortical response to masked speech becomes smaller and increasingly delayed as the masking becomes more severe.",
-      "doi": "10.1101/2024.12.10.627771",
-      "pmid": "39713441",
-      "openalex_id": "W4405308302",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds005408",
-      "confidence_scoring": {
-        "confidence_score": 1.0,
-        "similarity_score": 0.8727359175682068,
-        "citation_text_length": 1699,
+        "confidence_score": 0.6238204568624497,
+        "similarity_score": 0.5941147208213806,
+        "citation_text_length": 265,
         "dataset_text_length": 2317,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -236,16 +206,16 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T16:38:40.612686+00:00",
+    "scoring_date": "2026-10-11T11:36:48.946906+00:00",
     "dataset_text_length": 2317,
-    "num_citations_scored": 7,
+    "num_citations_scored": 6,
     "summary_stats": {
-      "mean_confidence": 0.658685238829681,
-      "median_confidence": 0.6812823361158372,
-      "std_confidence": 0.18912500269632965,
+      "mean_confidence": 0.5922224654257299,
+      "median_confidence": 0.5659376145154238,
+      "std_confidence": 0.13421576102557645,
       "min_confidence": 0.4039034575223923,
-      "max_confidence": 1.0,
-      "high_confidence_count": 3,
+      "max_confidence": 0.7855836135149002,
+      "high_confidence_count": 2,
       "medium_confidence_count": 4,
       "low_confidence_count": 0
     }

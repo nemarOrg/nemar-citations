@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000195",
   "num_citations": 39,
-  "date_last_updated": "2026-09-30T10:44:25.602104+00:00",
+  "date_last_updated": "2026-10-11T10:19:12.734347+00:00",
   "metadata": {
     "total_cumulative_citations": 1221,
-    "fetch_date": "2026-09-29T10:47:35.829993+00:00",
+    "fetch_date": "2026-10-11T10:19:12.734347+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -19,12 +19,25 @@
         "source_relation": "IsDerivedFrom",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Unsupervised Learning for Brain-Computer Interfaces Based on Event-Related Potentials: Review and Online Comparison [Research Frontier]",
         "paper_year": 2018,
         "paper_venue": "IEEE Computational Intelligence Magazine",
         "reason": "Hübner et al. 2018 reports the online visual speller study with twelve healthy participants (LLP, EM, MIX); authors, participants and paradigm match this dataset, which cites it as its source.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
+      },
+      {
+        "identifier": "10.5281/zenodo.192684",
+        "identifier_type": "doi",
+        "source_relation": "References",
+        "classification": "related_work",
+        "kept": false,
+        "kept_reason": "judged_not_data_paper",
+        "paper_title": "Eeg Data For: \"Learning From Label Proportions In Brain-Computer Interfaces\"",
+        "paper_year": 2016,
+        "paper_venue": "INFM-OAR (INFN Catania)",
+        "reason": "Zenodo record holds data for the 2017 PLoS ONE LLP paper (N=13 visual, N=5 auditory/visual); nm000195 is the 2018 LLP+EM dataset with 12 subjects, a sibling dataset from the same lab.",
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.nm000195",
@@ -32,12 +45,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -45,33 +58,30 @@
       "10.82901/nemar.nm000195"
     ],
     "keywords": [
+      "EEG",
       "Brain-Computer Interfaces",
       "Event-Related Potentials, P300",
-      "EEG",
       "P300 speller",
-      "matrix speller",
       "unsupervised learning",
-      "expectation-maximization",
       "learning from label proportions",
-      "hybrid learning method"
+      "expectation-maximization"
     ],
-    "methods_description": "Online study with 12 healthy participants (8 female, 4 male; mean age 26 years, range 19-31) performing a P300 copy-spelling task. Participants spelled a 35-character German sentence across three blocks, each using a different unsupervised algorithm (EM, LLP, or MIX) in pseudo-randomized order. EEG was recorded at 1000 Hz from 31 channels (Ag/AgCl electrodes in extended 10-20 montage) using BrainAmp DC amplifier with nose reference. Visual stimuli were presented on a 24-inch screen at 80 cm distance with 250 ms stimulus onset asynchrony and 100 ms stimulus duration. A modified 6×6 grid with 10 additional # symbols was used with two interleaved highlighting sequences to enable unsupervised learning.",
+    "methods_description": "31-channel EEG recorded at 1000 Hz with BrainAmp DC amplifiers and EasyCap Ag/AgCl electrodes (nose reference). Participants spelled 35 characters in three blocks. Each character involved 68 highlighting events with 250 ms SOA and 100 ms stimulus duration, using two interleaved highlighting sequences that created known target to non-target ratios for unsupervised learning.",
     "funding": [
       {
         "funder_name": "Special Research Fund of Ghent University"
       },
       {
-        "funder_name": "DFG",
+        "funder_name": "German Research Foundation (DFG)",
         "award_number": "EXC 1086",
         "award_title": "BrainLinks-BrainTools Cluster of Excellence"
       },
       {
-        "funder_name": "DFG",
-        "award_number": "INST 39/963-1 FUGG",
-        "award_title": "bwHPC initiative"
+        "funder_name": "bwHPC initiative",
+        "award_number": "INST 39/963-1 FUGG"
       },
       {
-        "funder_name": "European Commission",
+        "funder_name": "European Union Horizon 2020",
         "award_number": "657679",
         "award_title": "Marie Sklodowska-Curie grant agreement"
       },
@@ -84,21 +94,15 @@
         "award_number": "SPP 1527, MU 987/14-1"
       },
       {
-        "funder_name": "BMBF",
+        "funder_name": "Federal Ministry for Education and Research (BMBF)",
         "award_number": "2017-0-00451"
       },
       {
-        "funder_name": "IITP",
+        "funder_name": "Institute for Information & Communications Technology Promotion (IITP)",
         "award_number": "1IS14013A",
         "award_title": "Brain Korea 21 Plus Program"
       }
-    ],
-    "searched_accessions": [
-      "nm000195"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 39
+    ]
   },
   "citation_details": [
     {
@@ -107,7 +111,7 @@
       "venue": "Neurocomputing",
       "year": 2020,
       "url": "https://doi.org/10.1016/j.neucom.2020.09.017",
-      "cited_by": 477,
+      "cited_by": 474,
       "abstract": "Abstract Electroencephalogram (EEG) signal analysis, which is widely used for human-computer interaction and neurological disease diagnosis, requires a large amount of labeled data for training. However, the collection of substantial EEG data could be difficult owing to its randomness and non-stationary. Moreover, there is notable individual difference in EEG data, which affects the reusability and generalization of models. For mitigating the adverse effects from the above factors, transfer learning is applied in this field to transfer the knowledge learnt in one domain into a different but related domain. Transfer learning adjusts models with small-scale data of the task, and also maintains the learning ability with individual difference. This paper describes four main methods of transfer learning and explores their practical applications in EEG signal analysis in recent years. Finally, we discuss challenges and opportunities of transfer learning and suggest areas for further study.",
       "doi": "10.1016/j.neucom.2020.09.017",
       "pmid": null,
@@ -153,7 +157,7 @@
       "venue": "Physics Reports",
       "year": 2021,
       "url": "https://doi.org/10.1016/j.physrep.2021.03.002",
-      "cited_by": 214,
+      "cited_by": 213,
       "abstract": "Abstract Brain-computer interfaces (BCIs) development is closely related to physics. In this paper, we review the physical principles of BCIs, and underlying novel approaches for registration, analysis, and control of brain activity. We analyse recent advances in BCI studies focusing on their applications for (i) controlling the movement of robots and exoskeletons, (ii) revealing and preventing brain pathologies, (iii) assessing and controlling psychophysiological states, and (iv) monitoring and controlling normal and pathological cognitive activity. After introducing the topic to the reader in chapter 1, in chapter 2 we consider the BCI as a hardware/software communication system that allows interaction of humans or animals with their surroundings without the involvement of peripheral nerves and muscles, using control signals generated from brain cerebral activity. Classifying BCIs into three main types (active, reactive and passive), we describe their functional models and neuroimagi",
       "doi": "10.1016/j.physrep.2021.03.002",
       "pmid": null,
@@ -199,7 +203,7 @@
       "venue": "ArXiv",
       "year": 2024,
       "url": "https://doi.org/10.48550/arXiv.2404.15319",
-      "cited_by": 54,
+      "cited_by": 59,
       "abstract": "Objective. This study conduct an extensive Brain-computer interfaces (BCI) reproducibility analysis on open electroencephalography datasets, aiming to assess existing solutions and establish open and reproducible benchmarks for effective comparison within the field. The need for such benchmark lies in the rapid industrial progress that has given rise to undisclosed proprietary solutions. Furthermore, the scientific literature is dense, often featuring challenging-to-reproduce evaluations, making comparisons between existing approaches arduous. Approach. Within an open framework, 30 machine learning pipelines (separated into raw signal: 11, Riemannian: 13, deep learning: 6) are meticulously re-implemented and evaluated across 36 publicly available datasets, including motor imagery (14), P300 (15), and SSVEP (7). The analysis incorporates statistical meta-analysis techniques for results assessment, encompassing execution time and environmental impact considerations. Main results. The stu",
       "doi": "10.48550/arXiv.2404.15319",
       "pmid": null,
@@ -211,6 +215,29 @@
         "confidence_score": 0.5751838338375092,
         "similarity_score": 0.49799466133117676,
         "citation_text_length": 1270,
+        "dataset_text_length": 2360,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Introducing block-Toeplitz covariance matrices to remaster linear discriminant analysis for event-related potential brain–computer interfaces",
+      "author": "Jan Sosulski, Michael Tangermann",
+      "venue": "Journal of Neural Engineering",
+      "year": 2022,
+      "url": "https://doi.org/10.1088/1741-2552/ac9c98",
+      "cited_by": 25,
+      "abstract": "Abstract Objective. Covariance matrices of noisy multichannel electroencephalogram (EEG) time series data provide essential information for the decoding of brain signals using machine learning methods. However, small datasets and high dimensionality make it hard to estimate these matrices. In brain–computer interfaces (BCI) based on event-related potentials (ERP) and a linear discriminant analysis (LDA) classifier, the state of the art covariance estimation uses shrinkage regularization. As this is a general covariance regularization approach, we aim at improving LDA further by better exploiting the domain-specific characteristics of the EEG to regularize the covariance estimates. Approach. We propose to enforce a block-Toeplitz structure for the covariance matrix of the LDA, which implements an assumption of signal stationarity in short time windows for each channel. Main results. An offline re-analysis of data collected from 213 subjects under 13 different event-related potential BCI",
+      "doi": "10.1088/1741-2552/ac9c98",
+      "pmid": "36270502",
+      "openalex_id": "W4307023523",
+      "source_doi": "10.1109/mci.2018.2807039",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6322913324832917,
+        "similarity_score": 0.547438383102417,
+        "citation_text_length": 1241,
         "dataset_text_length": 2360,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -240,32 +267,9 @@
       }
     },
     {
-      "title": "Introducing block-Toeplitz covariance matrices to remaster linear discriminant analysis for event-related potential brain–computer interfaces",
-      "author": "Jan Sosulski, Michael Tangermann",
-      "venue": "Journal of Neural Engineering",
-      "year": 2022,
-      "url": "https://doi.org/10.1088/1741-2552/ac9c98",
-      "cited_by": 24,
-      "abstract": "Abstract Objective. Covariance matrices of noisy multichannel electroencephalogram (EEG) time series data provide essential information for the decoding of brain signals using machine learning methods. However, small datasets and high dimensionality make it hard to estimate these matrices. In brain–computer interfaces (BCI) based on event-related potentials (ERP) and a linear discriminant analysis (LDA) classifier, the state of the art covariance estimation uses shrinkage regularization. As this is a general covariance regularization approach, we aim at improving LDA further by better exploiting the domain-specific characteristics of the EEG to regularize the covariance estimates. Approach. We propose to enforce a block-Toeplitz structure for the covariance matrix of the LDA, which implements an assumption of signal stationarity in short time windows for each channel. Main results. An offline re-analysis of data collected from 213 subjects under 13 different event-related potential BCI",
-      "doi": "10.1088/1741-2552/ac9c98",
-      "pmid": "36270502",
-      "openalex_id": "W4307023523",
-      "source_doi": "10.1109/mci.2018.2807039",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.6322913324832917,
-        "similarity_score": 0.547438383102417,
-        "citation_text_length": 1241,
-        "dataset_text_length": 2360,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "An Effective Model for Human Cognitive Performance within a Human-Robot Collaboration Framework",
       "author": "Md Khurram Monir Rabby, Mubbashar Altaf Khan, Ali Karimoddini, Steven Xiaochun Jiang",
-      "venue": "2019 IEEE International Conference on Systems, Man and Cybernetics (SMC)",
+      "venue": "Conference proceedings/Conference proceedings - IEEE International Conference on Systems, Man, and Cybernetics",
       "year": 2019,
       "url": "https://doi.org/10.1109/smc.2019.8914536",
       "cited_by": 23,
@@ -277,9 +281,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.24013906419277192,
-        "similarity_score": 0.2183082401752472,
-        "citation_text_length": 1084,
+        "confidence_score": 0.23632768243551255,
+        "similarity_score": 0.21484334766864777,
+        "citation_text_length": 1122,
         "dataset_text_length": 2360,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -291,7 +295,7 @@
       "venue": "Handbook of clinical neurology",
       "year": 2020,
       "url": "https://doi.org/10.1016/b978-0-444-63934-9.00023-8",
-      "cited_by": 21,
+      "cited_by": 20,
       "abstract": "Brain-computer interfaces (BCIs) are systems that translate brain activity patterns into commands that can be executed by an artificial device. This enables the possibility of controlling devices such as a prosthetic arm or exoskeleton, a wheelchair, typewriting applications, or games directly by modulating our brain activity. For this purpose, BCI systems rely on signal processing and machine learning algorithms to decode the brain activity. This chapter provides an overview of the main steps required to do such a process, including signal preprocessing, feature extraction and selection, and decoding. Given the large amount of possible methods that can be used for these processes, a comprehensive review of them is beyond the scope of this chapter, and it is focused instead on the general principles that should be taken into account, as well as discussing good practices on how these methods should be applied and evaluated for proper design of reliable BCI systems.",
       "doi": "10.1016/b978-0-444-63934-9.00023-8",
       "pmid": "32164862",
@@ -314,7 +318,7 @@
       "venue": "Journal of Neural Engineering",
       "year": 2022,
       "url": "https://doi.org/10.1088/1741-2552/ac8b38",
-      "cited_by": 16,
+      "cited_by": 15,
       "abstract": "Abstract Objective. Extracting reliable information from electroencephalogram (EEG) is difficult because the low signal-to-noise ratio and significant intersubject variability seriously hinder statistical analyses. However, recent advances in explainable machine learning open a new strategy to address this problem. Approach. The current study evaluates this approach using results from the classification and decoding of electrical brain activity associated with information retention. We designed four neural network models differing in architecture, training strategies, and input representation to classify single experimental trials of a working memory task. Main results. Our best models achieved an accuracy (ACC) of 65.29 ± 0.76 and Matthews correlation coefficient of 0.288 ± 0.018, outperforming the reference model trained on the same data. The highest correlation between classification score and behavioral performance was 0.36 (p = 0.0007). Using analysis of input perturbation, we est",
       "doi": "10.1088/1741-2552/ac8b38",
       "pmid": "35985292",
@@ -356,7 +360,7 @@
     },
     {
       "title": "Workshops of the seventh international brain-computer interface meeting: not getting lost in translation",
-      "author": "Jane E. Huggins, Christoph Guger, Erik J. Aarnoutse, Brendan Z. Allison, Charles W. Anderson, Steven D. Bedrick, Walter G. Besio, Ricardo Chavarriaga, Jennifer L. Collinger, An H., Christian Herff, Matthias R. Hohmann, Michelle Kinsella, Kyuhwa Lee, Fabien Lotte, Gernot R Muller-Putz, Anton Nijholt, Elmar Pels, Betts Peters, Felix Putze, Rüdiger Rupp, Gerwin Schalk, Stephanie Scott, Michael Tangermann, Paul A. Tubig, Thorsten O. Zander",
+      "author": "Jane E. Huggins, Christoph Guger, Erik J. Aarnoutse, Brendan Z. Allison, Charles W. Anderson, Steven D. Bedrick, Walter G. Besio, Ricardo Chavarriaga, Jennifer L. Collinger, An H. Do, Christian Herff, Matthias R. Hohmann, Michelle Kinsella, Kyuhwa Lee, Fabien Lotte, Gernot R Muller-Putz, Anton Nijholt, Elmar Pels, Betts Peters, Felix Putze, Rüdiger Rupp, Gerwin Schalk, Stephanie Scott, Michael Tangermann, Paul A. Tubig, Thorsten O. Zander",
       "venue": "Brain-Computer Interfaces",
       "year": 2019,
       "url": "https://doi.org/10.1080/2326263x.2019.1697163",
@@ -369,9 +373,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.29868283867836,
-        "similarity_score": 0.2715298533439636,
-        "citation_text_length": 1607,
+        "confidence_score": 0.30229980349540714,
+        "similarity_score": 0.2748180031776428,
+        "citation_text_length": 1610,
         "dataset_text_length": 2360,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -541,7 +545,7 @@
     {
       "title": "Protecting Multiple Types of Privacy Simultaneously in EEG-Based Brain-Computer Interfaces",
       "author": "Lubin Meng, Xue Jiang, Tianwang Jia, Dongrui Wu",
-      "venue": "2024 IEEE International Conference on Systems, Man, and Cybernetics (SMC)",
+      "venue": "Conference proceedings/Conference proceedings - IEEE International Conference on Systems, Man, and Cybernetics",
       "year": 2024,
       "url": "https://doi.org/10.1109/smc54092.2024.10832088",
       "cited_by": 4,
@@ -553,9 +557,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.4857053589820862,
-        "similarity_score": 0.42052412033081055,
-        "citation_text_length": 1249,
+        "confidence_score": 0.4872216340899468,
+        "similarity_score": 0.4218369126319885,
+        "citation_text_length": 1286,
         "dataset_text_length": 2360,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -656,7 +660,7 @@
     {
       "title": "A Lower-Limb Exoskeleton Control System based on Brain-Computer Interface with Multiple Motor Imagery Segments Decoding",
       "author": "Zitong Wan, Zheyu Yao, Yuting Zheng, Mengjie Huang, Rui Yang",
-      "venue": "2024 IEEE 18th International Conference on Application of Information and Communication Technologies (AICT)",
+      "venue": "IEEE International Conference on Application of Information and Communication Technologies (AICT)",
       "year": 2024,
       "url": "https://doi.org/10.1109/aict61888.2024.10740430",
       "cited_by": 1,
@@ -668,9 +672,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.35788980424404143,
-        "similarity_score": 0.30986130237579346,
-        "citation_text_length": 1325,
+        "confidence_score": 0.3461946246027947,
+        "similarity_score": 0.2997356057167053,
+        "citation_text_length": 1315,
         "dataset_text_length": 2360,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -679,7 +683,7 @@
     {
       "title": "A Review on Adaptive Classifiers for BCI Classification",
       "author": "Yuqi Su",
-      "venue": "Proceedings of the 2021 International Conference on Bioinformatics and Intelligent Computing",
+      "venue": "International Conference on Bioinformatics and Intelligent Computing (BIC)",
       "year": 2021,
       "url": "https://doi.org/10.1145/3448748.3448797",
       "cited_by": 1,
@@ -691,9 +695,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.42341312885284427,
-        "similarity_score": 0.3665914535522461,
-        "citation_text_length": 1049,
+        "confidence_score": 0.4328941681981087,
+        "similarity_score": 0.3748001456260681,
+        "citation_text_length": 1031,
         "dataset_text_length": 2360,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -701,7 +705,7 @@
     },
     {
       "title": "Self-Calibrating BCIs: Ranking and Recovery of Mental Targets Without Labels",
-      "author": "Jonathan Grizou, Carlos de la Torre-Ortiz, Tuukka Ruotsalo",
+      "author": "Jonathan Grizou, Carlos de la Torre-Ortiz, T. Ruotsalo",
       "venue": "ArXiv",
       "year": 2025,
       "url": "https://doi.org/10.48550/arXiv.2506.11151",
@@ -714,9 +718,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6067128556966783,
-        "similarity_score": 0.5252925157546997,
-        "citation_text_length": 1109,
+        "confidence_score": 0.6076385235786439,
+        "similarity_score": 0.5260939598083496,
+        "citation_text_length": 1105,
         "dataset_text_length": 2360,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1001,14 +1005,14 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T10:51:42.547626+00:00",
+    "scoring_date": "2026-10-11T11:21:57.637717+00:00",
     "dataset_text_length": 2360,
     "num_citations_scored": 39,
     "summary_stats": {
-      "mean_confidence": 0.4698809685921059,
+      "mean_confidence": 0.4698818246370708,
       "median_confidence": 0.49414318040013316,
-      "std_confidence": 0.10800836677951224,
-      "min_confidence": 0.24013906419277192,
+      "std_confidence": 0.1083413937686467,
+      "min_confidence": 0.23632768243551255,
       "max_confidence": 0.6992488709092141,
       "high_confidence_count": 0,
       "medium_confidence_count": 27,

@@ -1,10 +1,10 @@
 {
   "dataset_id": "on004381",
   "num_citations": 5,
-  "date_last_updated": "2026-09-29T11:14:18.759153+00:00",
+  "date_last_updated": "2026-10-11T10:52:43.435323+00:00",
   "metadata": {
-    "total_cumulative_citations": 62,
-    "fetch_date": "2026-09-29T11:14:18.759153+00:00",
+    "total_cumulative_citations": 65,
+    "fetch_date": "2026-10-11T10:52:43.435323+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -19,12 +19,12 @@
         "source_relation": "IsDescribedBy",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Optimization of signal-to-noise ratio in short-duration SEP recordings by variation of stimulation rate",
         "paper_year": 2023,
         "paper_venue": "Clinical Neurophysiology",
         "reason": "The dataset README says it comes from this publication, and the authors, the varied SEP stimulation rates and the medianus/tibial SNR analysis all match.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on004381",
@@ -32,12 +32,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -46,13 +46,14 @@
     ],
     "keywords": [
       "EEG",
-      "somatosensory evoked potentials",
-      "intraoperative monitoring",
+      "Somatosensory Evoked Potentials",
+      "intraoperative neuromonitoring",
       "median nerve stimulation",
       "tibial nerve stimulation",
+      "stimulation rate",
       "signal-to-noise ratio"
     ],
-    "methods_description": "EEG data were recorded continuously during median and tibial nerve stimulation at varying rates. Offline processing included high-pass filtering at 200 Hz, stimulus artifact detection via local peak detection, and sweep definition with post-stimulus recording lengths of 50 ms for median SEP and 100 ms for tibial SEP. Data were resampled to 1200 Hz, and sweeps with amplitude exceeding 10 µV were classified as artifact-ridden and excluded.",
+    "methods_description": "Continuous intraoperative EEG was recorded in parallel to SEP stimulation of the median and tibial nerves (left/right), with one run per stimulation rate. Stimulus artefacts were detected after high-pass filtering at 200 Hz and used as triggers to define sweeps (50 ms for median, 100 ms for tibial SEP). Data were resampled to 1200 Hz, and sweeps with amplitude >10 µV were rejected. Random subsets of sweeps corresponding to recording durations up to 20 s were used to calculate SNR. Data were converted to BIDS with bids-starter-kit and custom Matlab scripts.",
     "funding": [
       {
         "funder_name": "Alexander S. Onassis Public Benefit Foundation Scholarship"
@@ -62,7 +63,8 @@
         "award_number": "204651"
       },
       {
-        "funder_name": "Alexander S. Onassis Public Benefit Foundation"
+        "funder_name": "Alexander S. Onassis Public Benefit Foundation",
+        "award_title": "Scholarship"
       }
     ],
     "searched_accessions": [
@@ -80,7 +82,7 @@
       "venue": "Journal of Clinical Monitoring and Computing",
       "year": 2024,
       "url": "https://doi.org/10.1007/s10877-024-01201-x",
-      "cited_by": 41,
+      "cited_by": 43,
       "abstract": "Somatosensory evoked potentials (SEPs) are used to assess the functional status of somatosensory pathways during surgical procedures and can help protect patients' neurological integrity intraoperatively. This is a position statement on intraoperative SEP monitoring from the American Society of Neurophysiological Monitoring (ASNM) and updates prior ASNM position statements on SEPs from the years 2005 and 2010. This position statement is endorsed by ASNM and serves as an educational service to the neurophysiological community on the recommended use of SEPs as a neurophysiological monitoring tool. It presents the rationale for SEP utilization and its clinical applications. It also covers the relevant anatomy, technical methodology for setup and signal acquisition, signal interpretation, anesthesia and physiological considerations, and documentation and credentialing requirements to optimize SEP monitoring to aid in protecting the nervous system during surgery.",
       "doi": "10.1007/s10877-024-01201-x",
       "pmid": "39068294",
@@ -103,7 +105,7 @@
       "venue": "Clinical Neurophysiology",
       "year": 2023,
       "url": "https://doi.org/10.1016/j.clinph.2023.07.002",
-      "cited_by": 10,
+      "cited_by": 11,
       "abstract": "OBJECTIVE: Epileptic fast ripple oscillations (FR, 250-500 Hz) indicate epileptogenic tissue with high specificity. However, their low amplitude makes detection demanding against noise. Since thermal noise is reduced by low impedance electrodes (LoZ), we investigate here whether this noise reduction is relevant in the FR frequency range. METHODS: We analyzed intracranial electrocorticography during neurosurgery of 10 patients where a low impedance electrode was compared to a standard electrode (HiZ) with equal surface area during stimulation of the somatosensory evoked potential, which evokes a robust response in the FR frequency range. To estimate the noise level, we computed the difference between sweep 2n and sweep 2n + 1 for all sweeps. RESULTS: The power spectral density of the noise spectrum improved for the LoZ over all frequencies. In the FR range, the median noise level improved from HiZ (0.153 µV) to LoZ (0.089 µV). For evoked FR, the detection rate improved (91% for HiZ vs. ",
       "doi": "10.1016/j.clinph.2023.07.002",
       "pmid": "37487419",
@@ -192,7 +194,7 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T12:11:08.354480+00:00",
+    "scoring_date": "2026-10-11T11:32:26.059519+00:00",
     "dataset_text_length": 2377,
     "num_citations_scored": 5,
     "summary_stats": {

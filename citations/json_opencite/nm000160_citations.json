@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000160",
-  "num_citations": 11,
-  "date_last_updated": "2026-10-04T10:04:29.860459+00:00",
+  "num_citations": 10,
+  "date_last_updated": "2026-10-11T10:16:07.991602+00:00",
   "metadata": {
-    "total_cumulative_citations": 10,
-    "fetch_date": "2026-09-29T10:42:50.595514+00:00",
+    "total_cumulative_citations": 11,
+    "fetch_date": "2026-10-11T10:16:07.991602+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -19,12 +19,38 @@
         "source_relation": "IsDerivedFrom",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "A multi-modal dataset of electroencephalography and functional near-infrared spectroscopy recordings for motor imagery of multi-types of joints from unilateral upper limb",
         "paper_year": 2025,
         "paper_venue": "Scientific Data",
         "reason": "The Scientific Data paper reports the EEG/fNIRS dataset from 18 subjects with eight multi-joint upper-limb MI tasks, which matches this dataset's DOI, authors, task and participant count.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
+      },
+      {
+        "identifier": "10.21105/joss.01896",
+        "identifier_type": "doi",
+        "source_relation": "References",
+        "classification": "methodology",
+        "kept": false,
+        "kept_reason": "never_anchor",
+        "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
+        "paper_year": 2019,
+        "paper_venue": "The Journal of Open Source Software",
+        "reason": "MNE-BIDS is a software tool for organizing electrophysiology data into BIDS, used in curation; it does not describe the Yi et al. 2025 multi-joint upper-limb MI dataset.",
+        "judgment_model": "claude-sonnet-5-5"
+      },
+      {
+        "identifier": "10.1038/s41597-019-0104-8",
+        "identifier_type": "doi",
+        "source_relation": "References",
+        "classification": "methodology",
+        "kept": false,
+        "kept_reason": "never_anchor",
+        "paper_title": "EEG-BIDS, an extension to the brain imaging data structure for electroencephalography",
+        "paper_year": 2019,
+        "paper_venue": "Scientific Data",
+        "reason": "EEG-BIDS is a data-organization standard extension to BIDS, used to format this dataset; it does not describe the Yi et al. 2025 multi-joint upper-limb MI recordings.",
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.nm000160",
@@ -32,12 +58,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -47,22 +73,38 @@
     "keywords": [
       "EEG",
       "motor imagery",
-      "brain-computer interfaces",
+      "brain-computer interface",
       "upper limb",
-      "motor rehabilitation",
-      "healthy subjects",
-      "multi-joint"
+      "Rehabilitation",
+      "multi-joint movement"
     ],
-    "methods_description": "EEG data were acquired using a Neuroscan SynAmps2 system with 62 channels arranged in the standard 1005 montage, referenced to the left mastoid (M1), and sampled at 1000 Hz. Participants performed eight classes of motor imagery tasks (hand open/close, wrist flexion/extension, wrist abduction/adduction, elbow pronation/supination, elbow flexion/extension, shoulder pronation/supination, shoulder abduction/adduction, shoulder flexion/extension) in response to visual cues and text instructions. Each session consisted of 8 blocks containing 40 trials (5 trials per class), totaling 320 trials per subject with a 4-second trial duration.",
-    "funding": [],
-    "searched_accessions": [
-      "nm000160"
-    ],
-    "num_accession_mentions": 1,
-    "num_dataset_citations": 1,
-    "num_datapaper_citations": 10
+    "methods_description": "EEG was recorded with a Neuroscan SynAmps2 amplifier at 1000 Hz from 62 channels, referenced to the left mastoid (M1). Participants were cued by video and text and imagined each movement for 4 s. The eight classes were hand open/close, wrist flexion/extension, wrist abduction/adduction, elbow pronation/supination, elbow flexion/extension, shoulder pronation/supination, shoulder abduction/adduction, and shoulder flexion/extension. Each participant completed one session of 8 blocks with 40 trials per block (5 per class).",
+    "funding": []
   },
   "citation_details": [
+    {
+      "title": "SingLEM: Single-Channel Large EEG Model",
+      "author": "Jamiyan Sukhbaatar, S. Imamura, Ibuki Inoue, Shoya Murakami, Kazi Mahmudul Hassan, Seung-Woo Han, Ingon Chanpornpakdi, Toshihisa Tanaka",
+      "venue": "IEEE journal of biomedical and health informatics",
+      "year": 2025,
+      "url": "https://doi.org/10.1109/JBHI.2026.3732223",
+      "cited_by": 4,
+      "abstract": "Current deep learning models for electroencephalography (EEG) are often task-specific and depend on large labeled datasets, limiting their adaptability. Although EEG foundation models seek broader applicability, many still rely on predefined multi-channel inputs, electrode-layout assumptions, or model-specific channel handling. To address these limitations, we introduce the Single-Channel Large EEG Model (SingLEM), a self-supervised foundation model whose hybrid convolutional-Transformer encoder maps each channel independently to a reusable representation capturing local and long-range temporal structure. These representations can be used individually or combined through channel-wise feature concatenation. We assembled 71 public EEG datasets comprising approximately 9,200 subjects and 357,000 single-channel hours. For leakage-controlled evaluation, downstream results were obtained with a model pretrained on 68 datasets after excluding the three source datasets underlying the six tasks.",
+      "doi": "10.1109/JBHI.2026.3732223",
+      "pmid": "42709520",
+      "openalex_id": null,
+      "source_doi": "10.1038/s41597-025-05286-0",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.483497483432293,
+        "similarity_score": 0.418612539768219,
+        "citation_text_length": 1262,
+        "dataset_text_length": 2325,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
     {
       "title": "The application and challenges of brain‐computer interfaces in the medical industry",
       "author": "Qi Chen, Sha Zhao, Wei Wei, Tianyu Zhao, Rui He, Sishu Zhou, Zhenhang Yu",
@@ -81,29 +123,6 @@
         "confidence_score": 0.3347315847873688,
         "similarity_score": 0.2898108959197998,
         "citation_text_length": 1201,
-        "dataset_text_length": 2325,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "SingLEM: Single-Channel Large EEG Model",
-      "author": "Jamiyan Sukhbaatar, S. Imamura, Ibuki Inoue, Shoya Murakami, Kazi Mahmudul Hassan, Seung-Woo Han, Ingon Chanpornpakdi, Toshihisa Tanaka",
-      "venue": "IEEE journal of biomedical and health informatics",
-      "year": 2025,
-      "url": "https://doi.org/10.1109/JBHI.2026.3732223",
-      "cited_by": 3,
-      "abstract": "Current deep learning models for electroencephalography (EEG) are often task-specific and depend on large labeled datasets, limiting their adaptability. Although EEG foundation models seek broader applicability, many still rely on predefined multi-channel inputs, electrode-layout assumptions, or model-specific channel handling. To address these limitations, we introduce the Single-Channel Large EEG Model (SingLEM), a self-supervised foundation model whose hybrid convolutional-Transformer encoder maps each channel independently to a reusable representation capturing local and long-range temporal structure. These representations can be used individually or combined through channel-wise feature concatenation. We assembled 71 public EEG datasets comprising approximately 9,200 subjects and 357,000 single-channel hours. For leakage-controlled evaluation, downstream results were obtained with a model pretrained on 68 datasets after excluding the three source datasets underlying the six tasks.",
-      "doi": "10.1109/JBHI.2026.3732223",
-      "pmid": "42709520",
-      "openalex_id": null,
-      "source_doi": "10.1038/s41597-025-05286-0",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.483497483432293,
-        "similarity_score": 0.418612539768219,
-        "citation_text_length": 1262,
         "dataset_text_length": 2325,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -227,7 +246,7 @@
     {
       "title": "AI-Driven Adaptive Brain-Computer Interfaces for Personalized Neurorehabilitation",
       "author": "Payel Das, Biplab Das",
-      "venue": "n/a",
+      "venue": "IGI Global eBooks",
       "year": 2026,
       "url": "https://doi.org/10.4018/979-8-3373-6816-0.ch001",
       "cited_by": 0,
@@ -239,9 +258,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.31525662302970886,
-        "similarity_score": 0.2729494571685791,
-        "citation_text_length": 1034,
+        "confidence_score": 0.32457980453968055,
+        "similarity_score": 0.28102147579193115,
+        "citation_text_length": 1048,
         "dataset_text_length": 2325,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -273,7 +292,7 @@
     {
       "title": "DTFMformer: A Dual-Bone Dynamic Time-Frequency Masked Transformer-Based Framework for Emotion Recognition from fNIRS Signals",
       "author": "Mengxiang Chu, Xichen Wang, Xingxing Cheng, Jialaing He, Xiaowei He, Jingjing Yu, Hongbo Guo",
-      "venue": "2025 IEEE International Conference on Bioinformatics and Biomedicine (BIBM)",
+      "venue": "IEEE International Conference on Bioinformatics and Biomedicine (BIBM)",
       "year": 2025,
       "url": "https://doi.org/10.1109/bibm66473.2025.11357188",
       "cited_by": 0,
@@ -285,34 +304,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.46482151776552205,
-        "similarity_score": 0.4024428725242615,
-        "citation_text_length": 1330,
-        "dataset_text_length": 2325,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Identification of Neurotransmitter Receptor Genes Under Significantly Relaxed Selective Constraint by Orthologous Gene Comparisons Between Humans and Rodents",
-      "author": "Hisakazu Iwama, Takashi Gojobori",
-      "venue": "Molecular Biology and Evolution",
-      "year": 2002,
-      "url": "https://doi.org/10.1093/oxfordjournals.molbev.a004013",
-      "cited_by": 23,
-      "abstract": "Neurotransmitter receptors (neuroreceptors) are classified into two types, G protein-coupled receptors (GPCRs) and ligand-gated ion channels. The former occupies a small part of the large GPCR superfamily, whereas the latter consists of three superfamilies. In these superfamilies, humans and rodents share almost the same set of neuroreceptor genes. This neuroreceptor gene set is good material to examine the degree of selective constraint exerted on each member gene of a given superfamily. If there are any neuroreceptor genes under the degree of selective constraint that is very different from that of the other member genes, they may have influenced the functional features characteristic of human neural activities. With the aim of identifying such neuroreceptor genes, we collected sequence data of orthologous neuroreceptor genes for humans, mice, and rats by database searches. This data set included ortholog pairs for 141 kinds of neuroreceptor genes, which covered almost the whole set of neuroreceptor genes known to be expressed in the human brain. The degree of selective constraint was estimated by computing the ratio (d(N)/d(S)) of the number of nonsynonymous substitutions to that of synonymous substitutions. We found that the d(N)/d(S) ratio ranged widely and its distribution fitted a gamma distribution. In particular, we found that four neuroreceptor genes are under the significantly relaxed selective constraint. They are an ionotropic glutamate receptor subunit NMDA-2C, two GABA(A) receptor subunits, i.e., GABA(A)-epsilon and GABA(A)-theta, and a dopamine receptor D4. Interestingly, these neuroreceptors have been reported to be associated with cognitive abilities such as memory and learning, and responsiveness to novel stimuli. These cognitive abilities can influence the behavioral features of an individual. Thus, it suggests that the relaxed-constraint neuroreceptor genes have evolved, assuring that the nervous system responds to a variety of stimuli with proper flexibility.",
-      "doi": "10.1093/oxfordjournals.molbev.a004013",
-      "pmid": "12411598",
-      "openalex_id": "W2006789032",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "nm000160",
-      "confidence_scoring": {
-        "confidence_score": 0.2913736402988434,
-        "similarity_score": 0.2648851275444031,
-        "citation_text_length": 1759,
+        "confidence_score": 0.45595731496810915,
+        "similarity_score": 0.39476823806762695,
+        "citation_text_length": 1325,
         "dataset_text_length": 2325,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -321,18 +315,18 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-10-04T10:07:41.368476+00:00",
+    "scoring_date": "2026-10-11T11:20:28.155813+00:00",
     "dataset_text_length": 2325,
-    "num_citations_scored": 11,
+    "num_citations_scored": 10,
     "summary_stats": {
-      "mean_confidence": 0.45702870328317996,
-      "median_confidence": 0.4400263407826424,
-      "std_confidence": 0.14576384261632297,
-      "min_confidence": 0.2913736402988434,
+      "mean_confidence": 0.4736401074528695,
+      "median_confidence": 0.4479918278753758,
+      "std_confidence": 0.1417395133807578,
+      "min_confidence": 0.32457980453968055,
       "max_confidence": 0.8035666018724443,
       "high_confidence_count": 1,
       "medium_confidence_count": 5,
-      "low_confidence_count": 5
+      "low_confidence_count": 4
     }
   }
 }

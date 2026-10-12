@@ -1,10 +1,10 @@
 {
   "dataset_id": "on004706",
-  "num_citations": 5,
-  "date_last_updated": "2026-09-30T10:46:25.703962+00:00",
+  "num_citations": 6,
+  "date_last_updated": "2026-10-11T10:56:50.240363+00:00",
   "metadata": {
     "total_cumulative_citations": 23,
-    "fetch_date": "2026-09-29T11:18:50.859203+00:00",
+    "fetch_date": "2026-10-11T10:56:50.240363+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -19,12 +19,12 @@
         "source_relation": "IsDescribedBy",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Neural correlates of memory in a naturalistic spatiotemporal context",
         "paper_year": 2022,
         "paper_venue": "bioRxiv (Cold Spring Harbor Laboratory)",
         "reason": "Same lab (Kahana), authors overlap, and the paper reports the courier spatial-navigation and free-recall EEG task in this dataset (2021-2022 scalp EEG); DataCite marks it IsDescribedBy.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on004706",
@@ -32,12 +32,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -45,29 +45,22 @@
       "10.82901/nemar.on004706"
     ],
     "keywords": [
-      "Spatial Memory",
-      "episodic memory",
+      "EEG",
+      "spatial memory",
+      "free recall",
       "closed-loop stimulation",
-      "neural decoding",
-      "memory encoding",
-      "Electrophysiology",
-      "virtual reality"
+      "virtual navigation",
+      "episodic memory",
+      "Memory"
     ],
-    "methods_description": "The experiment employed a hybrid spatial-navigation and free recall paradigm in which subjects delivered items to stores in a virtual town and subsequently recalled their deliveries. Read-only sessions collected training data without classifier-based timing manipulation. Closed-loop sessions used classifier models to predict recall performance and timed stimulus presentation to coincide with predicted good or bad memory encoding states.",
+    "methods_description": "Participants performed a virtual-town courier task followed by free recall of delivered items. Read-only sessions generated training data for classifiers. In closed-loop sessions, classifiers predicted recall success and stimulus presentation was timed to coincide with predicted good or poor memory encoding.",
     "funding": [
       {
         "funder_name": "U.S. Army Medical Research and Development Command",
         "award_number": "MTEC-20-06-MOM-013",
         "award_title": "Restoring memory with task-independent semi-chronic closed-loop direct brain stimulation and non-invasive closed-loop stimulus timing optimization"
       }
-    ],
-    "searched_accessions": [
-      "on004706",
-      "ds004706"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 1,
-    "num_datapaper_citations": 4
+    ]
   },
   "citation_details": [
     {
@@ -95,28 +88,26 @@
     },
     {
       "title": "Decoding EEG for optimizing naturalistic memory",
-      "author": "Joseph H. Rudoler, James P Bruska, Woohyeuk Chang, Matthew R. Dougherty, B.S. Katerman, David J. Halpern, Nicholas B. Diamond, Michael J. Kahana",
-      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+      "author": "Joseph H. Rudoler, James P Bruska, Woohyeuk Chang, Matthew R. Dougherty, Brandon S Katerman, David J. Halpern, Nicholas B. Diamond, Michael J. Kahana",
+      "venue": "Journal of Neuroscience Methods",
       "year": 2023,
-      "url": "https://doi.org/10.1101/2023.08.25.553563",
+      "url": "https://doi.org/10.1016/j.jneumeth.2024.110220",
       "cited_by": 4,
-      "abstract": "Abstract Background Spectral features of human electroencephalographic (EEG) recordings during learning predict subsequent recall variability. New method Capitalizing on these fluctuating neural features, we develop a non-invasive closed-loop (NICL) system for real-time optimization of human learning. Participants play a virtual navigation and memory game; recording multi-session data across days allowed us to build participant-specific classification models of recall success. In subsequent closed-loop sessions, our platform manipulated the timing of memory encoding, selectively presenting items during periods of predicted good or poor memory function based on EEG features decoded in real time. Results We observed greater memory modulation (difference between recall rates when presenting items during predicted good vs. poor learning periods) for participants with higher out-of-sample classification accuracy. Comparison with Existing Methods This study demonstrates greater-than-chance m",
-      "doi": "10.1101/2023.08.25.553563",
+      "abstract": "Background Spectral features of human electroencephalographic (EEG) recordings during learning predict subsequent recall variability. New method Capitalizing on these fluctuating neural features, we develop a non-invasive closed-loop (NICL) system for real-time optimization of human learning. Participants play a virtual navigation and memory game; recording multi-session data across days allowed us to build participant-specific classification models of recall success. In subsequent closed-loop sessions, our platform manipulated the timing of memory encoding, selectively presenting items during periods of predicted good or poor memory function based on EEG features decoded in real time. Results We observed greater memory modulation (difference between recall rates when presenting items during predicted good vs. poor learning periods) for participants with higher out-of-sample classification accuracy. Comparison with Existing Methods This study demonstrates greater-than-chance memory dec",
+      "doi": "10.1016/j.jneumeth.2024.110220",
       "pmid": "39033965",
-      "openalex_id": "W4386221808",
+      "openalex_id": "W4400859209",
       "source_doi": "10.1101/2022.11.30.518606",
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.8108159458637239,
-        "similarity_score": 0.70200514793396,
-        "citation_text_length": 1269,
+        "confidence_score": 0.8122892627120019,
+        "similarity_score": 0.7032807469367981,
+        "citation_text_length": 1266,
         "dataset_text_length": 2384,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      },
-      "mentions_accession": true,
-      "matched_accession": "ds004706"
+      }
     },
     {
       "title": "Dissociable Spectral Components of Episodic Memory",
@@ -142,22 +133,45 @@
       }
     },
     {
-      "title": "Specialized Recall Procedures",
-      "author": "Michael J. Kahana, Sean Matthew Polyn, Lynn J. Lohnas",
-      "venue": "Psychonomic Bulletin & Review",
-      "year": 2024,
-      "url": "https://doi.org/10.31234/osf.io/dkcq3",
+      "title": "Brain Networks and Non-invasive Brain Stimulation in Alzheimer’s Disease: From Mechanistic Insights to Clinical Applications",
+      "author": "Jie Ma, Juanjuan Lu, Qi-Hao Guo, Xu‐Yun Hua, Jian‐Guang Xu",
+      "venue": "IntechOpen eBooks",
+      "year": 2026,
+      "url": "https://doi.org/10.5772/intechopen.1014748",
       "cited_by": 0,
-      "abstract": "Studies of memory search using the free recall paradigm have advanced our understanding of human memory for more than a century. Here, we review seven specialized recall procedures that depart from methodological orthodoxy: the inter-list repetition procedure, the list-before-last procedure, the recall-by-category procedure, the final-free recall procedure, the overt-rehearsal procedure, the externalized recall procedure, and the spatial-temporal recall procedure. Key empirical findings from each of these procedures have challenged existing theories and led to theoretical advances.",
-      "doi": "10.31234/osf.io/dkcq3",
-      "pmid": "41703391",
-      "openalex_id": "W4394757840",
+      "abstract": "Alzheimer’s disease (AD) is a continuously progressing clinical and biological spectrum, in which synaptic dysfunction and the resulting brain network abnormalities serve as core mechanisms underlying the transition from subjective cognitive decline (SCD) and mild cognitive impairment (MCI) to dementia. This chapter is organized into three sections. The first section provides an overview of brain network alterations across the different stages of AD, including both resting-state and task-related networks. The second section introduces methods for assessing brain network function, such as multimodal neuroimaging and EEG. The third section focuses on non-invasive brain stimulation techniques for AD, including transcranial magnetic stimulation (TMS) and transcranial alternating current stimulation (tACS), which aim to restore cognitive function by modulating brain network activity.",
+      "doi": "10.5772/intechopen.1014748",
+      "pmid": null,
+      "openalex_id": "W7133527692",
       "source_doi": "10.1101/2022.11.30.518606",
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.562717229872942,
-        "similarity_score": 0.487201064825058,
+        "confidence_score": 0.4701989762485028,
+        "similarity_score": 0.4070986807346344,
+        "citation_text_length": 1129,
+        "dataset_text_length": 2384,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Specialized recall procedures",
+      "author": "Lynn J. Lohnas, Sean Matthew Polyn, Michael J. Kahana",
+      "venue": "Psychonomic Bulletin & Review",
+      "year": 2026,
+      "url": "https://doi.org/10.3758/s13423-025-02744-z",
+      "cited_by": 0,
+      "abstract": "Studies of memory search using the free recall paradigm have advanced our understanding of human memory for more than a century. Here, we review seven specialized recall procedures that depart from methodological orthodoxy: the inter-list repetition procedure, the list-before-last procedure, the recall-by-category procedure, the final-free recall procedure, the overt-rehearsal procedure, the externalized recall procedure, and the spatial-temporal recall procedure. Key empirical findings from each of these procedures have challenged existing theories and led to theoretical advances.",
+      "doi": "10.3758/s13423-025-02744-z",
+      "pmid": "41703391",
+      "openalex_id": "W7129488758",
+      "source_doi": "10.1101/2022.11.30.518606",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5560318163037301,
+        "similarity_score": 0.4814128279685974,
         "citation_text_length": 738,
         "dataset_text_length": 2384,
         "scoring_method": "sentence_transformers",
@@ -190,17 +204,17 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-29T12:13:30.036255+00:00",
+    "scoring_date": "2026-10-11T11:34:03.242884+00:00",
     "dataset_text_length": 2384,
-    "num_citations_scored": 5,
+    "num_citations_scored": 6,
     "summary_stats": {
-      "mean_confidence": 0.6066834675669671,
-      "median_confidence": 0.562717229872942,
-      "std_confidence": 0.1072405915240546,
-      "min_confidence": 0.49946457147598267,
-      "max_confidence": 0.8108159458637239,
+      "mean_confidence": 0.5830673695604007,
+      "median_confidence": 0.5569291723519565,
+      "std_confidence": 0.11107103750351419,
+      "min_confidence": 0.4701989762485028,
+      "max_confidence": 0.8122892627120019,
       "high_confidence_count": 1,
-      "medium_confidence_count": 4,
+      "medium_confidence_count": 5,
       "low_confidence_count": 0
     }
   }

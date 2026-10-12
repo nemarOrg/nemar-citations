@@ -1,10 +1,10 @@
 {
   "dataset_id": "on005811",
   "num_citations": 7,
-  "date_last_updated": "2026-10-01T10:02:27.917931+00:00",
+  "date_last_updated": "2026-10-11T11:06:20.764437+00:00",
   "metadata": {
-    "total_cumulative_citations": 10,
-    "fetch_date": "2026-09-29T11:30:06.642095+00:00",
+    "total_cumulative_citations": 9,
+    "fetch_date": "2026-10-11T11:06:20.764437+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -19,12 +19,12 @@
         "source_relation": "IsDescribedBy",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "A large-scale MEG and EEG dataset for object recognition in naturalistic scenes",
         "paper_year": 2025,
         "paper_venue": "Scientific Data",
         "reason": "Scientific Data paper by the same authors describes the NOD MEG and EEG dataset; the README text closely matches the abstract, so it is this dataset's data descriptor.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.21105/joss.01896",
@@ -32,12 +32,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
         "paper_year": 2019,
         "paper_venue": "The Journal of Open Source Software",
         "reason": "MNE-BIDS is a software tool for organizing electrophysiological data into BIDS, used for dataset curation, not a paper describing the NOD-EEG dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on005811",
@@ -45,12 +45,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -58,14 +58,14 @@
       "10.82901/nemar.on005811"
     ],
     "keywords": [
-      "Electroencephalography",
       "EEG",
       "object recognition",
       "naturalistic stimuli",
-      "visual cognition",
-      "multimodal neuroimaging"
+      "visual perception",
+      "ImageNet",
+      "Electroencephalography"
     ],
-    "methods_description": "EEG data were collected from subjects viewing naturalistic ImageNet stimuli identical to those used in the MEG and fMRI (NOD-fMRI) components of the dataset. Raw data are organized in BIDS format with subject and session directories; preprocessing was performed using MNE, producing cleaned continuous time series (.fif files) and concatenated epoch data per subject, with trial metadata including session, run, stimulus category, and subject responses documented in event CSV files.",
+    "methods_description": "EEG was recorded from subjects viewing ImageNet naturalistic images across multiple sessions and runs. Raw data are organized in BIDS format using MNE-BIDS. Preprocessed continuous and epoched data are provided as MNE .fif files, with trial metadata linked to per-subject event tables.",
     "funding": [
       {
         "funder_name": "Beijing Natural Science Foundation",
@@ -83,16 +83,32 @@
         "funder_name": "STI 2030-Major Projects of the Ministry of Science and Technology of China",
         "award_number": "2021ZD0200407"
       }
-    ],
-    "searched_accessions": [
-      "on005811",
-      "ds005811"
-    ],
-    "num_accession_mentions": 1,
-    "num_dataset_citations": 1,
-    "num_datapaper_citations": 6
+    ]
   },
   "citation_details": [
+    {
+      "title": "SingLEM: Single-Channel Large EEG Model",
+      "author": "Jamiyan Sukhbaatar, S. Imamura, Ibuki Inoue, Shoya Murakami, Kazi Mahmudul Hassan, Seung-Woo Han, Ingon Chanpornpakdi, Toshihisa Tanaka",
+      "venue": "IEEE journal of biomedical and health informatics",
+      "year": 2025,
+      "url": "https://doi.org/10.1109/JBHI.2026.3732223",
+      "cited_by": 4,
+      "abstract": "Current deep learning models for electroencephalography (EEG) are often task-specific and depend on large labeled datasets, limiting their adaptability. Although EEG foundation models seek broader applicability, many still rely on predefined multi-channel inputs, electrode-layout assumptions, or model-specific channel handling. To address these limitations, we introduce the Single-Channel Large EEG Model (SingLEM), a self-supervised foundation model whose hybrid convolutional-Transformer encoder maps each channel independently to a reusable representation capturing local and long-range temporal structure. These representations can be used individually or combined through channel-wise feature concatenation. We assembled 71 public EEG datasets comprising approximately 9,200 subjects and 357,000 single-channel hours. For leakage-controlled evaluation, downstream results were obtained with a model pretrained on 68 datasets after excluding the three source datasets underlying the six tasks.",
+      "doi": "10.1109/JBHI.2026.3732223",
+      "pmid": "42709520",
+      "openalex_id": null,
+      "source_doi": "10.1038/s41597-025-05174-7",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5391824716329575,
+        "similarity_score": 0.46682465076446533,
+        "citation_text_length": 1262,
+        "dataset_text_length": 2203,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
     {
       "title": "Progressive transfer learning Unifies Multi-Corpus EEG for robust and scalable Imagined-Speech decoding",
       "author": "Hatem T.M. Duhair, Masrullizam bin Mat Ibrahim, Jamil Abedalrahim Jamil Alsayaydeh, Rex Bacarra, Ahmed Hussein Ahmed",
@@ -111,29 +127,6 @@
         "confidence_score": 0.4784578393399716,
         "similarity_score": 0.4142492115497589,
         "citation_text_length": 1298,
-        "dataset_text_length": 2203,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "SingLEM: Single-Channel Large EEG Model",
-      "author": "Jamiyan Sukhbaatar, S. Imamura, Ibuki Inoue, Shoya Murakami, Kazi Mahmudul Hassan, Seung-Woo Han, Ingon Chanpornpakdi, Toshihisa Tanaka",
-      "venue": "IEEE journal of biomedical and health informatics",
-      "year": 2025,
-      "url": "https://doi.org/10.1109/JBHI.2026.3732223",
-      "cited_by": 3,
-      "abstract": "Current deep learning models for electroencephalography (EEG) are often task-specific and depend on large labeled datasets, limiting their adaptability. Although EEG foundation models seek broader applicability, many still rely on predefined multi-channel inputs, electrode-layout assumptions, or model-specific channel handling. To address these limitations, we introduce the Single-Channel Large EEG Model (SingLEM), a self-supervised foundation model whose hybrid convolutional-Transformer encoder maps each channel independently to a reusable representation capturing local and long-range temporal structure. These representations can be used individually or combined through channel-wise feature concatenation. We assembled 71 public EEG datasets comprising approximately 9,200 subjects and 357,000 single-channel hours. For leakage-controlled evaluation, downstream results were obtained with a model pretrained on 68 datasets after excluding the three source datasets underlying the six tasks.",
-      "doi": "10.1109/JBHI.2026.3732223",
-      "pmid": "42709520",
-      "openalex_id": null,
-      "source_doi": "10.1038/s41597-025-05174-7",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5391824716329575,
-        "similarity_score": 0.46682465076446533,
-        "citation_text_length": 1262,
         "dataset_text_length": 2203,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -186,8 +179,31 @@
       }
     },
     {
+      "title": "Individual Differences in Neural Decoding Are Stable but Instrument Dependent",
+      "author": "Mohammed Amin Miri, Sara Bonyadian, Rachid Hedjam, Russell Butler",
+      "venue": "bioRxiv",
+      "year": 2026,
+      "url": "https://doi.org/10.64898/2026.09.22.753545",
+      "cited_by": 0,
+      "abstract": "Some participants are consistently easier to decode than others. We asked whether this difference belongs to the person or to the conditions under which the brain is measured. We compared visual decoding in EEG, MEG, intracranial EEG and fMRI, testing classifiers on runs and stimulus identities excluded from training. Within-instrument decoding was reproducible. Attention, behavior and peripheral signals affected recording quality but did not explain most of the stable differences between participants. Anatomy provided one explanation. Source-to-sensor distance strongly predicted modeled signal gain, and its effect was steepest in planar gradiometers. Intracranial recordings provided another: participants with sharper local category selectivity were easier to decode. This association chiefly reflected a smaller response to the nonpreferred category relative to overall visual responsivity. Cross-site prediction was uneven. EEG and MEG expressed the preferred and nonpreferred responses d",
+      "doi": "10.64898/2026.09.22.753545",
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.1038/s41597-025-05174-7",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5482630491256714,
+        "similarity_score": 0.4746866226196289,
+        "citation_text_length": 1188,
+        "dataset_text_length": 2203,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "A large-scale fMRI dataset for vision-language semantic association",
-      "author": "Shurui Li, Zheyu Jin, Shi Gu, Ru-Yuan Zhang, Yuanning Li",
+      "author": "Shurui Li, Zheyu Jin, Shi Gu, Ru-Yuan Zhang, Yuan-Ning Li",
       "venue": "Scientific Data",
       "year": 2026,
       "url": "https://doi.org/10.1038/s41597-026-07248-6",
@@ -200,9 +216,9 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6185252755880356,
-        "similarity_score": 0.5355197191238403,
-        "citation_text_length": 1177,
+        "confidence_score": 0.6164091682434083,
+        "similarity_score": 0.5336875915527344,
+        "citation_text_length": 1178,
         "dataset_text_length": 2203,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -210,7 +226,7 @@
     },
     {
       "title": "Multi-Modal EEG Datasets and Benchmarks for EEG-Based Neural Decoding Research",
-      "author": "Szu-Chi Chiu, Zhige Chen, Ji-Bin Wu, Kay Chen Tan",
+      "author": "Szu-Chi Chiu, Zhi-Ge Chen, Ji-Bin Wu, Kay Chen Tan",
       "venue": "2025 21st International Conference on Computational Intelligence and Security (CIS)",
       "year": 2025,
       "url": "https://doi.org/10.1109/CIS69366.2025.11433934",
@@ -223,34 +239,9 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6956582763791085,
-        "similarity_score": 0.6023015379905701,
-        "citation_text_length": 1249,
-        "dataset_text_length": 2203,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "A large-scale MEG and EEG dataset for object recognition in naturalistic scenes",
-      "author": "Guohao Zhang, Ming Zhou, Shuyi Zhen, Shaohua Tang, Zheng Li, Zonglei Zhen",
-      "venue": "Scientific Data",
-      "year": 2025,
-      "url": "https://doi.org/10.1038/s41597-025-05174-7",
-      "cited_by": 2,
-      "abstract": "Neuroimaging with large-scale naturalistic stimuli is increasingly employed to elucidate neural mechanisms of object recognition in natural scenes. However, most existing large-scale neuroimaging datasets with naturalistic stimuli primarily rely on functional magnetic resonance imaging (fMRI), which provides high spatial resolution but is limited in capturing the temporal dynamics. To address this limitation, we extended our Natural Object Dataset-fMRI (NOD-fMRI) by collecting both magnetoencephalography (MEG) and electroencephalography (EEG) data from the same participants while viewing the same naturalistic stimuli. As a result, NOD contains fMRI, MEG, and EEG responses to 57,000 naturalistic images from 30 participants. This enables the examination of brain activity elicited by naturalistic stimuli with both high spatial resolution (via fMRI) and high temporal resolution (via MEG and EEG). Furthermore, the multimodal nature of NOD allows researchers to combine datasets from different modalities to achieve a more comprehensive view of object processing. We believe that the NOD dataset will serve as a valuable resource for advancing our understanding of the cognitive and neural mechanisms underlying object recognition.",
-      "doi": "10.1038/s41597-025-05174-7",
-      "pmid": "40410207",
-      "openalex_id": "W4410631980",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds005811",
-      "confidence_scoring": {
-        "confidence_score": 1.0,
-        "similarity_score": 0.9340083599090576,
-        "citation_text_length": 1445,
+        "confidence_score": 0.6966530629992486,
+        "similarity_score": 0.6031628251075745,
+        "citation_text_length": 1250,
         "dataset_text_length": 2203,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -259,17 +250,17 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-10-01T10:04:38.619086+00:00",
+    "scoring_date": "2026-10-11T11:38:18.792660+00:00",
     "dataset_text_length": 2203,
     "num_citations_scored": 7,
     "summary_stats": {
-      "mean_confidence": 0.5381802857135024,
+      "mean_confidence": 0.4734862469136716,
       "median_confidence": 0.5391824716329575,
-      "std_confidence": 0.2548101377777287,
+      "std_confidence": 0.17402921408339178,
       "min_confidence": 0.19528246521949771,
-      "max_confidence": 1.0,
-      "high_confidence_count": 1,
-      "medium_confidence_count": 4,
+      "max_confidence": 0.6966530629992486,
+      "high_confidence_count": 0,
+      "medium_confidence_count": 5,
       "low_confidence_count": 2
     }
   }

@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000166",
-  "num_citations": 38,
-  "date_last_updated": "2026-09-30T10:44:25.004231+00:00",
+  "num_citations": 40,
+  "date_last_updated": "2026-10-11T10:16:30.537169+00:00",
   "metadata": {
-    "total_cumulative_citations": 227,
-    "fetch_date": "2026-09-29T10:43:18.515159+00:00",
+    "total_cumulative_citations": 237,
+    "fetch_date": "2026-10-11T10:16:30.537169+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -19,12 +19,12 @@
         "source_relation": "IsDerivedFrom",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "M3CV: A multi-subject, multi-session, and multi-task database for EEG-based biometrics challenge",
         "paper_year": 2022,
         "paper_venue": "NeuroImage",
         "reason": "The M3CV NeuroImage paper by the same authors is the original paper describing this multi-subject, multi-session, multi-task EEG database, matching the dataset's title and authors.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.21105/joss.01896",
@@ -32,12 +32,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
         "paper_year": 2019,
         "paper_venue": "The Journal of Open Source Software",
         "reason": "MNE-BIDS is a software tool for organizing electrophysiology data into BIDS, used to build this BIDS version; it does not describe the M3CV dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1038/s41597-019-0104-8",
@@ -45,12 +45,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "EEG-BIDS, an extension to the brain imaging data structure for electroencephalography",
         "paper_year": 2019,
         "paper_venue": "Scientific Data",
         "reason": "EEG-BIDS is a specification/standard extension for organizing EEG data in BIDS, used to format this dataset, not a paper describing the M3CV data.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.nm000166",
@@ -58,12 +58,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -72,14 +72,14 @@
     ],
     "keywords": [
       "EEG",
-      "brain-computer interfaces",
-      "biometric identification",
-      "motor imagery",
-      "steady-state evoked potentials",
+      "biometrics",
+      "multi-session",
+      "SSVEP",
       "P300",
+      "motor execution",
       "resting state"
     ],
-    "methods_description": "EEG was recorded at 1000 Hz using a 64-channel BrainAmp amplifier with Easycap (10-20 positions), referenced to FCz online and re-referenced to linked mastoids offline. Preprocessing included manual bad channel interpolation, bandpass filtering (0.01-200 Hz), notch filtering (49-51 Hz), ICA-based artifact removal, and downsampling to 250 Hz. Subjects performed 6 paradigms with 15 runs per session (~50 minutes recording per session) including eyes-closed/open resting, motor execution (hand/foot), transient sensory stimulation (visual/auditory/somatosensory evoked potentials), SSVEP variants, and P300 oddball tasks.",
+    "methods_description": "EEG was recorded with a BrainAmp amplifier and a 64-channel Easycap (10-20 layout) at 1000 Hz, with FCz as online reference. Visual, auditory and vibrotactile stimuli were delivered with Psychtoolbox-3 and Arduino. Data were preprocessed in Matlab/Letswave7: bad-channel interpolation, 0.01-200 Hz bandpass, 50 Hz notch, linked-mastoid re-referencing, ICA removal of ocular artifacts, and downsampling to 250 Hz. The result was distributed as 4-second epochs, which were concatenated per subject, session and task for this BIDS version.",
     "funding": [
       {
         "funder_name": "National Natural Science Foundation of China",
@@ -117,13 +117,7 @@
         "funder_name": "Shenzhen Special Project for Sustainable Development",
         "award_number": "KCXFZ20201221173400001"
       }
-    ],
-    "searched_accessions": [
-      "nm000166"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 38
+    ]
   },
   "citation_details": [
     {
@@ -132,7 +126,7 @@
       "venue": "Frontiers in Neuroscience",
       "year": 2023,
       "url": "https://doi.org/10.3389/fnins.2023.1122661",
-      "cited_by": 72,
+      "cited_by": 73,
       "abstract": "Introduction: Inter- and intra-subject variability are caused by the variability of the psychological and neurophysiological factors over time and across subjects. In the application of in Brain-Computer Interfaces (BCI), the existence of inter- and intra-subject variability reduced the generalization ability of machine learning models seriously, which further limited the use of BCI in real life. Although many transfer learning methods can compensate for the inter- and intra-subject variability to some extent, there is still a lack of clear understanding about the change of feature distribution between the cross-subject and cross-session electroencephalography (EEG) signal. Methods: To investigate this issue, an online platform for motor-imagery BCI decoding has been built in this work. The EEG signal from both the multi-subject (Exp1) and multi-session (Exp2) experiments has been analyzed from multiple perspectives. Results: Firstly we found that with the similar variability of classi",
       "doi": "10.3389/fnins.2023.1122661",
       "pmid": "36860620",
@@ -174,7 +168,7 @@
     },
     {
       "title": "EEG‐based biometric authentication system using convolutional neural network for military applications",
-      "author": "Himanshu Vadher, Pal Patel, Anuja R. Nair, Tarjni Vyas, Shivani R Desai, Lata Gohil, Sudeep Tanwar, Deepak Garg, Anupam Pratap Singh",
+      "author": "Himanshu Vadher, Pal Patel, Anuja R. Nair, Tarjni Vyas, Shivani Desai, Lata Gohil, Sudeep Tanwar, Deepak Garg, Anupam Pratap Singh",
       "venue": "Security and Privacy",
       "year": 2023,
       "url": "https://doi.org/10.1002/spy2.345",
@@ -187,9 +181,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.631265704035759,
-        "similarity_score": 0.5465503931045532,
-        "citation_text_length": 1293,
+        "confidence_score": 0.6302806243300438,
+        "similarity_score": 0.5456975102424622,
+        "citation_text_length": 1291,
         "dataset_text_length": 2337,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -219,6 +213,29 @@
       }
     },
     {
+      "title": "EEG-Based Biometric Identification and Emotion Recognition: An Overview",
+      "author": "Miguel A. Becerra, C. Duque-Mejía, Andrés Eduardo Castro-Ospina, Leonardo Serna-Guarín, Cristian Mejía, Eduardo Alexander Duque Grisales",
+      "venue": "Computers",
+      "year": 2025,
+      "url": "https://doi.org/10.3390/computers14080299",
+      "cited_by": 14,
+      "abstract": "This overview examines recent advancements in EEG-based biometric identification, focusing on integrating emotional recognition to enhance the robustness and accuracy of biometric systems. By leveraging the unique physiological properties of EEG signals, biometric systems can identify individuals based on neural responses. The overview discusses the influence of emotional states on EEG signals and the consequent impact on biometric reliability. It also evaluates recent emotion recognition techniques, including machine learning methods such as support vector machines (SVMs), convolutional neural networks (CNNs), and long short-term memory networks (LSTMs). Additionally, the role of multimodal EEG datasets in enhancing emotion recognition accuracy is explored. Findings from key studies are synthesized to highlight the potential of EEG for secure, adaptive biometric systems that account for emotional variability. This overview emphasizes the need for future research on resilient biometric",
+      "doi": "10.3390/computers14080299",
+      "pmid": null,
+      "openalex_id": "W4412616649",
+      "source_doi": "10.1016/j.neuroimage.2022.119666",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.4885268354415894,
+        "similarity_score": 0.42296695709228516,
+        "citation_text_length": 1255,
+        "dataset_text_length": 2337,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Review of deep representation learning techniques for brain–computer interfaces",
       "author": "Pierre Guetschel, Sara Ahmadi, Michael Tangermann",
       "venue": "Journal of Neural Engineering",
@@ -236,29 +253,6 @@
         "confidence_score": 0.5146443557739259,
         "similarity_score": 0.44557952880859375,
         "citation_text_length": 1196,
-        "dataset_text_length": 2337,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "EEG-Based Biometric Identification and Emotion Recognition: An Overview",
-      "author": "Miguel A. Becerra, C. Duque-Mejía, Andrés Eduardo Castro-Ospina, Leonardo Serna-Guarín, Cristian Mejía, Eduardo Alexander Duque Grisales",
-      "venue": "Computers",
-      "year": 2025,
-      "url": "https://doi.org/10.3390/computers14080299",
-      "cited_by": 10,
-      "abstract": "This overview examines recent advancements in EEG-based biometric identification, focusing on integrating emotional recognition to enhance the robustness and accuracy of biometric systems. By leveraging the unique physiological properties of EEG signals, biometric systems can identify individuals based on neural responses. The overview discusses the influence of emotional states on EEG signals and the consequent impact on biometric reliability. It also evaluates recent emotion recognition techniques, including machine learning methods such as support vector machines (SVMs), convolutional neural networks (CNNs), and long short-term memory networks (LSTMs). Additionally, the role of multimodal EEG datasets in enhancing emotion recognition accuracy is explored. Findings from key studies are synthesized to highlight the potential of EEG for secure, adaptive biometric systems that account for emotional variability. This overview emphasizes the need for future research on resilient biometric",
-      "doi": "10.3390/computers14080299",
-      "pmid": null,
-      "openalex_id": "W4412616649",
-      "source_doi": "10.1016/j.neuroimage.2022.119666",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.4885268354415894,
-        "similarity_score": 0.42296695709228516,
-        "citation_text_length": 1255,
         "dataset_text_length": 2337,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -335,7 +329,7 @@
     },
     {
       "title": "From conventional brain–computer interfaces to gen-AI–powered systems for advancing construction safety management",
-      "author": "Ah Khoon Hwee, Tan Hui, Liu Qing-hua, Jiao Wang",
+      "author": "Ah Khoon Hwee, Tan Kah Hui, Liu Qing-hua, Jiao Wang",
       "venue": "Automation in Construction",
       "year": 2025,
       "url": "https://doi.org/10.1016/j.autcon.2025.106708",
@@ -348,9 +342,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.3308092027902603,
-        "similarity_score": 0.31505638360977173,
-        "citation_text_length": 214,
+        "confidence_score": 0.3357090353965759,
+        "similarity_score": 0.31972289085388184,
+        "citation_text_length": 218,
         "dataset_text_length": 2337,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -403,6 +397,29 @@
       }
     },
     {
+      "title": "Differences in EEG Event-Related Potentials during Dual Task in Parkinson’s Disease Carriers and Non-Carriers of the G2019S-LRRK2 Mutation",
+      "author": "Eden Shkury, Shani Danziger-Schragenheim, Zoya Katzir, Yael Ezra, Nir Giladi, Anat Mirelman, Inbal Maidan",
+      "venue": "Sensors",
+      "year": 2023,
+      "url": "https://doi.org/10.3390/s23198266",
+      "cited_by": 4,
+      "abstract": "Background: The G2019S-LRRK2 gene mutation is a common cause of hereditary Parkinson’s disease (PD), associated with a higher frequency of the postural instability gait difficulty (PIGD) motor phenotype yet with preserved cognition. This study investigated neurophysiological changes during motor and cognitive tasks in PD patients with and without the G2019S-LRRK2 mutation. Methods: 33 iPD patients and 22 LRRK2-PD patients performed the visual Go/NoGo task (VGNG) during sitting (single-task) and walking (dual-task) while wearing a 64-channel EEG cap. Event-related potentials (ERP) from Fz and Pz, specifically N200 and P300, were extracted and analyzed to quantify brain activity patterns. Results: The LRRK2-PD group performed better in the VGNG than the iPD group (group*task; p = 0.05). During Go, the iPD group showed reduced N2 amplitude and prolonged N2 latency during walking, whereas the LRRK2-PD group showed only shorter latency (group*task p = 0.027). During NoGo, opposite patterns ",
+      "doi": "10.3390/s23198266",
+      "pmid": "37837096",
+      "openalex_id": "W4387400499",
+      "source_doi": "10.1016/j.neuroimage.2022.119666",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5241126246750356,
+        "similarity_score": 0.45377716422080994,
+        "citation_text_length": 1289,
+        "dataset_text_length": 2337,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Evaluating the structure of cognitive tasks with transfer learning",
       "author": "Bruno Aristimunha, Raphael Yokoingawa De Camargo, Walter Hugo Lopez Pinaya, Sylvain Chevallier, Alexandre Gramfort, Cédric Rommel",
       "venue": "arXiv (Cornell University)",
@@ -428,7 +445,7 @@
     {
       "title": "Brainprint Recognition Based on the Stable SSVEP Space-Frequency Energy Distribution",
       "author": "Lijie Wang, Linqing Feng, Tao Tang, Dongping Yang, Yina Wei",
-      "venue": "n/a",
+      "venue": "Proceedings of the Annual International Conference of the IEEE Engineering in Medicine and Biology Society",
       "year": 2023,
       "url": "https://doi.org/10.1109/embc40787.2023.10341185",
       "cited_by": 4,
@@ -440,32 +457,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5508671870827676,
-        "similarity_score": 0.4769412875175476,
-        "citation_text_length": 1185,
-        "dataset_text_length": 2337,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Differences in EEG Event-Related Potentials during Dual Task in Parkinson’s Disease Carriers and Non-Carriers of the G2019S-LRRK2 Mutation",
-      "author": "Eden Shkury, Shani Danziger-Schragenheim, Zoya Katzir, Yael Ezra, Nir Giladi, Anat Mirelman, Inbal Maidan",
-      "venue": "Sensors",
-      "year": 2023,
-      "url": "https://doi.org/10.3390/s23198266",
-      "cited_by": 3,
-      "abstract": "Background: The G2019S-LRRK2 gene mutation is a common cause of hereditary Parkinson’s disease (PD), associated with a higher frequency of the postural instability gait difficulty (PIGD) motor phenotype yet with preserved cognition. This study investigated neurophysiological changes during motor and cognitive tasks in PD patients with and without the G2019S-LRRK2 mutation. Methods: 33 iPD patients and 22 LRRK2-PD patients performed the visual Go/NoGo task (VGNG) during sitting (single-task) and walking (dual-task) while wearing a 64-channel EEG cap. Event-related potentials (ERP) from Fz and Pz, specifically N200 and P300, were extracted and analyzed to quantify brain activity patterns. Results: The LRRK2-PD group performed better in the VGNG than the iPD group (group*task; p = 0.05). During Go, the iPD group showed reduced N2 amplitude and prolonged N2 latency during walking, whereas the LRRK2-PD group showed only shorter latency (group*task p = 0.027). During NoGo, opposite patterns ",
-      "doi": "10.3390/s23198266",
-      "pmid": "37837096",
-      "openalex_id": "W4387400499",
-      "source_doi": "10.1016/j.neuroimage.2022.119666",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5241126246750356,
-        "similarity_score": 0.45377716422080994,
-        "citation_text_length": 1289,
+        "confidence_score": 0.554896176159382,
+        "similarity_score": 0.48042958974838257,
+        "citation_text_length": 1288,
         "dataset_text_length": 2337,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -518,6 +512,29 @@
       }
     },
     {
+      "title": "Cognitive and Memory-Driven EEG-Based Authentication: A Multi-Session Approach to Secure Biometric Systems",
+      "author": "Soudabeh Bolouri, Diksha Shukla",
+      "venue": "International Conference on Automatic Face and Gesture Recognition",
+      "year": 2025,
+      "url": "https://doi.org/10.1109/fg61629.2025.11099243",
+      "cited_by": 2,
+      "abstract": "Biometric authentication systems face significant challenges due to the vulnerability of traditional methods like passwords and fingerprints to theft or imitation. Electroencephalography (EEG)-based authentication presents a promising alternative by using unique brainwave patterns. This study introduces a novel EEG-based authentication system that utilizes cognitive and memory-related stimuli to elicit distinct brainwave responses. By incorporating multi-session data collection, the system effectively accounts for temporal variability. Additionally, advanced feature extraction techniques capture spatial, temporal, and spectral characteristics, enhancing authentication accuracy. A comprehensive feature engineering pipeline is employed, evaluating various classifiers across different stimuli types. Findings reveal that memory-related tasks, particularly word recognition, consistently generate the most reliable EEG responses. Among the classifiers tested, Logistic Regression demonstrates ",
+      "doi": "10.1109/fg61629.2025.11099243",
+      "pmid": null,
+      "openalex_id": "W4413018105",
+      "source_doi": "10.1016/j.neuroimage.2022.119666",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5268790608644487,
+        "similarity_score": 0.4561723470687866,
+        "citation_text_length": 1242,
+        "dataset_text_length": 2337,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Automatic Classification of EEG Signals, Based on Image Interpretation of Spatio-Temporal Information",
       "author": "Or Oxenberg, Michael Fire, Galit Fuhrmann Alpert",
       "venue": "medRxiv",
@@ -564,6 +581,52 @@
       }
     },
     {
+      "title": "Multimodal deep learning with missing data robustness for enhanced early diagnosis of coronary artery disease using CCTA, clinical, and ECG data",
+      "author": "YongBo Tu, XiaoRong Yang, Fang Liu, RuYue Ai, Yu Luo, Ran ChunYan, GuangXu Yang, Tijiang Zhang, L. X. Jiang",
+      "venue": "BMC Medical Informatics and Decision Making",
+      "year": 2026,
+      "url": "https://doi.org/10.1186/s12911-026-03466-5",
+      "cited_by": 1,
+      "abstract": "OBJECTIVE: Current multimodal models often experience performance degradation when faced with incomplete data and lack effective fusion strategies for diverse data types, such as imaging, clinical, and electrophysiological data. This study aims to develop a novel model to improve the accuracy of early diagnosis of coronary artery disease. MATERIALS AND METHODS: Clinical data, laboratory test results, coronary CTA images, and ECG data from consecutive patients who underwent coronary CTA examinations at the center between February 2022 and August 2023 were collected. Features were extracted using convolutional neural networks, and a multimodal prediction model was developed using a weighted fusion strategy. An internal validation was performed with a data split ratio of 7:1.5:1.5, and an independent external validation was conducted using an external dataset. Model performance was evaluated using the area under the receiver operating characteristic curve (AUC-ROC), and model interpretabi",
+      "doi": "10.1186/s12911-026-03466-5",
+      "pmid": "41975401",
+      "openalex_id": "W7154039527",
+      "source_doi": "10.1016/j.neuroimage.2022.119666",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.4233308954536915,
+        "similarity_score": 0.3665202558040619,
+        "citation_text_length": 1333,
+        "dataset_text_length": 2337,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "The individual alpha bandwidth: A trait-like neural marker associated with sensory processing and executive function",
+      "author": "Zeliang Jiang, Pan Zhang, Hanlin Wang, Wenxiao Zhong, Xingwei An, Zhijie Zhang",
+      "venue": "NeuroImage",
+      "year": 2026,
+      "url": "https://doi.org/10.1016/j.neuroimage.2026.121685",
+      "cited_by": 1,
+      "abstract": "Alpha oscillations are a fundamental rhythm of human brain activity, yet most studies have emphasized the peak alpha frequency (IAF) while overlooking the width of the alpha band. Here, we examined the individual alpha bandwidth (IAB) as a complementary marker across four EEG datasets. Using a unified preprocessing pipeline, we assessed its reliability and functional relevance. Test-retest analyses showed good-to-excellent reliability, supporting its trait-like stability. Importantly, IAB estimated with the Savitzky-Golay filter (SGF) method-but not with FOOOF or amplitude-difference-was significantly related to sensory and cognitive processes, whereas IAF showed no such associations. In perception, wider parieto-occipital IAB during eyes-closed rest was associated with larger P2 amplitudes in visual and auditory evoked potentials. In cognition, wider parieto-occipital IAB during eyes-open rest was linked to smaller flanker interference effects and enhanced N450 amplitudes. Mediation a",
+      "doi": "10.1016/j.neuroimage.2026.121685",
+      "pmid": "41490565",
+      "openalex_id": "W7118074939",
+      "source_doi": "10.1016/j.neuroimage.2022.119666",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.46004895150661473,
+        "similarity_score": 0.3983107805252075,
+        "citation_text_length": 1243,
+        "dataset_text_length": 2337,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "The role of emotion in sleep: a quantitative analysis using EEG data",
       "author": "Huafeng Wang, Dan Li, Ruomeng Zhang, Yanqing Wang, Wanquan Liu, Wanchun Ni, Haodu Zhang, Fengqian Pang, Ning Xin, Yugui Zhang, Yibing Chen",
       "venue": "SLEEP",
@@ -581,29 +644,6 @@
         "confidence_score": 0.37713727310299877,
         "similarity_score": 0.3265257775783539,
         "citation_text_length": 1250,
-        "dataset_text_length": 2337,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Cognitive and Memory-Driven EEG-Based Authentication: A Multi-Session Approach to Secure Biometric Systems",
-      "author": "Soudabeh Bolouri, Diksha Shukla",
-      "venue": "n/a",
-      "year": 2025,
-      "url": "https://doi.org/10.1109/fg61629.2025.11099243",
-      "cited_by": 1,
-      "abstract": "Biometric authentication systems face significant challenges due to the vulnerability of traditional methods like passwords and fingerprints to theft or imitation. Electroencephalography (EEG)-based authentication presents a promising alternative by using unique brainwave patterns. This study introduces a novel EEG-based authentication system that utilizes cognitive and memory-related stimuli to elicit distinct brainwave responses. By incorporating multi-session data collection, the system effectively accounts for temporal variability. Additionally, advanced feature extraction techniques capture spatial, temporal, and spectral characteristics, enhancing authentication accuracy. A comprehensive feature engineering pipeline is employed, evaluating various classifiers across different stimuli types. Findings reveal that memory-related tasks, particularly word recognition, consistently generate the most reliable EEG responses. Among the classifiers tested, Logistic Regression demonstrates ",
-      "doi": "10.1109/fg61629.2025.11099243",
-      "pmid": null,
-      "openalex_id": "W4413018105",
-      "source_doi": "10.1016/j.neuroimage.2022.119666",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5301805132627488,
-        "similarity_score": 0.45903074741363525,
-        "citation_text_length": 1179,
         "dataset_text_length": 2337,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -634,7 +674,7 @@
     },
     {
       "title": "Multi-Biometric Authentication: A Comprehensive Survey of Optimized Trait Selection, Fusion Strategies, and Implementation Challenges",
-      "author": "D. Venkata Vara Prasad, Maroti Deshmukh, Parveen Kumar, Lalit Kumar Awasthi",
+      "author": "DEVENDRA PRASAD, Maroti Deshmukh, Parveen Kumar, Lalit Kumar Awasthi",
       "venue": "SSRN Electronic Journal",
       "year": 2025,
       "url": "https://doi.org/10.2139/ssrn.5385865",
@@ -647,9 +687,32 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.32711525559425353,
-        "similarity_score": 0.31153833866119385,
-        "citation_text_length": 258,
+        "confidence_score": 0.3180425763130188,
+        "similarity_score": 0.30289769172668457,
+        "citation_text_length": 251,
+        "dataset_text_length": 2337,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Influence of Evaluating Cross-Stimulation on the EEG Biometric Verification Performance: Benchmarking Study",
+      "author": "Marissa L. de Ataide, Krishna Patel, Narayan Vetrekar, Rajendra S. Gad",
+      "venue": "n/a",
+      "year": 2024,
+      "url": "https://doi.org/10.1145/3702250.3702273",
+      "cited_by": 1,
+      "abstract": null,
+      "doi": "10.1145/3702250.3702273",
+      "pmid": null,
+      "openalex_id": "W4405945689",
+      "source_doi": "10.1016/j.neuroimage.2022.119666",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5390650749206544,
+        "similarity_score": 0.5133953094482422,
+        "citation_text_length": 207,
         "dataset_text_length": 2337,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -681,7 +744,7 @@
     {
       "title": "The delay optimization for the alpha rhythm phase-locked neuromodulation system",
       "author": "Hao Sun, Runyi Wang, Xue Lei, Li Zhang, Zhen Liang, Gan Huang",
-      "venue": "n/a",
+      "venue": "IEEE Biomedical Circuits and Systems Conference (BioCAS)",
       "year": 2024,
       "url": "https://doi.org/10.1109/biocas61083.2024.10798323",
       "cited_by": 1,
@@ -693,9 +756,32 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.4087390623986722,
-        "similarity_score": 0.3538866341114044,
-        "citation_text_length": 1182,
+        "confidence_score": 0.41269166976213456,
+        "similarity_score": 0.3573088049888611,
+        "citation_text_length": 1235,
+        "dataset_text_length": 2337,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Quantifying Subject-Identity Variance in Spectral EEG Features and Its Role in Machine Learning Evaluation Leakage",
+      "author": "Hassan Ugail, Richard Wirt, Newton Howard",
+      "venue": "Sensors",
+      "year": 2026,
+      "url": "https://doi.org/10.3390/s26196180",
+      "cited_by": 0,
+      "abstract": "Electroencephalography (EEG) is widely used to study cognitive states and clinical biomarkers, yet the contribution of stable between-subject differences to common EEG feature representations is rarely quantified directly or incorporated into evaluation design. Here, we examine subject-linked structure in spectral EEG features using a longitudinal four-session dataset spanning 199 days and replicate key findings across four public datasets covering 39 to 395 participants, multiple paradigms, and recording systems ranging from low-channel consumer devices to research-grade EEG. In spectral band-power representations, subject identity accounted for substantially more variance than session-related drift and supported extremely strong individual discriminability under subject-wise held-out protocols, with high verification performance and robust cross-session recognition over months. However, this identity structure was not fully invariant across paradigms, showing stronger transfer in ric",
+      "doi": "10.3390/s26196180",
+      "pmid": null,
+      "openalex_id": "W7214712925",
+      "source_doi": "10.1016/j.neuroimage.2022.119666",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.662158888578415,
+        "similarity_score": 0.5732977390289307,
+        "citation_text_length": 1201,
         "dataset_text_length": 2337,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -771,29 +857,6 @@
       }
     },
     {
-      "title": "The individual alpha bandwidth: A trait-like neural marker associated with sensory processing and executive function",
-      "author": "Zeliang Jiang, Pan Zhang, Hanlin Wang, Wenxiao Zhong, Xingwei An, Zhijie Zhang",
-      "venue": "NeuroImage",
-      "year": 2026,
-      "url": "https://doi.org/10.1016/j.neuroimage.2026.121685",
-      "cited_by": 0,
-      "abstract": "Alpha oscillations are a fundamental rhythm of human brain activity, yet most studies have emphasized the peak alpha frequency (IAF) while overlooking the width of the alpha band. Here, we examined the individual alpha bandwidth (IAB) as a complementary marker across four EEG datasets. Using a unified preprocessing pipeline, we assessed its reliability and functional relevance. Test-retest analyses showed good-to-excellent reliability, supporting its trait-like stability. Importantly, IAB estimated with the Savitzky-Golay filter (SGF) method-but not with FOOOF or amplitude-difference-was significantly related to sensory and cognitive processes, whereas IAF showed no such associations. In perception, wider parieto-occipital IAB during eyes-closed rest was associated with larger P2 amplitudes in visual and auditory evoked potentials. In cognition, wider parieto-occipital IAB during eyes-open rest was linked to smaller flanker interference effects and enhanced N450 amplitudes. Mediation a",
-      "doi": "10.1016/j.neuroimage.2026.121685",
-      "pmid": "41490565",
-      "openalex_id": "W7118074939",
-      "source_doi": "10.1016/j.neuroimage.2022.119666",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.46004895150661473,
-        "similarity_score": 0.3983107805252075,
-        "citation_text_length": 1243,
-        "dataset_text_length": 2337,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Scaling Automatic Sleep Staging with Transformer-Based EEG Representations",
       "author": "Cristina Andronache, Simona Juvină, Ana Neacșu",
       "venue": "World Congress on Medical Physics and Biomedical Engineering, September 7 - 12, 2009, Munich, Germany",
@@ -842,7 +905,7 @@
     {
       "title": "Can EEG Foundation Models Help with Epileptic Seizure Prediction?",
       "author": "Xudong Guo, L. C. Liu, Sha Lu, Jiuyong Li, Thuc duy Le, Jixue Liu",
-      "venue": "n/a",
+      "venue": "IEEE International Conference on Big Data (BigData)",
       "year": 2025,
       "url": "https://doi.org/10.1109/bigdata66926.2025.11401806",
       "cited_by": 0,
@@ -854,9 +917,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.48710172772407534,
-        "similarity_score": 0.4639064073562622,
-        "citation_text_length": 160,
+        "confidence_score": 0.5323612332344055,
+        "similarity_score": 0.5070106983184814,
+        "citation_text_length": 208,
         "dataset_text_length": 2337,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -903,29 +966,6 @@
         "confidence_score": 0.6149699288606645,
         "similarity_score": 0.5324414968490601,
         "citation_text_length": 1146,
-        "dataset_text_length": 2337,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Influence of Evaluating Cross-Stimulation on the EEG Biometric Verification Performance: Benchmarking Study",
-      "author": "Marissa L. de Ataide, Krishna Patel, Narayan Vetrekar, Rajendra S. Gad",
-      "venue": "n/a",
-      "year": 2024,
-      "url": "https://doi.org/10.1145/3702250.3702273",
-      "cited_by": 0,
-      "abstract": null,
-      "doi": "10.1145/3702250.3702273",
-      "pmid": null,
-      "openalex_id": "W4405945689",
-      "source_doi": "10.1016/j.neuroimage.2022.119666",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5390650749206544,
-        "similarity_score": 0.5133953094482422,
-        "citation_text_length": 207,
         "dataset_text_length": 2337,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1003,17 +1043,17 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T10:50:32.874263+00:00",
+    "scoring_date": "2026-10-11T11:20:35.852508+00:00",
     "dataset_text_length": 2337,
-    "num_citations_scored": 38,
+    "num_citations_scored": 40,
     "summary_stats": {
-      "mean_confidence": 0.4970507848498069,
-      "median_confidence": 0.5193784902244807,
-      "std_confidence": 0.10214880198788398,
+      "mean_confidence": 0.500455033287406,
+      "median_confidence": 0.5246330805122853,
+      "std_confidence": 0.1037717179849564,
       "min_confidence": 0.2854483754932881,
       "max_confidence": 0.6840762752294541,
       "high_confidence_count": 0,
-      "medium_confidence_count": 29,
+      "medium_confidence_count": 31,
       "low_confidence_count": 9
     }
   }

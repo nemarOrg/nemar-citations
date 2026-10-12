@@ -1,30 +1,43 @@
 {
   "dataset_id": "on004621",
-  "num_citations": 17,
-  "date_last_updated": "2026-09-30T10:47:15.910473+00:00",
+  "num_citations": 14,
+  "date_last_updated": "2026-10-11T10:56:00.091714+00:00",
   "metadata": {
-    "total_cumulative_citations": 57,
-    "fetch_date": "2026-09-29T11:18:07.520109+00:00",
+    "total_cumulative_citations": 60,
+    "fetch_date": "2026-10-11T10:56:00.091714+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
-    "anchor_count": 2,
+    "anchor_count": 3,
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
     "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
+        "identifier": "10.5524/100990",
+        "identifier_type": "doi",
+        "source_relation": "IsSupplementTo",
+        "classification": "data_paper",
+        "kept": true,
+        "kept_reason": "judged_data_paper",
+        "paper_title": "Supporting data for \"The Nencki-Symfonia EEG/ERP dataset: Multiple cognitive tasks and resting-state data collected in a sample of healthy adults\"",
+        "paper_year": 2022,
+        "paper_venue": "GigaDB",
+        "reason": "The GigaDB record (doi 10.5524/100990) is the dataset DOI named in the README. It holds the supporting data for the Nencki-Symfonia EEG/ERP dataset: 42 adults, MSIT+, oddball, SRT and REST.",
+        "judgment_model": "claude-sonnet-5-5"
+      },
+      {
         "identifier": "10.1093/gigascience/giac015",
         "identifier_type": "doi",
         "source_relation": "IsDescribedBy",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "The Nencki-Symfonia electroencephalography/event-related potential dataset: Multiple cognitive tasks and resting-state data collected in a sample of healthy adults",
         "paper_year": 2022,
         "paper_venue": "GigaScience",
         "reason": "GigaScience data descriptor by the same authors describing this Nencki-Symfonia EEG/ERP dataset (MSIT+, oddball, SRT, resting-state, 42 adults), and it is the first reference the dataset asks users to cite.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on004621",
@@ -32,25 +45,27 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
+      "10.5524/100990",
       "10.1093/gigascience/giac015",
       "10.82901/nemar.on004621"
     ],
     "keywords": [
       "EEG",
-      "Event-Related Potentials",
-      "resting-state",
-      "cognitive control",
+      "Event-related potentials",
+      "multi-source interference task",
       "oddball task",
-      "multi-source interference task"
+      "simple reaction task",
+      "resting state",
+      "cognitive control"
     ],
     "methods_description": "EEG/ERP data were collected from healthy adult participants during four experimental conditions: (i) an extended multi-source interference task (MSIT+), (ii) a 3-stimuli oddball task, (iii) a simple reaction task (SRT), and (iv) a resting-state protocol.",
     "funding": [
@@ -58,16 +73,32 @@
         "funder_name": "Polish National Science Center (NCN)",
         "award_number": "2016/20/W/NZ4/00354"
       }
-    ],
-    "searched_accessions": [
-      "on004621",
-      "ds004621"
-    ],
-    "num_accession_mentions": 4,
-    "num_dataset_citations": 5,
-    "num_datapaper_citations": 12
+    ]
   },
   "citation_details": [
+    {
+      "title": "Cortical oscillations reflect opponent ensemble dynamics through coordinated multifrequency activity",
+      "author": "Jonathan H. Mishler, Morteza Salimi, Miranda Francoeur Koloski, Irene Rembado, Carrie Shilyansky, Jyoti Mishra, Dhakshin Ramanathan",
+      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+      "year": 2026,
+      "url": "https://doi.org/10.64898/2026.02.20.707132",
+      "cited_by": 0,
+      "abstract": "Neural oscillations are widely used as proxies for neuronal activity, where power in individual frequency bands is commonly interpreted as functionally indexing neural circuit engagement. However, power in individual frequency bands shows heterogeneous and sometimes opposing relationships with neuronal activity across regions and behavioral contexts, challenging the assumption of a stable frequency-to-circuit mapping. Here we show that glutamatergic population activity in rat medial prefrontal cortex is not stably linked with power in isolated frequency bands, but rather with dynamically recurring multi-frequency amplitude co-fluctuations. These multi-frequency patterns, termed spectral motifs, occurred in opponent pairs with nearly identical frequency composition but inverted relationships to population calcium activity. This opponent motif structure, observed across cortical regions and species, provides a key component for understanding how oscillations are linked to neuronal activi",
+      "doi": "10.64898/2026.02.20.707132",
+      "pmid": "41809003",
+      "openalex_id": "W7131083934",
+      "source_doi": "10.5524/100990",
+      "source_relation": "IsSupplementTo",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.46224415987730033,
+        "similarity_score": 0.4002113938331604,
+        "citation_text_length": 1309,
+        "dataset_text_length": 2249,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
     {
       "title": "An EEG Dataset of Neural Signatures in a Competitive Two-Player Game Encouraging Deceptive Behavior",
       "author": "Yiyu Chen, Siamac Fazli, Christian Wallraven",
@@ -97,7 +128,7 @@
       "venue": "GigaScience",
       "year": 2022,
       "url": "https://doi.org/10.1093/gigascience/giac015",
-      "cited_by": 14,
+      "cited_by": 13,
       "abstract": "BACKGROUND: One of the goals of neuropsychology is to understand the brain mechanisms underlying aspects of attention and cognitive control. Several tasks have been developed as a part of this body of research, however their results are not always consistent. A reliable comparison of the data and a synthesis of study conclusions has been precluded by multiple methodological differences. Here, we describe a publicly available, high-density electroencephalography (EEG) dataset obtained from 42 healthy young adults while they performed 3 cognitive tasks: (i) an extended multi-source interference task; (ii) a 3-stimuli oddball task; (iii) a control, simple reaction task; and (iv) a resting-state protocol. Demographic and psychometric information are included within the dataset. DATASET VALIDATION: First, data validation confirmed acceptable quality of the obtained EEG signals. Typical event-related potential (ERP) waveforms were obtained, as expected for attention and cognitive control tas",
       "doi": "10.1093/gigascience/giac015",
       "pmid": "35254424",
@@ -109,6 +140,29 @@
         "confidence_score": 0.9877206748723985,
         "similarity_score": 0.855169415473938,
         "citation_text_length": 1296,
+        "dataset_text_length": 2249,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "BIDSAlign: a library for automatic merging and preprocessing of multiple EEG repositories",
+      "author": "Andrea Zanola, Federico Del Pup, Camillo Porcaro, Manfredo Atzori",
+      "venue": "Journal of Neural Engineering",
+      "year": 2024,
+      "url": "https://doi.org/10.1088/1741-2552/ad6a8c",
+      "cited_by": 9,
+      "abstract": "Abstract Objective. This study aims to address the challenges associated with data-driven electroencephalography (EEG) data analysis by introducing a standardised library called BIDSAlign . This library efficiently processes and merges heterogeneous EEG datasets from different sources into a common standard template. The goal of this work is to create an environment that allows to preprocess public datasets in order to provide data for the effective training of deep learning (DL) architectures. Approach. The library can handle both Brain Imaging Data Structure (BIDS) and non-BIDS datasets, allowing the user to easily preprocess multiple public datasets. It unifies the EEG recordings acquired with different settings by defining a common pipeline and a specified channel template. An array of visualisation functions is provided inside the library, together with a user-friendly graphical user interface to assist non-expert users throughout the workflow. Main results. BIDSAlign enables the ",
+      "doi": "10.1088/1741-2552/ad6a8c",
+      "pmid": "39094617",
+      "openalex_id": "W4401241917",
+      "source_doi": "10.1093/gigascience/giac015",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6230354109406472,
+        "similarity_score": 0.5394245982170105,
+        "citation_text_length": 1222,
         "dataset_text_length": 2249,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -138,37 +192,12 @@
       }
     },
     {
-      "title": "BIDSAlign: a library for automatic merging and preprocessing of multiple EEG repositories",
-      "author": "Andrea Zanola, Federico Del Pup, Camillo Porcaro, Manfredo Atzori",
-      "venue": "Journal of Neural Engineering",
-      "year": 2024,
-      "url": "https://doi.org/10.1088/1741-2552/ad6a8c",
-      "cited_by": 8,
-      "abstract": "Abstract Objective. This study aims to address the challenges associated with data-driven electroencephalography (EEG) data analysis by introducing a standardised library called BIDSAlign . This library efficiently processes and merges heterogeneous EEG datasets from different sources into a common standard template. The goal of this work is to create an environment that allows to preprocess public datasets in order to provide data for the effective training of deep learning (DL) architectures. Approach. The library can handle both Brain Imaging Data Structure (BIDS) and non-BIDS datasets, allowing the user to easily preprocess multiple public datasets. It unifies the EEG recordings acquired with different settings by defining a common pipeline and a specified channel template. An array of visualisation functions is provided inside the library, together with a user-friendly graphical user interface to assist non-expert users throughout the workflow. Main results. BIDSAlign enables the ",
-      "doi": "10.1088/1741-2552/ad6a8c",
-      "pmid": "39094617",
-      "openalex_id": "W4401241917",
-      "source_doi": "10.1093/gigascience/giac015",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.6230354109406472,
-        "similarity_score": 0.5394245982170105,
-        "citation_text_length": 1222,
-        "dataset_text_length": 2249,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      },
-      "mentions_accession": true,
-      "matched_accession": "ds004621"
-    },
-    {
       "title": "Benchmarking ERP Analysis: Manual Features, Deep Learning, and Foundation Models",
-      "author": "Yihe Wang, Zhiqi Kang, Bo Chen, Yu Zhang, Xiang Zhang",
+      "author": "Yi-He Wang, Zhiqi Kang, Bo Chen, Yu Zhang, Xiang Zhang",
       "venue": "IEEE transactions on bio-medical engineering",
       "year": 2026,
       "url": "https://doi.org/10.1109/TBME.2026.3686229",
-      "cited_by": 5,
+      "cited_by": 6,
       "abstract": "Event-related potential (ERP), a specialized paradigm of electroencephalographic (EEG), reflects neurological responses to external stimuli or events, generally associated with the brain's processing of specific cognitive tasks. ERP plays a critical role in cognitive analysis, the detection of neurological diseases, and the assessment of psychological states. Recent years have seen substantial advances in deep learning-based methods for spontaneous EEG and other non-time-locked task-related EEG signals. However, their effectiveness on ERP data remains underexplored, and many existing ERP studies still rely heavily on manually extracted features. In this paper, we conduct a comprehensive benchmark study that systematically compares traditional manual features (followed by a linear classifier), deep learning models, and pre-trained EEG foundation models for ERP analysis. We establish a unified data preprocessing and training pipeline and evaluate these approaches on two representative ta",
       "doi": "10.1109/TBME.2026.3686229",
       "pmid": "42060433",
@@ -177,9 +206,32 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.701338473558426,
-        "similarity_score": 0.6072194576263428,
-        "citation_text_length": 1216,
+        "confidence_score": 0.7001385337114335,
+        "similarity_score": 0.6061805486679077,
+        "citation_text_length": 1217,
+        "dataset_text_length": 2249,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Artifact-reference multivariate backward regression (ARMBR): a novel method for EEG blink artifact removal with minimal data requirements",
+      "author": "Ludvik Alkhoury, G. Scanavini, Samuel Louviot, Ana Radanovic, S A Shah, N. Jeremy Hill",
+      "venue": "Journal of Neural Engineering",
+      "year": 2025,
+      "url": "https://doi.org/10.1088/1741-2552/ade566",
+      "cited_by": 3,
+      "abstract": "Abstract Objective . We present a novel and lightweight method that removes ocular artifacts from electroencephalography (EEG) recordings while demanding minimal training data. Approach . A robust, cross-validated thresholding procedure automatically detects the times at which eye blinks occur, then a linear scalp projection is estimated by regressing a simplified time-locked reference signal against the multi-channel EEG. Main results . Performance was compared against four commonly-used and readily available blink removal methods: signal subspace projection and forward regression (Reg) from the MNE toolbox, EEGLab’s independent component analysis (ICA) combined with ICLabel for automated component identification, and Artifact Subspace Reconstruction (ASR) Python implementation compatible with MNE. On semi-synthetic blink-contaminated EEG data, our method exhibited better reconstruction of the ground truth than the two MNE native methods, and comparable (or better in some scenarios) p",
+      "doi": "10.1088/1741-2552/ade566",
+      "pmid": "40527334",
+      "openalex_id": "W4411363076",
+      "source_doi": "10.1093/gigascience/giac015",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5565513771772385,
+        "similarity_score": 0.4818626642227173,
+        "citation_text_length": 1291,
         "dataset_text_length": 2249,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -209,23 +261,23 @@
       }
     },
     {
-      "title": "Artifact-reference multivariate backward regression (ARMBR): a novel method for EEG blink artifact removal with minimal data requirements",
-      "author": "Ludvik Alkhoury, G. Scanavini, Samuel Louviot, Ana Radanovic, S A Shah, N. Jeremy Hill",
-      "venue": "Journal of Neural Engineering",
-      "year": 2025,
-      "url": "https://doi.org/10.1088/1741-2552/ade566",
-      "cited_by": 2,
-      "abstract": "Abstract Objective . We present a novel and lightweight method that removes ocular artifacts from electroencephalography (EEG) recordings while demanding minimal training data. Approach . A robust, cross-validated thresholding procedure automatically detects the times at which eye blinks occur, then a linear scalp projection is estimated by regressing a simplified time-locked reference signal against the multi-channel EEG. Main results . Performance was compared against four commonly-used and readily available blink removal methods: signal subspace projection and forward regression (Reg) from the MNE toolbox, EEGLab’s independent component analysis (ICA) combined with ICLabel for automated component identification, and Artifact Subspace Reconstruction (ASR) Python implementation compatible with MNE. On semi-synthetic blink-contaminated EEG data, our method exhibited better reconstruction of the ground truth than the two MNE native methods, and comparable (or better in some scenarios) p",
-      "doi": "10.1088/1741-2552/ade566",
-      "pmid": "40527334",
-      "openalex_id": "W4411363076",
+      "title": "The individual alpha bandwidth: A trait-like neural marker associated with sensory processing and executive function",
+      "author": "Zeliang Jiang, Pan Zhang, Hanlin Wang, Wenxiao Zhong, Xingwei An, Zhijie Zhang",
+      "venue": "NeuroImage",
+      "year": 2026,
+      "url": "https://doi.org/10.1016/j.neuroimage.2026.121685",
+      "cited_by": 1,
+      "abstract": "Alpha oscillations are a fundamental rhythm of human brain activity, yet most studies have emphasized the peak alpha frequency (IAF) while overlooking the width of the alpha band. Here, we examined the individual alpha bandwidth (IAB) as a complementary marker across four EEG datasets. Using a unified preprocessing pipeline, we assessed its reliability and functional relevance. Test-retest analyses showed good-to-excellent reliability, supporting its trait-like stability. Importantly, IAB estimated with the Savitzky-Golay filter (SGF) method-but not with FOOOF or amplitude-difference-was significantly related to sensory and cognitive processes, whereas IAF showed no such associations. In perception, wider parieto-occipital IAB during eyes-closed rest was associated with larger P2 amplitudes in visual and auditory evoked potentials. In cognition, wider parieto-occipital IAB during eyes-open rest was linked to smaller flanker interference effects and enhanced N450 amplitudes. Mediation a",
+      "doi": "10.1016/j.neuroimage.2026.121685",
+      "pmid": "41490565",
+      "openalex_id": "W7118074939",
       "source_doi": "10.1093/gigascience/giac015",
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5565513771772385,
-        "similarity_score": 0.4818626642227173,
-        "citation_text_length": 1291,
+        "confidence_score": 0.5562701520323754,
+        "similarity_score": 0.4816191792488098,
+        "citation_text_length": 1243,
         "dataset_text_length": 2249,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -278,52 +330,6 @@
       }
     },
     {
-      "title": "Cortical oscillations reflect opponent ensemble dynamics through coordinated multifrequency activity",
-      "author": "Jonathan H. Mishler, Morteza Salimi, Miranda Francoeur Koloski, Irene Rembado, Carrie Shilyansky, Jyoti Mishra, Dhakshin Ramanathan",
-      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
-      "year": 2026,
-      "url": "https://doi.org/10.64898/2026.02.20.707132",
-      "cited_by": 0,
-      "abstract": "Neural oscillations are widely used as proxies for neuronal activity, where power in individual frequency bands is commonly interpreted as functionally indexing neural circuit engagement. However, power in individual frequency bands shows heterogeneous and sometimes opposing relationships with neuronal activity across regions and behavioral contexts, challenging the assumption of a stable frequency-to-circuit mapping. Here we show that glutamatergic population activity in rat medial prefrontal cortex is not stably linked with power in isolated frequency bands, but rather with dynamically recurring multi-frequency amplitude co-fluctuations. These multi-frequency patterns, termed spectral motifs, occurred in opponent pairs with nearly identical frequency composition but inverted relationships to population calcium activity. This opponent motif structure, observed across cortical regions and species, provides a key component for understanding how oscillations are linked to neuronal activi",
-      "doi": "10.64898/2026.02.20.707132",
-      "pmid": "41809003",
-      "openalex_id": "W7131083934",
-      "source_doi": "10.1093/gigascience/giac015",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.46224415987730033,
-        "similarity_score": 0.4002113938331604,
-        "citation_text_length": 1309,
-        "dataset_text_length": 2249,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "The individual alpha bandwidth: A trait-like neural marker associated with sensory processing and executive function",
-      "author": "Zeliang Jiang, Pan Zhang, Hanlin Wang, Wenxiao Zhong, Xingwei An, Zhijie Zhang",
-      "venue": "NeuroImage",
-      "year": 2026,
-      "url": "https://doi.org/10.1016/j.neuroimage.2026.121685",
-      "cited_by": 0,
-      "abstract": "Alpha oscillations are a fundamental rhythm of human brain activity, yet most studies have emphasized the peak alpha frequency (IAF) while overlooking the width of the alpha band. Here, we examined the individual alpha bandwidth (IAB) as a complementary marker across four EEG datasets. Using a unified preprocessing pipeline, we assessed its reliability and functional relevance. Test-retest analyses showed good-to-excellent reliability, supporting its trait-like stability. Importantly, IAB estimated with the Savitzky-Golay filter (SGF) method-but not with FOOOF or amplitude-difference-was significantly related to sensory and cognitive processes, whereas IAF showed no such associations. In perception, wider parieto-occipital IAB during eyes-closed rest was associated with larger P2 amplitudes in visual and auditory evoked potentials. In cognition, wider parieto-occipital IAB during eyes-open rest was linked to smaller flanker interference effects and enhanced N450 amplitudes. Mediation a",
-      "doi": "10.1016/j.neuroimage.2026.121685",
-      "pmid": "41490565",
-      "openalex_id": "W7118074939",
-      "source_doi": "10.1093/gigascience/giac015",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5562701520323754,
-        "similarity_score": 0.4816191792488098,
-        "citation_text_length": 1243,
-        "dataset_text_length": 2249,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Single-channel electroencephalography decomposition by detector-atom network and its pre-trained model",
       "author": "Hiroshi Higashi",
       "venue": "Journal of Neuroscience Methods",
@@ -370,106 +376,23 @@
       }
     },
     {
-      "title": "Gemini Exchange v2.0.0: Empirical Validation of Dynamic Information–Energy Coupling in Cortical EEG Activity",
-      "author": "Esposito, Giovanni",
-      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
-      "year": 2025,
-      "url": "https://doi.org/10.5281/zenodo.17567434",
+      "title": "ERP-FM: A Foundation Model for Universal ERP Analysis",
+      "author": "Yi-He Wang, Bo Chen, Tai-Da Li, Yu-Jun Yan, Rui Yin, Xiang Zhang",
+      "venue": "n/a",
+      "year": 2026,
+      "url": "n/a",
       "cited_by": 0,
-      "abstract": "This archive provides the complete reproducible dataset and analysis materials for the Anti-Congruent Law (ACL) Framework, validating three fundamental semantic operators — composition (∘), recursion (↻), and paradox (⊗) — using real EEG data from OpenNeuro ds004621. The dataset contains 450 fully preprocessed EEG trials (10 participants × 15 trials × 3 operators), each annotated with derived metrics describing symbolic energetics in the ψ-metric space: Variable Meaning Derivation ψ Mean ERP power (300–800 ms, FCz/Cz) mean(V²) ψ′ Theta-band curvature log(1 + varM Semantic variance 1000 / ψ⁴ dψ₍imm₎ / dψ₍del₎ Immediate / delayed modulation z-scored reaction times Preprocessing was performed in MNE-Python v1.7 following BIDS-EEG standards.Statistical analyses were implemented in R (lme4) and Python (Pingouin), with mixed-effects and mediation models confirming all four preregistered hypotheses: Operator-dependent differences in ψ. Time-shifted modulation (dψ₍imm₎ > dψ₍del₎). Mediation of ψ → dψ₍imm₎ through varM. Quartic scaling law varM ∝ ψ⁻⁴ (R² = 0.93). All figures (PNG + PDF + EPS) and scripts (Python, R) are included for direct reproducibility.The repository is journal-neutral, open-license (CC BY 4.0), and version-controlled for archival citation.",
-      "doi": "10.5281/zenodo.17567434",
+      "abstract": "Foundation models have recently shown strong potential for learning generalizable EEG representations, yet their effectiveness for event-related potential (ERP) analysis remains unclear. In this work, we investigate two fundamental questions: 1) can foundation-model learning benefit ERP analysis, and what limits the transfer of existing EEG foundation models to ERP tasks? 2) can the complementary advantages of single-trial and averaged-trial ERP be integrated into a unified training pipeline? To study these questions, we curate a large-scale ERP corpus comprising 1,517,157 single-trial ERPs from 3,696 subjects across 38 datasets and 18 paradigms. Leveraging this corpus, we introduce ERP-FM, to the best of our knowledge, the first foundation model specifically developed for ERP representation learning. ERP-FM uses single-channel tokenization, temporal and spatial positional embeddings, and mixed masked autoencoding for large-scale single-trial pretraining. We compare our model against 1",
+      "doi": null,
       "pmid": null,
-      "openalex_id": "W7104701520",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004621",
-      "superseded_dois": [
-        "10.5281/zenodo.17576092"
-      ],
+      "openalex_id": null,
+      "source_doi": "10.1093/gigascience/giac015",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6914552512764932,
-        "similarity_score": 0.5986625552177429,
-        "citation_text_length": 1492,
-        "dataset_text_length": 2249,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "ACL Framework: Real EEG Validation of Semantic Operators (∘, ⊗, ↻) — Derived Metrics and Reproducible Analysis Package",
-      "author": "Esposito, Giovanni",
-      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
-      "year": 2025,
-      "url": "https://doi.org/10.5281/zenodo.17567435",
-      "cited_by": 0,
-      "abstract": "This archive provides the complete reproducible dataset and analysis materials for the Anti-Congruent Law (ACL) Framework, validating three fundamental semantic operators — composition (∘), recursion (↻), and paradox (⊗) — using real EEG data from OpenNeuro ds004621. The dataset contains 450 fully preprocessed EEG trials (10 participants × 15 trials × 3 operators), each annotated with derived metrics describing symbolic energetics in the ψ-metric space: Variable Meaning Derivation ψ Mean ERP power (300–800 ms, FCz/Cz) mean(V²) ψ′ Theta-band curvature log(1 + varM Semantic variance 1000 / ψ⁴ dψ₍imm₎ / dψ₍del₎ Immediate / delayed modulation z-scored reaction times Preprocessing was performed in MNE-Python v1.7 following BIDS-EEG standards.Statistical analyses were implemented in R (lme4) and Python (Pingouin), with mixed-effects and mediation models confirming all four preregistered hypotheses: Operator-dependent differences in ψ. Time-shifted modulation (dψ₍imm₎ > dψ₍del₎). Mediation of ψ → dψ₍imm₎ through varM. Quartic scaling law varM ∝ ψ⁻⁴ (R² = 0.93). All figures (PNG + PDF + EPS) and scripts (Python, R) are included for direct reproducibility.The repository is journal-neutral, open-license (CC BY 4.0), and version-controlled for archival citation.",
-      "doi": "10.5281/zenodo.17567435",
-      "pmid": null,
-      "openalex_id": "W7104701692",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004621",
-      "superseded_dois": [
-        "10.5281/zenodo.17567974"
-      ],
-      "confidence_scoring": {
-        "confidence_score": 0.6728165298700333,
-        "similarity_score": 0.5825251340866089,
-        "citation_text_length": 1502,
-        "dataset_text_length": 2249,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "The Anti-Congruent Law (Version 3): Empirical Validation of ψ-Scaling in Human Semantic EEG Dynamics",
-      "author": "Esposito, Giovanni",
-      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
-      "year": 2025,
-      "url": "https://doi.org/10.5281/zenodo.17568168",
-      "cited_by": 0,
-      "abstract": "This archive provides the complete reproducible dataset and analysis materials for the Anti-Congruent Law (ACL) Framework, validating three fundamental semantic operators — composition (∘), recursion (↻), and paradox (⊗) — using real EEG data from OpenNeuro ds004621. The dataset contains 450 fully preprocessed EEG trials (10 participants × 15 trials × 3 operators), each annotated with derived metrics describing symbolic energetics in the ψ-metric space: Variable Meaning Derivation ψ Mean ERP power (300–800 ms, FCz/Cz) mean(V²) ψ′ Theta-band curvature log(1 + varM Semantic variance 1000 / ψ⁴ dψ₍imm₎ / dψ₍del₎ Immediate / delayed modulation z-scored reaction times Preprocessing was performed in MNE-Python v1.7 following BIDS-EEG standards.Statistical analyses were implemented in R (lme4) and Python (Pingouin), with mixed-effects and mediation models confirming all four preregistered hypotheses: Operator-dependent differences in ψ. Time-shifted modulation (dψ₍imm₎ > dψ₍del₎). Mediation of ψ → dψ₍imm₎ through varM. Quartic scaling law varM ∝ ψ⁻⁴ (R² = 0.93). All figures (PNG + PDF + EPS) and scripts (Python, R) are included for direct reproducibility.The repository is journal-neutral, open-license (CC BY 4.0), and version-controlled for archival citation.",
-      "doi": "10.5281/zenodo.17568168",
-      "pmid": null,
-      "openalex_id": "W7104602071",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004621",
-      "confidence_scoring": {
-        "confidence_score": 0.6107341343164445,
-        "similarity_score": 0.5287741422653198,
-        "citation_text_length": 1484,
-        "dataset_text_length": 2249,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "The Anti-Congruent Law (ACL) — Boundary Test v3.1.0: Empirical Falsification of ψ⁻⁴ Scaling in OpenNeuro EEG",
-      "author": "Esposito, Giovanni",
-      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
-      "year": 2025,
-      "url": "https://doi.org/10.5281/zenodo.17570742",
-      "cited_by": 0,
-      "abstract": "This archive provides the complete reproducible dataset and analysis materials for the Anti-Congruent Law (ACL) Framework, validating three fundamental semantic operators — composition (∘), recursion (↻), and paradox (⊗) — using real EEG data from OpenNeuro ds004621. The dataset contains 450 fully preprocessed EEG trials (10 participants × 15 trials × 3 operators), each annotated with derived metrics describing symbolic energetics in the ψ-metric space: Variable Meaning Derivation ψ Mean ERP power (300–800 ms, FCz/Cz) mean(V²) ψ′ Theta-band curvature log(1 + varM Semantic variance 1000 / ψ⁴ dψ₍imm₎ / dψ₍del₎ Immediate / delayed modulation z-scored reaction times Preprocessing was performed in MNE-Python v1.7 following BIDS-EEG standards.Statistical analyses were implemented in R (lme4) and Python (Pingouin), with mixed-effects and mediation models confirming all four preregistered hypotheses: Operator-dependent differences in ψ. Time-shifted modulation (dψ₍imm₎ > dψ₍del₎). Mediation of ψ → dψ₍imm₎ through varM. Quartic scaling law varM ∝ ψ⁻⁴ (R² = 0.93). All figures (PNG + PDF + EPS) and scripts (Python, R) are included for direct reproducibility.The repository is journal-neutral, open-license (CC BY 4.0), and version-controlled for archival citation.",
-      "doi": "10.5281/zenodo.17570742",
-      "pmid": null,
-      "openalex_id": "W7104621124",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004621",
-      "confidence_scoring": {
-        "confidence_score": 0.6253440731763841,
-        "similarity_score": 0.5414234399795532,
-        "citation_text_length": 1492,
+        "confidence_score": 0.6358129459619524,
+        "similarity_score": 0.5504873991012573,
+        "citation_text_length": 1159,
         "dataset_text_length": 2249,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -478,17 +401,17 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T10:59:57.757911+00:00",
+    "scoring_date": "2026-10-11T11:33:44.681939+00:00",
     "dataset_text_length": 2249,
-    "num_citations_scored": 17,
+    "num_citations_scored": 14,
     "summary_stats": {
-      "mean_confidence": 0.574039167113164,
-      "median_confidence": 0.5808427584171295,
-      "std_confidence": 0.17428413302035223,
+      "mean_confidence": 0.5566377755999566,
+      "median_confidence": 0.561948335543275,
+      "std_confidence": 0.18672453044591178,
       "min_confidence": 0.16794404223561288,
       "max_confidence": 0.9877206748723985,
       "high_confidence_count": 2,
-      "medium_confidence_count": 13,
+      "medium_confidence_count": 10,
       "low_confidence_count": 2
     }
   }

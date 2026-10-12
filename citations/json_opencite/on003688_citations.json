@@ -1,45 +1,30 @@
 {
   "dataset_id": "on003688",
-  "num_citations": 13,
-  "date_last_updated": "2026-09-30T10:44:52.104090+00:00",
+  "num_citations": 16,
+  "date_last_updated": "2026-10-11T11:15:34.233716+00:00",
   "metadata": {
-    "total_cumulative_citations": 4,
-    "fetch_date": "2026-09-29T11:10:28.120609+00:00",
+    "total_cumulative_citations": 1,
+    "fetch_date": "2026-10-11T10:46:15.279270+00:00",
     "processing_version": "1.0",
-    "fetch_status": "partial",
+    "fetch_status": "success",
     "anchor_count": 2,
-    "anchor_errors": {
-      "10.82901/nemar.on003688": "not_found"
-    },
+    "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
     "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
-      {
-        "identifier": "10.1038/s41597-022-01173-0",
-        "identifier_type": "doi",
-        "source_relation": "IsDescribedBy",
-        "classification": null,
-        "kept": false,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "unjudged"
-      },
       {
         "identifier": "10.1101/2021.06.09.447733",
         "identifier_type": "doi",
         "source_relation": "IsDescribedBy",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Open multimodal iEEG-fMRI dataset from naturalistic stimulation with a short audiovisual film",
         "paper_year": 2021,
         "paper_venue": "bioRxiv (Cold Spring Harbor Laboratory)",
         "reason": "The bioRxiv preprint has the same title and authors as the dataset. It describes the iEEG-fMRI dataset of 51 iEEG and 30 fMRI participants watching a short audiovisual film, so it is the dataset preprint.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on003688",
@@ -47,12 +32,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -61,17 +46,18 @@
     ],
     "keywords": [
       "iEEG",
-      "Electrocorticography",
       "fMRI",
-      "multimodal neuroimaging",
+      "Electrocorticography",
       "naturalistic stimulation",
-      "audiovisual processing"
+      "audiovisual film",
+      "multimodal"
     ],
     "methods_description": "Data were collected using simultaneous iEEG and fMRI recordings during presentation of a short audiovisual film. Intracranial electrodes were surgically implanted for clinical purposes, and fMRI was acquired concurrently with the iEEG recordings during the naturalistic stimulus presentation.",
     "funding": [
       {
-        "funder_name": "Advanced iConnect Project",
-        "award_number": "ADV 320708"
+        "funder_name": "iConnect",
+        "award_number": "ADV 320708",
+        "award_title": "Advanced iConnect Project Grant"
       },
       {
         "funder_name": "Netherlands Organisation for Scientific Research",
@@ -83,14 +69,37 @@
       "on003688",
       "ds003688"
     ],
-    "num_accession_mentions": 13,
-    "num_dataset_citations": 13,
-    "num_datapaper_citations": 0
+    "num_accession_mentions": 15,
+    "num_dataset_citations": 15,
+    "num_datapaper_citations": 1
   },
   "citation_details": [
     {
+      "title": "Tensor-powered insights into neural dynamics",
+      "author": "Boyang Zang, Tao Sun, Yang Lu, Yuhang Zhang, Guihuai Wang, Sen Wan",
+      "venue": "Communications Biology",
+      "year": 2025,
+      "url": "https://doi.org/10.1038/s42003-025-07711-x",
+      "cited_by": 1,
+      "abstract": "The complex spatiotemporal dynamics of neurons encompass a wealth of information relevant to perception and decision-making, making the decoding of neural activity a central focus in neuroscience research. Traditional machine learning or deep learning-based neural information modeling approaches have achieved significant results in decoding. Nevertheless, such methodologies require the vectorization of data, a process that disrupts the intrinsic relationships inherent in high-dimensional spaces, consequently impeding their capability to effectively process information in high-order tensor domains. In this paper, we introduce a novel decoding approach, namely the Least Squares Sport Tensor Machine (LS-STM), which is based on tensor space and represents a tensorized improvement over traditional vector learning frameworks. In extensive evaluations using human and mouse data, our results demonstrate that LS-STM exhibits superior performance in neural signal decoding tasks compared to tradi",
+      "doi": "10.1038/s42003-025-07711-x",
+      "pmid": "39994447",
+      "openalex_id": "W4407873815",
+      "source_doi": "10.1101/2021.06.09.447733",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.38418624848127375,
+        "similarity_score": 0.3326287865638733,
+        "citation_text_length": 1171,
+        "dataset_text_length": 842,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Temporal propagation of neural state boundaries in naturalistic context",
-      "author": "Djamari A. Oetringer, Sarah Henderson, Dora Gözükara, Linda Geerligs",
+      "author": "Djamari Oetringer, Sarah Henderson, Dora Gözükara, Linda Geerligs",
       "venue": "Cerebral Cortex",
       "year": 2025,
       "url": "https://doi.org/10.1093/cercor/bhaf284",
@@ -105,9 +114,9 @@
       "discovery_method": "accession_mention",
       "matched_accession": "ds003688",
       "confidence_scoring": {
-        "confidence_score": 0.438732705116272,
-        "similarity_score": 0.3798551559448242,
-        "citation_text_length": 1539,
+        "confidence_score": 0.43908291131258015,
+        "similarity_score": 0.38015836477279663,
+        "citation_text_length": 1536,
         "dataset_text_length": 842,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -214,6 +223,31 @@
       }
     },
     {
+      "title": "Imaging-Anchored Decoder Calibration with Applicability Checks: An Exploratory Evaluation of Subject-Specific Channel Selection Across Three Public Datasets",
+      "author": "Michael Bono",
+      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "year": 2026,
+      "url": "https://doi.org/10.5281/zenodo.23070899",
+      "cited_by": 0,
+      "abstract": "Most brain-computer interfaces (BCIs) require user-specific calibration. A person’s own neuroimaging could indicate which recording channels are likely to carry task-relevant signal before any calibration data are collected. However, an imaging prior that is unsuitable for the recording (for example, one that points to a brain area the electrodes do not cover) can reduce decoding accuracy without any visible error. We describe BNS Atlas, a decoder-independent framework that converts subject-specific imaging and electrode geometry into guidance for decoder calibration (a ranked subset of recording channels, or channel weights) and withholds it when documented applicability checks (detectable task signal, electrode coverage of the target, registration quality, and anchor quality) fail. We evaluate this guidance for channel selection in three public datasets, comparing a fixed-fraction (~40%) imaging-guided subset with 1,000 equal-size random subsets per subject, and the imaging-derived target location (anchor) with 200 anchors relocated at random within electrode coverage. In auditory intracranial EEG (ds003688), a development dataset on which we revised the anatomical rule, five of ten subjects passed all applicability checks. The imaging subset scored above the mean of its random subsets in all five (median difference +0.074 balanced accuracy; individually significant, p < 0.05, in two), and decoding performance using the imaging-derived anchor exceeded the average performance using relocated anchors in all five (individually p > 0.10 in each); both two-sided sign tests gave p = 0.0625, the minimum attainable with five subjects. In visual MEG (ds000117), the prior showed no advantage over random selection (median difference −0.003 accuracy; positive in 2 of 6 evaluable subjects). The quality checks would have permitted use of the prior in only two of nine subjects. In both, imaging-guided decoding scored below the random-subset mean. In visual ECoG (ds004194), analyzed under a protocol frozen before decoding outcomes were seen, one of nine subjects passed all checks, and its prior was not better than random (difference −0.005 balanced accuracy; p = 0.59). Priors were withheld for insufficient electrode coverage in three subjects. This avoided a decoding loss in one but missed potential gains in two. Standalone verification code reproduced all 26 imaging anchors and the imaging and full-array scores of 11 subjects, and all 1,000 random-subset scores for two of them. These exploratory results suggest a benefit from imaging-guided channel selection in the auditory development dataset but do not establish a general benefit across datasets. They motivate preregistered tests of when subject-specific imaging priors improve decoding and whether applicability checks can identify detrimental priors before deployment.",
+      "doi": "10.5281/zenodo.23070899",
+      "pmid": null,
+      "openalex_id": "W7214983413",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds003688",
+      "confidence_scoring": {
+        "confidence_score": 0.4594662956893445,
+        "similarity_score": 0.397806316614151,
+        "citation_text_length": 1763,
+        "dataset_text_length": 842,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Linguistic structure and probability are jointly encoded in high gamma power",
       "author": "Sophie Slaats, Alexis Hervais‐Adelman",
       "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
@@ -245,7 +279,7 @@
       "year": 2026,
       "url": "https://doi.org/10.64898/2026.09.22.753545",
       "cited_by": 0,
-      "abstract": "Some participants are consistently easier to decode than others. We asked whether this difference belongs to the person or to the conditions under which the brain is measured. We compared visual decoding in EEG, MEG, intracranial EEG, and fMRI, testing classifiers on runs and stimulus identities excluded from training. Within-instrument decoding was reproducible. Attention, behavior, and peripheral signals affected recording quality but did not explain most of the stable differences between participants. Anatomy provided one explanation. Source-to-sensor distance strongly predicted modeled signal gain, and its effect was steepest in planar gradiometers. Intracranial recordings provided another: participants with sharper local category selectivity were easier to decode. This association chiefly reflected a smaller response to the nonpreferred category relative to overall visual responsivity. Cross-site prediction was uneven. EEG and MEG expressed the preferred and nonpreferred responses differently. MEG category separation and task-aligned variance described the information available to the decoder. Simultaneous EEG-MEG recordings contained a shared participant component, but external paired cohorts did not yield a common ordering across instruments. Correspondence depended on the measure, the instrument pair and, in one cohort, participant-linked stimulus sets. Repeated observations improved performance in participants with weak single-observation decoding. Stable decoding differences therefore reflect the relation between the individual, the represented distinction, and the instrument. They chiefly determine how much information a recording supplies per observation.",
+      "abstract": "Abstract Some participants are consistently easier to decode than others. We asked whether this difference belongs to the person or to the conditions under which the brain is measured. We compared visual decoding in EEG, MEG, intracranial EEG and fMRI, testing classifiers on runs and stimulus identities excluded from training. Within-instrument decoding was reproducible. Attention, behavior and peripheral signals affected recording quality but did not explain most of the stable differences between participants. Anatomy provided one explanation. Source-to-sensor distance strongly predicted modeled signal gain, and its effect was steepest in planar gradiometers. Intracranial recordings provided another: participants with sharper local category selectivity were easier to decode. This association chiefly reflected a smaller response to the nonpreferred category relative to overall visual responsivity. Cross-site prediction was uneven. EEG and MEG expressed the preferred and nonpreferred responses differently. MEG category separation and task-aligned variance described the information available to the decoder. Simultaneous EEG–MEG recordings contained a shared participant component, but external paired cohorts did not yield a common ordering across instruments. Correspondence depended on the measure, the instrument pair and, in one cohort, participant-linked stimulus sets. Repeated observations improved performance in participants with weak single-observation decoding. Stable decoding differences therefore reflect the relation between the individual, the represented distinction and the instrument. They chiefly determine how much information a recording supplies per observation.",
       "doi": "10.64898/2026.09.22.753545",
       "pmid": null,
       "openalex_id": "W7214640126",
@@ -255,8 +289,8 @@
       "discovery_method": "accession_mention",
       "matched_accession": "ds003688",
       "confidence_scoring": {
-        "confidence_score": 0.4763606294989587,
-        "similarity_score": 0.4124334454536438,
+        "confidence_score": 0.4792798291146756,
+        "similarity_score": 0.4149608910083771,
         "citation_text_length": 1720,
         "dataset_text_length": 842,
         "scoring_method": "sentence_transformers",
@@ -389,6 +423,31 @@
       }
     },
     {
+      "title": "Replication Data for: Imaging-Anchored Decoder Calibration with Applicability Checks: An Exploratory Evaluation of Subject-Specific Channel Selection Across Three Public Datasets",
+      "author": "Michael Bono",
+      "venue": "Harvard Dataverse",
+      "year": 2026,
+      "url": "https://doi.org/10.7910/dvn/bfrou9",
+      "cited_by": 0,
+      "abstract": "Evidence package and verification kit for the preprint \"Imaging-Anchored Decoder Calibration with Applicability Checks: An Exploratory Evaluation of Subject-Specific Channel Selection Across Three Public Datasets\" (Bono, Bono Neural Systems LLC, 2026). Contents: per-subject results, saved null distributions, controls, run records, ds004194 protocol locks, and correction records (with a redaction log of original hashes); a claim map linking 213 key preprint values to the exact file, row, and column; anchor overlays and location checks; a rebuild of all 26 imaging anchors with separately written code (no BNS software; 26 of 26 identical); and a standalone verification kit (NumPy, pandas, scikit-learn) that re-scores the imaging, full-array, and H1 random-subset results for 11 subjects. Every file is listed with a SHA-256 hash. Data: OpenNeuro ds003688 v1.0.7, ds000117 v1.1.0, ds004194 v3.0.0. BNS Atlas software is proprietary and not included. Results are exploratory; see the preprint for scope and limitations. Licenses: CC BY 4.0 (data and documents), MIT (code). Zip SHA-256: a775432fab5c46958f6bb75296d1f5a919cde75e36827a509ff140cc086c07b5 (8,979,137 bytes)",
+      "doi": "10.7910/dvn/bfrou9",
+      "pmid": null,
+      "openalex_id": "W7214905861",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds003688",
+      "confidence_scoring": {
+        "confidence_score": 0.46429107964038857,
+        "similarity_score": 0.4019836187362671,
+        "citation_text_length": 1420,
+        "dataset_text_length": 842,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Mapping Epilepsy-specific Functional MRI Network Properties in Refractory Epilepsy Using Intracranial EEG Locations",
       "author": "Sediqa Amin",
       "venue": "Tuwhera (Auckland University of Technology)",
@@ -416,18 +475,18 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T10:56:50.129742+00:00",
+    "scoring_date": "2026-10-11T11:29:29.152756+00:00",
     "dataset_text_length": 842,
-    "num_citations_scored": 13,
+    "num_citations_scored": 16,
     "summary_stats": {
-      "mean_confidence": 0.43712214107696834,
-      "median_confidence": 0.40884934946894647,
-      "std_confidence": 0.17961361627526864,
+      "mean_confidence": 0.43711255397647625,
+      "median_confidence": 0.41242275036871434,
+      "std_confidence": 0.16272525677541094,
       "min_confidence": 0.29679138690233237,
       "max_confidence": 0.9779294961690903,
       "high_confidence_count": 1,
-      "medium_confidence_count": 7,
-      "low_confidence_count": 5
+      "medium_confidence_count": 9,
+      "low_confidence_count": 6
     }
   }
 }

@@ -1,58 +1,126 @@
 {
   "dataset_id": "on007162",
-  "num_citations": 0,
-  "date_last_updated": "2026-09-22T11:36:45.014001+00:00",
+  "num_citations": 2,
+  "date_last_updated": "2026-10-11T11:11:23.052899+00:00",
   "metadata": {
-    "total_cumulative_citations": 0,
-    "fetch_date": "2026-09-22T11:36:45.014001+00:00",
+    "total_cumulative_citations": 4,
+    "fetch_date": "2026-10-11T11:11:23.052899+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
-    "anchor_count": 1,
+    "anchor_count": 2,
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
     "anchor_judgment_model": "claude-sonnet-5-5",
     "anchors": [
       {
+        "identifier": "10.1101/2025.10.17.682937",
+        "identifier_type": "doi",
+        "source_relation": "IsDescribedBy",
+        "classification": "data_paper",
+        "kept": true,
+        "kept_reason": "judged_data_paper",
+        "paper_title": "Adaptive recruitment of cortex-wide recurrence for visual object recognition",
+        "paper_year": 2025,
+        "paper_venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+        "reason": "README states the dataset accompanies this exact study (same title, bioRxiv preprint link), and the paper reports the EEG recordings (with fMRI) of the adaptive recurrence experiment.",
+        "judgment_model": "claude-sonnet-5-5"
+      },
+      {
         "identifier": "10.82901/nemar.on007162",
         "identifier_type": "doi",
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
+      "10.1101/2025.10.17.682937",
       "10.82901/nemar.on007162"
     ],
     "keywords": [
       "EEG",
+      "electroencephalography",
       "visual object recognition",
       "recurrent processing",
-      "decoding analysis",
+      "decoding",
+      "deep neural networks",
       "AlexNet",
-      "Pattern Recognition, Visual"
+      "RSVP",
+      "time-resolved decoding",
+      "human vision"
     ],
-    "methods_description": "Each trial presented a single image for 200 ms followed by a 100 ms blank interval. Trials were grouped into sequences of 14 images, and at the end of each sequence participants reported whether a paper clip had appeared anywhere within it. Stimuli consisted of 242 images (121 'challenge' and 121 'control') selected based on divergence between human behavioral performance and AlexNet model predictions.",
-    "funding": [],
-    "searched_accessions": [
-      "on007162",
-      "ds007162"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 0
+    "methods_description": "Each trial showed a single image for 200 ms followed by a 100 ms blank. Trials were grouped into sequences of 14 images. At the end of each sequence, participants reported whether a paper clip had appeared in that sequence. One EEG session was recorded per participant.",
+    "funding": []
   },
-  "citation_details": [],
+  "citation_details": [
+    {
+      "title": "The Human Brain as a Dynamic Mixture of Expert Models in Video Understanding",
+      "author": "Christina Sartzetaki, Anne W. Zonneveld, Pablo Oyarzo, Alessandro T. Gifford, Radoslaw Martin Cichy, Pascal Mettes, Iris I. A. Groen",
+      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+      "year": 2025,
+      "url": "https://doi.org/10.1101/2025.10.27.684803",
+      "cited_by": 4,
+      "abstract": "A bstract The human brain is the most efficient and versatile system for processing dynamic visual input. By comparing representations from deep video models to brain activity, we can gain insights into mechanistic solutions for effective video processing, important to better understand the brain and to build better models. Current works in model-brain alignment primarily focus on fMRI measurements, leaving open questions about fine-grained dynamic processing. Here, we introduce the first large-scale model benchmarking on alignment to dynamic electroencephalography (EEG) recordings of short natural videos. We analyze 100+ models across the axes of temporal integration, classification task, architecture, and pretraining, using our proposed Cross-Temporal Representational Similarity Analysis (CT-RSA) which matches the best time-unfolded model features to dynamically evolving brain responses, distilling 10 7 alignment scores. Our findings reveal novel insights on how continuous visual inp",
+      "doi": "10.1101/2025.10.27.684803",
+      "pmid": null,
+      "openalex_id": "W4415623085",
+      "source_doi": "10.1101/2025.10.17.682937",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5903585636615754,
+        "similarity_score": 0.5111329555511475,
+        "citation_text_length": 1286,
+        "dataset_text_length": 1415,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Local recurrence accounts for extended processing during occluded-object recognition",
+      "author": "M. Ahadzadeh, Karim Rajaei, Hamid Soltanian-Zadeh",
+      "venue": "bioRxiv",
+      "year": 2026,
+      "url": "https://doi.org/10.64898/2026.09.10.750662",
+      "cited_by": 0,
+      "abstract": "Recognizing objects from incomplete visual input often requires processing beyond the initial feedforward sweep, but the relative contributions of local recurrence and long-range top-down feedback remain unclear. We combined source-localized magnetoencephalography (MEG), time-resolved decoding, backward masking, representational Granger causality, and computational modeling to examine these mechanisms during occluded-object recognition. We characterized neural dynamics in early visual cortex (V1-3), the lateral occipital complex (LOC), and inferotemporal-parahippocampal cortex (IT-PHC). Occlusion delayed the emergence of category information and elicited a late component that was selectively disrupted by backward masking, consistent with dependence on continued processing. These temporal changes occurred without detectable changes in the relative timing of regional responses or directed interareal interactions, including no measurable occlusion-related increase in feedback among the re",
+      "doi": "10.64898/2026.09.10.750662",
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.1101/2025.10.17.682937",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6420984828472138,
+        "similarity_score": 0.55592942237854,
+        "citation_text_length": 1179,
+        "dataset_text_length": 1415,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    }
+  ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-22T13:32:45.138545+00:00",
+    "scoring_date": "2026-10-11T11:40:35.201295+00:00",
     "dataset_text_length": 1415,
-    "num_citations_scored": 0
+    "num_citations_scored": 2,
+    "summary_stats": {
+      "mean_confidence": 0.6162285232543946,
+      "median_confidence": 0.6162285232543946,
+      "std_confidence": 0.025869959592819236,
+      "min_confidence": 0.5903585636615754,
+      "max_confidence": 0.6420984828472138,
+      "high_confidence_count": 0,
+      "medium_confidence_count": 2,
+      "low_confidence_count": 0
+    }
   }
 }

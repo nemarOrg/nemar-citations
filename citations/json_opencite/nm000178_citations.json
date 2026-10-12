@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000178",
   "num_citations": 52,
-  "date_last_updated": "2026-09-30T10:44:25.188305+00:00",
+  "date_last_updated": "2026-10-11T10:17:36.354742+00:00",
   "metadata": {
-    "total_cumulative_citations": 569,
-    "fetch_date": "2026-09-29T10:45:03.130981+00:00",
+    "total_cumulative_citations": 582,
+    "fetch_date": "2026-10-11T10:17:36.354742+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -19,25 +19,25 @@
         "source_relation": "IsDerivedFrom",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Analyzing and Decoding Natural Reach-and-Grasp Actions Using Gel, Water and Dry EEG Systems",
         "paper_year": 2020,
         "paper_venue": "Frontiers in Neuroscience",
         "reason": "Same authors and study: 15 participants per system (gel, water, dry EEG) doing self-initiated reach-and-grasp, matching the dataset's description of the BNCI 2020-001 recordings.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.3389/fnhum.2022.898300",
         "identifier_type": "doi",
-        "source_relation": "IsDescribedBy",
+        "source_relation": "References",
         "classification": "related_work",
         "kept": false,
+        "kept_reason": "judged_not_data_paper",
         "paper_title": "2020 International brain–computer interface competition: A review",
         "paper_year": 2022,
         "paper_venue": "Frontiers in Human Neuroscience",
         "reason": "Review of the 2020 International BCI competition tracks (few-shot, imagined speech, etc.); it does not describe the BNCI 2020-001 reach-and-grasp electrode comparison data.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_not_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.nm000178",
@@ -45,12 +45,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -60,29 +60,23 @@
     "keywords": [
       "Electroencephalography",
       "Brain-Computer Interfaces",
-      "motor imagery",
       "reach-and-grasp",
       "movement-related cortical potential",
-      "mobile EEG",
       "dry electrodes",
-      "electrode comparison",
-      "EEG systems comparison",
-      "MOABB"
+      "mobile EEG",
+      "EEG systems",
+      "BCI data set"
     ],
-    "methods_description": "EEG data were acquired at 256 Hz sampling rate using 58 EEG channels and 6 EOG channels with a 5% grid system montage across three recording systems: gel-based active electrodes (g.tec USBamp/g.Ladybird, reference: right earlobe, ground: AFz), water-based mobile EEG (EEG-Versatile), and dry-electrode mobile EEG (EEG-Hero). Online filtering included 8th order Chebyshev filter (0.01-100 Hz) and 50 Hz notch filter. Participants performed 80 self-initiated reach-and-grasp trials each for palmar grasp (toward glass) and lateral grasp (toward spoon) with 2-second fixation period, 1-2 second hold, and 4-second inter-trial interval. Offline preprocessing included 4th order Butterworth bandpass filtering (0.3-60 Hz), extended infomax ICA for artifact removal (applied to gel-based and water-based systems; not applied to dry-electrode recordings due to unfavorable channel count), amplitude thresholding (>125 µV), and abnormal joint probability/kurtosis rejection (4 SD threshold).",
+    "methods_description": "EEG was recorded at 256 Hz from 58 EEG and 6 EOG channels in a 5% grid montage using g.tec USBamp/g.Ladybird (gel), EEG-Versatile (water) and EEG-Hero (dry) systems. Participants performed 80 self-initiated palmar and lateral grasp trials each. Online filtering used a Chebyshev 0.01-100 Hz band and a 50 Hz notch. Offline preprocessing included 0.3-60 Hz Butterworth filtering, infomax ICA (gel and water systems only), amplitude thresholding, and joint probability/kurtosis rejection.",
     "funding": [
       {
-        "funder_name": "European Commission",
-        "award_number": "MoreGrasp",
-        "award_title": "Horizon 2020 Project MoreGrasp"
+        "funder_name": "Horizon 2020 Project MoreGrasp"
+      },
+      {
+        "funder_name": "Horizon 2020",
+        "award_title": "MoreGrasp"
       }
-    ],
-    "searched_accessions": [
-      "nm000178"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 52
+    ]
   },
   "citation_details": [
     {
@@ -91,7 +85,7 @@
       "venue": "Frontiers in Human Neuroscience",
       "year": 2022,
       "url": "https://doi.org/10.3389/fnhum.2022.898300",
-      "cited_by": 73,
+      "cited_by": 79,
       "abstract": "The brain-computer interface (BCI) has been investigated as a form of communication tool between the brain and external devices. BCIs have been extended beyond communication and control over the years. The 2020 international BCI competition aimed to provide high-quality neuroscientific data for open access that could be used to evaluate the current degree of technical advances in BCI. Although there are a variety of remaining challenges for future BCI advances, we discuss some of more recent application directions: (i) few-shot EEG learning, (ii) micro-sleep detection (iii) imagined speech decoding, (iv) cross-session classification, and (v) EEG(+ear-EEG) detection in an ambulatory environment. Not only did scientists from the BCI field compete, but scholars with a broad variety of backgrounds and nationalities participated in the competition to address these challenges. Each dataset was prepared and separated into three data that were released to the competitors in the form of trainin",
       "doi": "10.3389/fnhum.2022.898300",
       "pmid": "35937679",
@@ -114,7 +108,7 @@
       "venue": "Frontiers in Human Neuroscience",
       "year": 2022,
       "url": "https://doi.org/10.3389/fnhum.2022.901387",
-      "cited_by": 51,
+      "cited_by": 49,
       "abstract": "Technologies like passive brain-computer interfaces (BCI) can enhance human-machine interaction. Anyhow, there are still shortcomings in terms of easiness of use, reliability, and generalizability that prevent passive-BCI from entering real-life situations. The current work aimed to technologically and methodologically design a new gel-free passive-BCI system for out-of-the-lab employment. The choice of the water-based electrodes and the design of a new lightweight headset met the need for easy-to-wear, comfortable, and highly acceptable technology. The proposed system showed high reliability in both laboratory and realistic settings, performing not significantly different from the gold standard based on gel electrodes. In both cases, the proposed system allowed effective discrimination (AUC > 0.9) between low and high levels of workload, vigilance, and stress even for high temporal resolution (<10 s). Finally, the generalizability of the proposed system has been tested through a cross",
       "doi": "10.3389/fnhum.2022.901387",
       "pmid": "35911603",
@@ -133,11 +127,11 @@
     },
     {
       "title": "Electroencephalographic Recording of the Movement-Related Cortical Potential in Ecologically Valid Movements: A Scoping Review",
-      "author": "Sharon Olsen, Gemma Alder, Mitra Williams, Seth Chambers, Mads Jochumsen, Nada Elizabeth June Signal, Usman Rashid, Imran Khan Niazi, Denise M. Taylor",
+      "author": "Sharon Olsen, Gemma Alder, Mitra Williams, Seth Chambers, Mads Jochumsen, Nada Signal, Usman Rashid, Imran Khan Niazi, Denise M. Taylor",
       "venue": "Frontiers in Neuroscience",
       "year": 2021,
       "url": "https://doi.org/10.3389/fnins.2021.721387",
-      "cited_by": 37,
+      "cited_by": 38,
       "abstract": "The movement-related cortical potential (MRCP) is a brain signal that can be recorded using surface electroencephalography (EEG) and represents the cortical processes involved in movement preparation. The MRCP has been widely researched in simple, single-joint movements, however, these movements often lack ecological validity. Ecological validity refers to the generalizability of the findings to real-world situations, such as neurological rehabilitation. This scoping review aimed to synthesize the research evidence investigating the MRCP in ecologically valid movement tasks. A search of six electronic databases identified 102 studies that investigated the MRCP during multi-joint movements; 59 of these studies investigated ecologically valid movement tasks and were included in the review. The included studies investigated 15 different movement tasks that were applicable to everyday situations, but these were largely carried out in healthy populations. The synthesized findings suggest th",
       "doi": "10.3389/fnins.2021.721387",
       "pmid": "34650399",
@@ -146,9 +140,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6202113872766496,
-        "similarity_score": 0.5369795560836792,
-        "citation_text_length": 1340,
+        "confidence_score": 0.6190750586986543,
+        "similarity_score": 0.5359957218170166,
+        "citation_text_length": 1325,
         "dataset_text_length": 2323,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -160,7 +154,7 @@
       "venue": "Frontiers in Human Neuroscience",
       "year": 2023,
       "url": "https://doi.org/10.3389/fnhum.2023.1134869",
-      "cited_by": 35,
+      "cited_by": 36,
       "abstract": "The demand for public datasets has increased as data-driven methodologies have been introduced in the field of brain-computer interfaces (BCIs). Indeed, many BCI datasets are available in various platforms or repositories on the web, and the studies that have employed these datasets appear to be increasing. Motor imagery is one of the significant control paradigms in the BCI field, and many datasets related to motor tasks are open to the public already. However, to the best of our knowledge, these studies have yet to investigate and evaluate the datasets, although data quality is essential for reliable results and the design of subject- or system-independent BCIs. In this study, we conducted a thorough investigation of motor imagery/execution EEG datasets recorded from healthy participants published over the past 13 years. The 25 datasets were collected from six repositories and subjected to a meta-analysis. In particular, we reviewed the specifications of the recording settings and ex",
       "doi": "10.3389/fnhum.2023.1134869",
       "pmid": "37063105",
@@ -201,29 +195,6 @@
       }
     },
     {
-      "title": "Detailed characterization of physiological EMG activations and directional tuning of upper-limb and trunk muscles in point-to-point reaching movements",
-      "author": "Robert Mihai Mira, Lorenzo Molinari Tosatti, Marco Sacco, Alessandro Scano",
-      "venue": "Current Research in Physiology",
-      "year": 2021,
-      "url": "https://doi.org/10.1016/j.crphys.2021.02.005",
-      "cited_by": 34,
-      "abstract": "In recent years, several studies have investigated upper-limb motion in a variety of scenarios including motor control, physiology, rehabilitation and industry. Such applications assess people's kinematics and muscular performances, focusing on typical movements that simulate daily-life tasks. However, often only a limited interpretation of the EMG patterns is provided. In fact, rarely the assessments separate phasic (movement-related) and tonic (postural) EMG components, as well as the EMG in the acceleration and deceleration phases. With this paper, we provide a comprehensive and detailed characterization of the activity of upper-limb and trunk muscles in healthy people point-to-point upper limb movements. Our analysis includes in-depth muscle activation magnitude assessment, separation of phasic (movement-related) and tonic (postural) EMG activations, directional tuning, distinction between activations in the acceleration and deceleration phases. Results from our study highlight a p",
-      "doi": "10.1016/j.crphys.2021.02.005",
-      "pmid": "34746827",
-      "openalex_id": "W3133654593",
-      "source_doi": "10.3389/fnins.2020.00849",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5136667111515999,
-        "similarity_score": 0.4447330832481384,
-        "citation_text_length": 1293,
-        "dataset_text_length": 2323,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Decoding Hand Movement Types and Kinematic Information From Electroencephalogram",
       "author": "Baoguo Xu, Yong Wang, Leying Deng, Changcheng Wu, Wenbin Zhang, Huijun Li, Aiguo Song",
       "venue": "IEEE Transactions on Neural Systems and Rehabilitation Engineering",
@@ -247,35 +218,12 @@
       }
     },
     {
-      "title": "A garment that measures brain activity: proof of concept of an EEG sensor layer fully implemented with smart textiles",
-      "author": "Eduardo López‐Larraz, Carlos Escolano, Almudena Robledo-Menéndez, Leyre Morlas, Alexandra Alda, Javier Mínguez",
-      "venue": "Frontiers in Human Neuroscience",
-      "year": 2023,
-      "url": "https://doi.org/10.3389/fnhum.2023.1135153",
-      "cited_by": 28,
-      "abstract": "This paper presents the first garment capable of measuring brain activity with accuracy comparable to that of state-of-the art dry electroencephalogram (EEG) systems. The main innovation is an EEG sensor layer (i.e., the electrodes, the signal transmission, and the cap support) made entirely of threads, fabrics, and smart textiles, eliminating the need for metal or plastic materials. The garment is connected to a mobile EEG amplifier to complete the measurement system. As a first proof of concept, the new EEG system (Garment-EEG) was characterized with respect to a state-of-the-art Ag/AgCl dry-EEG system (Dry-EEG) over the forehead area of healthy participants in terms of: (1) skin-electrode impedance; (2) EEG activity; (3) artifacts; and (4) user ergonomics and comfort. The results show that the Garment-EEG system provides comparable recordings to Dry-EEG, but it is more susceptible to artifacts under adverse recording conditions due to poorer contact impedances. The textile-based sen",
-      "doi": "10.3389/fnhum.2023.1135153",
-      "pmid": "37305362",
-      "openalex_id": "W4378386029",
-      "source_doi": "10.3389/fnins.2020.00849",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.6141400909423829,
-        "similarity_score": 0.5317230224609375,
-        "citation_text_length": 1297,
-        "dataset_text_length": 2323,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Recent Advances in Portable Dry Electrode EEG: Architecture and Applications in Brain-Computer Interfaces",
       "author": "Meihong Zhang, Bocheng Qian, Jianming Gao, Shaokai Zhao, Yibo Cui, Zhiguo Luo, Kecheng Shi, Erwei Yin",
       "venue": "Sensors",
       "year": 2025,
       "url": "https://doi.org/10.3390/s25165215",
-      "cited_by": 27,
+      "cited_by": 29,
       "abstract": "As brain-computer interface (BCI) technology continues to advance, research on human brain function has gradually transitioned from theoretical investigation to practical engineering applications. To support EEG signal acquisition in a variety of real-world scenarios, BCI electrode systems must demonstrate a balanced combination of electrical performance, wearing comfort, and portability. Dry electrodes have emerged as a promising alternative for EEG acquisition due to their ability to operate without conductive gel or complex skin preparation. This paper reviews the latest progress in dry electrode EEG systems, summarizing key achievements in hardware design with a focus on structural innovation and material development. It also examines application advances in several representative BCI domains, including emotion recognition, fatigue and drowsiness detection, motor imagery, and steady-state visual evoked potentials, while analyzing system-level performance. Finally, the paper critica",
       "doi": "10.3390/s25165215",
       "pmid": "40872076",
@@ -293,12 +241,58 @@
       }
     },
     {
+      "title": "A garment that measures brain activity: proof of concept of an EEG sensor layer fully implemented with smart textiles",
+      "author": "Eduardo López‐Larraz, Carlos Escolano, Almudena Robledo-Menéndez, Leyre Morlas, Alexandra Alda, Javier Mínguez",
+      "venue": "Frontiers in Human Neuroscience",
+      "year": 2023,
+      "url": "https://doi.org/10.3389/fnhum.2023.1135153",
+      "cited_by": 29,
+      "abstract": "This paper presents the first garment capable of measuring brain activity with accuracy comparable to that of state-of-the art dry electroencephalogram (EEG) systems. The main innovation is an EEG sensor layer (i.e., the electrodes, the signal transmission, and the cap support) made entirely of threads, fabrics, and smart textiles, eliminating the need for metal or plastic materials. The garment is connected to a mobile EEG amplifier to complete the measurement system. As a first proof of concept, the new EEG system (Garment-EEG) was characterized with respect to a state-of-the-art Ag/AgCl dry-EEG system (Dry-EEG) over the forehead area of healthy participants in terms of: (1) skin-electrode impedance; (2) EEG activity; (3) artifacts; and (4) user ergonomics and comfort. The results show that the Garment-EEG system provides comparable recordings to Dry-EEG, but it is more susceptible to artifacts under adverse recording conditions due to poorer contact impedances. The textile-based sen",
+      "doi": "10.3389/fnhum.2023.1135153",
+      "pmid": "37305362",
+      "openalex_id": "W4378386029",
+      "source_doi": "10.3389/fnins.2020.00849",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6141400909423829,
+        "similarity_score": 0.5317230224609375,
+        "citation_text_length": 1297,
+        "dataset_text_length": 2323,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Detailed characterization of physiological EMG activations and directional tuning of upper-limb and trunk muscles in point-to-point reaching movements",
+      "author": "Robert Mihai Mira, Lorenzo Molinari Tosatti, Marco Sacco, Alessandro Scano",
+      "venue": "Current Research in Physiology",
+      "year": 2021,
+      "url": "https://doi.org/10.1016/j.crphys.2021.02.005",
+      "cited_by": 29,
+      "abstract": "In recent years, several studies have investigated upper-limb motion in a variety of scenarios including motor control, physiology, rehabilitation and industry. Such applications assess people's kinematics and muscular performances, focusing on typical movements that simulate daily-life tasks. However, often only a limited interpretation of the EMG patterns is provided. In fact, rarely the assessments separate phasic (movement-related) and tonic (postural) EMG components, as well as the EMG in the acceleration and deceleration phases. With this paper, we provide a comprehensive and detailed characterization of the activity of upper-limb and trunk muscles in healthy people point-to-point upper limb movements. Our analysis includes in-depth muscle activation magnitude assessment, separation of phasic (movement-related) and tonic (postural) EMG activations, directional tuning, distinction between activations in the acceleration and deceleration phases. Results from our study highlight a p",
+      "doi": "10.1016/j.crphys.2021.02.005",
+      "pmid": "34746827",
+      "openalex_id": "W3133654593",
+      "source_doi": "10.3389/fnins.2020.00849",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5136667111515999,
+        "similarity_score": 0.4447330832481384,
+        "citation_text_length": 1293,
+        "dataset_text_length": 2323,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Decoding Different Reach-and-Grasp Movements Using Noninvasive Electroencephalogram",
       "author": "Baoguo Xu, Dalin Zhang, Yong Wang, Leying Deng, Xin Wang, Changcheng Wu, Aiguo Song",
       "venue": "Frontiers in Neuroscience",
       "year": 2021,
       "url": "https://doi.org/10.3389/fnins.2021.684547",
-      "cited_by": 26,
+      "cited_by": 27,
       "abstract": "Grasping is one of the most indispensable functions of humans. Decoding reach-and-grasp actions from electroencephalograms (EEGs) is of great significance for the realization of intuitive and natural neuroprosthesis control, and the recovery or reconstruction of hand functions of patients with motor disorders. In this paper, we investigated decoding five different reach-and-grasp movements closely related to daily life using movement-related cortical potentials (MRCPs). In the experiment, nine healthy subjects were asked to naturally execute five different reach-and-grasp movements on the designed experimental platform, namely palmar, pinch, push, twist, and plug grasp. A total of 480 trials per subject (80 trials per condition) were recorded. The MRCPs amplitude from low-frequency (0.3-3 Hz) EEG signals were used as decoding features for further offline analysis. Average binary classification accuracy for grasping vs. the no-movement condition peaked at 75.06 ± 6.8%. Peak average accu",
       "doi": "10.3389/fnins.2021.684547",
       "pmid": "34650398",
@@ -333,6 +327,29 @@
         "confidence_score": 0.3543365572392941,
         "similarity_score": 0.30678489804267883,
         "citation_text_length": 1152,
+        "dataset_text_length": 2323,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Mobile Brain/Body Imaging: Challenges and opportunities for the implementation of research programs based on the 4E perspective to cognition",
+      "author": "Aitana Grasso‐Cladera, Stefanella Costa‐Cordella, Alejandra Rossi, Nikolas Fabian Fuchs, Francisco J. Parada",
+      "venue": "Adaptive Behavior",
+      "year": 2022,
+      "url": "https://doi.org/10.1177/10597123211072613",
+      "cited_by": 22,
+      "abstract": "Cognitive dynamics are multimodal, and they need to integrate real-time feedback to be adaptive and appropriate. However, cognition research still relies on mostly unimodal paradigms using simple motor tasks in laboratory-based static situations. This paper addresses this limitation by presenting the Mobile Brain/Body Imaging approach based on the Embodied, Embedded, Extended, and Enactive perspective, which complements traditional laboratory work while also facilitating ecologically valid applications. First, we briefly review Mobile Brain/Body Imaging technologies used to obtain functional and structural images of the Brain/Body System during natural cognition. Specifically: mobile cognitive electrophysiology, mobile functional neurovascular dynamics, and mobile behavioral measurements. Second, we review the development of Mobile Brain/Body Imaging/4E in Chile. Finally, we discuss challenges and opportunities. We conclude that although this new epistemic/methodological approach is pr",
+      "doi": "10.1177/10597123211072613",
+      "pmid": null,
+      "openalex_id": "W4293237263",
+      "source_doi": "10.3389/fnins.2020.00849",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6032177469134332,
+        "similarity_score": 0.5222664475440979,
+        "citation_text_length": 1304,
         "dataset_text_length": 2323,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -385,35 +402,12 @@
       }
     },
     {
-      "title": "Mobile Brain/Body Imaging: Challenges and opportunities for the implementation of research programs based on the 4E perspective to cognition",
-      "author": "Aitana Grasso‐Cladera, Stefanella Costa‐Cordella, Alejandra Rossi, Nikolas Fabian Fuchs, Francisco J. Parada",
-      "venue": "Adaptive Behavior",
-      "year": 2022,
-      "url": "https://doi.org/10.1177/10597123211072613",
-      "cited_by": 21,
-      "abstract": "Cognitive dynamics are multimodal, and they need to integrate real-time feedback to be adaptive and appropriate. However, cognition research still relies on mostly unimodal paradigms using simple motor tasks in laboratory-based static situations. This paper addresses this limitation by presenting the Mobile Brain/Body Imaging approach based on the Embodied, Embedded, Extended, and Enactive perspective, which complements traditional laboratory work while also facilitating ecologically valid applications. First, we briefly review Mobile Brain/Body Imaging technologies used to obtain functional and structural images of the Brain/Body System during natural cognition. Specifically: mobile cognitive electrophysiology, mobile functional neurovascular dynamics, and mobile behavioral measurements. Second, we review the development of Mobile Brain/Body Imaging/4E in Chile. Finally, we discuss challenges and opportunities. We conclude that although this new epistemic/methodological approach is pr",
-      "doi": "10.1177/10597123211072613",
-      "pmid": null,
-      "openalex_id": "W4293237263",
-      "source_doi": "10.3389/fnins.2020.00849",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.6032177469134332,
-        "similarity_score": 0.5222664475440979,
-        "citation_text_length": 1304,
-        "dataset_text_length": 2323,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "NeuralBench: A Unifying Framework to Benchmark NeuroAI Models",
-      "author": "Hubert J. Banville, Stéphane d’Ascoli, Simon Dahan, Jérémy Rapin, Marlène Careil, Yohann Benchetrit, Jarod Lévy, S. Panchavati, Antoine Ratouchniak, Mingfang Zhang, Elisa Cascardi, K. Begany, Teon L Brooks, Jean-Rémi King",
+      "author": "Hubert J. Banville, Stéphane d'Ascoli, Simon Dahan, Jérémy Rapin, Marlène Careil, Yohann Benchetrit, Jarod Lévy, S. Panchavati, Antoine Ratouchniak, Ming-Fang Zhang, Elisa Cascardi, K. Begany, Teon L Brooks, Jean-Rémi King",
       "venue": "ArXiv",
       "year": 2026,
       "url": "https://doi.org/10.48550/arXiv.2605.08495",
-      "cited_by": 13,
+      "cited_by": 16,
       "abstract": "Deep learning and large public datasets have recently catalyzed the proliferation of AI models for processing brain recordings. However, systematically evaluating these models remains a challenge: not only do the preprocessing pipelines, training and finetuning approaches largely vary across studies, but their downstream evaluation is often limited to small sets of tasks and/or datasets. Here, we present NeuralBench: a unified framework for benchmarking AI models of brain activity. We accompany this framework with NeuralBench-EEG v1.0 -- a large EEG benchmark that includes 36 electroencephalography (EEG) tasks and 14 deep learning architectures, and is evaluated on 94 datasets accessed through a standardized interface. This first EEG-focused release already highlights two main findings. First, current foundation models only marginally outperform task-specific models. Second, a large set of tasks (e.g. cognitive decoding, clinical predictions) remain highly challenging, even for the bes",
       "doi": "10.48550/arXiv.2605.08495",
       "pmid": null,
@@ -422,9 +416,32 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6609821489453317,
-        "similarity_score": 0.5722789168357849,
-        "citation_text_length": 1326,
+        "confidence_score": 0.6621785777807236,
+        "similarity_score": 0.5733147859573364,
+        "citation_text_length": 1327,
+        "dataset_text_length": 2323,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Decoding reach and attempted grasp actions from EEG of persons with Spinal Cord Injury",
+      "author": "Miriam Kirchhoff, Sebastian Evers, Marvin Wolf, Rüdiger Rupp, Andreas Schwarz",
+      "venue": "Conference proceedings/Conference proceedings - IEEE International Conference on Systems, Man, and Cybernetics",
+      "year": 2022,
+      "url": "https://doi.org/10.1109/smc53654.2022.9945603",
+      "cited_by": 10,
+      "abstract": "Brain-computer interfaces (BCIs) could enable persons with cervical spinal cord injury (SCI) to intuitively control assistive motor devices for regaining lost grasping function. Previous studies, mostly performed in non-disabled persons, have already shown that complex upper limb movements can be decoded from the low-frequency time domain of the electroencephalogram (EEG).In this work, we attempted to translate these results to persons with cervical SCI and investigated whether executed reach and attempted grasp actions could be decoded from their EEG signals. For this, we chose three different reach-and-grasp actions, two unimanual and one bimanual, towards objects of daily life. During participants’ self-initiated, executed reach and attempted grasp actions, we recorded EEG using mobile, water-based electrodes. We measured two participants with subacute cervical SCI who had preserved shoulder movements and elbow flexion but no wrist and hand functions. Both repeated the session three",
+      "doi": "10.1109/smc53654.2022.9945603",
+      "pmid": null,
+      "openalex_id": "W4309675421",
+      "source_doi": "10.3389/fnins.2020.00849",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7982216718792917,
+        "similarity_score": 0.6911010146141052,
+        "citation_text_length": 1312,
         "dataset_text_length": 2323,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -433,7 +450,7 @@
     {
       "title": "Wavelet Analysis of Noninvasive EEG Signals Discriminates Complex and Natural Grasp Types",
       "author": "Ali Rabiee, Sima Ghafoori, Anna Cetera, Yalda Shahriari, Reza Abiri",
-      "venue": "arXiv (Cornell University)",
+      "venue": "ArXiv",
       "year": 2024,
       "url": "https://doi.org/10.1109/embc53108.2024.10782674",
       "cited_by": 10,
@@ -445,32 +462,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.7896365600824358,
-        "similarity_score": 0.6836680173873901,
-        "citation_text_length": 1221,
-        "dataset_text_length": 2323,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Decoding reach and attempted grasp actions from EEG of persons with Spinal Cord Injury",
-      "author": "Miriam Kirchhoff, Sebastian Evers, Marvin Wolf, Rüdiger Rupp, Andreas Schwarz",
-      "venue": "2022 IEEE International Conference on Systems, Man, and Cybernetics (SMC)",
-      "year": 2022,
-      "url": "https://doi.org/10.1109/smc53654.2022.9945603",
-      "cited_by": 9,
-      "abstract": "Brain-computer interfaces (BCIs) could enable persons with cervical spinal cord injury (SCI) to intuitively control assistive motor devices for regaining lost grasping function. Previous studies, mostly performed in non-disabled persons, have already shown that complex upper limb movements can be decoded from the low-frequency time domain of the electroencephalogram (EEG).In this work, we attempted to translate these results to persons with cervical SCI and investigated whether executed reach and attempted grasp actions could be decoded from their EEG signals. For this, we chose three different reach-and-grasp actions, two unimanual and one bimanual, towards objects of daily life. During participants’ self-initiated, executed reach and attempted grasp actions, we recorded EEG using mobile, water-based electrodes. We measured two participants with subacute cervical SCI who had preserved shoulder movements and elbow flexion but no wrist and hand functions. Both repeated the session three",
-      "doi": "10.1109/smc53654.2022.9945603",
-      "pmid": null,
-      "openalex_id": "W4309675421",
-      "source_doi": "10.3389/fnins.2020.00849",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.7955723726749421,
-        "similarity_score": 0.6888072490692139,
-        "citation_text_length": 1275,
+        "confidence_score": 0.7885655638575555,
+        "similarity_score": 0.6827407479286194,
+        "citation_text_length": 1200,
         "dataset_text_length": 2323,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -479,7 +473,7 @@
     {
       "title": "EEG-EMG hybrid real-time classification of hand grasp and release movements intention in chronic stroke patients",
       "author": "SeongHyeon Jo, Jun Ha Jung, Min Jin Yang, Yechan Lee, Sang Jin Jang, Jirou Feng, Si‐Hwan Heo, Jung Won Kim, Joon‐Ho Shin, Jaesung Jeong, Hyung‐Soon Park",
-      "venue": "2022 International Conference on Rehabilitation Robotics (ICORR)",
+      "venue": "International Conference on Rehabilitation Robotics",
       "year": 2022,
       "url": "https://doi.org/10.1109/icorr55369.2022.9896592",
       "cited_by": 9,
@@ -491,9 +485,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.7400356042385102,
-        "similarity_score": 0.640723466873169,
-        "citation_text_length": 1367,
+        "confidence_score": 0.7413929200172426,
+        "similarity_score": 0.6418986320495605,
+        "citation_text_length": 1354,
         "dataset_text_length": 2323,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -502,7 +496,7 @@
     {
       "title": "Electroencephalogram based Control of Prosthetic Hand using Optimizable Support Vector Machine",
       "author": "Maibam Pooya Chanu, Dingyi Pei, Parthan Olikkal, Ramana Kumar Vinjamuri, Nayan M. Kakoty",
-      "venue": "Proceedings of the 2023 6th International Conference on Advances in Robotics",
+      "venue": "Advances in Robotics - International Conference of The Robotics Society (AIR)",
       "year": 2023,
       "url": "https://doi.org/10.1145/3610419.3610453",
       "cited_by": 5,
@@ -514,9 +508,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6295293366909028,
-        "similarity_score": 0.5450470447540283,
-        "citation_text_length": 1297,
+        "confidence_score": 0.6299733763933183,
+        "similarity_score": 0.5454314947128296,
+        "citation_text_length": 1298,
         "dataset_text_length": 2323,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -640,7 +634,7 @@
     {
       "title": "Non-invasive Brain–Computer Interfaces for Control of Grasp Neuroprosthesis: The European MoreGrasp Initiative",
       "author": "Gernot R Muller-Putz, Andreas Schwarz, Joana Pereira, Patrick Ofner, Björn Hessing, Matthias Schneiders, Sebastian Stein, Andrew Ramsay, John H. Williamson, Roderick Murray‐Smith, Granit Luzhnica, Eduardo Enrique Veas, Carlos Escolano, Luis Montesano, Jan Loitz, Rüdiger Rupp",
-      "venue": "Neuroprosthetics and Brain-Computer Interfaces in Spinal Cord Injury",
+      "venue": "Springer eBooks",
       "year": 2021,
       "url": "https://doi.org/10.1007/978-3-030-68545-4_13",
       "cited_by": 4,
@@ -652,9 +646,32 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6511911767721177,
-        "similarity_score": 0.5638018846511841,
-        "citation_text_length": 1195,
+        "confidence_score": 0.6731272888183595,
+        "similarity_score": 0.582794189453125,
+        "citation_text_length": 1142,
+        "dataset_text_length": 2323,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "A large electroencephalogram database of freewill reaching and grasping tasks for brain machine interfaces",
+      "author": "Bhoj Raj Thapa, John Boggess, Jihye Bae",
+      "venue": "Scientific Data",
+      "year": 2025,
+      "url": "https://doi.org/10.1038/s41597-025-06039-9",
+      "cited_by": 4,
+      "abstract": "ABSTRACT Brain machine interfaces (BMIs) offer great potential to improve the quality of life for individuals with neurological disorders or severe motor impairments. Among various neural recording modalities, electroencephalogram (EEG) is particularly favorable for BMIs due to its noninvasive nature, portability, and high temporal resolution. Existing EEG datasets for BMIs are often limited to experimental settings that fail to address subjects’ freewill in decision making. We present a large EEG dataset, containing a total of 6808 trials, recorded from 23 healthy young adults (8 females and 15 males with an age range from 18 to 24 years) while performing reaching and grasping tasks, where the target object is freely chosen at their desired pace according to their own will. This EEG dataset provides a realistic representation of reaching and grasping movement, making it useful for developing practical BMIs.",
+      "doi": "10.1038/s41597-025-06039-9",
+      "pmid": "41203630",
+      "openalex_id": "W4415991004",
+      "source_doi": "10.3389/fnins.2020.00849",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.8977723440527917,
+        "similarity_score": 0.7772920727729797,
+        "citation_text_length": 1120,
         "dataset_text_length": 2323,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -732,7 +749,7 @@
     {
       "title": "Prediction of Lifted Weight Category Using EEG Equipped Headgear",
       "author": "Sencer Melih Deniz, Hamraz Javaheri, Juan Felipe Vargas, Doğan Urgun, Fariza Sabit, Mahmut Tok, Mehmet Haklıdır, Bo Zhou, Paul Lukowicz",
-      "venue": "2022 IEEE-EMBS International Conference on Biomedical and Health Informatics (BHI)",
+      "venue": "IEEE-EMBS International Conference on Biomedical and Health Informatics (BHI ...)",
       "year": 2022,
       "url": "https://doi.org/10.1109/bhi56158.2022.9926744",
       "cited_by": 3,
@@ -744,9 +761,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6848701769113541,
-        "similarity_score": 0.5929611921310425,
-        "citation_text_length": 1320,
+        "confidence_score": 0.6869435325264931,
+        "similarity_score": 0.5947563052177429,
+        "citation_text_length": 1319,
         "dataset_text_length": 2323,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -754,7 +771,7 @@
     },
     {
       "title": "Brain-Computer Interface-Based Neurorehabilitation: From the Lab to the Users’ Home",
-      "author": "Carlos Escolano, Eduardo López‐Larraz, Javier Mínguez, Luis Montesano",
+      "author": "C. Escolano, Eduardo López‐Larraz, Javier Mínguez, Luis Montesano",
       "venue": "Biosystems & biorobotics",
       "year": 2021,
       "url": "https://doi.org/10.1007/978-3-030-70316-5_91",
@@ -767,32 +784,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5276246845722199,
-        "similarity_score": 0.5024996995925903,
-        "citation_text_length": 203,
-        "dataset_text_length": 2323,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "A large electroencephalogram database of freewill reaching and grasping tasks for brain machine interfaces",
-      "author": "Bhoj Raj Thapa, John F. Boggess, Jihye Bae",
-      "venue": "Scientific Data",
-      "year": 2025,
-      "url": "https://doi.org/10.1038/s41597-025-06039-9",
-      "cited_by": 3,
-      "abstract": "ABSTRACT Brain machine interfaces (BMIs) offer great potential to improve the quality of life for individuals with neurological disorders or severe motor impairments. Among various neural recording modalities, electroencephalogram (EEG) is particularly favorable for BMIs due to its noninvasive nature, portability, and high temporal resolution. Existing EEG datasets for BMIs are often limited to experimental settings that fail to address subjects’ freewill in decision making. We present a large EEG dataset, containing a total of 6808 trials, recorded from 23 healthy young adults (8 females and 15 males with an age range from 18 to 24 years) while performing reaching and grasping tasks, where the target object is freely chosen at their desired pace according to their own will. This EEG dataset provides a realistic representation of reaching and grasping movement, making it useful for developing practical BMIs.",
-      "doi": "10.1038/s41597-025-06039-9",
-      "pmid": "41203630",
-      "openalex_id": "W4415991004",
-      "source_doi": "10.3389/fnins.2020.00849",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.8970369592309,
-        "similarity_score": 0.776655375957489,
-        "citation_text_length": 1123,
+        "confidence_score": 0.5296246469020843,
+        "similarity_score": 0.5044044256210327,
+        "citation_text_length": 199,
         "dataset_text_length": 2323,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -868,6 +862,52 @@
       }
     },
     {
+      "title": "A Window Analysis for the Decoding of Premovement and Movement Intentions in Freewill EEG *",
+      "author": "Bhoj Raj Thapa, Jihye Bae",
+      "venue": "2025 47th Annual International Conference of the IEEE Engineering in Medicine and Biology Society (EMBC)",
+      "year": 2025,
+      "url": "https://doi.org/10.1109/embc58623.2025.11253481",
+      "cited_by": 2,
+      "abstract": "Decoding movement-related intentions from electroencephalogram (EEG) is important for developing real-time brain machine interfaces (BMIs). While most studies focus on cue-based tasks in EEG-based BMIs, freewill reaching and grasping tasks allow subjects to initiate movements of their own will, making them relevant to practical EEG-based BMIs. However, the investigation of EEG window size for decoding freewill movements remains unexplored. This study systematically analyzes the effect of different window sizes on decoding EEG premovement (prior to the movement onset) and movement (after movement initiation) intentions in freewill reaching and grasping tasks. We used 49 EEG recordings from 23 subjects, and EEG windows of 0.1-1s in 0.1s increments were analyzed within the range of -3 to 3s relative to the movement onset at 0. Decoding was performed using regularized linear support vector machine (LSVM) and regularized linear discriminant analysis (RLDA), and performance was evaluated in ",
+      "doi": "10.1109/embc58623.2025.11253481",
+      "pmid": "41337309",
+      "openalex_id": "W4416960497",
+      "source_doi": "10.3389/fnins.2020.00849",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7210976207256318,
+        "similarity_score": 0.6243269443511963,
+        "citation_text_length": 1259,
+        "dataset_text_length": 2323,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Movement Intention Recognition Using Wearable Dry-Electrode Sensors and Multimodal EEG-EMG Data",
+      "author": "Elsa Concha-Pérez, H. Gonzalez-hernandez, J. Reyes-Avendaño, María Beltrán-Rodríguez, José Luis Olazagoitia, Javier Fernández de Gorostiza Luengo",
+      "venue": "IEEE Access",
+      "year": 2026,
+      "url": "https://doi.org/10.1109/ACCESS.2026.3687486",
+      "cited_by": 2,
+      "abstract": "Recognizing human movement intention in less controlled environment is the step needed to go beyond strict laboratory settings in order to improve intuitive and reliable human-robot interaction systems. By taking this into account, the present study evaluates the feasibility of decoding the intention to perform hand-arm gestures in self-paced tasks from electroencephalography (EEG) and electromyography (EMG) collected with wearable dry-electrode devices. An experimental protocol was designed to emulate three gestures in human-robot interaction: Neutral, Ask, and Take. The protocol was implemented in two laboratories using different EEG headsets, Ultracortex Mark IV and Muse 2, and a common EMG device, Mindrove armband. Signals were preprocessed and segmented around the start of movement to be classified with a Bidirectional Long Short-Term Memory network with a fully connected output layer (BiLSTM-FC). Although the typical waveform of intention, movement-related cortical potential (MRC",
+      "doi": "10.1109/ACCESS.2026.3687486",
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.3389/fnins.2020.00849",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7530946397781373,
+        "similarity_score": 0.6520299911499023,
+        "citation_text_length": 1290,
+        "dataset_text_length": 2323,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Exploring the robustness of permutation entropy analysis to differentiate between closed-eyes and open-eyes resting states",
       "author": "Juan Gancio, Natalia López López, Antonio J. Pons, Giulio Tirabassi, Cristina Masoller",
       "venue": "Chaos An Interdisciplinary Journal of Nonlinear Science",
@@ -914,32 +954,9 @@
       }
     },
     {
-      "title": "A Window Analysis for the Decoding of Premovement and Movement Intentions in Freewill EEG *",
-      "author": "Bhoj Raj Thapa, Jihye Bae",
-      "venue": "2025 47th Annual International Conference of the IEEE Engineering in Medicine and Biology Society (EMBC)",
-      "year": 2025,
-      "url": "https://doi.org/10.1109/embc58623.2025.11253481",
-      "cited_by": 1,
-      "abstract": "Decoding movement-related intentions from electroencephalogram (EEG) is important for developing real-time brain machine interfaces (BMIs). While most studies focus on cue-based tasks in EEG-based BMIs, freewill reaching and grasping tasks allow subjects to initiate movements of their own will, making them relevant to practical EEG-based BMIs. However, the investigation of EEG window size for decoding freewill movements remains unexplored. This study systematically analyzes the effect of different window sizes on decoding EEG premovement (prior to the movement onset) and movement (after movement initiation) intentions in freewill reaching and grasping tasks. We used 49 EEG recordings from 23 subjects, and EEG windows of 0.1-1s in 0.1s increments were analyzed within the range of -3 to 3s relative to the movement onset at 0. Decoding was performed using regularized linear support vector machine (LSVM) and regularized linear discriminant analysis (RLDA), and performance was evaluated in ",
-      "doi": "10.1109/embc58623.2025.11253481",
-      "pmid": "41337309",
-      "openalex_id": "W4416960497",
-      "source_doi": "10.3389/fnins.2020.00849",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.7210976207256318,
-        "similarity_score": 0.6243269443511963,
-        "citation_text_length": 1259,
-        "dataset_text_length": 2323,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Comparing the Effects of Dry, Water and Gel-Based Electrodes on EEG-Based Overt Speech Classification",
       "author": "Tobias Jungbluth, Maurice Rekrut, Antonio Krüger",
-      "venue": "2023 IEEE International Conference on Metrology for eXtended Reality, Artificial Intelligence and Neural Engineering (MetroXRAINE)",
+      "venue": "IEEE International Conference on Metrology for eXtended Reality, Artificial Intelligence and Neural Engineering (MetroXRAINE)",
       "year": 2023,
       "url": "https://doi.org/10.1109/metroxraine58569.2023.10405744",
       "cited_by": 1,
@@ -951,9 +968,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.7655530858039857,
-        "similarity_score": 0.6628165245056152,
-        "citation_text_length": 1318,
+        "confidence_score": 0.7636414432525636,
+        "similarity_score": 0.6611614227294922,
+        "citation_text_length": 1313,
         "dataset_text_length": 2323,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -985,7 +1002,7 @@
     {
       "title": "An Ensemble Approach for Classification of Reach and Grasp Movements based on EEG Signals",
       "author": "Bhagyasree Kanuparthi, Anish C. Turlapaty, Balakrishna Gokaraju",
-      "venue": "n/a",
+      "venue": "IEEE Applied Imagery Pattern Recognition Workshop",
       "year": 2021,
       "url": "https://doi.org/10.1109/aipr52630.2021.9762070",
       "cited_by": 1,
@@ -997,32 +1014,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.7848150461912157,
-        "similarity_score": 0.6794935464859009,
-        "citation_text_length": 1194,
-        "dataset_text_length": 2323,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Movement Intention Recognition Using Wearable Dry-Electrode Sensors and Multimodal EEG-EMG Data",
-      "author": "Elsa Concha-Pérez, H. Gonzalez-hernandez, J. Reyes-Avendaño, María Beltrán-Rodríguez, José Luis Olazagoitia, Javier Fernández de Gorostiza Luengo",
-      "venue": "IEEE Access",
-      "year": 2026,
-      "url": "https://doi.org/10.1109/ACCESS.2026.3687486",
-      "cited_by": 1,
-      "abstract": "Recognizing human movement intention in less controlled environment is the step needed to go beyond strict laboratory settings in order to improve intuitive and reliable human-robot interaction systems. By taking this into account, the present study evaluates the feasibility of decoding the intention to perform hand-arm gestures in self-paced tasks from electroencephalography (EEG) and electromyography (EMG) collected with wearable dry-electrode devices. An experimental protocol was designed to emulate three gestures in human-robot interaction: Neutral, Ask, and Take. The protocol was implemented in two laboratories using different EEG headsets, Ultracortex Mark IV and Muse 2, and a common EMG device, Mindrove armband. Signals were preprocessed and segmented around the start of movement to be classified with a Bidirectional Long Short-Term Memory network with a fully connected output layer (BiLSTM-FC). Although the typical waveform of intention, movement-related cortical potential (MRC",
-      "doi": "10.1109/ACCESS.2026.3687486",
-      "pmid": null,
-      "openalex_id": null,
-      "source_doi": "10.3389/fnins.2020.00849",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.7530946397781373,
-        "similarity_score": 0.6520299911499023,
-        "citation_text_length": 1290,
+        "confidence_score": 0.7870500460267068,
+        "similarity_score": 0.6814286112785339,
+        "citation_text_length": 1240,
         "dataset_text_length": 2323,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1169,7 +1163,7 @@
     {
       "title": "Spiking Neural Network Approach for Binary Classification of Hand Movements of Spinal Cord Injured Patients",
       "author": "Md. Shafiul Islam Joy, Mehdi Hasan Chowdhury, Kamrul Hasan, Sagar Mutsuddi, Quazi Delwar Hossain",
-      "venue": "2025 International Conference on Electrical, Computer and Communication Engineering (ECCE)",
+      "venue": "International Conference on Electrical, Computer and Communication Engineering",
       "year": 2025,
       "url": "https://doi.org/10.1109/ecce64574.2025.11012978",
       "cited_by": 0,
@@ -1181,9 +1175,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6512410193681717,
-        "similarity_score": 0.5638450384140015,
-        "citation_text_length": 1332,
+        "confidence_score": 0.6530098807811737,
+        "similarity_score": 0.5653765201568604,
+        "citation_text_length": 1320,
         "dataset_text_length": 2323,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1215,7 +1209,7 @@
     {
       "title": "EEG-driven GAN for Alpha Rhythm Generation in Passive BCI",
       "author": "Ettore Cinquetti, Guglielmo Zanni, Gloria Menegaz, Silvia Francesca Storti",
-      "venue": "2024 IEEE International Conference on Metrology for eXtended Reality, Artificial Intelligence and Neural Engineering (MetroXRAINE)",
+      "venue": "IEEE International Conference on Metrology for eXtended Reality, Artificial Intelligence and Neural Engineering (MetroXRAINE)",
       "year": 2024,
       "url": "https://doi.org/10.1109/metroxraine62247.2024.10797222",
       "cited_by": 0,
@@ -1227,9 +1221,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6261718457937242,
-        "similarity_score": 0.5421401262283325,
-        "citation_text_length": 1300,
+        "confidence_score": 0.615733195245266,
+        "similarity_score": 0.5331023335456848,
+        "citation_text_length": 1295,
         "dataset_text_length": 2323,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1284,15 +1278,15 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T10:50:59.989382+00:00",
+    "scoring_date": "2026-10-11T11:21:10.139129+00:00",
     "dataset_text_length": 2323,
     "num_citations_scored": 52,
     "summary_stats": {
-      "mean_confidence": 0.65898960274286,
-      "median_confidence": 0.6512160980701447,
-      "std_confidence": 0.1195531998873971,
+      "mean_confidence": 0.6594095670059323,
+      "median_confidence": 0.65460346698761,
+      "std_confidence": 0.11969368310856983,
       "min_confidence": 0.29442191720008853,
-      "max_confidence": 0.8970369592309,
+      "max_confidence": 0.8977723440527917,
       "high_confidence_count": 20,
       "medium_confidence_count": 30,
       "low_confidence_count": 2

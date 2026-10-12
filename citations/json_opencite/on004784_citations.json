@@ -1,10 +1,10 @@
 {
   "dataset_id": "on004784",
-  "num_citations": 26,
-  "date_last_updated": "2026-09-30T10:46:29.269619+00:00",
+  "num_citations": 25,
+  "date_last_updated": "2026-10-11T10:57:16.919423+00:00",
   "metadata": {
-    "total_cumulative_citations": 185,
-    "fetch_date": "2026-09-29T11:19:15.062811+00:00",
+    "total_cumulative_citations": 164,
+    "fetch_date": "2026-10-11T10:57:16.919423+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -16,15 +16,15 @@
       {
         "identifier": "10.3390/s23198214",
         "identifier_type": "doi",
-        "source_relation": "References",
+        "source_relation": "IsDescribedBy",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "iCanClean Removes Motion, Muscle, Eye, and Line-Noise Artifacts from Phantom EEG",
         "paper_year": 2023,
         "paper_venue": "Sensors",
         "reason": "Downey & Ferris Sensors paper reports the phantom head EEG study with the same six conditions (brain, eyes, muscles, walking motion, all artifacts) contained in this dataset; README cites it.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on004784",
@@ -32,12 +32,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -46,22 +46,15 @@
     ],
     "keywords": [
       "EEG",
+      "head phantom",
       "artifact removal",
-      "motion artifacts",
-      "muscle artifacts",
-      "eye artifacts",
-      "phantom",
-      "signal processing"
+      "motion artifact",
+      "muscle artifact",
+      "eye artifact",
+      "iCanClean"
     ],
-    "methods_description": "Data were collected from an electrically conductive head phantom under six experimental conditions: brain-only (no artifacts), brain with eye artifacts, brain with jaw muscle artifacts, brain with neck muscle artifacts, brain with motion artifacts, and brain with all artifacts simultaneously present.",
-    "funding": [],
-    "searched_accessions": [
-      "on004784",
-      "ds004784"
-    ],
-    "num_accession_mentions": 1,
-    "num_dataset_citations": 1,
-    "num_datapaper_citations": 25
+    "methods_description": "EEG was recorded from an electrically conductive head phantom under six conditions: brain-only, brain plus eye, jaw muscle, neck muscle, or motion artifacts, and brain plus all artifacts simultaneously. The ground-truth brain signals were known, which allows artifact-cleaning performance to be validated.",
+    "funding": []
   },
   "citation_details": [
     {
@@ -76,35 +69,12 @@
       "pmid": "37252873",
       "openalex_id": null,
       "source_doi": "10.3390/s23198214",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.5257411488890649,
         "similarity_score": 0.4551871418952942,
         "citation_text_length": 1453,
-        "dataset_text_length": 1144,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Electrical brain activity during human walking with parametric variations in terrain unevenness and walking speed",
-      "author": "Chang Liu, Ryan J. Downey, Jacob S. Salminen, Sofia Arvelo Rojas, Natalie Richer, Erika M. Pliner, Jungyun Hwang, Yenisel Cruz‐Almeida, Todd Matthew Manini, Chris J. Hass, Rachael D. Seidler, David J. Clark, Daniel Perry Ferris",
-      "venue": "Imaging Neuroscience",
-      "year": 2024,
-      "url": "https://doi.org/10.1162/imag_a_00097",
-      "cited_by": 24,
-      "abstract": "Mobile brain imaging with high-density electroencephalography (EEG) can provide insight into the cortical processes involved in complex human walking tasks. While uneven terrain is common in the natural environment and poses challenges to human balance control, there is limited understanding of the supraspinal processes involved with traversing uneven terrain. The primary objective of this study was to quantify electrocortical activity related to parametric variations in terrain unevenness for neurotypical young adults. We used high-density EEG to measure brain activity when 32 young adults walked on a novel custom-made uneven terrain treadmill surface with four levels of difficulty at a walking speed tailored to each participant. We identified multiple brain regions associated with uneven terrain walking. Alpha (8 - 13 Hz) and beta (13 - 30 Hz) spectral power decreased in the sensorimotor and posterior parietal areas with increasing terrain unevenness while theta (4 - 8 Hz) power incr",
-      "doi": "10.1162/imag_a_00097",
-      "pmid": "39989610",
-      "openalex_id": "W4391583003",
-      "source_doi": "10.3390/s23198214",
-      "source_relation": "References",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5168535393476487,
-        "similarity_score": 0.44749224185943604,
-        "citation_text_length": 1399,
         "dataset_text_length": 1144,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -122,7 +92,7 @@
       "pmid": "35957423",
       "openalex_id": null,
       "source_doi": "10.3390/s23198214",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.695378841161728,
@@ -134,18 +104,41 @@
       }
     },
     {
+      "title": "Electrical brain activity during human walking with parametric variations in terrain unevenness and walking speed",
+      "author": "Chang Liu, Ryan J. Downey, Jacob S. Salminen, Sofia Arvelo Rojas, Natalie Richer, Erika M. Pliner, Jungyun Hwang, Yenisel Cruz‐Almeida, Todd Matthew Manini, Chris J. Hass, Rachael D. Seidler, David J. Clark, Daniel Perry Ferris",
+      "venue": "Imaging Neuroscience",
+      "year": 2024,
+      "url": "https://doi.org/10.1162/imag_a_00097",
+      "cited_by": 23,
+      "abstract": "Mobile brain imaging with high-density electroencephalography (EEG) can provide insight into the cortical processes involved in complex human walking tasks. While uneven terrain is common in the natural environment and poses challenges to human balance control, there is limited understanding of the supraspinal processes involved with traversing uneven terrain. The primary objective of this study was to quantify electrocortical activity related to parametric variations in terrain unevenness for neurotypical young adults. We used high-density EEG to measure brain activity when thirty-two young adults walked on a novel custom-made uneven terrain treadmill surface with four levels of difficulty at a walking speed tailored to each participant. We identified multiple brain regions associated with uneven terrain walking. Alpha (8 - 13 Hz) and beta (13 - 30 Hz) spectral power decreased in the sensorimotor and posterior parietal areas with increasing terrain unevenness while theta (4 - 8 Hz) po",
+      "doi": "10.1162/imag_a_00097",
+      "pmid": "37577540",
+      "openalex_id": "W4391583003",
+      "source_doi": "10.3390/s23198214",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5170687437057496,
+        "similarity_score": 0.4476785659790039,
+        "citation_text_length": 1399,
+        "dataset_text_length": 1144,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "A wireless forehead e-tattoo for mental workload estimation",
       "author": "Heeyong Huh, Hyonyoung Shin, Hongbian Li, Kazuma Hirota, Carolyn Hoang, Shrikar Thangavel, Matthew R. D'Alessandro, Kathryn A. Feltman, Luis Sentis, Nanshu Lu",
       "venue": "Device",
       "year": 2025,
       "url": "https://doi.org/10.1016/j.device.2025.100781",
-      "cited_by": 18,
+      "cited_by": 19,
       "abstract": null,
       "doi": "10.1016/j.device.2025.100781",
       "pmid": null,
       "openalex_id": "W4410857975",
       "source_doi": "10.3390/s23198214",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.48241192996501925,
@@ -162,13 +155,13 @@
       "venue": "Journal of Neurophysiology",
       "year": 2025,
       "url": "https://doi.org/10.1152/jn.00544.2024",
-      "cited_by": 15,
+      "cited_by": 14,
       "abstract": "Older and younger adults show widespread EEG beta power decreases at faster walking speeds compared to slower walking speeds. Older adults differentially alter EEG theta power while walking compared to younger adults. Prior studies with functional near-infrared spectroscopy (fNIRS) have documented differences in prefrontal activation in older adults walking compared to younger adults, but our results show cortical changes within speed and age outside of the prefrontal cortex.",
       "doi": "10.1152/jn.00544.2024",
       "pmid": "40272781",
       "openalex_id": "W4409764701",
       "source_doi": "10.3390/s23198214",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.4531190407276154,
@@ -191,12 +184,35 @@
       "pmid": "37037603",
       "openalex_id": null,
       "source_doi": "10.3390/s23198214",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.6006302690505982,
         "similarity_score": 0.5200262069702148,
         "citation_text_length": 1152,
+        "dataset_text_length": 1144,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Electrocortical theta activity may reflect sensory prediction errors during adaptation to a gradual gait perturbation",
+      "author": "Noelle A. Jacobsen, Daniel Perry Ferris",
+      "venue": "PeerJ",
+      "year": 2024,
+      "url": "https://doi.org/10.7717/peerj.17451",
+      "cited_by": 9,
+      "abstract": "Locomotor adaptation to abrupt and gradual perturbations are likely driven by fundamentally different neural processes. The aim of this study was to quantify brain dynamics associated with gait adaptation to a gradually introduced gait perturbation, which typically results in smaller behavioral errors relative to an abrupt perturbation. Loss of balance during standing and walking elicits transient increases in midfrontal theta oscillations that have been shown to scale with perturbation intensity. We hypothesized there would be no significant change in anterior cingulate theta power (4–7 Hz) with respect to pre-adaptation when a gait perturbation is introduced gradually because the gradual perturbation acceleration and stepping kinematic errors are small relative to an abrupt perturbation. Using mobile electroencephalography (EEG), we measured gait-related spectral changes near the anterior cingulate, posterior cingulate, sensorimotor, and posterior parietal cortices as young, neurotyp",
+      "doi": "10.7717/peerj.17451",
+      "pmid": "38854799",
+      "openalex_id": "W4399357425",
+      "source_doi": "10.3390/s23198214",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.4887680281698704,
+        "similarity_score": 0.42317578196525574,
+        "citation_text_length": 1200,
         "dataset_text_length": 1144,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -214,7 +230,7 @@
       "pmid": "38871456",
       "openalex_id": "W4399602223",
       "source_doi": "10.3390/s23198214",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.48754179015755655,
@@ -226,31 +242,8 @@
       }
     },
     {
-      "title": "Electrocortical theta activity may reflect sensory prediction errors during adaptation to a gradual gait perturbation",
-      "author": "Noelle A. Jacobsen, Daniel Perry Ferris",
-      "venue": "PeerJ",
-      "year": 2024,
-      "url": "https://doi.org/10.7717/peerj.17451",
-      "cited_by": 8,
-      "abstract": "Locomotor adaptation to abrupt and gradual perturbations are likely driven by fundamentally different neural processes. The aim of this study was to quantify brain dynamics associated with gait adaptation to a gradually introduced gait perturbation, which typically results in smaller behavioral errors relative to an abrupt perturbation. Loss of balance during standing and walking elicits transient increases in midfrontal theta oscillations that have been shown to scale with perturbation intensity. We hypothesized there would be no significant change in anterior cingulate theta power (4–7 Hz) with respect to pre-adaptation when a gait perturbation is introduced gradually because the gradual perturbation acceleration and stepping kinematic errors are small relative to an abrupt perturbation. Using mobile electroencephalography (EEG), we measured gait-related spectral changes near the anterior cingulate, posterior cingulate, sensorimotor, and posterior parietal cortices as young, neurotyp",
-      "doi": "10.7717/peerj.17451",
-      "pmid": "38854799",
-      "openalex_id": "W4399357425",
-      "source_doi": "10.3390/s23198214",
-      "source_relation": "References",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.4887680281698704,
-        "similarity_score": 0.42317578196525574,
-        "citation_text_length": 1200,
-        "dataset_text_length": 1144,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "A Comparison of Approaches for Motion Artifact Removal from Wireless Mobile EEG During Overground Running",
-      "author": "Patrick S. Ledwidge, C. A. McPherson, Lily Faulkenberg, Alexander Morgan, Gordon C. Baylis",
+      "author": "Patrick S. Ledwidge, Carly N. McPherson, Lily Faulkenberg, Alexander Morgan, Gordon C. Baylis",
       "venue": "Sensors",
       "year": 2025,
       "url": "https://doi.org/10.3390/s25154810",
@@ -260,12 +253,12 @@
       "pmid": "40807974",
       "openalex_id": "W4412973996",
       "source_doi": "10.3390/s23198214",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.724832579791546,
-        "similarity_score": 0.6275606751441956,
-        "citation_text_length": 1241,
+        "confidence_score": 0.7262073129415514,
+        "similarity_score": 0.6287509202957153,
+        "citation_text_length": 1244,
         "dataset_text_length": 1144,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -278,16 +271,16 @@
       "year": 2025,
       "url": "https://doi.org/10.1162/imag.a.1039",
       "cited_by": 5,
-      "abstract": "Walking on uneven terrain becomes more difficult as we age, and gait becomes less automatic. Using mobile brain imaging via high-density electroencephalography (EEG) can provide insight into the neural mechanisms contributing to reduced mobility capability with aging. The objective of this study was to quantify age differences in electrocortical dynamics during uneven terrain walking, both averaged across many strides and variations within a stride. We included 31 young adults and 71 older adults for analysis. All participants walked on an uneven terrain treadmill with four levels of terrain difficulty at their self-selected speed. Compared with younger adults, older adults exhibited a greater increase in step duration variability and mediolateral sacral excursion variability as the terrain became more uneven. We identified multiple brain regions involved during walking on uneven terrain. Regardless of age group, walking on uneven terrain compared with flat terrain led to a widespread ",
+      "abstract": "Walking on uneven terrain becomes more difficult as we age, and gait becomes less automatic. Using mobile brain imaging via high-density electroencephalography (EEG) can provide insight into the neural mechanisms contributing to reduced mobility capability with aging. The objective of this study was to quantify age differences in electrocortical dynamics during uneven terrain walking, both averaged across many strides and variations within a stride. We included 31 young adults and 71 older adults for analysis. All participants walked on an uneven terrain treadmill with four levels of terrain difficulty at their self-selected speed. Compared to younger adults, older adults exhibited a greater increase in step duration variability and mediolateral sacral excursion variability as the terrain became more uneven. We identified multiple brain regions involved during walking on uneven terrain. Regardless of age group, walking on uneven terrain compared to flat terrain led to a widespread chan",
       "doi": "10.1162/imag.a.1039",
-      "pmid": "41322366",
+      "pmid": "41278659",
       "openalex_id": "W4416714290",
       "source_doi": "10.3390/s23198214",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.44594101846218115,
-        "similarity_score": 0.38609611988067627,
+        "confidence_score": 0.4478581684827805,
+        "similarity_score": 0.38775599002838135,
         "citation_text_length": 1376,
         "dataset_text_length": 1144,
         "scoring_method": "sentence_transformers",
@@ -306,7 +299,7 @@
       "pmid": "41323113",
       "openalex_id": "W4415711526",
       "source_doi": "10.3390/s23198214",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.7923261326551438,
@@ -329,7 +322,7 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.3390/s23198214",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.5873780590295792,
@@ -352,7 +345,7 @@
       "pmid": null,
       "openalex_id": "W7169831597",
       "source_doi": "10.3390/s23198214",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.41184923350811015,
@@ -375,7 +368,7 @@
       "pmid": "40372949",
       "openalex_id": "W4410396217",
       "source_doi": "10.3390/s23198214",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.4798785942792893,
@@ -398,7 +391,7 @@
       "pmid": "42134065",
       "openalex_id": "W7160284900",
       "source_doi": "10.3390/s23198214",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.49396818056702624,
@@ -421,7 +414,7 @@
       "pmid": "41553891",
       "openalex_id": "W7124959556",
       "source_doi": "10.3390/s23198214",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.4853921905159951,
@@ -444,7 +437,7 @@
       "pmid": "40950433",
       "openalex_id": "W4413935648",
       "source_doi": "10.3390/s23198214",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.4863976478576661,
@@ -458,7 +451,7 @@
     {
       "title": "Comparative Study of Motion Artifact Removal Algorithms",
       "author": "Jiedong Nan",
-      "venue": "2024 IEEE 2nd International Conference on Image Processing and Computer Applications (ICIPCA)",
+      "venue": "IEEE International Conference on Image Processing and Computer Applications (ICIPCA)",
       "year": 2024,
       "url": "https://doi.org/10.1109/icipca61593.2024.10708999",
       "cited_by": 1,
@@ -467,12 +460,12 @@
       "pmid": null,
       "openalex_id": "W4403421007",
       "source_doi": "10.3390/s23198214",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.697527442574501,
-        "similarity_score": 0.6039198637008667,
-        "citation_text_length": 1109,
+        "confidence_score": 0.694990839958191,
+        "similarity_score": 0.6017236709594727,
+        "citation_text_length": 1100,
         "dataset_text_length": 1144,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -480,7 +473,7 @@
     },
     {
       "title": "IMU-Enhanced EEG Motion Artifact Removal with Fine-Tuned Large Brain Models",
-      "author": "Yuhong Zhang, Xu-Sheng Zhu, Yuchen Xu, ChiaEn Lu, Hsinyu Shih, G. Cauwenberghs, Tzyy-Ping Jung",
+      "author": "Yuhong Zhang, Xu-Sheng Zhu, Yu-Chen Xu, ChiaEn Lu, Hsinyu Shih, G. Cauwenberghs, Tzyy-Ping Jung",
       "venue": "ArXiv",
       "year": 2025,
       "url": "https://doi.org/10.48550/arXiv.2509.01073",
@@ -490,12 +483,12 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.3390/s23198214",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.678694445192814,
-        "similarity_score": 0.5876142382621765,
-        "citation_text_length": 1213,
+        "confidence_score": 0.6793570625782014,
+        "similarity_score": 0.5881879329681396,
+        "citation_text_length": 1214,
         "dataset_text_length": 1144,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -513,7 +506,7 @@
       "pmid": "42059864",
       "openalex_id": "W7158916823",
       "source_doi": "10.3390/s23198214",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.44550758063793183,
@@ -527,7 +520,7 @@
     {
       "title": "Optimized Residual Temporal Attention Convolutional Neural Network for EEG Artifact Removal in BCI",
       "author": "Parthasarathy Velusamy, S. Sivasaravana Babu, S. Hemalatha, Saravana Kumar Ganesan, T. R. Dinesh Kumar, R Tharani",
-      "venue": "2025 International Conference on Emerging Research in Computational Science (ICERCS)",
+      "venue": "International Conference on Emerging Research in Computational Science (ICERCS)",
       "year": 2025,
       "url": "https://doi.org/10.1109/icercs65898.2025.11580592",
       "cited_by": 0,
@@ -536,12 +529,12 @@
       "pmid": null,
       "openalex_id": "W7166832309",
       "source_doi": "10.3390/s23198214",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.623151136636734,
-        "similarity_score": 0.5395247936248779,
-        "citation_text_length": 1334,
+        "confidence_score": 0.617659157216549,
+        "similarity_score": 0.5347698330879211,
+        "citation_text_length": 1329,
         "dataset_text_length": 1144,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -559,7 +552,7 @@
       "pmid": null,
       "openalex_id": "W4416387545",
       "source_doi": "10.3390/s23198214",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.46586779922246935,
@@ -582,7 +575,7 @@
       "pmid": null,
       "openalex_id": "W4416226754",
       "source_doi": "10.3390/s23198214",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.7540191373229028,
@@ -596,7 +589,7 @@
     {
       "title": "Gait Speed can be Predicted Accurately from Minimally Processed High-Density Electroencephalography Signals",
       "author": "Jirui Fu, Mamoon Ulhaq, Yue Wen, Helen J. Huang",
-      "venue": "2025 12th International IEEE/EMBS Conference on Neural Engineering (NER)",
+      "venue": "International IEEE/EMBS Conference on Neural Engineering",
       "year": 2025,
       "url": "https://doi.org/10.1109/ner61569.2025.11588978",
       "cited_by": 0,
@@ -605,12 +598,12 @@
       "pmid": null,
       "openalex_id": "W7167821261",
       "source_doi": "10.3390/s23198214",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5757144096493723,
-        "similarity_score": 0.4984540343284607,
-        "citation_text_length": 1265,
+        "confidence_score": 0.574821304678917,
+        "similarity_score": 0.49768078327178955,
+        "citation_text_length": 1249,
         "dataset_text_length": 1144,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -628,7 +621,7 @@
       "pmid": null,
       "openalex_id": "W4407557468",
       "source_doi": "10.3390/s23198214",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.5170888334512711,
@@ -638,45 +631,20 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
-    },
-    {
-      "title": "iCanClean Removes Motion, Muscle, Eye, and Line-Noise Artifacts from Phantom EEG",
-      "author": "Ryan J. Downey, Daniel Perry Ferris",
-      "venue": "Sensors",
-      "year": 2023,
-      "url": "https://doi.org/10.3390/s23198214",
-      "cited_by": 21,
-      "abstract": "The goal of this study was to test a novel approach (iCanClean) to remove non-brain sources from scalp EEG data recorded in mobile conditions. We created an electrically conductive phantom head with 10 brain sources, 10 contaminating sources, scalp, and hair. We tested the ability of iCanClean to remove artifacts while preserving brain activity under six conditions: Brain, Brain + Eyes, Brain + Neck Muscles, Brain + Facial Muscles, Brain + Walking Motion, and Brain + All Artifacts. We compared iCanClean to three other methods: Artifact Subspace Reconstruction (ASR), Auto-CCA, and Adaptive Filtering. Before and after cleaning, we calculated a Data Quality Score (0–100%), based on the average correlation between brain sources and EEG channels. iCanClean consistently outperformed the other three methods, regardless of the type or number of artifacts present. The most striking result was for the condition with all artifacts simultaneously present. Starting from a Data Quality Score of 15.7% (before cleaning), the Brain + All Artifacts condition improved to 55.9% after iCanClean. Meanwhile, it only improved to 27.6%, 27.2%, and 32.9% after ASR, Auto-CCA, and Adaptive Filtering. For context, the Brain condition scored 57.2% without cleaning (reasonable target). We conclude that iCanClean offers the ability to clear multiple artifact sources in real time and could facilitate human mobile brain-imaging studies with EEG.",
-      "doi": "10.3390/s23198214",
-      "pmid": "37837044",
-      "openalex_id": "W4387262518",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004784",
-      "confidence_scoring": {
-        "confidence_score": 0.8454396146535875,
-        "similarity_score": 0.7319823503494263,
-        "citation_text_length": 1596,
-        "dataset_text_length": 1144,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T11:00:12.944801+00:00",
+    "scoring_date": "2026-10-11T11:34:14.116971+00:00",
     "dataset_text_length": 1144,
-    "num_citations_scored": 26,
+    "num_citations_scored": 25,
     "summary_stats": {
-      "mean_confidence": 0.5677468701337394,
-      "median_confidence": 0.5169711863994599,
-      "std_confidence": 0.11897059726584021,
+      "mean_confidence": 0.5564490810692311,
+      "median_confidence": 0.5170687437057496,
+      "std_confidence": 0.10706111461906186,
       "min_confidence": 0.41184923350811015,
-      "max_confidence": 0.8454396146535875,
-      "high_confidence_count": 4,
+      "max_confidence": 0.7923261326551438,
+      "high_confidence_count": 3,
       "medium_confidence_count": 22,
       "low_confidence_count": 0
     }

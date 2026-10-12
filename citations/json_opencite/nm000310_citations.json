@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000310",
-  "num_citations": 16,
-  "date_last_updated": "2026-10-04T10:05:03.301124+00:00",
+  "num_citations": 15,
+  "date_last_updated": "2026-10-11T10:29:59.044470+00:00",
   "metadata": {
     "total_cumulative_citations": 20,
-    "fetch_date": "2026-09-29T11:00:33.920772+00:00",
+    "fetch_date": "2026-10-11T10:29:59.044470+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -19,12 +19,12 @@
         "source_relation": "IsDerivedFrom",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Dataset combining EEG, eye-tracking, and high-speed video for ocular activity analysis across BCI paradigms",
         "paper_year": 2025,
         "paper_venue": "Scientific Data",
         "reason": "Paper is the Scientific Data descriptor by the same authors (Guttmann-Flury et al. 2025) of the EEG/eye-tracking dataset including the SSVEP paradigm with 31 subjects; matches the dataset's DOI and title.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.21105/joss.01896",
@@ -32,12 +32,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
         "paper_year": 2019,
         "paper_venue": "The Journal of Open Source Software",
         "reason": "MNE-BIDS is a software tool for organizing electrophysiology data into BIDS, used for dataset formatting, not a paper describing this SSVEP eye-tracking dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1038/s41597-019-0104-8",
@@ -45,12 +45,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "EEG-BIDS, an extension to the brain imaging data structure for electroencephalography",
         "paper_year": 2019,
         "paper_venue": "Scientific Data",
         "reason": "EEG-BIDS is a specification/extension paper for organizing EEG data, used for this dataset's BIDS formatting, not a paper describing this SSVEP dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.nm000310",
@@ -58,12 +58,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -72,23 +72,14 @@
     ],
     "keywords": [
       "EEG",
-      "steady-state visually evoked potentials",
-      "brain-computer interfaces",
+      "SSVEP",
+      "brain-computer interface",
       "eye tracking",
-      "visual stimulation",
-      "signal processing",
-      "multimodal",
-      "high-speed video",
+      "visual evoked potentials",
       "ocular activity"
     ],
-    "methods_description": "EEG data were acquired using a 64-channel Neuroscan Quik-Cap with SynAmps2 amplifier at 1000 Hz sampling rate. The SSVEP paradigm consisted of 4-class frequency flickering stimuli (8, 10, 12, 15 Hz) presented via flickering LEDs, with 48 trials per session and up to 3 sessions per subject. Reference electrode was placed at the right mastoid (M1) with ground at forehead. Online high-pass filtering was applied with a 10-second time constant. Concurrent eye-tracking and high-speed video recordings were obtained to capture ocular activity during the task.",
-    "funding": [],
-    "searched_accessions": [
-      "nm000310"
-    ],
-    "num_accession_mentions": 1,
-    "num_dataset_citations": 1,
-    "num_datapaper_citations": 15
+    "methods_description": "EEG was recorded at 1000 Hz with a Neuroscan Quik-Cap (64 EEG channels plus EOG and stim channels) and SynAmps2 amplifier, referenced to the right mastoid with a forehead ground. Participants viewed four flickering LED stimuli in an offline, synchronous SSVEP paradigm with 48 trials per session. Data are stored in BDF format with HED 8.4.0 event annotations.",
+    "funding": []
   },
   "citation_details": [
     {
@@ -139,7 +130,7 @@
     },
     {
       "title": "EgoBrain: Synergizing Minds and Eyes For Human Action Understanding",
-      "author": "Nie Lin, Yansen Wang, Dongqi Han, Weibang Jiang, Jingyuan Li, Ryosuke Furuta, Yoichi Sato, Dongsheng Li",
+      "author": "Nie Lin, Yansen Wang, Dong-Qi Han, Weibang Jiang, Jingyuan Li, Ryosuke Furuta, Yoichi Sato, Dong-Sheng Li",
       "venue": "ArXiv",
       "year": 2025,
       "url": "https://doi.org/10.48550/arXiv.2506.01353",
@@ -152,9 +143,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6921634429693223,
-        "similarity_score": 0.5992757081985474,
-        "citation_text_length": 1214,
+        "confidence_score": 0.693505888581276,
+        "similarity_score": 0.6004379987716675,
+        "citation_text_length": 1216,
         "dataset_text_length": 2457,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -163,7 +154,7 @@
     {
       "title": "The Cost of Simplicity: How Reducing EEG Electrodes Affects Source Localization and BCI Accuracy",
       "author": "Eva Guttmann-Flury, YanYan Wei, Shan Zhao, Jian Zhao, Mohamad Sawan",
-      "venue": "2025 IEEE International Conference on Metrology for eXtended Reality, Artificial Intelligence and Neural Engineering (MetroXRAINE)",
+      "venue": "IEEE International Conference on Metrology for eXtended Reality, Artificial Intelligence and Neural Engineering (MetroXRAINE)",
       "year": 2025,
       "url": "https://doi.org/10.1109/metroxraine66377.2025.11340265",
       "cited_by": 1,
@@ -175,9 +166,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6096959763765336,
-        "similarity_score": 0.5278753042221069,
-        "citation_text_length": 1332,
+        "confidence_score": 0.5973417592048645,
+        "similarity_score": 0.517179012298584,
+        "citation_text_length": 1327,
         "dataset_text_length": 2457,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -232,7 +223,7 @@
     {
       "title": "A Multimodal Framework for Blink Detection: Audio-Anchored Synchronization and Comparative Analysis of EOG and Video Signals",
       "author": "Semanur Pak, Esma Cetinkaya, Mahmut Nedim Ekersular, Ahmet Alkan",
-      "venue": "2026 4th Cognitive Models and Artificial Intelligence Conference (AICCONF)",
+      "venue": "Cognitive Models and Artificial Intelligence Conference (AICCONF)",
       "year": 2026,
       "url": "https://doi.org/10.1109/aicconf69182.2026.11600654",
       "cited_by": 0,
@@ -244,9 +235,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.7251022392511368,
-        "similarity_score": 0.6277941465377808,
-        "citation_text_length": 1301,
+        "confidence_score": 0.7257749766111375,
+        "similarity_score": 0.6283766031265259,
+        "citation_text_length": 1292,
         "dataset_text_length": 2457,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -278,7 +269,7 @@
     {
       "title": "Spatial Insight: How Data-Driven Regions of Interest Selection Enhances Single-Trial P300 Classification in EEG-Based BCIs",
       "author": "Eva Guttmann-Flury, Jian Zhao, Mohamad Sawan",
-      "venue": "2025 12th International IEEE/EMBS Conference on Neural Engineering (NER)",
+      "venue": "International IEEE/EMBS Conference on Neural Engineering",
       "year": 2025,
       "url": "https://doi.org/10.1109/ner61569.2025.11589040",
       "cited_by": 0,
@@ -290,9 +281,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6386351108551026,
-        "similarity_score": 0.5529308319091797,
-        "citation_text_length": 1277,
+        "confidence_score": 0.6291544845700265,
+        "similarity_score": 0.5447224974632263,
+        "citation_text_length": 1261,
         "dataset_text_length": 2457,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -301,7 +292,7 @@
     {
       "title": "Human-AI Synergy in IELTS Writing: Enhancing Accuracy and Complexity Through the Grammarlexical Dual-Channel Compensation Mechanism",
       "author": "Chen Ni, Marie Du, Min Lu, Yi Dai, Xinyan Zhao, Linrun Su",
-      "venue": "2025 International Conference on Intelligent Education and Intelligent Research (IEIR)",
+      "venue": "International Conference on Intelligent Education and Intelligent Research (IEIR)",
       "year": 2025,
       "url": "https://doi.org/10.1109/ieir67391.2025.11491172",
       "cited_by": 0,
@@ -313,9 +304,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.33057466596364976,
-        "similarity_score": 0.31483301520347595,
-        "citation_text_length": 301,
+        "confidence_score": 0.31250869631767275,
+        "similarity_score": 0.297627329826355,
+        "citation_text_length": 296,
         "dataset_text_length": 2457,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -324,7 +315,7 @@
     {
       "title": "Does Re-referencing Matter? Large Laplacian Filter Optimizes Single-Trial P300 BCI Performance",
       "author": "Eva Guttmann-Flury, Jian ping Zhao, Mohamad Sawan",
-      "venue": "2025 IEEE Biomedical Circuits and Systems Conference (BioCAS)",
+      "venue": "IEEE Biomedical Circuits and Systems Conference (BioCAS)",
       "year": 2025,
       "url": "https://doi.org/10.1109/biocas67066.2025.00071",
       "cited_by": 0,
@@ -336,9 +327,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5736659064888955,
-        "similarity_score": 0.49668043851852417,
-        "citation_text_length": 1243,
+        "confidence_score": 0.5633950272202493,
+        "similarity_score": 0.4877879023551941,
+        "citation_text_length": 1238,
         "dataset_text_length": 2457,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -347,7 +338,7 @@
     {
       "title": "From Noise to Insight: Visualizing Neural Dynamics with Segmented SNR Topographies for Improved EEG-BCI Performance *",
       "author": "Eva Guttmann-Flury, Shan Zhao, Jian ping Zhao, Mohamad Sawan",
-      "venue": "2025 IEEE International Conference on Systems, Man, and Cybernetics (SMC)",
+      "venue": "Conference proceedings/Conference proceedings - IEEE International Conference on Systems, Man, and Cybernetics",
       "year": 2025,
       "url": "https://doi.org/10.1109/smc58881.2025.11343537",
       "cited_by": 0,
@@ -359,9 +350,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6930524861812593,
-        "similarity_score": 0.6000454425811768,
-        "citation_text_length": 1289,
+        "confidence_score": 0.6900499516725541,
+        "similarity_score": 0.5974458456039429,
+        "citation_text_length": 1326,
         "dataset_text_length": 2457,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -435,47 +426,22 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
-    },
-    {
-      "title": "Identification of three novel mutations of the palmitoyl-protein thioesterase-1 (PPT1) gene in children with neuronal ceroid-lipofuscinosis",
-      "author": "Sophie Waliany, Amit Kumar Das, Ahmad Gaben, Krystyna E. Wisniewski, Sandra L. Hofmann",
-      "venue": "Human Mutation",
-      "year": 2000,
-      "url": "https://doi.org/10.1002/(sici)1098-1004(200002)15:2<206::aid-humu14>3.0.co;2-l",
-      "cited_by": 28,
-      "abstract": "Eight unrelated children with progressive neurological deterioration and granular osmiophilic deposits (GROD) due to an underlying palmitoyl-protein thioesterase deficiency were analyzed for mutations in the PPT1 gene. Three novel mutations (G118D, Q291X and F84del) were identified. The novel Q291X mutation was observed in an African-American child. The G118D and Q291X mutations occurred in infantile-onset subjects. These two mutations would be predicted to have severe effects on enzyme activity. The novel F84del mutation involves an invariant phenylalanine residue. A missense mutation, Q177E, occurred in three subjects from two families with late-infantile NCL, confirming an association of the Q177E mutation with a late-infantile phenotype. Other previously described mutations were R151X (5/16 alleles), T75P (3/16 alleles), R164X (1/16 alleles), and V181M (1/16 alleles). The current study expands the spectrum of mutations in PPT1 deficiency and further confirms the broad range of age of onset of symptoms resulting from an enzyme deficiency previously associated only with infantile NCL.",
-      "doi": "10.1002/(sici)1098-1004(200002)15:2<206::aid-humu14>3.0.co;2-l",
-      "pmid": "10649502",
-      "openalex_id": "W2059381467",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "nm000310",
-      "confidence_scoring": {
-        "confidence_score": 0.26791793555021287,
-        "similarity_score": 0.2435617595911026,
-        "citation_text_length": 1381,
-        "dataset_text_length": 2457,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-10-04T10:09:43.275494+00:00",
+    "scoring_date": "2026-10-11T11:25:49.436350+00:00",
     "dataset_text_length": 2457,
-    "num_citations_scored": 16,
+    "num_citations_scored": 15,
     "summary_stats": {
-      "mean_confidence": 0.57119380582124,
-      "median_confidence": 0.5891018342971802,
-      "std_confidence": 0.13486242981093632,
-      "min_confidence": 0.26791793555021287,
+      "mean_confidence": 0.5880015942454339,
+      "median_confidence": 0.5920555651187897,
+      "std_confidence": 0.11595721172878327,
+      "min_confidence": 0.31250869631767275,
       "max_confidence": 0.7698196533322336,
       "high_confidence_count": 2,
       "medium_confidence_count": 12,
-      "low_confidence_count": 2
+      "low_confidence_count": 1
     }
   }
 }

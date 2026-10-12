@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000136",
-  "num_citations": 16,
-  "date_last_updated": "2026-10-04T10:04:24.446346+00:00",
+  "num_citations": 15,
+  "date_last_updated": "2026-10-11T10:14:04.211475+00:00",
   "metadata": {
     "total_cumulative_citations": 20,
-    "fetch_date": "2026-09-29T10:39:49.554881+00:00",
+    "fetch_date": "2026-10-11T10:14:04.211475+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -19,12 +19,12 @@
         "source_relation": "IsDerivedFrom",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Dataset combining EEG, eye-tracking, and high-speed video for ocular activity analysis across BCI paradigms",
         "paper_year": 2025,
         "paper_venue": "Scientific Data",
         "reason": "README DOI matches this Scientific Data paper; authors match and it describes the 31-subject EEG/eye-tracking dataset including the P300 speller paradigm.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.21105/joss.01896",
@@ -32,12 +32,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
         "paper_year": 2019,
         "paper_venue": "The Journal of Open Source Software",
         "reason": "MNE-BIDS is a software tool paper for organizing electrophysiology data into BIDS; it is a tool used for curation, not a paper describing this P300 dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1038/s41597-019-0104-8",
@@ -45,12 +45,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "EEG-BIDS, an extension to the brain imaging data structure for electroencephalography",
         "paper_year": 2019,
         "paper_venue": "Scientific Data",
         "reason": "EEG-BIDS is a data-organization standard extension used to format this dataset, not a paper describing the Guttmann-Flury P300 dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.nm000136",
@@ -58,12 +58,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -72,23 +72,14 @@
     ],
     "keywords": [
       "EEG",
+      "P300",
       "Event-Related Potentials, P300",
-      "brain-computer interfaces",
-      "eye tracking",
-      "speller paradigm",
-      "multimodal neuroimaging",
-      "healthy",
-      "communication",
-      "high-speed video"
+      "Brain-Computer Interfaces",
+      "speller",
+      "eye-tracking"
     ],
-    "methods_description": "EEG data were acquired using a Neuroscan Quik-Cap 65-channel system with SynAmps2 amplifier at 1000 Hz sampling rate. The montage followed the standard 1005 electrode placement with 64 EEG channels, 1 EOG channel, and 1 stimulus channel (66 total channels). Reference electrode was placed at the right mastoid (M1) with ground at the forehead. Ag/AgCl sensors were used with online high-pass filtering (10 s time constant). Participants performed a row-column P300 speller task with 4L and 5L grid sizes in a synchronous, offline mode without feedback. Concurrent eye-tracking and high-speed video recordings captured ocular activity during the task.",
-    "funding": [],
-    "searched_accessions": [
-      "nm000136"
-    ],
-    "num_accession_mentions": 1,
-    "num_dataset_citations": 1,
-    "num_datapaper_citations": 15
+    "methods_description": "EEG was recorded with a Neuroscan Quik-Cap (65 channels) and SynAmps2 amplifier at 1000 Hz, referenced to the right mastoid (M1) with a forehead ground. Participants performed a visual row-column P300 speller with 4L and 5L grid sizes, giving 40 trials per session in the default 4L configuration, offline and without feedback.",
+    "funding": []
   },
   "citation_details": [
     {
@@ -139,7 +130,7 @@
     },
     {
       "title": "EgoBrain: Synergizing Minds and Eyes For Human Action Understanding",
-      "author": "Nie Lin, Yansen Wang, Dongqi Han, Weibang Jiang, Jingyuan Li, Ryosuke Furuta, Yoichi Sato, Dongsheng Li",
+      "author": "Nie Lin, Yansen Wang, Dong-Qi Han, Weibang Jiang, Jingyuan Li, Ryosuke Furuta, Yoichi Sato, Dong-Sheng Li",
       "venue": "ArXiv",
       "year": 2025,
       "url": "https://doi.org/10.48550/arXiv.2506.01353",
@@ -152,9 +143,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6880084705352784,
-        "similarity_score": 0.5956783294677734,
-        "citation_text_length": 1214,
+        "confidence_score": 0.6892358788847924,
+        "similarity_score": 0.5967410206794739,
+        "citation_text_length": 1216,
         "dataset_text_length": 2455,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -163,7 +154,7 @@
     {
       "title": "The Cost of Simplicity: How Reducing EEG Electrodes Affects Source Localization and BCI Accuracy",
       "author": "Eva Guttmann-Flury, YanYan Wei, Shan Zhao, Jian Zhao, Mohamad Sawan",
-      "venue": "2025 IEEE International Conference on Metrology for eXtended Reality, Artificial Intelligence and Neural Engineering (MetroXRAINE)",
+      "venue": "IEEE International Conference on Metrology for eXtended Reality, Artificial Intelligence and Neural Engineering (MetroXRAINE)",
       "year": 2025,
       "url": "https://doi.org/10.1109/metroxraine66377.2025.11340265",
       "cited_by": 1,
@@ -175,9 +166,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6803287178277969,
-        "similarity_score": 0.5890291929244995,
-        "citation_text_length": 1332,
+        "confidence_score": 0.6717535883188248,
+        "similarity_score": 0.5816048383712769,
+        "citation_text_length": 1327,
         "dataset_text_length": 2455,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -232,7 +223,7 @@
     {
       "title": "A Multimodal Framework for Blink Detection: Audio-Anchored Synchronization and Comparative Analysis of EOG and Video Signals",
       "author": "Semanur Pak, Esma Cetinkaya, Mahmut Nedim Ekersular, Ahmet Alkan",
-      "venue": "2026 4th Cognitive Models and Artificial Intelligence Conference (AICCONF)",
+      "venue": "Cognitive Models and Artificial Intelligence Conference (AICCONF)",
       "year": 2026,
       "url": "https://doi.org/10.1109/aicconf69182.2026.11600654",
       "cited_by": 0,
@@ -244,9 +235,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6950655350089074,
-        "similarity_score": 0.601788341999054,
-        "citation_text_length": 1301,
+        "confidence_score": 0.699047297537327,
+        "similarity_score": 0.605235755443573,
+        "citation_text_length": 1292,
         "dataset_text_length": 2455,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -278,7 +269,7 @@
     {
       "title": "Spatial Insight: How Data-Driven Regions of Interest Selection Enhances Single-Trial P300 Classification in EEG-Based BCIs",
       "author": "Eva Guttmann-Flury, Jian Zhao, Mohamad Sawan",
-      "venue": "2025 12th International IEEE/EMBS Conference on Neural Engineering (NER)",
+      "venue": "International IEEE/EMBS Conference on Neural Engineering",
       "year": 2025,
       "url": "https://doi.org/10.1109/ner61569.2025.11589040",
       "cited_by": 0,
@@ -290,9 +281,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.7723766335844995,
-        "similarity_score": 0.6687243580818176,
-        "citation_text_length": 1277,
+        "confidence_score": 0.7665326580405237,
+        "similarity_score": 0.6636646389961243,
+        "citation_text_length": 1261,
         "dataset_text_length": 2455,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -301,7 +292,7 @@
     {
       "title": "Human-AI Synergy in IELTS Writing: Enhancing Accuracy and Complexity Through the Grammarlexical Dual-Channel Compensation Mechanism",
       "author": "Chen Ni, Marie Du, Min Lu, Yi Dai, Xinyan Zhao, Linrun Su",
-      "venue": "2025 International Conference on Intelligent Education and Intelligent Research (IEIR)",
+      "venue": "International Conference on Intelligent Education and Intelligent Research (IEIR)",
       "year": 2025,
       "url": "https://doi.org/10.1109/ieir67391.2025.11491172",
       "cited_by": 0,
@@ -313,9 +304,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.3599647432565689,
-        "similarity_score": 0.3428235650062561,
-        "citation_text_length": 301,
+        "confidence_score": 0.3475914627313614,
+        "similarity_score": 0.3310394883155823,
+        "citation_text_length": 296,
         "dataset_text_length": 2455,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -324,7 +315,7 @@
     {
       "title": "Does Re-referencing Matter? Large Laplacian Filter Optimizes Single-Trial P300 BCI Performance",
       "author": "Eva Guttmann-Flury, Jian ping Zhao, Mohamad Sawan",
-      "venue": "2025 IEEE Biomedical Circuits and Systems Conference (BioCAS)",
+      "venue": "IEEE Biomedical Circuits and Systems Conference (BioCAS)",
       "year": 2025,
       "url": "https://doi.org/10.1109/biocas67066.2025.00071",
       "cited_by": 0,
@@ -336,9 +327,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6801647329330445,
-        "similarity_score": 0.5888872146606445,
-        "citation_text_length": 1243,
+        "confidence_score": 0.6755443105101586,
+        "similarity_score": 0.5848868489265442,
+        "citation_text_length": 1238,
         "dataset_text_length": 2455,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -347,7 +338,7 @@
     {
       "title": "From Noise to Insight: Visualizing Neural Dynamics with Segmented SNR Topographies for Improved EEG-BCI Performance *",
       "author": "Eva Guttmann-Flury, Shan Zhao, Jian ping Zhao, Mohamad Sawan",
-      "venue": "2025 IEEE International Conference on Systems, Man, and Cybernetics (SMC)",
+      "venue": "Conference proceedings/Conference proceedings - IEEE International Conference on Systems, Man, and Cybernetics",
       "year": 2025,
       "url": "https://doi.org/10.1109/smc58881.2025.11343537",
       "cited_by": 0,
@@ -359,9 +350,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.7091903346776963,
-        "similarity_score": 0.6140176057815552,
-        "citation_text_length": 1289,
+        "confidence_score": 0.7133110231161118,
+        "similarity_score": 0.617585301399231,
+        "citation_text_length": 1326,
         "dataset_text_length": 2455,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -435,47 +426,22 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
-    },
-    {
-      "title": "TNF-α induces leukemic clonal evolution ex vivo in Fanconi anemia group C murine stem cells",
-      "author": "June Li, Daniel P. Sejas, Xiaoling Zhang, Yuhui Qiu, Kalpana Nattamai, Reena Rani, Keaney R. Rathbun, Hartmut Geiger, David A. Williams, Grover C. Bagby, Qishen Pang",
-      "venue": "Journal of Clinical Investigation",
-      "year": 2007,
-      "url": "https://doi.org/10.1172/jci31772",
-      "cited_by": 134,
-      "abstract": "The molecular pathogenesis of the myeloid leukemias that frequently occur in patients with Fanconi anemia (FA) is not well defined. Hematopoietic stem cells bearing inactivating mutations of FA complementation group C (FANCC) are genetically unstable and hypersensitive to apoptotic cytokine cues including IFN-gamma and TNF-alpha, but neoplastic stem cell clones that arise frequently in vivo are resistant to these cytokines. Reasoning that the combination of genetic instability and cytokine hypersensitivity might create an environment supporting the emergence of leukemic stem cells, we tested the leukemia-promoting effects of TNF-alpha in murine stem cells. TNF-alpha exposure initially profoundly inhibited the growth of Fancc-/- stem cells. However, longer-term exposure of these cells promoted the outgrowth of cytogenetically abnormal clones that, upon transplantation into congenic WT mice, led to acute myelogenous leukemia. TNF-alpha induced ROS-dependent genetic instability in Fancc-/- but not in WT cells. The leukemic clones were TNF-alpha resistant but retained their characteristic hypersensitivity to mitomycin C and exhibited high levels of chromosomal instability. Expression of FANCC cDNA in Fancc-/- stem cells protected them from TNF-alpha-induced clonal evolution. We conclude that TNF-alpha exposure creates an environment in which somatically mutated preleukemic stem cell clones are selected and from which unaltered TNF-alpha-hypersensitive Fancc-/- stem cells are purged.",
-      "doi": "10.1172/jci31772",
-      "pmid": "17960249",
-      "openalex_id": "W2011319917",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "nm000136",
-      "confidence_scoring": {
-        "confidence_score": 0.1368514709174633,
-        "similarity_score": 0.12441042810678482,
-        "citation_text_length": 1828,
-        "dataset_text_length": 2455,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-10-04T10:07:14.829232+00:00",
+    "scoring_date": "2026-10-11T11:19:22.444859+00:00",
     "dataset_text_length": 2455,
-    "num_citations_scored": 16,
+    "num_citations_scored": 15,
     "summary_stats": {
-      "mean_confidence": 0.5862547611631455,
-      "median_confidence": 0.6662040902674199,
-      "std_confidence": 0.16252145809087806,
-      "min_confidence": 0.1368514709174633,
-      "max_confidence": 0.7723766335844995,
+      "mean_confidence": 0.6147427839338779,
+      "median_confidence": 0.6717535883188248,
+      "std_confidence": 0.11884556125907281,
+      "min_confidence": 0.3475914627313614,
+      "max_confidence": 0.7665326580405237,
       "high_confidence_count": 2,
       "medium_confidence_count": 11,
-      "low_confidence_count": 3
+      "low_confidence_count": 2
     }
   }
 }

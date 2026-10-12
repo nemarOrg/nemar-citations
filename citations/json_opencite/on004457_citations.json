@@ -1,16 +1,14 @@
 {
   "dataset_id": "on004457",
-  "num_citations": 15,
-  "date_last_updated": "2026-09-30T10:45:56.602292+00:00",
+  "num_citations": 18,
+  "date_last_updated": "2026-10-11T10:53:30.768984+00:00",
   "metadata": {
-    "total_cumulative_citations": 109,
-    "fetch_date": "2026-09-29T11:15:17.301081+00:00",
+    "total_cumulative_citations": 93,
+    "fetch_date": "2026-10-11T10:53:30.768984+00:00",
     "processing_version": "1.0",
-    "fetch_status": "partial",
+    "fetch_status": "success",
     "anchor_count": 2,
-    "anchor_errors": {
-      "10.82901/nemar.on004457": "not_found"
-    },
+    "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
     "anchor_judgment_model": "claude-sonnet-5-5",
@@ -18,15 +16,15 @@
       {
         "identifier": "10.1101/2022.07.06.498994",
         "identifier_type": "doi",
-        "source_relation": "References",
+        "source_relation": "IsDescribedBy",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Electrical stimulation of temporal and limbic circuitry produces distinct responses in human ventral temporal cortex",
         "paper_year": 2022,
         "paper_venue": "bioRxiv (Cold Spring Harbor Laboratory)",
         "reason": "Title and authors match the dataset README's cited paper (Huang et al. 2022), which reports the iEEG single-pulse stimulation recordings in this dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on004457",
@@ -34,12 +32,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -49,14 +47,12 @@
     "keywords": [
       "intracranial EEG",
       "electrical stimulation",
+      "single pulse electrical stimulation",
       "ventral temporal cortex",
-      "temporal lobe",
-      "limbic system",
-      "Evoked Potentials",
-      "connectome",
-      "Basis Profile Curve"
+      "Limbic System",
+      "basis profile curves"
     ],
-    "methods_description": "Intracranial EEG recordings were collected during single-pulse electrical stimulation delivered at approximately 0.2 Hz frequency. Stimulation parameters included 200-microsecond duration, biphasic waveform, and 6 mA amplitude. Patients were at rest during the recording sessions.",
+    "methods_description": "Patients rested in a hospital bed while single pulse electrical stimulation was delivered at approximately 0.2 Hz. Stimulation pulses were biphasic, 200 microseconds in duration, with an amplitude of 6 mA.",
     "funding": [
       {
         "funder_name": "R01 MH122258 CRCNS: Processing speed in the human connectome across the lifespan"
@@ -74,14 +70,7 @@
         "award_number": "T32GM065841",
         "award_title": "Medical Scientist Training Program at Mayo Clinic"
       }
-    ],
-    "searched_accessions": [
-      "on004457",
-      "ds004457"
-    ],
-    "num_accession_mentions": 1,
-    "num_dataset_citations": 1,
-    "num_datapaper_citations": 14
+    ]
   },
   "citation_details": [
     {
@@ -200,23 +189,26 @@
       }
     },
     {
-      "title": "ER-detect: a pipeline for robust detection of early evoked responses in BIDS-iEEG electrical stimulation data",
-      "author": "Max van den Boom, Nicholas M. Gregg, Gabriela Ojeda Valencia, Brian N. Lundstrom, Kai J. Miller, Dorien van Blooijs, Geertjan Huiskamp, Frans S. S. Leijten, Gregory A. Worrell, Dora Hermes",
-      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+      "title": "ER-detect: A pipeline for robust detection of early evoked responses in BIDS-iEEG electrical stimulation data",
+      "author": "Max van den Boom, Max A. van den Boom, Nicholas Miller Gregg, Gabriela Ojeda Valencia, Brian N. Lundstrom, Kai Joshua Miller, Dorien van Blooijs, Geertjan J.M. Huiskamp, Frans S. S. Leijten, Gregory A. Worrell, Dora Hermes",
+      "venue": "Journal of Neuroscience Methods",
       "year": 2024,
-      "url": "https://doi.org/10.1101/2024.01.09.574915",
-      "cited_by": 4,
-      "abstract": "Abstract Human brain connectivity can be measured in different ways. Intracranial EEG (iEEG) measurements during single pulse electrical stimulation provide a unique way to assess the spread of electrical information with millisecond precision. To provide a robust workflow to process these cortico-cortical evoked potential (CCEP) data and detect early evoked responses in a fully automated and reproducible fashion, we developed Early Response (ER)-detect. ER-detect is an open-source Python package and Docker application to preprocess BIDS structured iEEG data and detect early evoked CCEP responses. ER-detect can use three response detection methods, which were validated against 14 manually annotated CCEP datasets from two different sites by four independent raters. Results showed that ER-detect’s automated detection performed on par with the inter-rater reliability (Cohen’s Kappa of ∼0.6). Moreover, ER-detect was optimized for processing large CCEP datasets, to be used in conjunction wi",
-      "doi": "10.1101/2024.01.09.574915",
+      "url": "https://doi.org/10.1016/j.jneumeth.2025.110389",
+      "cited_by": 6,
+      "abstract": "Human brain connectivity can be measured in different ways. Intracranial EEG (iEEG) measurements during single pulse electrical stimulation provide a unique way to assess the spread of electrical information with millisecond precision. To provide a robust workflow to process these cortico-cortical evoked potential (CCEP) data and detect early evoked responses in a fully automated and reproducible fashion, we developed Early Response (ER)-detect. ER-detect is an open-source Python package and Docker application to preprocess BIDS structured iEEG data and detect early evoked CCEP responses. ER-detect can use three response detection methods, which were validated against 14 manually annotated CCEP datasets from two different sites by four independent raters. Results showed that ER-detect’s automated detection performed on par with the inter-rater reliability (Cohen’s Kappa of ∼0.6). Moreover, ER-detect was optimized for processing large CCEP datasets, to be used in conjunction with other ",
+      "doi": "10.1016/j.jneumeth.2025.110389",
       "pmid": "38260687",
-      "openalex_id": "W4390734757",
-      "source_doi": "10.1101/2022.07.06.498994",
+      "openalex_id": "W4407406287",
+      "source_doi": "10.82901/nemar.on004457",
       "source_relation": "References",
       "discovery_backend": "opencite",
+      "superseded_dois": [
+        "10.1101/2024.01.09.574915"
+      ],
       "confidence_scoring": {
-        "confidence_score": 0.7526351103186608,
-        "similarity_score": 0.6516321301460266,
-        "citation_text_length": 1375,
+        "confidence_score": 0.7564183974266053,
+        "similarity_score": 0.6549077033996582,
+        "citation_text_length": 1401,
         "dataset_text_length": 2421,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -236,6 +228,9 @@
       "source_doi": "10.1101/2022.07.06.498994",
       "source_relation": "References",
       "discovery_backend": "opencite",
+      "superseded_dois": [
+        "10.1101/2024.10.21.619449"
+      ],
       "confidence_scoring": {
         "confidence_score": 0.6757832658290863,
         "similarity_score": 0.5850937366485596,
@@ -316,22 +311,25 @@
     },
     {
       "title": "Single pulse electrical stimulation in white matter modulates iEEG visual responses in human early visual cortex",
-      "author": "Harvey Huang, K. Kay, Nicholas M. Gregg, G. Valencia, Myung-Ho In, C. Kapeller, Y. Shu, G. Worrell, K. Miller, Dora Hermes",
-      "venue": "bioRxiv",
+      "author": "Harvey Huang, K. Kay, N. Gregg, Gabriela Ojeda Valencia, Myung-Ho In, C. Kapeller, Y. Shu, G. Worrell, K. Miller, Dora Hermes",
+      "venue": "PLOS Computational Biology",
       "year": 2025,
-      "url": "https://doi.org/10.1101/2025.05.05.652264",
+      "url": "https://doi.org/10.1371/journal.pcbi.1014563",
       "cited_by": 1,
       "abstract": "Electrical stimulation is increasingly used to modulate brain networks for clinical purposes. The basic unit of neurostimulation, a single electrical pulse, can travel through white matter to influence connected neuronal populations. However, the mechanisms by which it influences connected populations is not well understood: stimulation may excite, inhibit, or add noise to neuronal population activity. In this study, we investigated how single pulses modulate the neuronal processing of images in a well-controlled visual paradigm. In two human subjects implanted with iEEG electrodes for clinical purposes, single pulses were delivered to electrodes in white matter tracts connected to measurement electrodes in visual cortex. Images appeared on-screen at 0, 100, or 200 ms after each pulse. Using finite impulse response modeling, we decomposed the broadband and evoked potential responses into separate components induced by electrical stimulation and by visual processing. Single pulses induc",
-      "doi": "10.1101/2025.05.05.652264",
-      "pmid": "40654852",
+      "doi": "10.1371/journal.pcbi.1014563",
+      "pmid": "42497215",
       "openalex_id": null,
-      "source_doi": "10.1101/2022.07.06.498994",
+      "source_doi": "10.82901/nemar.on004457",
       "source_relation": "References",
       "discovery_backend": "opencite",
+      "superseded_dois": [
+        "10.1101/2025.05.05.652264"
+      ],
       "confidence_scoring": {
-        "confidence_score": 0.7659018462896348,
-        "similarity_score": 0.6631184816360474,
-        "citation_text_length": 1280,
+        "confidence_score": 0.7690031021833421,
+        "similarity_score": 0.6658035516738892,
+        "citation_text_length": 1302,
         "dataset_text_length": 2421,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -407,25 +405,92 @@
       }
     },
     {
-      "title": "Electrical Stimulation of Temporal and Limbic Circuitry Produces Distinct Responses in Human Ventral Temporal Cortex",
-      "author": "Harvey Huang, Nicholas Miller Gregg, Gabriela Ojeda Valencia, Benjamin H. Brinkmann, Brian N. Lundstrom, Gregory A. Worrell, Kai Joshua Miller, Dora Hermes",
-      "venue": "Journal of Neuroscience",
-      "year": 2023,
-      "url": "https://doi.org/10.1523/jneurosci.1325-22.2023",
-      "cited_by": 21,
-      "abstract": "The human ventral temporal cortex (VTC) is highly connected to integrate visual perceptual inputs with feedback from cognitive and emotional networks. In this study, we used electrical brain stimulation to understand how different inputs from multiple brain regions drive unique electrophysiological responses in the VTC. We recorded intracranial EEG data in 5 patients (3 female) implanted with intracranial electrodes for epilepsy surgery evaluation. Pairs of electrodes were stimulated with single-pulse electrical stimulation, and corticocortical evoked potential responses were measured at electrodes in the collateral sulcus and lateral occipitotemporal sulcus of the VTC. Using a novel unsupervised machine learning method, we uncovered 2-4 distinct response shapes, termed basis profile curves (BPCs), at each measurement electrode in the 11-500 ms after stimulation interval. Corticocortical evoked potentials of unique shape and high amplitude were elicited following stimulation of several regions and classified into a set of four consensus BPCs across subjects. One of the consensus BPCs was primarily elicited by stimulation of the hippocampus; another by stimulation of the amygdala; a third by stimulation of lateral cortical sites, such as the middle temporal gyrus; and the final one by stimulation of multiple distributed sites. Stimulation also produced sustained high-frequency power decreases and low-frequency power increases that spanned multiple BPC categories. Characterizing distinct shapes in stimulation responses provides a novel description of connectivity to the VTC and reveals significant differences in input from cortical and limbic structures. SIGNIFICANCE STATEMENT Disentangling the numerous input influences on highly connected areas in the brain is a critical step toward understanding how brain networks work together to coordinate human behavior. Single-pulse electrical stimulation is an effective tool to accomplish this goal because the shapes and amplitudes of signals recorded from electrodes are informative of the synaptic physiology of the stimulation-driven inputs. We focused on targets in the ventral temporal cortex, an area strongly implicated in visual object perception. By using a data-driven clustering algorithm, we identified anatomic regions with distinct input connectivity profiles to the ventral temporal cortex. Examining high-frequency power changes revealed possible modulation of excitability at the recording site induced by electrical stimulation of connected regions.",
-      "doi": "10.1523/jneurosci.1325-22.2023",
-      "pmid": "37188514",
-      "openalex_id": "W4376603855",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004457",
+      "title": "The human insula encodes somatotopic representation of motor execution with an effector-specific connectome map to primary motor cortex",
+      "author": "Panagiotis Kerezoudis, Michael A. Jensen, Bryan T. Klassen, G. Worrell, N. Gregg, Nuri F. Ince, J. Van Gompel, Dora Hermes, Kai J. Miller",
+      "venue": "Proceedings of the National Academy of Sciences of the United States of America",
+      "year": 2026,
+      "url": "https://doi.org/10.1073/pnas.2517734123",
+      "cited_by": 3,
+      "abstract": "Significance The insular cortex is recognized as a multimodal hub, yet its precise role in motor control remains incompletely understood. Using intracranial recordings from human epilepsy patients, we show that the insula contains a somatotopic map of motor representations, organized with hand control in ventral regions and orofacial control in dorsal regions. Through direct electrical stimulation, we demonstrate that these insular motor representations maintain specific connectivity patterns with corresponding regions in the primary motor cortex and with their contralateral homologue regions. This finding fundamentally expands our understanding of the distributed cortical motor network, revealing the human insula as a node with somatotopic organization rather than a diffuse integrative region. These findings have significant implications for resective and neuromodulation strategies targeting this region.",
+      "doi": "10.1073/pnas.2517734123",
+      "pmid": "41706878",
+      "openalex_id": null,
+      "source_doi": "10.82901/nemar.on004457",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.9628877717256548,
-        "similarity_score": 0.8336690664291382,
-        "citation_text_length": 1833,
+        "confidence_score": 0.4992862616479397,
+        "similarity_score": 0.4322824776172638,
+        "citation_text_length": 1308,
+        "dataset_text_length": 2421,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Intracranial Electrical Stimulation of the Superior Temporal Gyrus Evokes Rapid Responses in Human Visual Cortex",
+      "author": "Emily C. Cunningham, D. Brang",
+      "venue": "The European Journal of Neuroscience",
+      "year": 2026,
+      "url": "https://doi.org/10.1111/ejn.70660",
+      "cited_by": 0,
+      "abstract": "Sounds can alter visual processing even at the earliest stages of the cortical pathway. However, our understanding of how acoustic signals are relayed to visual cortex is limited, particularly with respect to the involvement of different regions of auditory cortex in the most rapid stages of this communication across distinct visual areas. Here, we address this question by examining occipital intracranial responses to direct electrical stimulation of the superior temporal gyrus (STG) in 23 patients with epilepsy. Stimulation of mid‐ and posterior‐STG elicited responses in visual cortex as early as 18 ms after onset, with a distribution that favored lateral occipital cortex, lingual gyrus, and anterior calcarine regions near peripheral V1. Early visual cortex (V1/V2) responded most strongly to stimulation over mid‐STG, whereas lateral occipital cortex (near V5/hMT+) exhibited the most robust response to posterior STG stimulation. Responses in visual cortex were organized in a manner sim",
+      "doi": "10.1111/ejn.70660",
+      "pmid": "42660848",
+      "openalex_id": null,
+      "source_doi": "10.82901/nemar.on004457",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7711605155467988,
+        "similarity_score": 0.6676714420318604,
+        "citation_text_length": 1216,
+        "dataset_text_length": 2421,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Network reorganization of anterograde thalamic connectivity during non-periodic patterned deep brain stimulation",
+      "author": "Teryn Johnson, Bobby Mohan, Harvey Huang, J. Cramer, Cornelia Drees, Matthew Hoerth, Amy Z. Crepeau, Joseph Drazkowski, Katherine Noe, L. Baxter, Amir Mbonde, Christopher Harris, Nuri Ince, Kai J. Miller, Dora Hermes, G. Worrell, Jonathon J. Parker",
+      "venue": "iScience",
+      "year": 2026,
+      "url": "https://doi.org/10.1016/j.isci.2026.117659",
+      "cited_by": 0,
+      "abstract": "Deep brain stimulation (DBS) of the anterior nucleus of the thalamus (ANT) can reduce seizures in patients with drug-resistant epilepsy. However, seizure freedom is rare, and there is no early response biomarker to predict long-term seizure suppression. To evaluate a short-term biomarker of therapeutic response to DBS, we studied 18-minute trials of ANT stimulation in patients with drug-resistant epilepsy undergoing intracranial electroencephalography. We compared a standard high-frequency periodic versus a non-periodic pulse pattern. We found that short-term ANT stimulation within the clinically used amplitude range preferentially altered the first 150 ms of anterograde ANT to anterior cingulate and superior frontal connectivity. Non-periodic ANT stimulation selectively modified early cortico-cortical evoked potentials more than periodic stimulation, and these changes were driven by the response phase. These pattern-specific changes in connectivity between the ANT and spatially restri",
+      "doi": "10.1016/j.isci.2026.117659",
+      "pmid": "42841043",
+      "openalex_id": null,
+      "source_doi": "10.82901/nemar.on004457",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6533014324307442,
+        "similarity_score": 0.5656289458274841,
+        "citation_text_length": 1407,
+        "dataset_text_length": 2421,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Electrical perturbation reveals a directional architecture for communication across human visual streams",
+      "author": "María Guadalupe Yáñez-Ramos, G. Valencia, Harvey Huang, N. Gregg, Jordan A. Bilderbeek, Morgan Montoya, Kendrick Kay, G. Worrell, K. J. Miller, Dora Hermes",
+      "venue": "n/a",
+      "year": 0,
+      "url": "n/a",
+      "cited_by": 0,
+      "abstract": null,
+      "doi": null,
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.82901/nemar.on004457",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.4732119143009186,
+        "similarity_score": 0.4732119143009186,
+        "citation_text_length": 289,
         "dataset_text_length": 2421,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -434,17 +499,17 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T10:59:12.161475+00:00",
+    "scoring_date": "2026-10-11T11:32:42.270651+00:00",
     "dataset_text_length": 2421,
-    "num_citations_scored": 15,
+    "num_citations_scored": 18,
     "summary_stats": {
-      "mean_confidence": 0.6602174960970879,
-      "median_confidence": 0.6303287458419801,
-      "std_confidence": 0.1252071522258926,
-      "min_confidence": 0.4779461547732353,
-      "max_confidence": 0.9628877717256548,
+      "mean_confidence": 0.630234407592151,
+      "median_confidence": 0.6297455048561097,
+      "std_confidence": 0.10592615027173682,
+      "min_confidence": 0.4732119143009186,
+      "max_confidence": 0.8530372372269631,
       "high_confidence_count": 4,
-      "medium_confidence_count": 11,
+      "medium_confidence_count": 14,
       "low_confidence_count": 0
     }
   }

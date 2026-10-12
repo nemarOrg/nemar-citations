@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000141",
   "num_citations": 18,
-  "date_last_updated": "2026-09-30T10:44:24.525815+00:00",
+  "date_last_updated": "2026-10-11T10:14:29.561765+00:00",
   "metadata": {
-    "total_cumulative_citations": 195,
-    "fetch_date": "2026-09-29T10:40:33.478571+00:00",
+    "total_cumulative_citations": 188,
+    "fetch_date": "2026-10-11T10:14:29.561765+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -19,12 +19,12 @@
         "source_relation": "IsDerivedFrom",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Exploration of neural correlates of movement intention based on characterisation of temporal dependencies in electroencephalography",
         "paper_year": 2018,
         "paper_venue": "PLoS ONE",
         "reason": "Dataset is named for Wairagkar et al 2018 with the same DOI and authors; the paper reports the finger-tapping EEG recordings (14 subjects) that make up this data.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.21105/joss.01896",
@@ -32,12 +32,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
         "paper_year": 2019,
         "paper_venue": "The Journal of Open Source Software",
         "reason": "MNE-BIDS is a software tool for organizing electrophysiological data into BIDS, used to convert the dataset, not a paper describing this motor execution dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1038/s41597-019-0104-8",
@@ -45,12 +45,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "EEG-BIDS, an extension to the brain imaging data structure for electroencephalography",
         "paper_year": 2019,
         "paper_venue": "Scientific Data",
         "reason": "EEG-BIDS is a specification/extension of BIDS for EEG data, a standard used to organize this dataset, not a paper describing this motor execution dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.nm000141",
@@ -58,12 +58,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -72,20 +72,14 @@
     ],
     "keywords": [
       "EEG",
-      "motor imagery",
-      "brain-computer interfaces",
-      "motor control",
-      "event-related desynchronization",
-      "electroencephalography"
+      "motor execution",
+      "movement intention",
+      "brain-computer interface",
+      "finger tapping",
+      "event-related desynchronization"
     ],
-    "methods_description": "EEG signals were recorded at 1024 Hz using a Deymed TruScan 32 amplifier with 19 Ag/AgCl ring electrodes in standard 10-20 montage (reference: FCz, ground: AFz). Online filters included 0.5 Hz high-pass, 60 Hz low-pass, and 50 Hz notch filtering. Preprocessing involved DC offset removal, ICA-based artifact removal (EEGLAB infomax), and trial segmentation from -3 to +3 seconds around movement onset. Participants performed asynchronous motor imagery tasks with visual text cues in a self-paced manner within 10-second windows.",
-    "funding": [],
-    "searched_accessions": [
-      "nm000141"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 18
+    "methods_description": "EEG was recorded with a Deymed TruScan 32 amplifier using 19 Ag/AgCl ring electrodes (10-20 layout, reference FCz, ground AFz) at 1024 Hz. Participants tapped their index finger at a self-chosen time within a 10-second window after a visual text cue. Preprocessing included DC offset removal, 0.5 Hz high-pass, 50 Hz notch and 60 Hz low-pass filtering, EEGLAB infomax ICA artifact removal, and segmentation from -3 to +3 s around movement onset.",
+    "funding": []
   },
   "citation_details": [
     {
@@ -94,7 +88,7 @@
       "venue": "Cerebral Cortex",
       "year": 2020,
       "url": "https://doi.org/10.1093/cercor/bhaa111",
-      "cited_by": 56,
+      "cited_by": 50,
       "abstract": "The salience network (SN) plays a critical role in cognitive control and adaptive human behaviors, but its electrophysiological foundations and millisecond timescale dynamic temporal properties are poorly understood. Here, we use invasive intracranial EEG (iEEG) from multiple cohorts to investigate the neurophysiological underpinnings of the SN and identify dynamic temporal properties that distinguish it from the default mode network (DMN) and dorsolateral frontal-parietal network (FPN), two other large-scale brain networks that play important roles in human cognition. iEEG analysis of network interactions revealed that the anterior insula and anterior cingulate cortex, which together anchor the SN, had stronger intranetwork interactions with each other than cross-network interactions with the DMN and FPN. Analysis of directionality of information flow between the SN, DMN, and FPN revealed causal outflow hubs in the SN consistent with its role in fast temporal switching of network inte",
       "doi": "10.1093/cercor/bhaa111",
       "pmid": "32426806",
@@ -160,7 +154,7 @@
     {
       "title": "Scientific Challenges to Common Sense Philosophy",
       "author": "Rik Peels, Jeroen de Ridder, René VAN WOUDENBERG",
-      "venue": "n/a",
+      "venue": "Routledge eBooks",
       "year": 2020,
       "url": "https://doi.org/10.4324/9781351064224",
       "cited_by": 24,
@@ -172,9 +166,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.05377452028915287,
-        "similarity_score": 0.04655802622437477,
-        "citation_text_length": 1138,
+        "confidence_score": 0.05834095660597086,
+        "similarity_score": 0.05051165074110031,
+        "citation_text_length": 1151,
         "dataset_text_length": 2285,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -255,7 +249,7 @@
       "venue": "IEEE Access",
       "year": 2023,
       "url": "https://doi.org/10.1109/access.2023.3336308",
-      "cited_by": 9,
+      "cited_by": 8,
       "abstract": "Statistics from the National Office for Empowerment of Persons with Disabilities (NEP) indicate that Spinal Cord Injury (SCI) is a major cause of disability in the Thai population. Various rehabilitation methods are available to support SCI patients. Assistive robots, such as exoskeletons and prosthetics, are very useful for improving quality of life. Robotic exoskeletons have evolved as rehabilitation methods that can overcome some of the current health-related effects of SCI. In the current study, a lower-limb exoskeleton was developed to assist or rehabilitate a physically challenged person who has lost mobility owing to SCI. To overcome energy storage issues related to existing designs, the device uses a spring and camshaft system that is integrated with the robot structure to reduce the required energy by absorbing the body weight into spring potential energy and released by the cam design. Hence, the spring cam system significantly reduced torque on the joints, with approximately",
       "doi": "10.1109/access.2023.3336308",
       "pmid": null,
@@ -389,7 +383,7 @@
     },
     {
       "title": "PREVENTION AND PROGNOSIS OF ACUTE ADHESIONS INTESTINAL OBSTRUCTION",
-      "author": "Мухума Магомедович Магомедов, М. А. Магомедов",
+      "author": "Мухума Магомедович Магомедов, M.A. Magomedov",
       "venue": "n/a",
       "year": 2024,
       "url": "https://doi.org/10.34660/inf.2020.28.64092",
@@ -402,9 +396,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.15273730024695398,
-        "similarity_score": 0.13224008679389954,
-        "citation_text_length": 1153,
+        "confidence_score": 0.15048343732953073,
+        "similarity_score": 0.13028869032859802,
+        "citation_text_length": 1152,
         "dataset_text_length": 2285,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -412,7 +406,7 @@
     },
     {
       "title": "Single-Trial Functional Connectivity Dynamics of Event-Related Desynchronization for Motor Imagery EEG-Based Brain-Computer Interfaces",
-      "author": "Paula Godinho Rodrigues, A. Fim-Neto, João Ricardo Sato, Diogo Coutinho Soriano, Slawomir J. Nasuto",
+      "author": "Paula G. Rodrigues, A. Fim-Neto, João Ricardo Sato, Diogo Coutinho Soriano, Slawomir J. Nasuto",
       "venue": "World Congress on Medical Physics and Biomedical Engineering, September 7 - 12, 2009, Munich, Germany",
       "year": 2022,
       "url": "https://doi.org/10.1007/978-3-030-70601-2_275",
@@ -425,9 +419,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6438052475452424,
-        "similarity_score": 0.6131478548049927,
-        "citation_text_length": 361,
+        "confidence_score": 0.643441253900528,
+        "similarity_score": 0.612801194190979,
+        "citation_text_length": 356,
         "dataset_text_length": 2285,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -435,7 +429,7 @@
     },
     {
       "title": "DSP Basics",
-      "author": "Jason I. Alexander, Chi Thanh Vi",
+      "author": "Jason Alexander, Chi Thanh Vi",
       "venue": "ACM eBooks",
       "year": 2021,
       "url": "https://doi.org/10.1145/3447404.3447412",
@@ -448,9 +442,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.3550389660894871,
-        "similarity_score": 0.30739304423332214,
-        "citation_text_length": 1091,
+        "confidence_score": 0.3601895168423653,
+        "similarity_score": 0.3118523955345154,
+        "citation_text_length": 1088,
         "dataset_text_length": 2285,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -505,14 +499,14 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T10:49:47.203730+00:00",
+    "scoring_date": "2026-10-11T11:19:39.238381+00:00",
     "dataset_text_length": 2285,
     "num_citations_scored": 18,
     "summary_stats": {
-      "mean_confidence": 0.436152729333068,
+      "mean_confidence": 0.4365471254723768,
       "median_confidence": 0.48401899263262754,
-      "std_confidence": 0.17220143241096533,
-      "min_confidence": 0.05377452028915287,
+      "std_confidence": 0.17169229759150345,
+      "min_confidence": 0.05834095660597086,
       "max_confidence": 0.6603863096237184,
       "high_confidence_count": 0,
       "medium_confidence_count": 10,

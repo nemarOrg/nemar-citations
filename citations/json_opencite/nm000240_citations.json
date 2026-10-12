@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000240",
   "num_citations": 7,
-  "date_last_updated": "2026-09-30T10:44:26.512705+00:00",
+  "date_last_updated": "2026-10-11T10:23:47.637093+00:00",
   "metadata": {
     "total_cumulative_citations": 19,
-    "fetch_date": "2026-09-29T10:54:37.990253+00:00",
+    "fetch_date": "2026-10-11T10:23:47.637093+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 3,
@@ -16,28 +16,28 @@
       {
         "identifier": "10.71569/7c67-v596",
         "identifier_type": "doi",
-        "source_relation": "References",
+        "source_relation": "IsDerivedFrom",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Dataset: Influence of spatial frequency in visual stimuli for cVEP-based BCIs: evaluation of performance and user experience",
         "paper_year": 2025,
         "paper_venue": "UVaDOC UVaDOC University of Valladolid Documentary Repository (University of Valladolid)",
         "reason": "The candidate is the source dataset record (DOI 10.71569/7c67-v596, also the dataset's own DOI) describing 16 participants, 8 spatial-frequency checkerboard c-VEP conditions, matching this dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.3389/fnhum.2023.1288438",
         "identifier_type": "doi",
-        "source_relation": "References",
+        "source_relation": "IsDescribedBy",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Influence of spatial frequency in visual stimuli for cVEP-based BCIs: evaluation of performance and user experience",
         "paper_year": 2023,
         "paper_venue": "Frontiers in Human Neuroscience",
         "reason": "The paper reports the 16-participant checkerboard c-VEP study with eight spatial frequencies (8 sessions per subject). It shares authors with the dataset and is cited in the README, so it is the study paper for this data.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1016/j.cmpb.2023.107357",
@@ -45,12 +45,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "judged_not_data_paper",
         "paper_title": "MEDUSA©: A novel Python-based software ecosystem to accelerate brain-computer interface and cognitive neuroscience research",
         "paper_year": 2023,
         "paper_venue": "Computer Methods and Programs in Biomedicine",
         "reason": "The paper describes MEDUSA, a Python software ecosystem for BCI research, a tool likely used to run the c-VEP experiments, and it does not describe this dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_not_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.21105/joss.01896",
@@ -58,12 +58,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
         "paper_year": 2019,
         "paper_venue": "The Journal of Open Source Software",
         "reason": "MNE-BIDS is a software tool for organizing electrophysiology data into BIDS, used in dataset curation, not a paper describing this c-VEP dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1038/s41597-019-0104-8",
@@ -71,12 +71,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "EEG-BIDS, an extension to the brain imaging data structure for electroencephalography",
         "paper_year": 2019,
         "paper_venue": "Scientific Data",
         "reason": "EEG-BIDS is a specification/extension of BIDS for EEG data organization, a standard used by the dataset, not a paper describing this c-VEP dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.nm000240",
@@ -84,12 +84,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -99,20 +99,14 @@
     ],
     "keywords": [
       "EEG",
+      "c-VEP",
       "Brain-Computer Interfaces",
-      "visual evoked potentials",
-      "code-modulated VEP",
-      "spatial frequency",
-      "checkerboard stimuli"
+      "Evoked Potentials, Visual",
+      "m-sequence",
+      "spatial frequency"
     ],
-    "methods_description": "EEG data were acquired at 256 Hz sampling rate using 16 channels in a standard 1005 montage with 50 Hz line frequency. Participants completed 8 sessions with 3 runs per session (2 training, 1 testing), viewing checkerboard m-sequence-based visual stimuli in a two-class c-VEP paradigm.",
-    "funding": [],
-    "searched_accessions": [
-      "nm000240"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 7
+    "methods_description": "EEG was recorded from 16 channels at 256 Hz (standard_1005 montage, 50 Hz line frequency) while participants viewed checkerboard m-sequence stimuli. The dataset was recorded in a single session, with each condition stored as a separate session to match the MOABB structure. Each session contains three runs: two for training and one for testing. Binary events (0 and 1) were annotated with HED tags.",
+    "funding": []
   },
   "citation_details": [
     {
@@ -127,7 +121,7 @@
       "pmid": "38894311",
       "openalex_id": "W4399181894",
       "source_doi": "10.3389/fnhum.2023.1288438",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.6690026074647903,
@@ -150,7 +144,7 @@
       "pmid": null,
       "openalex_id": "W4409986302",
       "source_doi": "10.3389/fnhum.2023.1288438",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.5954391351342202,
@@ -173,7 +167,7 @@
       "pmid": null,
       "openalex_id": "W4403183342",
       "source_doi": "10.3389/fnhum.2023.1288438",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.3232510243356228,
@@ -196,7 +190,7 @@
       "pmid": null,
       "openalex_id": "W4414734495",
       "source_doi": "10.3389/fnhum.2023.1288438",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.62155482172966,
@@ -219,7 +213,7 @@
       "pmid": null,
       "openalex_id": "W4416298311",
       "source_doi": "10.3389/fnhum.2023.1288438",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.6533348214626312,
@@ -233,7 +227,7 @@
     {
       "title": "Visual Acuity Evaluation System Based on EEG Signals",
       "author": "Xuming Liu",
-      "venue": "2025 5th International Conference on Neural Networks, Information and Communication Engineering (NNICE)",
+      "venue": "International Conference on Neural Networks, Information and Communication Engineering (NNICE)",
       "year": 2025,
       "url": "https://doi.org/10.1109/nnice64954.2025.11064337",
       "cited_by": 0,
@@ -242,12 +236,12 @@
       "pmid": null,
       "openalex_id": "W4412445926",
       "source_doi": "10.3389/fnhum.2023.1288438",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.4872008089721203,
-        "similarity_score": 0.42181888222694397,
-        "citation_text_length": 1113,
+        "confidence_score": 0.4875429260730744,
+        "similarity_score": 0.4221150875091553,
+        "citation_text_length": 1104,
         "dataset_text_length": 2347,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -265,7 +259,7 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.3389/fnhum.2023.1288438",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
         "confidence_score": 0.3862528574466706,
@@ -279,13 +273,13 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T10:53:16.291513+00:00",
+    "scoring_date": "2026-10-11T11:23:53.848742+00:00",
     "dataset_text_length": 2347,
     "num_citations_scored": 7,
     "summary_stats": {
-      "mean_confidence": 0.5337194395065309,
+      "mean_confidence": 0.5337683133780956,
       "median_confidence": 0.5954391351342202,
-      "std_confidence": 0.12668356524808036,
+      "std_confidence": 0.1266656739008179,
       "min_confidence": 0.3232510243356228,
       "max_confidence": 0.6690026074647903,
       "high_confidence_count": 0,

@@ -1,13 +1,13 @@
 {
   "dataset_id": "nm000236",
-  "num_citations": 0,
-  "date_last_updated": "2026-09-30T10:44:26.432388+00:00",
+  "num_citations": 5,
+  "date_last_updated": "2026-10-11T10:23:24.930388+00:00",
   "metadata": {
-    "total_cumulative_citations": 0,
-    "fetch_date": "2026-09-29T10:53:56.090431+00:00",
+    "total_cumulative_citations": 111,
+    "fetch_date": "2026-10-11T10:23:24.930388+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
-    "anchor_count": 1,
+    "anchor_count": 2,
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
@@ -16,15 +16,15 @@
       {
         "identifier": "10.5281/zenodo.2605204",
         "identifier_type": "doi",
-        "source_relation": "References",
-        "classification": null,
-        "kept": false,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "unjudged"
+        "source_relation": "IsDerivedFrom",
+        "classification": "data_paper",
+        "kept": true,
+        "kept_reason": "judged_data_paper",
+        "paper_title": "Dataset of an EEG-based BCI experiment in Virtual Reality and on a Personal Computer",
+        "paper_year": 2019,
+        "paper_venue": "arXiv (Cornell University)",
+        "reason": "The Zenodo/arXiv data descriptor shares the dataset's DOI, authors, and 21-subject PC/VR P300 EEG experiment at GIPSA-lab, so it is another deposit of the same data.",
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.21105/joss.01896",
@@ -32,12 +32,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
         "paper_year": 2019,
         "paper_venue": "The Journal of Open Source Software",
         "reason": "MNE-BIDS is a software tool for organizing electrophysiology data into BIDS, used in the dataset's BIDS conversion, not a paper describing this P300 VR dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.1038/s41597-019-0104-8",
@@ -45,12 +45,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "EEG-BIDS, an extension to the brain imaging data structure for electroencephalography",
         "paper_year": 2019,
         "paper_venue": "Scientific Data",
         "reason": "EEG-BIDS is a data-organization standard/specification extension used to format the dataset, not a paper describing this P300 VR dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.nm000236",
@@ -58,46 +58,164 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
+      "10.5281/zenodo.2605204",
       "10.82901/nemar.nm000236"
     ],
     "keywords": [
       "Electroencephalography",
-      "P300",
       "Brain-Computer Interfaces",
       "Virtual Reality",
-      "Event-Related Potentials, P300",
-      "Visual Perception"
+      "P300",
+      "event-related potentials",
+      "visual speller"
     ],
-    "methods_description": "EEG data were acquired from 21 subjects using a g.USBamp amplifier (g.tec) with 16 wet electrodes in a 10-10 montage (reference: right earlobe, ground: AFZ) at 512 Hz sampling rate. Two randomized sessions (PC and VR) were conducted per subject, each consisting of 12 blocks of 5 repetitions. Each repetition involved 12 flashes of groups of 6 symbols in a 6×6 matrix, with each symbol flashing exactly twice per repetition (2 target, 10 non-target flashes). Visual stimulation was delivered via Unity engine on PC and via a passive VRElegiant HMD with Huawei Mate 7 smartphone for VR. Random visual feedback was provided after each repetition.",
+    "methods_description": "Two randomized sessions (PC and VR) per participant, each with 12 blocks of 5 repetitions. In each repetition, 12 groups of 6 symbols flashed in a 6x6 matrix, with each symbol flashing exactly twice. Stimuli were produced with the Unity engine. EEG was recorded with a g.USBamp amplifier (16 electrodes, 10-10 montage, right earlobe reference, AFZ ground) and OpenViBE software. Random feedback was given after each repetition.",
     "funding": [
       {
         "funder_name": "IHMTEK Company (Interaction Homme-Machine Technologie)"
-      },
-      {
-        "funder_name": "IHMTEK Company"
       }
-    ],
-    "searched_accessions": [
-      "nm000236"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 0
+    ]
   },
-  "citation_details": [],
+  "citation_details": [
+    {
+      "title": "The largest EEG-based BCI reproducibility study for open science: the MOABB benchmark",
+      "author": "Sylvain Chevallier, Igor Carrara, B. Aristimunha, Pierre Guetschel, Sara Sedlar, Bruna J. Lopes, Sébastien Velut, Salim Khazem, Thomas Moreau",
+      "venue": "ArXiv",
+      "year": 2024,
+      "url": "https://doi.org/10.48550/arXiv.2404.15319",
+      "cited_by": 59,
+      "abstract": "Objective. This study conduct an extensive Brain-computer interfaces (BCI) reproducibility analysis on open electroencephalography datasets, aiming to assess existing solutions and establish open and reproducible benchmarks for effective comparison within the field. The need for such benchmark lies in the rapid industrial progress that has given rise to undisclosed proprietary solutions. Furthermore, the scientific literature is dense, often featuring challenging-to-reproduce evaluations, making comparisons between existing approaches arduous. Approach. Within an open framework, 30 machine learning pipelines (separated into raw signal: 11, Riemannian: 13, deep learning: 6) are meticulously re-implemented and evaluated across 36 publicly available datasets, including motor imagery (14), P300 (15), and SSVEP (7). The analysis incorporates statistical meta-analysis techniques for results assessment, encompassing execution time and environmental impact considerations. Main results. The stu",
+      "doi": "10.48550/arXiv.2404.15319",
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.5281/zenodo.2605204",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.646958204805851,
+        "similarity_score": 0.5601369738578796,
+        "citation_text_length": 1270,
+        "dataset_text_length": 2338,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Building Brain Invaders: EEG data of an experimental validation",
+      "author": "Gijs van Veen, Alexandre Barachant, Anton Andreev, Grégoire Cattan, Pedro Luiz Coelho Rodrigues, Marco Congedo",
+      "venue": "arXiv (Cornell University)",
+      "year": 2019,
+      "url": "https://doi.org/10.48550/arxiv.1905.05182",
+      "cited_by": 31,
+      "abstract": "We describe the experimental procedures for a dataset that we have made publicly available at https://doi.org/10.5281/zenodo.2649006 in mat and csv formats. This dataset contains electroencephalographic (EEG) recordings of 25 subjects testing the Brain Invaders (Congedo, 2011), a visual P300 Brain-Computer Interface inspired by the famous vintage video game Space Invaders (Taito, Tokyo, Japan). The visual P300 is an event-related potential elicited by a visual stimulation, peaking 240-600 ms after stimulus onset. EEG data were recorded by 16 electrodes in an experiment that took place in the GIPSA-lab, Grenoble, France, in 2012 (Van Veen, 2013 and Congedo, 2013). Python code for manipulating the data is available at https://github.com/plcrodrigues/py.BI.EEG.2012-GIPSA. The ID of this dataset is BI.EEG.2012-GIPSA.",
+      "doi": "10.48550/arxiv.1905.05182",
+      "pmid": null,
+      "openalex_id": "W2945186232",
+      "source_doi": "10.5281/zenodo.2605204",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.8148756980895997,
+        "similarity_score": 0.7407960891723633,
+        "citation_text_length": 1062,
+        "dataset_text_length": 2338,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "NeuralBench: A Unifying Framework to Benchmark NeuroAI Models",
+      "author": "Hubert J. Banville, Stéphane d'Ascoli, Simon Dahan, Jérémy Rapin, Marlène Careil, Yohann Benchetrit, Jarod Lévy, S. Panchavati, Antoine Ratouchniak, Ming-Fang Zhang, Elisa Cascardi, K. Begany, Teon L Brooks, Jean-Rémi King",
+      "venue": "ArXiv",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arXiv.2605.08495",
+      "cited_by": 16,
+      "abstract": "Deep learning and large public datasets have recently catalyzed the proliferation of AI models for processing brain recordings. However, systematically evaluating these models remains a challenge: not only do the preprocessing pipelines, training and finetuning approaches largely vary across studies, but their downstream evaluation is often limited to small sets of tasks and/or datasets. Here, we present NeuralBench: a unified framework for benchmarking AI models of brain activity. We accompany this framework with NeuralBench-EEG v1.0 -- a large EEG benchmark that includes 36 electroencephalography (EEG) tasks and 14 deep learning architectures, and is evaluated on 94 datasets accessed through a standardized interface. This first EEG-focused release already highlights two main findings. First, current foundation models only marginally outperform task-specific models. Second, a large set of tasks (e.g. cognitive decoding, clinical predictions) remain highly challenging, even for the bes",
+      "doi": "10.48550/arXiv.2605.08495",
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.5281/zenodo.2605204",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5560238304734231,
+        "similarity_score": 0.48140591382980347,
+        "citation_text_length": 1327,
+        "dataset_text_length": 2338,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "The Riemannian Means Field Classifier for EEG-Based BCI Data",
+      "author": "Anton Andreev, G. Cattan, Marco Congedo",
+      "venue": "Sensors (Basel, Switzerland)",
+      "year": 2025,
+      "url": "https://doi.org/10.3390/s25072305",
+      "cited_by": 5,
+      "abstract": ": A substantial amount of research has demonstrated the robustness and accuracy of the Riemannian minimum distance to mean (MDM) classifier for all kinds of EEG-based brain–computer interfaces (BCIs). This classifier is simple, fully deterministic, robust to noise, computationally efficient, and prone to transfer learning. Its training is very simple, requiring just the computation of a geometric mean of a symmetric positive-definite (SPD) matrix per class. We propose an improvement of the MDM involving a number of power means of SPD matrices instead of the sole geometric mean. By the analysis of 20 public databases, 10 for the motor-imagery BCI paradigm and 10 for the P300 BCI paradigm, comprising 587 individuals in total, we show that the proposed classifier clearly outperforms the MDM, approaching the state-of-the art in terms of performance while retaining the simplicity and the deterministic behavior. In order to promote reproducible research, our code will be released as open sou",
+      "doi": "10.3390/s25072305",
+      "pmid": "40218817",
+      "openalex_id": null,
+      "source_doi": "10.5281/zenodo.2605204",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6628411951661111,
+        "similarity_score": 0.5738884806632996,
+        "citation_text_length": 1166,
+        "dataset_text_length": 2338,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "BTTDA: Block-Term Tensor Discriminant Analysis for Brain-Computer Interfacing",
+      "author": "Arne Van Den Kerchove, Hakim Si-Mohammed, Franccois Cabestaing, M. Van Hulle",
+      "venue": "n/a",
+      "year": 2025,
+      "url": "n/a",
+      "cited_by": 0,
+      "abstract": "Brain-computer interfaces (BCIs) allow direct communication between the brain and external devices, frequently using electroencephalography (EEG) to record neural activity. Dimensionality reduction and structured regularization are essential for effectively classifying task-related brain signals, including event-related potentials (ERPs) and motor imagery (MI) rhythms. Current tensor-based approaches, such as Tucker and PARAFAC decompositions, often lack the flexibility needed to fully capture the complexity of EEG data. This study introduces Block-Term Tensor Discriminant Analysis (BTTDA): a novel tensor-based and supervised feature extraction method designed to enhance classification accuracy by providing flexible multilinear dimensionality reduction. Extending Higher Order Discriminant Analysis (HODA), BTTDA uses a novel and interpretable forward model for HODA combined with a deflation scheme to iteratively extract discriminant block terms, improving feature representation for clas",
+      "doi": null,
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.5281/zenodo.2605204",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.573027728497982,
+        "similarity_score": 0.4961279034614563,
+        "citation_text_length": 1195,
+        "dataset_text_length": 2338,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    }
+  ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T10:53:08.093499+00:00",
+    "scoring_date": "2026-10-11T11:23:44.149979+00:00",
     "dataset_text_length": 2338,
-    "num_citations_scored": 0
+    "num_citations_scored": 5,
+    "summary_stats": {
+      "mean_confidence": 0.6507453314065934,
+      "median_confidence": 0.646958204805851,
+      "std_confidence": 0.09177321837700818,
+      "min_confidence": 0.5560238304734231,
+      "max_confidence": 0.8148756980895997,
+      "high_confidence_count": 1,
+      "medium_confidence_count": 4,
+      "low_confidence_count": 0
+    }
   }
 }
