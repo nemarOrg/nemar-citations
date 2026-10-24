@@ -1,0 +1,63 @@
+{
+  "dataset_id": "nm000324",
+  "date_retrieved": "2026-10-12T10:03:02.097785+00:00",
+  "dataset_description": {
+    "Name": "Thapa2025: Freewill reach-and-grasp motor-execution dataset from Thapa et al. 2025",
+    "BIDSVersion": "1.9.0",
+    "HEDVersion": "8.4.0",
+    "DatasetType": "derivative",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "Bhoj Raj Thapa",
+      "John Boggess",
+      "Jihye Bae"
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.6084/m9.figshare.28632599"
+    ],
+    "Keywords": [
+      "EEG",
+      "reach and grasp",
+      "motor execution",
+      "brain-machine interface",
+      "freewill"
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000324",
+    "GeneratedBy": [
+      {
+        "CodeURL": "https://github.com/NeuroTechX/moabb",
+        "Name": "moabb",
+        "Description": "Mother of All BCI Benchmarks",
+        "Version": "1.8.0dev0"
+      }
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "10.1038/s41597-025-06039-9",
+        "URL": "https://doi.org/10.6084/m9.figshare.28632599"
+      },
+      {
+        "DOI": "doi:10.1038/s41597-025-06039-9"
+      }
+    ],
+    "PublicationYear": 2025,
+    "EthicsApprovals": [
+      "Conducted under the approved University of Kentucky Institutional Review Board (IRB) protocol #57031. Participants provided written consent for data collection and for de-identified data to be shared indefinitely (Thapa, Boggess & Bae 2025, Sci. Data, DOI 10.1038/s41597-025-06039-9)."
+    ],
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000324-blue)](https://doi.org/10.82901/nemar.nm000324)\n\nThapa2025\n=========\n\nFreewill reach-and-grasp motor-execution dataset from Thapa et al. 2025.\n\nDataset Overview\n----------------\n  Code: Thapa2025\n  Paradigm: imagery\n  DOI: 10.1038/s41597-025-06039-9\n  Subjects: 23\n  Sessions per subject: 1-3 (loader default declares 3; deposited tree holds 49 sessions across 23 subjects, distribution: 2 subjects have 1 session (sub-02, sub-17), 16 subjects have 2 sessions, 5 subjects have 3 sessions)\n  Events: Tgt1=1, Tgt2=2, Tgt3=3, Tgt4=4\n  Trial interval: [0, 4] s\n  Runs per session: 5\n  File format: BrainVision (BIDS)\n\nAcquisition\n-----------\n  Sampling rate: 250.0 Hz\n  Number of channels: 39\n  Channel types: eeg=31, eog=4, misc=4\n  Channel names: Fp1, Fp2, F7, F3, Fz, F4, F8, FT9, FC5, FC1, FC2, FC6, FT10, T7, C3, C4, T8, TP9, CP5, CP1, CP2, CP6, TP10, P7, P3, Pz, P4, P8, O1, Oz, O2\n  Montage: standard_1020\n  Hardware: Brain Products actiCHamp Plus (actiCAP snap, gel-based active electrodes)\n  Reference: Cz\n  Ground: GND\n  Sensor type: scalp EEG\n  Line frequency: 60.0 Hz\n  Online filters: none\n  Cap manufacturer: Brain Products\n  Cap model: actiCAP snap\n  Electrode type: active\n  Auxiliary channels: EOG (4 ch, horizontal, vertical), accelerometer, audio_cue\n\nParticipants\n------------\n  Number of subjects: 23\n  Health status: healthy\n  Age: min=18.0, max=24.0\n  Gender distribution: female=8, male=15\n  Handedness: right\n  Species: human\n\nExperimental Protocol\n---------------------\n  Paradigm: imagery\n  Task type: motor execution\n  Number of classes: 4\n  Class labels: Tgt1, Tgt2, Tgt3, Tgt4\n  Trial duration: 12.0 s\n  Study design: Self-paced freewill reach-and-grasp: the subject freely chooses one of four cups and the timing of movement. Four cups (two water-filled, two empty) define the four classes.\n  Feedback type: none\n  Stimulus type: audio start/end cue\n  Stimulus modalities: auditory\n  Primary modality: auditory\n  Synchronicity: self-paced\n  Mode: offline\n\nHED Event Annotations\n---------------------\n  Schema: HED 8.4.0 | Browse: https://www.hedtags.org/hed-schema-browser\n\n  Tgt1\n    ├─ Sensory-event\n    └─ Label/Tgt1\n\n  Tgt2\n    ├─ Sensory-event\n    └─ Label/Tgt2\n\n  Tgt3\n    ├─ Sensory-event\n    └─ Label/Tgt3\n\n  Tgt4\n    ├─ Sensory-event\n    └─ Label/Tgt4\n\nParadigm-Specific Parameters\n----------------------------\n  Detected paradigm: motor_imagery\n  Number of targets: 4\n\nData Structure\n--------------\n  Trials: 6808\n  Trials context: 6808 trials across 23 subjects and 49 sessions\n\nCross-Validation\n----------------\n  Evaluation type: within_subject, cross_session\n\nBCI Application\n---------------\n  Applications: motor_control\n  Environment: laboratory\n\nTags\n----\n  Pathology: Healthy\n  Modality: Motor\n  Type: Research\n\nDocumentation\n-------------\n  Description: A large EEG database of freewill reaching and grasping tasks for brain-machine interfaces: 23 subjects, 49 sessions, 6808 self-paced reach-and-grasp trials toward one of four cups.\n  DOI: 10.1038/s41597-025-06039-9\n  License: CC-BY-4.0\n  Investigators: Bhoj Raj Thapa, John Boggess, Jihye Bae\n  Senior author: Jihye Bae\n  Institution: University of Kentucky\n  Department: Department of Electrical and Computer Engineering\n  Country: US\n  Repository: Figshare\n  Data URL: https://doi.org/10.6084/m9.figshare.28632599\n  Publication year: 2025\n  Keywords: EEG, reach and grasp, motor execution, brain-machine interface, freewill\n\nReferences\n----------\nThapa, B. R., Boggess, J., & Bae, J. (2025). A large electroencephalogram database of freewill reaching and grasping tasks for brain machine interfaces. Scientific Data, 12(1). https://doi.org/10.1038/s41597-025-06039-9\nAppelhoff, S., Sanderson, M., Brooks, T., Vliet, M., Quentin, R., Holdgraf, C., Chaumon, M., Mikulan, E., Tavabi, K., Hochenberger, R., Welke, D., Brunner, C., Rockhill, A., Larson, E., Gramfort, A. and Jas, M. (2019). MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis. Journal of Open Source Software 4: (1896). https://doi.org/10.21105/joss.01896\n\nPernet, C. R., Appelhoff, S., Gorgolewski, K. J., Flandin, G., Phillips, C., Delorme, A., Oostenveld, R. (2019). EEG-BIDS, an extension to the brain imaging data structure for electroencephalography. Scientific Data, 6, 103. https://doi.org/10.1038/s41597-019-0104-8\n\n---\nGenerated by MOABB 1.8.0dev0 (Mother of All BCI Benchmarks)\nhttps://github.com/NeuroTechX/moabb\n\nEthics\n------\nEthics approval: the data analysed in this deposit were collected under the\nethics approval obtained by the original investigators and reported in the\nprimary publication cited above (see References/Documentation sections of\nthis README). Participants gave informed consent in the source study. No\nnew human-subject data were collected during this BIDS re-release; this\nNEMAR record only reformats the published source data into BIDS via MOABB.\nPlease consult the primary publication for the exact IRB/ethics committee\nreference.\n\n## Ethics\n\nConducted under the approved University of Kentucky Institutional Review Board (IRB) protocol #57031. Participants provided written consent for data collection and for de-identified data to be shared indefinitely (Thapa, Boggess & Bae 2025, Sci. Data, DOI 10.1038/s41597-025-06039-9).\n\nVerbatim from the source:\n\n> This study was conducted following the approved University of Kentucky Institutional Review Board (IRB) protocol #57031. ... Before data collection, all participants were informed of the study's purpose and procedures, and they provided written consent for data collection and permission to have de-identified data to be shared and available indefinitely.\n\nSource: cached paper .paper-audit/Thapa2025/paper-10_1038_s41597_025_06039_9.txt (Thapa, Boggess & Bae 2025, Sci. Data, DOI 10.1038/s41597-025-06039-9).\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000324",
+    "exists": true,
+    "description": "Thapa2025: Freewill reach-and-grasp motor-execution dataset from Thapa et al. 2025",
+    "created_at": "2026-10-04T17:55:26+00:00",
+    "updated_at": "2026-10-12T03:00:35+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "dataset_id": "nm000358",
+  "date_retrieved": "2026-10-12T10:03:54.500700+00:00",
+  "dataset_description": {
+    "Name": "AJILE12: long-term naturalistic ECoG with wrist-movement events and behaviour labels (DANDI 000055)",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "raw",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "Steven M. Peterson",
+      "Satpreet H. Singh",
+      "Benjamin Dichter",
+      "Michael Scheid",
+      "Rajesh P. N. Rao",
+      "Bingni W. Brunton"
+    ],
+    "Acknowledgements": "Data collected and originally released by the authors above (University of Washington; recorded at Harborview Medical Center). This iEEG-BIDS representation of the ECoG recordings was produced by Bruno Aristimunha from the DANDI release (DANDI:000055/0.220127.0436) without changing signal values; see README. Original acknowledgement: 'We thank Nancy Wang for contributing to the data collection, John So for generating the coarse behavior annotations, and the clinical staff at the Harborview Hospital Neurosurgery department for their assistance collecting and analyzing the data, especially Leigh Weber, Jeffrey G. Ojemann, and Andrew Ko.'",
+    "HowToAcknowledge": "Please cite: Peterson SM, Singh SH, Dichter B, Scheid M, Rao RPN, Brunton BW. AJILE12: Long-term naturalistic human intracranial neural recordings and pose. Sci Data 9, 184 (2022). https://doi.org/10.1038/s41597-022-01280-y ; and the source data: Peterson et al. (2022) AJILE12 (Version 0.220127.0436). DANDI archive. https://doi.org/10.48324/dandi.000055/0.220127.0436",
+    "Funding": [
+      "National Science Foundation 1630178",
+      "National Science Foundation EEC-1028725",
+      "Defense Advanced Research Projects Agency FA8750-18-2-0259",
+      "Sloan Foundation",
+      "Washington Research Foundation",
+      "Weill Neurohub"
+    ],
+    "EthicsApprovals": [
+      "University of Washington Institutional Review Board, STUDY00000623 (DANDI ethicsApproval); all participants provided written informed consent (Peterson et al. 2022)"
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.1038/s41597-022-01280-y",
+      "https://doi.org/10.48324/dandi.000055/0.220127.0436",
+      "https://github.com/BruntonUWBio/ajile12-nwb-data",
+      "https://doi.org/10.1523/ENEURO.0007-21.2021",
+      "https://doi.org/10.1016/j.jneumeth.2021.109199"
+    ],
+    "SourceDatasets": [
+      {
+        "URL": "https://dandiarchive.org/dandiset/000055/0.220127.0436",
+        "DOI": "doi:10.48324/dandi.000055/0.220127.0436",
+        "Version": "0.220127.0436"
+      }
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "laneB_ieeg002_bids.py (iEEG-NEMAR campaign 2026-10)",
+        "Description": "Writes the NWB acquisition/ElectricalSeries stored float32 microvolt values byte-for-byte as BrainVision float32; maps ReachEvents, reach features and coarse behaviour labels to events with a per-file verified clock offset; copies original NWB files byte-identically into sourcedata/."
+      }
+    ],
+    "Keywords": [
+      "electrocorticography",
+      "ECoG",
+      "iEEG",
+      "long-term monitoring",
+      "naturalistic behavior",
+      "wrist movement",
+      "pose estimation",
+      "behavior labels",
+      "epilepsy",
+      "NWB",
+      "DANDI"
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000358",
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000358-blue)](https://doi.org/10.82901/nemar.nm000358)\n\nAJILE12: long-term naturalistic ECoG with wrist-movement events and behaviour labels (DANDI 000055)\n====================================================================================================\n\nOverview\n--------\nElectrocorticography (ECoG; grids, strips and in some participants depth electrodes) recorded\nopportunistically from 12 participants during clinical long-term epilepsy monitoring at Harborview\nMedical Center (Seattle, USA), with simultaneous video from which the authors estimated upper-body\npose, detected and visually validated wrist-movement initiation events, and annotated coarse\nbehavioural states (sleep/rest, TV, talking, eating, computer/phone, ...). One recording per\nparticipant per monitoring day (days 3-7 after implantation), each covering one day from midnight\nto midnight, 55 days in total. There is no experimental task.\n\nThis is an iEEG-BIDS representation of the ECoG released by the authors in NWB on DANDI:\n\n  Peterson SM, Singh SH, Dichter B, Scheid M, Rao RPN, Brunton BW (2022). AJILE12: Long-term\n  naturalistic human intracranial neural recordings and pose (Version 0.220127.0436). DANDI archive.\n  https://doi.org/10.48324/dandi.000055/0.220127.0436  (license CC-BY-4.0)\n  Data descriptor: Peterson SM et al. AJILE12: Long-term naturalistic human intracranial neural\n  recordings and pose. Sci Data 9, 184 (2022). https://doi.org/10.1038/s41597-022-01280-y\n\nPlease cite both. The 30 Hz pose trajectories (9 keypoints, image pixels) are not converted; they\nremain, unchanged, in the original NWB files under sourcedata/dandi-000055/ and on DANDI.\n\nCohort and acquisition\n----------------------\nFrom Peterson et al. (2022), Methods (\"Participants\", \"Data collection\"):\n- 12 participants (8 male, 4 female; age 29.4 +/- 7.6 years, mean +/- SD) recorded during clinical\n  epilepsy monitoring at Harborview Medical Center, Seattle, USA. ECoG electrodes were placed based on\n  clinical need; participants were selected because they were generally active during monitoring and\n  had ECoG electrodes near motor cortex.\n- Semi-continuous ECoG and video were recorded passively during 24-hour clinical monitoring; monitoring\n  lasted 7.4 +/- 2.2 days per participant, with 8.3 +/- 2.2 breaks per participant of 1.9 +/- 2.4 h.\n  Only days 3-7 after implantation were included; days with corrupted or missing files were excluded.\n- Acquisition rates: ECoG 1 kHz (released at 500 Hz after the authors' processing, see Signal), video 30\n  frames per second. The paper does not name the amplifier, electrode manufacturer or acquisition\n  reference; these fields are left unset.\n\nEthics\n------\nPeterson et al. (2022): all participants provided written informed consent; the protocol was\napproved by the University of Washington Institutional Review Board (DANDI ethics record\nSTUDY00000623). This deposit redistributes the publicly released data under its CC-BY-4.0 license.\n\nContents\n--------\n12 participants (sub-01 ... sub-12), 55 recording days (ses-3 ... ses-7 = day after implantation),\n64-126 ECoG/depth channels per participant at 500 Hz (plus EOGL/EOGR/ECGL/ECGR for sub-01), about\n1295 h of recording including NaN monitoring breaks. 52 recordings span the full day (86400 s); 3 start\nlater in the day (sub-01 ses-7, sub-04 ses-3, sub-06 ses-3) and, like all others, end at midnight.\nEvents: 8088 wrist-movement events (ReachEvents, left or right wrist as stated per file) and 74339\ncoarse behaviour-label intervals.\n(The data descriptor text reports 6931 visually validated wrist movement events; the ReachEvents\ntables of the released NWB files, as converted here, hold 8088 rows.)\n\n  ieeg/*_ieeg.vhdr/.vmrk/.eeg  BrainVision, IEEE float32, microvolts (resolution 1).\n  ieeg/*_channels.tsv          channel type, author bad-channel flags and per-electrode source statistics.\n  ieeg/*_electrodes.tsv        MNI coordinates from the source (see Coordinates).\n  ieeg/*_events.tsv            wrist-movement events, coarse behaviour labels, NaN segments.\n  sourcedata/dandi-000055/     byte-identical NWB files (+ dandiset.yaml); sourcedata_provenance.json\n                               lists size, SHA-256 and DANDI asset id.\n\nSignal\n------\nThe .eeg payload is byte-for-byte the float32 array stored in acquisition/ElectricalSeries of each\nNWB file (stored in microvolts; NWB conversion 1e-6 to volts), multiplexed, channel order as the\nsource electrode region. NaN samples (monitoring breaks) are kept as NaN. This conversion applied no\nfiltering, resampling, re-referencing or channel removal.\n\nProcessing already applied by the authors (Peterson et al. 2022, \"ECoG data processing\"): median\nDC removal per electrode; data within 2 s of high-amplitude discontinuities set to 0; 1-200 Hz\nband-pass; 60 Hz (and harmonics) notch; downsampling from 1 kHz to 500 Hz; re-referencing to the\ncommon median of each grid, strip or depth electrode group. The NWB \"filtering\" column reads\n\"250 Hz lowpass\" and is reported verbatim. \"raw\" in dataset_description therefore means \"earliest\nreleased form\", not the acquisition signal.\n\nChannel names: the source does not store the clinical contact labels. Names are generated as\n<electrode group>_<NWB electrode id> (e.g. GRID_012); the number is not a clinical contact number.\nType is ECOG unless the group description states a depth electrode (then SEEG); the source group\ndescriptions are given in iEEGElectrodeGroups. status = bad where the source \"good\" column is False\n(author QC: abnormal standard deviation or kurtosis). Source columns (SD, kurtosis, MAD, R2 of the\nauthors' decoding models) are kept in channels.tsv.\n\nClocks and events\n-----------------\nThe NWB file holds two clocks. The ECoG starts at the NWB session_start_time (dates were replaced by\nthe authors; the time of day is kept) and has no stored timestamps. The pose, the coarse behaviour\nlabels (intervals/epochs) and the reach features (intervals/reaches, \"Time of day (sec)\") are on a\nday clock that starts at midnight. The NWB ReachEvents timestamps are on the ECoG clock.\nFor each file this conversion computes D = UTC seconds-of-day of session_start_time and requires\n  (a) D + ECoG duration = 86400 s within one sample (the ECoG ends at midnight), and\n  (b) for every row, reaches.start_time - ReachEvents.timestamps - D is within 2 ms (the event\n      resolution) of a whole number of days (0 except where the authors' time of day wrapped past\n      midnight, e.g. 86440.332 s for an event 40.332 s after midnight).\nAll 55 recordings pass both gates (maximum residual 1 ms; one row in sub-08 ses-4 has a time of day\nof 86440.332 s for an event 40.332 s after midnight). D is 0 for 52 recordings and 30682.414,\n30048.322 and 29240.566 s for the 3 recordings that start later in the day.\nEvent onsets (seconds from the first ECoG sample):\n  reach_onset   ReachEvents timestamp, with the reach features of the same row and its duration;\n  coarse_label  epochs start - D; labels that start before the first ECoG sample have negative onsets\n                (validator warning SUSPICIOUS_NEGATIVE_EVENT_ONSET; sample is n/a for them);\n  nan_segment   runs of samples that are NaN on every channel in the source.\nsource_time_of_day keeps the original day-clock time. Coarse-label boundaries follow the source\nconverter, which assigns each change to the last frame of the previous label (one 30 Hz frame).\n\nCoordinates\n-----------\nx/y/z are copied from the NWB electrodes table: electrodes were localised with FieldTrip\n(pre-operative MRI co-registered to post-operative CT, manual selection) and warped to MNI space\n(Peterson et al. 2022). The MNI template variant is not stated, so coordsystem.json uses \"Other\"\nwith this description, units mm.\n\nParticipants and privacy\n------------------------\nparticipants.tsv gives, per participant: species (NWB subject record) and, from Peterson et al. (2022)\nTable 2 \"Individual participant characteristics\", age (years), sex (M/F), hemisphere_implanted (L/R),\nrecording_days_used, surface_electrodes_good / surface_electrodes_total and depth_electrodes_good /\ndepth_electrodes_total; participants.json describes each column and its source. Paper participants\nP01-P12 = sub-01 ... sub-12 (the electrode totals equal the electrodes.tsv row counts and the recording\ndays equal the number of ses-* folders). The authors stripped recording dates (session dates in the\nNWB are placeholders, 2000-01-0x); BIDS files carry no dates.\n\nHow to load\n-----------\nExample with MNE-Python / MNE-BIDS (fetch the files you need first, e.g. `nemar dataset get` or\n`datalad get`):\n\n    from mne_bids import BIDSPath, read_raw_bids\n    bp = BIDSPath(root=\"<dataset root>\", subject=\"01\", session=\"3\", task=\"naturalistic\",\n                  datatype=\"ieeg\", suffix=\"ieeg\", extension=\".vhdr\")\n    raw = read_raw_bids(bp)        # 500 Hz, microvolts in file, volts in MNE; NaN = monitoring break\n    import pandas as pd\n    ev = pd.read_csv(bp.copy().update(suffix=\"events\", extension=\".tsv\").fpath, sep=\"\\t\")\n    reaches = ev[ev.trial_type == \"reach_onset\"]\n\nEach file spans a full day (up to 86400 s at 500 Hz, about 43 M samples per channel); load lazily or\ncrop before calling load_data().\n\nConversion checks\n-----------------\n- Source: 55/55 DANDI assets (845,869,698,341 bytes) verified by SHA-256 against the DANDI digests;\n  sourcedata copies re-verified after copying.\n- Signal: every .eeg payload is bit-identical (incl. NaN) to the NWB stored float32 values in source\n  channel order; MNE reads the same channel names, rate and sample count, and its scaled values match\n  stored x 1e-6 V on start/middle/end windows.\n- Events: reach_onset onsets equal the NWB ReachEvents timestamps; coarse_label onsets equal the NWB\n  epochs start - D (1e-6 s); clock gates as above.\n- BIDS validator (bids-validator 3.0.2): 0 errors; warnings are recommended fields not documented by\n  the source and SUSPICIOUS_NEGATIVE_EVENT_ONSET for labels that begin before the ECoG start.\n\nProvenance\n----------\nSource: DANDI:000055 version 0.220127.0436, all 55 assets downloaded with the dandi CLI (0.81.0)\non 2026-10-06 and verified against the DANDI SHA-256 digests. Conversion scripts:\nlaneB_ieeg002_bids.py, checks laneB_ieeg002_check.py (h5py 3.16, numpy 2.5, MNE 1.13). An earlier\nautomated nwb2bids attempt for this Dandiset (github.com/bids-dandisets/000055) converted 0 of the\nsessions; no BIDS copy of these recordings was found on DANDI, OpenNeuro or NEMAR as of 2026-10-06.\n\n## Atlas labels of the electrode positions (added 2026-10-08)\n\nEach `electrodes.tsv` that has coordinates now has two derived columns, `atlas_label_AAL3v1` and `atlas_label_DesikanKilliany`. They are an atlas lookup of the coordinates already in the file (MNI coordinates used as given), made for NEMAR; they are not labels given by the authors, and the coordinates themselves are unchanged. Method and caveats: `electrodes.json`. 4787 of 5432 contacts received a label.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000358",
+    "exists": true,
+    "description": "AJILE12: long-term naturalistic ECoG with wrist-movement events and behaviour labels (DANDI 000055)",
+    "created_at": "2026-10-06T14:56:03+00:00",
+    "updated_at": "2026-10-08T20:13:43+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

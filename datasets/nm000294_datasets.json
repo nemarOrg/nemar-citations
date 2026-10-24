@@ -1,0 +1,69 @@
+{
+  "dataset_id": "nm000294",
+  "date_retrieved": "2026-10-12T10:01:43.440190+00:00",
+  "dataset_description": {
+    "Name": "Farabbi2020: Motor-Imagery EEG dataset during robot-arm control",
+    "BIDSVersion": "1.9.0",
+    "HEDVersion": "8.4.0",
+    "DatasetType": "derivative",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "Andrea Farabbi",
+      "Fabiola Ghiringhelli",
+      "Luca Mainardi",
+      "Joao Miguel Sanches",
+      "Plinio Moreno",
+      "Jose Santos-Victor",
+      "Patricia Figueiredo",
+      "Athanasios Vourvopoulos"
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.5281/zenodo.5882500"
+    ],
+    "Keywords": [
+      "motor imagery",
+      "BCI",
+      "brain-computer interface",
+      "EEG",
+      "robot arm",
+      "neurorehabilitation"
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000294",
+    "GeneratedBy": [
+      {
+        "CodeURL": "https://github.com/NeuroTechX/moabb",
+        "Name": "moabb",
+        "Description": "Mother of All BCI Benchmarks",
+        "Version": "1.8.0dev0"
+      }
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "10.5281/zenodo.5882500",
+        "URL": "https://doi.org/10.5281/zenodo.5882500"
+      },
+      {
+        "DOI": "doi:10.5281/zenodo.5882500"
+      }
+    ],
+    "PublicationYear": 2020,
+    "EthicsApprovals": [
+      "Approved by the Ethics Committee of CHULN and CAML (Faculty of Medicine, University of Lisbon), reference number 245/19. Written informed consent was obtained from all participants in accordance with the 1964 Declaration of Helsinki (Farabbi et al. 2020, Zenodo DOI 10.5281/zenodo.5882500)."
+    ],
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000294-blue)](https://doi.org/10.82901/nemar.nm000294)\n\nFarabbi2020\n===========\n\nMotor-Imagery EEG dataset during robot-arm control [1]_.\n\nDataset Overview\n----------------\n  Code: Farabbi2020\n  Paradigm: imagery\n  DOI: 10.5281/zenodo.5882500\n  Subjects: 12\n  Sessions per subject: 3\n  Events: left_hand=769, right_hand=770\n  Trial interval: [0, 4] s\n  Runs per session: 4\n  File format: GDF\n\nAcquisition\n-----------\n  Sampling rate: 250.0 Hz\n  Number of channels: 35\n  Channel types: eeg=32, misc=3\n  Channel names: Fp1, Fz, F3, F7, FT9, FC5, FC1, C3, T7, TP9, CP5, CP1, Pz, P3, P7, O1, Oz, O2, P4, P8, TP10, CP6, CP2, Cz, C4, T8, FT10, FC6, FC2, F4, F8, Fp2\n  Montage: standard_1020\n  Hardware: LiveAmp 32 (Brain Products GmbH)\n  Sensor type: active Ag/AgCl\n  Line frequency: 50.0 Hz\n  Cap manufacturer: Brain Products GmbH\n  Cap model: actiCAP\n  Electrode type: active\n\nParticipants\n------------\n  Number of subjects: 12\n  Health status: healthy\n  BCI experience: naive\n\nExperimental Protocol\n---------------------\n  Paradigm: imagery\n  Number of classes: 2\n  Class labels: left_hand, right_hand\n  Trial duration: 6.0 s\n  Study design: Cue-based left- vs right-hand motor imagery controlling a Baxter robot arm reaching toward objects, under first-person and third-person visual feedback.\n  Feedback type: visual\n  Stimulus type: visual\n  Stimulus modalities: visual\n  Synchronicity: cue-based\n  Mode: online\n  Training/test split: True\n  Instructions: Imagine left- or right-hand movement following the cue to steer the robot arm toward the target object.\n\nHED Event Annotations\n---------------------\n  Schema: HED 8.4.0 | Browse: https://www.hedtags.org/hed-schema-browser\n\n  left_hand\n    ├─ Sensory-event, Experimental-stimulus, Visual-presentation\n    └─ Agent-action\n       └─ Imagine\n          ├─ Move\n          └─ Left, Hand\n\n  right_hand\n    ├─ Sensory-event, Experimental-stimulus, Visual-presentation\n    └─ Agent-action\n       └─ Imagine\n          ├─ Move\n          └─ Right, Hand\n\nParadigm-Specific Parameters\n----------------------------\n  Detected paradigm: motor_imagery\n  Imagery tasks: left_hand, right_hand\n  Imagery duration: 4.0 s\n\nData Structure\n--------------\n  Trials: 480\n  Trials per class: left_hand=240, right_hand=240\n  Blocks per session: 4\n  Trials context: Three sessions per subject, each with four motor-imagery runs (first-person training/online, third-person training/online) plus an ignored resting-state recording. Each run: 20 left + 20 right trials (40); 160 per session, 480 per subject. Each trial: 2 s baseline + 4 s imagery.\n\nPreprocessing\n-------------\n  Data state: raw\n  Preprocessing applied: False\n\nSignal Processing\n-----------------\n  Frequency bands: mu=[8.0, 12.0] Hz; beta=[12.0, 30.0] Hz\n\nCross-Validation\n----------------\n  Evaluation type: within_subject, cross_session\n\nBCI Application\n---------------\n  Applications: robot arm control, neurorehabilitation\n  Environment: lab\n  Online feedback: True\n\nTags\n----\n  Pathology: healthy\n  Modality: motor\n  Type: Motor Imagery\n\nDocumentation\n-------------\n  Description: Motor-imagery EEG from 12 healthy naive subjects performing cued left/right-hand imagery to control a Baxter robot arm, across three sessions with first- and third-person visual feedback conditions.\n  DOI: 10.5281/zenodo.5882500\n  License: CC-BY-4.0\n  Investigators: Andrea Farabbi, Fabiola Ghiringhelli, Luca Mainardi, Joao Miguel Sanches, Plinio Moreno, Jose Santos-Victor, Patricia Figueiredo, Athanasios Vourvopoulos\n  Institution: Politecnico di Milano; Instituto Superior Tecnico, Universidade de Lisboa\n  Country: IT\n  Repository: Zenodo\n  Data URL: https://doi.org/10.5281/zenodo.5882500\n  Publication year: 2020\n  Keywords: motor imagery, BCI, brain-computer interface, EEG, robot arm, neurorehabilitation\n\nReferences\n----------\nFarabbi, A., Ghiringhelli, F., Mainardi, L., Sanches, J. M., Moreno, P., Santos-Victor, J., Figueiredo, P., and Vourvopoulos, A. (2020). Motor-Imagery EEG Dataset During Robot-Arm Control. Zenodo. DOI: https://doi.org/10.5281/zenodo.5882500\n\nNotes\n\n.. versionadded:: 1.8.0\nAppelhoff, S., Sanderson, M., Brooks, T., Vliet, M., Quentin, R., Holdgraf, C., Chaumon, M., Mikulan, E., Tavabi, K., Hochenberger, R., Welke, D., Brunner, C., Rockhill, A., Larson, E., Gramfort, A. and Jas, M. (2019). MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis. Journal of Open Source Software 4: (1896). https://doi.org/10.21105/joss.01896\n\nPernet, C. R., Appelhoff, S., Gorgolewski, K. J., Flandin, G., Phillips, C., Delorme, A., Oostenveld, R. (2019). EEG-BIDS, an extension to the brain imaging data structure for electroencephalography. Scientific Data, 6, 103. https://doi.org/10.1038/s41597-019-0104-8\n\n---\nGenerated by MOABB 1.8.0dev0 (Mother of All BCI Benchmarks)\nhttps://github.com/NeuroTechX/moabb\n\nEthics\n------\nEthics approval: the data analysed in this deposit were collected under the\nethics approval obtained by the original investigators and reported in the\nprimary publication cited above (see References/Documentation sections of\nthis README). Participants gave informed consent in the source study. No\nnew human-subject data were collected during this BIDS re-release; this\nNEMAR record only reformats the published source data into BIDS via MOABB.\nPlease consult the primary publication for the exact IRB/ethics committee\nreference.\n\n## Ethics\n\nApproved by the Ethics Committee of CHULN and CAML (Faculty of Medicine, University of Lisbon), reference number 245/19. Written informed consent was obtained from all participants in accordance with the 1964 Declaration of Helsinki (Farabbi et al. 2020, Zenodo DOI 10.5281/zenodo.5882500).\n\nVerbatim from the source:\n\n> Approved by the Ethics Committee of CHULN and CAML (Faculty of Medicine, University of Lisbon) with reference number: 245/19.\n\nSource: Zenodo record 5882500 'notes' field (https://zenodo.org/records/5882500).\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000294",
+    "exists": true,
+    "description": "Farabbi2020: Motor-Imagery EEG dataset during robot-arm control",
+    "created_at": "2026-10-04T14:24:44+00:00",
+    "updated_at": "2026-10-11T03:03:55+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

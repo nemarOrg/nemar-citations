@@ -1,0 +1,90 @@
+{
+  "dataset_id": "nm000376",
+  "date_retrieved": "2026-10-12T10:04:57.907644+00:00",
+  "dataset_description": {
+    "Name": "Intracranial EEG from 9 adults during a memory-guided actions experiment (preprocessed epochs, Moraresku et al.)",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "derivative",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "Sofiia Moraresku",
+      "Jiri Hammer",
+      "Vasileios Dimakopoulos",
+      "Michaela Kajsova",
+      "Radek Janca",
+      "Petr Jezdik",
+      "Adam Kalina",
+      "Petr Marusic",
+      "Kamil Vlcek"
+    ],
+    "Acknowledgements": "Data release: Zenodo record 13712628 (creator: Sofiia Moraresku). Re-packaged in BIDS by the ieeg-nemar-20261005 campaign (batch-2 Zenodo lane) without further processing. From the paper's Acknowledgements: \"We are grateful to CESNET for access to their data storage facility. We would also like to thank all the patients who participated in this study. JH, MK, RJ, PJ, AK, PM, and KV are members of the Epilepsy Research Centre Prague - EpiReC consortium. Motol University Hospital is a full member of the European Reference Network ERN EpiCARE.\" Open access publishing supported by the institutions participating in the CzechELib Transformative Agreement.",
+    "HowToAcknowledge": "Please cite Moraresku S, Hammer J, Dimakopoulos V, Kajsova M, Janca R, Jezdik P, Kalina A, Marusic P, Vlcek K (2025) Neural Dynamics of Visual Stream Interactions During Memory-Guided Actions Investigated by Intracranial EEG. Neurosci Bull 41(8):1347-1363. doi:10.1007/s12264-025-01371-x, and the data record doi:10.5281/zenodo.13712628.",
+    "Funding": [
+      "European Union - Next Generation EU (LX22NPO5107 (MEYS))",
+      "Czech Science Foundation (20-21339S)",
+      "Grant Agency of Charles University (GAUK 248122 and 272221)",
+      "ERDF-Project Brain Dynamics (CZ.02.01.01/00/22_008/0004643)",
+      "Ministry of Health of the Czech Republic Project NU21J-08-00081"
+    ],
+    "EthicsApprovals": [
+      "All the patients signed informed consent to participate, and the study was approved by the Ethics Committee of Motol University Hospital (Moraresku et al. 2025)."
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.1007/s12264-025-01371-x",
+      "https://doi.org/10.1007/s12264-025-01453-w",
+      "https://doi.org/10.1101/2024.08.20.608807",
+      "https://doi.org/10.5281/zenodo.13712628",
+      "https://github.com/kamilvlcek/iEEG_scripts/tree/v3.1.0",
+      "https://doi.org/10.5281/zenodo.13712627",
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC12314303/"
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000376",
+    "Keywords": [
+      "intracranial EEG",
+      "stereo-EEG",
+      "working memory",
+      "memory-guided action",
+      "dorsal stream",
+      "ventral stream",
+      "hippocampus",
+      "epilepsy",
+      "inferior parietal lobule",
+      "ventral temporal cortex",
+      "delayed reaching",
+      "Motol Epilepsy Center"
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "Authors' preprocessing (Moraresku et al. 2025)",
+        "Description": "Recorded at 2048 Hz (Quantum, NeuroWorks), downsampled to 512 Hz; notch 4th-order Butterworth band-stop 1 Hz wide at 50 Hz and harmonics, zero phase; removal of faulty/epileptic contacts; bipolar referencing between adjacent contacts; epoching -2 to 7.898 s around encoding onset; per-channel epoch rejection labels.",
+        "CodeURL": "https://github.com/kamilvlcek/iEEG_scripts/tree/v3.1.0"
+      },
+      {
+        "Name": "b2zen_convert039.py",
+        "Description": "BIDS packaging: epochs written back to back to BrainVision float32 (RecordingType=epoched), trial table to events.tsv, channelInfo to channels/electrodes; no signal processing."
+      }
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.5281/zenodo.13712628",
+        "URL": "https://zenodo.org/records/13712628",
+        "Version": "Zenodo record 13712628 (published 2024-10-29)"
+      }
+    ],
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000376-blue)](https://doi.org/10.82901/nemar.nm000376)\n\n# Intracranial EEG from 9 adults during a memory-guided actions experiment — preprocessed epochs (BIDS derivative)\n\n## Overview\nStereo-EEG of **9 patients** with drug-resistant epilepsy (Motol Epilepsy Center, Prague) performing a delayed\nmemory-guided action task. This is a **derivative** dataset: it re-packages, without further processing, the authors'\npreprocessed epochs released on Zenodo (record [13712628](https://doi.org/10.5281/zenodo.13712628), concept DOI\n10.5281/zenodo.13712627, \"Dataset: Intracranial EEG recordings from 9 human adults during a memory-guided actions\nexperiment\", CC BY 4.0). The original continuous recordings are not public.\n\nReference article: Moraresku S, Hammer J, Dimakopoulos V, Kajsova M, Janca R, Jezdik P, Kalina A, Marusic P, Vlcek K (2025).\n*Neural Dynamics of Visual Stream Interactions During Memory-Guided Actions Investigated by Intracranial EEG.*\nNeuroscience Bulletin 41(8):1347–1363. https://doi.org/10.1007/s12264-025-01371-x (PMC12314303; correction:\n10.1007/s12264-025-01453-w; preprint: 10.1101/2024.08.20.608807).\nAnalysis code: https://github.com/kamilvlcek/iEEG_scripts/tree/v3.1.0.\n\n## Participants / cohort\nNine patients (4 women; mean ± SEM age 37 ± 3 years) with drug-resistant epilepsy, enrolled at the Motol Epilepsy Center in\nPrague, who underwent iEEG monitoring for localisation of the seizure onset zone before surgery. Per-patient age, gender,\nhandedness, education, epilepsy duration, suspected seizure zone and pathology are taken from Supplementary Table S1 of\nthe article (`participants.tsv`); the patient labels P1–P9 are identical in the release file names\n(`memact_trials_P<N>.mat`) and in Table S1. All had normal or corrected-to-normal vision. `participants.tsv` also gives,\nderived from the release, the number of bipolar channels, the number of electrode labels, and the number of channels with\nnegative/positive MNI x. The paper notes that more electrodes were implanted in the right hemisphere. For the analyses,\nthe paper used 369 channels in three regions (IPL: 137 channels in 8 patients; VTC: 169 in 9; hippocampus: 63 in 8; Table 1).\nRecording years are not stated in the paper or the release.\n\n## Task (`task-memact`)\nEach trial: jittered fixation (1.9–2.1 s, white cross on dark grey), encoding (2 s; a central red cross and two objects:\ntwo identical circles in the \"same\" condition, or a square and a triangle in the \"different\" condition; one object always\ncloser to the cross, distance ratio 1.5), jittered delay (3.9–4.1 s), action/recall (2 s, green cross; joystick reach from\nthe screen centre to the remembered position of the object closer to the cross). Condition 2 = \"same\" (remember the\nposition), 3 = \"different\" (remember position and identity, followed by a 2-s two-alternative question: green 'A' button =\ntriangle, red 'B' button = square). A response was correct if the reach trajectory came within a square of ± half the minimum\ninter-object distance (10.5 % of the screen width) around the correct object; reaction time ran from the start of the action phase to reaching the correct area.\n160 delayed trials in blocks of 10 (one condition per block, subject-controlled breaks, counterbalanced order), preceded by\na task presentation and training trials (`Training` = 1; shortened blocks of five trials per condition, with feedback);\n160 immediate trials were also run but are not in the release.\nStimulus presentation: PsychoPy3 v2020.1.3, 15.6-inch TFT notebook monitor at 60 Hz, Xbox wireless controller; task and iEEG\nsynchronised by TTL pulses at each trial start.\n\n## Acquisition\nEleven to fifteen semi-rigid depth electrodes per patient (diameter 0.8 mm, 8–18 contacts of 2 mm, 1.5 mm apart; DIXI\nMedical Instruments), placed solely for clinical pre-surgical evaluation. Medical amplifiers Quantum, NeuroWorks, sampled\nat 2048 Hz; recording reference: a white-matter contact per patient. Contact positions from post-implantation CT\nco-registered to pre-implantation MRI, labelled by a neurologist and normalised to MNI space with SPM12 (paper, Methods).\n\n## What the authors' data contain (from `data_description.docx`)\n- `fsample` 512 Hz; 170 epochs per patient, channels × 5069 samples, time −2.0 to 7.898 s, 0 = onset of the encoding phase.\n- Bipolar channels between adjacent contacts (e.g. `A1-A2`); faulty contacts and contacts in the seizure onset zone or\n  heterotopic cortex removed; notch filter at 50 Hz and harmonics; downsampled from 2048 Hz.\n- `channelInfo` (name, amplifier number, signal type, MNI coordinates), `RjEpochChannel` (channels × epochs rejection\n  labels) and `TrialInformationTable`.\n\n## Preprocessing already applied by the source\nDownsampling 2048 → 512 Hz; notch filter (4th-order Butterworth band-stop, 1 Hz wide, at 50 Hz and harmonics, zero phase);\nremoval of bad contacts (visual inspection) and of contacts in the seizure onset zone or heterotopic cortex; bipolar\nderivations between adjacent contacts (positions at the centre between the two contacts); epoching. Processing in MATLAB\nR2018a (paper, Methods).\n\n## BIDS packaging\n- One BrainVision file per patient, the 170 epochs back to back (`RecordingType` = epoched, `EpochLength` = 9.900390625 s);\n  `New Segment` markers at epoch starts and `encoding_onset` markers at time 0. Values = the stored float64 values\n  rounded to float32 (relative error ≤ 6e-8). Units labelled µV (the release does not state a unit; amplitudes are\n  microvolt-scale).\n- `events.tsv`: one row per epoch at the encoding onset, with every `TrialInformationTable` column verbatim, the epoch\n  number and the number of channels flagged for that epoch. `ResponseTime` contains negative values in the source; they\n  are kept as is.\n- `channels.tsv`: original label, amplifier number, signal type, and the authors' rejected epochs per channel\n  (`rejected_epochs`); the flags are labels only — no data were removed.\n- `electrodes.tsv` (`space-IXI549Space`): one MNI point per bipolar channel, as given by the authors (SPM12 normalization).\n- `sourcedata/zenodo-13712628/`: the original `.mat` files, `data_description.docx` and the Zenodo record JSON, byte-identical.\n\n## Known caveats\n- Units are labelled µV but the release does not state a unit (amplitudes are microvolt-scale).\n- `ResponseTime` contains negative values in the source; they are kept as is.\n- Rejection flags (`rejected_epochs`, `Trials2Reject`) are the authors' labels only; no data were removed.\n- Earlier versions of this README and the `*_ieeg.json` TaskDescription described the encoding display as one object\n  (triangle or square) at one position; the paper's Methods describe two objects (two circles, or a square and a\n  triangle) with the one closer to the cross to be remembered. The description was corrected on 2026-10-07.\n- sub-P9: Supplementary Table S1 lists the suspected seizure zone as \"R temporal, parietal, and occipital lobes\", but all\n  168 released channels have negative MNI x (left hemisphere). The source does not explain this; neither value was changed.\n- The number of electrode labels in the channel names exceeds the paper's \"eleven to fifteen\" electrodes per patient for\n  sub-P1, sub-P2, sub-P3 and sub-P9 (16–18 labels); not explained by the source.\n\n## How to load\n```python\nfrom mne_bids import BIDSPath, read_raw_bids\nbp = BIDSPath(root=\".\", subject=\"P1\", task=\"memact\", datatype=\"ieeg\")\nraw = read_raw_bids(bp)   # 170 epochs back to back; use events.tsv (encoding onsets) to re-epoch\n```\n\n## Citation\nMoraresku S, et al. (2025) Neural Dynamics of Visual Stream Interactions During Memory-Guided Actions Investigated by\nIntracranial EEG. Neurosci Bull 41(8):1347–1363. doi:10.1007/s12264-025-01371-x; data: doi:10.5281/zenodo.13712628.\n\n## Provenance / sources\nZenodo record 13712628 (record JSON and `data_description.docx` under `sourcedata/`); Moraresku et al. 2025 full text\n(Europe PMC PMC12314303: Methods, Table 1, Funding, Acknowledgements, Data Availability) and Supplementary Table S1.\nMetadata enrichment 2026-10-07 (see CHANGES).\n\n## Licence\nCC BY 4.0 (Zenodo metadata license id `cc-by-4.0`).\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000376",
+    "exists": true,
+    "description": "Intracranial EEG from 9 adults during a memory-guided actions experiment (preprocessed epochs, Moraresku et al.)",
+    "created_at": "2026-10-06T22:31:11+00:00",
+    "updated_at": "2026-10-08T06:03:47+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

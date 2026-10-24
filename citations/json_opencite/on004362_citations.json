@@ -1,10 +1,10 @@
 {
   "dataset_id": "on004362",
-  "num_citations": 4,
-  "date_last_updated": "2026-10-11T11:16:16.700159+00:00",
+  "num_citations": 0,
+  "date_last_updated": "2026-10-24T10:48:45.627471+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
-    "fetch_date": "2026-10-11T10:52:23.323080+00:00",
+    "fetch_date": "2026-10-24T10:48:45.627471+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 1,
@@ -52,131 +52,13 @@
         "funder_name": "NIH",
         "award_number": "EB000856"
       }
-    ],
-    "searched_accessions": [
-      "on004362",
-      "ds004362"
-    ],
-    "num_accession_mentions": 4,
-    "num_dataset_citations": 4,
-    "num_datapaper_citations": 0
+    ]
   },
-  "citation_details": [
-    {
-      "title": "Conditional VAE for personalized neurofeedback in cognitive training",
-      "author": "Imad Eddine Tibermacine, Samuele Russo, Gianmarco Scarano, Giancarlo Tedesco, Abdelaziz Rabehi, Amel Ali Alhussan, Doaa Sami Khafaga, Marwa Metwally Eid, El‐Sayed M. El‐kenawy, Christian Napoli",
-      "venue": "PLoS ONE",
-      "year": 2025,
-      "url": "https://doi.org/10.1371/journal.pone.0335364",
-      "cited_by": 3,
-      "abstract": "Machine learning (ML) offers great potential in healthcare, especially in the analysis of complex physiological signals like electroencephalography (EEG). EEG recordings hold valuable insights into neurological function and can aid in diagnosing various conditions. In this work, we explore the use of a Conditional Variational Autoencoder (CVAE) that injects a binary health label (healthy or orthopedic impairment) into both the encoder input and the latent space coupled with the extracted features, leveraging the conditional input vector to learn representations specific to different health conditions. Our study involved using two public OpenNeuro datasets [1,2]. From the healthy dataset we randomly selected seven subjects to match the seven impaired participants; in both sets we retained the same 11 scalp channels (C3, Cz, C4, FC3, FCz, FC4, CP3, CPz, CP4, F3, F4). Six descriptors-Short time Fourier Transform (STFT), Hurst Exponent (HE), Detrended Fluctuation Analysis (DFA), Correlation Dimension (CD), Kolmogorov-Sinai Entropy (permutation entropy; KS-proxy), and the Largest Lyapunov Exponent (LLE)-are extracted channel-wise and concatenated to form the input feature vector, which distills distinct characteristics from the EEG signals. We rigorously evaluated the performance of our CVAE model in combination with each feature extraction technique. The conditional supply of class labels to both encoder and decoder enabled the CVAE to achieve 93% accuracy on the unseen test split of the dataset with precision of 93%, a recall of 93%, and an F1-score of 0.93 outperforming re-trained CNN baselines. These results highlight the promise of CVAEs and the significance of well-suited feature extraction for robust EEG classification. This work could contribute to the development of automated healthcare diagnostic tools.",
-      "doi": "10.1371/journal.pone.0335364",
-      "pmid": "41171856",
-      "openalex_id": "W4415746957",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004362",
-      "confidence_scoring": {
-        "confidence_score": 0.5215624599158765,
-        "similarity_score": 0.45156922936439514,
-        "citation_text_length": 1808,
-        "dataset_text_length": 2253,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Adversarial denoising of EEG signals: a comparative analysis of standard GAN and WGAN-GP approaches",
-      "author": "Imad Eddine Tibermacine, Samuele Russo, Francesco Citeroni, Giuseppe Mancini, Abdelaziz Rabehi, Amal H. Alharbi, El‐Sayed M. El‐kenawy, Christian Napoli",
-      "venue": "Frontiers in Human Neuroscience",
-      "year": 2025,
-      "url": "https://doi.org/10.3389/fnhum.2025.1583342",
-      "cited_by": 18,
-      "abstract": "Introduction: Electroencephalography (EEG) signals frequently contain substantial noise and interference, which can obscure clinically and scientifically relevant features. Traditional denoising approaches, such as linear filtering or wavelet thresholding, often struggle with nonlinear or time-varying artifacts. In response, the present study explores a Generative Adversarial Network (GAN) framework to enhance EEG signal quality, focusing on two variants: a conventional GAN model and a Wasserstein GAN with Gradient Penalty (WGAN-GP). Methods: Data were obtained from two distinct EEG datasets: a \"healthy\" set of 64-channel recordings collected during various motor/imagery tasks, and an \"unhealthy\" set of 18-channel recordings from individuals with orthopedic impairments. Both datasets underwent comprehensive preprocessing, including band-pass filtering (8-30 Hz), channel standardization, and artifact trimming. The training stage involved adversarial learning, in which a generator sought to reconstruct clean EEG signals while a discriminator (or critic in the case of WGAN-GP) attempted to distinguish between real and generated signals. The model evaluation was conducted using quantitative metrics such as signal-to-noise ratio (SNR), peak signal-to-noise ratio (PSNR), correlation coefficient, mutual information, and dynamic time warping (DTW) distance. Results: Experimental findings indicate that adversarial learning substantially improves EEG signal fidelity across multiple quantitative metrics. Specifically, WGAN-GP achieved an SNR of up to 14.47 dB (compared to 12.37 dB for the standard GAN) and exhibited greater training stability, as evidenced by consistently lower relative root mean squared error (RRMSE) values. In contrast, the conventional GAN model excelled in preserving finer signal details, reflected in a PSNR of 19.28 dB and a correlation coefficient exceeding 0.90 in several recordings. Both adversarial frameworks outperformed classical wavelet-based thresholding and linear filtering methods, demonstrating superior adaptability to nonlinear distortions and dynamic interference patterns in EEG time-series data. Discussion: By systematically comparing standard GAN and WGAN-GP architectures, this study highlights a practical trade-off between aggressive noise suppression and high-fidelity signal reconstruction. The demonstrated improvements in signal quality underscore the promise of adversarially trained models for applications ranging from basic neuroscience research to real-time brain-computer interfaces (BCIs) in clinical or consumer-grade settings. The results further suggest that GAN-based frameworks can be easily scaled to next-generation wireless networks and complex electrophysiological datasets, offering robust and dynamic solutions to long-standing challenges in EEG denoising.",
-      "doi": "10.3389/fnhum.2025.1583342",
-      "pmid": "40395688",
-      "openalex_id": "W4410133593",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004362",
-      "confidence_scoring": {
-        "confidence_score": 0.5466103264689446,
-        "similarity_score": 0.4732556939125061,
-        "citation_text_length": 1821,
-        "dataset_text_length": 2253,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "The more, the better? Evaluating the role of EEG preprocessing for deep learning applications",
-      "author": "Federico Del Pup, Andrea Zanola, Louis Fabrice Tshimanga, Alessandra Bertoldo, Manfredo Atzori",
-      "venue": "arXiv (Cornell University)",
-      "year": 2024,
-      "url": "https://doi.org/10.48550/arxiv.2411.18392",
-      "cited_by": 0,
-      "abstract": "The last decade has witnessed a notable surge in deep learning applications for the analysis of electroencephalography (EEG) data, thanks to its demonstrated superiority over conventional statistical techniques. However, even deep learning models can underperform if trained with bad processed data. While preprocessing is essential to the analysis of EEG data, there is a need of research examining its precise impact on model performance. This causes uncertainty about whether and to what extent EEG data should be preprocessed in a deep learning scenario. This study aims at investigating the role of EEG preprocessing in deep learning applications, drafting guidelines for future research. It evaluates the impact of different levels of preprocessing, from raw and minimally filtered data to complex pipelines with automated artifact removal algorithms. Six classification tasks (eye blinking, motor imagery, Parkinson's and Alzheimer's disease, sleep deprivation, and first episode psychosis) and four different architectures commonly used in the EEG domain were considered for the evaluation. The analysis of 4800 different trainings revealed statistical differences between the preprocessing pipelines at the intra-task level, for each of the investigated models, and at the inter-task level, for the largest one. Raw data generally leads to underperforming models, always ranking last in averaged score. In addition, models seem to benefit more from minimal pipelines without artifact handling methods, suggesting that EEG artifacts may contribute to the performance of deep neural networks.",
-      "doi": "10.48550/arxiv.2411.18392",
-      "pmid": null,
-      "openalex_id": "W4404990926",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004362",
-      "confidence_scoring": {
-        "confidence_score": 0.5479212418198586,
-        "similarity_score": 0.4743906855583191,
-        "citation_text_length": 1752,
-        "dataset_text_length": 2253,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Time Series Machine Learning for Classifying Electroencephalograms",
-      "author": "Aiden Rushbrooke, Saber A. K. Sami, Matthew Middlehurst, Anthony J. Bagnall",
-      "venue": "UEA Digital Repository (University of East Anglia)",
-      "year": 2026,
-      "url": "https://openalex.org/W7164624344",
-      "cited_by": 0,
-      "abstract": "Electroencephalography (EEG) is a crucial tool across neuroscience domains, including medical diagnostics, psychological research, and brain-computer interfacing (BCI). Its popularity is due to its non-invasiveness, high temporal resolution, and cost-effectiveness. The task of EEG classification involves learning to predict class labels associated with EEG segments based on previously observed data. This task is fundamental yet complex, given the high dimensionality, variability, and subject-specific nuances inherent in EEG data. We systematically evaluate recent advances in general-purpose time series machine learning (TSML) approaches to EEG classification. We present an EEG classification archive of 30 benchmark datasets, spanning diverse applications from clinical diagnostics to cognitive and BCI tasks. Our empirical evaluation compares traditional EEG approaches, deep learning models, Riemannian geometry-based classifiers, and state-of-the-art time series machine learning algorithms on this new benchmark. We find that one algorithm, a meta-ensemble called HIVE-COTE v2.0, consistently outperforms alternative classifiers.",
-      "doi": null,
-      "pmid": null,
-      "openalex_id": "W7164624344",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004362",
-      "confidence_scoring": {
-        "confidence_score": 0.5809618574380875,
-        "similarity_score": 0.5029972791671753,
-        "citation_text_length": 1372,
-        "dataset_text_length": 2253,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    }
-  ],
+  "citation_details": [],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-10-11T11:32:17.972171+00:00",
+    "scoring_date": "2026-10-24T11:28:44.036661+00:00",
     "dataset_text_length": 2253,
-    "num_citations_scored": 4,
-    "summary_stats": {
-      "mean_confidence": 0.5492639714106917,
-      "median_confidence": 0.5472657841444015,
-      "std_confidence": 0.021100796619642776,
-      "min_confidence": 0.5215624599158765,
-      "max_confidence": 0.5809618574380875,
-      "high_confidence_count": 0,
-      "medium_confidence_count": 4,
-      "low_confidence_count": 0
-    }
+    "num_citations_scored": 0
   }
 }

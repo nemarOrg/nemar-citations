@@ -1,0 +1,75 @@
+{
+  "dataset_id": "nm000408",
+  "date_retrieved": "2026-10-12T10:06:12.312792+00:00",
+  "dataset_description": {
+    "Name": "Motor imagination and execution with a chronic wireless epidural ECoG BCI (WIMAGINE), one participant with tetraplegia (Pollina et al. 2026)",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "derivative",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "Leonardo Pollina",
+      "Lucas Struber",
+      "Valeria De Seta",
+      "Eleonora Russo",
+      "Serpil Karakas",
+      "Stephan Chabardes",
+      "Tetiana Aksenova",
+      "Guillaume Charvet",
+      "Solaiman Shokur",
+      "Silvestro Micera"
+    ],
+    "Acknowledgements": "Data released by the authors as Zenodo record 10.5281/zenodo.18703801 (code: 10.5281/zenodo.18317718). Recorded within the BCI & Tetraplegia clinical trial NCT02550522 at Clinatec (CEA-LETI and CHU Grenoble Alpes). Repackaged as iEEG-BIDS without further processing for NEMAR.",
+    "HowToAcknowledge": "Please cite Pollina L. et al. (2026) Decoupling simultaneous motor imagination and execution via orthogonal ECoG neural representations. Nature Communications, doi:10.1038/s41467-026-71234-0, and the data record doi:10.5281/zenodo.18703801.",
+    "Funding": [
+      "Bertarelli Foundation",
+      "Swiss National Science Foundation (Grant Number 10003473)",
+      "#NEXTGENERATIONEU (NGEU), Italian Ministry of University and Research (MUR), NRRP project MNESYS (PE0000006)",
+      "CEA (Recurrent Funding), Carnot Institute CEA-Leti",
+      "French Ministry of Health and Research (PHRC 15-124)",
+      "Fonds de dotation Clinatec (sponsors Malakoff Humanis, Covea, Klesia)"
+    ],
+    "EthicsApprovals": [
+      "ANSM registration 2015-A00650-49; Comite de Protection des Personnes registration 15-CHUG-19; clinical trial NCT02550522 (as stated in Pollina et al. 2026)"
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.1038/s41467-026-71234-0",
+      "https://doi.org/10.5281/zenodo.18703801",
+      "https://doi.org/10.5281/zenodo.18317718",
+      "https://clinicaltrials.gov/study/NCT02550522"
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.5281/zenodo.18703801",
+        "URL": "https://zenodo.org/records/18703801",
+        "Version": "published 2026-02-19"
+      }
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "Authors' preprocessing (Pollina et al. 2026; Preprocessing.py perform_BP_all_data)",
+        "Description": "Zero-phase 5th-order Butterworth band-pass 1-250 Hz of each experimental run (BP_data); channel reordering by label",
+        "CodeURL": "https://doi.org/10.5281/zenodo.18317718"
+      },
+      {
+        "Name": "b3w1_convert_pollina.py (ieeg-nemar-20261005 campaign, batch 3)",
+        "Description": "Format conversion only (BrainVision float32, events from Trials_info)"
+      }
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000408",
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000408-blue)](https://doi.org/10.82901/nemar.nm000408)\n\n# Motor imagination and execution with a chronic epidural ECoG implant (derivative)\n\nData released with:\n\n> Pollina L, Struber L, De Seta V, Russo E, Karakas S, Chabardes S, Aksenova T, Charvet G, Shokur S, Micera S (2026).\n> Decoupling simultaneous motor imagination and execution via orthogonal ECoG neural representations.\n> *Nature Communications*. https://doi.org/10.1038/s41467-026-71234-0\n\nSource record: Zenodo https://doi.org/10.5281/zenodo.18703801 (CC-BY-4.0). Analysis code: https://doi.org/10.5281/zenodo.18317718.\n\n**This is a derivative dataset**: the release contains band-pass filtered ECoG (1-250 Hz) and band-envelope epochs,\nnot the raw implant recordings (\"only bandpass filtered in [1,250] Hz as well as fully preprocessed\", paper data\navailability statement).\n\n## Participant (from the paper)\n\nOne 34-year-old man with incomplete tetraplegia after a C6 spinal cord injury, implanted in November 2019 (14 years\nafter the injury) with the WIMAGINE wireless epidural ECoG device within clinical trial NCT02550522 (ANSM\n2015-A00650-49, CPP 15-CHUG-19), written informed consent. This release holds 32 channels of the left implant over\nprimary motor and sensory cortex.\n\n## Task (from the paper)\n\nSeated in front of a screen with movement instructions and a progress bar, the participant executed or imagined right-arm\nreaching (RE) and wrist-extension (WE) movements, singly or simultaneously (one executed and one imagined); EMG of the\nextensor digitorum and lateral deltoid monitored execution. Condition labels (`trial_type`) are kept as released.\n\n## Files\n\n- `sub-01/ses-001..008/ieeg/*_desc-bandpass1to250_ieeg.*`: each experimental run of `All_data_BP.pickle` (`BP_data`),\n  32 channels, 585.137507314219 Hz (value from the authors' `Global_parameters.py`), BrainVision float32 (float64\n  values rounded). The authors applied a zero-phase 5th-order Butterworth band-pass 1-250 Hz (`Preprocessing.py`); the\n  implant itself applies a 0.5-300 Hz analog band-pass and a 292.8 Hz FIR low-pass.\n- `*_task-baselineeo_*`: baseline (\"eo\") runs from the same pickle, as loaded by the authors (their loading code does not\n  filter them).\n- `*_events.tsv`: `Trials_info` of each run (onset, duration, sample, trial_type, value) as released.\n- The release does not state the physical unit of the signals; the channels are labelled µV as an assumption.\n- No electrode coordinates are released (`electrodes.tsv` has names only).\n- `sourcedata/zenodo-18703801/`: both pickles unchanged (`All_data_BP.pickle`, which also holds the EMG recordings at\n  2000 Hz with their time stamps and sync triggers, and `All_data_preprocessed.pickle`: per-trial band envelopes for\n  seven bands, trial labels and artifact indices) and the two source-data spreadsheets of the paper.\n\n## Licence\n\nCC-BY-4.0, as the source record. Please cite the paper and the Zenodo record.\n\n## Additional metadata and localisation (added 2026-10-08)\n\nCompiled after the upload from the article, its supplement and the source deposit (each statement names its source). Text and sidecar metadata only; no data file was changed.\n\n**Recording system.** WIMAGINE epidural wireless ECoG implant (Clinatec, CEA-LETI/CHU Grenoble Alpes); analog band-pass 0.5-300 Hz in the implant, then a digital low-pass FIR at 292.8 Hz (doi:10.1038/s41467-026-71234-0, Methods 'Data acquisition and signal preprocessing'). The sampling rate is not stated in the paper; the trial tables in the deposit give sample/onset ratios of about 585 Hz (e.g. sample 6995 at 11.95 s; derived, not stated). EMG: 6 bipolar channels (Noraxon Delsys via LabJack) from session 4 (doi:10.1038/s41467-026-71234-0).\n\n**Deposited signals.** All_data_BP.pickle: 'only bandpass filtered in [1,250] Hz'; All_data_preprocessed.pickle: band envelopes (delta..high gamma), 2446 trials x 32 channels x 850 samples (doi:10.1038/s41467-026-71234-0, Data availability; Voyager Jobs ieeg-b3enr-c-pollina-1007220751 and -1007221212).\n\n**Reference scheme.** Offline common median reference across channels (doi:10.1038/s41467-026-71234-0, Methods). The hardware reference of the implant is not stated (n/a).\n\n**Electrode types.** Epidural planar electrodes, 2.3 mm diameter, 4-4.5 mm inter-electrode spacing, 64 per implant; 32 electrodes of the left implant were selected in a checkerboard-like pattern because of radio-link data-rate limits and a malfunction of the right implant (doi:10.1038/s41467-026-71234-0, Methods 'Participant').\n\n**Localisation method.** The implant is over the left primary motor (M1) and sensory (S1) cortices; medical reconstruction images of the implant were made with FreeSurfer, BrainStorm and MeshLab (Fig. 1c) (doi:10.1038/s41467-026-71234-0). Per-channel M1/S1 assignments for all 32 channels are in the deposit's source-data workbook (Source_Data_File_Main_Figures_Pollina_2026.xlsx (deposit), sheet 'Figure 3', panels a/c/d/f, columns 'Channel'/'Location' (same table in Source_Data_File_Suppl_Figures_Pollina_2026.xlsx sheet 'Figure S5')); no coordinates are deposited.\n\nThese M1/S1 assignments are now in the `anat_label` column of every session's `electrodes.tsv` (n/a in session 7, which recorded the complementary set of 32 electrodes that the workbook does not label).\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000408",
+    "exists": true,
+    "description": "Motor imagination and execution with a chronic wireless epidural ECoG BCI (WIMAGINE), one participant with tetraplegia (Pollina et al. 2026)",
+    "created_at": "2026-10-07T22:41:29+00:00",
+    "updated_at": "2026-10-08T06:09:02+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

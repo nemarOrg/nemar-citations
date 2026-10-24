@@ -1,0 +1,68 @@
+{
+  "dataset_id": "nm000307",
+  "date_retrieved": "2026-10-12T10:02:21.085057+00:00",
+  "dataset_description": {
+    "Name": "Perdikis2018: CNBI EPFL Cybathlon BCI-race motor-imagery dataset",
+    "BIDSVersion": "1.9.0",
+    "HEDVersion": "8.4.0",
+    "DatasetType": "derivative",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "Serafeim Perdikis",
+      "Luca Tonin",
+      "Sareh Saeedi",
+      "Christoph Schneider",
+      "Jose del R. Millan"
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.5281/zenodo.841764",
+      "10.1371/journal.pbio.2003787"
+    ],
+    "Keywords": [
+      "motor imagery",
+      "brain-computer interface",
+      "EEG",
+      "Cybathlon",
+      "BCI race",
+      "spinal cord injury",
+      "tetraplegia"
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000307",
+    "GeneratedBy": [
+      {
+        "CodeURL": "https://github.com/NeuroTechX/moabb",
+        "Name": "moabb",
+        "Description": "Mother of All BCI Benchmarks",
+        "Version": "1.8.0dev0"
+      }
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "10.5281/zenodo.841764",
+        "URL": "https://doi.org/10.5281/zenodo.841764"
+      },
+      {
+        "DOI": "doi:10.5281/zenodo.841764"
+      }
+    ],
+    "PublicationYear": 2018,
+    "EthicsApprovals": [
+      "Approved by the Swiss Cantonal Committee of Vaud for ethics in human research (CER-VD), protocol number PB_2017–00295 (20/15 CCVEM). Informed consents were signed in accordance with the Declaration of Helsinki (Perdikis et al. 2018, PLoS Biology, DOI 10.1371/journal.pbio.2003787)."
+    ],
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000307-blue)](https://doi.org/10.82901/nemar.nm000307)\n\nPerdikis2018\n============\n\nCNBI EPFL Cybathlon BCI-race motor-imagery dataset [1]_.\n\nDataset Overview\n----------------\n  Code: Perdikis2018\n  Paradigm: imagery\n  DOI: 10.5281/zenodo.841764\n  Subjects: 2\n  Sessions per subject: 1\n  Events: both_feet=771, both_hands=773, rest=783\n  Trial interval: [1, 5] s\n  File format: GDF\n\nAcquisition\n-----------\n  Sampling rate: 512.0 Hz\n  Number of channels: 16\n  Channel types: eeg=16\n  Channel names: Fz, FC3, FC1, FCz, FC2, FC4, C3, C1, Cz, C2, C4, CP3, CP1, CPz, CP2, CP4\n  Montage: standard_1005\n  Hardware: g.USBamp (g.tec medical engineering, Austria)\n  Sensor type: Ag/AgCl\n  Line frequency: 50.0 Hz\n\nParticipants\n------------\n  Number of subjects: 2\n  Health status: spinal cord injury\n  Clinical population: tetraplegia (chronic spinal cord injury)\n  BCI experience: experienced\n\nExperimental Protocol\n---------------------\n  Paradigm: imagery\n  Number of classes: 3\n  Class labels: both_feet, both_hands, rest\n  Trial duration: 4.0 s\n  Study design: Longitudinal motor-imagery BCI training for the Cybathlon 2016 BCI race; two tetraplegic pilots delivered sustained kinesthetic motor-imagery commands (both hands, both feet, rest) to drive an avatar in the BrainRunners game.\n  Feedback type: visual\n  Stimulus type: visual\n  Stimulus modalities: visual\n  Synchronicity: cue-based\n  Mode: offline\n  Training/test split: False\n  Instructions: Perform the cued kinesthetic motor imagery (both-hands, both-feet, or rest) to control the BrainRunners avatar.\n\nHED Event Annotations\n---------------------\n  Schema: HED 8.4.0 | Browse: https://www.hedtags.org/hed-schema-browser\n\n  rest\n    ├─ Sensory-event\n    ├─ Experimental-stimulus\n    ├─ Visual-presentation\n    └─ Rest\n\n  both_feet\n    ├─ Sensory-event\n    └─ Label/both_feet\n\n  both_hands\n    ├─ Sensory-event\n    └─ Label/both_hands\n\nParadigm-Specific Parameters\n----------------------------\n  Detected paradigm: motor_imagery\n  Imagery tasks: both_hands, both_feet, rest\n  Cue duration: 1.0 s\n  Imagery duration: 4.0 s\n\nData Structure\n--------------\n  Trials context: Offline calibration runs of the both-hands / both-feet / rest family, each with about 15 cued trials per class present; runs span several recording days per pilot and are pooled as runs of a single session.\n\nPreprocessing\n-------------\n  Data state: raw\n  Preprocessing applied: False\n\nSignal Processing\n-----------------\n  Frequency bands: mu=[8.0, 12.0] Hz; beta=[12.0, 30.0] Hz\n\nCross-Validation\n----------------\n  Evaluation type: within_subject\n\nBCI Application\n---------------\n  Applications: avatar control, BCI game (BrainRunners), Cybathlon\n  Environment: lab and competition arena\n  Online feedback: True\n\nTags\n----\n  Pathology: spinal cord injury\n  Modality: motor\n  Type: Motor Imagery\n\nDocumentation\n-------------\n  Description: EEG recordings and application logs from the two tetraplegic pilots of team Brain Tweakers (CNBI, EPFL) during longitudinal motor-imagery BCI training and the Cybathlon 2016 BCI race; this loader exposes the cue-based offline calibration runs (both-hands / both-feet / rest).\n  DOI: 10.5281/zenodo.841764\n  Associated paper DOI: 10.1371/journal.pbio.2003787\n  License: CC-BY-4.0\n  Investigators: Serafeim Perdikis, Luca Tonin, Sareh Saeedi, Christoph Schneider, Jose del R. Millan\n  Senior author: Jose del R. Millan\n  Institution: Defitech Chair in Brain-Machine Interface (CNBI), Center for Neuroprosthetics, Ecole Polytechnique Federale de Lausanne (EPFL)\n  Country: CH\n  Repository: Zenodo\n  Data URL: https://doi.org/10.5281/zenodo.841764\n  Publication year: 2018\n  Keywords: motor imagery, brain-computer interface, EEG, Cybathlon, BCI race, spinal cord injury, tetraplegia\n\nReferences\n----------\nPerdikis, S., Tonin, L., Saeedi, S., Schneider, C., & Millan, J. del R. (2018). The Cybathlon BCI race: Successful longitudinal mutual learning with two tetraplegic users. PLoS Biology, 16(5), e2003787. DOI: https://doi.org/10.1371/journal.pbio.2003787 Data: https://doi.org/10.5281/zenodo.841764\n\nNotes\n\n.. versionadded:: 1.8\nAppelhoff, S., Sanderson, M., Brooks, T., Vliet, M., Quentin, R., Holdgraf, C., Chaumon, M., Mikulan, E., Tavabi, K., Hochenberger, R., Welke, D., Brunner, C., Rockhill, A., Larson, E., Gramfort, A. and Jas, M. (2019). MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis. Journal of Open Source Software 4: (1896). https://doi.org/10.21105/joss.01896\n\nPernet, C. R., Appelhoff, S., Gorgolewski, K. J., Flandin, G., Phillips, C., Delorme, A., Oostenveld, R. (2019). EEG-BIDS, an extension to the brain imaging data structure for electroencephalography. Scientific Data, 6, 103. https://doi.org/10.1038/s41597-019-0104-8\n\n---\nGenerated by MOABB 1.8.0dev0 (Mother of All BCI Benchmarks)\nhttps://github.com/NeuroTechX/moabb\n\nEthics\n------\nEthics approval: the data analysed in this deposit were collected under the\nethics approval obtained by the original investigators and reported in the\nprimary publication cited above (see References/Documentation sections of\nthis README). Participants gave informed consent in the source study. No\nnew human-subject data were collected during this BIDS re-release; this\nNEMAR record only reformats the published source data into BIDS via MOABB.\nPlease consult the primary publication for the exact IRB/ethics committee\nreference.\n\n## Ethics\n\nApproved by the Swiss Cantonal Committee of Vaud for ethics in human research (CER-VD), protocol number PB_2017–00295 (20/15 CCVEM). Informed consents were signed in accordance with the Declaration of Helsinki (Perdikis et al. 2018, PLoS Biology, DOI 10.1371/journal.pbio.2003787).\n\nVerbatim from the source:\n\n> This study has been approved by the Cantonal Committee of Vaud (VD, Switzerland) for ethics in human research (CER-VD) under protocol number PB_2017–00295 (20/15 CCVEM).\n\nSource: cached paper .paper-audit/Perdikis2018/paper-10_1371_journal_pbio_2003787.txt (Perdikis et al. 2018, PLoS Biol., DOI 10.1371/journal.pbio.2003787).\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000307",
+    "exists": true,
+    "description": "Perdikis2018: CNBI EPFL Cybathlon BCI-race motor-imagery dataset",
+    "created_at": "2026-10-04T16:07:38+00:00",
+    "updated_at": "2026-10-11T03:09:36+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

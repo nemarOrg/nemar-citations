@@ -1,0 +1,73 @@
+{
+  "dataset_id": "nm000308",
+  "date_retrieved": "2026-10-12T10:02:24.854233+00:00",
+  "dataset_description": {
+    "Name": "NeuroTUMBCI2025: Motor imagery dataset from the neuroTUM 2024 Cybathlon BCI",
+    "BIDSVersion": "1.9.0",
+    "HEDVersion": "8.4.0",
+    "DatasetType": "derivative",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "Isabel W. Tscherniak",
+      "Niels C. Thiemann",
+      "Ana McWhinnie-Fernandez",
+      "Iustin Curcean",
+      "Leon L. J. Jokinen",
+      "Sadat Hodzic",
+      "Thomas E. Huber",
+      "Daniel Pavlov",
+      "Manuel Methasani",
+      "Pietro Marcolongo",
+      "Glenn V. Krafczyk",
+      "Oscar Osvaldo Soto Rivera",
+      "Thien Le",
+      "Flaminia Pallotti",
+      "Enrico A. Fazzi"
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.5281/zenodo.18087806"
+    ],
+    "Keywords": [
+      "Motor",
+      "Motor Imagery",
+      "imagery"
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000308",
+    "GeneratedBy": [
+      {
+        "CodeURL": "https://github.com/NeuroTechX/moabb",
+        "Name": "moabb",
+        "Description": "Mother of All BCI Benchmarks",
+        "Version": "1.8.0dev0"
+      }
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "10.5281/zenodo.18087806",
+        "URL": "https://doi.org/10.5281/zenodo.18087806"
+      },
+      {
+        "DOI": "doi:10.5281/zenodo.18087806"
+      }
+    ],
+    "PublicationYear": 2025,
+    "EthicsApprovals": [
+      "Informed consent was obtained prior to data collection, usage, and publication (neuroTUM e.V. 2025, Zenodo DOI 10.5281/zenodo.18087806). The source does not name the approving ethics committee."
+    ],
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000308-blue)](https://doi.org/10.82901/nemar.nm000308)\n\nNeuroTUMBCI2025\n===============\n\nMotor imagery dataset from the neuroTUM 2024 Cybathlon BCI [1]_, [2]_.\n\nDataset Overview\n----------------\n  Code: NeuroTUMBCI2025\n  Paradigm: imagery\n  DOI: 10.5281/zenodo.18087806\n  Subjects: 2\n  Sessions per subject: 3\n  Events: rest=1, left_hand=2, right_hand=3, feet=4\n  Trial interval: (0, 3) s\n  File format: XDF\n\nAcquisition\n-----------\n  Sampling rate: 250.0 Hz\n  Number of channels: 24\n  Channel types: eeg=24\n  Channel names: Fp1, Fp2, Fz, F1, F2, F3, F4, FC1, FC2, FC3, FC4, Cz, C1, C2, C3, C4, CPz, CP1, CP2, Pz, P3, P4, M1, M2\n  Montage: 10-20\n  Hardware: Smarting mobi (mBrainTrain), 24-channel, wireless (Bluetooth 2.1)\n  Line frequency: 50.0 Hz\n  Cap manufacturer: mBrainTrain\n  Cap model: Smarting mobi\n\nParticipants\n------------\n  Number of subjects: 2\n  Health status: patients\n  Clinical population: one tetraplegic pilot and one able-bodied participant\n\nExperimental Protocol\n---------------------\n  Paradigm: imagery\n  Number of classes: 4\n  Class labels: rest, left_hand, right_hand, feet\n  Trial duration: 3.0 s\n  Study design: Arrow-cue paradigm with a subject-specific set of three mental tasks (rest, hand and/or leg motor imagery). Each trial: 3 s reset (fixation cross), 1 s directional cue, 3 s blackscreen execution, 3 s reset.\n  Feedback type: none\n  Stimulus type: visual arrow/circle cues\n  Stimulus modalities: visual\n  Synchronicity: cue-based\n  Mode: offline\n  Instructions: On a black screen the pilot performs the cued mental task for 3 s following a 1 s directional cue.\n\nHED Event Annotations\n---------------------\n  Schema: HED 8.4.0 | Browse: https://www.hedtags.org/hed-schema-browser\n\n  rest\n    ├─ Sensory-event\n    ├─ Experimental-stimulus\n    ├─ Visual-presentation\n    └─ Rest\n\n  left_hand\n    ├─ Sensory-event, Experimental-stimulus, Visual-presentation\n    └─ Agent-action\n       └─ Imagine\n          ├─ Move\n          └─ Left, Hand\n\n  right_hand\n    ├─ Sensory-event, Experimental-stimulus, Visual-presentation\n    └─ Agent-action\n       └─ Imagine\n          ├─ Move\n          └─ Right, Hand\n\n  feet\n    ├─ Sensory-event, Experimental-stimulus, Visual-presentation\n    └─ Agent-action\n       └─ Imagine, Move, Foot\n\nPreprocessing\n-------------\n  Data state: raw\n  Preprocessing applied: False\n\nTags\n----\n  Modality: Motor\n  Type: Motor Imagery\n\nDocumentation\n-------------\n  Description: Mobile EEG motor imagery dataset from two pilots recorded during the development of the neuroTUM BCI system for the 2024 Cybathlon BCI race.\n  DOI: 10.5281/zenodo.18087806\n  License: CC-BY-4.0\n  Investigators: Isabel W. Tscherniak, Niels C. Thiemann, Ana McWhinnie-Fernandez, Iustin Curcean, Leon L. J. Jokinen, Sadat Hodzic, Thomas E. Huber, Daniel Pavlov, Manuel Methasani, Pietro Marcolongo, Glenn V. Krafczyk, Oscar Osvaldo Soto Rivera, Thien Le, Flaminia Pallotti, Enrico A. Fazzi\n  Contact: team@neurotum.com\n  Institution: Technical University of Munich / neuroTUM e.V.\n  Address: Munich, Germany\n  Country: DE\n  Repository: Zenodo\n  Data URL: https://doi.org/10.5281/zenodo.18087806\n  Publication year: 2025\n\nAbstract\n--------\nTwo-pilot mobile EEG motor imagery dataset (24-channel Smarting mobi, 250 Hz) collected for the neuroTUM 2024 Cybathlon BCI race, using an arrow-cue paradigm with a subject-specific set of three classes (rest plus hand and/or leg motor imagery).\n\nReferences\n----------\nneuroTUM e.V. (2025). neuroTUM-BCI: Cybathlon Dataset. Zenodo. DOI: https://doi.org/10.5281/zenodo.18087806\n\nTscherniak, I. W., Thiemann, N. C., McWhinnie-Fernandez, A., et al. (2025). Improving motor imagery decoding methods for an EEG-based mobile brain-computer interface in the context of the 2024 Cybathlon. arXiv (v1 November 2025; v4 March 2026). DOI: https://doi.org/10.48550/arXiv.2511.23384\n\nNotes\n\nXDF files are read with MOABB's built-in reader; no optional XDF dependency is required. Four labels describe the union of subject-specific three-class tasks, not a four-class task available for every participant. Subject 1 supplies five sessions and subject 2 supplies three; the catalog reports the minimum session count.\n\n.. versionadded:: 1.8\nAppelhoff, S., Sanderson, M., Brooks, T., Vliet, M., Quentin, R., Holdgraf, C., Chaumon, M., Mikulan, E., Tavabi, K., Hochenberger, R., Welke, D., Brunner, C., Rockhill, A., Larson, E., Gramfort, A. and Jas, M. (2019). MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis. Journal of Open Source Software 4: (1896). https://doi.org/10.21105/joss.01896\n\nPernet, C. R., Appelhoff, S., Gorgolewski, K. J., Flandin, G., Phillips, C., Delorme, A., Oostenveld, R. (2019). EEG-BIDS, an extension to the brain imaging data structure for electroencephalography. Scientific Data, 6, 103. https://doi.org/10.1038/s41597-019-0104-8\n\n---\nGenerated by MOABB 1.8.0dev0 (Mother of All BCI Benchmarks)\nhttps://github.com/NeuroTechX/moabb\n\nEthics\n------\nEthics approval: the data analysed in this deposit were collected under the\nethics approval obtained by the original investigators and reported in the\nprimary publication cited above (see References/Documentation sections of\nthis README). Participants gave informed consent in the source study. No\nnew human-subject data were collected during this BIDS re-release; this\nNEMAR record only reformats the published source data into BIDS via MOABB.\nPlease consult the primary publication for the exact IRB/ethics committee\nreference.\n\n## Ethics\n\nInformed consent was obtained prior to data collection, usage, and publication (neuroTUM e.V. 2025, Zenodo DOI 10.5281/zenodo.18087806). The source does not name the approving ethics committee.\n\nVerbatim from the source:\n\n> Informed consent was obtained prior to data collection, usage, and publication.\n\nSource: Zenodo record 18087806 description (https://zenodo.org/records/18087806).\n\nNote: The source statement is incomplete (no committee named); defers to the primary publication for the full ethics record.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000308",
+    "exists": true,
+    "description": "NeuroTUMBCI2025: Motor imagery dataset from the neuroTUM 2024 Cybathlon BCI",
+    "created_at": "2026-10-04T16:09:11+00:00",
+    "updated_at": "2026-10-11T03:09:41+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

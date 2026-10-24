@@ -1,0 +1,66 @@
+{
+  "dataset_id": "nm000297",
+  "date_retrieved": "2026-10-12T10:01:54.677200+00:00",
+  "dataset_description": {
+    "Name": "WRCC2023_MI_A: WRCC2023 MI-A three-class motor imagery dataset",
+    "BIDSVersion": "1.9.0",
+    "HEDVersion": "8.4.0",
+    "DatasetType": "derivative",
+    "License": "CC0-1.0",
+    "Authors": [
+      "WRCC2023"
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.7910/DVN/J9JFES"
+    ],
+    "Keywords": [
+      "motor imagery",
+      "BCI",
+      "brain-computer interface",
+      "EEG",
+      "World Robot Contest",
+      "WRCC2023",
+      "left hand",
+      "right hand",
+      "feet",
+      "stroke"
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000297",
+    "GeneratedBy": [
+      {
+        "CodeURL": "https://github.com/NeuroTechX/moabb",
+        "Name": "moabb",
+        "Description": "Mother of All BCI Benchmarks",
+        "Version": "1.8.0dev0"
+      }
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "10.7910/DVN/J9JFES",
+        "URL": "https://doi.org/10.7910/DVN/J9JFES"
+      },
+      {
+        "DOI": "doi:10.7910/DVN/J9JFES"
+      }
+    ],
+    "PublicationYear": 2024,
+    "EthicsApprovals": [
+      "See the primary publication cited in the README/ReferencesAndLinks for the ethics approval statement obtained by the original investigators; no new human-subject data were collected for this BIDS re-release."
+    ],
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000297-blue)](https://doi.org/10.82901/nemar.nm000297)\n\nWRCC2023-MI-A\n=============\n\nWRCC2023 MI-A three-class motor imagery dataset.\n\nDataset Overview\n----------------\n  Code: WRCC2023-MI-A\n  Paradigm: imagery\n  DOI: 10.7910/DVN/J9JFES\n  Subjects: 9\n  Sessions per subject: 1\n  Events: left_hand=1, right_hand=2, feet=3\n  Trial interval: [0, 3.999] s\n  Runs per session: 90\n  File format: MAT (v5)\n\nAcquisition\n-----------\n  Sampling rate: 1000.0 Hz\n  Number of channels: 59\n  Channel types: eeg=59\n  Channel names: Fpz, Fp1, Fp2, AF3, AF4, AF7, AF8, Fz, F1, F2, F3, F4, F5, F6, F7, F8, FCz, FC1, FC2, FC3, FC4, FC5, FC6, FT7, FT8, Cz, C1, C2, C3, C4, C5, C6, T7, T8, CP1, CP2, CP3, CP4, CP5, CP6, TP7, TP8, Pz, P3, P4, P5, P6, P7, P8, POz, PO3, PO4, PO5, PO6, PO7, PO8, Oz, O1, O2\n  Montage: 10-10\n  Hardware: Neuracle 64-channel wireless EEG\n  Line frequency: 50.0 Hz\n\nParticipants\n------------\n  Number of subjects: 9\n  Health status: mixed\n  Clinical population: stroke (2 of 9 subjects); remainder healthy\n\nExperimental Protocol\n---------------------\n  Paradigm: imagery\n  Number of classes: 3\n  Class labels: left_hand, right_hand, feet\n  Trial duration: 4.0 s\n  Trials per class: left_hand=30, right_hand=30, feet=30\n  Study design: Three-class motor imagery (left-hand grasping, right-hand grasping, foot hooking). 90 trials per subject, 30 per class, each stored as a 4 s imagery epoch.\n  Feedback type: none\n  Stimulus type: cue\n  Synchronicity: cue-based\n  Mode: offline\n\nHED Event Annotations\n---------------------\n  Schema: HED 8.4.0 | Browse: https://www.hedtags.org/hed-schema-browser\n\n  left_hand\n    ├─ Sensory-event, Experimental-stimulus, Visual-presentation\n    └─ Agent-action\n       └─ Imagine\n          ├─ Move\n          └─ Left, Hand\n\n  right_hand\n    ├─ Sensory-event, Experimental-stimulus, Visual-presentation\n    └─ Agent-action\n       └─ Imagine\n          ├─ Move\n          └─ Right, Hand\n\n  feet\n    ├─ Sensory-event, Experimental-stimulus, Visual-presentation\n    └─ Agent-action\n       └─ Imagine, Move, Foot\n\nParadigm-Specific Parameters\n----------------------------\n  Detected paradigm: motor_imagery\n  Imagery tasks: left_hand, right_hand, feet\n  Imagery duration: 4.0 s\n\nTags\n----\n  Modality: Motor\n  Type: Motor Imagery\n\nDocumentation\n-------------\n  Description: MI-A three-class (left hand, right hand, feet) motor imagery EEG dataset from the 2023 World Robot Contest BCI competition.\n  DOI: 10.7910/DVN/J9JFES\n  License: CC0-1.0\n  Investigators: WRCC2023\n  Institution: World Robot Contest (WRCC2023) BCI competition\n  Country: CN\n  Repository: Harvard Dataverse\n  Data URL: https://doi.org/10.7910/DVN/J9JFES\n  Publication year: 2024\n  Keywords: motor imagery, BCI, brain-computer interface, EEG, World Robot Contest, WRCC2023, left hand, right hand, feet, stroke\n\nReferences\n----------\nWRCC2023 (2024). MI-A dataset of the BCI competition WRCC2023. Harvard Dataverse, V1. DOI: https://doi.org/10.7910/DVN/J9JFES\n\nNotes\n\nEach stored trial is exposed as a separate run to avoid filtering across discontinuities. The inclusive epoch endpoint is 3.999 s (4000 samples), without synthetic zero padding. Channel order and physical calibration follow the reconciled source loaders and still require source verification.\n\nThe Harvard Dataverse record (V1, released 2024-07-05, CC0 1.0) lists nine files ``subject1.mat``..``subject9.mat``; its description only states that two of the individuals are stroke patients (\"data from stroke patients (number unknown) for two individuals and from healthy individuals for the others\"). Channel count, sampling rate and trial structure are read from the files, not from the record; no paper is linked (paper audit, 2026-09-30).\n\n.. versionadded:: 1.8\nAppelhoff, S., Sanderson, M., Brooks, T., Vliet, M., Quentin, R., Holdgraf, C., Chaumon, M., Mikulan, E., Tavabi, K., Hochenberger, R., Welke, D., Brunner, C., Rockhill, A., Larson, E., Gramfort, A. and Jas, M. (2019). MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis. Journal of Open Source Software 4: (1896). https://doi.org/10.21105/joss.01896\n\nPernet, C. R., Appelhoff, S., Gorgolewski, K. J., Flandin, G., Phillips, C., Delorme, A., Oostenveld, R. (2019). EEG-BIDS, an extension to the brain imaging data structure for electroencephalography. Scientific Data, 6, 103. https://doi.org/10.1038/s41597-019-0104-8\n\n---\nGenerated by MOABB 1.8.0dev0 (Mother of All BCI Benchmarks)\nhttps://github.com/NeuroTechX/moabb\n\nEthics\n------\nEthics approval: the data analysed in this deposit were collected under the\nethics approval obtained by the original investigators and reported in the\nprimary publication cited above (see References/Documentation sections of\nthis README). Participants gave informed consent in the source study. No\nnew human-subject data were collected during this BIDS re-release; this\nNEMAR record only reformats the published source data into BIDS via MOABB.\nPlease consult the primary publication for the exact IRB/ethics committee\nreference.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000297",
+    "exists": true,
+    "description": "WRCC2023_MI_A: WRCC2023 MI-A three-class motor imagery dataset",
+    "created_at": "2026-10-04T14:35:40+00:00",
+    "updated_at": "2026-10-11T03:05:37+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

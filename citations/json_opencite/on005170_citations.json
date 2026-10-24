@@ -1,7 +1,7 @@
 {
   "dataset_id": "on005170",
-  "num_citations": 0,
-  "date_last_updated": "2026-10-11T11:00:59.961889+00:00",
+  "num_citations": 3,
+  "date_last_updated": "2026-10-24T11:15:00.266811+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
     "fetch_date": "2026-10-11T11:00:59.961889+00:00",
@@ -43,13 +43,106 @@
         "funder_name": "National Natural Science Foundation of China",
         "award_number": "62176079"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "on005170",
+      "ds005170"
+    ],
+    "num_accession_mentions": 3,
+    "num_dataset_citations": 3,
+    "num_datapaper_citations": 0
   },
-  "citation_details": [],
+  "citation_details": [
+    {
+      "title": "A Dataset with Bilingual TV Commands for Silent Speech Interfaces Using Electroencephalographic Signals",
+      "author": "Mario Lobo-Alonso, Iván Martín-Fernández, Ignacio Oropesa García, Roberto Barra-Chicote, George Kontaxakis, Rubén San-Segundo",
+      "venue": "Scientific Data",
+      "year": 2026,
+      "url": "https://doi.org/10.1038/s41597-026-07745-8",
+      "cited_by": 0,
+      "abstract": "This paper introduces TESSCCo (TV-control EEG-based Silent Speech Command Corpus), a new dataset including electroencephalography (EEG) signals during Overt Speech (OS) and Covert Speech (CS) in different languages. The dataset comprises repetitions of five different commands pronounced covertly and overtly in English and Spanish from 21 healthy native Spanish speakers (13 male, 8 female, 23 ± 2 years old), while EEG and audio were recorded. In addition, 3 non-native healthy Spanish speakers were recorded under the same circumstances (3 male, 23.3 ± 0.6 years old). A total of 7936 available epochs (i.e., 11.02 hours of data) were recorded with a 32 channel, 256 Hz sampling rate Water based EEG device. The database was designed to maximize the number of different analysis involving EEG signals. The final number of epochs, as well as the statistical analysis (showing significance in Broca's and Wernicke's areas) and machine learning experiments (with subjects exceeding the chance level with basic machine learning models), show that this material is a valuable resource for research on future ways of communication.",
+      "doi": "10.1038/s41597-026-07745-8",
+      "pmid": "42387018",
+      "openalex_id": "W7166845191",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds005170",
+      "confidence_scoring": {
+        "confidence_score": 0.6281746369600296,
+        "similarity_score": 0.5438741445541382,
+        "citation_text_length": 1410,
+        "dataset_text_length": 2147,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "NeuroSketch: A Practical Design Recipe for Neural Decoding",
+      "author": "Zhang, Gaorui, Yuan, Zhizhang, Yang, Jialan, Chen, Junru, Shen, Fanqi, Meng, Li, Yang, Yang",
+      "venue": "arXiv (Cornell University)",
+      "year": 2025,
+      "url": "https://doi.org/10.48550/arxiv.2512.09524",
+      "cited_by": 0,
+      "abstract": "Neural decoding is fundamental to brain-computer interfaces, with growing applications in healthcare. Previous research has focused on leveraging signal processing and deep learning methods to enhance neural decoding performance. However, systematic guidance on architectural design for neural decoding remains limited. In this study, we develop NeuroSketch, a practical design recipe for neural decoding, through a basic architecture study followed by macro- and micro-level optimization. Comparing nine basic architectures, we find that CNN-2D outperforms other architectures in neural decoding tasks and explore its effectiveness from temporal and spatial perspectives. Building on this backbone, we combine gradual feature-map expansion and early downsampling at the macro level with grouped convolutions at the micro level. These choices form the recipe, which we instantiate as NeuroSketch-Base (1.4M parameters) and NeuroSketch-Large (4.2M parameters). The recipe is developed and evaluated through nearly 5,000 experiments across eight tasks spanning visual, auditory, and speech modalities and EEG, SEEG, and ECoG signals. Against ten baselines, the two variants collectively achieve the best accuracy on each task. Our code is available at https://github.com/Galaxy-Dawn/NeuroSketch.",
+      "doi": "10.48550/arxiv.2512.09524",
+      "pmid": null,
+      "openalex_id": "W7114896535",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds005170",
+      "confidence_scoring": {
+        "confidence_score": 0.40532501667737963,
+        "similarity_score": 0.35093075037002563,
+        "citation_text_length": 1507,
+        "dataset_text_length": 2147,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Semantic Alignment of EEG and Text: A Contrastive Learning Framework for Decoding Imagined Speech",
+      "author": "Shahryar G. Namdari, Francesco Iacomi, Riccardo Barbieri, Luca Mainardi",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2610.20766",
+      "cited_by": 0,
+      "abstract": "Imagined speech decoding from EEG offers a promising route toward naturalistic brain-computer interfaces. Traditional closed-set classifiers treat semantic categories as independent labels and do not explicitly exploit relationships among linguistic intents, limiting output flexibility. We adapt a multimodal contrastive learning framework to imagined speech, aligning EEG trials with language representations in the embedding space of a frozen pretrained text encoder. An EEG encoder is trained with a composite objective combining semantically reweighted EEG-sentence alignment and text-prototype-based class discrimination, encouraging semantic structure while preserving separability among 39 intent categories. We evaluate the approach on the Chisco imagined speech dataset across five subjects, reporting Top-k accuracy, macro-F1, and balanced pairwise matching accuracy (2v2). We also investigate maximum EEG-text cosine similarity (MaxCosine) as an intrinsic indicator of decoding reliability and probe semantic structure beyond category labels using five evaluation-time semantic axes and a qualitative Semantic Gallery Probe (SGP) with previously unseen candidate sentences. The contrastive framework achieved decoding performance comparable to a task-optimized closed-set classifier while mapping EEG into a frozen language embedding space. MaxCosine identified subsets of held-out trials with higher Top-1 and Top-5 accuracy across subjects. Evaluation-time semantic axes showed mean agreement above the 50% chance reference across all five dimensions, and the SGP qualitatively illustrated direct comparison with unseen candidate sentences. Together, these findings suggest that EEG-language alignment can retain comparable fixed-intent decoding while supporting similarity-based retrieval, intrinsic reliability ranking, and evaluation of broader semantic structure.",
+      "doi": "10.48550/arxiv.2610.20766",
+      "pmid": null,
+      "openalex_id": "W7222598668",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds005170",
+      "confidence_scoring": {
+        "confidence_score": 0.5710967065393926,
+        "similarity_score": 0.494456022977829,
+        "citation_text_length": 1733,
+        "dataset_text_length": 2147,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    }
+  ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-10-11T11:35:50.440649+00:00",
+    "scoring_date": "2026-10-24T11:31:27.874665+00:00",
     "dataset_text_length": 2147,
-    "num_citations_scored": 0
+    "num_citations_scored": 3,
+    "summary_stats": {
+      "mean_confidence": 0.5348654533922673,
+      "median_confidence": 0.5710967065393926,
+      "std_confidence": 0.09451636928239338,
+      "min_confidence": 0.40532501667737963,
+      "max_confidence": 0.6281746369600296,
+      "high_confidence_count": 0,
+      "medium_confidence_count": 3,
+      "low_confidence_count": 0
+    }
   }
 }

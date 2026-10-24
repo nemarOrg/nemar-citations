@@ -1,0 +1,78 @@
+{
+  "dataset_id": "nm000387",
+  "date_retrieved": "2026-10-12T10:05:23.969121+00:00",
+  "dataset_description": {
+    "Name": "Ripples reflect a spectrum of synchronous spiking activity in human anterior temporal lobe (Tong et al., 2021): figure-level iEEG, micro-LFP and spiking arrays (derivative)",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "derivative",
+    "License": "CC0-1.0",
+    "Authors": [
+      "Ai Phuong Tong",
+      "Alex Vaz",
+      "John Wittig",
+      "Sara Inati",
+      "Kareem Zaghloul"
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "Authors' analysis pipeline (Tong et al., 2021, eLife 10:e68401, Materials and methods; custom MATLAB code)",
+        "Description": "iEEG (subdural/depth contacts), micro-LFP and sorted single units from 96-channel Utah microelectrode arrays in the anterior temporal lobe recorded during a paired-associates verbal memory task at the NIH Clinical Center; ripple-band (80-120 Hz) filtering, ripple detection, time-frequency power, spike-rate and pairwise phase consistency (PPC) analyses, exported by the authors as the MAT files that reproduce panels of Figures 1-4."
+      },
+      {
+        "Name": "FINISHER-05x repackaging (f05x_build054.py)",
+        "Description": "Repackaging only: original MAT files copied byte-for-byte into per-participant folders; the multi-participant Figure 2 file split into one MAT file per participant and session (values unchanged, exact round-trip); session date/time strings dropped. Code in code/.",
+        "CodeURL": "code/f05x_build054.py"
+      }
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.5061/dryad.5qfttdz6t",
+        "URL": "https://datadryad.org/dataset/doi:10.5061/dryad.5qfttdz6t",
+        "Version": "Dryad version 2 (published 2021-12-28); files obtained from the Dryad-community Zenodo replica https://zenodo.org/records/5808302 and checked against the Dryad sha-256 digests"
+      }
+    ],
+    "HowToAcknowledge": "Please cite Tong AP, Vaz AP, Wittig JH Jr, Inati SK, Zaghloul KA (2021) Ripples reflect a spectrum of synchronous spiking activity in human anterior temporal lobe. eLife 10:e68401, doi:10.7554/eLife.68401, and the Dryad dataset doi:10.5061/dryad.5qfttdz6t.",
+    "Funding": [
+      "National Institute of Neurological Disorders and Stroke F31 NS113400 to Alex P Vaz.",
+      "National Institute of Neurological Disorders and Stroke Intramural Research Program to Kareem A Zaghloul."
+    ],
+    "EthicsApprovals": [
+      "Data were collected at the Clinical Center at the National Institutes of Health (NIH; Bethesda, MD). The Institutional Review Board (IRB) approved the research protocol (11-N-0051), and informed consent was obtained from the participants and their guardians. (Tong et al. 2021, eLife 10:e68401, Ethics: Human subjects)"
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.7554/eLife.68401",
+      "https://elifesciences.org/articles/68401",
+      "https://doi.org/10.5061/dryad.5qfttdz6t",
+      "https://zenodo.org/records/5808302"
+    ],
+    "Keywords": [
+      "iEEG",
+      "intracranial EEG",
+      "microelectrode array",
+      "local field potential",
+      "single units",
+      "ripples",
+      "anterior temporal lobe",
+      "episodic memory",
+      "paired associates",
+      "pairwise phase consistency",
+      "derivative"
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000387",
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000387-blue)](https://doi.org/10.82901/nemar.nm000387)\n\n# Ripples reflect a spectrum of synchronous spiking activity in human anterior temporal lobe (Tong et al., 2021): figure-level arrays (derivative)\n\n**This is a processed-data (derivative) dataset.** It repackages the authors' public Dryad release\n(doi:[10.5061/dryad.5qfttdz6t](https://doi.org/10.5061/dryad.5qfttdz6t), version 2, CC0-1.0), which holds the data\nneeded to reproduce panels of Figures 1-4 of the article. **Raw continuous recordings are not part of the release and\nare not included here.** The arrays are epochs, band-filtered signals, time-frequency power, ripple rasters and spike\nindices that the authors derived from the recordings.\n\nArticle: Tong AP, Vaz AP, Wittig JH Jr, Inati SK, Zaghloul KA (2021). Ripples reflect a spectrum of synchronous spiking\nactivity in human anterior temporal lobe. *eLife* 10:e68401. doi:[10.7554/eLife.68401](https://doi.org/10.7554/eLife.68401)\n\n## Overview\n\n- 21 participants with drug-resistant epilepsy were implanted with subdural and depth contacts at the NIH Clinical\n  Center (Bethesda, MD) and performed a paired-associates verbal episodic memory task. Six of them (4 female;\n  34.8 ± 4.7 years) also had one or two 96-channel microelectrode arrays (MEA; Cereplex I, Blackrock) in the anterior\n  temporal lobe (ATL) (article, Materials and methods, Participants).\n- The release covers **7 participants**: one example iEEG participant for Figure 1 and the six MEA participants for\n  Figure 2; Figures 3 and 4 use one of them.\n- Processing described by the authors (Materials and methods): iEEG sampled at 1000 Hz, referenced to the hardware\n  reference; local detrending (≤ 2 Hz, Chronux) and regression removal of 60 and 120 Hz line noise; Morlet wavelet\n  power; retrieval epochs from 4 s before to 1 s after vocalization. Micro-LFP: 500 Hz low-pass of the MEA signals,\n  downsampled to 1000 Hz, same line-noise removal. Single units: threshold crossing and manual spike sorting.\n  Ripples: 80-120 Hz second-order Butterworth band-pass, Hilbert envelope > 2 SD for ≥ 25 ms with peak > 3 SD.\n- The authors' MATLAB scripts (`generate_fig1..4_*.m`, referenced in their README) are published with the article as\n  *Source code 1* (eLife); they are not part of the Dryad record.\n\n## Participants\n\n| participant_id | release code | data |\n|---|---|---|\n| sub-01 | NIH025 | Figure 1 (one medial temporal lobe iEEG electrode, \"TT1\", session \"s1\") |\n| sub-02 | NIH029 | Figure 2 (MEA participant) |\n| sub-03 | NIH030 | Figure 2 (MEA participant) |\n| sub-04 | NIH034 | Figure 2 (MEA participant) |\n| sub-05 | NIH037 | Figures 2, 3, 4 (MEA participant) |\n| sub-06 | NIH039 | Figure 2 (MEA participant) |\n| sub-07 | NIH042 | Figure 2 (MEA participant) |\n\nThe `NIHxxx` codes are the research pseudonyms used in the Dryad file names and in the Figure 2 `subjnames` variable;\nthe article itself does not list per-participant codes, ages or sexes, so `age` and `sex` are `n/a` in\n`participants.tsv`.\n\n## Files\n\nAll derivative data files are MATLAB v5 MAT files (load with `scipy.io.loadmat` in Python or `load` in MATLAB). They are\nnot BIDS raw data types and are listed in `.bidsignore`. Time axes are in seconds; signals are in the units of the\nauthors' export (not stated in the release).\n\n### sub-01/ieeg/ (Figure 1; original files, bytes unchanged, renamed)\n\n| file | original Dryad file | content |\n|---|---|---|\n| `sub-01_desc-fig1s1chanTT1_tfpower.mat` | `fig1_NIH025_s1_chanTT1_data.mat` | `TF` [44 trials x 150 frequencies x 5000 samples] wavelet power, `freqvec` (1-150 Hz), `timevec` (-3.999 .. 1.0 s, 1 kHz, relative to vocalization) |\n| `sub-01_desc-fig1s1chanTT1_rippleband.mat` | `fig1_NIH025_s1_chanTT1_rippleband_trials.mat` | `ripple_band_TT1` [44 x 5000] 80-120 Hz band signal, `ripple_band_trials_time` |\n| `sub-01_desc-fig1s1chanTT1_rippleraster.mat` | `fig1_NIH025_s1_chanTT1_rippleraster.mat` | `ripple_raster_TT1` [44 x 5000] detected-ripple indicator, `ripple_raster_time` |\n| `sub-01_desc-fig1s1chanTT1_ripplerate.mat` | `fig1_NIH025_s1_chanTT1_ripplerate.mat` | smoothed ripple rate and SE for correct / incorrect trials (`ripplerate_sm_corr`, `_corr_se`, `_incorr`, `_incorr_se`) on `timevec_sm` (73 points) |\n\n### sub-02 .. sub-07/ieeg/ (Figure 2; split per participant and session)\n\n`sub-XX_desc-fig2session<N>_ripplewindows.mat`: one file per participant and recording session, holding that\nparticipant/session cell of each Figure 2 variable of the original `fig2_contspk_LFP_iEEG_data.mat` (values and dtypes\nunchanged, verified by exact round-trip):\n\n- `iEEGripple_sig_cont` [1 x 4001 x n]: iEEG ripple-band signal segments (4001 samples at 1 kHz)\n- `lfpripple_sig_cont` [n_MEA_electrodes x 4001 x n]: micro-LFP ripple-band signal segments\n- `iEEGripple_win`, `lfpripple_win`, `spkrt_Z_win` [39 x n]: windowed iEEG ripple-band amplitude, LFP ripple-band\n  amplitude and z-scored spike rate, used for the Figure 2 correlations (the authors' README: \"computes the\n  correlation between continuous spiking, LFP, and iEEG\"). The exact meaning of each dimension follows the authors'\n  Figure 2 script (eLife Source code 1); n is 102-144 per session.\n\n`<N>` is the column of the session in the original cell arrays (1-3). The original `subjsessions` variable (session\nnames) is not carried over because the names are recording date/time stamps (see Privacy).\n\n### sub-05/ieeg/ (Figures 3 and 4; original files, bytes unchanged, renamed)\n\n| file | original Dryad file | content |\n|---|---|---|\n| `sub-05_desc-fig3_lfpieegripple.mat` | `fig3_LFP_iEEG_ripple_NIH037_data.mat` | `LFP_signal`, `LFPripple_sig` [148 epochs x 96 MEA channels x 4001 samples]; `iEEGripple_envZ`, `iEEGripple_logic` [148 x 4001 x 4 nearby iEEG channels] |\n| `sub-05_desc-fig3_ppc.mat` | `fig3_LFP_iEEG_ripple_NIH037_PPC_computed.mat` | `LFPripple_ppc_max`, `iEEGripple_max` (cells, one per iEEG channel): maximum LFP pairwise phase consistency and iEEG ripple amplitude per ripple |\n| `sub-05_desc-fig4s1_spikelfp.mat` | `fig4_spike_LFP_NIH037_s1_data.mat` | `LFP_timeseries` [18 electrodes x 118 trials x 4001], `spike_raster` [33 units x 4001 x 118], `spike_id`, `spike_ph` (spike indices and phases at 60 `freqs`, 2-400 Hz), `*_lfprip` (same within LFP ripples), `lfpripple_logic`, `lfp_channels`, `lfp_channels_u`, `el_cnt`, `response`, `trials` |\n\nEvery per-subject derivative file has a JSON sidecar of the same name (description, `Sources` pointing to the original release file, variables, how it was repackaged).\n\n### sourcedata/dryad-5qfttdz6t/\n\nThe original release files, byte-for-byte, with `SHA256SUMS` (all digests match the Dryad API sha-256 values), the\nauthors' `README.rtf`, and `WITHHELD.md`.\n\n### code/\n\n`f05x_build054.py` and `f05x_lib.py`: the repackaging, round-trip, privacy-scan and validation code used here.\n\n## Privacy\n\nThe original `fig2_contspk_LFP_iEEG_data.mat` contains a `subjsessions` variable whose strings are the participants'\nrecording session date and time stamps (`YYMMDD_HHMM`). Dates of clinical recordings are identifying information, so\nthat one file is **not** redistributed here. Its arrays are provided in full in the per-participant Figure 2 files\nabove; only the date strings are dropped. The original file stays available from Dryad (see\n`sourcedata/dryad-5qfttdz6t/WITHHELD.md` for its sha-256). No other names, dates, record numbers or paths were found in\nthe file names, MAT strings or text files (MAT headers carry only the 2021 file-creation time).\n\n## Ethics approval\n\n\"Data were collected at the Clinical Center at the National Institutes of Health (NIH; Bethesda, MD). The Institutional\nReview Board (IRB) approved the research protocol (11-N-0051), and informed consent was obtained from the participants\nand their guardians.\" (Tong et al. 2021, *eLife* 10:e68401, Ethics, Human subjects; the same statement appears in\nMaterials and methods, Participants.)\n\n## Funding\n\nFrom the article's Funding Information: \"National Institute of Neurological Disorders and Stroke F31 NS113400 to Alex P\nVaz.\" and \"National Institute of Neurological Disorders and Stroke Intramural Research Program to Kareem A Zaghloul.\"\n\n## License and citation\n\nCC0-1.0 (Dryad record license). Please cite the article (doi:10.7554/eLife.68401) and the Dryad dataset\n(doi:10.5061/dryad.5qfttdz6t).\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000387",
+    "exists": true,
+    "description": "Ripples reflect a spectrum of synchronous spiking activity in human anterior temporal lobe (Tong et al., 2021): figure-level iEEG, micro-LFP and spiking arrays (derivative)",
+    "created_at": "2026-10-07T12:46:22+00:00",
+    "updated_at": "2026-10-08T06:11:38+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

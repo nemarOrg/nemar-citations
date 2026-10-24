@@ -1,0 +1,57 @@
+{
+  "dataset_id": "nm000394",
+  "date_retrieved": "2026-10-12T10:05:35.065827+00:00",
+  "dataset_description": {
+    "Name": "Intracranial current source density (CSD) during epileptic seizures and interictal periods, one patient (Budapest)",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "derivative",
+    "License": "CC-BY-NC-SA-4.0",
+    "Authors": [
+      "Dániel Fabó",
+      "Loránd Erőss",
+      "Zsigmond Benkő"
+    ],
+    "HowToAcknowledge": "Cite Benkő Z, Zlatniczki Á, Stippinger M, Fabó D, Sólyom A, Erőss L, Telcs A, Somogyvári Z: Complete Inference of Causal Relations between Dynamical Systems, arXiv:1808.10806v4 (2024), and the GIN repository zsigmondbenko/intracranial_csd.",
+    "Funding": [
+      "Hungarian National Research, Development and Innovation Fund NKFIH K113147",
+      "NKFIH K135837",
+      "Human Brain Project associative grant CANON"
+    ],
+    "ReferencesAndLinks": [
+      "https://gin.g-node.org/zsigmondbenko/intracranial_csd",
+      "https://arxiv.org/abs/1808.10806",
+      "https://github.com/adam-zlatniczki/dimensional_causality"
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "Current source density computation by the data authors",
+        "Description": "CSD computed from subdural ECoG at four sites (Fl1, Fl2, iP, Fb) by the authors before deposit; converted to BrainVision float32 by NEMAR batch3 without any change of values."
+      }
+    ],
+    "SourceDatasets": [
+      {
+        "URL": "https://gin.g-node.org/zsigmondbenko/intracranial_csd",
+        "Version": "master 3e5bd99b6919d3fa33e8c4d8d50c714f131dc20b"
+      }
+    ],
+    "EthicsApprovals": [
+      "Informed consent for clinical investigation and surgeries along institutional review board guidelines, in accordance with the Declaration of Helsinki (no committee name/number published)"
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000394",
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000394-blue)](https://doi.org/10.82901/nemar.nm000394)\n\n# Intracranial current source density during epileptic seizures (Budapest)\n\nThis dataset contains intracranial Current Source Density (CSD) recordings of 18 epileptic seizures and 16 interictal\nsegments from an epileptic patient (text of the source README).\n\n**This is a derivative dataset.** The signals are current source density traces computed by the data authors from\nsubdural ECoG; they are not raw electrode voltages. No raw ECoG is part of the source release.\n\n## Source\n- G-Node GIN: https://gin.g-node.org/zsigmondbenko/intracranial_csd (commit 3e5bd99b6919d3fa33e8c4d8d50c714f131dc20b, 2018-08-31)\n- Copyright (c) 2018 Dániel Fabó and Loránd Erőss, National Institute for Clinical Neurosciences, \"Juhász Pál\" Epilepsy Center, Budapest, Hungary\n- Licence: Creative Commons Attribution-NonCommercial-ShareAlike 4.0 (LICENSE copied verbatim)\n- Paper that uses these data: Benkő Z. et al., \"Complete Inference of Causal Relations between Dynamical Systems\", arXiv:1808.10806 (data availability statement points to this repository).\n\n## Recording (from the paper's methods)\nA 20-year-old patient with drug-resistant epilepsy underwent subdural grid and strip implantation (ADTECH, 10 mm\ninter-contact spacing) for pre-surgical evaluation. Video-EEG was recorded with a Micromed Brain-Quick System Evolution,\nreferenced to the skull or mastoid, at 1024 Hz. CSD was computed at fronto-lateral (Fl1, Fl2), inferior-parietal (iP)\nand fronto-basal (Fb) sites. Patients consented to clinical investigation and surgery along institutional review board\nguidelines, in accordance with the Declaration of Helsinki (paper methods).\n\n## Layout\n- `sub-01/ieeg/*_task-seizure_run-XX_desc-csd_ieeg.vhdr`: 18 seizure segments (source folder `data/seizure`)\n- `sub-01/ieeg/*_task-interictal_run-XX_desc-csd_ieeg.vhdr`: 16 interictal segments (source folder `data/control`)\n- each segment: 20480 samples x 4 channels (GrB6, GrE2, GrF4, FbB3); values copied unchanged from the CSV files as float32\n- `sub-01/sub-01_scans.tsv`: maps each run to its original CSV file\n- `sourcedata/gin-intracranial_csd/`: the complete original repository content (README, LICENSE, CSV files), unchanged\n\n## Not stated by the source (left as n/a)\nUnits of the CSD values; onset times of the segments; meaning of the numbers in the CSV file names; mapping of the\ncontact names (GrB6, GrE2, GrF4, FbB3) to the paper's region labels; sex of the patient; filters.\n\n## Additional metadata and localisation (added 2026-10-08)\n\nCompiled after the upload from the article, its supplement and the source deposit (each statement names its source). Text and sidecar metadata only; no data file was changed.\n\n**Processing / reference.** The deposited signals are CSD, not raw potentials: \"CSD was computed (at Fl1, Fl2, iP and Fb), 1–30 Hz Fourier filtering (4th order Butterworth filter) and subsequent rank normalization was carried out\" (App. B.2, p.28). The deposited CSV values are integers, so whether the stored files are before or after the filtering and rank normalisation is not stated.\n\n**Electrode types.** AD-TECH subdural strips and a grid with 10 mm inter-contact spacing were implanted through a craniotomy, guided by neuronavigation and fluoroscopy (App. B.2). The text describes them as \"a subdural grid and two strip electrodes\" (p.11).\n\n**Localisation.** Electrodes were identified on the post-implant CT with BioImage Suite, mapped to the pre-implant MRI with FSL FLIRT/BET2, and projected onto the FreeSurfer pial surface (Dykstra et al. 2012). Intraoperative photographs and electrical stimulation mapping (ESM) were used to corroborate the result (App. B.2). The four analysed sites are fronto-basal (Fb), frontal (Fl1), fronto-lateral (Fl2) and infero-parietal (iP), shown on the patient's brain surface in Fig. 5F. Neither coordinates nor the patient MRI are published. Most of the high-frequency seizure activity was in Fb and Fl1. The frontal and fronto-basal regions were resected, and the patient was seizure-free for 1 year before a relapse (p.11).\n\n### Regions per participant (as published; no coordinates exist)\n\n| participant | region (as stated) | hemisphere | contacts | source |\n|---|---|---|---|---|\n| sub-01 | fronto-basal (Fb) | n/a | 1 (CSD derivation) | arXiv:1808.10806v4, p.11 Results; Fig. 5A/F; App. B.2 |\n| sub-01 | frontal (Fl1) | n/a | 1 (CSD derivation) | arXiv:1808.10806v4, p.11 Results; Fig. 5A/F; App. B.2 |\n| sub-01 | fronto-lateral (Fl2) | n/a | 1 (CSD derivation) | arXiv:1808.10806v4, p.11 Results; Fig. 5A/F; App. B.2 |\n| sub-01 | infero-parietal (iP) | n/a | 1 (CSD derivation) | arXiv:1808.10806v4, p.11 Results; Fig. 5A/F; App. B.2 |\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000394",
+    "exists": true,
+    "description": "Intracranial current source density (CSD) during epileptic seizures and interictal periods, one patient (Budapest)",
+    "created_at": "2026-10-07T22:09:34+00:00",
+    "updated_at": "2026-10-08T05:21:29+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "dataset_id": "nm000355",
+  "date_retrieved": "2026-10-12T10:03:43.356984+00:00",
+  "dataset_description": {
+    "Name": "Stolk et al. 2018 FieldTrip iEEG protocol dataset (SubjectUCI29): authors' preprocessed ECoG+SEEG epochs",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "derivative",
+    "License": "CC-BY-SA-4.0",
+    "Authors": [
+      "Arjen Stolk",
+      "Sandon Griffin",
+      "Roemer van der Meij",
+      "Callum Dewar",
+      "Ignacio Saez",
+      "Jack J. Lin",
+      "Giovanni Piantoni",
+      "Jan-Mathijs Schoffelen",
+      "Robert T. Knight",
+      "Robert Oostenveld"
+    ],
+    "Acknowledgements": "Stolk et al. (2018), Acknowledgments: \"The authors thank the patient for participation and Christopher R. Holdgraf, Vinitha Rangarajan, Colin W. Hoy, Julia Kam, Ludovic Bellier, Randolph Helfrich, Richard Jimenez, Edden Gerber, Alejandro Blenkmann, Jamie Lubell, and Michael Pereira for fruitful discussions. The authors are also grateful to the present and former FieldTrip core developers as well as the greater FieldTrip community for contributing code, documentation and expertise that have made this protocol possible.\" Data record doi:10.5281/zenodo.1201560 (v1.0, 2018-03-21). BIDS packaging for NEMAR by Bruno Aristimunha's iEEG-NEMAR campaign.",
+    "HowToAcknowledge": "Cite Stolk A, Griffin S, van der Meij R, et al. (2018) Integrated analysis of anatomical and electrophysiological human intracranial data. Nature Protocols 13:1699-1723, doi:10.1038/s41596-018-0009-6, and the data record doi:10.5281/zenodo.1201560. Share adaptations under CC-BY-SA-4.0.",
+    "Funding": [
+      "European Commission H2020 grant 641652 (ChildBrain)",
+      "European Commission H2020 grant 658868 (MUSIC)",
+      "NWO Rubicon grant 446-14-007 (A.S.)",
+      "European Union Marie Sklodowska-Curie Global Fellowship 658868 (A.S.)",
+      "NIMH R01 MH095984-03S1 (R.vd.M.)",
+      "NWO VIDI 864-14-011 (J-M.S.)",
+      "NINDS R37NS21135 (R.T.K.)",
+      "EC Marie Curie Actions H2020-MSCA-ITN-2014 (R.O.)"
+    ],
+    "EthicsApprovals": [
+      "Office for the Protection of Human Subjects, University of California, Berkeley; the subject gave informed consent (as stated by the authors)"
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.5281/zenodo.1201560",
+      "https://doi.org/10.1038/s41596-018-0009-6",
+      "https://doi.org/10.1101/230912",
+      "https://www.fieldtriptoolbox.org/tutorial/intracranial/human_ecog/",
+      "https://hdl.handle.net/11633/di.dccn.DSC_3015000.00_734",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC6548463/",
+      "https://www.fieldtriptoolbox.org"
+    ],
+    "Keywords": [
+      "iEEG",
+      "ECoG",
+      "sEEG",
+      "epochs",
+      "preprocessed",
+      "derivative",
+      "auditory target detection",
+      "FieldTrip",
+      "intracranial EEG",
+      "electrocorticography",
+      "stereoelectroencephalography",
+      "epilepsy"
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "FieldTrip ft_preprocessing (authors' preprocessing)",
+        "Description": "Stolk et al. 2018 protocol steps 35-36: trials defined from trigger value 4 (-0.4 to 0.9 s), demeaned over the whole trial, low-pass 200 Hz, band-stop 59-61/119-121/179-181 Hz (order 3), 2 s data padding. Performed by the authors before release; the raw recording was not shared.",
+        "CodeURL": "https://www.fieldtriptoolbox.org/tutorial/intracranial/human_ecog/"
+      },
+      {
+        "Name": "laneD_convert.py",
+        "Description": "BIDS packaging only (no signal processing): the 26 stored epochs are written back to back to one BrainVision float32 file (RecordingType epoched); channel, event, electrode and coordinate metadata are transcribed from the authors' FieldTrip structures; non-imaging source files copied byte-identically to sourcedata/."
+      }
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.5281/zenodo.1201560",
+        "URL": "https://zenodo.org/records/1201560",
+        "Version": "v1.0"
+      }
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000355",
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000355-blue)](https://doi.org/10.82901/nemar.nm000355)\n\n# Stolk et al. 2018 FieldTrip iEEG protocol dataset (SubjectUCI29): the authors' preprocessed epochs\n\n## Overview\n\n**These are not raw recordings.** This dataset is a BIDS packaging of the *preprocessed* intracranial EEG released\nwith the FieldTrip human intracranial analysis protocol (Stolk et al., 2018, Nature Protocols). The authors did not share the\nraw recording: \"Raw recording files are not shared, in order to protect the subject's identity.\" What they released, and\nwhat is packaged here, is the output of protocol steps 35-36: 26 trials of 152 channels at 5000 Hz, cut from -0.4 to\n0.9002 s around tone onset, demeaned, low-pass filtered at 200 Hz and band-stop filtered at 59-61, 119-121 and\n179-181 Hz. `dataset_description.json` therefore declares `DatasetType: derivative`, with `GeneratedBy` and\n`SourceDatasets` pointing at the authors' Zenodo record (doi:10.5281/zenodo.1201560, v1.0, CC-BY-SA-4.0).\n\n## Cohort and recording\n\n- One adult patient with medication-refractory epilepsy (`sub-UCI29`, source ID `SubjectUCI29`), recorded at the\n  University of California, Irvine Medical Center. Study approved by the Office for the Protection of Human Subjects of\n  the University of California, Berkeley; the subject gave informed consent (as stated by the authors). Age, sex and\n  handedness are not given in the release.\n- Electrodes: 56 SEEG contacts on 7 depth leads (RAM/LAM amygdala, RHH/LHH hippocampal head, RTH/LTH hippocampal tail,\n  ROC right occipital) and 96 ECoG contacts (LPG 64-contact left parietal grid, LTG 32-contact left temporal grid).\n  `SubjectUCI29_grids.png` in `sourcedata/` is the authors' schematic of the grid numbering.\n- Task: the patient pressed a button with the right hand on hearing a target tone. Trials are aligned to tone onset\n  (trigger value 4).\n\nAdditional acquisition details (Stolk et al. 2018, \"Materials\" and \"Experimental design\"; PMC6548463):\n\n- Implant: grids LPG (64 contacts, 8 x 8, left parietal) and LTG (32 contacts, 4 x 8, left temporal), Integra,\n  10 mm inter-electrode spacing; depth leads LAM, LHH, LTH, RAM, RHH, RTH and ROC, 8 contacts each, Ad-Tech, 5 mm\n  inter-electrode spacing. Implanted \"as part of the preparation for the epilepsy surgery\".\n- Amplifier: \"All neural recordings were acquired using a Nihon Kohden recording system with a JE-120A amplifier\n  (Nihon Kohden Corporation, Tokyo, Japan), analogfiltered above 0.01 Hz, and digitally sampled at 5 KHz\".\n- Reference: the acquisition reference electrode is not stated for this recording (see `iEEGReference`).\n- Anatomical imaging used by the authors (not redistributed here): pre-implant T1 MRI (Siemens 3T TrioTim),\n  post-implant CT (Philips iCT 256), post-implant T1 MRI (Siemens 1.5T Avanto).\n\n## Task / paradigm and timing\n\n\"The neural data were recorded in the context of an experiment that required the patient to press a button with\nthe right hand when hearing a target tone\" (Stolk et al. 2018). The authors defined trials from trigger value 4\n(tone onset) in the recording's trigger channel, from 400 ms before to 900 ms after the tone (protocol step 34:\n`cfg.trialdef.eventvalue = 4; prestim = 0.4; poststim = 0.9`), giving the \"experiment's twenty-six trials\" (step 36).\nButton-press times are not in the release as events; the meaning of `trialinfo` is not documented (see\n`_events.json`).\n\n## Files\n\n- `sub-UCI29/ieeg/sub-UCI29_task-tonedetection_ieeg.vhdr/.vmrk/.eeg`: BrainVision, 152 channels, 5000 Hz, IEEE float32.\n  The 26 epochs (6502 samples each) are stored **back to back**. The sidecar says `RecordingType: epoched` and\n  `EpochLength: 1.3004`, and the marker file has a `New Segment` at each epoch start. The file's time axis is\n  not the original recording's time axis. Do not filter across epoch boundaries as if the data were continuous.\n  To get epochs, split the file every 6502 samples. Inside each epoch, sample 2000 (0-based) is tone onset (t = 0).\n  `mne_bids.read_raw_bids` refuses epoched recordings. You can read the file with `mne.io.read_raw_brainvision` and\n  then reshape it.\n- `..._events.tsv`: one `epoch` row and one `tone` row per trial. The rows also carry the authors' `data.trialinfo`\n  value, which the release does not explain, and `data.sampleinfo`, the epoch's begin and end sample in the original\n  unshared recording. Use `sampleinfo` to recover the original spacing between trials.\n- `..._channels.tsv`: channel type (SEEG/ECOG), lead group and filter settings. **Units:** the FieldTrip structure has\n  no unit field. The stored amplitudes (median |x| ≈ 49, max |x| ≈ 1398) are only plausible as microvolts, so µV is\n  used here. The numbers are the authors' values.\n- `sub-UCI29_space-ACPC_electrodes.tsv` + `_coordsystem.json`: x/y/z are `elec_acpc_fr`, the subject-ACPC positions\n  the authors attached to the data (CT-MRI fusion, then brain-shift compensation of the grids). Further columns give\n  `elec_acpc_f` (before brain-shift compensation), `elec_mni_frv` (volume-based MNI normalisation; the template\n  variant is not stated by the authors) and `elec_fsavg_frs` (fsaverage, grids only). All are in mm, as stored.\n- `sourcedata/zenodo-1201560/`: the authors' non-imaging files, byte-identical, with SHA-256 in\n  `sourcedata/sourcedata_provenance.json`. These are the FieldTrip data (`_data.mat`, float64), header, the four\n  electrode structures, the electrode table, the time-frequency result `_freq.mat` (a further derivative computed after\n  re-montage) and the left cortical hull mesh.\n\n## Preprocessing already applied by the source\n\nProtocol step 35 (Stolk et al. 2018), applied by the authors before release with FieldTrip `ft_preprocessing`:\n`cfg.demean = 'yes'; cfg.baselinewindow = 'all'; cfg.lpfilter = 'yes'; cfg.lpfreq = 200; cfg.padding = 2;\ncfg.padtype = 'data'; cfg.bsfilter = 'yes'; cfg.bsfiltord = 3; cfg.bsfreq = [59 61; 119 121; 179 181]`.\nThe later protocol steps (bad-segment rejection, re-montage to common average for grids and bipolar for depths,\ntime-frequency analysis) were not applied to the packaged signals; `SubjectUCI29_freq.mat` in `sourcedata/` is the\nauthors' time-frequency result from those later steps. Hardware filtering: analog high-pass above 0.01 Hz\n(`low_cutoff` in `_channels.tsv`).\n\n## Known caveats\n\n- Not raw data: authors' preprocessed epochs only (see Overview).\n- Epochs are stored back to back; the file time axis is not the recording time axis (see Files).\n- Units (µV) are inferred from amplitudes, not stated by the source (see Files).\n- `trialinfo` is undocumented by the authors.\n- Head imaging is not redistributed (see \"What is not included, and why\").\n\n### Precision\n\nThe source stores float64 and BrainVision float32. The largest absolute difference between the BrainVision samples and\nthe source values is reported in the conversion summary. It is below 1e-4 µV, against a signal of tens of µV. For\nbit-exact values, use `sourcedata/zenodo-1201560/SubjectUCI29_data.mat`.\n\n### What is not included, and why\n\nThe record's head imaging is not redistributed here. That covers the pre-implant MRI, the post-implant MRI, the CT, the\nCT/MRI overlay figure and `freesurfer.zip`, whose subject directory contains whole-head T1/orig/rawavg volumes. The\nauthors state the imaging was defaced with `ft_defacevolume`, and our low-resolution renders show rectangular defacing\nmasks. We did not run an independent full-resolution identifiability review. These files remain available from the\nauthors at https://zenodo.org/records/1201560. The same data are also archived at the Donders Repository\n(hdl:11633/di.dccn.DSC_3015000.00_734; Zenodo marks it as identical).\n\n## How to load\n\n`mne_bids.read_raw_bids` refuses epoched recordings, so read the BrainVision file directly and cut it into the\n26 epochs of 6502 samples (tone onset at sample 2000 of each epoch):\n\n```python\nimport mne\nimport numpy as np\n\nraw = mne.io.read_raw_brainvision(\n    \"sub-UCI29/ieeg/sub-UCI29_task-tonedetection_ieeg.vhdr\", preload=True)\ndata = raw.get_data()                      # (152, 26 * 6502)\nepochs = data.reshape(152, 26, 6502).transpose(1, 0, 2)\ntimes = (np.arange(6502) - 2000) / raw.info[\"sfreq\"]   # -0.4 ... 0.9002 s\n```\n\nThe signal files are stored with git-annex on NEMAR; fetch them first (for example `git annex get sub-UCI29`).\nElectrode positions are in `sub-UCI29_space-ACPC_electrodes.tsv` (subject ACPC, mm).\n\n## Licence and citation\n\nCC-BY-SA-4.0 (from the Zenodo record), so adaptations must be shared under the same licence. Please cite Stolk et al.\n(2018), doi:10.1038/s41596-018-0009-6, and the data record doi:10.5281/zenodo.1201560.\n\n## Source and provenance\n\n- Data record: Zenodo doi:10.5281/zenodo.1201560 (v1.0, published 2018-03-21; identical copy at the Donders\n  Repository, hdl:11633/di.dccn.DSC_3015000.00_734).\n- Article: Stolk et al. (2018) Nature Protocols 13:1699-1723, doi:10.1038/s41596-018-0009-6 (author manuscript\n  PMC6548463; preprint doi:10.1101/230912). Acquisition, implant and funding details above were read from the PMC\n  full text on 2026-10-06.\n- Packaging: `laneD_convert.py` (iEEG-NEMAR campaign); see `GeneratedBy` in `dataset_description.json` and\n  SHA-256 checksums in `sourcedata/sourcedata_provenance.json`.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000355",
+    "exists": true,
+    "description": "Stolk et al. 2018 FieldTrip iEEG protocol dataset (SubjectUCI29): authors' preprocessed ECoG+SEEG epochs",
+    "created_at": "2026-10-06T14:38:54+00:00",
+    "updated_at": "2026-10-12T03:01:08+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

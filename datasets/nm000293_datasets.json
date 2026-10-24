@@ -1,0 +1,65 @@
+{
+  "dataset_id": "nm000293",
+  "date_retrieved": "2026-10-12T10:01:39.714610+00:00",
+  "dataset_description": {
+    "Name": "MOVING2024: Motor imagery / motor execution dataset from the MOVING study",
+    "BIDSVersion": "1.9.0",
+    "HEDVersion": "8.4.0",
+    "DatasetType": "derivative",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "Enrico Mattei",
+      "Daniele Lozzi",
+      "Alessandro Di Matteo",
+      "Alessia Cipriani",
+      "Costanzo Manes",
+      "Giuseppe Placidi"
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.5281/zenodo.12804784"
+    ],
+    "Keywords": [
+      "Motor",
+      "Motor Imagery",
+      "Motor Execution",
+      "imagery"
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000293",
+    "GeneratedBy": [
+      {
+        "CodeURL": "https://github.com/NeuroTechX/moabb",
+        "Name": "moabb",
+        "Description": "Mother of All BCI Benchmarks",
+        "Version": "1.8.0dev0"
+      }
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "10.3390/s24165207",
+        "URL": "https://doi.org/10.5281/zenodo.12804784"
+      },
+      {
+        "DOI": "doi:10.3390/s24165207"
+      }
+    ],
+    "PublicationYear": 2024,
+    "EthicsApprovals": [
+      "The source publication's Institutional Review Board Statement and Informed Consent Statement cite the University of L'Aquila participant information/consent form (https://www.univaq.it/include/utilities/blob.php?item=file&table=allegato&id=6252); see Mattei et al. 2024, Sensors 24(16):5207, DOI 10.3390/s24165207. The published article does not name the approving IRB in-line."
+    ],
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000293-blue)](https://doi.org/10.82901/nemar.nm000293)\n\nMOVING2024\n==========\n\nMotor imagery / motor execution dataset from the MOVING study [1]_ [2]_.\n\nDataset Overview\n----------------\n  Code: MOVING2024\n  Paradigm: imagery\n  DOI: 10.3390/s24165207\n  Subjects: 11\n  Sessions per subject: 1\n  Events: rest=1, open_close=2, wrist_rotation=3, finger_tapping=4\n  Trial interval: [0, 6] s\n  File format: EDF\n\nAcquisition\n-----------\n  Sampling rate: 500.0 Hz\n  Number of channels: 35\n  Channel types: eeg=32, misc=3\n  Channel names: P7, P4, Cz, Pz, P3, P8, O1, O2, T8, F8, C4, F4, Fp2, Fz, C3, F3, Fp1, T7, F7, Oz, PO4, FC6, FC2, AF4, CP6, CP2, CP1, CP5, FC1, FC5, AF3, PO3\n  Montage: 10-20\n  Hardware: Neuroelectrics Enobio 32 (dry electrodes, wireless)\n  Reference: CMS/DRL\n  Sensor type: dry\n  Line frequency: 50.0 Hz\n  Electrode type: dry\n\nParticipants\n------------\n  Number of subjects: 11\n  Health status: healthy\n\nExperimental Protocol\n---------------------\n  Paradigm: imagery\n  Number of classes: 4\n  Class labels: rest, open_close, wrist_rotation, finger_tapping\n  Trial duration: 6.0 s\n  Study design: rest -> motor imagery -> motor execution triplet for three right-hand movements (open/close, wrist rotation, finger tapping), 8 repetitions per subject.\n  Stimulus type: visual\n  Stimulus modalities: visual\n  Synchronicity: cue-based\n  Mode: offline\n\nHED Event Annotations\n---------------------\n  Schema: HED 8.4.0 | Browse: https://www.hedtags.org/hed-schema-browser\n\n  rest\n    ├─ Sensory-event\n    ├─ Experimental-stimulus\n    ├─ Visual-presentation\n    └─ Rest\n\n  open_close\n    ├─ Sensory-event\n    └─ Label/open_close\n\n  wrist_rotation\n    ├─ Sensory-event\n    └─ Label/wrist_rotation\n\n  finger_tapping\n    ├─ Sensory-event\n    └─ Label/finger_tapping\n\nTags\n----\n  Modality: Motor\n  Type: Motor Imagery, Motor Execution\n\nDocumentation\n-------------\n  Description: Multi-modal dataset pairing 32-channel dry EEG with Virtual Glove hand-kinematic tracking during motor imagery and motor execution of three right-hand movements.\n  DOI: 10.3390/s24165207\n  License: CC-BY-4.0\n  Investigators: Enrico Mattei, Daniele Lozzi, Alessandro Di Matteo, Alessia Cipriani, Costanzo Manes, Giuseppe Placidi\n  Institution: University of L'Aquila\n  Country: IT\n  Repository: Zenodo\n  Data URL: https://doi.org/10.5281/zenodo.12804784\n  Publication year: 2024\n\nReferences\n----------\nMattei, E., Lozzi, D., Di Matteo, A., Cipriani, A., Manes, C., & Placidi, G. (2024). MOVING: A Multi-Modal Dataset of EEG Signals and Virtual Glove Hand Tracking. Sensors, 24(16), 5207. DOI: https://doi.org/10.3390/s24165207\n\nMattei, E., Lozzi, D., Di Matteo, A., Placidi, G., Manes, C., & Cipriani, A. (2024). MOVING dataset [Data set]. Zenodo. DOI: https://doi.org/10.5281/zenodo.12804784\n\nNotes\n\nThe fixed movement order can confound class with position within a block; random trial-level splits do not remove this protocol limitation. Rest has 24 trials versus 8 for each movement (48 trials per subject).\n\nExtraction of ``edf.rar`` requires ``unrar``, ``unar`` or ``7z`` to be installed on the system.\n\nThe Sensors paper describes the protocol (32 dry Enobio electrodes, 2 s fixation + 6 s action, eight repetitions of the triplet, ~10 min) but states neither the number of participants nor the raw sampling rate; the eleven subjects come from the Zenodo record and the 500 Hz rate from the EDF headers (paper audit, 2026-09-30).\n\n.. versionadded:: 1.8\nAppelhoff, S., Sanderson, M., Brooks, T., Vliet, M., Quentin, R., Holdgraf, C., Chaumon, M., Mikulan, E., Tavabi, K., Hochenberger, R., Welke, D., Brunner, C., Rockhill, A., Larson, E., Gramfort, A. and Jas, M. (2019). MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis. Journal of Open Source Software 4: (1896). https://doi.org/10.21105/joss.01896\n\nPernet, C. R., Appelhoff, S., Gorgolewski, K. J., Flandin, G., Phillips, C., Delorme, A., Oostenveld, R. (2019). EEG-BIDS, an extension to the brain imaging data structure for electroencephalography. Scientific Data, 6, 103. https://doi.org/10.1038/s41597-019-0104-8\n\n---\nGenerated by MOABB 1.8.0dev0 (Mother of All BCI Benchmarks)\nhttps://github.com/NeuroTechX/moabb\n\nEthics\n------\nEthics approval: the data analysed in this deposit were collected under the\nethics approval obtained by the original investigators and reported in the\nprimary publication cited above (see References/Documentation sections of\nthis README). Participants gave informed consent in the source study. No\nnew human-subject data were collected during this BIDS re-release; this\nNEMAR record only reformats the published source data into BIDS via MOABB.\nPlease consult the primary publication for the exact IRB/ethics committee\nreference.\n\n## Ethics\n\nThe source publication's Institutional Review Board Statement and Informed Consent Statement cite the University of L'Aquila participant information/consent form (https://www.univaq.it/include/utilities/blob.php?item=file&table=allegato&id=6252); see Mattei et al. 2024, Sensors 24(16):5207, DOI 10.3390/s24165207. The published article does not name the approving IRB in-line.\n\nVerbatim from the source:\n\n> ## Institutional Review Board Statement\\n https://www.univaq.it/include/utilities/blob.php?item=file&table=allegato&id=6252) accessed on 15 June 2024.\n\nSource: cached paper .paper-audit/MOVING2024/paper-10_3390_s24165207.txt (Mattei et al. 2024, Sensors 24:5207, DOI 10.3390/s24165207).\n\nNote: The source statement is incomplete (no committee named); defers to the primary publication for the full ethics record.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000293",
+    "exists": true,
+    "description": "MOVING2024: Motor imagery / motor execution dataset from the MOVING study",
+    "created_at": "2026-10-04T14:23:01+00:00",
+    "updated_at": "2026-10-08T03:01:17+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

@@ -1,0 +1,68 @@
+{
+  "dataset_id": "nm000334",
+  "date_retrieved": "2026-10-12T10:03:20.917713+00:00",
+  "dataset_description": {
+    "Name": "Schrag2026Pediatric: pediatric SSVEP-BCI dataset in children and adolescents",
+    "BIDSVersion": "1.9.0",
+    "HEDVersion": "8.4.0",
+    "DatasetType": "derivative",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "Emily Schrag",
+      "Daniel Comaduran Marquez",
+      "Adam Kirton",
+      "Eli Kinney-Lang"
+    ],
+    "EthicsApprovals": [
+      "University of Calgary Conjoint Health Research Ethics Board, REB25-0723 (per the primary publication: informed assent/parental consent obtained for all participants; participants/guardians explicitly consented to sharing de-identified data)."
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.21203/rs.3.rs-9347306/v1",
+      "https://doi.org/10.5281/zenodo.20848097"
+    ],
+    "Keywords": [
+      "SSVEP",
+      "BCI",
+      "pediatric",
+      "children",
+      "adolescents",
+      "stimulus personalization",
+      "comfort",
+      "EEG"
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000334",
+    "GeneratedBy": [
+      {
+        "CodeURL": "https://github.com/NeuroTechX/moabb",
+        "Name": "moabb",
+        "Description": "Mother of All BCI Benchmarks",
+        "Version": "1.8.0dev0"
+      }
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "10.21203/rs.3.rs-9347306/v1",
+        "URL": "https://doi.org/10.5281/zenodo.20848097"
+      },
+      {
+        "DOI": "doi:10.5281/zenodo.20848097"
+      }
+    ],
+    "PublicationYear": 2026,
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000334-blue)](https://doi.org/10.82901/nemar.nm000334)\n\nSchrag2026Pediatric\n===================\n\nSSVEP-based BCI dataset in children and adolescents (Schrag et al. 2026).\n\nDataset Overview\n----------------\n  Code: Schrag2026Pediatric\n  Paradigm: ssvep\n  DOI: 10.21203/rs.3.rs-9347306/v1\n  Subjects: 47\n  Sessions per subject: 1\n  Events: 6.25=1, 10=2, 11.11=3, 14.28=4\n  Trial interval: [0.0, 5.0] s\n  Runs per session: 2\n  File format: XDF\n\nAcquisition\n-----------\n  Sampling rate: 256.0 Hz\n  Number of channels: 16\n  Channel types: eeg=16\n  Channel names: Fz, F4, F8, C3, Cz, C4, T8, P7, P3, P4, P8, PO7, PO8, O1, Oz, O2\n  Montage: standard_1020\n  Hardware: g.tec g.GAMMAsys + g.USBamp + g.GAMMAcap\n  Software: Unity3D + BCI-Essentials\n  Reference: earlobe\n  Ground: Fpz\n  Sensor type: active\n  Line frequency: 60.0 Hz\n  Cap manufacturer: g.tec\n  Electrode type: wet\n  Electrode material: Ag/AgCl gel\n\nParticipants\n------------\n  Number of subjects: 47\n  Health status: healthy\n  Age: mean=12.6, std=3.9, min=5, max=18\n  Gender distribution: female=19, male=28\n  BCI experience: naive\n  Species: human\n\nExperimental Protocol\n---------------------\n  Paradigm: ssvep\n  Task type: SSVEP-controlled videogame (4-target navigation)\n  Number of classes: 4\n  Class labels: 6.25, 10, 11.11, 14.28\n  Trial duration: 5.0 s\n  Study design: Per-subject pipeline: (1) personalization (12 stimuli at 10 Hz, 5 s on / 5 s baseline / pairwise comfort, ~20 sets), (2) online 4-target SSVEP game played twice -- personal stimulus and standard high-contrast stimulus across two themed maps.\n  Feedback type: visual\n  Stimulus type: flickering visual targets (4-target game)\n  Stimulus modalities: visual\n  Primary modality: visual\n  Synchronicity: synchronous\n  Mode: online\n\nHED Event Annotations\n---------------------\n  Schema: HED 8.4.0 | Browse: https://www.hedtags.org/hed-schema-browser\n\n  6.25\n    ├─ Sensory-event\n    ├─ Experimental-stimulus\n    ├─ Visual-presentation\n    └─ Label/6_25\n\n  10\n    ├─ Sensory-event\n    ├─ Experimental-stimulus\n    ├─ Visual-presentation\n    └─ Label/10\n\n  11.11\n    ├─ Sensory-event\n    ├─ Experimental-stimulus\n    ├─ Visual-presentation\n    └─ Label/11_11\n\n  14.28\n    ├─ Sensory-event\n    ├─ Experimental-stimulus\n    ├─ Visual-presentation\n    └─ Label/14_28\n\nParadigm-Specific Parameters\n----------------------------\n  Detected paradigm: ssvep\n  Stimulus frequencies: [6.25, 10.0, 11.11, 14.28] Hz\n\nData Structure\n--------------\n  Trials: 12\n  Trials context: Each game session contains ~30-160 movement trials (one per 5 s SSVEP stimulation period). Of these, exactly 12 are ground-truth target events (4 frequencies x 3 predefined target positions, minus skipped events on certain map layouts; see Notes.pdf in the Zenodo deposit). The remaining trials are user-driven movements whose labels are fbCCA classifier outputs, not ground truth -- this loader exposes all classifier-labelled trials with non-empty Selected SPO.\n\nPreprocessing\n-------------\n  Data state: raw\n  Preprocessing applied: False\n\nSignal Processing\n-----------------\n  Classifiers: fbCCA\n  Feature extraction: fbCCA\n  Frequency bands: analysis=[3.0, 29.0] Hz\n\nBCI Application\n---------------\n  Applications: navigation game\n  Environment: lab\n  Online feedback: True\n\nTags\n----\n  Pathology: healthy\n  Modality: visual\n  Type: perception\n\nDocumentation\n-------------\n  Description: Open-access pediatric SSVEP-BCI dataset: 47 children aged 5-18 performing a personalization pipeline and an online 4-target SSVEP game with both personal and standard stimuli.\n  DOI: 10.5281/zenodo.20848097\n  Associated paper DOI: 10.21203/rs.3.rs-9347306/v1\n  License: CC-BY-4.0\n  Investigators: Emily Schrag, Daniel Comaduran Marquez, Adam Kirton, Eli Kinney-Lang\n  Senior author: Eli Kinney-Lang\n  Institution: University of Calgary\n  Country: CA\n  Repository: Zenodo\n  Data URL: https://doi.org/10.5281/zenodo.20848097\n  Publication year: 2026\n  Ethics approval: University of Calgary Conjoint Health Research Ethics Board, REB25-0723\n  Keywords: SSVEP, BCI, pediatric, children, adolescents, stimulus personalization, comfort, EEG\n\nEthics\n------\n  Approved by the University of Calgary's Conjoint Health Research Ethics Board under ID REB25-0723. Informed assent and parental consent were obtained for all participants, and participants/guardians explicitly consented to the sharing of their de-identified data (Schrag et al. 2026, 10.21203/rs.3.rs-9347306/v1).\n\nReferences\n----------\nE. Schrag, D. Comaduran Marquez, A. Kirton, and E. Kinney-Lang, \"A steady-state visual evoked potential-based brain-computer interface dataset in children and adolescents,\" Research Square preprint, 2026. DOI: 10.21203/rs.3.rs-9347306/v1\n\nSchrag et al., 2026 SSVEP Pediatric Dataset. Zenodo. DOI: 10.5281/zenodo.19440997\nAppelhoff, S., Sanderson, M., Brooks, T., Vliet, M., Quentin, R., Holdgraf, C., Chaumon, M., Mikulan, E., Tavabi, K., Hochenberger, R., Welke, D., Brunner, C., Rockhill, A., Larson, E., Gramfort, A. and Jas, M. (2019). MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis. Journal of Open Source Software 4: (1896). https://doi.org/10.21105/joss.01896\n\nPernet, C. R., Appelhoff, S., Gorgolewski, K. J., Flandin, G., Phillips, C., Delorme, A., Oostenveld, R. (2019). EEG-BIDS, an extension to the brain imaging data structure for electroencephalography. Scientific Data, 6, 103. https://doi.org/10.1038/s41597-019-0104-8\n\n---\nGenerated by MOABB 1.8.0dev0 (Mother of All BCI Benchmarks)\nhttps://github.com/NeuroTechX/moabb\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000334",
+    "exists": true,
+    "description": "Schrag2026Pediatric: pediatric SSVEP-BCI dataset in children and adolescents",
+    "created_at": "2026-10-05T14:42:04+00:00",
+    "updated_at": "2026-10-12T03:00:47+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

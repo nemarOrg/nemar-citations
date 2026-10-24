@@ -1,10 +1,10 @@
 {
   "dataset_id": "on004603",
-  "num_citations": 3,
-  "date_last_updated": "2026-10-11T10:55:55.012336+00:00",
+  "num_citations": 5,
+  "date_last_updated": "2026-10-24T11:14:29.067860+00:00",
   "metadata": {
     "total_cumulative_citations": 1,
-    "fetch_date": "2026-10-11T10:55:55.012336+00:00",
+    "fetch_date": "2026-10-24T10:52:16.175856+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -53,7 +53,14 @@
       "contextual trajectory paradigm"
     ],
     "methods_description": "Participants completed a contextual trajectory paradigm in which a stimulus followed an established trajectory and its onset violated the expected value of one attribute (brightness, size, or orientation). Control trials had no violation. Full methods are given in the associated published paper.",
-    "funding": []
+    "funding": [],
+    "searched_accessions": [
+      "on004603",
+      "ds004603"
+    ],
+    "num_accession_mentions": 2,
+    "num_dataset_citations": 2,
+    "num_datapaper_citations": 3
   },
   "citation_details": [
     {
@@ -124,21 +131,71 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "Same but different: The latency of a shared expectation signal interacts with stimulus attributes",
+      "author": "Benjamin G. Lowe, Jonathan Robinson, Naohide Yamamoto, Hinze Hogendoorn, Patrick Johnston",
+      "venue": "Cortex",
+      "year": 2023,
+      "url": "https://doi.org/10.1016/j.cortex.2023.08.004",
+      "cited_by": 2,
+      "abstract": "Predictive coding theories assert that perceptual inference is a hierarchical process of belief updating, wherein the onset of unexpected sensory data causes so-called prediction error responses that calibrate erroneous inferences. Given the functionally specialised organisation of visual cortex, it is assumed that prediction error propagation interacts with the specific visual attribute violating an expectation. We sought to test this within the temporal domain by applying time-resolved decoding methods to electroencephalography (EEG) data evoked by contextual trajectory violations of either brightness, size, or orientation within a bound stimulus. We found that following ∼170 ms post stimulus onset, responses to both size violations and orientation violations were decodable from physically identical control trials in which no attributes were violated. These two violation types were then directly compared, with attribute-specific signalling being decoded from 265 ms. Temporal generalisation suggested that this dissociation was driven by latency shifts in shared expectation signalling between the two conditions. Using a novel temporal bias method, we then found that this shared signalling occurred earlier for size violations than orientation violations. To our knowledge, we are among the first to decode expectation violations in humans using EEG and have demonstrated a temporal dissociation in attribute-specific expectancy violations.",
+      "doi": "10.1016/j.cortex.2023.08.004",
+      "pmid": "37716110",
+      "openalex_id": "W4386192206",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004603",
+      "confidence_scoring": {
+        "confidence_score": 0.6834996432065964,
+        "similarity_score": 0.591774582862854,
+        "citation_text_length": 1689,
+        "dataset_text_length": 1302,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "What masking geometry works best for EEG foundation models?",
+      "author": "Pierre Guetschel, Bruno Aristimunha, Yassine El Ouahidi, Arnaud Delorme A, Thomas Moreau, Michael Tangermann",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2609.33487",
+      "cited_by": 0,
+      "abstract": "EEG foundation models hold promise for scalable brain-signal decoding across clinical and cognitive neuroscience applications, yet their pre-training pipelines remain poorly understood. Among design choices, the masking strategy is particularly critical: it determines what the network must predict and from which context. Yet it has never been ablated in isolation, as each new model bundles a new masking strategy with a new backbone and objective. In this paper, we formalize the design choices for spatio-temporal masking strategies and train various models with a single pipeline under varying masking configurations across two SSL frameworks (MAE and JEPA). We then systematically evaluate the resulting 58 pre-trained models on the 12 datasets of OpenEEGBench under a linear probe. Both frameworks agree on an optimal masking configuration and on shared failure modes. Outside these, performance is robust: 11 MAE and 9 JEPA configurations are statistically indistinguishable from the best. We further identify a novel JEPA-specific failure mode, tagged bias-inflation collapse, invisible to standard detectors. With a well-chosen mask, our pipeline reaches REVE-level downstream performance at a fraction of REVE's pre-training compute.",
+      "doi": "10.48550/arxiv.2609.33487",
+      "pmid": null,
+      "openalex_id": "W7214740814",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004603",
+      "confidence_scoring": {
+        "confidence_score": 0.40042756855487827,
+        "similarity_score": 0.3466905355453491,
+        "citation_text_length": 1476,
+        "dataset_text_length": 1302,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-10-11T11:33:43.105214+00:00",
+    "scoring_date": "2026-10-24T11:29:57.340747+00:00",
     "dataset_text_length": 1302,
-    "num_citations_scored": 3,
+    "num_citations_scored": 5,
     "summary_stats": {
-      "mean_confidence": 0.5225073350965977,
+      "mean_confidence": 0.5302898434102536,
       "median_confidence": 0.5073868538439275,
-      "std_confidence": 0.08798790089736261,
-      "min_confidence": 0.42310340255498896,
-      "max_confidence": 0.6370317488908768,
+      "std_confidence": 0.11291126392364685,
+      "min_confidence": 0.40042756855487827,
+      "max_confidence": 0.6834996432065964,
       "high_confidence_count": 0,
-      "medium_confidence_count": 3,
+      "medium_confidence_count": 5,
       "low_confidence_count": 0
     }
   }

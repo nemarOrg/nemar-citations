@@ -1,0 +1,83 @@
+{
+  "dataset_id": "nm000377",
+  "date_retrieved": "2026-10-12T10:05:01.600254+00:00",
+  "dataset_description": {
+    "Name": "Human Responses to Visually Evoked Threat: intracranial EEG during virtual-reality heights, no-heights and shark stimuli (3 patients)",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "raw",
+    "License": "CC0-1.0",
+    "Authors": [
+      "Melis Yilmaz Balban",
+      "Erin Cafaro",
+      "Lauren Saue-Fletcher",
+      "Marlon Joseph Washington",
+      "Maryam Bijanzadeh",
+      "Andrew Moses Lee",
+      "Edward Chang",
+      "Andrew Huberman"
+    ],
+    "Acknowledgements": "Data release: Dryad doi:10.5061/dryad.wdbrv15mq, mirrored as Zenodo record 4283021. BIDS conversion of the iEEG part: ieeg-nemar-20261005 campaign (batch-2 Zenodo lane); no signal processing applied. From the paper's Acknowledgments: \"We thank Troy Allen Norcross and Game Hearts Co. for their help in programming the VR stimuli; Adam Osfield Snell, Vrtul team, and Dogz101 RWC for helping shoot and produce 360 movies; Dr. Mahendra Bhati for his help in qualifying anxious subjects for our study; Dr. Mauricio Hoyos and the Semarnat Authority (Secretaría del Medio Ambiente y Recursos Naturales) for permission to film the 360 movies of great white sharks at the Guadalupe Is. Field Station; Michael Muller and team for VR movie filming of sharks; members of the Chang Lab for helping with logistics to record from epilepsy patients; Gary Holl for ongoing infrastructure operations of the Huberman VR Laboratory; and Heekyung Jung, and Supraja Varadarajan for comments on the manuscript.\"",
+    "HowToAcknowledge": "Please cite Yilmaz Balban M, Cafaro E, Saue-Fletcher L, Washington MJ, Bijanzadeh M, Lee AM, Chang EF, Huberman AD (2021) Human Responses to Visually Evoked Threat. Curr Biol 31(3):601-612.e3. doi:10.1016/j.cub.2020.11.035, and the data record doi:10.5061/dryad.wdbrv15mq.",
+    "Funding": [
+      "Discovery Innovation Award from Stanford School of Medicine (A.D.H.)",
+      "Stanford School of Medicine Dean's Fellowship (M.Y.B.)",
+      "Shurl and Kay Curci Foundation (E.F.C.)",
+      "William K. Bowes Foundation (E.F.C.)",
+      "R01-DC012379 (E.F.C.)"
+    ],
+    "EthicsApprovals": [
+      "iEEG: procedures approved by the University of California, San Francisco Institutional Review Board; all subjects provided written consent (Yilmaz Balban et al. 2021, STAR Methods). VR experiments at Stanford: IRB #41398 with written informed consent."
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.1016/j.cub.2020.11.035",
+      "https://doi.org/10.5061/dryad.wdbrv15mq",
+      "https://zenodo.org/records/4283021",
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8407368/",
+      "https://github.com/lciti/cvxEDA"
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000377",
+    "Keywords": [
+      "intracranial EEG",
+      "virtual reality",
+      "threat",
+      "heights",
+      "anxiety",
+      "insula",
+      "orbitofrontal cortex",
+      "skin conductance",
+      "visual scanning",
+      "epilepsy",
+      "electrocorticography",
+      "stereo-EEG",
+      "UCSF"
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.5061/dryad.wdbrv15mq",
+        "URL": "https://zenodo.org/records/4283021",
+        "Version": "Zenodo record 4283021 (published 2020-11-20)"
+      }
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "b2zen_convert044.py",
+        "Description": "Lossless-to-float32 re-packaging of the authors' TDT MATLAB exports (volts) into BrainVision; no filtering, resampling, re-referencing or channel removal."
+      }
+    ],
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000377-blue)](https://doi.org/10.82901/nemar.nm000377)\n\n# Human Responses to Visually Evoked Threat — intracranial EEG (3 patients)\n\n## Overview\nIntracranial EEG of **3 patients** with treatment-resistant epilepsy (UCSF, under the care of Dr. Edward Chang) who\nexperienced immersive virtual-reality (VR) stimuli: a modified virtual-heights stimulus, a \"no heights\" baseline in VR\nand (two patients) a 360° shark movie, with simultaneous skin conductance and eye/visual-scanning measures.\nThis is the iEEG part of the release \"Human Responses to Visually Evoked Threat\" (Dryad doi:10.5061/dryad.wdbrv15mq,\nmirrored on Zenodo as record [4283021](https://zenodo.org/records/4283021); licence **CC0 1.0**).\n\nReference article: Yilmaz Balban M, Cafaro E, Saue-Fletcher L, Washington MJ, Bijanzadeh M, Lee AM, Chang EF, Huberman AD\n(2021). *Human Responses to Visually Evoked Threat.* Current Biology 31(3):601–612.e3. https://doi.org/10.1016/j.cub.2020.11.035 (author manuscript: PMC8407368). Data and analysis code: Dryad\ndoi:10.5061/dryad.wdbrv15mq.\n\n## Participants / cohort\nThree patients with treatment-resistant epilepsy implanted with intracranial electrodes for localisation of seizure foci,\nrecorded at the UCSF Hospital (under the care of Dr. Edward Chang); they were included if they had electrodes in the regions\nof interest (insula, orbitofrontal cortex) and were willing to do the VR task; implantation was guided solely by clinical\ndecision (paper, STAR Methods). `participants.tsv` gives, per patient, age, gender, STAI state/trait and GAD-7 from Table S1\nof the paper (EC192: M, 33 y; EC200: M, 23 y; EC205: F, 44 y); the patient labels (EC 192, EC 200, EC 205) are identical in\nthe release folders and in the paper. Electrodes: EC192 and EC205 depth electrodes; EC200 a 64-contact grid and strips.\nElectrodes in insula (EC192, EC205) and orbitofrontal cortex (EC200, EC205) were the focus of the paper. Further columns:\nimplant type, number of electrode leads and implanted hemisphere (right for all three; derived from the release electrode\ntables), the paper's regions of interest, the number of visual scanning episodes during heights reported in the paper\n(EC192: 3, EC200: 0, EC205: 2), and the year-month of the TDT iEEG exports (MAT-file headers: 2019-02, 2019-05, 2019-08;\nthe recordings took place on or before these months, exact dates are not documented).\nThe healthy and anxious VR participants of the paper (no iEEG) are not part of this dataset.\n\n## Tasks\n- `task-heights`: modified heights stimulus, adapted to the patients' mobility constraints: seated in a chair in a virtual\n  copy of their hospital room, playing the 'lights-out' task (4 × 4 light grid; clicking a light toggles it and its\n  neighbours, goal: all lights off) in front of them; 1 min into the task the walls and the floor of the virtual room fall\n  away, leaving the subject seated on a platform of a building 50 stories high. iEEG covers 5 min before the stimulus\n  (\"No Visual Stim\") and the stimulus. (The healthy-participant version with a narrow plank ~150 ft above ground that had\n  to be crossed is described in the paper but is not the patients' version.)\n- `task-noheights`: \"No Heights\" baseline: 5 min in the virtual hospital room without the heights stimulus, measured before\n  the heights stimulus (paper, Modified Heights Stimulus); release file `TDTData_B*_baseline` (EC205: `baselineinVR`).\n- `task-sharks`: 360° movie of swimming with great white sharks (filmed at the Guadalupe Island field station), presented\n  on the inner surface of a virtual sphere (EC192, EC205; Figure S5).\nVR: Unity-programmed stimuli shown in an HTC Vive headset (secured with a custom Velcro cap); skin conductance was recorded\nsimultaneously with the iEEG (paper).\n\n## Acquisition\nTucker-Davis Technologies PZ2 (256-ch) or PZ5 (512-ch) amplifier with an RZ2 acquisition system, 3051.7578 Hz. The VR\nheadset was secured with a custom Velcro cap. Reference and ground not documented in the release. Electrode localisation in\nthe paper: pre-operative 3T T1 MRI co-registered with post-operative CT (SPM12), confirmed by a neurologist; pial surfaces\nreconstructed with FreeSurfer.\n\n## Preprocessing already applied by the source\nNone: the release holds the raw TDT exports. The paper's analysis steps (downsampling to 400 Hz, notch at 60/120/180 Hz,\ncommon average reference per lead, exclusion of noisy channels/epochs) were NOT applied to these data.\n\n## What was converted, and how\n- Each `TDTData_B<block>_<condition>.mat` (MATLAB 7.3) holds the iEEG array (`rawData` or `Data`; where both exist they\n  were verified identical), its sampling rate, and `ANIN` (4 analog inputs at 24414.0625 Hz). The iEEG array (channels ×\n  samples, float64, **volts**) was written as BrainVision IEEE float32 in V (file value = stored value rounded to\n  float32). No filtering, resampling, re-referencing or channel removal; all 128 (EC192, EC200) / 64 (EC205) inputs kept.\n- **Channel names**: the release gives no channel labels; channels are `ch001…` in array order. The electrode tables of\n  the release (`<EC n>_TDT_elecs_all_warped.mat`: 94 / 100 / 52 rows, name, long name, type, anatomical label, xyz) are\n  provided as `electrodes.tsv` (`space-Other`) with the row number, but **the mapping of TDT inputs to electrode rows is\n  not documented**, so no link between channels and electrodes is asserted. Channel `type` is the patient's implant type.\n  Rows whose name and type are `NaN` in the release (EC192 rows 31, 32, 63, 64; EC205 rows 31, 32; all with the same dummy\n  position) are listed as `unlabeled_row<k>` with n/a coordinates. (Observation only: such placeholders at positions\n  31–32 and 63–64 are consistent with rows following amplifier-input order, but the release does not state it.)\n- **Events**: the release holds per-condition `syncOnTime` and `gsrshift`/`GSRsynctime` values used by the authors'\n  `AACorrGSR_stanford.m` to time-lock iEEG and skin conductance, and visual-scanning vectors (`VS_heights`, 1 value per\n  second). Their time origin is not documented precisely enough to place them on the iEEG time axis, so no `events.tsv`\n  is generated; the files are in `sourcedata/`.\n- `sourcedata/zenodo-4283021/`: the iEEG folder (TDT files incl. ANIN, skin-conductance arrays, sync times, visual scans,\n  analysis code), the electrode-location folder and the release read-me, extracted from the zips (macOS `__MACOSX`\n  and `.DS_Store` entries dropped). In every `.mat`, only the day in the MAT-file header text \"Created on: …\" was masked\n  to `01` (weekday `---`); SHA-256 of original and public bytes are in `sourcedata/b2zen_provenance_IEEG044.json`.\n- **Not included**: the healthy/anxious VR participants' data (gaze, game, physiology, survey; no iEEG) — their session\n  logs contain real session date-times. They are available from the CC0 source record.\n\n## Known caveats (summary)\n- Channel-to-electrode mapping is not documented (see above); channel names are `ch001…`.\n- No `events.tsv` (time origin of the sync values not documented).\n- Units: volts as stored in the TDT export.\n- In `electrodes.tsv` of EC205 the `group` value `OFC` covers three 10-contact leads (OFC11–OFC110, OFC21–OFC210,\n  OFC31–OFC310); `iEEGElectrodeGroups` and `n_electrode_leads` count them separately.\n- The paper's Results text refers to EC 200 as \"her\", while Table S1 lists EC 200 as M; `participants.tsv` keeps Table S1.\n- Earlier versions of the `*_ieeg.json` TaskDescription described the heights task with the healthy-participant plank and\n  the no-heights run as the healthy-participant control; both were corrected on 2026-10-07 per the paper's \"Modified\n  Heights Stimulus\" section.\n\n## How to load\n```python\nfrom mne_bids import BIDSPath, read_raw_bids\nbp = BIDSPath(root=\".\", subject=\"EC192\", task=\"heights\", datatype=\"ieeg\")\nraw = read_raw_bids(bp)   # 128 channels ch001..ch128, volts, 3051.7578 Hz\n```\n\n## Citation\nYilmaz Balban M, et al. (2021) Human Responses to Visually Evoked Threat. Curr Biol 31(3):601–612.e3.\ndoi:10.1016/j.cub.2020.11.035; data: doi:10.5061/dryad.wdbrv15mq.\n\n## Provenance / sources\nDryad doi:10.5061/dryad.wdbrv15mq / Zenodo record 4283021 (record JSON, \"Read me for STARS.docx\", electrode tables, MAT\nheaders); Yilmaz Balban et al. 2021 (author manuscript PMC8407368: STAR Methods, Results, Acknowledgments) and its\nSupplemental Information (Table S1, Figures S3–S5). Metadata enrichment 2026-10-07 (see CHANGES).\n\n## Licence\nCC0 1.0 (Zenodo metadata license id `cc-zero`; Dryad publishes all data under CC0).\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000377",
+    "exists": true,
+    "description": "Human Responses to Visually Evoked Threat: intracranial EEG during virtual-reality heights, no-heights and shark stimuli (3 patients)",
+    "created_at": "2026-10-06T22:31:13+00:00",
+    "updated_at": "2026-10-08T06:03:44+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

@@ -1,0 +1,71 @@
+{
+  "dataset_id": "nm000410",
+  "date_retrieved": "2026-10-12T10:06:16.012388+00:00",
+  "dataset_description": {
+    "Name": "Vanderbilt BIEN Lab SOZ Resting State SEEG Classification (processed resting-state SEEG)",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "derivative",
+    "License": "CC-BY-NC-SA-4.0",
+    "Authors": [
+      "Kate Wang",
+      "Sameer Sundrani",
+      "Dario Englot"
+    ],
+    "Acknowledgements": "Pennsieve record doi:10.26275/wtaz-dbst (published 2025-11-13).",
+    "HowToAcknowledge": "Cite the dataset (https://doi.org/10.26275/wtaz-dbst) and Sundrani S, Johnson GW, Doss DJ, Makhoul GS, Hidalgo Monroy Lerma B, Reda A, Cavender AC, Liao E, Rogers BP, Williams Roberson S, Bick SK, Morgan VL, Englot DJ (2025). Deep learning on brief interictal intracranial recordings can accurately characterize seizure onset zones. Epilepsia 66(9):3180-3192. https://doi.org/10.1111/epi.18478",
+    "Funding": [
+      "This work was supported by the following grants: NINDS R01NS112252, R01NS134625, F31NS131056, NIGMS T32GM007347, and NIBIB T32EB021937.",
+      "We would also like to thank Neil and Barbara Smit for their support towards this work."
+    ],
+    "EthicsApprovals": [
+      "This study was approved by the Vanderbilt Institutional Review Board, and informed subject consent was obtained."
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.26275/wtaz-dbst",
+      "https://discover.pennsieve.io/datasets/492/version/1",
+      "https://doi.org/10.1111/epi.18478",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC12354104/"
+    ],
+    "Keywords": [
+      "shap analysis",
+      "convolutional neural network",
+      "presurgical evaluation",
+      "seizure onset zone localization",
+      "SEEG",
+      "resting state"
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "Authors' preprocessing (Sundrani et al. 2025)",
+        "Description": "Five minutes of awake eyes-closed resting-state SEEG per patient; bipolar montage of adjacent contacts; Butterworth filtering with MATLAB filtfilt, passbands 1-59, 61-119 and 121-150 Hz (paper, Methods: Data Preprocessing). Stored by the authors as filt_data (volts) in <id>_python_friendly.mat."
+      },
+      {
+        "Name": "NEMAR repackaging (b3w5_build_vanderbilt.py)",
+        "Description": "filt_data converted from float64 volts to float32 microvolts in BrainVision; channel names with spaces removed ('A1 - A2' -> 'A1-A2', original label kept in channels.tsv description); region-level SOZ labels copied from the authors' results JSON."
+      }
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.26275/wtaz-dbst",
+        "URL": "https://discover.pennsieve.io/datasets/492/version/1",
+        "Version": "1"
+      }
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000410",
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000410-blue)](https://doi.org/10.82901/nemar.nm000410)\n\n# Vanderbilt resting-state SEEG for seizure-onset-zone classification (derivative dataset)\n\n## Overview\nNEMAR redistribution of Pennsieve Discover dataset 492, version 1 (doi:10.26275/wtaz-dbst; \"Vanderbilt BIEN Lab SOZ Resting\nState SEEG Classification\"; licence on the record: \"Creative Commons Attribution - NonCommercial-ShareAlike\", written here as\nCC-BY-NC-SA-4.0). It accompanies Sundrani et al. (2025), \"Deep learning on brief interictal intracranial recordings can\naccurately characterize seizure onset zones\", Epilepsia 66(9):3180-3192, doi:10.1111/epi.18478.\n\n**This is a processed-data (derivative) dataset**: the signals are the authors' filtered bipolar SEEG; raw recordings are\nnot part of the release.\n\nRelease description (verbatim): This repository contains a de-identified codebase for training and analyzing deep neural networks that classify seizure onset zones (SOZ) vs. non-SOZ brain regions using resting-state stereoelectroencephalography (SEEG) recordings.\n\nThe citation for the associated manuscript is listed below:\n\nSundrani, S., Johnson, G. W., Doss, D. J., Makhoul, G. S., Hidalgo Monroy Lerma, B., Reda, A., Cavender, A. C., Liao, E., Rogers, B. P., Williams Roberson, S., Bick, S. K., Morgan, V. L., & Englot, D. J. (2025). Deep learning on brief interictal intracranial recordings can accurately characterize seizure onset zones. Epilepsia, 66(9), 3180–3192. Portico. https://doi.org/10.1111/epi.18478\n\n## Contents\n- 79 participants, one 5-minute recording each (`sub-<code>/ieeg/sub-<code>_task-rest_ieeg.vhdr`), BrainVision,\n  float32, microvolts, 500-2048 Hz as released. Participant codes are the release codes (`Epat##`, `Spat##`, `pat##`;\n  the release does not explain the prefixes). The paper reports 78 patients; the release has 79 files.\n  Codes not in any cross-validation test fold of the authors' results: ['Epat09'].\n- `_channels.tsv`: bipolar channel, region (release `bip_montage_region`), and `soz_region_label`: the region-level SOZ\n  ground truth used by the authors ('true_label' in the results JSON). See channels.json.\n- `_electrodes.tsv` + `_coordsystem.json`: one row per bipolar channel with its region; the release gives no coordinates (x/y/z n/a).\n- `participants.tsv`: release code and the authors' test fold.\n- Unreadable samples in the release: Epat09: rows 46875-46999 (93.750-94.000 s), channels 0-64 (one corrupt gzip chunk in the HDF5 file; the file matches the Pennsieve SHA-256, so the release itself carries it; the samples are NaN here and marked in that recording's _events.tsv)\n- `sourcedata/pennsieve-492-v1/`: the complete release byte-identical (MAT files, code, model weights, results JSON,\n  location_accuracy.csv, README.md, Pennsieve readme/manifest/changelog/banner), except macOS `.DS_Store` files and a\n  compiled `.pyc` (1 files skipped: ['files/models/__pycache__/multi_scale_ori.cpython-39.pyc']); the Pennsieve listing with checksums;\n  `roundtrip_float32.tsv` (max relative float32 error over all files: 5.77e-08).\n\n## Recording and processing (from the paper)\nFive minutes of resting-state (interictal, non-SPES) SEEG from patients with drug-resistant epilepsy evaluated at\nVanderbilt University Medical Center; patients awake, eyes closed, told to try not to fall asleep; recordings at least 4 h\napart from electroclinical activity. Filtering: MATLAB filtfilt Butterworth passbands 1-59, 61-119 and 121-150 Hz.\nContacts were assigned to Desikan-Killiany regions; SOZs were defined on a region basis as regions containing any contact\ninvolved in the ictal onset of one or more seizures. Cohort (paper Table 1, n = 78): 45 female, 33 male; per-patient age and\nsex are not in the release.\n\n## Changes made for NEMAR\nfilt_data (float64, volts) written as float32 microvolts (BrainVision); channel names without spaces; unreadable source samples written as NaN (see Contents). Nothing else changed.\n\n## Privacy\nThe release contains only signals, channel/region labels, model outputs and code. No names, dates or hospital numbers were\nfound in the MAT strings, JSON or text files. The code README lists the corresponding author's institutional e-mail.\n\n## Ethics approval\nSundrani et al. 2025, Methods (Participants and Resting State SEEG): \"This study was approved by the Vanderbilt\nInstitutional Review Board, and informed subject consent was obtained.\"\n\n## Funding\nSundrani et al. 2025, Acknowledgements (verbatim in dataset_description.json).\n\n## Licence\nCC-BY-NC-SA-4.0 (Pennsieve licence field: \"Creative Commons Attribution - NonCommercial-ShareAlike\"). Non-commercial use only.\n\n## Additional metadata and localisation (added 2026-10-08)\n\nCompiled after the upload from the article, its supplement and the source deposit (each statement names its source). Text and sidecar metadata only; no data file was changed.\n\n**Recording system.** Amplifier not stated (n/a). sampling_freq in the .mat files: 512 Hz (40), 500 Hz (20), 1024 Hz (14), 2048 Hz (5); filt_data holds 150000-153600 samples per channel (deposit, Voyager Job). The deposit README states inputs at 500-512 Hz (data are resampled to 500 Hz by the code, `resample_to_500hz`). Filtering: MATLAB filtfilt Butterworth passbands 1-59, 61-119 and 121-150 Hz (paper Methods \"Data Preprocessing\") - the stored filt_data are the filtered signals (variable name; deposit code).\n\n**Reference scheme.** Bipolar montage of adjacent contacts (bip_montage_label e.g. \"LAC1 - LAC2\"; deposit .mat). Original recording reference not stated.\n\n**Electrode types.** SEEG depth electrodes; manufacturer not stated.\n\n**Localisation method.** Contacts localised on post-implantation CT with CRAnial Vault Explorer (CRAVE) and each contact assigned to a Desikan-Killiany (DK) region; verified by a staff engineer, attending neurosurgeon and attending epileptologist. SOZ defined per DK region containing any contact involved in ictal onset of >=1 seizure (paper Methods). Coordinates are not in the deposit; only DK labels per bipolar channel.\n\n**Cohort (paper Table 1).** n=78; female 45 (57.7%); age mean 34.6 (SD 12.4); outcome at one year: Engel I 23, II 5, III 7, IV 3, neuromodulation responder 15, non-responder 10, none 15.\n\nEach `electrodes.tsv` now has a `soz_region_label` column (yes/no/n/a): whether the channel's DK region is one of the patient's SOZ regions in the deposit results JSON.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000410",
+    "exists": true,
+    "description": "Vanderbilt BIEN Lab SOZ Resting State SEEG Classification (processed resting-state SEEG)",
+    "created_at": "2026-10-07T22:44:09+00:00",
+    "updated_at": "2026-10-08T06:09:52+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

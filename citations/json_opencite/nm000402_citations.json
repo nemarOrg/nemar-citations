@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000402",
-  "num_citations": 4,
-  "date_last_updated": "2026-10-11T10:39:38.114404+00:00",
+  "num_citations": 5,
+  "date_last_updated": "2026-10-24T10:29:16.700500+00:00",
   "metadata": {
-    "total_cumulative_citations": 4,
-    "fetch_date": "2026-10-11T10:39:38.114404+00:00",
+    "total_cumulative_citations": 6,
+    "fetch_date": "2026-10-24T10:29:16.700500+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 3,
@@ -87,12 +87,12 @@
     "keywords": [
       "stereotactic EEG",
       "intracranial EEG",
-      "Epilepsy",
       "Seizures",
-      "seizure annotation",
-      "stimulation-induced seizures"
+      "Epilepsy",
+      "seizure onset annotation",
+      "electrical stimulation"
     ],
-    "methods_description": "Recordings were acquired with a Natus Quantum system at 512-2048 Hz using sEEG depth electrodes (Ad-Tech, PMT or DIXI). Stimulation-induced seizures used bipolar biphasic stimulation (HUP: 1 Hz, 3 mA, 300 or 500 µs; CHOP: 1-8 mA, 1-2 Hz, 300-500 µs). Each seizure was annotated by multiple epileptologists following a standardized protocol. Electrodes were localized by co-registering post-implant CT to pre-implant MRI, with Desikan-Killiany parcellation in FreeSurfer.",
+    "methods_description": "Recordings were acquired with a Natus Quantum system at 512-2048 Hz using sEEG depth electrodes (Ad-Tech at HUP; PMT or DIXI Medical at CHOP). Stimulation-induced seizures used bipolar biphasic stimulation. Electrodes were localized by co-registering post-implant CT to pre-implant MRI and parcellating with the Desikan-Killiany atlas in FreeSurfer. Each seizure was annotated independently by multiple epileptologists for unequivocal electrographic onset time and channels.",
     "funding": [
       {
         "funder_name": "The Burroughs Welcome Fund"
@@ -138,33 +138,35 @@
       {
         "funder_name": "The Burroughs Wellcome Fund"
       }
-    ],
-    "searched_accessions": [
-      "nm000402"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 4
+    ]
   },
   "citation_details": [
     {
       "title": "Unsupervised seizure annotation and detection with neural dynamic divergence",
-      "author": "William K.S. Ojemann, Zhongchuan Xu, Haoer Shi, Katie Walsh, Akash R. Pattnaik, Nishant Sinha, Sarah B Lavelle, Carlos A. Aguila, Ryan S. Gallagher, Andrew Y. Revell, Joshua J. LaRocque, Jacob Korzun, Catherine V. Kulick‐Soper, Daniel Y Zhou, Peter D. Galer, Saurabh R. Sinha, Russell Taki Shinohara, Kathryn A. Davis, Brian Litt, Erin C. Conrad",
+      "author": "William K.S. Ojemann, Zhongchuan Xu, Haoer Shi, Katie Walsh, Akash R. Pattnaik, Nishant Sinha, Sarah B. Lavelle, Carlos A. Aguila, Ryan S. Gallagher, Andrew Y. Revell, Joshua J. LaRocque, Jacob Korzun, Catherine V. Kulick‐Soper, Daniel Y Zhou, Peter D. Galer, Saurabh R. Sinha, Russell Taki Shinohara, Kathryn A. Davis, Brian Litt, Erin C. Conrad",
       "venue": "medRxiv",
       "year": 2026,
       "url": "https://doi.org/10.64898/2026.02.15.26346325",
-      "cited_by": 2,
+      "cited_by": 3,
       "abstract": "Annotating seizure onset and spread in intracranial EEG is essential for epilepsy surgical planning, yet manual annotation is unreliable and cannot scale to large datasets. We introduce Neural Dynamic Divergence (NDD), an unsupervised framework that detects seizure activity by measuring deviation from patient-specific baseline neural dynamics using autoregressive models. NDD requires no labeled training data and adapts to individual patients, channels, and brain states. Validating against expert consensus annotations from 46 seizures, NDD achieves human-level agreement ( ϕ = 0.58 vs. inter-rater ϕ = 0.64) and outperforms existing algorithms on 1,019 seizures with soft labels (AUROC = 0.87). We demonstrate clinical utility by automatically annotating 2,017 seizures, revealing that seizure spread patterns distinguish epilepsy subtypes and predict surgical outcomes. NDD also generalizes to continuous ICU scalp EEG monitoring (AUROC = 0.77). We provide NDD as an open-source Python package ",
       "doi": "10.64898/2026.02.15.26346325",
       "pmid": null,
       "openalex_id": "W7129494215",
       "source_doi": "10.64898/2026.01.15.26344025",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.8489846348762514,
+        "similarity_score": 0.7350516319274902,
+        "citation_text_length": 1468,
+        "dataset_text_length": 2271,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "An Implantable Device that Converses with Patients and Learns to Co-Manage Epilepsy",
-      "author": "Zack Goldblum, Hao-Er Shi, Zhongchuan Xu, W. Ojemann, Carlos A. Aguila, Kevin Long, Kevin Xie, Kerry C. Nix, K. Walsh, Ellie Chang, S. Lavelle, Brandon Bach, K. Davis, Nishant Sinha, Lauren H Hammer, Erin C. Conrad, Brian Litt",
+      "author": "Zack Goldblum, Hao-Er Shi, Zhong-Chuan Xu, W. Ojemann, Carlos A. Aguila, Kevin Long, Kevin Xie, Kerry C. Nix, K. Walsh, Ellie Chang, S. Lavelle, Brandon Bach, K. Davis, Nishant Sinha, Lauren H. Hammer, Erin C. Conrad, Brian Litt",
       "venue": "medRxiv",
       "year": 2026,
       "url": "https://doi.org/10.64898/2026.01.26.26344234",
@@ -175,22 +177,61 @@
       "openalex_id": null,
       "source_doi": "10.64898/2026.01.15.26344025",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5913006162643434,
+        "similarity_score": 0.5119485855102539,
+        "citation_text_length": 1357,
+        "dataset_text_length": 2271,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Human–artificial intelligence collaboration for comanaging epilepsy in real time",
+      "author": "Zack Goldblum, Haoer Shi, Zhongchuan Xu, William K.S. Ojemann, Carlos A. Aguila, Kevin W. Long, Kevin Xie, Kerry C. Nix, Katherine G. Walsh, Ellie Chang, Sarah B. Lavelle, Brandon Bach, Kathryn A. Davis, Nishant Sinha, Lauren H. Hammer, Erin C. Conrad, Brian Litt",
+      "venue": "Nature Medicine",
+      "year": 2026,
+      "url": "https://doi.org/10.1038/s41591-026-04680-4",
+      "cited_by": 1,
+      "abstract": "One-third of the world’s 70 million people with epilepsy have seizures uncontrolled by medication, and implantable devices are a promising treatment. These devices can detect impending seizures, missed medication and impaired cognition, but, like most medical devices, they cannot share this information with patients in real time. This is a missed opportunity for devices to learn from clinical events and teach patients how their behaviors affect their health. Here we present a device platform that converses with patients to help them manage their epilepsy. The inpatient prototype links scalp and intracranial electroencephalography (EEG) to a secure, large language model-based artificial intelligence (AI) that communicates bidirectionally through a smartphone app. The AI processes biomarkers of sleep, medication, cognition and seizure probability, notifies patients of clinical events and trends, records symptoms and responses, and uses their feedback to retrain its seizure detector, redu",
+      "doi": "10.1038/s41591-026-04680-4",
+      "pmid": "42869994",
+      "openalex_id": "W7221720041",
+      "source_doi": "10.64898/2026.01.15.26344025",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5990207800269127,
+        "similarity_score": 0.518632709980011,
+        "citation_text_length": 1397,
+        "dataset_text_length": 2271,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Combined population and patient-specific brain networks predict electrical stimulation propagation",
-      "author": "Sarah B Lavelle, William K.S. Ojemann, Marc Jaskir, Zican Zou, Carlos A. Aguila, Katherine G. Walsh, Odile Feys, Daniel J. Zhou, Kathryn A. Davis, Brian Litt, Erin C. Conrad, Nishant Sinha",
+      "author": "Sarah B. Lavelle, William K.S. Ojemann, Marc Jaskir, Zican Zou, Carlos A. Aguila, Katherine G. Walsh, Odile Feys, Daniel J. Zhou, Kathryn A. Davis, Brian Litt, Erin C. Conrad, Nishant Sinha",
       "venue": "medRxiv",
       "year": 2026,
       "url": "https://doi.org/10.64898/2026.09.29.26364360",
       "cited_by": 0,
-      "abstract": "ABSTRACT Objective Cortico-cortical evoked potentials (CCEPs) are used during intracranial EEG (iEEG) monitoring to probe effective connectivity and guide epilepsy surgery. However, the factors governing spatial distribution and variability of stimulation-evoked responses across patients remain incompletely understood, making it difficult to distinguish physiological variation from pathological responses. We aimed to develop interpretable models of CCEP responses that integrate normative and patient-specific features, and to assess how these relationships are influenced by distance, brain-state, and epileptogenicity. Methods We analyzed single-pulse stimulation data from 34 patients with drug-resistant epilepsy undergoing stereo-EEG monitoring. Significant CCEP responses were defined using N1 peak amplitude. For each stimulation-response pair, we derived multimodal features capturing Euclidean distance, effective connectivity priors from F-TRACT, a published population atlas of CCEP re",
+      "abstract": "Objective: Cortico-cortical evoked potentials (CCEPs) are used during intracranial EEG (iEEG) monitoring to probe effective connectivity and guide epilepsy surgery. However, the factors governing spatial distribution and variability of stimulation-evoked responses across patients remain incompletely understood, making it difficult to distinguish physiological variation from pathological responses. We aimed to develop interpretable models of CCEP responses that integrate normative and patient-specific features, and to assess how these relationships are influenced by distance, brain-state, and epileptogenicity. Methods: We analyzed single-pulse stimulation data from 34 patients with drug-resistant epilepsy undergoing stereo-EEG monitoring. Significant CCEP responses were defined using N1 peak amplitude. For each stimulation-response pair, we derived multimodal features capturing Euclidean distance, effective connectivity priors from F-TRACT, a published population atlas of CCEP response ",
       "doi": "10.64898/2026.09.29.26364360",
-      "pmid": null,
+      "pmid": "42856701",
       "openalex_id": "W7215041127",
       "source_doi": "10.64898/2026.01.15.26344025",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7027336531877518,
+        "similarity_score": 0.6084274053573608,
+        "citation_text_length": 1333,
+        "dataset_text_length": 2271,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Cortical stimulation reveals effective disconnection of the epileptogenic network at seizure onset",
@@ -205,7 +246,31 @@
       "openalex_id": "W7166740626",
       "source_doi": "10.64898/2026.01.15.26344025",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7081064647436143,
+        "similarity_score": 0.6130791902542114,
+        "citation_text_length": 1324,
+        "dataset_text_length": 2271,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
-  ]
+  ],
+  "confidence_scoring": {
+    "model_used": "Qwen/Qwen3-Embedding-0.6B",
+    "scoring_date": "2026-10-24T11:23:16.418909+00:00",
+    "dataset_text_length": 2271,
+    "num_citations_scored": 5,
+    "summary_stats": {
+      "mean_confidence": 0.6900292298197747,
+      "median_confidence": 0.7027336531877518,
+      "std_confidence": 0.09357872264628392,
+      "min_confidence": 0.5913006162643434,
+      "max_confidence": 0.8489846348762514,
+      "high_confidence_count": 3,
+      "medium_confidence_count": 2,
+      "low_confidence_count": 0
+    }
+  }
 }

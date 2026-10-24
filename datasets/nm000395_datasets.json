@@ -1,0 +1,59 @@
+{
+  "dataset_id": "nm000395",
+  "date_retrieved": "2026-10-12T10:05:38.666064+00:00",
+  "dataset_description": {
+    "Name": "Categorical processing of Chinese lexical tone: ECoG auditory oddball in 6 epilepsy patients (Si, Zhou & Hong 2017)",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "raw",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "Xiaopeng Si",
+      "Wenjing Zhou",
+      "Bo Hong"
+    ],
+    "Acknowledgements": "Data released by Xiaopeng Si, Wenjing Zhou and Bo Hong as Zenodo record 10.5281/zenodo.926082. Reorganised into iEEG-BIDS without signal processing for NEMAR.",
+    "HowToAcknowledge": "Please cite Si X, Zhou W, Hong B (2017) Cooperative cortical network for categorical processing of Chinese lexical tone. Proc Natl Acad Sci USA 114(46):12303-12308, doi:10.1073/pnas.1710752114, and the data record doi:10.5281/zenodo.926082.",
+    "Funding": [
+      "National Natural Science Foundation of China (NSFC) and German Research Foundation (DFG), project Crossmodal Learning, NSFC 61621136008 / DFG TRR-169 (to B.H.)",
+      "NSFC 61473169 (to B.H.)",
+      "National Key R&D Program of China 2017YFA0205904 (to B.H.)"
+    ],
+    "EthicsApprovals": [
+      "Ethics Committees of the Yuquan Hospital, Tsinghua University (as stated in Si et al. 2017)"
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.1073/pnas.1710752114",
+      "https://doi.org/10.5281/zenodo.926082",
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5699060/"
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.5281/zenodo.926082",
+        "URL": "https://zenodo.org/records/926082",
+        "Version": "published 2017-10-19"
+      }
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "b3w1_convert_sitone.py (ieeg-nemar-20261005 campaign, batch 3)",
+        "Description": "File copy, EDF start-date day set to 01, events decoded from the trigger channel, BIDS sidecars. No signal processing."
+      }
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000395",
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000395-blue)](https://doi.org/10.82901/nemar.nm000395)\n\n# Categorical processing of Chinese lexical tone (ECoG, auditory oddball)\n\nElectrocorticography (ECoG) from 6 patients with medically intractable epilepsy (S1-S6) listening passively to a\ntwo-deviant auditory oddball sequence of Mandarin syllables, released with:\n\n> Si X, Zhou W, Hong B (2017). Cooperative cortical network for categorical processing of Chinese lexical tone.\n> *PNAS* 114(46):12303-12308. https://doi.org/10.1073/pnas.1710752114\n\nSource record: Zenodo https://doi.org/10.5281/zenodo.926082 (CC-BY-4.0, published 2017-10-19).\n\n## Task (from the paper)\n\nA synthesized rising-level-falling (T2-T1-T4) tone continuum of the Mandarin syllable /i/ was built. In the ECoG\nexperiment, token 5 (level tone T1) was the frequent standard; tokens 2 (rising, T2) and 8 (level, T1) were the\ninfrequent deviants. Both deviants are the same physical distance from the standard, giving a cross-category pair\n(2 vs 5) and a within-category pair (8 vs 5). 500 trials (S6: 250), onset-to-onset interval 1100 ms with 5% jitter.\nThe patients watched a silent movie. Electrode placement was decided by clinical need only; no seizure occurred\nwithin 1 h before or after the test. The study was approved by the Ethics Committees of Yuquan Hospital,\nTsinghua University, and patients gave written informed consent.\n\n## Data\n\n- `sub-01` ... `sub-06`, task `toneoddball`. S2 and S5 were exported as two parts (`run-1`, `run-2`).\n- EDF, 1200 Hz, 96 ECoG inputs + 6 trigger inputs per file, named by amplifier input (`Amp<k>-<n>`,\n  `Amp<k>-trigger`) as released. The mapping of inputs to electrode contacts is not part of the release.\n- EDF prefilter field: `HP:0.1Hz LP:0Hz notch HP:48Hz LP:52Hz` (hardware high-pass 0.1 Hz and 50 Hz notch).\n- `*_events.tsv`: pulses of the `Amp1-trigger` channel, decoded to digital codes (1, 2, 3; occasionally 255).\n  The release does not document which code is which stimulus. Code 1 accounts for about 80% of pulses (the\n  standard). The stimulus files are numbered `01standard_flat_yi5`, `02deviant_cross_rise_yi2` and\n  `03deviant_within_flat_yi8`, which suggests codes 1/2/3 = standard / cross-category deviant / within-category\n  deviant. This is our inference and is labelled as such in `task-toneoddball_events.json`.\n- `stimuli/`: the release's stimulus files, unchanged (`stimuli_ECoG_MMN`: the three oddball sounds;\n  `stimuli_BehaviorContinumm`: the 13-step continuum used in the behavioural pre-test with healthy volunteers).\n\n## Changes from the release\n\n- EDF header start date: day set to 01 (year and month kept). No other byte of the EDF files changed (SHA-256 of\n  the data sections of the source and BIDS files are equal; recorded in `sourcedata/zenodo-926082/b3w1_provenance.json`).\n  The EDF patient and recording fields are empty in the release.\n- Not redistributed: `data_MRI.rar` (FreeSurfer `orig.mgz` T1 per patient) and `data_CT.rar` (raw CT per patient).\n  A surface render of these volumes shows reconstructable facial features, so they are left out; they remain\n  available from the CC-BY-4.0 source record. The original `.rar` archives are also not copied because their\n  member timestamps carry full recording dates.\n- Age and sex are not in the release; since 2026-10-08 `participants.tsv` gives them from the article's SI Table S2.\n\n## Licence\n\nCC-BY-4.0, as the source record. Please cite the paper and the Zenodo record.\n\n## Additional metadata and localisation (added 2026-10-08)\n\nCompiled after the upload from the article, its supplement and the source deposit (each statement names its source). Text and sidecar metadata only; no data file was changed.\n\n**Recording system.** ECoG was recorded with a g.USBamp amplifier/digitizer system (g.tec, Graz, Austria) sampling at 1,200 Hz with a 0.1 Hz high-pass filter and a notch filter centred at 50 Hz harmonics (PNAS SI Appendix (pnas.201710752SI.pdf, via Europe PMC PMC5699060 supplementaryFiles), 'ECoG Data Acquisition'). The EDF headers agree: every signal 1200 Hz, prefilter field 'HP:0.1Hz LP:0Hz notch HP:48Hz LP:52Hz', transducer 'ECoG', unit uV (EDF headers of data_ECoG/S1..S6/*.edf, read in Voyager Job ieeg-b3enr-c-si-tone-1007220742).\n\n**Reference scheme.** Four inactive epidural electrodes were placed on the external surface of the skull with the contacts facing away from the skull and served as ground and reference (two as ground and two as reference, for redundancy) (PNAS SI Appendix (pnas.201710752SI.pdf, via Europe PMC PMC5699060 supplementaryFiles), 'ECoG Data Acquisition').\n\n**Electrode types.** Subdural surface grid electrodes; placement was determined solely by clinical need (doi:10.1073/pnas.1710752114, Methods 'Subjects'; Fig. 3A).\n\n**Localisation method.** Presurgical T1 MRI (Philips Achieva 3.0T, MPRAGE, 0.9 x 0.9 x 1 mm, 180 slices) and post-implantation CT (Siemens SOMATOM Sensation 64) were acquired; the CT was aligned to the MRI with FreeSurfer/SPM mutual-information registration (error < 5 mm), and electrodes were classified by anatomical landmarks (STG, MTG, ITG, motor cortex, etc.) in each subject's anatomical space (Fig. S4); for display, each MRI was coregistered to the FreeSurfer average brain (PNAS SI Appendix (pnas.201710752SI.pdf, via Europe PMC PMC5699060 supplementaryFiles), 'MRI and CT Acquisition', 'Anatomical Location of Electrodes'). The deposit contains the MRI (data_MRI/S*_MRI_orig.mgz) and CT (data_CT/S*_CT_raw.nii) but no electrode coordinate or label file (https://zenodo.org/records/926082; listing of the extracted archives on Voyager).\n\n### Regions per participant (as published; no coordinates exist)\n\n| participant | region (as stated) | hemisphere | contacts | source |\n|---|---|---|---|---|\n| S1 | Lt (left temporal) | left | n/a | doi:10.1073/pnas.1710752114, SI Table S2 (p. 4) |\n| S1 | Lf (left frontal) | left | n/a | doi:10.1073/pnas.1710752114, SI Table S2 (p. 4) |\n| S1 | Lp (left parietal) | left | n/a | doi:10.1073/pnas.1710752114, SI Table S2 (p. 4) |\n| S2 | Lt (left temporal) | left | n/a | doi:10.1073/pnas.1710752114, SI Table S2 (p. 4) |\n| S2 | Lf (left frontal) | left | n/a | doi:10.1073/pnas.1710752114, SI Table S2 (p. 4) |\n| S2 | Lo (left occipital) | left | n/a | doi:10.1073/pnas.1710752114, SI Table S2 (p. 4) |\n| S3 | Lt (left temporal) | left | n/a | doi:10.1073/pnas.1710752114, SI Table S2 (p. 4) |\n| S3 | Lp (left parietal) | left | n/a | doi:10.1073/pnas.1710752114, SI Table S2 (p. 4) |\n| S3 | Lo (left occipital) | left | n/a | doi:10.1073/pnas.1710752114, SI Table S2 (p. 4) |\n| S4 | Rt (right temporal) | right | n/a | doi:10.1073/pnas.1710752114, SI Table S2 (p. 4) |\n| S4 | Ro (right occipital) | right | n/a | doi:10.1073/pnas.1710752114, SI Table S2 (p. 4) |\n| S5 | Rt (right temporal) | right | n/a | doi:10.1073/pnas.1710752114, SI Table S2 (p. 4) |\n| S5 | Rf (right frontal) | right | n/a | doi:10.1073/pnas.1710752114, SI Table S2 (p. 4) |\n| S5 | Rp (right parietal) | right | n/a | doi:10.1073/pnas.1710752114, SI Table S2 (p. 4) |\n| S6 | Rt (right temporal) | right | n/a | doi:10.1073/pnas.1710752114, SI Table S2 (p. 4) |\n| S6 | Rf (right frontal) | right | n/a | doi:10.1073/pnas.1710752114, SI Table S2 (p. 4) |\n| S6 | Rp (right parietal) | right | n/a | doi:10.1073/pnas.1710752114, SI Table S2 (p. 4) |\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000395",
+    "exists": true,
+    "description": "Categorical processing of Chinese lexical tone: ECoG auditory oddball in 6 epilepsy patients (Si, Zhou & Hong 2017)",
+    "created_at": "2026-10-07T22:17:35+00:00",
+    "updated_at": "2026-10-11T20:34:56+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

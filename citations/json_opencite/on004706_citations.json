@@ -1,10 +1,10 @@
 {
   "dataset_id": "on004706",
-  "num_citations": 6,
-  "date_last_updated": "2026-10-11T10:56:50.240363+00:00",
+  "num_citations": 8,
+  "date_last_updated": "2026-10-24T11:14:34.120943+00:00",
   "metadata": {
     "total_cumulative_citations": 23,
-    "fetch_date": "2026-10-11T10:56:50.240363+00:00",
+    "fetch_date": "2026-10-24T10:53:09.134128+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -60,7 +60,14 @@
         "award_number": "MTEC-20-06-MOM-013",
         "award_title": "Restoring memory with task-independent semi-chronic closed-loop direct brain stimulation and non-invasive closed-loop stimulus timing optimization"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "on004706",
+      "ds004706"
+    ],
+    "num_accession_mentions": 2,
+    "num_dataset_citations": 2,
+    "num_datapaper_citations": 6
   },
   "citation_details": [
     {
@@ -200,21 +207,71 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "What masking geometry works best for EEG foundation models?",
+      "author": "Pierre Guetschel, Bruno Aristimunha, Yassine El Ouahidi, Arnaud Delorme A, Thomas Moreau, Michael Tangermann",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2609.33487",
+      "cited_by": 0,
+      "abstract": "EEG foundation models hold promise for scalable brain-signal decoding across clinical and cognitive neuroscience applications, yet their pre-training pipelines remain poorly understood. Among design choices, the masking strategy is particularly critical: it determines what the network must predict and from which context. Yet it has never been ablated in isolation, as each new model bundles a new masking strategy with a new backbone and objective. In this paper, we formalize the design choices for spatio-temporal masking strategies and train various models with a single pipeline under varying masking configurations across two SSL frameworks (MAE and JEPA). We then systematically evaluate the resulting 58 pre-trained models on the 12 datasets of OpenEEGBench under a linear probe. Both frameworks agree on an optimal masking configuration and on shared failure modes. Outside these, performance is robust: 11 MAE and 9 JEPA configurations are statistically indistinguishable from the best. We further identify a novel JEPA-specific failure mode, tagged bias-inflation collapse, invisible to standard detectors. With a well-chosen mask, our pipeline reaches REVE-level downstream performance at a fraction of REVE's pre-training compute.",
+      "doi": "10.48550/arxiv.2609.33487",
+      "pmid": null,
+      "openalex_id": "W7214740814",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004706",
+      "confidence_scoring": {
+        "confidence_score": 0.49490149006247525,
+        "similarity_score": 0.4284861385822296,
+        "citation_text_length": 1476,
+        "dataset_text_length": 2384,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Predicting Cognitive Tasks from Single-Channel EEG through Task-Semantic Alignment",
+      "author": "Ryota Kanai C",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2610.15104",
+      "cited_by": 0,
+      "abstract": "Studies of data scaling in electroencephalography (EEG) and related noninvasive recordings suggest that simple wearable devices could eventually reveal more about cognitive states. However, publicly available EEG data are difficult to combine. Different laboratories record different tasks, participants, and devices. Task-agnostic self-supervised learning can exploit such data, but representations learned only with EEG signals have not consistently produced feature representations that are directly effective for decoding the cognitive state. We therefore aimed to incorporate task information by embedding experimental instructions, stimuli and response demands in a common semantic space, and trained an EEG encoder to align signals from a single anterior--posterior differential channel with those task vectors. This framework supports zero-shot prediction without target-condition calibration and few-shot prediction using labeled samples. On a reserved ten-class evaluation, the highest observed zero-shot balanced accuracy was 30.13% (chance 10%). In a separate developmental few-shot experiment, balanced accuracy reached 34.47% using 16 labeled EEG examples per class from another participant, and 74.99% using examples from the test participant's own task recording. Our experiments suggest that training models on datasets with multiple tasks per participant appeared useful, whereas adding datasets containing only one or a few tasks sometimes reduced established performance despite broader task coverage. These exploratory results suggest that EEG datasets that repeat varied cognitive tasks and everyday activities within the same individuals across days, devices and independent studies would be particularly useful for training an EEG foundation model for predicting cognitive states.",
+      "doi": "10.48550/arxiv.2610.15104",
+      "pmid": null,
+      "openalex_id": "W7221793578",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004706",
+      "confidence_scoring": {
+        "confidence_score": 0.5566830745339395,
+        "similarity_score": 0.4819766879081726,
+        "citation_text_length": 1660,
+        "dataset_text_length": 2384,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-10-11T11:34:03.242884+00:00",
+    "scoring_date": "2026-10-24T11:30:13.102812+00:00",
     "dataset_text_length": 2384,
-    "num_citations_scored": 6,
+    "num_citations_scored": 8,
     "summary_stats": {
-      "mean_confidence": 0.5830673695604007,
-      "median_confidence": 0.5569291723519565,
-      "std_confidence": 0.11107103750351419,
+      "mean_confidence": 0.5687485977448523,
+      "median_confidence": 0.5563574454188348,
+      "std_confidence": 0.10052971435966236,
       "min_confidence": 0.4701989762485028,
       "max_confidence": 0.8122892627120019,
       "high_confidence_count": 1,
-      "medium_confidence_count": 5,
+      "medium_confidence_count": 7,
       "low_confidence_count": 0
     }
   }

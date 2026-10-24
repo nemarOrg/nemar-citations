@@ -1,10 +1,10 @@
 {
   "dataset_id": "on005507",
-  "num_citations": 22,
-  "date_last_updated": "2026-10-11T11:03:55.647186+00:00",
+  "num_citations": 24,
+  "date_last_updated": "2026-10-24T11:15:22.332647+00:00",
   "metadata": {
-    "total_cumulative_citations": 168,
-    "fetch_date": "2026-10-11T11:03:55.647186+00:00",
+    "total_cumulative_citations": 185,
+    "fetch_date": "2026-10-24T11:01:06.974154+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -23,7 +23,7 @@
         "paper_title": "HBN-EEG: The FAIR implementation of the Healthy Brain Network (HBN) electroencephalography dataset",
         "paper_year": 2024,
         "paper_venue": "bioRxiv (Cold Spring Harbor Laboratory)",
-        "reason": "HBN-EEG paper by the same authors (Shirazi, Franco, Hoffmann, Esper, Truong et al.) describes the BIDS-formatted HBN-EEG data, including this Release 3.",
+        "reason": "HBN-EEG preprint by the same authors presents the BIDS/HED-formatted HBN EEG releases, including this Release 3; DataCite relation is IsDescribedBy.",
         "judgment_model": "claude-sonnet-5-5"
       },
       {
@@ -89,7 +89,14 @@
         "award_number": "R01MH125934",
         "award_title": "BIDS data preparation"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "on005507",
+      "ds005507"
+    ],
+    "num_accession_mentions": 1,
+    "num_dataset_citations": 1,
+    "num_datapaper_citations": 23
   },
   "citation_details": [
     {
@@ -98,7 +105,7 @@
       "venue": "ArXiv",
       "year": 2025,
       "url": "https://doi.org/10.48550/arXiv.2510.21585",
-      "cited_by": 111,
+      "cited_by": 121,
       "abstract": "Foundation models have transformed AI by reducing reliance on task-specific data through large-scale pretraining. While successful in language and vision, their adoption in EEG has lagged due to the heterogeneity of public datasets, which are collected under varying protocols, devices, and electrode configurations. Existing EEG foundation models struggle to generalize across these variations, often restricting pretraining to a single setup, resulting in suboptimal performance, in particular under linear probing. We present REVE (Representation for EEG with Versatile Embeddings), a pretrained model explicitly designed to generalize across diverse EEG signals. REVE introduces a novel 4D positional encoding scheme that enables it to process signals of arbitrary length and electrode arrangement. Using a masked autoencoding objective, we pretrain REVE on over 60,000 hours of EEG data from 92 datasets spanning 25,000 subjects, representing the largest EEG pretraining effort to date. REVE ach",
       "doi": "10.48550/arXiv.2510.21585",
       "pmid": null,
@@ -121,7 +128,7 @@
       "venue": "ArXiv",
       "year": 2025,
       "url": "https://doi.org/10.48550/arXiv.2506.19141",
-      "cited_by": 19,
+      "cited_by": 21,
       "abstract": "Current electroencephalogram (EEG) decoding models are typically trained on small numbers of subjects performing a single task. Here, we introduce a large-scale, code-submission-based competition comprising two challenges. First, the Transfer Challenge asks participants to build and test a model that can zero-shot decode new tasks and new subjects from their EEG data. Second, the Psychopathology factor prediction Challenge asks participants to infer subject measures of mental health from EEG data. For this, we use an unprecedented, multi-terabyte dataset of high-density EEG signals (128 channels) recorded from over 3,000 child to young adult subjects engaged in multiple active and passive tasks. We provide several tunable neural network baselines for each of these two challenges, including a simple network and demographic-based regression models. Developing models that generalise across tasks and individuals will pave the way for ML network architectures capable of adapting to EEG data",
       "doi": "10.48550/arXiv.2506.19141",
       "pmid": null,
@@ -144,7 +151,7 @@
       "venue": "ArXiv",
       "year": 2026,
       "url": "https://doi.org/10.48550/arXiv.2605.08495",
-      "cited_by": 16,
+      "cited_by": 19,
       "abstract": "Deep learning and large public datasets have recently catalyzed the proliferation of AI models for processing brain recordings. However, systematically evaluating these models remains a challenge: not only do the preprocessing pipelines, training and finetuning approaches largely vary across studies, but their downstream evaluation is often limited to small sets of tasks and/or datasets. Here, we present NeuralBench: a unified framework for benchmarking AI models of brain activity. We accompany this framework with NeuralBench-EEG v1.0 -- a large EEG benchmark that includes 36 electroencephalography (EEG) tasks and 14 deep learning architectures, and is evaluated on 94 datasets accessed through a standardized interface. This first EEG-focused release already highlights two main findings. First, current foundation models only marginally outperform task-specific models. Second, a large set of tasks (e.g. cognitive decoding, clinical predictions) remain highly challenging, even for the bes",
       "doi": "10.48550/arXiv.2605.08495",
       "pmid": null,
@@ -167,7 +174,7 @@
       "venue": "ArXiv",
       "year": 2026,
       "url": "https://doi.org/10.48550/arXiv.2606.00815",
-      "cited_by": 9,
+      "cited_by": 11,
       "abstract": "Electroencephalography (EEG) supports a variety of brain-computer interface (BCI) tasks ranging from brain-state monitoring to human-LLM interactions. EEG foundation models are emerging, but evaluation remains fragmented due to heterogeneous datasets and nconsistent task protocols. Here, we introduce OmniEEG-Bench, a unified benchmark and downstream task roadmap for EEG foundation models (FMs). It organizes evaluation of EEG FMs into six task families spanning (i) signal reliability, (ii) biometrics and disease, (iii) consciousness and state, (iv) cognition and emotion, (v) naturalistic stimulus decoding, and (vi) motor and interaction, introducing a new generation of tasks not systematically benchmarked in prior EEG FM work. OmniEEG-Bench standardizes model deployment, task definitions, and metrics through a task-card specification, and unifies 54 EEG datasets with consistent evaluation protocols. We benchmark 10 representative EEG foundation models and report a leaderboard that cover",
       "doi": "10.48550/arXiv.2606.00815",
       "pmid": null,
@@ -317,6 +324,29 @@
         "confidence_score": 0.5825153768062592,
         "similarity_score": 0.5547765493392944,
         "citation_text_length": 204,
+        "dataset_text_length": 2351,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "NeuroAct: Advancing EEG Analysis and Decoding via Dual-Loop Autonomous Research",
+      "author": "Wei Xiong, Jiang-Tong Li, Han Zhao, Lin-Xiao Yang, Jie Li, Chang-Jun Jiang",
+      "venue": "n/a",
+      "year": 2026,
+      "url": "n/a",
+      "cited_by": 0,
+      "abstract": "EEG analysis and decoding underpin brain-computer interfaces, cognitive assessment, and sleep monitoring. Fixed pipelines and reward-driven search do not explicitly determine how signal structure, representations, predictor behavior, and training dynamics contribute to performance or generalization gaps, leaving intervention choice underdetermined. We introduce NeuroAct, an autonomous research agent framework for EEG analysis and decoding. NeuroAct implements dual-loop autonomous research across EEG foundation models, task-specific predictors, and model combinations. In an inner loop, research, development, and review roles use evidence on signal structure, representations, predictor behavior, and training dynamics to test hypotheses, select analyses or interventions, and refine candidates using performance, stability, and cost feedback. An outer loop distills outcomes into conditional, testable recommendations with task and model conditions, then validates and revises them on subseque",
+      "doi": null,
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.1101/2024.10.03.615261",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6262870207428932,
+        "similarity_score": 0.5422398447990417,
+        "citation_text_length": 1195,
         "dataset_text_length": 2351,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -508,7 +538,7 @@
     },
     {
       "title": "PRiSE-EEG: A Prior-Guided Foundation Model with Depth-Stratified Experts for Cross-Paradigm EEG Representation Learning",
-      "author": "Wei Xiong, Jiangtong Li, Kun Zhu, Jie Li, Chang-Jun Jiang",
+      "author": "Wei Xiong, Jiang-Tong Li, Kun Zhu, Jie Li, Chang-Jun Jiang",
       "venue": "n/a",
       "year": 2026,
       "url": "n/a",
@@ -521,9 +551,9 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5423098191618919,
-        "similarity_score": 0.469532310962677,
-        "citation_text_length": 1218,
+        "confidence_score": 0.5411058175563813,
+        "similarity_score": 0.4684898853302002,
+        "citation_text_length": 1219,
         "dataset_text_length": 2351,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -597,21 +627,46 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "What masking geometry works best for EEG foundation models?",
+      "author": "Pierre Guetschel, Bruno Aristimunha, Yassine El Ouahidi, Arnaud Delorme A, Thomas Moreau, Michael Tangermann",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2609.33487",
+      "cited_by": 0,
+      "abstract": "EEG foundation models hold promise for scalable brain-signal decoding across clinical and cognitive neuroscience applications, yet their pre-training pipelines remain poorly understood. Among design choices, the masking strategy is particularly critical: it determines what the network must predict and from which context. Yet it has never been ablated in isolation, as each new model bundles a new masking strategy with a new backbone and objective. In this paper, we formalize the design choices for spatio-temporal masking strategies and train various models with a single pipeline under varying masking configurations across two SSL frameworks (MAE and JEPA). We then systematically evaluate the resulting 58 pre-trained models on the 12 datasets of OpenEEGBench under a linear probe. Both frameworks agree on an optimal masking configuration and on shared failure modes. Outside these, performance is robust: 11 MAE and 9 JEPA configurations are statistically indistinguishable from the best. We further identify a novel JEPA-specific failure mode, tagged bias-inflation collapse, invisible to standard detectors. With a well-chosen mask, our pipeline reaches REVE-level downstream performance at a fraction of REVE's pre-training compute.",
+      "doi": "10.48550/arxiv.2609.33487",
+      "pmid": null,
+      "openalex_id": "W7214740814",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds005507",
+      "confidence_scoring": {
+        "confidence_score": 0.47926189541816716,
+        "similarity_score": 0.4149453639984131,
+        "citation_text_length": 1476,
+        "dataset_text_length": 2351,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-10-11T11:37:13.608237+00:00",
+    "scoring_date": "2026-10-24T11:32:23.849593+00:00",
     "dataset_text_length": 2351,
-    "num_citations_scored": 22,
+    "num_citations_scored": 24,
     "summary_stats": {
-      "mean_confidence": 0.585509922822768,
+      "mean_confidence": 0.5827318006940186,
       "median_confidence": 0.5797284080833197,
-      "std_confidence": 0.07531104513021669,
+      "std_confidence": 0.07573259892492963,
       "min_confidence": 0.38318409562110906,
       "max_confidence": 0.7140103340148926,
       "high_confidence_count": 3,
-      "medium_confidence_count": 18,
+      "medium_confidence_count": 20,
       "low_confidence_count": 1
     }
   }

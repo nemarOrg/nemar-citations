@@ -1,0 +1,72 @@
+{
+  "dataset_id": "nm000305",
+  "date_retrieved": "2026-10-12T10:02:13.432417+00:00",
+  "dataset_description": {
+    "Name": "NETBCI2026: NETBCI: longitudinal right-hand motor imagery vs rest BCI training",
+    "BIDSVersion": "1.9.0",
+    "HEDVersion": "8.4.0",
+    "DatasetType": "derivative",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "Marie-Constance Corsi",
+      "Christophe Gitton",
+      "Juliana Gonzalez-Astudillo",
+      "Ari E. Kahn",
+      "Laurent Hugueville",
+      "Denis Schwartz",
+      "Nathalie George",
+      "Mario Chavez",
+      "Sophie Dupont",
+      "Danielle S. Bassett",
+      "Fabrizio De Vico Fallani"
+    ],
+    "EthicsApprovals": [
+      "CPP-IDF-VI of Paris, 2016-A00626-45"
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.57745/RBJRC7"
+    ],
+    "Keywords": [
+      "Healthy",
+      "Motor",
+      "Motor Imagery",
+      "imagery",
+      "motor_control",
+      "neurofeedback"
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000305",
+    "GeneratedBy": [
+      {
+        "CodeURL": "https://github.com/NeuroTechX/moabb",
+        "Name": "moabb",
+        "Description": "Mother of All BCI Benchmarks",
+        "Version": "1.8.0dev0"
+      }
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "10.1038/s41597-026-08237-5",
+        "URL": "https://doi.org/10.57745/RBJRC7"
+      },
+      {
+        "DOI": "doi:10.1038/s41597-026-08237-5"
+      }
+    ],
+    "PublicationYear": 2026,
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000305-blue)](https://doi.org/10.82901/nemar.nm000305)\n\nNETBCI2026\n==========\n\nNETBCI: longitudinal right-hand motor imagery vs rest BCI training [1]_.\n\nDataset Overview\n----------------\n  Code: NETBCI2026\n  Paradigm: imagery\n  DOI: 10.1038/s41597-026-08237-5\n  Subjects: 19\n  Sessions per subject: 4\n  Events: right_hand=1, rest=2\n  Trial interval: [0, 5] s\n  Runs per session: 6\n  File format: BrainVision (BIDS)\n\nAcquisition\n-----------\n  Sampling rate: 250.0 Hz\n  Number of channels: 74\n  Channel types: eeg=74\n  Montage: standard_1005\n  Hardware: Easycap 74-channel passive Ag/AgCl EEG amplified by the MEGIN TRIUX MEG acquisition system (102 magnetometers, 204 gradiometers)\n  Software: BCI2000\n  Reference: mastoids\n  Ground: left scapula\n  Line frequency: 50.0 Hz\n  Impedance threshold: 20.0 kOhm\n  Cap manufacturer: Easycap\n  Electrode type: passive\n  Electrode material: Ag/AgCl\n\nParticipants\n------------\n  Number of subjects: 19\n  Health status: healthy\n  Age: mean=27.47, std=4.07, min=19.0, max=35.0\n  Gender distribution: female=7, male=12\n  Handedness: right-handed\n  Species: human\n\nExperimental Protocol\n---------------------\n  Paradigm: imagery\n  Number of classes: 2\n  Class labels: right_hand, rest\n  Trial duration: 6.0 s\n  Study design: Longitudinal BCI training: 4 sessions on 4 days. One-dimensional two-target box task; up target = sustained right-hand grasping motor imagery, down target = rest. Trial: 1 s ISI then 5 s target presentation with cursor feedback from 3 to 6 s. 6 feedback runs per session, 32 trials per run in the protocol.\n  Feedback type: visual cursor\n  Stimulus type: visual target\n  Stimulus modalities: visual\n  Primary modality: visual\n  Synchronicity: synchronous\n  Mode: online\n\nHED Event Annotations\n---------------------\n  Schema: HED 8.4.0 | Browse: https://www.hedtags.org/hed-schema-browser\n\n  right_hand\n    ├─ Sensory-event, Experimental-stimulus, Visual-presentation\n    └─ Agent-action\n       └─ Imagine\n          ├─ Move\n          └─ Right, Hand\n\n  rest\n    ├─ Sensory-event\n    ├─ Experimental-stimulus\n    ├─ Visual-presentation\n    └─ Rest\n\nParadigm-Specific Parameters\n----------------------------\n  Detected paradigm: motor_imagery\n  Imagery tasks: right_hand, rest\n  Cue duration: 5.0 s\n  Imagery duration: 5.0 s\n\nData Structure\n--------------\n  Trials: 14431\n  Trials per class: right_hand=7224, rest=7207\n  Trials context: 6 online feedback runs per session x 4 sessions; the protocol has 32 trials per run (16 per class); the released events hold the authors' checked trials: 375/456 runs keep 32, the rest 29-31 (357-384 trials per class per subject, 14,431 in total).\n\nCross-Validation\n----------------\n  Method: cross-session\n  Evaluation type: within_subject, cross_session\n\nBCI Application\n---------------\n  Applications: motor_control, neurofeedback\n  Environment: laboratory\n  Online feedback: True\n\nTags\n----\n  Pathology: Healthy\n  Modality: Motor\n  Type: Motor Imagery\n\nDocumentation\n-------------\n  DOI: 10.1038/s41597-026-08237-5\n  License: CC-BY-4.0\n  Investigators: Marie-Constance Corsi, Christophe Gitton, Juliana Gonzalez-Astudillo, Ari E. Kahn, Laurent Hugueville, Denis Schwartz, Nathalie George, Mario Chavez, Sophie Dupont, Danielle S. Bassett, Fabrizio De Vico Fallani\n  Senior author: Fabrizio De Vico Fallani\n  Institution: Paris Brain Institute (ICM)\n  Country: FR\n  Repository: Recherche Data Gouv\n  Data URL: https://doi.org/10.57745/RBJRC7\n  Publication year: 2026\n  Ethics approval: CPP-IDF-VI of Paris, 2016-A00626-45\n\nReferences\n----------\nCorsi, M.-C., Gitton, C., Gonzalez-Astudillo, J., Kahn, A. E., Hugueville, L., Schwartz, D., George, N., Chavez, M., Dupont, S., Bassett, D. S., & De Vico Fallani, F. (2026). Understanding Brain-Computer Interfaces training: a longitudinal and multimodal dataset. Scientific Data. https://doi.org/10.1038/s41597-026-08237-5\nAppelhoff, S., Sanderson, M., Brooks, T., Vliet, M., Quentin, R., Holdgraf, C., Chaumon, M., Mikulan, E., Tavabi, K., Hochenberger, R., Welke, D., Brunner, C., Rockhill, A., Larson, E., Gramfort, A. and Jas, M. (2019). MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis. Journal of Open Source Software 4: (1896). https://doi.org/10.21105/joss.01896\n\nPernet, C. R., Appelhoff, S., Gorgolewski, K. J., Flandin, G., Phillips, C., Delorme, A., Oostenveld, R. (2019). EEG-BIDS, an extension to the brain imaging data structure for electroencephalography. Scientific Data, 6, 103. https://doi.org/10.1038/s41597-019-0104-8\n\n---\nGenerated by MOABB 1.8.0dev0 (Mother of All BCI Benchmarks)\nhttps://github.com/NeuroTechX/moabb\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000305",
+    "exists": true,
+    "description": "NETBCI2026: NETBCI: longitudinal right-hand motor imagery vs rest BCI training",
+    "created_at": "2026-10-04T15:55:51+00:00",
+    "updated_at": "2026-10-11T03:08:40+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

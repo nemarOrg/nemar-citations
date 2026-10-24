@@ -1,0 +1,67 @@
+{
+  "dataset_id": "nm000328",
+  "date_retrieved": "2026-10-12T10:03:13.254008+00:00",
+  "dataset_description": {
+    "Name": "MILimbEEG: Motor and motor-imagery limb EEG dataset (MILimbEEG)",
+    "BIDSVersion": "1.9.0",
+    "HEDVersion": "8.4.0",
+    "DatasetType": "derivative",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "Victor Asanza",
+      "Daniel Montoya",
+      "Leandro L. Lorente-Leyva",
+      "Diego H. Peluffo-Ordonez",
+      "Kleber Gonzalez"
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.17632/x8psbz3f6x.2"
+    ],
+    "Keywords": [
+      "motor imagery",
+      "motor execution",
+      "EEG",
+      "brain-computer interface",
+      "upper limb",
+      "lower limb",
+      "OpenBCI"
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000328",
+    "GeneratedBy": [
+      {
+        "CodeURL": "https://github.com/NeuroTechX/moabb",
+        "Name": "moabb",
+        "Description": "Mother of All BCI Benchmarks",
+        "Version": "1.8.0dev0"
+      }
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "10.1016/j.dib.2023.109540",
+        "URL": "https://doi.org/10.17632/x8psbz3f6x.2"
+      },
+      {
+        "DOI": "doi:10.1016/j.dib.2023.109540"
+      }
+    ],
+    "PublicationYear": 2023,
+    "EthicsApprovals": [
+      "Approved by the Institutional Review Board (IRB) of the Smart Data Analysis Systems Group (SDAS Group) (meeting minutes IBR-SG-2022-001). All procedures were in accordance with the ethical standards of the institutional/national research committee and with the 1964 Declaration of Helsinki, and informed consent was obtained from all participants (Asanza et al. 2023, Data in Brief 49:109540, DOI 10.1016/j.dib.2023.109540)."
+    ],
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000328-blue)](https://doi.org/10.82901/nemar.nm000328)\n\nMILimbEEG\n=========\n\nMotor and motor-imagery limb EEG dataset (MILimbEEG) [1]_ [2]_.\n\nDataset Overview\n----------------\n  Code: MILimbEEG\n  Paradigm: imagery\n  DOI: 10.1016/j.dib.2023.109540\n  Subjects: 60\n  Sessions per subject: 1\n  Events: beo=1, clh=2, crh=3, dlf=4, plf=5, drf=6, prf=7, rest=8\n  Trial interval: [0.0, 3.992] s\n  File format: CSV\n  Contributing labs: ESPOL, Hospital General Luis Vernaza\n\nAcquisition\n-----------\n  Sampling rate: 125.0 Hz\n  Number of channels: 16\n  Channel types: eeg=16\n  Channel names: FC5, F3, Fz, F4, FC6, FC1, FC2, Cz, T7, CP5, C3, CP1, CP2, C4, CP6, T8\n  Montage: 10-10\n  Hardware: OpenBCI Cyton+Daisy\n  Reference: neutral ear (monopolar)\n  Sensor type: dry\n  Line frequency: 60.0 Hz\n  Electrode type: dry\n\nParticipants\n------------\n  Number of subjects: 60\n  Health status: mixed\n  Clinical population: mostly healthy; 2 amputees (both upper limbs; right lower limb below the knee), 1 hydrocephalus after ventricular infarct, 18 post-COVID-19\n  Age: mean=36.0\n  Gender distribution: female=31, male=29\n  Handedness: {'right': 57, 'left': 3}\n\nExperimental Protocol\n---------------------\n  Paradigm: imagery\n  Number of classes: 8\n  Class labels: beo, clh, crh, dlf, plf, drf, prf, rest\n  Trial duration: 4.0 s\n  Study design: Upper- and lower-limb motor execution and motor imagery. Per repetition, participants first performed then imagined hand closing (left/right) and foot flexion (dorsal/plantar, left/right), with a baseline-eyes-open and rest periods.\n  Feedback type: none\n  Stimulus type: visual\n  Stimulus modalities: visual\n  Synchronicity: cue-based\n  Mode: offline\n\nHED Event Annotations\n---------------------\n  Schema: HED 8.4.0 | Browse: https://www.hedtags.org/hed-schema-browser\n\n  rest\n    ├─ Sensory-event\n    ├─ Experimental-stimulus\n    ├─ Visual-presentation\n    └─ Rest\n\n  beo\n    ├─ Sensory-event\n    └─ Label/beo\n\n  clh\n    ├─ Sensory-event\n    └─ Label/clh\n\n  crh\n    ├─ Sensory-event\n    └─ Label/crh\n\n  dlf\n    ├─ Sensory-event\n    └─ Label/dlf\n\n  plf\n    ├─ Sensory-event\n    └─ Label/plf\n\n  drf\n    ├─ Sensory-event\n    └─ Label/drf\n\n  prf\n    ├─ Sensory-event\n    └─ Label/prf\n\nParadigm-Specific Parameters\n----------------------------\n  Detected paradigm: motor_imagery\n  Imagery tasks: beo, clh, crh, dlf, plf, drf, prf, rest\n  Imagery duration: 4.0 s\n\nData Structure\n--------------\n  Trials context: Per repetition and per activity type (execution/imagery): 1 baseline-eyes-open, 5 trials each of 6 limb movements, and 31 rest trials (62 files); only the imagery files are loaded here.\n\nPreprocessing\n-------------\n  Data state: raw\n  Preprocessing applied: True\n  Steps: hardware band-pass 5-50 Hz, 60 Hz notch\n  Highpass filter: 5.0 Hz\n  Lowpass filter: 50.0 Hz\n  Bandpass filter: [5.0, 50.0]\n\nTags\n----\n  Pathology: mixed\n  Modality: Motor\n  Type: Motor Imagery\n\nDocumentation\n-------------\n  Description: Over 8,680 four-second EEG recordings from 60 volunteers performing and imagining upper- and lower-limb movements, recorded with a 16-channel OpenBCI Cyton+Daisy at 125 Hz.\n  DOI: 10.1016/j.dib.2023.109540\n  License: CC-BY-4.0\n  Investigators: Victor Asanza, Daniel Montoya, Leandro L. Lorente-Leyva, Diego H. Peluffo-Ordonez, Kleber Gonzalez\n  Institution: Escuela Superior Politecnica del Litoral (ESPOL)\n  Country: EC\n  Repository: Mendeley Data\n  Data URL: https://doi.org/10.17632/x8psbz3f6x.2\n  Publication year: 2023\n  Keywords: motor imagery, motor execution, EEG, brain-computer interface, upper limb, lower limb, OpenBCI\n\nReferences\n----------\nAsanza, V., Montoya, D., Lorente-Leyva, L. L., Peluffo-Ordonez, D. H., & Gonzalez, K. (2023). MILimbEEG: A dataset of EEG signals related to upper and lower limb execution of motor and motor imagery tasks. Data in Brief, 50, 109540. DOI: https://doi.org/10.1016/j.dib.2023.109540\n\nAsanza, V., Montoya, D., Lorente-Leyva, L. L., Peluffo-Ordonez, D. H., & Gonzalez, K. (2022). MILimbEEG. Mendeley Data, V2. DOI: https://doi.org/10.17632/x8psbz3f6x.2\n\nNotes\n\n.. versionadded:: 1.2.1\nAppelhoff, S., Sanderson, M., Brooks, T., Vliet, M., Quentin, R., Holdgraf, C., Chaumon, M., Mikulan, E., Tavabi, K., Hochenberger, R., Welke, D., Brunner, C., Rockhill, A., Larson, E., Gramfort, A. and Jas, M. (2019). MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis. Journal of Open Source Software 4: (1896). https://doi.org/10.21105/joss.01896\n\nPernet, C. R., Appelhoff, S., Gorgolewski, K. J., Flandin, G., Phillips, C., Delorme, A., Oostenveld, R. (2019). EEG-BIDS, an extension to the brain imaging data structure for electroencephalography. Scientific Data, 6, 103. https://doi.org/10.1038/s41597-019-0104-8\n\n---\nGenerated by MOABB 1.8.0dev0 (Mother of All BCI Benchmarks)\nhttps://github.com/NeuroTechX/moabb\n\nEthics\n------\nEthics approval: the data analysed in this deposit were collected under the\nethics approval obtained by the original investigators and reported in the\nprimary publication cited above (see References/Documentation sections of\nthis README). Participants gave informed consent in the source study. No\nnew human-subject data were collected during this BIDS re-release; this\nNEMAR record only reformats the published source data into BIDS via MOABB.\nPlease consult the primary publication for the exact IRB/ethics committee\nreference.\n\n## Ethics\n\nApproved by the Institutional Review Board (IRB) of the Smart Data Analysis Systems Group (SDAS Group) (meeting minutes IBR-SG-2022-001). All procedures were in accordance with the ethical standards of the institutional/national research committee and with the 1964 Declaration of Helsinki, and informed consent was obtained from all participants (Asanza et al. 2023, Data in Brief 49:109540, DOI 10.1016/j.dib.2023.109540).\n\nVerbatim from the source:\n\n> All procedures performed in this study involving human participants were in accordance with the ethical standards of the institutional and/or national research committee and with the 1964 Helsinki declaration and its later amendments or comparable ethical standards, informed consent was obtained from all individual participants involved in this study ... An application form for ethics approval alongside with the corresponding supporting documents was timely submitted by the authors and subsequently approved by the Institutional Review Board (IRB) of the Smart Data Analysis Systems Group (Meeting minutes IBR-SG-2022-001).\n\nSource: cached paper .paper-audit/MILimbEEG/paper-10_1016_j_dib_2023_109540.txt (Asanza et al. 2023, Data in Brief 49:109540, DOI 10.1016/j.dib.2023.109540).\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000328",
+    "exists": true,
+    "description": "MILimbEEG: Motor and motor-imagery limb EEG dataset (MILimbEEG)",
+    "created_at": "2026-10-04T18:48:02+00:00",
+    "updated_at": "2026-10-08T03:01:27+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

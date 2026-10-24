@@ -1,0 +1,63 @@
+{
+  "dataset_id": "nm000325",
+  "date_retrieved": "2026-10-12T10:03:05.833384+00:00",
+  "dataset_description": {
+    "Name": "Wang2025: Four-class motor imagery dataset (ZJU-MI-EEG / MI4)",
+    "BIDSVersion": "1.9.0",
+    "HEDVersion": "8.4.0",
+    "DatasetType": "derivative",
+    "License": "ODC-BY",
+    "Authors": [
+      "Jiaheng Wang",
+      "Lin Yao",
+      "Yueming Wang"
+    ],
+    "ReferencesAndLinks": [
+      "https://huggingface.co/datasets/Jiaheng-Wang/ZJU-MI-EEG"
+    ],
+    "Keywords": [
+      "motor imagery",
+      "BCI",
+      "brain-computer interface",
+      "EEG",
+      "four-class"
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000325",
+    "GeneratedBy": [
+      {
+        "CodeURL": "https://github.com/NeuroTechX/moabb",
+        "Name": "moabb",
+        "Description": "Mother of All BCI Benchmarks",
+        "Version": "1.8.0dev0"
+      }
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "10.1109/TNSRE.2025.3591254",
+        "URL": "https://huggingface.co/datasets/Jiaheng-Wang/ZJU-MI-EEG"
+      },
+      {
+        "DOI": "doi:10.1109/TNSRE.2025.3591254"
+      }
+    ],
+    "PublicationYear": 2025,
+    "EthicsApprovals": [
+      "See the primary publication cited in the README/ReferencesAndLinks for the ethics approval statement obtained by the original investigators; no new human-subject data were collected for this BIDS re-release."
+    ],
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000325-blue)](https://doi.org/10.82901/nemar.nm000325)\n\nWang2025\n========\n\nFour-class motor imagery dataset (ZJU-MI-EEG / MI4) [1]_.\n\nDataset Overview\n----------------\n  Code: Wang2025\n  Paradigm: imagery\n  DOI: 10.1109/TNSRE.2025.3591254\n  Subjects: 15\n  Sessions per subject: 2\n  Events: left_hand=1, right_hand=2, tongue=3, feet=4\n  Trial interval: [0, 3.99609375] s\n  Runs per session: 2\n  File format: MAT\n\nAcquisition\n-----------\n  Sampling rate: 256.0 Hz\n  Number of channels: 62\n  Channel types: eeg=62\n  Channel names: Fp1, Fpz, Fp2, AF7, AF3, AF4, AF8, F7, F5, F3, F1, Fz, F2, F4, F6, F8, FT7, FC5, FC3, FC1, FCz, FC2, FC4, FC6, FT8, T7, C5, C3, C1, Cz, C2, C4, C6, T8, TP7, CP5, CP3, CP1, CPz, CP2, CP4, CP6, TP8, P7, P5, P3, P1, Pz, P2, P4, P6, P8, PO7, PO3, POz, PO4, PO8, O1, Oz, O2, F9, F10\n  Montage: 10-10\n  Hardware: g.USBamp (g.tec medical engineering, Austria), 62 channels\n  Line frequency: 50.0 Hz\n  Online filters: 0.1 Hz high-pass\n\nParticipants\n------------\n  Number of subjects: 15\n  Health status: healthy\n  Age: mean=24.0, std=5.1\n  Gender distribution: male=12, female=3\n  BCI experience: 10 BCI-naive; 5 without online BCI experience\n\nExperimental Protocol\n---------------------\n  Paradigm: imagery\n  Number of classes: 4\n  Class labels: left_hand, right_hand, tongue, feet\n  Trial duration: 4.0 s\n  Trials per class: left_hand=200, right_hand=200, tongue=200, feet=200\n  Study design: Cued four-class motor imagery (left hand, right hand, tongue, both feet) over two days, each with a 240-trial calibration run and a 160-trial online feedback run.\n  Feedback type: visual\n  Stimulus type: visual\n  Synchronicity: cue-based\n  Mode: online\n  Training/test split: True\n\nHED Event Annotations\n---------------------\n  Schema: HED 8.4.0 | Browse: https://www.hedtags.org/hed-schema-browser\n\n  left_hand\n    ├─ Sensory-event, Experimental-stimulus, Visual-presentation\n    └─ Agent-action\n       └─ Imagine\n          ├─ Move\n          └─ Left, Hand\n\n  right_hand\n    ├─ Sensory-event, Experimental-stimulus, Visual-presentation\n    └─ Agent-action\n       └─ Imagine\n          ├─ Move\n          └─ Right, Hand\n\n  tongue\n    ├─ Sensory-event, Experimental-stimulus, Visual-presentation\n    └─ Agent-action\n       └─ Imagine, Move, Tongue\n\n  feet\n    ├─ Sensory-event, Experimental-stimulus, Visual-presentation\n    └─ Agent-action\n       └─ Imagine, Move, Foot\n\nParadigm-Specific Parameters\n----------------------------\n  Detected paradigm: motor_imagery\n  Imagery tasks: left_hand, right_hand, tongue, feet\n  Imagery duration: 4.0 s\n\nTags\n----\n  Pathology: healthy\n  Modality: Motor\n  Type: Motor Imagery\n\nDocumentation\n-------------\n  Description: Four-class motor imagery EEG from 15 healthy subjects (left hand, right hand, tongue, both feet) recorded with 62 channels at 256 Hz over two days of calibration and online feedback sessions.\n  DOI: 10.1109/TNSRE.2025.3591254\n  License: ODC-BY\n  Investigators: Jiaheng Wang, Lin Yao, Yueming Wang\n  Institution: Zhejiang University\n  Country: CN\n  Repository: Hugging Face\n  Data URL: https://huggingface.co/datasets/Jiaheng-Wang/ZJU-MI-EEG\n  Publication year: 2025\n  Keywords: motor imagery, BCI, brain-computer interface, EEG, four-class\n\nReferences\n----------\nWang, J., Yao, L., and Wang, Y. (2025). Enhanced Online Continuous Brain-Control by Deep Learning-Based EEG Decoding. IEEE Transactions on Neural Systems and Rehabilitation Engineering, 33, 2834-2846. DOI: 10.1109/TNSRE.2025.3591254\n\nNotes\n\n.. versionadded:: 1.8\nAppelhoff, S., Sanderson, M., Brooks, T., Vliet, M., Quentin, R., Holdgraf, C., Chaumon, M., Mikulan, E., Tavabi, K., Hochenberger, R., Welke, D., Brunner, C., Rockhill, A., Larson, E., Gramfort, A. and Jas, M. (2019). MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis. Journal of Open Source Software 4: (1896). https://doi.org/10.21105/joss.01896\n\nPernet, C. R., Appelhoff, S., Gorgolewski, K. J., Flandin, G., Phillips, C., Delorme, A., Oostenveld, R. (2019). EEG-BIDS, an extension to the brain imaging data structure for electroencephalography. Scientific Data, 6, 103. https://doi.org/10.1038/s41597-019-0104-8\n\n---\nGenerated by MOABB 1.8.0dev0 (Mother of All BCI Benchmarks)\nhttps://github.com/NeuroTechX/moabb\n\nEthics\n------\nEthics approval: the data analysed in this deposit were collected under the\nethics approval obtained by the original investigators and reported in the\nprimary publication cited above (see References/Documentation sections of\nthis README). Participants gave informed consent in the source study. No\nnew human-subject data were collected during this BIDS re-release; this\nNEMAR record only reformats the published source data into BIDS via MOABB.\nPlease consult the primary publication for the exact IRB/ethics committee\nreference.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000325",
+    "exists": true,
+    "description": "Wang2025: Four-class motor imagery dataset (ZJU-MI-EEG / MI4)",
+    "created_at": "2026-10-04T18:29:31+00:00",
+    "updated_at": "2026-10-12T03:00:38+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

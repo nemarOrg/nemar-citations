@@ -1,7 +1,7 @@
 {
   "dataset_id": "on005189",
-  "num_citations": 0,
-  "date_last_updated": "2026-10-11T11:01:11.139829+00:00",
+  "num_citations": 3,
+  "date_last_updated": "2026-10-24T11:15:02.348768+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
     "fetch_date": "2026-10-11T11:01:11.139829+00:00",
@@ -40,13 +40,106 @@
       "Memory"
     ],
     "methods_description": "Participants performed a visual search task on some scenes and an intentional memorization task on others while EEG and eye movements were recorded. A surprise recognition memory test with remember-know judgments followed. Behavioral data are provided separately for encoding (Encode_beh) and testing (Test_beh).",
-    "funding": []
+    "funding": [],
+    "searched_accessions": [
+      "on005189",
+      "ds005189"
+    ],
+    "num_accession_mentions": 3,
+    "num_dataset_citations": 3,
+    "num_datapaper_citations": 0
   },
-  "citation_details": [],
+  "citation_details": [
+    {
+      "title": "What masking geometry works best for EEG foundation models?",
+      "author": "Pierre Guetschel, Bruno Aristimunha, Yassine El Ouahidi, Arnaud Delorme A, Thomas Moreau, Michael Tangermann",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2609.33487",
+      "cited_by": 0,
+      "abstract": "EEG foundation models hold promise for scalable brain-signal decoding across clinical and cognitive neuroscience applications, yet their pre-training pipelines remain poorly understood. Among design choices, the masking strategy is particularly critical: it determines what the network must predict and from which context. Yet it has never been ablated in isolation, as each new model bundles a new masking strategy with a new backbone and objective. In this paper, we formalize the design choices for spatio-temporal masking strategies and train various models with a single pipeline under varying masking configurations across two SSL frameworks (MAE and JEPA). We then systematically evaluate the resulting 58 pre-trained models on the 12 datasets of OpenEEGBench under a linear probe. Both frameworks agree on an optimal masking configuration and on shared failure modes. Outside these, performance is robust: 11 MAE and 9 JEPA configurations are statistically indistinguishable from the best. We further identify a novel JEPA-specific failure mode, tagged bias-inflation collapse, invisible to standard detectors. With a well-chosen mask, our pipeline reaches REVE-level downstream performance at a fraction of REVE's pre-training compute.",
+      "doi": "10.48550/arxiv.2609.33487",
+      "pmid": null,
+      "openalex_id": "W7214740814",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds005189",
+      "confidence_scoring": {
+        "confidence_score": 0.4327963417768479,
+        "similarity_score": 0.3747154474258423,
+        "citation_text_length": 1476,
+        "dataset_text_length": 2249,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Predicting Cognitive Tasks from Single-Channel EEG through Task-Semantic Alignment",
+      "author": "Ryota Kanai C",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2610.15104",
+      "cited_by": 0,
+      "abstract": "Studies of data scaling in electroencephalography (EEG) and related noninvasive recordings suggest that simple wearable devices could eventually reveal more about cognitive states. However, publicly available EEG data are difficult to combine. Different laboratories record different tasks, participants, and devices. Task-agnostic self-supervised learning can exploit such data, but representations learned only with EEG signals have not consistently produced feature representations that are directly effective for decoding the cognitive state. We therefore aimed to incorporate task information by embedding experimental instructions, stimuli and response demands in a common semantic space, and trained an EEG encoder to align signals from a single anterior--posterior differential channel with those task vectors. This framework supports zero-shot prediction without target-condition calibration and few-shot prediction using labeled samples. On a reserved ten-class evaluation, the highest observed zero-shot balanced accuracy was 30.13% (chance 10%). In a separate developmental few-shot experiment, balanced accuracy reached 34.47% using 16 labeled EEG examples per class from another participant, and 74.99% using examples from the test participant's own task recording. Our experiments suggest that training models on datasets with multiple tasks per participant appeared useful, whereas adding datasets containing only one or a few tasks sometimes reduced established performance despite broader task coverage. These exploratory results suggest that EEG datasets that repeat varied cognitive tasks and everyday activities within the same individuals across days, devices and independent studies would be particularly useful for training an EEG foundation model for predicting cognitive states.",
+      "doi": "10.48550/arxiv.2610.15104",
+      "pmid": null,
+      "openalex_id": "W7221793578",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds005189",
+      "confidence_scoring": {
+        "confidence_score": 0.49723703563213356,
+        "similarity_score": 0.43050825595855713,
+        "citation_text_length": 1660,
+        "dataset_text_length": 2249,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Incidental encoding of objects during search is stronger than intentional memorization due to increased recollection rather than familiarity",
+      "author": "Melissa L.‐H. Võ, Dejan Draschkow, Jason Helbing",
+      "venue": "OSF Preprints (OSF Preprints)",
+      "year": 2026,
+      "url": "https://openalex.org/W7127214436",
+      "cited_by": 0,
+      "abstract": "Repository for \"Incidental encoding of objects during search is stronger than intentional memorization due to increased recollection rather than familiarity\" (Helbing, Draschkow, & Võ, 2025, Journal of Cognitive Neuroscience, https://doi.org/10.1162/jocn.a.80). Contains data analysis resources (preprocessed data and analysis script, EEG and ROC preprocessing scripts) and experimental materials (script implemented to run the experiment, participant instructions, stimuli). Raw EEG, eye tracking, and behavioral data are stored in an OpenNeuro repository at https://openneuro.org/datasets/ds005189.",
+      "doi": null,
+      "pmid": null,
+      "openalex_id": "W7127214436",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds005189",
+      "confidence_scoring": {
+        "confidence_score": 0.9535864824056626,
+        "similarity_score": 0.8256160020828247,
+        "citation_text_length": 856,
+        "dataset_text_length": 2249,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    }
+  ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-10-11T11:35:57.213183+00:00",
+    "scoring_date": "2026-10-24T11:31:34.289138+00:00",
     "dataset_text_length": 2249,
-    "num_citations_scored": 0
+    "num_citations_scored": 3,
+    "summary_stats": {
+      "mean_confidence": 0.6278732866048814,
+      "median_confidence": 0.49723703563213356,
+      "std_confidence": 0.2318116551501904,
+      "min_confidence": 0.4327963417768479,
+      "max_confidence": 0.9535864824056626,
+      "high_confidence_count": 1,
+      "medium_confidence_count": 2,
+      "low_confidence_count": 0
+    }
   }
 }

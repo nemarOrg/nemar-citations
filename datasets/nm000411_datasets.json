@@ -1,0 +1,57 @@
+{
+  "dataset_id": "nm000411",
+  "date_retrieved": "2026-10-12T10:06:19.912228+00:00",
+  "dataset_description": {
+    "Name": "BrainQuake example SEEG data: ictal and interictal stereo-EEG from 8 epilepsy patients (Tsinghua Yuquan Hospital)",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "raw",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "Kang Wang"
+    ],
+    "Acknowledgements": "Data released by Kang Wang (Department of Biomedical Engineering, School of Medicine, Tsinghua University) as Zenodo record 10.5281/zenodo.5675459. Data were collected by Haixiang Wang and Wenjing Zhou (Epilepsy Center, Tsinghua Yuquan Hospital) according to Cai et al. (2022). Reorganised into iEEG-BIDS without signal processing for NEMAR.",
+    "HowToAcknowledge": "Please cite Cai F, Wang K, Zhao T, Wang H, Zhou W, Hong B (2022) BrainQuake: An Open-Source Python Toolbox for the Stereoelectroencephalography Spatiotemporal Analysis. Front. Neuroinform. 15:773890, doi:10.3389/fninf.2021.773890, and the data record doi:10.5281/zenodo.5675459.",
+    "Funding": [
+      "National Key R&D Program of China (2017YFA0205904 to Bo Hong)"
+    ],
+    "EthicsApprovals": [
+      "Ethics Committee of Tsinghua Yuquan Hospital, Beijing, China (as stated in Cai et al. 2022)"
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.3389/fninf.2021.773890",
+      "https://doi.org/10.5281/zenodo.5675459",
+      "https://doi.org/10.5281/zenodo.5494990",
+      "https://github.com/HongLabTHU/Brainquake",
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC8782204/"
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.5281/zenodo.5675459",
+        "URL": "https://zenodo.org/records/5675459",
+        "Version": "published 2021-11-11"
+      }
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "b3w1_convert_brainquake.py (ieeg-nemar-20261005 campaign, batch 3)",
+        "Description": "File copy and BIDS sidecars only; EDF files are byte-identical to the release."
+      }
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000411",
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000411-blue)](https://doi.org/10.82901/nemar.nm000411)\n\n# BrainQuake example SEEG data (Tsinghua Yuquan Hospital)\n\nStereo-EEG (SEEG) recordings from 8 patients with drug-resistant epilepsy, released by Kang Wang\n(Tsinghua University) as the example data of the BrainQuake toolbox:\n\n> Cai F, Wang K, Zhao T, Wang H, Zhou W, Hong B (2022). BrainQuake: An Open-Source Python Toolbox for the\n> Stereoelectroencephalography Spatiotemporal Analysis. *Frontiers in Neuroinformatics* 15:773890.\n> https://doi.org/10.3389/fninf.2021.773890\n\nSource record: Zenodo https://doi.org/10.5281/zenodo.5675459 (\"SEEG, MRI, CT for BrainQuake analysis\",\nCC-BY-4.0, published 2021-11-11; this is the record cited in the paper's data availability statement).\nAn earlier Zenodo upload with the same title, https://doi.org/10.5281/zenodo.5494990 (2021-09-09), holds 5 of\nthese patients with the same ictal EDF files (identical MD5) and 5-minute interictal clips; this BIDS dataset\nuses the later, larger record. The MD5 comparison is in `sourcedata/zenodo-5675459/b3w1_provenance.json`.\n\n## Contents\n\n- `sub-01` … `sub-08` (source labels S1 … S8, see `participants.tsv`).\n- `task-ictal`: 71-s seizure clip per patient exported by the authors for the BrainQuake ictal module\n  (Epileptogenicity Index). The release does not annotate the seizure onset time within the clip.\n- `task-interictal`: interictal segment (up to about 2 h per patient) exported for the interictal module\n  (high-frequency events / HFO detection).\n- Sampling rate 2000 Hz, physical unit µV, SEEG depth electrodes. Channel labels are kept as released: the ictal clips\n  use plain contact names (`A1`, `A'1`), the interictal files use the acquisition system's labels (`POL A3`,\n  `EEG A1-Ref`, ...), so the same contact can carry different labels in the two tasks. The interictal files also contain\n  `POL ECG`, `POL EMG1`, `POL EMG2` (typed ECG/EMG), `POL E` and `POL DC10` (typed MISC; meaning not documented).\n  EDF header prefilter field of the ictal clips: `0.0Hz - 1000.0`. Reference and amplifier are not documented.\n- The interictal files are EDF+D (discontinuous; `RecordingType` = `discontinuous`). EDF+ annotations (clinical marks\n  such as `IID`, `EEG Onset`, `SZ5`, `asleep`, and a few Chinese-language notes, kept verbatim) are listed in\n  `*_events.tsv`.\n- Per the paper: recordings were made at the Epilepsy Center of Tsinghua Yuquan Hospital (Beijing) during\n  about two weeks of pre-surgical monitoring; MRI was acquired before and CT after implantation; the study was\n  approved by the hospital's ethics committee.\n\n## Processing\n\nNo signal processing. The ictal EDF files are copied byte-for-byte from the release. In each interictal EDF file the\nfirst EDF+ annotation (`Segment: REC START ...`) contained the patient's name; that text was overwritten with `X`\ncharacters of the same length. Nothing else was changed: headers are identical and all signal bytes are identical\n(SHA-256 over the non-annotation bytes of every data record, source vs. BIDS; recorded in\n`sourcedata/zenodo-5675459/b3w1_provenance.json`). The EDF headers were already de-identified by the authors (patient\nand recording fields `DEIDENTIFIED`, start date `01.01.01`), so `acq_time` is `n/a`.\nChannel tables are built from the EDF headers. The release has no electrode coordinates (`electrodes.tsv` lists\ncontact names with `n/a` positions).\n\n## Not included\n\n- `S*_mri.nii.gz` (pre-implant T1) and `S*_ct.nii.gz` (post-implant CT): a surface render of these volumes\n  shows reconstructable facial features (no defacing), so they are not redistributed here. They remain\n  available from the CC-BY-4.0 source record. Their MD5 checksums are listed in the provenance file.\n- Age and sex are not reported in the release or the paper (`n/a`).\n\n## Licence\n\nCC-BY-4.0, as the source record. Please cite the paper and the Zenodo record.\n\n## Additional metadata and localisation (added 2026-10-08)\n\nCompiled after the upload from the article, its supplement and the source deposit (each statement names its source). Text and sidecar metadata only; no data file was changed.\n\n**Electrode types.** Depth (SEEG) electrodes; the localisation validation reports an adjacent contact distance of 3.5 mm (95% within 3.5 +/- 1 mm) (doi:10.3389/fninf.2021.773890, Results 'Electrode localization validation'). Channel names are shaft letter + contact number (e.g. 'A1'..'K16'; S2 also has primed shafts A'..E').\n\n**Localisation method.** Each subject has a preoperative T1 MRI (S*_mri.nii.gz) and a postoperative CT (S*_ct.nii.gz) (https://zenodo.org/records/5494990). The BrainQuake electrode module registers the CT to the FreeSurfer 'orig' image with FSL flirt, segments contacts by thresholding/clustering and a centre-of-mass search and labels them anatomically (doi:10.3389/fninf.2021.773890, Methods). No contact coordinates or labels were deposited.\n\n**Clinical annotations.** The paper validates SOZ predictions against clinician-selected SOZ contacts for five patients (Figs. 8-9), but the per-contact SOZ lists are not published.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000411",
+    "exists": true,
+    "description": "BrainQuake example SEEG data: ictal and interictal stereo-EEG from 8 epilepsy patients (Tsinghua Yuquan Hospital)",
+    "created_at": "2026-10-07T22:50:42+00:00",
+    "updated_at": "2026-10-11T20:34:58+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000404",
   "num_citations": 17,
-  "date_last_updated": "2026-10-11T10:39:52.072394+00:00",
+  "date_last_updated": "2026-10-24T10:29:30.769076+00:00",
   "metadata": {
     "total_cumulative_citations": 69,
-    "fetch_date": "2026-10-11T10:39:52.072394+00:00",
+    "fetch_date": "2026-10-24T10:29:30.769076+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 4,
@@ -42,7 +42,7 @@
       {
         "identifier": "10.1101/2024.03.14.584984",
         "identifier_type": "doi",
-        "source_relation": "IsDescribedBy",
+        "source_relation": "References",
         "classification": "data_paper",
         "kept": true,
         "kept_reason": "judged_data_paper",
@@ -73,22 +73,20 @@
       "10.82901/nemar.nm000404"
     ],
     "keywords": [
-      "drug-resistant epilepsy",
       "stereo-EEG",
-      "SEEG",
-      "bipolar SEEG",
-      "low-frequency oscillations",
+      "Epilepsy",
+      "Attention",
+      "Electroencephalography",
       "internal-external attention switching",
-      "attention",
       "default mode network",
-      "dorsal attention network"
+      "dorsal attention network",
+      "intracranial EEG",
+      "low-frequency oscillations",
+      "Yeo-7 atlas",
+      "task switching"
     ],
-    "methods_description": "SEEG was recorded with DIXI Medical depth electrodes and Quantum/NeuroWorks amplifiers at 2048 Hz, with reference and ground in white matter. The authors downsampled to 512 Hz, removed channels in the seizure-onset or irritative zone, heterotopic cortex, or broken channels, and applied bipolar referencing, a 0.1 Hz high-pass filter and a 50 Hz notch filter with harmonics. Epochs of -4 to +4 s were cut around task switches. Contacts were localised on post-implantation CT coregistered to MRI and normalised to MNI space with SPM12.",
+    "methods_description": "SEEG was recorded with DIXI Medical depth electrodes and Quantum/NeuroWorks amplifiers at 2048 Hz, with reference and ground in white matter. The authors downsampled the data to 512 Hz, removed channels in pathological tissue, and bipolar-referenced along each shank. They then applied a 0.1 Hz high-pass filter and a 50 Hz notch filter with harmonics, and cut epochs around task switches. Contacts were localised on post-implantation CT coregistered to MRI and normalised to MNI space with SPM12. The release does not state the physical unit of the data; channels are labelled µV as an assumption by the dataset curators, not a statement by the original authors.",
     "funding": [
-      {
-        "funder_name": "Ministry of Education, Youth and Sports (MEYS), European Union - Next Generation EU",
-        "award_number": "LX22NPO5107"
-      },
       {
         "funder_name": "Czech Science Foundation",
         "award_number": "20-21339S"
@@ -98,17 +96,15 @@
         "award_number": "272221"
       },
       {
+        "funder_name": "Ministry of Education, Youth and Sports (MEYS), financed by the European Union - Next Generation EU",
+        "award_number": "LX22NPO5107"
+      },
+      {
         "funder_name": "ERDF",
         "award_number": "CZ.02.01.01/00/22_008/0004643",
         "award_title": "Brain dynamics"
       }
-    ],
-    "searched_accessions": [
-      "nm000404"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 17
+    ]
   },
   "citation_details": [
     {
@@ -124,7 +120,15 @@
       "openalex_id": "W4403751028",
       "source_doi": "10.1038/s42003-024-06732-2",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.3956631946563721,
+        "similarity_score": 0.34256553649902344,
+        "citation_text_length": 1197,
+        "dataset_text_length": 2368,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "The time-varying brain: a comprehensive review of dynamic functional connectivity analysis in EEG and MEG",
@@ -132,14 +136,22 @@
       "venue": "Journal of Neural Engineering",
       "year": 2025,
       "url": "https://doi.org/10.1088/1741-2552/ae1258",
-      "cited_by": 13,
+      "cited_by": 12,
       "abstract": "Abstract Objective. This paper presents an in-depth analysis of the recent literature on dynamic functional connectivity (dFC) analysis. This represents a paradigm shift in the analysis of neural data to overcome the inherent limitations of static assumptions about functional brain connectivity. By exploiting the information provided by high temporal resolution neuroimaging techniques, such as magnetoencephalography (MEG) and electroencephalography (EEG), the possibility of tracking functional network organization and reconfiguration that support brain functions at different temporal scales has been extensively explored. Approach. This review examines the current state-of-the-art of the methodological approaches for dFC analysis in biomedical science, focusing on literature from 2018 to 2024 and on the analysis of EEG and MEG data. The review primarily concentrates on methods for estimating the time-resolved functional connectivity matrix, also providing an overview of approaches for s",
       "doi": "10.1088/1741-2552/ae1258",
       "pmid": "41082873",
       "openalex_id": "W4415121640",
       "source_doi": "10.1038/s42003-024-06732-2",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5458906035125257,
+        "similarity_score": 0.4726325571537018,
+        "citation_text_length": 1223,
+        "dataset_text_length": 2368,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Neural Dynamics of Visual Stream Interactions During Memory-Guided Actions Investigated by Intracranial EEG",
@@ -154,7 +166,15 @@
       "openalex_id": "W4408528116",
       "source_doi": "10.1038/s42003-024-06732-2",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5445262657105924,
+        "similarity_score": 0.4714513123035431,
+        "citation_text_length": 1307,
+        "dataset_text_length": 2368,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "EMI model: A scale free biophysical framework for human consciousness, cognition and behaviour",
@@ -162,14 +182,22 @@
       "venue": "Biosystems",
       "year": 2025,
       "url": "https://doi.org/10.1016/j.biosystems.2025.105674",
-      "cited_by": 4,
+      "cited_by": 5,
       "abstract": "Understanding consciousness, cognition, and behaviour requires an integrated framework capable of bridging neurobiology, physics, and information theory. In this paper, we propose the Energy-Mass-Information (EMI) framework as a novel paradigm to conceptualize mental phenomena as emergent properties of dynamic, field-based interactions. Rooted in, and direct expression of the Unified Holographic Framework for Neural Coherence and Consciousness (UHF), EMI introduces a transdisciplinary approach that reconceptualizes the brain-mind system as a continuously evolving network of interactions among energetic oscillations, material substrates, and informational patterns. At the heart of the EMI model lies the notion that cognition arises through the formation and modulation of attractor states-stable yet flexible configurations in the brain's energy-information landscape-guided by resonance, plasticity, and self-organizing processes. Consciousness is thus interpreted as a holographically orga",
       "doi": "10.1016/j.biosystems.2025.105674",
       "pmid": "41380798",
       "openalex_id": "W4417148085",
       "source_doi": "10.1038/s42003-024-06732-2",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.3685283070802689,
+        "similarity_score": 0.3190721273422241,
+        "citation_text_length": 1192,
+        "dataset_text_length": 2368,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Anticorrelation emerges within a dynamic and competitive neural landscape",
@@ -184,7 +212,15 @@
       "openalex_id": "W7117313882",
       "source_doi": "10.1038/s42003-024-06732-2",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.3400920733809471,
+        "similarity_score": 0.2944520115852356,
+        "citation_text_length": 726,
+        "dataset_text_length": 2368,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Multi-Scale Anti-Correlated Neural States Dominate Naturalistic Whole-Brain Activity",
@@ -199,7 +235,15 @@
       "openalex_id": "W4413900587",
       "source_doi": "10.1038/s42003-024-06732-2",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5151040573418141,
+        "similarity_score": 0.4459775388240814,
+        "citation_text_length": 1223,
+        "dataset_text_length": 2368,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Memory and Hippocampal Responses to Event Boundaries are Modulated by Global Brain States",
@@ -214,7 +258,15 @@
       "openalex_id": null,
       "source_doi": "10.1038/s42003-024-06732-2",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.4953089395165444,
+        "similarity_score": 0.42883890867233276,
+        "citation_text_length": 1191,
+        "dataset_text_length": 2368,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Goal-directed modulation of the default network supports interactions between selective attention, working memory, and prior knowledge",
@@ -229,7 +281,15 @@
       "openalex_id": "W7168137872",
       "source_doi": "10.1038/s42003-024-06732-2",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.503520644903183,
+        "similarity_score": 0.43594861030578613,
+        "citation_text_length": 1283,
+        "dataset_text_length": 2368,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Aperiodic and oscillatory neural activity underlying external and internal attention",
@@ -244,7 +304,15 @@
       "openalex_id": "W7162636834",
       "source_doi": "10.1038/s42003-024-06732-2",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7367070275545121,
+        "similarity_score": 0.6378415822982788,
+        "citation_text_length": 1216,
+        "dataset_text_length": 2368,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Boundary-induced multistability and bursting oscillations in frequency switching slow–fast systems",
@@ -259,7 +327,15 @@
       "openalex_id": "W7130560306",
       "source_doi": "10.1038/s42003-024-06732-2",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.3376965120434761,
+        "similarity_score": 0.32161572575569153,
+        "citation_text_length": 210,
+        "dataset_text_length": 2368,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Temporal order of activations and interactions during arithmetic calculations measured by intracranial electrophysiological recordings in the human brain",
@@ -274,7 +350,15 @@
       "openalex_id": "W7124452027",
       "source_doi": "10.1038/s42003-024-06732-2",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5942017444968224,
+        "similarity_score": 0.5144603848457336,
+        "citation_text_length": 1375,
+        "dataset_text_length": 2368,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "The attentional switching framework: A dual process account of how the brain switches when attention switches",
@@ -289,7 +373,15 @@
       "openalex_id": "W7211995251",
       "source_doi": "10.1038/s42003-024-06732-2",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6479434221982956,
+        "similarity_score": 0.5609899759292603,
+        "citation_text_length": 1248,
+        "dataset_text_length": 2368,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Dynamic prioritisation of attention when external and internal demands compete",
@@ -304,7 +396,15 @@
       "openalex_id": "W7201873369",
       "source_doi": "10.1038/s42003-024-06732-2",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5820217010378838,
+        "similarity_score": 0.5039148926734924,
+        "citation_text_length": 1226,
+        "dataset_text_length": 2368,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Disrupted multi-frequency topological properties of brain functional networks in attention networks after repetitive subconcussion",
@@ -319,7 +419,15 @@
       "openalex_id": "W7171836978",
       "source_doi": "10.1038/s42003-024-06732-2",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5492437916994096,
+        "similarity_score": 0.4755357503890991,
+        "citation_text_length": 1281,
+        "dataset_text_length": 2368,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Perceptual Decision Efficiency and Optimal Sleep Quality Are Associated with Female College Soccer Injury Avoidance",
@@ -334,7 +442,15 @@
       "openalex_id": "W7164421029",
       "source_doi": "10.1038/s42003-024-06732-2",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.39545294702053074,
+        "similarity_score": 0.3423835039138794,
+        "citation_text_length": 1323,
+        "dataset_text_length": 2368,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Beta Desynchronization Mediates The Impact Of Internally Directed Attention In A Dual-Task Working Memory Paradigm",
@@ -349,7 +465,15 @@
       "openalex_id": "W4412706651",
       "source_doi": "10.1038/s42003-024-06732-2",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6729585537314415,
+        "similarity_score": 0.5826480984687805,
+        "citation_text_length": 1239,
+        "dataset_text_length": 2368,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Social attention and coordinated movement produce dissociable spectral and network changes during dyadic improvisational dance",
@@ -360,11 +484,35 @@
       "cited_by": 0,
       "abstract": null,
       "doi": "10.64898/2026.09.24.754139",
-      "pmid": null,
+      "pmid": "42856265",
       "openalex_id": null,
       "source_doi": "10.1038/s42003-024-06732-2",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.47224789559841157,
+        "similarity_score": 0.44975990056991577,
+        "citation_text_length": 331,
+        "dataset_text_length": 2368,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
-  ]
+  ],
+  "confidence_scoring": {
+    "model_used": "Qwen/Qwen3-Embedding-0.6B",
+    "scoring_date": "2026-10-24T11:23:22.104366+00:00",
+    "dataset_text_length": 2368,
+    "num_citations_scored": 17,
+    "summary_stats": {
+      "mean_confidence": 0.5115945694990018,
+      "median_confidence": 0.5151040573418141,
+      "std_confidence": 0.11368390437299647,
+      "min_confidence": 0.3376965120434761,
+      "max_confidence": 0.7367070275545121,
+      "high_confidence_count": 1,
+      "medium_confidence_count": 11,
+      "low_confidence_count": 5
+    }
+  }
 }

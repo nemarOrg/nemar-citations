@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000367",
   "num_citations": 25,
-  "date_last_updated": "2026-10-11T10:35:50.434441+00:00",
+  "date_last_updated": "2026-10-24T10:25:27.124440+00:00",
   "metadata": {
-    "total_cumulative_citations": 145,
-    "fetch_date": "2026-10-11T10:35:50.434441+00:00",
+    "total_cumulative_citations": 151,
+    "fetch_date": "2026-10-24T10:25:27.124440+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -40,6 +40,19 @@
         "judgment_model": "claude-sonnet-5-5"
       },
       {
+        "identifier": "10.1038/s41586-024-07309-z",
+        "identifier_type": "doi",
+        "source_relation": "References",
+        "classification": null,
+        "kept": false,
+        "kept_reason": "unjudged",
+        "paper_title": null,
+        "paper_year": null,
+        "paper_venue": null,
+        "reason": null,
+        "judgment_model": "claude-sonnet-5-5"
+      },
+      {
         "identifier": "10.82901/nemar.nm000367",
         "identifier_type": "doi",
         "source_relation": "References",
@@ -62,12 +75,12 @@
       "local field potential",
       "microwire",
       "Hippocampus",
-      "Amygdala",
       "theta phase precession",
       "episodic memory",
-      "event boundaries"
+      "event boundaries",
+      "Epilepsy"
     ],
-    "methods_description": "Broadband signals were recorded at 32 kHz with a Neuralynx ATLAS system from Behnke-Fried hybrid depth electrodes in epilepsy patients undergoing invasive seizure monitoring. The authors downsampled the signals to 200 Hz. The NWB LFP series were written to BrainVision float32 microvolts without filtering, resampling, re-referencing, or cropping. Task trials and TTL markers were mapped to BIDS events files.",
+    "methods_description": "Broadband signals were recorded at 32 kHz with Neuralynx ATLAS and downsampled by the authors to 200 Hz. The NWB LFP series were written to BrainVision float32 microvolts without filtering, resampling, re-referencing, cropping, or channel removal. Encoding, scene-recognition, and time-discrimination interval tables and TTL markers were mapped to BIDS events files.",
     "funding": [
       {
         "funder_name": "National Institutes of Health",
@@ -81,13 +94,7 @@
         "funder_name": "National Institutes of Health",
         "award_number": "R00NS126233"
       }
-    ],
-    "searched_accessions": [
-      "nm000367"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 25
+    ]
   },
   "citation_details": [
     {
@@ -96,14 +103,22 @@
       "venue": "Nature reviews. Neuroscience",
       "year": 2025,
       "url": "https://doi.org/10.1038/s41583-025-00920-7",
-      "cited_by": 53,
+      "cited_by": 55,
       "abstract": null,
       "doi": "10.1038/s41583-025-00920-7",
       "pmid": "40204908",
       "openalex_id": "W4409310152",
       "source_doi": "10.1038/s41562-024-01983-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.49616489410400394,
+        "similarity_score": 0.4725379943847656,
+        "citation_text_length": 191,
+        "dataset_text_length": 2698,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Human neural dynamics of real-world and imagined navigation",
@@ -111,14 +126,22 @@
       "venue": "Nature Human Behaviour",
       "year": 2025,
       "url": "https://doi.org/10.1038/s41562-025-02119-3",
-      "cited_by": 30,
+      "cited_by": 31,
       "abstract": "Abstract The ability to form episodic memories and later imagine them is integral to the human experience, influencing our recollection of the past and envisioning of the future. While rodent studies suggest the medial temporal lobe, especially the hippocampus, is involved in these functions, its role in human imagination remains uncertain. In human participants, imaginations can be explicitly instructed and reported. Here we investigate hippocampal theta oscillations during real-world and imagined navigation using motion capture and intracranial electroencephalographic recordings from individuals with chronically implanted medial temporal lobe electrodes. Our results revealed intermittent theta dynamics, particularly within the hippocampus, encoding spatial information and partitioning navigational routes into linear segments during real-world navigation. During imagined navigation, theta dynamics exhibited similar patterns despite the absence of external cues. A statistical model suc",
       "doi": "10.1038/s41562-025-02119-3",
       "pmid": "40065137",
       "openalex_id": "W4408288469",
       "source_doi": "10.1038/s41562-024-01983-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6882859781384468,
+        "similarity_score": 0.595918595790863,
+        "citation_text_length": 1312,
+        "dataset_text_length": 2698,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Theta-phase locking of single neurons during human spatial memory",
@@ -133,7 +156,15 @@
       "openalex_id": "W4413107189",
       "source_doi": "10.1038/s41562-024-01983-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7406697893142701,
+        "similarity_score": 0.6412725448608398,
+        "citation_text_length": 1228,
+        "dataset_text_length": 2698,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Inflammation in Schizophrenia: The Role of Disordered Oscillatory Mechanisms",
@@ -148,7 +179,15 @@
       "openalex_id": "W4410029657",
       "source_doi": "10.1038/s41562-024-01983-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.4042875471711159,
+        "similarity_score": 0.3500325083732605,
+        "citation_text_length": 1116,
+        "dataset_text_length": 2698,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Direct entorhinal control of CA1 temporal coding",
@@ -163,7 +202,15 @@
       "openalex_id": "W4412202444",
       "source_doi": "10.1038/s41562-024-01983-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5931479591131211,
+        "similarity_score": 0.5135480165481567,
+        "citation_text_length": 1228,
+        "dataset_text_length": 2698,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Situation models and the default mode network",
@@ -178,7 +225,15 @@
       "openalex_id": "W4413977180",
       "source_doi": "10.1038/s41562-024-01983-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5194277992844583,
+        "similarity_score": 0.4497210383415222,
+        "citation_text_length": 1160,
+        "dataset_text_length": 2698,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Neural Representation of Episodic Time",
@@ -186,14 +241,22 @@
       "venue": "Journal of Neuroscience",
       "year": 2025,
       "url": "https://doi.org/10.1523/jneurosci.1397-25.2025",
-      "cited_by": 6,
+      "cited_by": 7,
       "abstract": "Inspired by recent discoveries of neural populations that track time for specific moments (time cells) and elapsed durations (temporal context and periodic time cells), this review, based on a minisymposium presented at the 2025 annual meeting of the Society for Neuroscience, brings together macro-, meso-, and micro-scale neural evidence to formulate hypotheses about how episodic time-the tracking and organizing of events in time as we experience, store, and retrieve them from memory-is coded and processed in the mammalian brain. We also discuss computational principles and relationships to other related phenomena such as memory replay and emotional states.",
       "doi": "10.1523/jneurosci.1397-25.2025",
       "pmid": "41224668",
       "openalex_id": "W4416197007",
       "source_doi": "10.1038/s41562-024-01983-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5919878107309342,
+        "similarity_score": 0.5125435590744019,
+        "citation_text_length": 859,
+        "dataset_text_length": 2698,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Bridging chunks during complex movement sequence execution",
@@ -201,14 +264,22 @@
       "venue": "iScience",
       "year": 2025,
       "url": "https://doi.org/10.1016/j.isci.2025.114562",
-      "cited_by": 2,
+      "cited_by": 3,
       "abstract": "Executing complex movement sequences from memory is crucial for skillful motor actions such as musical performance and sports. While chunking helps memorization during practice, transitions between chunks may become vulnerable during execution. Here, we developed a novel paradigm combining chunked motor sequence memorization with online sensory perturbation to show that perturbations at chunk junctions induced larger errors than those within chunks and increased pupil diameter, reflecting elevated attentional load. Subsequent training focusing on bridging chunk junctions improved performance stability, as evidenced by reduced force variability during perturbation. EEG data further revealed elevated frontal theta power in response to perturbation, indicating greater cognitive effort. Critically, this disruption was reduced after training, suggesting more efficient memory retrieval. Together, these findings underscore the vulnerability of motor sequence retrieval at chunk junctions and h",
       "doi": "10.1016/j.isci.2025.114562",
       "pmid": "41567241",
       "openalex_id": "W7117481235",
       "source_doi": "10.1038/s41562-024-01983-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5573769123852254,
+        "similarity_score": 0.4825774133205414,
+        "citation_text_length": 1151,
+        "dataset_text_length": 2698,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "The time course of visuo-semantic representations in the human brain is captured by combining vision and language models",
@@ -223,22 +294,15 @@
       "openalex_id": "W4415935308",
       "source_doi": "10.1038/s41562-024-01983-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
-    },
-    {
-      "title": "Neural sequences: Hippocampal representation of spatial trajectories in flying bats",
-      "author": "Daniel Bush, Neil Burgess",
-      "venue": "Current Biology",
-      "year": 2025,
-      "url": "https://doi.org/10.1016/j.cub.2025.07.079",
-      "cited_by": 2,
-      "abstract": "By recording large populations of neurons in flying bats, two recent studies have observed sequential activities in the hippocampus that represent ongoing spatial trajectories during movement and recently experienced trajectories during rest, analogous to 'theta sweeps' and 'replay' previously described in rodents.",
-      "doi": "10.1016/j.cub.2025.07.079",
-      "pmid": "40987269",
-      "openalex_id": "W4414446902",
-      "source_doi": "10.1038/s41562-024-01983-9",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.575796746313572,
+        "similarity_score": 0.49852532148361206,
+        "citation_text_length": 1233,
+        "dataset_text_length": 2698,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Cognitive maps as a medium for thought",
@@ -246,14 +310,45 @@
       "venue": "Trends in Cognitive Sciences",
       "year": 2026,
       "url": "https://doi.org/10.1016/j.tics.2026.07.010",
-      "cited_by": 1,
+      "cited_by": 2,
       "abstract": "Cognitive maps are essential for navigation, but to what extent are they involved in thinking more broadly? In this opinion article, we examine whether cognitive maps constitute a genuine vehicle for thought and how they relate to the notion of a language of thought. Integrating work from philosophy, psychology, and neuroscience, we suggest that map-like representations offer a distinct, flexible medium for encoding information and exhibit compositionality in both spatial and nonspatial domains. We then consider how dynamic neural mechanisms—replay, theta sequences, and vector computation—may transform map-based representations into sequential routelike formats that interface with cortical systems supporting propositional thinking. Cognitive maps may be complementary to symbolic cognition, jointly enabling flexible human reasoning.",
       "doi": "10.1016/j.tics.2026.07.010",
       "pmid": "42648928",
       "openalex_id": "W7204223485",
       "source_doi": "10.1038/s41562-024-01983-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.44596724778413777,
+        "similarity_score": 0.3861188292503357,
+        "citation_text_length": 982,
+        "dataset_text_length": 2698,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "The emerging field of cognitive brain–computer interfaces",
+      "author": "Ignacio Sáez",
+      "venue": "Trends in Cognitive Sciences",
+      "year": 2026,
+      "url": "https://doi.org/10.1016/j.tics.2026.06.012",
+      "cited_by": 2,
+      "abstract": "Brain-computer interfaces (BCIs) have achieved transformative success in restoring movement and communication. However, extending these approaches to decoding or recovery of cognitive function, such as attention or memory, poses fundamentally new challenges. Cognitive BCIs will need to contend with distributed and dynamic neural processes that differ sharply from the more localized, stable representations underlying motor and language control, imposing new technical and conceptual demands. Conversely, neuromodulation, long used in neurological and psychiatric therapies, offers a complementary methodological path and initial translational applications through causal modulation of cognitive circuits. Integrating these approaches into adaptive, closed-loop systems could allow cognitive BCIs to restore mental function and bridge systems neuroscience and next-generation neurotherapeutics capable of monitoring and shaping human cognition in real time.",
+      "doi": "10.1016/j.tics.2026.06.012",
+      "pmid": "42469083",
+      "openalex_id": "W7169568684",
+      "source_doi": "10.1038/s41562-024-01983-9",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.48079693034291276,
+        "similarity_score": 0.41627439856529236,
+        "citation_text_length": 1095,
+        "dataset_text_length": 2698,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Architecture shapes event boundaries: Theta dynamics of event segmentation during spatial transitions",
@@ -262,13 +357,21 @@
       "year": 2026,
       "url": "https://doi.org/10.1016/j.braen.2026.100025",
       "cited_by": 1,
-      "abstract": "Human experience unfolds continuously, yet it is remembered and understood as a sequence of discrete events. How the brain segments this stream of experience, particularly under naturalistic conditions, remains poorly understood. Here we investigate the neural dynamics associated with event boundaries during active navigation through architectural transitions. Using mobile electroencephalography combined with virtual reality, we analyzed data from participants freely walking between rooms and repeatedly crossing doorways. Time–frequency analysis of source-localized neural activity revealed a robust increase in theta-band power (4–8 Hz) over temporo-occipital and parietal regions approximately 300–450 ms after passing through a doorway. This effect was consistent across participants and independent component clusters, indicating a reliable neural signature of architectural transitions. We interpret this theta response within frameworks of event segmentation and Bayesian inference, sugge",
+      "abstract": "Abstract Human experience unfolds continuously, yet it is remembered and understood as a sequence of discrete events. How the brain segments this stream of experience, particularly under naturalistic conditions, remains poorly understood. Here we investigate the neural dynamics associated with event boundaries during active navigation through architectural transitions. Using mobile electroencephalography combined with virtual reality, we analyzed data from participants freely walking between rooms and repeatedly crossing doorways. Time–frequency analysis of source-localized neural activity revealed a robust increase in theta-band power (4–8 Hz) over temporo-occipital and parietal regions approximately 300–450 ms after passing through a doorway. This effect was consistent across participants and independent component clusters, indicating a reliable neural signature of architectural transitions. We interpret this theta response within frameworks of event segmentation and Bayesian inferen",
       "doi": "10.1016/j.braen.2026.100025",
       "pmid": null,
       "openalex_id": "W7167686508",
       "source_doi": "10.1038/s41562-024-01983-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.656076301932335,
+        "similarity_score": 0.5680314302444458,
+        "citation_text_length": 1216,
+        "dataset_text_length": 2698,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Skill Memory Expansion Shapes Micro-Scale Dynamics of Skill Learning",
@@ -283,7 +386,38 @@
       "openalex_id": "W4416295059",
       "source_doi": "10.1038/s41562-024-01983-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6098354530334473,
+        "similarity_score": 0.5279960632324219,
+        "citation_text_length": 1242,
+        "dataset_text_length": 2698,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Neural sequences: Hippocampal representation of spatial trajectories in flying bats",
+      "author": "Daniel Bush, Neil Burgess",
+      "venue": "Current Biology",
+      "year": 2025,
+      "url": "https://doi.org/10.1016/j.cub.2025.07.079",
+      "cited_by": 1,
+      "abstract": "By recording large populations of neurons in flying bats, two recent studies have observed sequential activities in the hippocampus that represent ongoing spatial trajectories during movement and recently experienced trajectories during rest, analogous to 'theta sweeps' and 'replay' previously described in rodents.",
+      "doi": "10.1016/j.cub.2025.07.079",
+      "pmid": "40987269",
+      "openalex_id": "W4414446902",
+      "source_doi": "10.1038/s41562-024-01983-9",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6251780229806901,
+        "similarity_score": 0.541279673576355,
+        "citation_text_length": 478,
+        "dataset_text_length": 2698,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Phase-precession-like Effect in the Anterior Insula Cortex during Reward Expectancy",
@@ -298,22 +432,15 @@
       "openalex_id": "W4386946550",
       "source_doi": "10.1038/s41562-024-01983-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
-    },
-    {
-      "title": "The emerging field of cognitive brain–computer interfaces",
-      "author": "Ignacio Sáez",
-      "venue": "Trends in Cognitive Sciences",
-      "year": 2026,
-      "url": "https://doi.org/10.1016/j.tics.2026.06.012",
-      "cited_by": 1,
-      "abstract": "Brain-computer interfaces (BCIs) have achieved transformative success in restoring movement and communication. However, extending these approaches to decoding or recovery of cognitive function, such as attention or memory, poses fundamentally new challenges. Cognitive BCIs will need to contend with distributed and dynamic neural processes that differ sharply from the more localized, stable representations underlying motor and language control, imposing new technical and conceptual demands. Conversely, neuromodulation, long used in neurological and psychiatric therapies, offers a complementary methodological path and initial translational applications through causal modulation of cognitive circuits. Integrating these approaches into adaptive, closed-loop systems could allow cognitive BCIs to restore mental function and bridge systems neuroscience and next-generation neurotherapeutics capable of monitoring and shaping human cognition in real time.",
-      "doi": "10.1016/j.tics.2026.06.012",
-      "pmid": "42469083",
-      "openalex_id": "W7169568684",
-      "source_doi": "10.1038/s41562-024-01983-9",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6235350072383881,
+        "similarity_score": 0.5398571491241455,
+        "citation_text_length": 1282,
+        "dataset_text_length": 2698,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Order-Selective Cells Tile Temporal Space and Predict Order Memory in Humans",
@@ -328,7 +455,15 @@
       "openalex_id": "W4415535064",
       "source_doi": "10.1038/s41562-024-01983-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6304863971471787,
+        "similarity_score": 0.5458756685256958,
+        "citation_text_length": 1407,
+        "dataset_text_length": 2698,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Silent yet impaired: Hidden memory processing deficits in asymptomatic individuals with moderate‐to‐severe white matter hyperintensities",
@@ -343,7 +478,15 @@
       "openalex_id": null,
       "source_doi": "10.1038/s41562-024-01983-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5074794137477875,
+        "similarity_score": 0.4393761157989502,
+        "citation_text_length": 555,
+        "dataset_text_length": 2698,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Direct substantia nigra deep brain stimulation in Parkinson's disease: Efficacy, safety, and the frequency-response relationship",
@@ -358,7 +501,15 @@
       "openalex_id": "W7202290676",
       "source_doi": "10.1038/s41562-024-01983-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.458201126754284,
+        "similarity_score": 0.39671093225479126,
+        "citation_text_length": 1328,
+        "dataset_text_length": 2698,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Hippocampal skill memory expansion drives online performance dynamics during skill learning",
@@ -373,7 +524,15 @@
       "openalex_id": "W7203483517",
       "source_doi": "10.1038/s41562-024-01983-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.62326830804348,
+        "similarity_score": 0.5396262407302856,
+        "citation_text_length": 1238,
+        "dataset_text_length": 2698,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Directed Corticomuscular Interactions during Motor Imagery in Post-Stroke Patients",
@@ -388,7 +547,15 @@
       "openalex_id": "W7172246026",
       "source_doi": "10.1038/s41562-024-01983-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5204669773578644,
+        "similarity_score": 0.49568283557891846,
+        "citation_text_length": 162,
+        "dataset_text_length": 2698,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Low-frequency phase temporally coordinates multiple working memory operations",
@@ -403,7 +570,15 @@
       "openalex_id": "W7160428221",
       "source_doi": "10.1038/s41562-024-01983-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6581170257925988,
+        "similarity_score": 0.5697982907295227,
+        "citation_text_length": 1199,
+        "dataset_text_length": 2698,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Brain waves in both actual and imagined navigation show structured oscillations",
@@ -418,7 +593,15 @@
       "openalex_id": "W4408288792",
       "source_doi": "10.1038/s41562-024-01983-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5546384453773499,
+        "similarity_score": 0.5282270908355713,
+        "citation_text_length": 153,
+        "dataset_text_length": 2698,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Neural computation in the mammalian hippocampus",
@@ -433,7 +616,15 @@
       "openalex_id": "W4409321656",
       "source_doi": "10.1038/s41562-024-01983-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5431048035621643,
+        "similarity_score": 0.5172426700592041,
+        "citation_text_length": 119,
+        "dataset_text_length": 2698,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Phase-tuned modulation during reward expectancy in human anterior insular cortex",
@@ -448,7 +639,15 @@
       "openalex_id": null,
       "source_doi": "10.1038/s41562-024-01983-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.595172917842865,
+        "similarity_score": 0.5153012275695801,
+        "citation_text_length": 1260,
+        "dataset_text_length": 2698,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Sleep-modulated disinhibition enables replay for memory consolidation, accelerated by ripples",
@@ -463,7 +662,31 @@
       "openalex_id": null,
       "source_doi": "10.1038/s41562-024-01983-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5538951592147351,
+        "similarity_score": 0.479562908411026,
+        "citation_text_length": 1150,
+        "dataset_text_length": 2698,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
-  ]
+  ],
+  "confidence_scoring": {
+    "model_used": "Qwen/Qwen3-Embedding-0.6B",
+    "scoring_date": "2026-10-24T11:22:11.618565+00:00",
+    "dataset_text_length": 2698,
+    "num_citations_scored": 25,
+    "summary_stats": {
+      "mean_confidence": 0.5701345989882945,
+      "median_confidence": 0.575796746313572,
+      "std_confidence": 0.07823647893477301,
+      "min_confidence": 0.4042875471711159,
+      "max_confidence": 0.7406697893142701,
+      "high_confidence_count": 1,
+      "medium_confidence_count": 24,
+      "low_confidence_count": 0
+    }
+  }
 }

@@ -1,0 +1,62 @@
+{
+  "dataset_id": "nm000306",
+  "date_retrieved": "2026-10-12T10:02:17.286110+00:00",
+  "dataset_description": {
+    "Name": "Jia2019: Motor-imagery EEG dataset for stroke patients (Jia 2019)",
+    "BIDSVersion": "1.9.0",
+    "HEDVersion": "8.4.0",
+    "DatasetType": "derivative",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "Tianyu Jia"
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.6084/m9.figshare.7636301"
+    ],
+    "Keywords": [
+      "motor imagery",
+      "BCI",
+      "brain-computer interface",
+      "EEG",
+      "stroke",
+      "neurorehabilitation"
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000306",
+    "GeneratedBy": [
+      {
+        "CodeURL": "https://github.com/NeuroTechX/moabb",
+        "Name": "moabb",
+        "Description": "Mother of All BCI Benchmarks",
+        "Version": "1.8.0dev0"
+      }
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "10.6084/m9.figshare.7636301",
+        "URL": "https://doi.org/10.6084/m9.figshare.7636301"
+      },
+      {
+        "DOI": "doi:10.6084/m9.figshare.7636301"
+      }
+    ],
+    "PublicationYear": 2019,
+    "EthicsApprovals": [
+      "See the primary publication cited in the README/ReferencesAndLinks for the ethics approval statement obtained by the original investigators; no new human-subject data were collected for this BIDS re-release."
+    ],
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000306-blue)](https://doi.org/10.82901/nemar.nm000306)\n\nJia2019\n=======\n\nMotor-imagery EEG dataset for stroke patients (Jia 2019) [1]_.\n\nDataset Overview\n----------------\n  Code: Jia2019\n  Paradigm: imagery\n  DOI: 10.6084/m9.figshare.7636301\n  Subjects: 15\n  Sessions per subject: 1\n  Events: left_hand=1, right_hand=2\n  Trial interval: [0, 6.8] s\n  Runs per session: 2\n  File format: MAT\n  Data preprocessed: True\n\nAcquisition\n-----------\n  Sampling rate: 512.0 Hz\n  Number of channels: 63\n  Channel types: eeg=63\n  Line frequency: 50.0 Hz\n\nParticipants\n------------\n  Number of subjects: 15\n  Health status: stroke\n  Clinical population: stroke\n\nExperimental Protocol\n---------------------\n  Paradigm: imagery\n  Number of classes: 2\n  Class labels: left_hand, right_hand\n  Trials per class: left_hand=40, right_hand=40\n  Study design: Cue-based left-hand vs right-hand motor imagery in stroke patients; for each patient one hand is paretic and the other unaffected, and both were imagined.\n  Synchronicity: cue-based\n  Mode: offline\n\nHED Event Annotations\n---------------------\n  Schema: HED 8.4.0 | Browse: https://www.hedtags.org/hed-schema-browser\n\n  left_hand\n    ├─ Sensory-event, Experimental-stimulus, Visual-presentation\n    └─ Agent-action\n       └─ Imagine\n          ├─ Move\n          └─ Left, Hand\n\n  right_hand\n    ├─ Sensory-event, Experimental-stimulus, Visual-presentation\n    └─ Agent-action\n       └─ Imagine\n          ├─ Move\n          └─ Right, Hand\n\nParadigm-Specific Parameters\n----------------------------\n  Detected paradigm: motor_imagery\n  Imagery tasks: left_hand, right_hand\n\nPreprocessing\n-------------\n  Data state: epoched\n  Preprocessing applied: True\n\nCross-Validation\n----------------\n  Evaluation type: within_subject\n\nTags\n----\n  Pathology: Stroke\n  Modality: Motor\n  Type: Motor Imagery\n\nDocumentation\n-------------\n  Description: EEG from 15 stroke patients performing left- vs right-hand motor imagery, 63 channels (10-10) at 512 Hz, 40 trials per class.\n  DOI: 10.6084/m9.figshare.7636301\n  License: CC-BY-4.0\n  Investigators: Tianyu Jia\n  Country: CN\n  Repository: Figshare\n  Data URL: https://doi.org/10.6084/m9.figshare.7636301\n  Publication year: 2019\n  Keywords: motor imagery, BCI, brain-computer interface, EEG, stroke, neurorehabilitation\n\nReferences\n----------\nJia, T. (2019). EEG data of motor imagery for stroke. Figshare. DOI: https://doi.org/10.6084/m9.figshare.7636301\n\nWang, X., Zhao, Y., He, D., Xia, Q., Li, G., Wang, N., Peng, N., & Jiang, B. (2026). PA-TCNet: Pathology-Aware Temporal Calibration with Physiology-Guided Target Refinement for Cross-Subject Motor Imagery EEG Decoding in Stroke Patients. arXiv:2604.16554. DOI: https://doi.org/10.48550/arXiv.2604.16554\n\nNotes\n\n.. versionadded:: 1.8\nAppelhoff, S., Sanderson, M., Brooks, T., Vliet, M., Quentin, R., Holdgraf, C., Chaumon, M., Mikulan, E., Tavabi, K., Hochenberger, R., Welke, D., Brunner, C., Rockhill, A., Larson, E., Gramfort, A. and Jas, M. (2019). MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis. Journal of Open Source Software 4: (1896). https://doi.org/10.21105/joss.01896\n\nPernet, C. R., Appelhoff, S., Gorgolewski, K. J., Flandin, G., Phillips, C., Delorme, A., Oostenveld, R. (2019). EEG-BIDS, an extension to the brain imaging data structure for electroencephalography. Scientific Data, 6, 103. https://doi.org/10.1038/s41597-019-0104-8\n\n---\nGenerated by MOABB 1.8.0dev0 (Mother of All BCI Benchmarks)\nhttps://github.com/NeuroTechX/moabb\n\nEthics\n------\nEthics approval: the data analysed in this deposit were collected under the\nethics approval obtained by the original investigators and reported in the\nprimary publication cited above (see References/Documentation sections of\nthis README). Participants gave informed consent in the source study. No\nnew human-subject data were collected during this BIDS re-release; this\nNEMAR record only reformats the published source data into BIDS via MOABB.\nPlease consult the primary publication for the exact IRB/ethics committee\nreference.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000306",
+    "exists": true,
+    "description": "Jia2019: Motor-imagery EEG dataset for stroke patients (Jia 2019)",
+    "created_at": "2026-10-04T16:05:32+00:00",
+    "updated_at": "2026-10-11T03:08:46+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}
