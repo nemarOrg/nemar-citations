@@ -1,0 +1,64 @@
+{
+  "dataset_id": "nm000327",
+  "date_retrieved": "2026-10-12T10:03:09.613609+00:00",
+  "dataset_description": {
+    "Name": "Leeuwis2021: Left- vs right-hand motor-imagery EEG dataset",
+    "BIDSVersion": "1.9.0",
+    "HEDVersion": "8.4.0",
+    "DatasetType": "derivative",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "Nikki Leeuwis",
+      "Alissa Paas",
+      "Maryam Alimardani"
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.34894/Z7ZVOD"
+    ],
+    "Keywords": [
+      "motor imagery",
+      "BCI",
+      "brain-computer interface",
+      "EEG",
+      "cognition",
+      "personality"
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000327",
+    "GeneratedBy": [
+      {
+        "CodeURL": "https://github.com/NeuroTechX/moabb",
+        "Name": "moabb",
+        "Description": "Mother of All BCI Benchmarks",
+        "Version": "1.8.0dev0"
+      }
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "10.34894/Z7ZVOD",
+        "URL": "https://doi.org/10.34894/Z7ZVOD"
+      },
+      {
+        "DOI": "doi:10.34894/Z7ZVOD"
+      }
+    ],
+    "PublicationYear": 2021,
+    "EthicsApprovals": [
+      "Reviewed and approved by the Research Ethics Committee of Tilburg School of Humanities and Digital Sciences. All participants provided written informed consent to participate in the study (Leeuwis, Paas & Alimardani 2021, Front. Hum. Neurosci. 15:634748, DOI 10.3389/fnhum.2021.634748)."
+    ],
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000327-blue)](https://doi.org/10.82901/nemar.nm000327)\n\nLeeuwis2021\n===========\n\nLeft- vs right-hand motor-imagery EEG dataset [1]_.\n\nDataset Overview\n----------------\n  Code: Leeuwis2021\n  Paradigm: imagery\n  DOI: 10.34894/Z7ZVOD\n  Subjects: 55\n  Sessions per subject: 1\n  Events: left_hand=1, right_hand=2\n  Trial interval: [0, 4.996] s\n  Runs per session: 4\n  File format: CSV\n\nAcquisition\n-----------\n  Sampling rate: 250.0 Hz\n  Number of channels: 16\n  Channel types: eeg=16\n  Channel names: F3, Fz, F4, FC5, FC1, FC2, FC6, T7, C3, C4, Cz, T8, CP5, CP1, CP2, CP6\n  Montage: standard_1020\n  Hardware: g.Nautilus (g.tec Medical Engineering, Austria)\n  Software: g.BSanalyze (g.tec)\n  Reference: right earlobe\n  Ground: AFz\n  Line frequency: 50.0 Hz\n\nParticipants\n------------\n  Number of subjects: 55\n  Health status: healthy\n  Age: mean=20.71, std=3.52\n  Handedness: right\n  BCI experience: naive\n\nExperimental Protocol\n---------------------\n  Paradigm: imagery\n  Number of classes: 2\n  Class labels: left_hand, right_hand\n  Trial duration: 5.0 s\n  Trials per class: left_hand=80, right_hand=80\n  Study design: Single-session, two-class left- versus right-hand motor imagery in 55 novice BCI users. One calibration run (no feedback) plus three feedback runs of 40 trials each (20 left, 20 right). Study examined psychological and cognitive predictors of MI-BCI performance.\n  Feedback type: visual\n  Stimulus type: visual cue\n  Stimulus modalities: visual\n  Synchronicity: cue-based\n  Mode: online\n  Training/test split: True\n  Instructions: Imagine moving the left or right hand following the cue.\n\nHED Event Annotations\n---------------------\n  Schema: HED 8.4.0 | Browse: https://www.hedtags.org/hed-schema-browser\n\n  left_hand\n    ├─ Sensory-event, Experimental-stimulus, Visual-presentation\n    └─ Agent-action\n       └─ Imagine\n          ├─ Move\n          └─ Left, Hand\n\n  right_hand\n    ├─ Sensory-event, Experimental-stimulus, Visual-presentation\n    └─ Agent-action\n       └─ Imagine\n          ├─ Move\n          └─ Right, Hand\n\nTags\n----\n  Pathology: healthy\n  Modality: Motor\n  Type: Motor Imagery\n\nDocumentation\n-------------\n  Description: Single-session left/right-hand motor-imagery EEG from 55 novice BCI users (16 channels, 250 Hz, g.Nautilus), collected to study psychological and cognitive factors in motor-imagery BCI performance.\n  DOI: 10.34894/Z7ZVOD\n  License: CC-BY-4.0\n  Investigators: Nikki Leeuwis, Alissa Paas, Maryam Alimardani\n  Institution: Tilburg University, Tilburg School of Humanities and Digital Sciences\n  Country: NL\n  Repository: DataverseNL\n  Data URL: https://doi.org/10.34894/Z7ZVOD\n  Publication year: 2021\n  Keywords: motor imagery, BCI, brain-computer interface, EEG, cognition, personality\n\nReferences\n----------\nLeeuwis, N., Paas, A., and Alimardani, M. (2021). Psychological and Cognitive Factors in Motor Imagery Brain Computer Interfaces. DataverseNL, V1. DOI: https://doi.org/10.34894/Z7ZVOD See also: Leeuwis, N., Paas, A., & Alimardani, M. (2021). Vividness of Visual Imagery and Personality Impact Motor-Imagery Brain Computer Interfaces. Frontiers in Human Neuroscience, 15, 634748.\n\nNotes\n\n.. versionadded:: 1.8.0\nAppelhoff, S., Sanderson, M., Brooks, T., Vliet, M., Quentin, R., Holdgraf, C., Chaumon, M., Mikulan, E., Tavabi, K., Hochenberger, R., Welke, D., Brunner, C., Rockhill, A., Larson, E., Gramfort, A. and Jas, M. (2019). MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis. Journal of Open Source Software 4: (1896). https://doi.org/10.21105/joss.01896\n\nPernet, C. R., Appelhoff, S., Gorgolewski, K. J., Flandin, G., Phillips, C., Delorme, A., Oostenveld, R. (2019). EEG-BIDS, an extension to the brain imaging data structure for electroencephalography. Scientific Data, 6, 103. https://doi.org/10.1038/s41597-019-0104-8\n\n---\nGenerated by MOABB 1.8.0dev0 (Mother of All BCI Benchmarks)\nhttps://github.com/NeuroTechX/moabb\n\nEthics\n------\nEthics approval: the data analysed in this deposit were collected under the\nethics approval obtained by the original investigators and reported in the\nprimary publication cited above (see References/Documentation sections of\nthis README). Participants gave informed consent in the source study. No\nnew human-subject data were collected during this BIDS re-release; this\nNEMAR record only reformats the published source data into BIDS via MOABB.\nPlease consult the primary publication for the exact IRB/ethics committee\nreference.\n\n## Ethics\n\nReviewed and approved by the Research Ethics Committee of Tilburg School of Humanities and Digital Sciences. All participants provided written informed consent to participate in the study (Leeuwis, Paas & Alimardani 2021, Front. Hum. Neurosci. 15:634748, DOI 10.3389/fnhum.2021.634748).\n\nVerbatim from the source:\n\n> This study was reviewed and approved by the Research Ethics Committee of Tilburg School of Humanities and Digital Sciences. The patients/participants provided their written informed consent to participate in this study.\n\nSource: cached paper .paper-audit/Leeuwis2021/paper-10_3389_fnhum_2021_634748.txt (Leeuwis, Paas & Alimardani 2021, Front. Hum. Neurosci. 15:634748, DOI 10.3389/fnhum.2021.634748).\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000327",
+    "exists": true,
+    "description": "Leeuwis2021: Left- vs right-hand motor-imagery EEG dataset",
+    "created_at": "2026-10-04T18:33:22+00:00",
+    "updated_at": "2026-10-12T03:00:43+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

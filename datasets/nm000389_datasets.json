@@ -1,0 +1,81 @@
+{
+  "dataset_id": "nm000389",
+  "date_retrieved": "2026-10-12T10:05:27.627481+00:00",
+  "dataset_description": {
+    "Name": "Genuine cross-frequency coupling networks in human resting-state electrophysiological recordings (Siebenhuehner et al., 2020): SEEG and MEG connectomes (derivative)",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "derivative",
+    "License": "CC0-1.0",
+    "Authors": [
+      "Felix Siebenhühner",
+      "Sheng H Wang",
+      "Gabriele Arnulfo",
+      "Lino Nobili",
+      "J Matias Palva",
+      "Satu Palva",
+      "Anna Lampinen"
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "Authors' analysis pipeline (Siebenhühner et al., 2020, PLoS Biol 18(5):e3000685, Methods)",
+        "Description": "10-min eyes-closed resting-state SEEG (59 patients, Niguarda Hospital, Milan; 1000 Hz; closest-white-matter referencing; exclusion of epileptic-zone and subcortical contacts and of interictal-event windows; Morlet wavelets m=5, 49 frequencies 1.2-315 Hz) and 10-min eyes-open resting-state MEG (19 healthy participants, 27 sets; 306-channel Elekta/MEGIN; tSSS, ICA; MNE source modelling collapsed to 200 split-Destrieux parcels with fidelity weighting; Morlet m=5, 1.1-315 Hz), plus a second MEG cohort (10 participants, eyes open/closed, 148 Destrieux parcels). Per subject and frequency (pair): phase synchrony (PLV, wPLI), cross-frequency phase synchrony (CFS), phase-amplitude coupling (PAC) and amplitude-envelope coupling, each with surrogate values; exported as CSV matrices. Code: https://github.com/palvalab/Resting_State_CFC",
+        "CodeURL": "https://github.com/palvalab/Resting_State_CFC"
+      },
+      {
+        "Name": "FINISHER-05x repackaging (f05x_build055.py)",
+        "Description": "Repackaging only: each original connectome zip split into per-subject zips (member names, timestamps and bytes unchanged); per-subject supporting CSVs and group-level plot/support CSVs extracted verbatim; neuropsychological CSV re-expressed as phenotype TSV (values unchanged). Exact member-level round-trip. Code in code/.",
+        "CodeURL": "code/f05x_build055.py"
+      }
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.5061/dryad.0k86k80",
+        "URL": "https://datadryad.org/dataset/doi:10.5061/dryad.0k86k80",
+        "Version": "Dryad version 5 (published 2020-03-19); files obtained from the Dryad-community Zenodo replica https://zenodo.org/records/4936144 and checked against the Dryad digests"
+      }
+    ],
+    "HowToAcknowledge": "Please cite Siebenhühner F, Wang SH, Arnulfo G, Lampinen A, Nobili L, Palva JM, Palva S (2020) Genuine cross-frequency coupling networks in human resting-state electrophysiological recordings. PLoS Biol 18(5):e3000685, doi:10.1371/journal.pbio.3000685, and the Dryad dataset doi:10.5061/dryad.0k86k80.",
+    "Funding": [
+      "This work was supported by the Academy of Finland (SA 266402, 303933, and SA 325404 to SP and SA 253130 and 296304 to JMP) and Sigrid Juselius Foundation to SP & JMP."
+    ],
+    "EthicsApprovals": [
+      "All research was carried out according to the Declaration of Helsinki. Prior to the study, each subject signed an informed and written consent. The study protocol for SEEG, computerized tomography (CT), and MRI data obtained in the La Niguarda Hospital were approved by the ethical committee of the Niguarda “Ca Granda” Hospital, Milan (ID 939). The study protocol for MEG and MRI data obtained in the University of Helsinki was approved by the Coordinating Ethical Committee of Helsinki University Central Hospital (HUCH) (ID 290/13/03/2013). (Siebenhühner et al. 2020, PLoS Biol 18(5):e3000685, Methods, Ethics statement)"
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.1371/journal.pbio.3000685",
+      "https://doi.org/10.5061/dryad.0k86k80",
+      "https://zenodo.org/records/4936144",
+      "https://github.com/palvalab/Resting_State_CFC"
+    ],
+    "Keywords": [
+      "SEEG",
+      "stereo-EEG",
+      "intracranial EEG",
+      "MEG",
+      "resting state",
+      "cross-frequency coupling",
+      "phase synchrony",
+      "phase-amplitude coupling",
+      "connectome",
+      "epilepsy",
+      "neuropsychology",
+      "derivative"
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000389",
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000389-blue)](https://doi.org/10.82901/nemar.nm000389)\n\n# Genuine cross-frequency coupling networks in human resting-state electrophysiological recordings (Siebenhühner et al., 2020): SEEG and MEG connectomes (derivative)\n\n**This is a processed-data (derivative) dataset.** It repackages the authors' public Dryad release\n(doi:[10.5061/dryad.0k86k80](https://doi.org/10.5061/dryad.0k86k80), version 5, CC0-1.0): per-subject connectivity\nmatrices (CSV) computed from resting-state SEEG and MEG, the supporting files used in their processing, neuropsychological\nscores and the plotted values of the article's figures. **Raw SEEG/MEG recordings are not part of the release and are not\nincluded here**; the article states: \"Raw data cannot be made available due to data privacy regulations set by the\nethical committees.\"\n\nArticle: Siebenhühner F, Wang SH, Arnulfo G, Lampinen A, Nobili L, Palva JM, Palva S (2020). Genuine cross-frequency\ncoupling networks in human resting-state electrophysiological recordings. *PLoS Biol* 18(5):e3000685.\ndoi:[10.1371/journal.pbio.3000685](https://doi.org/10.1371/journal.pbio.3000685). Code:\n<https://github.com/palvalab/Resting_State_CFC>.\n\n## Cohorts (article, Methods)\n\n- **SEEG, 59 patients** (`sub-seeg001` ...): drug-resistant focal epilepsy, presurgical assessment at the \"Claudio\n  Munari\" Epilepsy Surgery Centre, Niguarda Hospital, Milan. One 10-min eyes-closed resting-state set per patient,\n  192-channel Nihon Kohden Neurofax-110, 1000 Hz; contacts localised with CT/SEEGA and assigned to the 148-parcel\n  Destrieux atlas; closest-white-matter referencing; contacts in seizure-onset/propagation zones and subcortical\n  contacts excluded; pairs sharing a reference or closer than 2 cm excluded; 50 Hz harmonics removed; 500-ms windows\n  with interictal events excluded; Morlet wavelets (m = 5), 49 centre frequencies 1.2-315 Hz.\n- **MEG main cohort, 19 healthy participants** (`sub-meg0006` ...): 10-min eyes-open resting state, 27 sets (4\n  participants contributed 2 sets and 2 contributed 3), 306-channel Vectorview/Triux (Elekta-Neuromag/MEGIN), BioMag\n  Laboratory, Helsinki; tSSS, ICA artifact removal, MNE source modelling collapsed to 200 parcels (split Destrieux\n  atlas) with fidelity weighting; Morlet filter bank (m = 5), 1.1-315 Hz. Low-fidelity parcels/edges excluded.\n- **MEG eyes-open/eyes-closed cohort, 10 participants** (4 of them also in the main cohort): 10-min eyes-open and\n  eyes-closed sessions, 148-parcel connectomes (S8 Fig). Set names ending in \"c\" are eyes-closed recordings (authors'\n  README).\n\n`participants.tsv` lists each subject's release code and cohort membership. The article reports no per-subject age or\nsex, so none is given.\n\n## Connectome measures\n\nPer subject and frequency (phase synchrony, PS) or low-frequency:high-frequency pair (cross-frequency coupling, CFC;\nratios 1:2 to 1:7), each matrix is contact x contact (SEEG) or parcel x parcel (MEG), semicolon-separated CSV. Every\nmatrix has a `_surr.csv` counterpart with the surrogate values. From the authors' README: \"The first dimension in CFC\ndata is that of the low-frequency parcel/contact and the second dimension that of the high-frequency parcel/contact.\nValues for local CFC are found on the diagonal.\"\n\n| desc label | original zip | measure | used for (authors' README) |\n|---|---|---|---|\n| `CFS` | `SEEG connectome CFS.zip` / `MEG connectome CFS.zip` | cross-frequency phase synchrony | Figs 4, 5, 6 (SEEG), 7, 8 (MEG), S3, S5, S7, S9, S10 |\n| `PAC` | `SEEG connectome PAC.zip` / `MEG connectome PAC.zip` | phase-amplitude coupling | Figs 4, 5, 6, 7, S3, S5, S7, S9, S10, S11 |\n| `ACenv` | `SEEG_connectome_AC_ENV.zip` / `MEG connectome AC Env.zip` | amplitude-envelope coupling | S6 Fig |\n| `PSplv` | `SEEG connectome PS_PLV.zip` / `MEG connectome PS (PLV).zip` | phase synchrony, PLV | S4 Fig |\n| `PSwpli` | `SEEG connectome PS_wPLI.zip` / `MEG connectome PS (wPLI).zip` | phase synchrony, wPLI | S4 Fig |\n| `CFSeoec` | `MEG_connectome_CFS_(EO-EC).zip` | CFS, eyes-open/closed cohort | S8 Fig |\n| `PSwplieoec` | `MEG_connectome_PS_(wPLI_EO-EC).zip` | PS (wPLI), eyes-open/closed cohort | S8 Fig |\n\nFrequencies are encoded in the CSV member names (e.g. `S001 LF=1.20 HF=2.40.csv`, `S0006 set01 f=1.05.csv`); MEG\nmember names also carry the recording set (`set01`, ...).\n\n## Layout\n\n```\nsub-seegNNN/ieeg/\n  sub-seegNNN_desc-<measure>_connectomes.zip      that subject's CSV members of the original zip\n  sub-seegNNN_desc-mask_contacts.csv              contact-pair mask (cortical contacts, >= 2 cm, no shared reference)\n  sub-seegNNN_desc-distances_contacts.csv         Euclidean contact-to-contact distances\n  sub-seegNNN_desc-gmpi_contacts.csv              Grey Matter Proximity Index per contact\nsub-megNNNN/meg/\n  sub-megNNNN_desc-<measure>_connectomes.zip\n  sub-megNNNN_desc-parceldistances200_parcels.csv  distances between parcel centres (200 parcels)\n  sub-megNNNN_desc-parcelfidelity200_parcels.csv   parcel fidelity (200 parcels; ...148 for the EO/EC cohort)\n  sub-megNNNN_desc-crossparcelPLV200_parcels.csv   cross-parcel PLV in simulated data (fidelity analysis)\ngroup/seeg/   all_frequencies_SEEG.csv, CF_matrix_SEEG.csv, Contacts_per_parcel.csv\ngroup/meg/    CF_matrix_MEG.csv, morphing_targets_200_to_148.csv, Parcel_names_200.csv\ngroup/plot_data/<figure>/   plotted values of Figs 3-8 and S3-S11 (see below)\ngroup/files.tsv             derivative path -> original zip member -> sha-256, for every extracted file\nphenotype/neuropsychology.tsv (+ .json)   8 test scores of the 19 main-cohort MEG participants\nsourcedata/dryad-0k86k80/   the 17 original files, byte-for-byte, with SHA256SUMS and the authors' Read_Me.docx\ncode/                       f05x_build055.py, f05x_lib.py\n```\n\nEvery per-subject derivative file has a JSON sidecar of the same name (description, `Sources` pointing to the original release file, variables, how it was repackaged).\n\nThe per-subject zips contain the original members with their original names and timestamps; only the container is new.\nEvery member of every original zip appears exactly once in the per-subject zips with identical bytes (checked by\nsha-256 in `code/f05x_build055.py`). Extracted CSVs are byte-identical to the zip members (spaces and brackets in names\nreplaced by `_`; mapping in `group/files.tsv`). Zip and CSV derivative files are listed in `.bidsignore`.\n\nSupporting files (authors' README): *CF matrix*: frequencies used as low frequencies (first column) and as high\nfrequencies (2nd to 7th column) for ratios 1:2-1:7; *All Frequencies SEEG*: list of all frequencies used; *Contacts per\nparcel*: number of contacts across subjects per Destrieux parcel; *Morphing Targets 200 to 148*: parent 148-parcel for\neach of the 200 parcels; *Parcel Names 200*: names and abbreviations of the 200 parcels; *Parcel Fidelity* and\n*Cross-Parcel PLV*: see article Methods (removal of low-fidelity parcels and connections).\n\nPlot data (authors' README): Fig 3, data from -500 ms to 499 ms in 1-ms steps (TFR files include frequencies); Figs 4,\n5, 6, S3, S5, S6, S7, S8, group mean K or GS (row 1) with lower (row 2) and upper (row 3) confidence limits for all low\nfrequencies; S4 Fig, the same for PS; Figs 7 and S10, one directionality value per parcel of the 148-parcel Destrieux\natlas; Figs 8 and S11, Spearman's r of CFC with neuropsychological scores (rows: frequencies 1.05-95.6 Hz, columns:\nratios 1:2-1:7); S9 Fig, Spearman's r between MEG CFC parcel degrees and SEEG layer-combination degrees.\n\nNeuropsychology: \"A value of -1 indicates that a subject did not perform a test\" (authors' README); values are copied\nunchanged.\n\n## Loading\n\n```python\nimport zipfile, numpy as np\nz = zipfile.ZipFile('sub-seeg001/ieeg/sub-seeg001_desc-CFS_connectomes.zip')\nname = [n for n in z.namelist() if n.endswith('LF=1.20 HF=2.40.csv')][0]\nK = np.loadtxt(z.open(name), delimiter=';')     # contacts x contacts (LF contact x HF contact)\n```\n\n## Privacy\n\nSubject codes are the release's own pseudonyms (`S001`, `S0006`). File names, CSV contents and the authors' README\nwere scanned for names, dates, record numbers and paths; nothing identifying was found (CSV files hold only numbers).\n\n## Ethics approval\n\n\"All research was carried out according to the Declaration of Helsinki. Prior to the study, each subject signed an\ninformed and written consent. The study protocol for SEEG, computerized tomography (CT), and MRI data obtained in the\nLa Niguarda Hospital were approved by the ethical committee of the Niguarda “Ca Granda” Hospital, Milan (ID 939). The\nstudy protocol for MEG and MRI data obtained in the University of Helsinki was approved by the Coordinating Ethical\nCommittee of Helsinki University Central Hospital (HUCH) (ID 290/13/03/2013).\" (Siebenhühner et al. 2020, *PLoS Biol*\n18(5):e3000685, Methods, Ethics statement.)\n\n## Funding\n\n\"This work was supported by the Academy of Finland (SA 266402, 303933, and SA 325404 to SP and SA 253130 and 296304 to\nJMP) and Sigrid Juselius Foundation to SP & JMP.\" (article, Funding statement)\n\n## Related\n\nThe 68-patient Niguarda SEEG cohort of Fuscà, Siebenhühner, Wang et al. (2023, *Nat Commun*,\ndoi:10.1038/s41467-023-40056-9; Dryad doi:10.5061/dryad.vdncjsxzn) comes from the same clinical programme; the\nreleases do not provide a subject mapping between the two.\n\n## License and citation\n\nCC0-1.0 (Dryad record license). Please cite the article (doi:10.1371/journal.pbio.3000685) and the Dryad dataset\n(doi:10.5061/dryad.0k86k80).\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000389",
+    "exists": true,
+    "description": "Genuine cross-frequency coupling networks in human resting-state electrophysiological recordings (Siebenhuehner et al., 2020): SEEG and MEG connectomes (derivative)",
+    "created_at": "2026-10-07T12:54:26+00:00",
+    "updated_at": "2026-10-08T06:07:17+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

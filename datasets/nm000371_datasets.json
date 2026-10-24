@@ -1,0 +1,76 @@
+{
+  "dataset_id": "nm000371",
+  "date_retrieved": "2026-10-12T10:04:39.369684+00:00",
+  "dataset_description": {
+    "Name": "Dataset of Speech Production in intracranial Electroencephalography (SingleWordProductionDutch-iBIDS)",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "raw",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "Maxime Verwoert",
+      "Maarten C. Ottenhoff",
+      "Sophocles Goulis",
+      "Albert J. Colon",
+      "Louis Wagner",
+      "Simon Tousseyn",
+      "Johannes P. van Dijk",
+      "Pieter L. Kubben",
+      "Christian Herff"
+    ],
+    "Acknowledgements": "Original data collection, curation and release by M. Verwoert, C. Herff and colleagues (Maastricht University; Academic Center for Epileptology Kempenhaeghe/Maastricht UMC+). Conversion of the NWB iEEG streams to BrainVision and metadata enrichment for NEMAR by the NEMAR iEEG curation campaign (2026); no signal processing was applied.",
+    "HowToAcknowledge": "Please cite: Verwoert, M., Ottenhoff, M.C., Goulis, S. et al. Dataset of Speech Production in intracranial Electroencephalography. Sci Data 9, 434 (2022). https://doi.org/10.1038/s41597-022-01542-9 ; and the data record https://doi.org/10.17605/OSF.IO/NRGX6",
+    "Funding": [
+      "Dutch Research Council (NWO), project 'DEcoding Speech In SEEG (DESIS)', VI.Veni.194.021 (C. Herff)"
+    ],
+    "EthicsApprovals": [
+      "Experiment design and data recording were approved by the Institutional Review Boards of both Maastricht University and Epilepsy Center Kempenhaeghe. All participants joined the study on a voluntary basis and gave written informed consent (Verwoert et al. 2022)."
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.1038/s41597-022-01542-9",
+      "https://doi.org/10.17605/OSF.IO/NRGX6",
+      "https://github.com/neuralinterfacinglab/SingleWordProductionDutch",
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9307753/"
+    ],
+    "Keywords": [
+      "intracranial EEG",
+      "stereo-EEG",
+      "sEEG",
+      "speech production",
+      "speech decoding",
+      "Dutch",
+      "single words",
+      "brain-computer interface",
+      "epilepsy",
+      "audio"
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.17605/OSF.IO/NRGX6",
+        "URL": "https://osf.io/nrgx6/",
+        "Version": "OSF file SingleWordProductionDutch-iBIDS.zip, sha256 in sourcedata/osf-nrgx6/acquisition_receipt.json"
+      }
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "NEMAR iEEG curation campaign: harness/b2osf_ieeg034_convert.py + b2osf_ieeg034_enrich_check.py",
+        "Description": "Lossless re-encoding of the NWB 'iEEG' acquisition stream to BrainVision integer codes (INT_16, or INT_32 where needed) at the coarsest exact quantum per participant (see README), or the original NWB where no exact integer coding exists; sidecars copied from the source iBIDS release and enriched from the data descriptor."
+      }
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000371",
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000371-blue)](https://doi.org/10.82901/nemar.nm000371)\n\n# Dataset of Speech Production in intracranial Electroencephalography (SingleWordProductionDutch-iBIDS)\n\n## Overview\nStereo-EEG (sEEG) from 10 Dutch-speaking patients with pharmaco-resistant epilepsy (5 female, 5 male, age 16-50 years,\nmean 32) who read aloud 100 Dutch words shown one at a time on a laptop screen (2 s word, 1 s fixation cross; about 300 s\nper participant), while intracranial EEG and the participant's speech audio were recorded simultaneously.\n1103 recorded contacts in total, covering cortical and subcortical (incl. deep) structures.\n\nOriginal publication: Verwoert, M., Ottenhoff, M.C., Goulis, S., Colon, A.J., Wagner, L., Tousseyn, S., van Dijk, J.P.,\nKubben, P.L., Herff, C. Dataset of Speech Production in intracranial Electroencephalography. Scientific Data 9, 434\n(2022). https://doi.org/10.1038/s41597-022-01542-9\nOriginal data record: https://doi.org/10.17605/OSF.IO/NRGX6 (OSF project \"Dataset of Speech Production in intracranial\nElectroencephalography\", license CC-By Attribution 4.0 International). Code: https://github.com/neuralinterfacinglab/SingleWordProductionDutch\n\n## Participants / cohort (data descriptor, Methods 'Participants' and Table 1)\n- 10 participants with pharmaco-resistant epilepsy (mean age 32, range 16-50; 5 male, 5 female), all native speakers of Dutch,\n  implanted with sEEG as part of their clinical therapy at the Academic Center for Epileptology Kempenhaeghe/Maastricht UMC+\n  (The Netherlands); electrode locations purely clinical. 1317 contacts implanted, 1103 recorded (Table 1).\n- Implanted hemispheres (from the released electrode tables): left only 2 (sub-08, sub-09), right only 2 (sub-04, sub-10),\n  bilateral 6. 5-19 shafts per participant.\n- Not reported by the source: handedness, seizure onset zone, aetiology, epilepsy duration, medication, recording dates/years.\n- Ethics: approved by the Institutional Review Boards of Maastricht University and Epilepsy Center Kempenhaeghe; written\n  informed consent; recording supervised by experienced healthcare staff.\n\n## Task (data descriptor, 'Experimental design')\nParticipants read aloud words shown on a laptop screen: one random word from the stimulus library (Dutch IFA corpus extended\nwith the numbers one to ten in word form) was shown for 2 s, during which the participant read it aloud once, followed by a\n1 s fixation cross; 100 words, about 300 s per participant. Instruction (source sidecar): \"Speak the word presented on the\nscreen out-loud\". `events.tsv` gives every word and fixation with the word text in `value`.\n\n## Acquisition (data descriptor)\n- Electrodes: Dixi Medical Microdeep sEEG shafts (platinum-iridium, 0.8 mm diameter, 2 mm contacts, 1.5 mm spacing, 5-18 contacts per shaft); locations purely clinical.\n- Amplifiers: two or more Micromed SD LTM amplifiers (64 channels each). Contacts referenced to a common white-matter contact.\n- Recorded at 1024 Hz or 2048 Hz and downsampled by the authors to 1024 Hz (all files here: 1024 Hz). No further filtering by us.\n- Audio: notebook microphone at 48 kHz, pitch-shifted by the authors by a random constant offset of 1-3 semitones (up or down) per participant to protect anonymity (LibRosa). Neural, audio and stimulus streams were synchronised with LabStreamingLayer.\n- Task: words from the Dutch IFA corpus extended with the numbers one to ten; each word shown 2 s, then a 1 s fixation cross, 100 words.\n- Electrode localisation: img_pipe (pre-implant T1 MRI co-registered with post-implant CT); anatomical labels (channels.tsv 'description') from the Destrieux atlas. Coordinates in native ACPC space (mm).\n- Ethics: approved by the Institutional Review Boards of Maastricht University and Epilepsy Center Kempenhaeghe; written informed consent.\n\n## Preprocessing applied by the source\nOnly the authors' downsampling to 1024 Hz (where recorded at 2048 Hz; method not reported) and the pitch shift of the audio.\nThe descriptor's technical validation (70-170 Hz envelope, 50 Hz harmonics band-stop) is analysis code, not applied to the files.\nThe authors report no significant acoustic contamination of the neural data (Roussel et al. method, p > 0.01, all participants).\n\n## Files (what is in this package)\n- `sub-XX/ieeg/*_ieeg.vhdr/.vmrk/.eeg`: the NWB 'iEEG' stream of each participant. Signals: the NWB 'iEEG' acquisition stream (float64, microvolts) re-encoded losslessly as BrainVision integer codes x resolution (every source sample is an exact integer multiple of the stated resolution); per participant: sub-01: INT_16 x 0.09765625 uV; sub-02: INT_16 x 0.09765625 uV; sub-03: INT_16 x 0.09765625 uV; sub-04: INT_16 x 0.09765625 uV; sub-05: INT_16 x 0.09765625 uV; sub-06: the original NWB file is the raw file (its float64 values are not on any integer grid, consistent with the authors' downsampling from 2048 Hz - not verified; no lossless BrainVision encoding exists; this NWB also contains the Audio and Stimulus streams); sub-07: INT_16 x 0.09765625 uV; sub-08: INT_16 x 0.09765625 uV; sub-09: the original NWB file is the raw file (its float64 values are not on any integer grid, consistent with the authors' downsampling from 2048 Hz - not verified; no lossless BrainVision encoding exists; this NWB also contains the Audio and Stimulus streams); sub-10: INT_16 x 0.09765625 uV.\n  Verified per participant: integer code x resolution equals the source float64 value for every sample; same sample count, channel order, 1024 Hz.\n- `*_channels.tsv`, `*_events.tsv`, `*_space-ACPC_electrodes.tsv`, `*_coordsystem.json`: from the source iBIDS release (electrodes/coordsystem renamed without the task entity). Sidecars enriched from the data descriptor (amplifier and electrode make; the source sidecar's 'BrainProducts' manufacturer field is kept as SourceManufacturerField and replaced by Micromed as stated in the paper).\n- `participants.tsv`: age and sex from the source; contacts implanted/recorded from Table 1 of the paper; implanted hemisphere(s)\n  and shaft counts derived from the released electrode tables (see participants.json). Handedness is not reported (n/a).\n- `derivatives/freesurfer/sub-XX/`: FreeSurfer outputs released by the authors (pial meshes, skull-stripped brain, Destrieux and white-matter parcellations), byte-identical.\n- `sourcedata/osf-nrgx6/`: the original OSF zip (byte-identical, checksums in acquisition_receipt.json) and its unpacked content, including the original\n  `*_ieeg.nwb` files. **The participants' pitch-shifted speech audio (48 kHz, NWB acquisition 'Audio') and the per-sample stimulus word stream\n  ('Stimulus') are in these NWB files (and in the raw NWB files of the participants listed above as NWB)**, exactly as openly published by the authors under CC BY 4.0; read them with pynwb or h5py\n  (`acquisition/Audio/data` + `acquisition/Audio/timestamps`, LSL clock). The iEEG timestamps of the NWB files are the LSL timestamps;\n  the BrainVision files assume the nominal 1024 Hz rate stated by the source.\n\n## Known caveats / notes\n- No recording dates are present (NWB session_start_time is the placeholder 2020-01-01T12:00).\n- Events: onset in seconds from the first iEEG sample; 'sample' is the 0-based iEEG sample index from the source.\n- License: CC BY 4.0 (OSF record). Cite the paper and the OSF record when using these data.\n\n## How to load\n```python\nimport mne_bids\nbp = mne_bids.BIDSPath(root=\".\", subject=\"01\", task=\"wordProduction\", datatype=\"ieeg\")\nraw = mne_bids.read_raw_bids(bp)  # BrainVision; sub-06 and sub-09 are NWB (read with pynwb)\n```\n\n## Citation\nVerwoert M. et al. (2022) Sci Data 9:434, https://doi.org/10.1038/s41597-022-01542-9 ; data https://doi.org/10.17605/OSF.IO/NRGX6 .\n\n## Provenance\nOSF project nrgx6 (created 2022-03-25), file SingleWordProductionDutch-iBIDS.zip; data descriptor full text PMC9307753.\nMetadata enriched 2026-10-07 (participants cohort text, implanted hemispheres/shaft counts from the released electrode tables,\ntask/acquisition sections, corrected SourceManufacturerField note).\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000371",
+    "exists": true,
+    "description": "Dataset of Speech Production in intracranial Electroencephalography (SingleWordProductionDutch-iBIDS)",
+    "created_at": "2026-10-06T22:06:20+00:00",
+    "updated_at": "2026-10-08T05:19:47+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

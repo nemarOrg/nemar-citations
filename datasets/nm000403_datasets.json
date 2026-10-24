@@ -1,0 +1,75 @@
+{
+  "dataset_id": "nm000403",
+  "date_retrieved": "2026-10-12T10:06:04.744689+00:00",
+  "dataset_description": {
+    "Name": "Face-selective ventral occipito-temporal responses to fast periodic visual stimulation, SEEG (Jonas et al., 2016) (derivative)",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "derivative",
+    "License": "CC0-1.0",
+    "Authors": [
+      "Jacques Jonas",
+      "Corentin Jacques",
+      "Joan Liu-Shuang",
+      "Hélène Brissart",
+      "Sophie Colnat-Coulbois",
+      "Louis Maillard",
+      "Bruno Rossion"
+    ],
+    "EthicsApprovals": [
+      "They all gave written consent to participate to the study, which was part of a protocol approved by the human investigation committee of the University Hospital of Nancy. [Jonas et al. 2016, PNAS 113(28):E4088-E4097, Materials and Methods > Participants]"
+    ],
+    "Funding": [
+      "European Research Council grant facessvep 284025",
+      "Belgian National Fund for Scientific Research (FNRS)",
+      "Belgian Federal Government (BELSPO, return grant 2012)"
+    ],
+    "HowToAcknowledge": "Cite Jonas J, Jacques C, Liu-Shuang J, Brissart H, Colnat-Coulbois S, Maillard L, Rossion B (2016) A face-selective ventral occipito-temporal map of the human brain with intracerebral potentials. PNAS 113(28):E4088-E4097, doi:10.1073/pnas.1522033113; and the Dryad dataset doi:10.5061/dryad.5f9v7.",
+    "ReferencesAndLinks": [
+      "https://doi.org/10.1073/pnas.1522033113",
+      "https://doi.org/10.5061/dryad.5f9v7",
+      "http://www.nocions.org/letswave/"
+    ],
+    "Keywords": [
+      "face perception",
+      "SEEG",
+      "intracerebral recordings",
+      "fast periodic visual stimulation",
+      "fusiform gyrus",
+      "face selectivity",
+      "frequency tagging"
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.5061/dryad.5f9v7",
+        "URL": "https://datadryad.org/dataset/doi:10.5061/dryad.5f9v7",
+        "Version": "Dryad version 1 (published 2017-06-08)"
+      }
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "Authors' preprocessing in Letswave 5",
+        "Description": "Import of Micromed TRC, low-pass filter 30 Hz (Butterworth order 4), cropping of each sequence from 2 s after onset to ~65 s, merging of sequences per condition; LW_downsample in the history of some files (see each ieeg.json)."
+      },
+      {
+        "Name": "b3w3_convert_jonas.py",
+        "Description": "Repackaging: Letswave float32 sequences back-to-back in BrainVision (values unchanged); Letswave events to events.tsv with patient-code prefixes removed. Code in code/."
+      }
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000403",
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000403-blue)](https://doi.org/10.82901/nemar.nm000403)\n\n# Face-selective ventral occipito-temporal map with intracerebral recordings (Jonas et al., 2016) - DERIVATIVE\n\nSEEG from 28 right-handed patients with refractory epilepsy (University Hospital of Nancy, Dec 2012 - Mar 2015) during\nfast periodic visual stimulation: natural object images at 6 Hz with faces as every fifth image (1.2 Hz) in the\nperiodic condition, and the same images with faces at random positions in the non-periodic control condition.\n\nTHIS IS A DERIVATIVE DATASET: the release contains the authors' Letswave files, low-pass filtered at 30 Hz\n(Butterworth order 4) and cut into sequences (README), not the raw Micromed recordings.\n\n## Source\n- Dryad: Jacques Jonas, Corentin Jacques, Joan Liu-Shuang, Hélène Brissart, Sophie Colnat-Coulbois, Louis Maillard, Bruno Rossion. Data from: A face-selective ventral occipito-temporal map of the human brain with\n  intracerebral potentials. doi:10.5061/dryad.5f9v7 (version 1, 2017-06-08).\n  License: CC0 1.0 (Dryad).\n- Article: PNAS 113(28):E4088-E4097 (2016), doi:10.1073/pnas.1522033113 (PMC4948344).\n- All 6 Dryad files (3 zips + 3 identical READMEs) were downloaded through the Dryad API and matched the md5 digests.\n\n## Contents\n- `sub-P<nn>/ieeg/sub-P<nn>_task-<faceperiodic|facenonperiodic>_run-1_ieeg.*`: 56 files, 28\n  participants, 2.05 h. Each file holds the 1-4 sequences of one condition back-to-back (one BrainVision segment\n  per sequence; `RecordingType` epoched, `EpochLength` = sequence length). Values are the release's float32 values,\n  unchanged (MNE read-back matches). Sampling rate 512 Hz (Letswave header).\n- Channels: labels from the Letswave header. Contacts are typed SEEG; scalp electrodes recorded with the SEEG\n  (labels `s<10-20 name>`, e.g. sC3) EEG; ECG*, PULS+/BEAT+/SpO2+ (physiological monitors, MISC) and MKR* (marker\n  inputs, TRIG) as labelled. Unit µV is assumed (Letswave import of Micromed TRC; not stated in the release).\n- Electrode positions: the README says per-participant Talairach and MNI coordinate files are in each participant's\n  folder, but THEY ARE NOT IN THE DEPOSIT. Only contact labels exist; `electrodes.tsv` lists the SEEG contact names\n  with x, y, z = n/a.\n- `events.tsv`: the Letswave events (code, sequence, latency) of each file; codes are not documented in the release.\n- Letswave history per file is in each `ieeg.json` (`SoftwareFilters`). 4 files also went through\n  LW_downsample (to 512 Hz) according to their history.\n- `sourcedata/dryad-5f9v7-deidentified/`: the per-participant .lw5/.mat files and READ_ME.txt of the three zips,\n  de-identified (below). `DEIDENTIFICATION_MANIFEST.tsv` lists original and new sha-256 per file.\n- NOT included: the `Stimuli/` folder (face and object JPEG images, 750 files over the three\n  zips). The article states that the actual face images could not be shown for copyright reasons; they remain\n  available from the Dryad record.\n\n## Privacy\n- Some Letswave event codes began with a patient code formed from letters of the patient's name (e.g. a pattern\n  like 'ABCDE1_greyscale_sinstim_Localiser_6Hz_ObjectsFaces_Per_Grey_1'). That prefix was replaced by 'seq' in\n  events.tsv and in the de-identified .lw5 headers (8 distinct codes; a byte search of\n  the whole output for these codes found 0 remaining occurrences). The original Dryad files\n  still contain them.\n- Letswave history dates and MAT text-header dates in sourcedata are reduced to month and year (day -> 01). The\n  .lw5 headers were rewritten with scipy (savemat, MATLAB v5, compressed); their content is otherwise unchanged.\n- Age and sex are given only for the cohort (mean age 30.5 +- 4.4 years; 15 female).\n\n## Additional metadata and localisation (added 2026-10-08)\n\nCompiled after the upload from the article, its supplement and the source deposit (each statement names its source). Text and sidecar metadata only; no data file was changed.\n\nSources: P = Jonas et al. 2016, PNAS 113(28):E4088-E4097, doi:10.1073/pnas.1522033113 (read on pnas.org; SI is integrated in the article page). R = deposit README (README_for_Jonas_et_al_PNAS_2016_Part_*.txt, identical in all three parts). F = deposit files (Letswave .lw5 headers read in a Voyager Job).\n\n**Recording.** Each SEEG electrode is a 0.8 mm diameter cylinder with 8-15 contacts, 2 mm long, 1.5 mm apart edge to edge (3.5 mm centre to centre). Recording used a 256-channel amplifier at 512 Hz. Original files were Micromed TRC (R). Reference: a midline prefrontal scalp electrode (FPz) in 21 participants, or an intracerebral white-matter contact in 7 participants (P, Methods). The per-participant reference is not given.\n\n**Preprocessing in the deposit.** Data were imported into Letswave 5 and low-pass filtered at 30 Hz (Butterworth, order 4). Sequences were segmented from 2 s after onset to about 65 s (an integer number of 1.2 Hz cycles), and the sequences of each condition were merged into one file (2 or 4 periodic, 1 or 2 nonperiodic). No FFT or other analysis was applied. Data dimensions are [sequences, channels, 1, 1, 1, time] (R). The header history is LW_importTRC → LW_merge_epochs → LW_butter_lowpass, with xstep 1/512 s (F).\n\n**Channels.** header.chanlocs holds labels only: topo_enabled = 0 and there are no coordinates (F). Besides intracerebral contacts named by electrode letter and number (e.g. L'1, TB3), the files contain scalp EEG channels with an s prefix (e.g. sFz), ECG/PULS+/BEAT+/SpO2+/MKR channels, and placeholder channels (e.g. el237, zz193, xx152).\n\n**Localisation.** Contacts were labelled in each participant's own anatomy from gyri and sulci landmarks (CoS, OTS, MFS, posterior tip of the hippocampus, anterior tip of the parieto-occipital sulcus; Fig. S2). In a separate analysis, MRIs were normalised to obtain Talairach and MNI coordinates (P, Methods \"Contact Localization in the Individual Anatomy\"). Talairach and MNI coordinate .txt files for each participant are described in R (\"Recording contacts coordinates ... reported in a txt file in each participant's folder\") but are **not present** in the three zips (F: the zips contain only the .lw5/.mat pairs, READ_ME.txt and the stimuli). The paper reports only region-mean coordinates of face-selective contacts (Table S1) and the number of face-selective contacts per region (Table 1).\n\n### Regions per participant (as published; no coordinates exist)\n\n| participant | region (as stated) | hemisphere | contacts | source |\n|---|---|---|---|---|\n| all (cohort; 11 participants) | VMO: ventromedial occipital (occipital CoS, lingual gyrus, calcarine sulcus, cuneus, occipital pole) | L | 89 | doi:10.1073/pnas.1522033113, Table 1 (face-selective contacts only) |\n| all (cohort; 11 participants) | VMO: ventromedial occipital (occipital CoS, lingual gyrus, calcarine sulcus, cuneus, occipital pole) | R | 50 | doi:10.1073/pnas.1522033113, Table 1 (face-selective contacts only) |\n| all (cohort; 11 participants) | IOG: inferior occipital gyrus | L | 26 | doi:10.1073/pnas.1522033113, Table 1 (face-selective contacts only) |\n| all (cohort; 11 participants) | IOG: inferior occipital gyrus | R | 36 | doi:10.1073/pnas.1522033113, Table 1 (face-selective contacts only) |\n| all (cohort; 17 participants) | medFG: medial fusiform gyrus and adjacent CoS | L | 40 | doi:10.1073/pnas.1522033113, Table 1 (face-selective contacts only) |\n| all (cohort; 17 participants) | medFG: medial fusiform gyrus and adjacent CoS | R | 30 | doi:10.1073/pnas.1522033113, Table 1 (face-selective contacts only) |\n| all (cohort; 17 participants) | latFG: lateral fusiform gyrus and adjacent OTS | L | 30 | doi:10.1073/pnas.1522033113, Table 1 (face-selective contacts only) |\n| all (cohort; 17 participants) | latFG: lateral fusiform gyrus and adjacent OTS | R | 33 | doi:10.1073/pnas.1522033113, Table 1 (face-selective contacts only) |\n| all (cohort; 13 participants) | MTG/ITG: posterior middle/inferior temporal gyri | L | 30 | doi:10.1073/pnas.1522033113, Table 1 (face-selective contacts only) |\n| all (cohort; 13 participants) | MTG/ITG: posterior middle/inferior temporal gyri | R | 25 | doi:10.1073/pnas.1522033113, Table 1 (face-selective contacts only) |\n| all (cohort; 18 participants) | antCoS: anterior collateral sulcus | L | 33 | doi:10.1073/pnas.1522033113, Table 1 (face-selective contacts only) |\n| all (cohort; 18 participants) | antCoS: anterior collateral sulcus | R | 23 | doi:10.1073/pnas.1522033113, Table 1 (face-selective contacts only) |\n| all (cohort; 7 participants) | antFG: anterior fusiform gyrus | L | 10 | doi:10.1073/pnas.1522033113, Table 1 (face-selective contacts only) |\n| all (cohort; 7 participants) | antFG: anterior fusiform gyrus | R | 11 | doi:10.1073/pnas.1522033113, Table 1 (face-selective contacts only) |\n| all (cohort; 15 participants) | antOTS: anterior occipito-temporal sulcus | L | 35 | doi:10.1073/pnas.1522033113, Table 1 (face-selective contacts only) |\n| all (cohort; 15 participants) | antOTS: anterior occipito-temporal sulcus | R | 17 | doi:10.1073/pnas.1522033113, Table 1 (face-selective contacts only) |\n| all (cohort; 12 participants) | antMTG/ITG: anterior middle/inferior temporal gyri | L | 20 | doi:10.1073/pnas.1522033113, Table 1 (face-selective contacts only) |\n| all (cohort; 12 participants) | antMTG/ITG: anterior middle/inferior temporal gyri | R | 17 | doi:10.1073/pnas.1522033113, Table 1 (face-selective contacts only) |\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000403",
+    "exists": true,
+    "description": "Face-selective ventral occipito-temporal responses to fast periodic visual stimulation, SEEG (Jonas et al., 2016) (derivative)",
+    "created_at": "2026-10-07T22:26:49+00:00",
+    "updated_at": "2026-10-08T06:15:20+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

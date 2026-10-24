@@ -1,7 +1,7 @@
 {
   "dataset_id": "on004408",
-  "num_citations": 0,
-  "date_last_updated": "2026-10-11T10:53:07.166123+00:00",
+  "num_citations": 3,
+  "date_last_updated": "2026-10-24T11:14:10.158783+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
     "fetch_date": "2026-10-11T10:53:07.166123+00:00",
@@ -39,13 +39,106 @@
       "Speech Perception"
     ],
     "methods_description": "EEG was recorded with a 128-channel BioSemi ActiveTwo system at 512 Hz. Recordings are unfiltered and unreferenced, with one recording per audiobook segment. Recording starts are aligned to the audio onset, and the recordings extend beyond the audio to a varying extent. Word and phoneme timings in the stimulus TextGrid files were generated with the Prosodylab-Aligner forced aligner and inspected by eye.",
-    "funding": []
+    "funding": [],
+    "searched_accessions": [
+      "on004408",
+      "ds004408"
+    ],
+    "num_accession_mentions": 3,
+    "num_dataset_citations": 3,
+    "num_datapaper_citations": 0
   },
-  "citation_details": [],
+  "citation_details": [
+    {
+      "title": "What masking geometry works best for EEG foundation models?",
+      "author": "Pierre Guetschel, Bruno Aristimunha, Yassine El Ouahidi, Arnaud Delorme A, Thomas Moreau, Michael Tangermann",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2609.33487",
+      "cited_by": 0,
+      "abstract": "EEG foundation models hold promise for scalable brain-signal decoding across clinical and cognitive neuroscience applications, yet their pre-training pipelines remain poorly understood. Among design choices, the masking strategy is particularly critical: it determines what the network must predict and from which context. Yet it has never been ablated in isolation, as each new model bundles a new masking strategy with a new backbone and objective. In this paper, we formalize the design choices for spatio-temporal masking strategies and train various models with a single pipeline under varying masking configurations across two SSL frameworks (MAE and JEPA). We then systematically evaluate the resulting 58 pre-trained models on the 12 datasets of OpenEEGBench under a linear probe. Both frameworks agree on an optimal masking configuration and on shared failure modes. Outside these, performance is robust: 11 MAE and 9 JEPA configurations are statistically indistinguishable from the best. We further identify a novel JEPA-specific failure mode, tagged bias-inflation collapse, invisible to standard detectors. With a well-chosen mask, our pipeline reaches REVE-level downstream performance at a fraction of REVE's pre-training compute.",
+      "doi": "10.48550/arxiv.2609.33487",
+      "pmid": null,
+      "openalex_id": "W7214740814",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004408",
+      "confidence_scoring": {
+        "confidence_score": 0.4694901649653912,
+        "similarity_score": 0.406484991312027,
+        "citation_text_length": 1476,
+        "dataset_text_length": 1849,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Predicting Cognitive Tasks from Single-Channel EEG through Task-Semantic Alignment",
+      "author": "Ryota Kanai C",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2610.15104",
+      "cited_by": 0,
+      "abstract": "Studies of data scaling in electroencephalography (EEG) and related noninvasive recordings suggest that simple wearable devices could eventually reveal more about cognitive states. However, publicly available EEG data are difficult to combine. Different laboratories record different tasks, participants, and devices. Task-agnostic self-supervised learning can exploit such data, but representations learned only with EEG signals have not consistently produced feature representations that are directly effective for decoding the cognitive state. We therefore aimed to incorporate task information by embedding experimental instructions, stimuli and response demands in a common semantic space, and trained an EEG encoder to align signals from a single anterior--posterior differential channel with those task vectors. This framework supports zero-shot prediction without target-condition calibration and few-shot prediction using labeled samples. On a reserved ten-class evaluation, the highest observed zero-shot balanced accuracy was 30.13% (chance 10%). In a separate developmental few-shot experiment, balanced accuracy reached 34.47% using 16 labeled EEG examples per class from another participant, and 74.99% using examples from the test participant's own task recording. Our experiments suggest that training models on datasets with multiple tasks per participant appeared useful, whereas adding datasets containing only one or a few tasks sometimes reduced established performance despite broader task coverage. These exploratory results suggest that EEG datasets that repeat varied cognitive tasks and everyday activities within the same individuals across days, devices and independent studies would be particularly useful for training an EEG foundation model for predicting cognitive states.",
+      "doi": "10.48550/arxiv.2610.15104",
+      "pmid": null,
+      "openalex_id": "W7221793578",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004408",
+      "confidence_scoring": {
+        "confidence_score": 0.5848078608512879,
+        "similarity_score": 0.5063271522521973,
+        "citation_text_length": 1660,
+        "dataset_text_length": 1849,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Computing the geometry of phase–amplitude coupling: A new moment-based framework",
+      "author": "Mahmoud Keshavarzi, Usha Goswami",
+      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+      "year": 2026,
+      "url": "https://doi.org/10.64898/2026.09.15.751789",
+      "cited_by": 0,
+      "abstract": "Abstract Phase–amplitude coupling (PAC) is widely used to quantify interactions between neural oscillations, yet cannot establish whether two coupling profiles share the same geometry, phase polarity or modal structure. Here we demonstrate that commonly-used PAC metrics constitute many-to-one mappings from phase–amplitude distributions to low-dimensional summaries. This results in distinct coupling geometries yielding identical PAC values. We propose formalising PAC as a hierarchy of representations, introducing a circular-moment decomposition that preserves richer geometric information. Simulations demonstrate that distinct coupling geometries produce identical Modulation Index (MI) values. Analyses of EEG data acquired during adult language listening reveal substantial geometric variability among PAC profiles with matched MI values, validating the moment-based approach. Applied to a child-language dataset, the framework identifies differences in phase geometry of delta-low gamma PAC in children with developmental language disorder, potentially uniting competing neuroscientific theories. We propose a representation-selection framework for future PAC research.",
+      "doi": "10.64898/2026.09.15.751789",
+      "pmid": null,
+      "openalex_id": "W7213923096",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004408",
+      "confidence_scoring": {
+        "confidence_score": 0.47901922255754475,
+        "similarity_score": 0.41473525762557983,
+        "citation_text_length": 1368,
+        "dataset_text_length": 1849,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    }
+  ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-10-11T11:32:34.352681+00:00",
+    "scoring_date": "2026-10-24T11:28:58.299087+00:00",
     "dataset_text_length": 1849,
-    "num_citations_scored": 0
+    "num_citations_scored": 3,
+    "summary_stats": {
+      "mean_confidence": 0.5111057494580746,
+      "median_confidence": 0.47901922255754475,
+      "std_confidence": 0.05226025674456552,
+      "min_confidence": 0.4694901649653912,
+      "max_confidence": 0.5848078608512879,
+      "high_confidence_count": 0,
+      "medium_confidence_count": 3,
+      "low_confidence_count": 0
+    }
   }
 }

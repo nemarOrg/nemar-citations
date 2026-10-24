@@ -1,0 +1,76 @@
+{
+  "dataset_id": "nm000369",
+  "date_retrieved": "2026-10-12T10:04:31.889217+00:00",
+  "dataset_description": {
+    "Name": "Sensorimotor alpha and beta ECoG during movement imagery (Stolk et al. 2019, shared participants S4-S6)",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "raw",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "Arjen Stolk",
+      "Loek Brinkman",
+      "Mariska J. Vansteensel",
+      "Erik Aarnoutse",
+      "Frans S.S. Leijten",
+      "Chris H. Dijkerman",
+      "Robert T. Knight",
+      "Floris P. de Lange",
+      "Ivan Toni"
+    ],
+    "Acknowledgements": "The authors thank the patients and their families for their participation and A Bastos, CW Hoy, and R Oostenveld for invaluable discussions and comments on previous versions of this article. AS was supported by Rubicon grant 446-14-007 from NWO and Marie Sklodowska-Curie Global Fellowship 658868 from the European Union. LB was supported by Brain and Cognition grant 433-09-248 from NWO awarded to IT. (Stolk et al. 2019, Acknowledgements)",
+    "HowToAcknowledge": "Cite Stolk A, Brinkman L, Vansteensel MJ, Aarnoutse E, Leijten FSS, Dijkerman CH, Knight RT, de Lange FP, Toni I (2019). Electrocorticographic dissociation of alpha and beta rhythmic activity in the human sensorimotor system. eLife 8:e48065. https://doi.org/10.7554/eLife.48065 ; data: https://osf.io/z4hfm/",
+    "Funding": [
+      "Nederlandse Organisatie voor Wetenschappelijk Onderzoek (NWO) 446-14-007 (A. Stolk)",
+      "European Commission 658868 (A. Stolk)",
+      "Nederlandse Organisatie voor Wetenschappelijk Onderzoek (NWO) 433-09-248 (I. Toni)"
+    ],
+    "EthicsApprovals": [
+      "Medical Ethical Committee of the University Medical Center Utrecht, reference number 12-075; informed consent according to institutional guidelines, in accordance with the declaration of Helsinki (Stolk et al. 2019)."
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.7554/eLife.48065",
+      "https://osf.io/z4hfm/",
+      "https://doi.org/10.1038/s41596-018-0009-6",
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6785220/",
+      "http://www.fieldtriptoolbox.org"
+    ],
+    "Keywords": [
+      "electrocorticography",
+      "ECoG",
+      "sensorimotor cortex",
+      "alpha",
+      "beta",
+      "motor imagery",
+      "traveling waves",
+      "epilepsy"
+    ],
+    "SourceDatasets": [
+      {
+        "URL": "https://osf.io/z4hfm/",
+        "Version": "OSF osfstorage files as of 2026-10-06 (md5/sha256 in sourcedata/osf-z4hfm/acquisition_receipts.json)"
+      }
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "NEMAR iEEG curation campaign: harness/b2osf_ieeg071_convert.py + b2osf_ieeg071_enrich.py",
+        "Description": "FieldTrip trial segments written back-to-back to BrainVision without any processing (RecordingType=epoched); electrode table and labels from the authors' files."
+      }
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000369",
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000369-blue)](https://doi.org/10.82901/nemar.nm000369)\n\n# Sensorimotor alpha and beta ECoG during movement imagery (Stolk et al. 2019) - participants S4, S5, S6\n\n## Overview\nElectrocorticography (subdural grids/strips, University Medical Center Utrecht) recorded while epilepsy patients imagined\ngrasping a cylinder with the left or right hand (movement imagery task, 60 trials per session). The paper analysed 9 of 11\nimplanted participants; the authors' OSF record (https://osf.io/z4hfm/) states: \"Due to privacy issues, we are not allowed\nto share the data of all the patients reported in our paper. The data of the patients that have explicitly granted\npermission to share their data is shared here.\" Those are participants S4, S5 and S6, released as trial segments.\n\nPaper: Stolk A, Brinkman L, Vansteensel MJ, Aarnoutse E, Leijten FSS, Dijkerman CH, Knight RT, de Lange FP, Toni I (2019).\nElectrocorticographic dissociation of alpha and beta rhythmic activity in the human sensorimotor system. eLife 8:e48065.\nhttps://doi.org/10.7554/eLife.48065 . License of the OSF data record: CC-By Attribution 4.0 International.\n\n## Participants / cohort (paper, Methods 'Participants')\n- Paper cohort: 11 epilepsy patients (7 males, 14-45 years) implanted subdurally with grid and strip arrays at the University\n  Medical Center Utrecht (The Netherlands) to localise the seizure onset zone for surgical resection; arrays on the left\n  hemisphere in 8 cases, on the right in 3; 81.3 +/- 11.2 electrodes (mean +/- SEM). All had normal hearing and vision.\n  Two participants were excluded for not adhering to the task instructions (9 analysed behaviourally); two had no\n  upper-limb sensorimotor coverage (7 analysed neurally). No seizures occurred during task administration.\n- This release: S4 (right hemisphere, 112 electrodes), S5 (left, 120), S6 (left, 64); hemisphere and counts from the released\n  electrode positions/atlas labels. In the paper, S4 and S5 contributed alpha/beta local-maxima electrodes; S6 had limited\n  sensorimotor coverage and only its four stimulation-positive electrodes were used, for temporal dynamics only.\n- Per-participant age, sex and handedness are not published (n/a in participants.tsv); recording dates/years are not stated.\n\n## Task (paper, Methods 'Movement imagery task')\nParticipants lay semi-recumbent in their hospital bed and performed up to three sessions (mean 2 +/- 0.2) of 60 trials (10 min).\nA black-white cylinder (17.5 x 3.5 cm), tilted in 1 of 15 orientations (24 deg apart, pseudo-random), was shown for 2-5 s\n(adjusted per participant); participants imagined grasping its middle third with the left or right hand (hand alternating every\nten trials, visual cue). A response screen (black and white squares, order pseudo-random) followed, and participants reported\nwhether the thumb ended on the black or white part by pressing the left or right button with the left or right thumb on a\nbutton box held with both hands; a fixation cross (3-4 s) followed. A control task (same visual input, judge which side of the\ncylinder is larger) was completed by 8 of 9 participants; it is not identified in this release.\n\n## Acquisition (paper, Methods 'ECoG acquisition and analysis')\n128-channel Micromed system (Treviso, Italy; 22 bits), analog band-pass 0.15-134.4 Hz, sampled at 512 Hz. Ad-Tech subdural grids\nand strips (Racine, USA), 10 mm spacing, 2.3 mm exposed diameter. Epochs with overt movements or distracting events were excluded\nby the authors (6 +/- 2 % of trials). Electrode localisation: post-implantation CT fused with the pre-operative T1 MRI (Philips 3T\nAchieva; CT Philips Tomoscan SR7000), projection to FreeSurfer surfaces (Stolk et al. 2018, https://doi.org/10.1038/s41596-018-0009-6).\nEthics: Medical Ethical Committee of UMC Utrecht, reference 12-075. The paper's own analysis then filtered (1-200 Hz), removed line\nnoise and re-referenced to the common average; that processing is NOT applied to the shared segments (see below).\n\n## Content, preprocessing and conversion (known caveats)\n- sub-S4: 112 ECoG channels, 173 epochs of 2305 samples (-1.5 s to 3.000 s around the trial time zero), 512 Hz\n- sub-S5: 120 ECoG channels, 49 epochs of 2049 samples (-1.5 s to 2.500 s around the trial time zero), 512 Hz\n- sub-S6: 64 ECoG channels, 180 epochs of 2561 samples (-1.5 s to 3.500 s around the trial time zero), 512 Hz\n- The source contains only trial segments (FieldTrip `data.trial`), not continuous recordings. Each participant's segments are\n  written back-to-back into one BrainVision file (`RecordingType`: `epoched`; `events.tsv` marks every epoch, its time-zero\n  sample and the 9 undocumented `trialinfo` columns verbatim). Do not treat the file as continuous: epoch boundaries are\n  discontinuities.\n- No filtering, re-referencing or resampling was applied. Values are stored losslessly (round trip exact, values in\n  microvolts): sub-S4 BrainVision INT_16 x 0.09765625; sub-S5 BrainVision INT_16 x 0.09765625; sub-S6 no exact integer coding exists (off-grid values, likely resampled by the authors), so the float64 samples are stored losslessly in NWB (acquisition 'ECoG'). **Units:** the .mat files do not state the signal unit\n  (FieldTrip `elec.chanunit` 'V' is the toolbox default for sensor definitions). The values are labelled microvolts because\n  the recording system is Micromed and the quantum (0.09765625) is the same as in Micromed data with declared microvolt\n  units; this is an inference, not a source statement.\n- Electrodes: positions from the FieldTrip `elec` structure (mm, coordinate system not named by the source), plus the authors'\n  electrode table (11 mm atlas look-ups, discard/epileptic/out-of-brain flags) as extra columns. Channels flagged by the authors\n  are `status=bad` in channels.tsv (no channel removed).\n- Reference: not reported for the shared segments (n/a).\n- `sourcedata/osf-z4hfm/`: the original OSF files, byte-identical: `S*_raw_segmented.mat`, `S*_electable_11mm.xlsx` and\n  FreeSurfer pial surfaces `S*_lh.pial`/`S*_rh.pial` (cortical meshes, no facial information).\n- Per-participant age/sex are not released (paper: 11 participants, 7 males, 14-45 years): n/a in participants.tsv.\n\n## How to load\n```python\nimport mne_bids\nbp = mne_bids.BIDSPath(root=\".\", subject=\"S4\", task=\"motorimagery\", datatype=\"ieeg\")\nraw = mne_bids.read_raw_bids(bp)  # sub-S4/S5 BrainVision; sub-S6 is NWB (read with pynwb)\n```\nRemember that the files are epoched (`RecordingType` = `epoched`): use `events.tsv` (`sample`, `time_zero_sample`) to cut epochs.\n\n## Citation\nStolk A et al. (2019) eLife 8:e48065, https://doi.org/10.7554/eLife.48065 ; data: https://osf.io/z4hfm/ .\n\n## Provenance\nOSF project z4hfm (\"Data accompanying Stolk et al. 2019 ...\", created 2020-04-21); paper full text PMC6785220. Metadata enriched\n2026-10-07 from the paper (participants, task, acquisition, acknowledgements) and from the released electrode tables.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000369",
+    "exists": true,
+    "description": "Sensorimotor alpha and beta ECoG during movement imagery (Stolk et al. 2019, shared participants S4-S6)",
+    "created_at": "2026-10-06T21:59:18+00:00",
+    "updated_at": "2026-10-08T05:54:47+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

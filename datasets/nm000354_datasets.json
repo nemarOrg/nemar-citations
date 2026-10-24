@@ -1,0 +1,85 @@
+{
+  "dataset_id": "nm000354",
+  "date_retrieved": "2026-10-12T10:03:39.597618+00:00",
+  "dataset_description": {
+    "Name": "Arithmetic calculations measured by intracranial EEG in the human brain",
+    "BIDSVersion": "1.9.0",
+    "DatasetType": "derivative",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "M. Kalinova",
+      "B. Kerkova",
+      "A. Kalina",
+      "V. Pytelova",
+      "J. Amlerova",
+      "R. Janca",
+      "P. Jezdik",
+      "D. Krysl",
+      "M. Kudr",
+      "P. Krsek",
+      "P. Marusic",
+      "J. Hammer"
+    ],
+    "EthicsApprovals": [
+      "Approved by the ethical committee of Motol University Hospital (EK-1340.27/20), Prague, Czechia. All ethical regulations relevant to human research participants were performed in accordance with the Declaration of Helsinki. (verbatim from the source publication, Kalinova et al. 2026, Sci Rep 16:5587)"
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.1038/s41598-026-36122-z",
+      "https://zenodo.org/records/19550714",
+      "https://doi.org/10.5281/zenodo.19550714",
+      "https://zenodo.org/records/18245516",
+      "https://github.com/JiriHammer/SEEG_dataAnalysis"
+    ],
+    "SourceDatasets": [
+      {
+        "URL": "https://zenodo.org/records/19550714",
+        "Version": "v4",
+        "DOI": "doi:10.5281/zenodo.19550714"
+      }
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "source-provided preprocessing (authors)",
+        "Description": "Per source publication: 2048 Hz DIXI SEEG acquisition downsampled to 512 Hz, bipolar-referenced, filtered, epoched -2..+7s around first operand. This archive as published is NOT continuous raw acquisition; deposited here as a derivative, matching its true processing state. Details: low-pass 8th order Chebyshev Type I IIR, cutoff 400 Hz, zero phase, then downsampling to 512 Hz; contacts in seizure onset or irritative zones and broken channels rejected; bipolar referencing between every contact and its closest neighbour on each shank starting from the deepest contact; high-pass 0.1 Hz (Butterworth, 6th order, zero phase); notch at 50 Hz and harmonics (Kalinova et al. 2026, Sci Rep 16:5587, doi:10.1038/s41598-026-36122-z, Methods 'iEEG data recording and preprocessing'). The data-structure README states: 'Raw iEEG data means that they were bipolar referenced, high-pass filtered (at 0.1 Hz) and notch filtered at 50 Hz and harmonics.' (trialsData_readme (data-structure description in Zenodo 10.5281/zenodo.19550714 raw_data.zip)).",
+        "CodeURL": "https://github.com/JiriHammer/SEEG_dataAnalysis"
+      },
+      {
+        "Name": "laneC_convert.py (ieeg-nemar-20261005 harness)",
+        "Description": "Wrote each subject's D.trials epochs back-to-back into one BrainVision file with MNE-BIDS (storage concatenation only; no further filtering, resampling or re-referencing); channels_MNI written to electrodes.tsv."
+      }
+    ],
+    "Acknowledgements": "Motol University Hospital is a full member of ERN EpiCARE. All authors are members of the Epilepsy Research Centre Prague - EpiReC consortium. The authors would like to thank the patients for their participation in this study and CESNET for access to their data storage facility. (Kalinova et al. 2026, Sci Rep 16:5587, doi:10.1038/s41598-026-36122-z, Acknowledgements)",
+    "HowToAcknowledge": "Cite Kalinova M, Kerkova B, Kalina A, et al. (2026) Temporal order of activations and interactions during arithmetic calculations measured by intracranial electrophysiological recordings in the human brain. Sci Rep 16:5587. doi:10.1038/s41598-026-36122-z; and the data record: Hammer J, Marusic P (2026). Dataset: arithmetic calculations measured by intracranial EEG in the human brain (v4). Zenodo. doi:10.5281/zenodo.19550714",
+    "Funding": [
+      "ERDF-Project Brain Dynamics, No. CZ.02.01.01/00/22_008/0004643",
+      "Grant Agency of Charles University (GA UK), Grant No. 272221"
+    ],
+    "Keywords": [
+      "Brain network dynamics",
+      "Intracranial electroencephalography (iEEG)",
+      "Numerical cognition",
+      "Functional connectivity",
+      "High-gamma band activity (HGB)",
+      "Phase-locking value (PLV)",
+      "SEEG",
+      "arithmetic",
+      "epilepsy"
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000354",
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000354-blue)](https://doi.org/10.82901/nemar.nm000354)\n\nIEEG006 arithmetic SEEG - deposited as a DERIVATIVE, not raw.\n\n## Overview\nIntracranial (stereo-EEG) recordings from 20 epilepsy surgery candidates performing a sequential three-operand arithmetic\ntask, as deposited by the authors on Zenodo (Hammer J, Marusic P (2026), \"Dataset: arithmetic calculations measured by\nintracranial EEG in the human brain\", v4, doi:10.5281/zenodo.19550714, CC-BY-4.0), supporting Kalinova et al. 2026, Sci Rep 16:5587, doi:10.1038/s41598-026-36122-z.\nThe deposited data are preprocessed, bipolar-referenced epochs, so this is a BIDS derivative dataset.\n\nSource publication (Kalinova et al. 2026, Sci Rep, doi:10.1038/s41598-026-36122-z) describes acquisition\nat 2048 Hz with DIXI SEEG electrodes and a Natus Quantum system, then LOW-PASS FILTERING, DOWNSAMPLING to\n512 Hz, BIPOLAR RE-REFERENCING and EPOCHING (deposited epochs: -2..+7 s around the first operand) before deposit. The\ndeposited trials_P*.mat arrays match exactly this processed/epoched form (512 Hz, bipolar channel names\nlike J1~J2, 4609-sample windows spanning -2..+7 s in all 20 files), not acquisition-raw signal. (The publication's\nMethods extract -2..+9 s trials for its own analyses; the deposited files hold -2..+7 s, source `D.time`.)\nPer campaign policy, this is therefore placed under derivatives/source-preprocessed-seeg/, not sourcedata-\nas-raw BIDS.\n\n## Cohort\n- 20 subjects (eight females, average age 36.2 years, range 18-63) with pharmacoresistant epilepsy, implanted with\n  stereo-EEG (SEEG) electrodes during pre-surgical evaluation with iEEG video monitoring; implantation typically lasted 7-14\n  days, and \"The implantation scheme depended solely on the clinical hypothesis\" (Kalinova et al. 2026, Sci Rep 16:5587, doi:10.1038/s41598-026-36122-z, Methods \"Participants\").\n- Recording centre: Department of Neurology, Second Faculty of Medicine, Charles University and Motol University Hospital,\n  Prague, Czechia.\n- Electrodes and system: \"iEEG data were recorded by SEEG electrodes (DIXI Medical) sampled at 2048 Hz by Natus Quantum\n  amplifiers, with the reference and the ground electrodes placed at the depth of the white matter\" (same, Methods).\n- Channels in this dataset: 1518 bipolar SEEG channels in total (32-116 per subject); 1925 trials\n  (49-123 per subject).\n- Per-participant age, sex, handedness, implantation site, electrode/contact counts and task success rate from the\n  publication's Supplementary Table T1 are in `participants.tsv` / `participants.json` (added after the original\n  conversion; the \"Channel/value units\" paragraph below describes the deposited data files, which carry no demographics).\n\n## Task\n- Sequential arithmetic equations, e.g. 6 + 3 - 2 = 8 (yes/no): fixation cross (a star) for 1.05-1.55 s, then operand N1,\n  operator O1 (plus or minus), operand N2, operator O2, operand N3, equals sign and proposed result; \"All stimuli were\n  presented for 1.05 s, with the exception of the fixation period\". The result was correct in 50% of trials, otherwise off by\n  one. Answer within 5 s on a Logitech F310 gamepad: green = true, red = false, blue = don't know; feedback followed each answer.\n- \"Easy\" equations: results not exceeding 10, operands as Arabic numbers, dice symbols, fingers or number words (one format per\n  equation). \"Difficult\" equations: results greater than 10, Arabic numbers only. Run in separate sessions (easy about 6 min,\n  difficult about 2 min), 4-5 sessions, at least 40 equations per stimulus category.\n- Presentation with PsychToolBox 3.0 on a PC screen about 1.5 m away; stimulus onsets were synchronized with the iEEG through a\n  parallel-port trigger channel (Kalinova et al. 2026, Sci Rep 16:5587, doi:10.1038/s41598-026-36122-z, Methods \"Sequential arithmetic equations task\").\n- Source per-trial table D.stimuliValues (N1, N2, N3, O1, O2, RT in s, stimType = easy|diff _ ARAB|DICE|FING|WORD) is described\n  in the data README but is not exported to events.tsv (see below).\n\n## Files\n- `sub-P<n>/ieeg/*_ieeg.vhdr/.vmrk/.eeg`: all epochs of the subject written back-to-back (BrainVision); `RecordingType` is\n  `epoched` with `EpochLength` 9.001953125 s (4609 samples at 512 Hz).\n- `*_events.tsv`: one row per epoch; `onset` = epoch start in the file; the first operand N1 appears 2.0 s after `onset` (source\n  `D.time` runs from -2.0 to +7.0 s, 0 s = N1 onset); `trial_type` = trial-NNN in source order.\n- `*_channels.tsv`: bipolar channels named `A~B` (source `D.channels_names`).\n- `*_electrodes.tsv` / `*_coordsystem.json`: source `D.channels_MNI`, the MNI coordinates of the centre of each bipolar pair. The\n  source ROI assignment per channel (`D.channels_ROI`) is not exported.\n- `*_ieeg.json`: acquisition system, filters and reference as stated by the publication and the data README.\n\n## Preprocessing applied by the source\n- Publication (Kalinova et al. 2026, Sci Rep 16:5587, doi:10.1038/s41598-026-36122-z, Methods \"iEEG data recording and preprocessing\"): contacts in the seizure onset or irritative zones\n  rejected; low-pass 8th order Chebyshev Type I IIR (cutoff 400 Hz, zero phase) and downsampling to 512 Hz; broken channels with\n  artefacts rejected after visual inspection; bipolar referencing between every contact and its closest neighbour on each shank,\n  starting from the deepest contact; high-pass 0.1 Hz (Butterworth, 6th order, zero phase); notch at 50 Hz and harmonics\n  (100, 150 Hz; e.g. 48-52 Hz stop band, Butterworth, 6th order, zero phase). The publication also rejected detected\n  inter-ictal spikes (0.5 s windows) for its analyses; whether that rejection is reflected in the deposited epochs is not\n  stated.\n- Data README (Zenodo raw_data.zip, trialsData_readme): \"Raw iEEG data means that they were bipolar referenced, high-pass\n  filtered (at 0.1 Hz) and notch filtered at 50 Hz and harmonics.\"\n- All of the above is recorded in `SoftwareFilters` and `iEEGReference` of each `*_ieeg.json` and in `GeneratedBy`.\n- `*_channels.tsv`: `low_cutoff` 0.1 Hz = the publication's and data README's high-pass; `high_cutoff` 400 Hz = the\n  publication's anti-aliasing low-pass, applied at 2048 Hz before downsampling (the released 512 Hz signal has a Nyquist\n  frequency of 256 Hz).\n\n## Known caveats\n- Everything in the original notes is kept in this README (first paragraphs and the sections below); only the epoch\n  window in the first paragraph was corrected from \"-2..+9s\" to the files' -2..+7 s.\n- The *_ieeg.json `Manufacturer` previously read \"Brain Products\" (a BrainVision writer default); it now reads Natus (Quantum).\n- The coordinate system label MNI152NLin2009cAsym was chosen at conversion; the source says only that the MRI scans were\n  normalized to MNI space with SPM12.\n- `trial_type` carries no stimulus content: equations, difficulty/format, reaction times and correctness are only in the\n  source table.\n\nEach subject's trials are concatenated back-to-back along time to form a single BrainVision file so that\nmne-bids can write it; this is an explicit non-physiological concatenation for storage, NOT a claim of a\ncontinuous recording. events.tsv onsets mark each trial boundary in the concatenated series; trial_type\nis only a positional index (trial-NNN), not stimulus content, because the source MATLAB 'stimuliValues'\ntable (per-trial equation/difficulty/correctness/response) could not be decoded from the HDF5-backed MAT\nstructure with the tools available in this pass and is NOT fabricated here. It remains available in\nsourcedata/raw_data.zip for a future pass with a MATLAB-table-capable reader.\n\nChannel/value units: the source does not state physical units for 'trials'; values are treated as\nunconfirmed microvolt-scale for file-writer purposes only. electrodes.tsv uses source channels_MNI\ncoordinates (mm assumed by MNI convention). Participant age/sex are reported only at the cohort level\nin the source publication (20 adults, 8 female, mean 36.2, range 18-63); per-participant demographics\nare NOT in the deposited files and are therefore left n/a rather than invented.\n\nKnown identical-content release: Zenodo 18245516 raw_data.zip has the same size and MD5 as this\n19550714 v4 copy and must not be deposited again. Zenodo 16778665 is an older, different-size archive\nand is excluded from this deposit.\n\n## Ethics\nEthics statement (verbatim from the source publication, Kalinova et al. 2026, Sci Rep 16:5587):\nSubjects participated voluntarily in the study after signing informed consent. The study was\napproved by the ethical committee of Motol University Hospital (EK-1340.27/20), Prague, Czechia.\nAll ethical regulations relevant to human research participants were performed in accordance\nwith the Declaration of Helsinki.\n\n## Funding\n\"The research was supported by ERDF-Project Brain Dynamics, No. CZ.02.01.01/00/22_008/0004643, and Grant Agency of Charles\nUniversity (GA UK, Grant No. 272221).\" (Kalinova et al. 2026, Sci Rep 16:5587, doi:10.1038/s41598-026-36122-z, Funding)\n\n## How to load\n```python\nfrom mne_bids import BIDSPath, read_raw_bids\nimport mne, pandas as pd\nbp = BIDSPath(root=\".\", subject=\"P1\", task=\"arithmetic\", datatype=\"ieeg\")\nraw = read_raw_bids(bp)\nev = pd.read_csv(bp.copy().update(suffix=\"events\", extension=\".tsv\").fpath, sep=\"\\t\")\nevents = (ev[\"sample\"].to_numpy()[:, None] * [1, 0, 0]) + [[0, 0, 1]]\nepochs = mne.Epochs(raw, events, tmin=0.0, tmax=4608 / 512, baseline=None)  # one source trial per epoch; N1 at +2.0 s\n```\n\n## Citations\n- Kalinova M, Kerkova B, Kalina A, Pytelova V, Amlerova J, Janca R, Jezdik P, Krysl D, Kudr M, Krsek P, Marusic P, Hammer J\n  (2026). Temporal order of activations and interactions during arithmetic calculations measured by intracranial\n  electrophysiological recordings in the human brain. Scientific Reports 16:5587. doi:10.1038/s41598-026-36122-z\n- Hammer J, Marusic P (2026). Dataset: arithmetic calculations measured by intracranial EEG in the human brain (v4). Zenodo.\n  doi:10.5281/zenodo.19550714\n- Analysis code: https://github.com/JiriHammer/SEEG_dataAnalysis\n\n## Source and provenance\nZenodo record 19550714 (v4: \"iEEG data + published article\"; published 2026-04-13; creators Jiri Hammer, Petr Marusic;\nCC-BY-4.0), file raw_data.zip with trials_P1.mat ... trials_P20.mat (MATLAB 7.3, variable D) and the data-structure README.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000354",
+    "exists": true,
+    "description": "Arithmetic calculations measured by intracranial EEG in the human brain",
+    "created_at": "2026-10-06T14:24:05+00:00",
+    "updated_at": "2026-10-12T03:01:06+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

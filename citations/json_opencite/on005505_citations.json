@@ -1,10 +1,10 @@
 {
   "dataset_id": "on005505",
-  "num_citations": 22,
-  "date_last_updated": "2026-10-11T11:03:41.475140+00:00",
+  "num_citations": 29,
+  "date_last_updated": "2026-10-24T11:15:21.498629+00:00",
   "metadata": {
-    "total_cumulative_citations": 168,
-    "fetch_date": "2026-10-11T11:03:41.475140+00:00",
+    "total_cumulative_citations": 185,
+    "fetch_date": "2026-10-24T11:00:56.665510+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -23,7 +23,7 @@
         "paper_title": "HBN-EEG: The FAIR implementation of the Healthy Brain Network (HBN) electroencephalography dataset",
         "paper_year": 2024,
         "paper_venue": "bioRxiv (Cold Spring Harbor Laboratory)",
-        "reason": "HBN-EEG preprint shares authors with the dataset and describes the BIDS/HED-formatted HBN-EEG data, including this Release 1; it is the dataset's data paper.",
+        "reason": "HBN-EEG bioRxiv paper by the same authors presents the BIDS-formatted HBN-EEG releases (including Release 1) with HED annotations; DataCite marks IsDescribedBy.",
         "judgment_model": "claude-sonnet-5-5"
       },
       {
@@ -93,7 +93,14 @@
       {
         "funder_name": "Child Mind Institute"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "on005505",
+      "ds005505"
+    ],
+    "num_accession_mentions": 6,
+    "num_dataset_citations": 6,
+    "num_datapaper_citations": 23
   },
   "citation_details": [
     {
@@ -102,7 +109,7 @@
       "venue": "ArXiv",
       "year": 2025,
       "url": "https://doi.org/10.48550/arXiv.2510.21585",
-      "cited_by": 111,
+      "cited_by": 121,
       "abstract": "Foundation models have transformed AI by reducing reliance on task-specific data through large-scale pretraining. While successful in language and vision, their adoption in EEG has lagged due to the heterogeneity of public datasets, which are collected under varying protocols, devices, and electrode configurations. Existing EEG foundation models struggle to generalize across these variations, often restricting pretraining to a single setup, resulting in suboptimal performance, in particular under linear probing. We present REVE (Representation for EEG with Versatile Embeddings), a pretrained model explicitly designed to generalize across diverse EEG signals. REVE introduces a novel 4D positional encoding scheme that enables it to process signals of arbitrary length and electrode arrangement. Using a masked autoencoding objective, we pretrain REVE on over 60,000 hours of EEG data from 92 datasets spanning 25,000 subjects, representing the largest EEG pretraining effort to date. REVE ach",
       "doi": "10.48550/arXiv.2510.21585",
       "pmid": null,
@@ -125,7 +132,7 @@
       "venue": "ArXiv",
       "year": 2025,
       "url": "https://doi.org/10.48550/arXiv.2506.19141",
-      "cited_by": 19,
+      "cited_by": 21,
       "abstract": "Current electroencephalogram (EEG) decoding models are typically trained on small numbers of subjects performing a single task. Here, we introduce a large-scale, code-submission-based competition comprising two challenges. First, the Transfer Challenge asks participants to build and test a model that can zero-shot decode new tasks and new subjects from their EEG data. Second, the Psychopathology factor prediction Challenge asks participants to infer subject measures of mental health from EEG data. For this, we use an unprecedented, multi-terabyte dataset of high-density EEG signals (128 channels) recorded from over 3,000 child to young adult subjects engaged in multiple active and passive tasks. We provide several tunable neural network baselines for each of these two challenges, including a simple network and demographic-based regression models. Developing models that generalise across tasks and individuals will pave the way for ML network architectures capable of adapting to EEG data",
       "doi": "10.48550/arXiv.2506.19141",
       "pmid": null,
@@ -148,7 +155,7 @@
       "venue": "ArXiv",
       "year": 2026,
       "url": "https://doi.org/10.48550/arXiv.2605.08495",
-      "cited_by": 16,
+      "cited_by": 19,
       "abstract": "Deep learning and large public datasets have recently catalyzed the proliferation of AI models for processing brain recordings. However, systematically evaluating these models remains a challenge: not only do the preprocessing pipelines, training and finetuning approaches largely vary across studies, but their downstream evaluation is often limited to small sets of tasks and/or datasets. Here, we present NeuralBench: a unified framework for benchmarking AI models of brain activity. We accompany this framework with NeuralBench-EEG v1.0 -- a large EEG benchmark that includes 36 electroencephalography (EEG) tasks and 14 deep learning architectures, and is evaluated on 94 datasets accessed through a standardized interface. This first EEG-focused release already highlights two main findings. First, current foundation models only marginally outperform task-specific models. Second, a large set of tasks (e.g. cognitive decoding, clinical predictions) remain highly challenging, even for the bes",
       "doi": "10.48550/arXiv.2605.08495",
       "pmid": null,
@@ -171,7 +178,7 @@
       "venue": "ArXiv",
       "year": 2026,
       "url": "https://doi.org/10.48550/arXiv.2606.00815",
-      "cited_by": 9,
+      "cited_by": 11,
       "abstract": "Electroencephalography (EEG) supports a variety of brain-computer interface (BCI) tasks ranging from brain-state monitoring to human-LLM interactions. EEG foundation models are emerging, but evaluation remains fragmented due to heterogeneous datasets and nconsistent task protocols. Here, we introduce OmniEEG-Bench, a unified benchmark and downstream task roadmap for EEG foundation models (FMs). It organizes evaluation of EEG FMs into six task families spanning (i) signal reliability, (ii) biometrics and disease, (iii) consciousness and state, (iv) cognition and emotion, (v) naturalistic stimulus decoding, and (vi) motor and interaction, introducing a new generation of tasks not systematically benchmarked in prior EEG FM work. OmniEEG-Bench standardizes model deployment, task definitions, and metrics through a task-card specification, and unifies 54 EEG datasets with consistent evaluation protocols. We benchmark 10 representative EEG foundation models and report a leaderboard that cover",
       "doi": "10.48550/arXiv.2606.00815",
       "pmid": null,
@@ -321,6 +328,29 @@
         "confidence_score": 0.5798242270946503,
         "similarity_score": 0.5522135496139526,
         "citation_text_length": 204,
+        "dataset_text_length": 2351,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "NeuroAct: Advancing EEG Analysis and Decoding via Dual-Loop Autonomous Research",
+      "author": "Wei Xiong, Jiang-Tong Li, Han Zhao, Lin-Xiao Yang, Jie Li, Chang-Jun Jiang",
+      "venue": "n/a",
+      "year": 2026,
+      "url": "n/a",
+      "cited_by": 0,
+      "abstract": "EEG analysis and decoding underpin brain-computer interfaces, cognitive assessment, and sleep monitoring. Fixed pipelines and reward-driven search do not explicitly determine how signal structure, representations, predictor behavior, and training dynamics contribute to performance or generalization gaps, leaving intervention choice underdetermined. We introduce NeuroAct, an autonomous research agent framework for EEG analysis and decoding. NeuroAct implements dual-loop autonomous research across EEG foundation models, task-specific predictors, and model combinations. In an inner loop, research, development, and review roles use evidence on signal structure, representations, predictor behavior, and training dynamics to test hypotheses, select analyses or interventions, and refine candidates using performance, stability, and cost feedback. An outer loop distills outcomes into conditional, testable recommendations with task and model conditions, then validates and revises them on subseque",
+      "doi": null,
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.1101/2024.10.03.615261",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6266881021857262,
+        "similarity_score": 0.5425871014595032,
+        "citation_text_length": 1195,
         "dataset_text_length": 2351,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -512,7 +542,7 @@
     },
     {
       "title": "PRiSE-EEG: A Prior-Guided Foundation Model with Depth-Stratified Experts for Cross-Paradigm EEG Representation Learning",
-      "author": "Wei Xiong, Jiangtong Li, Kun Zhu, Jie Li, Chang-Jun Jiang",
+      "author": "Wei Xiong, Jiang-Tong Li, Kun Zhu, Jie Li, Chang-Jun Jiang",
       "venue": "n/a",
       "year": 2026,
       "url": "n/a",
@@ -525,9 +555,9 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5396831350028516,
-        "similarity_score": 0.46725812554359436,
-        "citation_text_length": 1218,
+        "confidence_score": 0.5384404090046883,
+        "similarity_score": 0.4661821722984314,
+        "citation_text_length": 1219,
         "dataset_text_length": 2351,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -601,21 +631,171 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "EEG Benchmarking Needs a Task Specification Layer: NeuroDoc for Rulebook-Guided, Executable Benchmark Construction",
+      "author": "Chengxuan Qin, Zhige Chen, Shu Peng, Rui Yang, Jiping Cui, Y H Dong, Jun Li, Liu Peng, Zhida Shang, Mingze Tang, Kay Chen Tan, Jibin Wu",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2606.22925",
+      "cited_by": 0,
+      "abstract": "Electroencephalography (EEG) foundation models increasingly rely on multi-dataset training and evaluation, yet public EEG datasets still lack a shared task specification layer that can turn heterogeneous recordings into reusable benchmark units. Existing standards organize files, metadata, and provenance, but they do not specify EEG tasks under a common language and rulebook, leaving critical task semantics scattered across papers, code, and manual interpretation. We investigate whether heterogeneous public EEG datasets can be standardized through a structured task specification language paired with a shared rulebook. Our methodology represents each benchmark entry as a task document synchronized with an executable task kernel, with the rulebook defining task fields, evidence requirements, document-kernel alignment, review states, and machine-checkable constraints. Using this methodology, we release a community-reviewed EEG benchmark corpus centered on 53 completed and reviewed entries with 245 task definitions spanning diverse paradigms, and we introduce NeuroDoc and NeuroAudit as the operational support layer for rulebook-guided drafting, upgrading, review, amendment, and release management. We further examine whether the resulting benchmark units can be instantiated in a shared downstream setting across four EEG foundation model backbones, providing execution-based evidence for reusable, auditable, and executable EEG benchmarking infrastructure.",
+      "doi": "10.48550/arxiv.2606.22925",
+      "pmid": null,
+      "openalex_id": "W7165673059",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds005505",
+      "confidence_scoring": {
+        "confidence_score": 0.6846880862116814,
+        "similarity_score": 0.5928035378456116,
+        "citation_text_length": 1786,
+        "dataset_text_length": 2351,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "NS-Copilot: An LLM-Driven Agent System for Autonomous Neuroscience Analysis",
+      "author": "Wuche Liu, Yiran Qiao, Linlin Hou, Rui Yang, Shusen Pu, Song Wang, Jing Ma",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2609.01971",
+      "cited_by": 0,
+      "abstract": "AI is rapidly advancing neuroscience, yet many laboratories fail to fully unleash its potential due to significant interdisciplinary barriers. While pre-trained neural models for physiological data are progressing quickly, their heterogeneous architectures and modality-specific constraints hinder systematic integration, selection, and evaluation. Despite recent advances in large language model (LLM)-based agent systems for intelligent scientific applications, existing approaches often still lack the domain expertise required to effectively select and coordinate diverse neuroscience pre-trained models and handle unique data types in this domain. We present NS-Copilot, an LLM-driven multi-agent system for neuroscience analysis that autonomously supports end-to-end workflows for diverse professional tasks. It unifies domain-specific pre-trained models and supports key neuroscience modalities, including EEG and extracellular spike data, through a natural-language interface. Given raw data and a task description, NS-Copilot orchestrates agents with specialized roles for planning, adaptive control, code generation, and result synthesis, enabling analysis without dataset-specific heuristics. We evaluate NS-Copilot on neuroscience benchmarks spanning Alzheimer's disease, Parkinson's disease, and working memory spike decoding. Across 8 trials per task, the system consistently outperforms strong baselines on the primary metric, demonstrating the ability of NS-Copilot for effective and scalable neuroscience analysis. Our code is publicly available at https://github.com/FrankLiu1102/ns-copilot.",
+      "doi": "10.48550/arxiv.2609.01971",
+      "pmid": null,
+      "openalex_id": "W7207743228",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds005505",
+      "confidence_scoring": {
+        "confidence_score": 0.44912406027317053,
+        "similarity_score": 0.38885200023651123,
+        "citation_text_length": 1714,
+        "dataset_text_length": 2351,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Learning transferable human physiology from two million hours of sleep with SleepFM-2",
+      "author": "Rahul Thapa, Christopher Sun, William Lehn-Schiøler, Sophia Claire Kivelson, Umaer Hanif, Hyatt E. Moore, Harrison G. Zhang, Hafsa Ahmed, Marcus Dige, Niels Rasmus Lorenzen, Elisabeth Roxane M. Heremans, Adrien Specht, Ulysse Gimenez, Robin Guillard, Andreas Brink-Kjær, James Zou, Emmanuel Jean-Marie Mignot",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2609.06849",
+      "cited_by": 0,
+      "abstract": "Sleep provides a nightly window into health by capturing coordinated activity across the brain, heart, muscles and respiratory system. We introduce SleepFM-2, a sleep foundation model developed and evaluated on 282,511 polysomnography recordings from 26 cohorts, including 235,865 used for pretraining. These data span more than two million hours of multimodal physiology. Compared with SleepFM, SleepFM-2 improves disease prediction and sleep scoring, supports arousal, limb movement and respiratory event detection, and transfers to wearable sensing and subjective sleep phenotypes. A model combining its PSG representation with age, sex and BMI met a prespecified discrimination and significance criterion for 188 subsequently recorded EHR phenotypes in two held-out cohorts, including one health system unseen during pretraining. SleepFM-2 also outperformed a 480-feature baseline derived from the same recordings. Its disease scores revealed a reproducible principal component associated with reduced sigma-band spatial coupling and increased hypnodensity entropy. The frozen encoder performed within the observed range of expert scorers for sleep events and transferred to wakeful EEG, headband and in-ear EEG, wrist PPG and wrist accelerometry. It improved sleep staging across six accelerometry cohorts and achieved disease-prediction performance in UK Biobank similar to models pretrained directly on accelerometry. Finally, SleepFM-2 captured aspects of subjective sleep not recovered by conventional PSG summaries, particularly reports of the recorded night. These results show that multimodal sleep physiology can provide a transferable representation of human health across diseases, clinical tasks, sensors and subjective experience.",
+      "doi": "10.48550/arxiv.2609.06849",
+      "pmid": null,
+      "openalex_id": "W7212021959",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds005505",
+      "confidence_scoring": {
+        "confidence_score": 0.40194060802459725,
+        "similarity_score": 0.34800052642822266,
+        "citation_text_length": 1958,
+        "dataset_text_length": 2351,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "What masking geometry works best for EEG foundation models?",
+      "author": "Pierre Guetschel, Bruno Aristimunha, Yassine El Ouahidi, Arnaud Delorme A, Thomas Moreau, Michael Tangermann",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2609.33487",
+      "cited_by": 0,
+      "abstract": "EEG foundation models hold promise for scalable brain-signal decoding across clinical and cognitive neuroscience applications, yet their pre-training pipelines remain poorly understood. Among design choices, the masking strategy is particularly critical: it determines what the network must predict and from which context. Yet it has never been ablated in isolation, as each new model bundles a new masking strategy with a new backbone and objective. In this paper, we formalize the design choices for spatio-temporal masking strategies and train various models with a single pipeline under varying masking configurations across two SSL frameworks (MAE and JEPA). We then systematically evaluate the resulting 58 pre-trained models on the 12 datasets of OpenEEGBench under a linear probe. Both frameworks agree on an optimal masking configuration and on shared failure modes. Outside these, performance is robust: 11 MAE and 9 JEPA configurations are statistically indistinguishable from the best. We further identify a novel JEPA-specific failure mode, tagged bias-inflation collapse, invisible to standard detectors. With a well-chosen mask, our pipeline reaches REVE-level downstream performance at a fraction of REVE's pre-training compute.",
+      "doi": "10.48550/arxiv.2609.33487",
+      "pmid": null,
+      "openalex_id": "W7214740814",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds005505",
+      "confidence_scoring": {
+        "confidence_score": 0.4824369858205319,
+        "similarity_score": 0.4176943600177765,
+        "citation_text_length": 1476,
+        "dataset_text_length": 2351,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Neuroelectromagnetic Data Archive and Repository: Open-source platform analysis",
+      "author": "Tracy Brandmeyer, Anna Riggs, Viraaj Reddi, Hayley Sullivan, Choonhan Youn, Subhashini Sivagnanam, Kenneth K. Yoshimoto, Russell Alan Poldrack, Nell Hardcastle, Christopher Johnson Markiewicz, A. Majumdar, Yahya Shirazi, Dung Truong, Scott Makeig, Arnaud Delorme A",
+      "venue": "Aperture Neuro",
+      "year": 2026,
+      "url": "https://doi.org/10.52294/001c.154162",
+      "cited_by": 1,
+      "abstract": "Open data infrastructures are rapidly reshaping the landscape of neuroscience by enabling greater reproducibility through transparency, reusability, and collaboration, thus providing a foundation for sustainable and scalable scientific progress. This paper presents a systematic audit of the Neuroelectromagnetic Data Archive and Repository (NEMAR), a platform supporting the sharing and reuse of EEG, MEG, and iEEG datasets standardized through the Brain Imaging Data Structure (BIDS) format. Drawing on a detailed analysis of over 300 publicly available datasets, we assess the composition, metadata quality, and population coverage of data in NEMAR. Our findings reveal significant momentum in data sharing practices, particularly in EEG, and highlight key challenges, including inconsistent metadata, underrepresentation of clinical populations, and variable adherence to data standards. These insights highlight the importance of targeted support for policy and cultural development to ensure open repositories like NEMAR are not only accessible but also equitable, reusable, and scientifically robust.",
+      "doi": "10.52294/001c.154162",
+      "pmid": null,
+      "openalex_id": "W7124966518",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds005505",
+      "confidence_scoring": {
+        "confidence_score": 0.6088732981681825,
+        "similarity_score": 0.527163028717041,
+        "citation_text_length": 1503,
+        "dataset_text_length": 2351,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "5D Conscious State Test Suite: Reproducibility Package for The Geometry of Conscious States",
+      "author": "Spencer Howie",
+      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "year": 2026,
+      "url": "https://doi.org/10.5281/zenodo.19600211",
+      "cited_by": 0,
+      "abstract": "Python test suite and intermediate results accompanying Howie (2026e), \"The Geometry of Conscious States: A Five-Dimensional Framework.\" Self-contained reproducibility package for every numeric result in the paper: every figure, table, and cited value reproduces from the deposited per-subject feature JSONs by running `scripts/run_all.sh --stage analyze` on a clean checkout. Five EEG datasets (~314 subjects after QC), processed with the CAR-harmonized v1.2 pipeline and analyzed under the 5D state-geometry framework: Sleep (ANPHY-Sleep, OSF: thsqg) — n = 28; sleep exit(W to N3) Cambridge propofol (Chennu et al. archive) — n = 19; propofol exit (Baseline to Moderate) DS005620 propofol (OpenNeuro ds005620) — n = 20; light-sedation hybrid - SRM (OpenNeuro ds003775) — n = 111; normative healthy-adult baseline HBN (OpenNeuro ds005505) — n = 136; rel_alpha swap verification (EC vs EO) What's included: Pipelines (raw EEG to per-subject 5D features): reprocess_car_local.py: Sleep + Cambridge CAR + I_Preprocessing ds003775_reprocess.py: SRM normative baseline ds005620_reprocess.py: light-sedation reprocessing hbn_reader.py / hbn_reprocess.py: HBN developmental normative phi5_swap_committed.py: rel_alpha swap verification driver Analyses (committed feature JSONs to canonical numbers): trajectory_geometry.py: group-mean 5D vectors, trajectory magnitudes, inter-paradigm angles trajectory_stats.py: per-subject trajectory statistics, bootstrap CIs, label-permutation tests, leave-one-out sensitivity angular_dispersion.py: per-subject trajectory dispersion dispersion_pathway_figure.py: dispersion / pathway visualization weighted_geomean_analysis.py: Fisher LDA weights vs equal-weights comparison via log-space LDA swap_effect_sizes.py: rel_alpha-vs-I_P channel-swap per-cohort effect sizes (Cohen's paired d_z, four-cohort composite) Outputs: outputs/ _5d_car_data.json: per-subject 5D featurevectors for each cohort outputs/canonical/: every result cited in the paper as CSV / JSON / log; verify_outputs.py diffs a fresh run against this outputs/figures/: PNG and SVG figure outputs Series-wide compute primitives (_framework_core/) shared byte-identically with the empirical-paper deposits: pairwise Granger causality, GC matrix construction, transitive closure, spectral radius, all five Phi5 channels. I_R operationalization: the canonical normalized spectral radius rho(W) / rho_max of the thresholded Granger-causality graph. Reproducibility: run_all.sh runs the full pipeline (preprocess to analyze to verify); accepts --datasets and --analysis filters for partial re-runs verify_outputs.py reports \"OK -- all canonical values reproduce within tolerance\" on a clean unzip environment.yml (conda) and requirements.txt (pip fallback) pin dependencies manifests/ tracks every QC'd subject ID across the five datasets Data sources (downloaded separately, not redistributed): ANPHY-Sleep (OSF: thsqg) Cambridge propofol (Chennu et al. archive; access details indatasets/manifest.md) OpenNeuro ds005620 (light-sedation paradigm) OpenNeuro ds003775 (resting-state normative cohort) OpenNeuro ds005505 (HBN developmental cohort) License: MIT.",
+      "doi": "10.5281/zenodo.19600211",
+      "pmid": null,
+      "openalex_id": "W7154568845",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds005505",
+      "confidence_scoring": {
+        "confidence_score": 0.6197816669940949,
+        "similarity_score": 0.5366075038909912,
+        "citation_text_length": 1699,
+        "dataset_text_length": 2351,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-10-11T11:37:09.796923+00:00",
+    "scoring_date": "2026-10-24T11:32:20.063699+00:00",
     "dataset_text_length": 2351,
-    "num_citations_scored": 22,
+    "num_citations_scored": 29,
     "summary_stats": {
-      "mean_confidence": 0.5872506732900035,
-      "median_confidence": 0.577991338223219,
-      "std_confidence": 0.0755542143777787,
+      "mean_confidence": 0.5790277549675826,
+      "median_confidence": 0.5798242270946503,
+      "std_confidence": 0.08319574241546865,
       "min_confidence": 0.3901838824152947,
       "max_confidence": 0.7263295787572862,
       "high_confidence_count": 2,
-      "medium_confidence_count": 19,
+      "medium_confidence_count": 26,
       "low_confidence_count": 1
     }
   }

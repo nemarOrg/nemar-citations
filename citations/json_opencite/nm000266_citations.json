@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000266",
   "num_citations": 2,
-  "date_last_updated": "2026-10-11T10:26:18.648423+00:00",
+  "date_last_updated": "2026-10-24T10:15:25.454254+00:00",
   "metadata": {
-    "total_cumulative_citations": 15,
-    "fetch_date": "2026-10-11T10:26:18.648423+00:00",
+    "total_cumulative_citations": 14,
+    "fetch_date": "2026-10-24T10:15:25.454254+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 3,
@@ -36,7 +36,7 @@
         "paper_title": "Online Optimization of Stimulation Speed in an Auditory Brain-Computer Interface under Time Constraints",
         "paper_year": 2021,
         "paper_venue": "arXiv (Cornell University)",
-        "reason": "Dataset name, title, and authors match this paper (Sosulski et al., online optimization of SOA in an auditory BCI); it reports the recorded auditory P300 data (arXiv version).",
+        "reason": "Title and authors match the dataset name exactly (Sosulski et al., online optimization of stimulation speed in auditory BCI); it is the arXiv preprint of the study reporting this data.",
         "judgment_model": "claude-sonnet-5-5"
       },
       {
@@ -60,13 +60,13 @@
     ],
     "keywords": [
       "EEG",
-      "Brain-Computer Interfaces",
-      "P300",
+      "brain-computer interface",
       "auditory event-related potentials",
+      "P300",
       "Bayesian optimization",
       "stimulus onset asynchrony"
     ],
-    "methods_description": "31-channel EEG (BrainProducts BrainAmp DC, passive Ag/AgCl, nose reference, 1000 Hz) was recorded during an auditory oddball task. The optimization part ran four strategies (AUC-ucb, AUC-rand, P300-ucb, P300-rand) for 20 minutes each. The validation part tested the selected SOAs and a fixed 60 ms SOA over 20 trials each. Features were mean amplitudes in 5 time intervals across channels, classified with shrinkage rLDA using 13-fold cross-validation.",
+    "methods_description": "Participants attended to target tones and ignored non-target tones while 31-channel EEG was recorded with a BrainProducts BrainAmp DC amplifier at 1000 Hz, with passive Ag/AgCl electrodes and a nose reference. The experiment had an optimization part and a validation part. In the optimization part, four strategies (AUC-ucb, AUC-rand, P300-ucb, P300-rand) each had 20 minutes to find the best SOA. In the validation part, the SOAs found by each strategy and a fixed 60 ms SOA were each tested in 20 trials. Features were mean amplitudes in five time intervals across channels, classified with shrinkage rLDA and 13-fold cross-validation.",
     "funding": [
       {
         "funder_name": "German Research Foundation (DFG)",
@@ -80,8 +80,7 @@
       },
       {
         "funder_name": "German Research Foundation (DFG)",
-        "award_number": "INST 39/963-1 FUGG",
-        "award_title": "bwHPC, state of Baden-Württemberg"
+        "award_number": "INST 39/963-1 FUGG"
       }
     ]
   },
@@ -115,7 +114,7 @@
       "venue": "Journal of Neural Engineering",
       "year": 2025,
       "url": "https://doi.org/10.1088/1741-2552/add08f",
-      "cited_by": 7,
+      "cited_by": 6,
       "abstract": "Abstract Objective. Extracting universal, task-independent semantic features from electroencephalography (EEG) signals remains an open challenge. Traditional approaches are often task-specific, limiting their generalization across different EEG paradigms. This study aims to develop a robust, unsupervised framework for learning high-level, task-independent neural representations. Approach. We propose a novel framework integrating convolutional neural networks, AutoEncoders, and Transformers to extract both low-level spatiotemporal patterns and high-level semantic features from EEG signals. The model is trained in an unsupervised manner to ensure adaptability across diverse EEG paradigms, including motor imagery (MI), steady-state visually evoked potentials (SSVEPs), and event-related potentials (ERPs, specifically P300). Extensive analyses, including clustering, correlation, and ablation studies, are conducted to validate the quality and interpretability of the extracted features. Main ",
       "doi": "10.1088/1741-2552/add08f",
       "pmid": "40273947",
@@ -135,7 +134,7 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-10-11T11:25:02.838888+00:00",
+    "scoring_date": "2026-10-24T11:19:04.830017+00:00",
     "dataset_text_length": 2442,
     "num_citations_scored": 2,
     "summary_stats": {

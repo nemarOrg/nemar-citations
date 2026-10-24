@@ -1,0 +1,68 @@
+{
+  "dataset_id": "nm000302",
+  "date_retrieved": "2026-10-12T10:02:09.663982+00:00",
+  "dataset_description": {
+    "Name": "PoloHortiguela2025: Motor imagery of ankle dorsiflexion/plantarflexion dataset",
+    "BIDSVersion": "1.9.0",
+    "HEDVersion": "8.4.0",
+    "DatasetType": "derivative",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "Cristina Polo-Hortiguela",
+      "Mario Ortiz",
+      "Eduardo Ianez",
+      "Jose M. Azorin"
+    ],
+    "Funding": [
+      "PID2021-124111OB-C31 (MICIU/AEI/10.13039/501100011033, ERDF EU)",
+      "PRE2022-103336 (MICIU/AEI/10.13039/501100011033)",
+      "ValgrAI (Generalitat Valenciana, European Union)",
+      "Neurokit (ICAR)"
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.5281/zenodo.14672334"
+    ],
+    "Keywords": [
+      "healthy",
+      "motor",
+      "imagery"
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000302",
+    "GeneratedBy": [
+      {
+        "CodeURL": "https://github.com/NeuroTechX/moabb",
+        "Name": "moabb",
+        "Description": "Mother of All BCI Benchmarks",
+        "Version": "1.8.0dev0"
+      }
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "10.5281/zenodo.14672334",
+        "URL": "https://doi.org/10.5281/zenodo.14672334"
+      },
+      {
+        "DOI": "doi:10.5281/zenodo.14672334"
+      }
+    ],
+    "PublicationYear": 2025,
+    "EthicsApprovals": [
+      "See the primary publication cited in the README/ReferencesAndLinks for the ethics approval statement obtained by the original investigators; no new human-subject data were collected for this BIDS re-release."
+    ],
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000302-blue)](https://doi.org/10.82901/nemar.nm000302)\n\nPoloHortiguela2025\n==================\n\nMotor imagery of ankle dorsiflexion/plantarflexion dataset [1]_.\n\nDataset Overview\n----------------\n  Code: PoloHortiguela2025\n  Paradigm: imagery\n  DOI: 10.5281/zenodo.14672334\n  Subjects: 6\n  Sessions per subject: 2\n  Events: rest=1, motor_imagery=2\n  Trial interval: [0, 4] s\n  Runs per session: 11\n  Session IDs: 0static, 1motion\n  File format: MAT\n\nAcquisition\n-----------\n  Sampling rate: 250.0 Hz\n  Number of channels: 35\n  Channel types: eeg=28, eog=4, misc=3\n  Channel names: AF3, F3, Fz, FC3, FC1, FCz, C5, C3, C1, Cz, CP3, CP1, CPz, P3, Pz, PO3, AF4, F4, FC2, FC4, C2, C4, C6, CP2, CP4, P4, POz, PO4\n  Montage: standard_1005\n  Line frequency: 50.0 Hz\n  Auxiliary channels: EOG (4 ch, vertical, vertical, horizontal, horizontal)\n\nParticipants\n------------\n  Number of subjects: 6\n  Health status: healthy\n\nExperimental Protocol\n---------------------\n  Paradigm: imagery\n  Number of classes: 2\n  Class labels: rest, motor_imagery\n  Trial duration: 4.0 s\n  Study design: Kinesthetic motor imagery of ankle dorsiflexion/plantarflexion alternated with relaxation, with a static or motion lower-limb exoskeleton.\n  Stimulus type: auditory\n  Stimulus modalities: audio\n  Synchronicity: cue-based\n  Mode: offline\n\nHED Event Annotations\n---------------------\n  Schema: HED 8.4.0 | Browse: https://www.hedtags.org/hed-schema-browser\n\n  rest\n    ├─ Sensory-event\n    ├─ Experimental-stimulus\n    ├─ Visual-presentation\n    └─ Rest\n\n  motor_imagery\n    ├─ Sensory-event\n    └─ Label/motor_imagery\n\nTags\n----\n  Pathology: healthy\n  Modality: motor\n  Type: imagery\n\nDocumentation\n-------------\n  Description: Open-loop EEG dataset of lower-limb (ankle dorsiflexion/plantarflexion) kinesthetic motor imagery versus relaxation from six healthy participants, recorded with a static and a motion exoskeleton model.\n  DOI: 10.5281/zenodo.14672334\n  License: CC-BY-4.0\n  Investigators: Cristina Polo-Hortiguela, Mario Ortiz, Eduardo Ianez, Jose M. Azorin\n  Institution: Universidad Miguel Hernandez de Elche\n  Country: ES\n  Repository: Zenodo\n  Data URL: https://doi.org/10.5281/zenodo.14672334\n  Publication year: 2025\n  Funding: PID2021-124111OB-C31 (MICIU/AEI/10.13039/501100011033, ERDF EU); PRE2022-103336 (MICIU/AEI/10.13039/501100011033); ValgrAI (Generalitat Valenciana, European Union); Neurokit (ICAR)\n\nReferences\n----------\nPolo-Hortiguela, C., Ortiz, M., Ianez, E., & Azorin, J. M. (2025). EEG Signal Dataset During Dorsiflexion and Plantar Flexion Movements. Zenodo. https://doi.org/10.5281/zenodo.14672334\n\nNotes\n\n.. versionadded:: 1.2.1\nAppelhoff, S., Sanderson, M., Brooks, T., Vliet, M., Quentin, R., Holdgraf, C., Chaumon, M., Mikulan, E., Tavabi, K., Hochenberger, R., Welke, D., Brunner, C., Rockhill, A., Larson, E., Gramfort, A. and Jas, M. (2019). MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis. Journal of Open Source Software 4: (1896). https://doi.org/10.21105/joss.01896\n\nPernet, C. R., Appelhoff, S., Gorgolewski, K. J., Flandin, G., Phillips, C., Delorme, A., Oostenveld, R. (2019). EEG-BIDS, an extension to the brain imaging data structure for electroencephalography. Scientific Data, 6, 103. https://doi.org/10.1038/s41597-019-0104-8\n\n---\nGenerated by MOABB 1.8.0dev0 (Mother of All BCI Benchmarks)\nhttps://github.com/NeuroTechX/moabb\n\nEthics\n------\nEthics approval: the data analysed in this deposit were collected under the\nethics approval obtained by the original investigators and reported in the\nprimary publication cited above (see References/Documentation sections of\nthis README). Participants gave informed consent in the source study. No\nnew human-subject data were collected during this BIDS re-release; this\nNEMAR record only reformats the published source data into BIDS via MOABB.\nPlease consult the primary publication for the exact IRB/ethics committee\nreference.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000302",
+    "exists": true,
+    "description": "PoloHortiguela2025: Motor imagery of ankle dorsiflexion/plantarflexion dataset",
+    "created_at": "2026-10-04T15:33:09+00:00",
+    "updated_at": "2026-10-11T03:07:44+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

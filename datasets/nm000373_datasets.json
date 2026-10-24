@@ -1,0 +1,74 @@
+{
+  "dataset_id": "nm000373",
+  "date_retrieved": "2026-10-12T10:04:46.835789+00:00",
+  "dataset_description": {
+    "Name": "Intracranial entrainment reveals statistical learning across levels of abstraction (Sherman et al., 2023): raw iEEG from 8 neurosurgical patients",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "raw",
+    "License": "CC0-1.0",
+    "Authors": [
+      "Brynn Sherman",
+      "Ayman Aljishi",
+      "Kathryn Graves",
+      "Imran Quraishi",
+      "Adithya Sivaraju",
+      "Eyiyemisi Damisah",
+      "Nicholas Turk-Browne"
+    ],
+    "Acknowledgements": "Original data collected and released by the authors on Dryad (doi:10.5061/dryad.q573n5tph). Converted to iEEG-BIDS for NEMAR without signal modification. Article acknowledgments (Sherman et al. 2023): 'We are grateful to the patients who participated in the study and to the physicians, fellows, and support staff who cared for them at the Yale New Haven Hospital. We thank Kun Wu for providing the electrode reconstructions; Simon Henin for advice on statistical analyses; Erica Busch for advice on the brain wide analyses; and Isabella Huang, Alene Sherman, and Bryna Shuman for contributing images used in Figure 1.'",
+    "HowToAcknowledge": "Please cite Sherman BE, Aljishi A, Graves KN, Quraishi IH, Sivaraju A, Damisah EC, Turk-Browne NB (2023). Intracranial Entrainment Reveals Statistical Learning across Levels of Abstraction. Journal of Cognitive Neuroscience 35(8):1312-1328, doi:10.1162/jocn_a_02012, and the Dryad dataset doi:10.5061/dryad.q573n5tph.",
+    "Funding": [
+      "U.S. National Science Foundation: Graduate Research Fellowship to B. E. Sherman (Funder ID 10.13039/100000001)",
+      "Canadian Institute for Advanced Research, to N. B. Turk-Browne (Funder ID 10.13039/100007631)"
+    ],
+    "EthicsApprovals": [
+      "Patients were recruited through the Yale Comprehensive Epilepsy Center and provided informed consent in a manner approved by the Yale University Human Subjects Committee."
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.1162/jocn_a_02012",
+      "https://doi.org/10.5061/dryad.q573n5tph",
+      "https://doi.org/10.1101/2023.01.11.523605",
+      "https://zenodo.org/records/8018664"
+    ],
+    "Keywords": [
+      "intracranial EEG",
+      "statistical learning",
+      "neural entrainment",
+      "scene perception",
+      "epilepsy",
+      "frequency tagging",
+      "concept formation",
+      "visual cortex"
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.5061/dryad.q573n5tph",
+        "URL": "https://datadryad.org/dataset/doi:10.5061/dryad.q573n5tph",
+        "Version": "Dryad version 3 (published 2023-07-07)"
+      }
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "b2dryad_convert038.py",
+        "Description": "Byte-identical EDF copy; BIDS renaming and sidecars; events decoded from the source TRIG channel. Code in code/.",
+        "CodeURL": "n/a"
+      }
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000373",
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000373-blue)](https://doi.org/10.82901/nemar.nm000373)\n\n# Intracranial entrainment reveals statistical learning across levels of abstraction\n\n## Overview\nRaw intracranial EEG (iEEG) from 8 neurosurgical patients with electrodes implanted for seizure monitoring, recorded\nwhile they viewed rapid streams of scene photographs with statistical structure at the category or exemplar level.\nThe study measured neural entrainment (phase coherence) at the image frequency (2 Hz) and at the pair frequency (1 Hz)\nto track online statistical learning of exemplar-level and category-level regularities (Sherman et al., 2023).\n\n## Source\n- Dryad: Sherman B, Aljishi A, Graves K, Quraishi I, Sivaraju A, Damisah E, Turk-Browne N. Data for: Intracranial\n  entrainment reveals statistical learning across levels of abstraction. doi:10.5061/dryad.q573n5tph (version\n  3, published 2023-07-07). License: CC0 1.0 (Dryad record\n  `https://spdx.org/licenses/CC0-1.0.html`; the Zenodo replica record 8018664 also states cc-zero).\n- Article: Sherman et al. (2023) J Cogn Neurosci, doi:10.1162/jocn_a_02012. Preprint: doi:10.1101/2023.01.11.523605.\n- Acquired from the Zenodo replica of the Dryad record (community \"dryad\", same DOI); every file matched the Dryad\n  API sha-256 digest. The original files are kept unchanged in `sourcedata/dryad-q573n5tph/`.\n\n## Participants\n- 8 patients (7 male, 1 female; age range 21-61 years, mean 37.8 years) surgically implanted with intracranial\n  electrodes for localization of the seizure onset zone, recruited through the Yale Comprehensive Epilepsy Center; all\n  data were collected at Yale New Haven Hospital (paper, Methods, Participants).\n- Implants: 6 patients had depth electrodes combined with subdural grid/strip electrodes (\"combined\"), 2 had depth\n  electrodes only; coverage was left, right, primarily left/right or bilateral depending on the patient. Electrode\n  placement was determined solely by the clinical care team. Contacts were in the visual cortex ROI in 7 of 8 patients.\n- `participants.tsv`: age, sex, implant type, hemisphere and number of contacts are taken from Table 1 of the paper\n  (age, sex and handedness are not given in the Dryad release itself; handedness is not reported in the paper either,\n  so it stays n/a). Paper patient ID N corresponds to release participant `sub-N` (BIDS `sub-0N`): the hemisphere\n  distribution of each participant's contacts in `allContacts_MNIcoords.csv`, the presence/absence of grid (G*)\n  electrode labels and the relative contact counts match Table 1 one-to-one (details in the NEMAR enrichment notes).\n- Recording dates/years are not given (the source randomized the date information in the EDF metadata).\n\n## Task (from the release and the paper)\n- Category-level Structured (task-categorySL): trial-unique scene images whose categories were paired across\n  repetitions (e.g., beach always followed by canyon). 6/8 participants completed two runs (run-1, run-2).\n- Exemplar-level Structured (task-exemplarSL): 6 repeating scene images presented in fixed pairs.\n- Random (task-random): the same kind of 6-image set in random order (baseline).\n- Each image 250 ms, followed by a 250 ms inter-stimulus interval.\n- Paper (Methods, Stimuli and Procedure): 720 unique outdoor scene images from 18 subcategories (40 per subcategory),\n  6 subcategories randomly assigned to each condition per participant; images 600 x 800 pixels, presented with MATLAB\n  and the Psychophysics Toolbox on a laptop while the patient sat in the hospital bed. SOA fixed at 500 ms (fixation\n  cross during the ISI); each run was 240 trials (2 min of viewing). Participants passively viewed the stream and were\n  asked to pay attention to each image. Before category-level runs they were told the names of the six categories, but\n  not that the sequence contained pairs. Condition order: category-level structured run(s) first (two back-to-back runs\n  with the same sequence when possible), then one exemplar-level structured and one random run, counterbalanced.\n  Each category pair / exemplar pair occurred 40 times per run.\n\n## Recording (from the Dryad methods and the paper)\n- Natus NeuroWorks EEG system, 4096 Hz. Reference: an electrode chosen by the clinical team to minimize noise.\n- Triggers: a custom DAQ converted signals from the research computer into 8-bit triggers inserted into an open EEG\n  channel (TRIG). The authors state the iEEG files are the raw data, unprocessed except that the date information\n  in the file metadata was randomized for anonymity (EDF start date 01.01.85, patient field anonymized).\n- Electrode localization (paper): post-operative CT and MRI, reconstruction in BioImage Suite, registration to the\n  pre-operative MRI, conversion to native-space coordinates with FieldTrip, one-voxel-per-contact masks in FSL, linear\n  registration (FLIRT, 12 dof) to the MNI T1 2 mm template.\n\n## Preprocessing\n- None in this dataset (raw data). For reference, the paper's analysis (FieldTrip) applied a 60 Hz notch filter, no\n  re-referencing, downsampling to 256 Hz and segmentation into trials; it excluded the first two trials of every run\n  because of a computer-based timing error that shortened the first trial's ISI in some runs.\n\n## Conversion (what changed and what did not)\n- EDF files are byte-identical copies of the source files (sha-256 listed in `code/source_to_bids_mapping.tsv`).\n  No filtering, resampling, re-referencing or channel removal.\n- Renaming: sub-N -> sub-0N; task-categorySL1/2 -> task-categorySL run-1/2; task-exemplarSL1 -> task-exemplarSL\n  run-1; task-random1 -> task-random run-1; datatype eeg -> ieeg.\n- channels.tsv: names, units, cut-offs and status from the source channels.tsv. Intracranial contacts keep the\n  source type label `EEG` because the release does not say which electrodes are grids, strips or depths. Channels\n  the source README says to disregard (C*, DC*, OSAT, PR, Pleth) are typed MISC, ECG/EMG as such, TRIG as TRIG.\n  The `group` column is the electrode prefix of the contact name.\n- events.tsv: one row per TRIG pulse (onset = first sample away from the run's resting TRIG level, duration = until it\n  returns, value = the sequence of TRIG levels in the pulse),\n  plus the rows of the source events.tsv where the release has one (sub-3).\n- Electrodes: `allContacts_MNIcoords.csv` copied verbatim into `*_space-MNI152NLin6Asym_electrodes.tsv`. The values\n  are positive integers consistent with FSL MNI152 2 mm voxel indices, so units are declared n/a and the values are\n  not converted (see coordsystem.json for the affine, an unverified assumption). For sub-01 the labels R1 and R2 each\n  appear twice in the source file with different coordinates and are not among the recorded channels; these 4\n  ambiguous rows are left out of electrodes.tsv (the original file is in sourcedata).\n- participants.tsv: age, sex and handedness are not given in the Dryad release (n/a); age, sex and implant details\n  were added from Table 1 of the paper (2026-10-07, see CHANGES).\n\n## Files\n- `sub-0N/ieeg/`: EDF recordings, `*_channels.tsv`, `*_events.tsv`, `*_ieeg.json` per run; MNI electrode table and\n  coordsystem per participant. `sub-0N/sub-0N_scans.tsv` lists the original Dryad file name of every recording.\n- `sourcedata/dryad-q573n5tph/`: the unchanged Dryad files; `code/`: conversion script and reports.\n\n## Known caveats\n- Stimulus photographs are not part of the release and not included here.\n- The meanings of the TRIG codes are not documented in the release; source events.tsv files exist for sub-3 only.\n- Electrode coordinates are voxel indices (see Conversion); the electrode type of each contact (grid/strip/depth) is\n  not given per contact in the release.\n- Contact counts in the release are slightly higher than the nContacts column of the paper's Table 1 (kept as\n  published in `n_contacts_paper`).\n- Two patients were tested a second time, 2 days later, because their first data set was unusable (eye irritation in\n  one, a trigger error in the other); the paper does not say which patients (the release contains one set of runs per\n  participant).\n- The first trial's ISI was shorter than intended in some runs (paper); the authors dropped the first two trials.\n\n## How to load\n```python\nfrom mne_bids import BIDSPath, read_raw_bids\nbp = BIDSPath(root=\".\", subject=\"01\", task=\"categorySL\", run=\"1\", datatype=\"ieeg\", suffix=\"ieeg\", extension=\".edf\")\nraw = read_raw_bids(bp)\n```\n\n## Citation\nSherman BE, Aljishi A, Graves KN, Quraishi IH, Sivaraju A, Damisah EC, Turk-Browne NB (2023). Intracranial Entrainment\nReveals Statistical Learning across Levels of Abstraction. Journal of Cognitive Neuroscience 35(8):1312-1328.\ndoi:10.1162/jocn_a_02012. Data: doi:10.5061/dryad.q573n5tph.\n\n## Provenance of the metadata\n- Dryad record and release README (sourcedata), and the article full text (Methods: Participants, Table 1, iEEG\n  Recordings, iEEG Preprocessing, Electrode Localization, Stimuli, Procedure; Acknowledgments; Funding Information),\n  read on direct.mit.edu on 2026-10-07.\n\n## Ethics approval\n\nVerbatim from Sherman BE, Aljishi A, Graves KN, Quraishi IH, Sivaraju A, Damisah EC, Turk-Browne NB (2023). Intracranial Entrainment Reveals Statistical Learning across Levels of Abstraction. Journal of Cognitive Neuroscience 35(8):1312-1328. https://doi.org/10.1162/jocn_a_02012, Methods, \"Participants\":\n\n> Patients were recruited through the Yale Comprehensive Epilepsy Center and provided informed consent in a manner approved by the Yale University Human Subjects Committee.\n\n## Atlas labels of the electrode positions (added 2026-10-08)\n\nEach `electrodes.tsv` that has coordinates now has two derived columns, `atlas_label_AAL3v1` and `atlas_label_DesikanKilliany`. They are an atlas lookup of the coordinates already in the file (voxel indices in the MNI152 2 mm template converted to mm with the FSL MNI152_T1_2mm affine (x=-2i+90, y=2j-126, z=2k-72); whether the release indices are 0- or 1-based is not stated (<= 2 mm per axis)), made for NEMAR; they are not labels given by the authors, and the coordinates themselves are unchanged. Method and caveats: `electrodes.json`. 1121 of 1344 contacts received a label.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000373",
+    "exists": true,
+    "description": "Intracranial entrainment reveals statistical learning across levels of abstraction (Sherman et al., 2023): raw iEEG from 8 neurosurgical patients",
+    "created_at": "2026-10-06T22:22:53+00:00",
+    "updated_at": "2026-10-08T20:14:59+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

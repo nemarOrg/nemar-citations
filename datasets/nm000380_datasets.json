@@ -1,0 +1,77 @@
+{
+  "dataset_id": "nm000380",
+  "date_retrieved": "2026-10-12T10:05:09.499334+00:00",
+  "dataset_description": {
+    "Name": "iEEG during direct electrical stimulation of orbitofrontal and other sites (Rao, Sellers et al., 2018): continuous-stimulation and single-pulse recordings",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "raw",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "Vikram Rao",
+      "Kristin Sellers",
+      "Deanna Wallace",
+      "Morgan Lee",
+      "Maryam Bijanzadeh",
+      "Omid Sani",
+      "Yuxiao Yang",
+      "Maryam Shanechi",
+      "Heather Dawes",
+      "Edward Chang"
+    ],
+    "Acknowledgements": "Data released by the authors on Dryad (doi:10.7272/Q6VD6WM2). Converted to iEEG-BIDS for NEMAR. Article acknowledgments (Rao et al. 2018): 'The authors are grateful to Prashanth Selvaraj, Erin L. Rich, Vikaas S. Sohal, Lowry A. Kirkby, and members of the Chang Lab for helpful discussions during the course of this study.'",
+    "HowToAcknowledge": "Please cite Rao VR, Sellers KK, Wallace DL, Lee MB, Bijanzadeh M, Sani OG, Yang Y, Shanechi MM, Dawes HE, Chang EF (2018). Direct electrical stimulation of lateral orbitofrontal cortex acutely improves mood in individuals with symptoms of depression. Current Biology 28(24):3893-3902. doi:10.1016/j.cub.2018.10.026; and the dataset doi:10.7272/Q6VD6WM2.",
+    "Funding": [
+      "Defense Advanced Research Projects Agency (DARPA) W911NF-14-2-0043 (Cooperative Agreement Number W911NF-14-2-0043, issued by the Army Research Office contracting office in support of DARPA's SUBNETS program; Rao et al. 2018 Acknowledgments)"
+    ],
+    "EthicsApprovals": [
+      "The experimental protocol was approved by the Committee for Human Research at the University of California, San Francisco. Written informed consent was obtained from all subjects."
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.1016/j.cub.2018.10.026",
+      "https://doi.org/10.7272/Q6VD6WM2",
+      "https://zenodo.org/records/5076490",
+      "https://www.cell.com/current-biology/fulltext/S0960-9822(18)31355-1"
+    ],
+    "Keywords": [
+      "direct electrical stimulation",
+      "orbitofrontal cortex",
+      "mood",
+      "depression",
+      "ECoG",
+      "SEEG",
+      "single-pulse electrical stimulation",
+      "epilepsy",
+      "Immediate Mood Scaler",
+      "Beck Depression Inventory"
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.7272/Q6VD6WM2",
+        "URL": "https://datadryad.org/dataset/doi:10.7272/Q6VD6WM2",
+        "Version": "Dryad version 2 (published 2018-10-05)"
+      }
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "b2dryad_convert037.py",
+        "Description": "MATLAB v7.3 raw iEEG -> BrainVision float32 (float64 rounded to float32), channel/electrode tables from the release. Code in code/."
+      }
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000380",
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000380-blue)](https://doi.org/10.82901/nemar.nm000380)\n\n# iEEG, direct electrical stimulation and mood (Rao, Sellers et al., 2018)\n\n## Overview\nIntracranial EEG (ECoG grids/strips and depth electrodes) from adults undergoing inpatient monitoring for seizure\nlocalization, recorded immediately before, during and after continuous 100 Hz direct electrical stimulation of the\nlateral orbitofrontal cortex and other sites (task-stim), and during single-pulse electrical stimulation (task-sps).\n17 participants (release codes EC##).\nThe study (Rao et al., 2018) found that unilateral stimulation of the lateral OFC acutely improved mood state in\nsubjects with moderate-to-severe baseline depression symptoms and suppressed low-frequency OFC power.\n\n## Source\n- Dryad: Vikram Rao, Kristin Sellers, Deanna Wallace, Morgan Lee, Maryam Bijanzadeh, Omid Sani, Yuxiao Yang, Maryam Shanechi, Heather Dawes, Edward Chang. iEEG, Direct Electrical Stimulation, and Assessment of Mood in Human Subjects.\n  doi:10.7272/Q6VD6WM2 (version 2, published 2018-10-05).\n- License: the Dryad record states CC0-1.0 (`https://spdx.org/licenses/CC0-1.0.html`); the Dryad-community Zenodo replica of the same\n  DOI (record 5076490) states CC-BY-4.0. Following the most restrictive of the stated licenses, this dataset is\n  distributed under CC-BY-4.0.\n- Article: Rao et al. (2018) Current Biology, doi:10.1016/j.cub.2018.10.026.\n- Files were acquired from the Zenodo replica; every file matched the Dryad sha-256 digest.\n\n## Participants\n- Paper cohort (STAR Methods): 25 subjects (14 males, ages 20-60) with drug-resistant epilepsy undergoing intracranial\n  EEG for seizure localization, studied by the University of California, San Francisco group of the senior author (EC\n  codes are assigned to all intracranial patients in the senior author's clinical practice, hence non-consecutive).\n  Electrode implantation was guided solely by clinical indications; electrodes typically sampled OFC, amygdala,\n  hippocampus, insula and cingulate cortex. Subdural grid, strip and depth electrodes (AdTech, Racine, WI, or\n  Integra, Plainsboro, NJ); localization by co-registering pre-operative 3 T T1 MRI with post-operative CT (SPM12) and\n  FreeSurfer pial reconstructions. Baseline mood trait: Beck Depression Inventory II before implantation (PHQ-9 in two\n  subjects), binned into minimal-mild and moderate-severe.\n- This dataset: the 17 subjects whose stimulation/SPS recordings are in the Dryad release (10 male, 7 female; ages\n  20-45, mean 33.5; 13 with grids/strips/depths, 4 with stereo-EEG; 8 left, 7 right, 2 bilateral coverage; 10 with\n  trait depression).\n- `participants.tsv`: age, sex, hemisphere, electrode coverage, electrode type, seizure onset zone, surgical pathology,\n  BDI, trait depression, number and version of Immediate Mood Scaler (IMS) data points are copied from Table S1 of the\n  paper's supplement, which is keyed by the same EC identifiers as the release (direct mapping; consistent with the\n  release electrode types, e.g. depth-only files for the 4 stereo-EEG subjects, and with the Table S3 list of subjects\n  with single-pulse stimulation: EC137, EC139, EC150, EC153, EC155). BDI and trait values also match the release file\n  `Behavior/KS_TraitScores.mat` in Table S1 order. Handedness is not reported (n/a). Recording dates/years are not given.\n\n## Task and stimulation (from the paper)\n- Mood state was assessed with the tablet-based Immediate Mood Scaler (IMS) several times a day for several days\n  before stimulation. Stimulation took place after clinical seizure data collection and before electrode explantation,\n  typically after anticonvulsants were restarted.\n- task-stim: bipolar stimulation of adjacent electrodes with the Nicolet Cortical Stimulator (Natus Medical), biphasic\n  constant-current trains, 1 or 6 mA, 100 Hz, 100 us pulse width, 100-200 s; a sham (0 mA) block at the start of each\n  session, OFC and non-OFC sites in varying order. Subjects were blind to condition. About 30 s after onset they gave a\n  verbal mood report (open-ended questions, 30 s), then completed the IMS on a tablet (1-2 min); stimulation stopped\n  after the IMS and the next block started 3-5 min later.\n- task-sps: single-pulse stimulation, 10 mA, 1 Hz, 500 us pulse width, 20 s, in some subjects before and after\n  continuous OFC stimulation.\n\n## Acquisition\n- Natus clinical EEG system, Tucker-Davis Technologies PZ5M-512 and RZ2, or Alpha Omega NeuroOmega; sampling rates\n  1-25 kHz (paper). The recording reference and ground are not stated in the paper or the release.\n- Line noise 60 Hz (the paper's analysis notch-filtered 60 Hz and harmonics).\n\n## Preprocessing\n- None in this dataset (raw data). The paper's analysis pipeline (artifact removal with spline interpolation,\n  2-250 Hz band-pass, common average reference, notch filters, downsampling to 512 Hz) was NOT applied here.\n\n## Files\n- `task-stim`: one run per release file `EC##_rawDuringContinuous_<amplitude>_<site>.mat` (Natus clinical system,\n  acq-natus), `EC##_B<block>_rawData.mat` / `EC175_1mA_rawData.mat` (Tucker-Davis Technologies, acq-tdt) or\n  `EC##_NO_*.mat` (NeuroOmega, acq-neuroomega). Stimulation amplitude and site are taken from the file name and\n  written to `ElectricalStimulationParameters`; per the release README, files without a site in the name were\n  recorded with lateral OFC stimulation. The original file name is in `code/conversion_report.json`.\n- `task-sps`: `EC##_rawData_SPS.mat` single-pulse stimulation recordings.\n- `channels.tsv`: names, long names, electrode type and region from the release (selectAnatomy / Anatomy cells).\n  Types: grid/strip -> ECOG, depth -> SEEG, EKG -> ECG, unstated -> MISC.\n- `electrodes.tsv`: elecmatrix + anatomy from the subject's clinical_elecs_all.mat / TDT_elecs_all.mat (space-Other,\n  mm, patient space of the authors' reconstruction); n/a coordinates where the release has no electrode file.\n\n## Conversion notes\n- Samples are float64 in the release and are stored as float32 here (BrainVision); the maximum absolute rounding\n  error per file is listed in `code/conversion_report.json` (relative error ~6e-8). The float64 originals are in\n  `sourcedata/dryad-q6vd6wm2/`. No filtering, resampling, re-referencing or channel removal.\n- Units are not stated in the release. Natus and NeuroOmega values are stored as µV (magnitudes of tens to\n  thousands; 34843.74 is a recurring saturation value in Natus files); TDT values (|x| < 0.2) are stored as V.\n- Stimulation and pulse times are not annotated in the release.\n- Files not converted:\n  - iEEG_DuringStimulation_EC155.zip::iEEG_DuringStimulation_EC155/EC155_NO_1mA.mat: not readable as MATLAB v7.3/HDF5 (OSError('Unable to synchronously open file (file signature not found)'))\n- The release's `iEEG_NaturalBehavior.zip` (OFC ECoG segments around mood self-reports) is NOT included: its\n  `ECoG.time` fields contain absolute recording dates and times. Behaviour tables (`Behavior.zip`: mood scores,\n  BDI/trait scores, speech rate) and the authors' MATLAB scripts are in sourcedata.\n- Age, sex and handedness are not in the release (n/a). Age and sex (and other Table S1 fields) were added from the\n  paper's supplement on 2026-10-07; handedness remains n/a.\n\n## Known caveats\n- See \"Conversion notes\" above (float64 -> float32 storage, units not stated in the release, unannotated\n  stimulation/pulse times, one unreadable file, natural-behavior ECoG not included).\n- The paper states continuous-stimulation amplitudes of 1 or 6 mA; three release files are labelled 3 mA\n  (EC105 run-03, EC153 run-01 and run-04 in this dataset).\n- EC105 is a monolingual Spanish speaker (no IMS; verbal report through an interpreter). Word valence scores were\n  excluded for EC99, EC150 and EC152 in the paper (> 50 point change).\n\n## How to load\n```python\nfrom mne_bids import BIDSPath, read_raw_bids\nbp = BIDSPath(root=\".\", subject=\"EC105\", task=\"stim\", acquisition=\"natus\", run=\"01\", datatype=\"ieeg\",\n              suffix=\"ieeg\", extension=\".vhdr\")\nraw = read_raw_bids(bp)\n```\n\n## Citation\nRao VR, Sellers KK, Wallace DL, Lee MB, Bijanzadeh M, Sani OG, Yang Y, Shanechi MM, Dawes HE, Chang EF (2018). Direct\nElectrical Stimulation of Lateral Orbitofrontal Cortex Acutely Improves Mood in Individuals with Symptoms of\nDepression. Current Biology 28(24):3893-3902.e4. doi:10.1016/j.cub.2018.10.026. Data: doi:10.7272/Q6VD6WM2.\n\n## Provenance of the metadata\n- Release `Data_README.docx` and `Behavior.zip` (sourcedata), and the article (STAR Methods, Acknowledgments) and its\n  Supplemental Document S1 (Tables S1 and S3), read on cell.com (Open Archive) on 2026-10-07.\n\n## Ethics approval\n\nVerbatim from Rao VR, Sellers KK, Wallace DL, Lee MB, Bijanzadeh M, Sani OG, Yang Y, Shanechi MM, Dawes HE, Chang EF (2018). Direct Electrical Stimulation of Lateral Orbitofrontal Cortex Acutely Improves Mood in Individuals with Symptoms of Depression. Current Biology 28(24):3893-3902.e4. https://doi.org/10.1016/j.cub.2018.10.026, STAR Methods, \"Experimental Model and Subject Details\":\n\n> The experimental protocol was approved by the Committee for Human Research at the University of California, San Francisco. Written informed consent was obtained from all subjects.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000380",
+    "exists": true,
+    "description": "iEEG during direct electrical stimulation of orbitofrontal and other sites (Rao, Sellers et al., 2018): continuous-stimulation and single-pulse recordings",
+    "created_at": "2026-10-06T23:22:03+00:00",
+    "updated_at": "2026-10-08T06:05:45+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

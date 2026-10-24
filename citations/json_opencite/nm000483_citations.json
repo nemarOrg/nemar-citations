@@ -1,0 +1,112 @@
+{
+  "dataset_id": "nm000483",
+  "num_citations": 2,
+  "date_last_updated": "2026-10-24T10:35:03.545345+00:00",
+  "metadata": {
+    "total_cumulative_citations": 5,
+    "fetch_date": "2026-10-24T10:35:03.545345+00:00",
+    "processing_version": "1.0",
+    "fetch_status": "success",
+    "anchor_count": 3,
+    "anchor_errors": {},
+    "schema_version": "2.1",
+    "discovery_backend": "opencite",
+    "anchor_judgment_model": "claude-sonnet-5-5",
+    "anchors": [
+      {
+        "identifier": "10.5281/zenodo.14807262",
+        "identifier_type": "doi",
+        "source_relation": "IsDerivedFrom",
+        "classification": "data_paper",
+        "kept": true,
+        "kept_reason": "judged_data_paper",
+        "paper_title": "Time-Frequency Fingerprint Analysis in SEEG Source-Space to Identify the Epileptogenic Zone",
+        "paper_year": 2025,
+        "paper_venue": "Annals of Clinical and Translational Neurology",
+        "reason": "The candidate is the Zenodo 14807262 record (same title and authors) that this dataset was derived from, and it is the Brainstorm database behind the polymicrogyria sEEG case study.",
+        "judgment_model": "claude-sonnet-5-5"
+      },
+      {
+        "identifier": "10.1002/acn3.70115",
+        "identifier_type": "doi",
+        "source_relation": "IsDescribedBy",
+        "classification": "data_paper",
+        "kept": true,
+        "kept_reason": "judged_data_paper",
+        "paper_title": "Time‐Frequency Fingerprint Analysis in SEEG Source‐Space to Identify the Epileptogenic Zone",
+        "paper_year": 2025,
+        "paper_venue": "Annals of Clinical and Translational Neurology",
+        "reason": "The case study (Vakilna et al., 2025) matches the dataset's Zenodo record title and authors, and the Brainstorm database behind it is this one polymicrogyria patient's sEEG data.",
+        "judgment_model": "claude-sonnet-5-5"
+      },
+      {
+        "identifier": "10.82901/nemar.nm000483",
+        "identifier_type": "doi",
+        "source_relation": "References",
+        "classification": null,
+        "kept": true,
+        "kept_reason": "own_doi",
+        "paper_title": null,
+        "paper_year": null,
+        "paper_venue": null,
+        "reason": null,
+        "judgment_model": "claude-sonnet-5-5"
+      }
+    ],
+    "searched_dois": [
+      "10.5281/zenodo.14807262",
+      "10.1002/acn3.70115",
+      "10.82901/nemar.nm000483"
+    ],
+    "keywords": [
+      "stereo-EEG",
+      "SEEG",
+      "epileptogenic zone",
+      "polymicrogyria",
+      "seizure onset",
+      "source localization",
+      "Brainstorm",
+      "Epilepsy"
+    ],
+    "methods_description": "Clinical stereo-EEG was recorded with a Nihon Kohden EEG-1200A at 2000 Hz. The authors imported it into Brainstorm, notch-filtered the 180-900 Hz harmonics, and resampled to 1000 Hz. The segments were repackaged as BrainVision float32 in microvolts, with Brainstorm events converted to events.tsv and channel locations (SCS) to electrodes.tsv.",
+    "funding": [],
+    "searched_accessions": [
+      "nm000483"
+    ],
+    "num_accession_mentions": 0,
+    "num_dataset_citations": 0,
+    "num_datapaper_citations": 2
+  },
+  "citation_details": [
+    {
+      "title": "Inferring neural sources from electroencephalography: foundations and frontiers",
+      "author": "Anderson Roy Phillips, Yash Shashank Vakilna, Dorsa EPMoghaddam, Anton R. Banta, John C. Mosher, Behnaam Aazhang",
+      "venue": "Journal of Neural Engineering",
+      "year": 2026,
+      "url": "https://doi.org/10.1088/1741-2552/ae3e16",
+      "cited_by": 3,
+      "abstract": "Electroencephalography (EEG) provides robust, cost-effective, and portable measurements of brain electrical activity. However, its spatial resolution is limited, constraining the localization and estimation of deep sources. Although methods exist to infer neural activity from scalp recordings, major challenges remain due to high dimensionality, temporal overlap among neural sources, and anatomical variability in head geometry. This topical review synthesizes inverse modeling approaches, with emphasis on nonlinear methods, multimodal integration, and high-density EEG systems that address these limitations. We also review the forward model and related background theory, summarize clinical applications, outline research directions, and identify available software tools and relevant publicly available datasets. Our goal is to help researchers understand traditional source estimation techniques and integrate advanced methods that may better capture the complexity of neurophysiological sourc",
+      "doi": "10.1088/1741-2552/ae3e16",
+      "pmid": "41592345",
+      "openalex_id": "W7125800864",
+      "source_doi": "10.1002/acn3.70115",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite"
+    },
+    {
+      "title": "sEEG-Suite: An Interactive Pipeline for Semi-Automated Contact Localization and Anatomical Labeling with Brainstorm",
+      "author": "Chinmay Chinara, Raymundo Cassani, Takfarinas Medani, Anand A. Joshi, Samuel Médina Villalon, Yash Shashank Vakilna, Johnson P. Hampson, Kenneth Taylor, François Tadel, Dileep R Nair, Christian Bénar, Sylvain Baillet, John C. Mosher, Richard M. Leahy",
+      "venue": "The Journal of Open Source Software",
+      "year": 2026,
+      "url": "https://doi.org/10.21105/joss.10490",
+      "cited_by": 2,
+      "abstract": "Stereoelectroencephalography (sEEG) is a critical tool for mapping epileptic networks in patients with drug-resistant epilepsy. Accurate localization and labeling of sEEG contacts are essential for identifying the seizure onset zone (SOZ) and ensuring optimal resective surgery. Traditional methods for localizing and labeling sEEG contacts rely on manual processing, which is prone to human error and variability. To address these challenges, we developed and integrated a semi-automatic sEEG contact localization and labeling pipeline within Brainstorm1, an open-source software platform for multimodal brain imaging analysis2–8, widely adopted in the neuroscience community with over 50,000 registered users and an active online user forum. The software has been supported by the National Institute of Health (NIH) for over two decades. The pipeline presented in this paper performs three key steps: (1) import and apply rigid co-registration of post-implantation Computed Tomography (CT) or post-",
+      "doi": "10.21105/joss.10490",
+      "pmid": "41000975",
+      "openalex_id": "W4414357448",
+      "source_doi": "10.1002/acn3.70115",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite"
+    }
+  ]
+}

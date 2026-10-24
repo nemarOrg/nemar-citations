@@ -1,16 +1,14 @@
 {
   "dataset_id": "on007176",
-  "num_citations": 5,
-  "date_last_updated": "2026-09-30T16:34:48.348972+00:00",
+  "num_citations": 3,
+  "date_last_updated": "2026-10-24T11:09:37.593360+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
-    "fetch_date": "2026-09-29T11:37:32.423965+00:00",
+    "fetch_date": "2026-10-24T11:09:37.593360+00:00",
     "processing_version": "1.0",
-    "fetch_status": "partial",
+    "fetch_status": "success",
     "anchor_count": 2,
-    "anchor_errors": {
-      "10.1016/j.bspc.2024.109484": "not_found"
-    },
+    "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
     "anchor_judgment_model": "claude-sonnet-5-5",
@@ -18,28 +16,15 @@
       {
         "identifier": "10.1016/j.bspc.2026.109484",
         "identifier_type": "doi",
-        "source_relation": "References",
+        "source_relation": "IsDescribedBy",
         "classification": "data_paper",
         "kept": true,
+        "kept_reason": "judged_data_paper",
         "paper_title": "Longitudinal test-retest reliability of quantitative EEG in healthy individuals using an automated preprocessing approach",
         "paper_year": 2026,
         "paper_venue": "Biomedical Signal Processing and Control",
         "reason": "Same authors, 43 healthy participants, four sessions over two years, 64 electrodes, and the automated ICA/wavelet pipeline; it reports this exact longitudinal resting-state dataset.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_data_paper"
-      },
-      {
-        "identifier": "10.1016/j.bspc.2024.109484",
-        "identifier_type": "doi",
-        "source_relation": "IsDescribedBy",
-        "classification": null,
-        "kept": false,
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "unjudged"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on007176",
@@ -47,12 +32,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -61,34 +46,19 @@
     ],
     "keywords": [
       "EEG",
+      "resting state",
       "test-retest reliability",
-      "reproducibility",
       "longitudinal study",
-      "resting-state",
-      "independent component analysis",
-      "artifact removal",
       "quantitative EEG",
-      "healthy controls",
-      "preprocessing",
-      "BIDS",
-      "reliability"
+      "artifact removal",
+      "healthy adults"
     ],
-    "methods_description": "Resting-state EEG recordings were collected from 43 healthy participants across four longitudinal sessions spanning approximately two years with an average interval of 7.2 months between sessions. Data were processed using an automated preprocessing pipeline incorporating independent component analysis and wavelet-enhanced artifact removal. EEG data are provided in BIDS-compliant format with raw signals and associated metadata describing recording parameters.",
+    "methods_description": "Resting-state EEG was recorded from healthy adults in four sessions over approximately two years. Raw data are organized in BIDS format (BrainVision .eeg/.vhdr/.vmrk files). The associated analysis used an automated preprocessing pipeline with independent component analysis and wavelet-enhanced artifact removal.",
     "funding": [
       {
         "funder_name": "Comité para el Desarrollo de la Investigación - CODI, Universidad de Antioquia"
-      },
-      {
-        "funder_name": "Comité para el Desarrollo de la Investigación (CODI), Universidad de Antioquia"
       }
-    ],
-    "searched_accessions": [
-      "on007176",
-      "ds007176"
-    ],
-    "num_accession_mentions": 2,
-    "num_dataset_citations": 2,
-    "num_datapaper_citations": 3
+    ]
   },
   "citation_details": [
     {
@@ -159,70 +129,20 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
-    },
-    {
-      "title": "Reliability and disease sensitivity are dissociable properties of EEG foundation-model representations",
-      "author": "Belay Gebregergis, Haben Yhdego, Tewolde Teklu",
-      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
-      "year": 2026,
-      "url": "https://doi.org/10.64898/2026.08.19.745052",
-      "cited_by": 0,
-      "abstract": "Abstract EEG foundation models (EEG-FMs) are evaluated almost entirely on disease-discrimination accuracy. A clinical biomarker additionally requires measurement reliability, the stability of repeated measurements on the same individual, which regulatory biomarker frameworks treat as a prerequisite that discrimination does not imply. We asked whether frozen EEG-FM representations provide such stability, whether it is predictable from conventional model descriptors, and what information supports it. We measured test-retest reliability, disease discrimination, and representation distinctiveness for nine frozen representations: six EEG-oriented foundation models spanning masked, contrastive and predictive pretraining, handcrafted spectral features, and two general-purpose time-series models with no EEG exposure. All were evaluated under one preprocessing pipeline across two healthy retest cohorts, at roughly one month and two years, and three neurodegenerative cohorts. Reliability was measured in healthy adults only; the disease cohorts contribute cross-sectional discrimination. Reliability, quantified as the intraclass correlation coefficient (ICC), varied enormously (mean 0.08 to 0.76; coefficient of variation, CV, 53.0%) while disease discrimination, measured as area under the receiver operating characteristic curve (AUC), occupied a far narrower range across the same nine (AUC CV 5.4%), a roughly tenfold difference in relative dispersion, described rather than formally tested. We did not test formal AUC equivalence, so we describe discrimination as varying substantially less than reliability rather than as equivalent. The variation was not consistently explained by pretraining paradigm or domain among the models studied, and a model with no EEG exposure was among the most reliable tested. Alpha-band information contributed disproportionately to reliability, whereas theta-band information ranked first for Alzheimer disease and frontotemporal dementia discrimination, directionally consistent with established EEG evidence in both conditions. Only the reliability half of that contrast is individually significant. Subspace geometry and band ablation, two methodologically distinct analyses, both indicate that the two properties are partially, not fully, dissociable, and network architecture determines whether the dissociation is preserved, traded off, or jointly degraded across depth. Reliability showed no detectable association with discrimination, pretraining paradigm, or domain, and had to be measured directly. We recommend it become a standard evaluation axis for EEG-FM representations intended for longitudinal or biomarker use, and release a reproducible pipeline.",
-      "doi": "10.64898/2026.08.19.745052",
-      "pmid": null,
-      "openalex_id": "W7204133752",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds007176",
-      "confidence_scoring": {
-        "confidence_score": 0.7021360239386559,
-        "similarity_score": 0.6079099774360657,
-        "citation_text_length": 1726,
-        "dataset_text_length": 2347,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Polar Geometry of Time-Odd EEG Dynamics",
-      "author": "Dmitry Goldstein",
-      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
-      "year": 2026,
-      "url": "https://doi.org/10.64898/2026.09.08.749160",
-      "cited_by": 0,
-      "abstract": "Abstract Objective Longitudinal EEG recordings vary across sessions because of electrode reapplication, referencing, recording conditions, and physiological state. We asked whether multichannel EEG contains a time-odd geometric structure that remains subject-discriminative across repeated recordings and extended inter-session intervals. Approach We constructed a local state–derivative operator T ij = corr( m i , Δ x j ) and isolated its exact skew component, . Polar decomposition, K = Q K M K , separated interaction magnitude from normalized orientation. We applied the same decomposition to signed imaginary coherency, Ω = Im( G ), providing a frequency-domain test based on a separate estimation procedure. We evaluated cross-session subject matching in four public longitudinal EEG datasets, including the Dortmund cohort of 206 participants with recordings separated by approximately five years. Alpha–beta fusion used fixed equal weights without calibration or learned weighting. Main results The empirical operator T was already strongly dominated by its skew component, indicating that K isolates rather than creates the observed time-odd structure. Polar orientation improved longitudinal discriminability for K → Q K in every principal comparison. For the approximately one-month RestCog interval, area under the receiver-operating-characteristic curve (AUC) increased from 0.9222 to 0.9597 and rank-1 identification (CMC@1) from 0.6333 to 0.8167. In Dortmund, AUC increased from 0.8901 to 0.9625 and CMC@1 from 0.4757 to 0.6214. Fixed alpha–beta fusion further increased Dortmund Q K performance to CMC@1 = 0.8350, AUC = 0.9855, and equal-error rate (EER) = 5.90%. The spectral operator reproduced the raw-to-polar AUC advantage for Ω → Q Ω in both alpha and beta across all four datasets. Matched-metric controls preserved the polar AUC advantage in all 40 raw-to-polar comparisons. Significance Across two mathematically linked skew EEG operators obtained using different estimation procedures, removing interaction-magnitude weighting while retaining normalized orientation improved cross-session discriminability. The gain reflects improved genuine–impostor geometry rather than necessarily greater absolute similarity between repeated recordings. Polar orientation provides a compact longitudinal descriptor requiring no performance-tuned internal parameter once preprocessing, temporal support, and frequency band are fixed.",
-      "doi": "10.64898/2026.09.08.749160",
-      "pmid": null,
-      "openalex_id": "W7212457841",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds007176",
-      "confidence_scoring": {
-        "confidence_score": 0.7286585497856142,
-        "similarity_score": 0.6308732032775879,
-        "citation_text_length": 1633,
-        "dataset_text_length": 2347,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T16:41:09.210114+00:00",
+    "scoring_date": "2026-10-24T11:34:30.876922+00:00",
     "dataset_text_length": 2347,
-    "num_citations_scored": 5,
+    "num_citations_scored": 3,
     "summary_stats": {
-      "mean_confidence": 0.7112333716750145,
+      "mean_confidence": 0.7084574282169344,
       "median_confidence": 0.7112505412101746,
-      "std_confidence": 0.08774575152429873,
+      "std_confidence": 0.11267515017155903,
       "min_confidence": 0.5690837609767915,
       "max_confidence": 0.8450379824638368,
-      "high_confidence_count": 4,
+      "high_confidence_count": 2,
       "medium_confidence_count": 1,
       "low_confidence_count": 0
     }

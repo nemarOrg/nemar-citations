@@ -1,0 +1,76 @@
+{
+  "dataset_id": "nm000402",
+  "date_retrieved": "2026-10-12T10:06:01.086117+00:00",
+  "dataset_description": {
+    "Name": "Multi-Expert Seizure Annotation",
+    "BIDSVersion": "1.7.0",
+    "DatasetType": "raw",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "William K. Ojemann",
+      "Daniel Zhou",
+      "Caren Armstrong",
+      "Nishant Sinha",
+      "Brian Litt",
+      "Erin Conrad"
+    ],
+    "Acknowledgements": "This dataset was prepared with the help of the Center for Neuroengineering and Therapeutics and the Children's Hospital of Philadelphia.",
+    "HowToAcknowledge": "Please cite this dataset using the information in the footer found on pennsieve.io and our manuscript: https://doi.org/10.64898/2026.01.15.26344025 Dataset DOI: https://doi.org/10.26275/dely-fzwx (Pennsieve Discover dataset 530, version 3).",
+    "Funding": [
+      "National Science Foundation Grant Graduate Research Fellowship DGE-1845298",
+      "National Institue of Neurological Disorders and Stroke of the National Institutes of Health K99NS138680",
+      "National Institue of Neurological Disorders and Stroke of the National Institutes of Health K23NS121401",
+      "National Institue of Neurological Disorders and Stroke of the National Institutes of Health R01NS125137",
+      "National Institue of Neurological Disorders and Stroke of the National Institutes of Health R01NS116504",
+      "National Institue of Neurological Disorders and Stroke of the National Institutes of Health DP1NS122038",
+      "National Institue of Neurological Disorders and Stroke of the National Institutes of Health T32NS091008;",
+      "The Burroughs Welcome Fund",
+      "The Small Lake Foundation",
+      "Neil and Barbara Smit",
+      "Bonnie and Jonathan Rothberg and Family"
+    ],
+    "EthicsApprovals": [
+      "University of Pennsylvania Human Research Protections Program, Institutional Review Boards (Protocol 703979, 811097, and/or 821778)"
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.64898/2026.01.15.26344025",
+      "https://doi.org/10.26275/dely-fzwx",
+      "https://discover.pennsieve.io/datasets/530/version/3"
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "MNE-BIDS",
+        "Version": "0.17.0",
+        "CodeURL": "https://mne.tools/mne-bids/"
+      }
+    ],
+    "Keywords": [
+      "epilepsy",
+      "seizures",
+      "intracranial",
+      "human",
+      "adult",
+      "pediatric",
+      "BIDS",
+      "sEEG",
+      "iEEG",
+      "stimulation"
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000402",
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000402-blue)](https://doi.org/10.82901/nemar.nm000402)\n\n# Multi-Expert Seizure Annotation (spontaneous and stimulation-induced seizures in SEEG)\n\n## Overview\nAutomated seizure detection and localization from intracranial EEG requires validated benchmark datasets with expert annotations, yet existing open datasets lack multi-expert consensus annotations and exclude stimulation-induced seizures. We present stereotactic EEG recordings from 78 seizures (44 spontaneous, 34 stimulation-induced) across 29 patients (19 from the University of Pennsylvania, 10 from the Children’s Hospital of Philadelphia) with drug-resistant epilepsy. Three or five board-certified epileptologists independently annotated each seizure for onset time, onset channels, and channels seizing at 10 seconds post-onset using a standardized protocol. All data follow Brain Imaging Data Structure (BIDS) standards and include electrode localizations, patient demographics, and clinical outcomes. This dataset enables the validation of seizure onset and spread detection and localization against human expert performance and supports comparative analysis of seizure networks across spontaneous and stimulation-induced seizures.\n\nThis NEMAR dataset redistributes Pennsieve Discover dataset 530, version 3 (doi:10.26275/dely-fzwx, published 2026-07-29 by\nPenn CNT; licence on the record: \"Creative Commons Attribution\"; licence in the authors' dataset_description.json:\n\"CC-BY 4.0\"). The release was already organised in BIDS by the authors (MNE-BIDS 0.17.0). Contents: 29 participants,\n78 SEEG seizure recordings (EDF), 6.8 h in total, sampled at 512-2048 Hz.\n\n## Contents\n- `sub-<HUP|CHOP>###/ses-postimplant/ieeg/`: one EDF per seizure, with `_channels.tsv`, `_events.tsv/json` and `_ieeg.json`.\n  The task label encodes the seizure type and the approximate onset time in seconds from the start of the implant recording,\n  as named by the authors (`task-ictal<onset>`: spontaneous seizure; `task-stim<onset>`: stimulation-induced seizure).\n- `participants.tsv/json`: age, sex, mesial-temporal epilepsy, unifocal, lesional, Engel outcome, follow-up, disease\n  duration, age at onset, number of seizures and number of stimulation-induced seizures (definitions in participants.json).\n- `annotations.tsv/json`: the multi-expert annotations, one row per seizure: per-clinician unequivocal electrographic onset\n  (UEO) time, UEO channels, channels seizing 10 s after onset, the consensus values, stimulation parameters, semiology,\n  LVFA at onset (column definitions in annotations.json). Listed in `.bidsignore` because BIDS has no slot for\n  dataset-level annotation tables.\n- `sub-*/ses-postimplant/ieeg/*_space-Other_electrodes.tsv/.json` + `_coordsystem.json`: BIDS electrode files generated from the authors' tables (HUP: native-space mm coordinates; CHOP: voxel indices only, units n/a). Column `label` renamed `name`, `size` = n/a, other columns kept.\n- `derivatives/electrode-localization/`: the authors' per-subject electrode localisation tables (HUP: native mm, tkrRAS and voxel\n  coordinates with DK ROI; CHOP: voxel coordinates, tissue class, DK ROI), moved byte-identically from the release's non-BIDS `sub-*/derivatives/` folders\n  (mapping in `sourcedata/pennsieve-530-v3/moved_files.tsv`).\n- `sourcedata/pennsieve-530-v3/`: the Pennsieve record files (readme.md, manifest.json, changelog.md, banner.jpg), the\n  release's original `README` and `dataset_description.json`, the Pennsieve file listing with checksums, and our download\n  verification (every file matched the Pennsieve SHA-256).\n\n## Changes made for NEMAR\nNo signal file (EDF), channels, events or ieeg sidecar was modified. Changes:\n- the authors' electrode tables were moved byte-identically to `derivatives/electrode-localization/` (see above), and BIDS\n  `_space-Other_electrodes.tsv/.json` + `_coordsystem.json` were generated from them (HUP: native-space mm coordinates;\n  CHOP: voxel indices only, units n/a; `label` renamed `name`, `size` = n/a; the authors' `matter` Levels map moved into the\n  column Description because the values use other spellings such as 'grey');\n- `participants.json` `outcome`: the integer Levels map was moved into the Description (values are Engel subclasses such as\n  1.1, which the validator rejects against integer levels); participants.tsv values unchanged;\n- `dataset_description.json`: License written as SPDX `CC-BY-4.0`, Authors taken from the Pennsieve record's contributor\n  list, Pennsieve DOI added to ReferencesAndLinks and HowToAcknowledge;\n- this README replaces the release README (kept verbatim below and in sourcedata).\n\n## Privacy\nEDF headers carry no patient information (patient field `X X X X`, start date 01.01.85 set by the authors); scans.tsv\nacq_time is `n/a`. Subject labels are the authors' study codes. Clinician names are replaced by `Clin #` in the release.\n\n## Ethics approval\nFrom the authors' dataset_description.json (EthicsApprovals): \"University of Pennsylvania Human Research Protections\nProgram, Institutional Review Boards (Protocol 703979, 811097, and/or 821778)\".\n\n## Funding\nAs listed by the authors in dataset_description.json (Funding).\n\n## How to cite\nCite the dataset (doi:10.26275/dely-fzwx) and the manuscript https://doi.org/10.64898/2026.01.15.26344025.\n\n## Licence\nCreative Commons Attribution 4.0 (CC-BY-4.0), as released by the authors.\n\n## Original release README\n﻿References\n----------\nAppelhoff, S., Sanderson, M., Brooks, T., Vliet, M., Quentin, R., Holdgraf, C., Chaumon, M., Mikulan, E., Tavabi, K., Höchenberger, R., Welke, D., Brunner, C., Rockhill, A., Larson, E., Gramfort, A. and Jas, M. (2019). MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis. Journal of Open Source Software 4: (1896).https://doi.org/10.21105/joss.01896\n\nHoldgraf, C., Appelhoff, S., Bickel, S., Bouchard, K., D'Ambrosio, S., David, O., … Hermes, D. (2019). iEEG-BIDS, extending the Brain Imaging Data Structure specification to human intracranial electrophysiology. Scientific Data, 6, 102. https://doi.org/10.1038/s41597-019-0105-7\n\n## Additional metadata and localisation (added 2026-10-08)\n\nCompiled after the upload from the article, its supplement and the source deposit (each statement names its source). Text and sidecar metadata only; no data file was changed.\n\n**Stimulation.** HUP: bipolar, biphasic stimulation at 1 Hz, 3 mA, 300 µs (first 14 patients) or 500 µs pulse width; CHOP: 1–8 mA, 1–2 Hz, 300–500 µs (doi:10.64898/2026.01.15.26344025 (medRxiv, Ojemann et al. 2026), Methods). Per-seizure stim channels/parameters are in annotations.tsv (stim_channels, stim_frequency, stim_amplitude, stim_pulse_width).\n\n**Recording system.** Natus Quantum system, sampling rate 512–2048 Hz (doi:10.64898/2026.01.15.26344025 (medRxiv, Ojemann et al. 2026), Methods); the deposited EDFs are at 1024 Hz with channels.tsv low_cutoff 0.0 / high_cutoff 512.0 (deposit *_ieeg.json SamplingFrequency, *_channels.tsv). PowerLineFrequency, SoftwareFilters and Manufacturer are n/a in the sidecars.\n\n**Reference scheme.** Referenced to a contact hypothesised to be in non-epileptogenic tissue, typically medullary bone (doi:10.64898/2026.01.15.26344025 (medRxiv, Ojemann et al. 2026), Methods); iEEGReference is n/a in the deposit sidecars.\n\n**Electrode types.** sEEG depth electrodes; HUP: Ad-Tech (Oak Creek, WI); CHOP: PMT (MN, USA) or DIXI Medical (doi:10.64898/2026.01.15.26344025 (medRxiv, Ojemann et al. 2026), Methods).\n\n**Localisation method.** CHOP: post-implant CT co-registered to pre-implant MRI with Gardel, Desikan–Killiany (DK) atlas segmentation in FreeSurfer. HUP: iEEG-recon, contacts localised in pre-implant T1 space and MNI152 space, FreeSurfer DK parcellation (doi:10.64898/2026.01.15.26344025 (medRxiv, Ojemann et al. 2026), Methods \"Electrode Localization\"). The deposit gives per-subject `derivatives/electrodes.tsv`: CHOP files have voxel x/y/z + matter + DK brain_area; HUP files have mm_x/y/z, surfmm_x/y/z, vox_x/y/z, roi (FreeSurfer aseg/DK name) and roiNum. The MNI coordinates mentioned in the paper are **not** in the deposit; the mm coordinates are subject-native (deposit does not name the space).\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000402",
+    "exists": true,
+    "description": "Multi-Expert Seizure Annotation",
+    "created_at": "2026-10-07T22:25:49+00:00",
+    "updated_at": "2026-10-08T06:08:25+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

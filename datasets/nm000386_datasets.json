@@ -1,0 +1,73 @@
+{
+  "dataset_id": "nm000386",
+  "date_retrieved": "2026-10-12T10:05:20.228904+00:00",
+  "dataset_description": {
+    "Name": "The involvement of the human prefrontal cortex in the emergence of visual awareness (Fang et al., 2024): sEEG, 6 patients",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "raw",
+    "License": "CC0-1.0",
+    "Authors": [
+      "Zepeng Fang",
+      "Yuanyuan Dang",
+      "Zhipei Ling",
+      "Yongzheng Han",
+      "Hulin Zhao",
+      "Xin Xu",
+      "Mingsha Zhang"
+    ],
+    "EthicsApprovals": [
+      "All subjects provided informed consent to participate in this study. The Ethics Committee of Chinese PLA General Hospital approved the experimental procedures (approval numbers S2022-457-01). [Fang et al. 2024, eLife 13:RP89076, doi:10.7554/eLife.89076; Additional information, Ethics (Human subjects), identical in Methods, Data acquisition]"
+    ],
+    "Funding": [
+      "Ministry of Science and Technology of the People's Republic of China STI2030-Major Projects+2021ZD0204300 to Mingsha Zhang",
+      "National Natural Science Foundation of China 32061143004 to Mingsha Zhang",
+      "National Natural Science Foundation of China 32030045 to Mingsha Zhang",
+      "State Key Laboratory of Cognitive Neuroscience and Learning Open Research Fund CNLZD2202 to Yongzheng Han"
+    ],
+    "HowToAcknowledge": "Cite Fang Z, Dang Y, Ling Z, Han Y, Zhao H, Xu X, Zhang M (2024) The involvement of the human prefrontal cortex in the emergence of visual awareness. eLife 13:RP89076, doi:10.7554/eLife.89076; and Dryad doi:10.5061/dryad.p8cz8w9xp.",
+    "ReferencesAndLinks": [
+      "https://doi.org/10.7554/eLife.89076",
+      "https://doi.org/10.5061/dryad.p8cz8w9xp"
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.5061/dryad.p8cz8w9xp",
+        "URL": "https://datadryad.org/dataset/doi:10.5061/dryad.p8cz8w9xp",
+        "Version": "Dryad version 6 (published 2024-01-18)"
+      }
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "NEMAR iEEG batch-2 conversion (b2dryad_*036.py)",
+        "Description": "BDF -> BrainVision INT_32 with the exact BDF digital values and gains; events from evt.bdf, enriched per trial from the release behaviour MAT files; dates day -> 01; code in code/."
+      }
+    ],
+    "Keywords": [
+      "sEEG",
+      "stereo-EEG",
+      "intracranial EEG",
+      "visual awareness",
+      "consciousness",
+      "prefrontal cortex",
+      "saccade",
+      "epilepsy"
+    ],
+    "Acknowledgements": "We thank the participants for volunteering to take part in the study. (Fang et al. 2024, Acknowledgements)",
+    "DatasetDOI": "10.82901/nemar.nm000386",
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000386-blue)](https://doi.org/10.82901/nemar.nm000386)\n\n# Human prefrontal cortex and the emergence of visual awareness: sEEG (Fang et al., 2024)\n\nRaw stereo-EEG of 6 adult male patients with drug-resistant epilepsy (Department of Neurosurgery, PLA General Hospital,\nBeijing) performing a visual awareness task with saccadic report, with per-trial behaviour, defaced T1 MRI, and (in\nsourcedata) post-implantation CT and the eye-position/behaviour files of the patients and of 10 healthy controls.\n\n## Cohort (article, Methods 'Data acquisition')\n- Patients: 6 (6 males, 32.33 ± 4.75 years, mean ± SEM; per-patient ages not given). Electrodes in both hemispheres\n  for patients 1, 5 and 6, one hemisphere for patients 2-4 (participants.tsv). Patients were on their usual\n  anti-epileptic medication. Electrode placement was based on clinical requirements only.\n- Healthy controls: 10 (4 males, 6 females, 27.80 ± 3.92 years), behaviour/eye position only (no neural data);\n  their files are in `sourcedata/dryad-p8cz8w9xp/HealthyControls/` (C01-C10, release order).\n\n## Task (article, 'Experimental task')\nFixation (white cross) for 600 ms, then a 2° Gabor grating for 50 ms at 7° eccentricity, contralateral to the implanted\nhemisphere (right side for the bilateral patients 1, 5, 6). In 70% of trials the contrast tracks the perceptual\nthreshold (1 up/1 down staircase), in 10% it is well above threshold, in 20% no grating is shown. After another 600 ms\nthe fixation point turns green or red and two saccade targets appear at 10° left and right. Seen + green -> right\ntarget, seen + red -> left target; not seen inverts the rule. 180 trials per session, ITI 800 ms. Patients' stimuli:\n24-inch 144 Hz screen; eye position by an infrared eye tracker (Jsmz EM2000C) at 1 kHz; controls: 27-inch 120 Hz\nscreen, EyeLink 1000 at 1 kHz. MATLAB + Psychtoolbox-3.\n\n## Recording\nDepth electrodes (SINOVATION, 8-20 contacts, 0.8 mm diameter, 2 mm length, 1.5 mm spacing), NEURACLE amplifier,\n1 kHz, hardware filter 1-250 Hz and 50 Hz notch, reference: a contact in white matter. 108-254 channels per recording.\n\n## Source\n- Dryad doi:10.5061/dryad.p8cz8w9xp (version 6, 2024-01-18), CC0 1.0. Authors: Zepeng Fang, Yuanyuan Dang, Zhipei Ling,\n  Yongzheng Han, Hulin Zhao, Xin Xu, Mingsha Zhang (Beijing Normal University / PLA General Hospital).\n- Article: Fang et al. (2024) eLife 13:RP89076, doi:10.7554/eLife.89076.\n\n## Ethics (verbatim from the article)\n\"All subjects provided informed consent to participate in this study. The Ethics Committee of Chinese PLA General Hospital\napproved the experimental procedures (approval numbers S2022-457-01).\"\n\n## Conversion\n- Each release session (`SEEG Data/Pn/SessionK/data.bdf`) is one run. BDF is not an iEEG-BIDS format, so the data are\n  written as BrainVision with 32-bit integer samples holding the exact BDF digital values, and per-channel resolution =\n  the BDF gain. The BDF digital range is asymmetric (-8388608..8388607 for a symmetric physical range), so the BDF\n  physical value = digital x gain + half a digital step (about 0.045 µV); that constant is not representable in\n  BrainVision and is dropped. The digital values are exact (checked by round-trip).\n- sub-04: the BDF has the label LDELT1 twice (channels 1 and 251, different signals); channel 251 is named LDELT1_ch251\n  (original label in channels.tsv column source_label). No filtering or resampling.\n- Events come from `evt.bdf` (Neuracle 'Trigger-In:<code>' annotations). The onsets are used as data latencies, as\n  Neuracle's own reader does; the two files' header start times (1-s resolution) differ by 0-1 s. Codes are kept\n  verbatim (`value`). The authors do not document them; `event_name` gives our reading, checked against the release\n  behaviour files (see `task-visualawareness_events.json`).\n- Per-trial behaviour from the release MAT files (stimulus presence, contrast, colour cue, saccade direction, awareness\n  report, completion, fixation break) is added to every event of the trial. A recording is matched to its MAT file\n  only when the number of trial starts (code 101) equals the number of MAT trials and the trigger intervals agree\n  with the MAT event times (99th percentile < 25 ms; observed < 9 ms): 39 of 41 runs. Not matched (behaviour columns\n  n/a; raw MAT files in sourcedata): sub-03 run-11 (117 trial starts in the recording vs 180 MAT trials) and sub-04\n  run-06 (178 vs 180).\n- P5 'Session6-7' is a single file in the release (two sessions in one recording) and is kept as one run.\n- Channels named *DELT* (present for some patients) are typed MISC: the name suggests deltoid EMG but the release does\n  not say. All other channels are SEEG. No electrode coordinates are released (only defaced MRI/CT).\n- Dates: year and month kept, day set to 01 (scans.tsv; BDF headers and MAT-file header creation dates in\n  sourcedata; times of day kept). Patient initials and recording dates\n  in release file names were removed from sourcedata names (see `sourcedata/dryad-p8cz8w9xp/MANIFEST.tsv`, which lists the\n  sha256 of every original file).\n- Images: the authors' defaced T1 MRI is in `anat/` (T1w). Defacing was checked by surface rendering for all 12 images.\n  CT has no raw BIDS suffix and is kept in sourcedata; the CT of P5 is excluded because its defacing could not be\n  verified (it remains available from Dryad).\n- Behaviour/eye position (.mat, per session) for patients and the 10 healthy controls (behaviour only, no neural data)\n  are in sourcedata with neutral names; their struct fields are described in `sourcedata/dryad-p8cz8w9xp/README.md`\n  (the release README, byte for byte).\n- The release zip itself is not redistributed: its file names carry patient initials and recording dates, and the BDF\n  and MAT headers carry full recording dates. Every original file is in sourcedata under a neutral name, byte-identical\n  except for those header dates; `MANIFEST.tsv` lists the sha256 of each original release file and what was changed.\n- Age per patient is not given (article: 32.33 ± 4.75 years, mean ± SEM); all six are male (article).\n\n## How to load\n```python\nimport mne, pandas as pd\nraw = mne.io.read_raw_brainvision(\"sub-01/ieeg/sub-01_task-visualawareness_run-01_ieeg.vhdr\", preload=True)  # volts\nev = pd.read_csv(\"sub-01/ieeg/sub-01_task-visualawareness_run-01_events.tsv\", sep=\"\\t\")\ncues = ev[ev.event_name == \"grating_on\"]  # one row per trial with stim_presence/contrast/awareness\n```\nMNE-BIDS: `mne_bids.read_raw_bids(BIDSPath(root=\".\", subject=\"01\", task=\"visualawareness\", run=\"01\", datatype=\"ieeg\"))`.\nBehaviour MAT files: `scipy.io.loadmat(path, squeeze_me=True, struct_as_record=False)[\"Trial\"]`.\n\n## References\n- Fang Z, Dang Y, Ling Z, Han Y, Zhao H, Xu X, Zhang M (2024). The involvement of the human prefrontal cortex in the\n  emergence of visual awareness. eLife 13:RP89076. doi:10.7554/eLife.89076\n- Data: Dryad doi:10.5061/dryad.p8cz8w9xp (CC0 1.0).\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000386",
+    "exists": true,
+    "description": "The involvement of the human prefrontal cortex in the emergence of visual awareness (Fang et al., 2024): sEEG, 6 patients",
+    "created_at": "2026-10-07T12:45:24+00:00",
+    "updated_at": "2026-10-08T04:01:30+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

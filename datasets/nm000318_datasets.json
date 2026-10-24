@@ -1,0 +1,67 @@
+{
+  "dataset_id": "nm000318",
+  "date_retrieved": "2026-10-12T10:02:47.131038+00:00",
+  "dataset_description": {
+    "Name": "Batista2022: Motor-imagery EEG during NeuRow VR/haptics BCI training",
+    "BIDSVersion": "1.9.0",
+    "HEDVersion": "8.4.0",
+    "DatasetType": "derivative",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "Diogo Batista",
+      "Gustavo Caetano",
+      "Mathis Fleury",
+      "Patricia Figueiredo",
+      "Athanasios Vourvopoulos"
+    ],
+    "ReferencesAndLinks": [
+      "https://zenodo.org/records/7664069"
+    ],
+    "Keywords": [
+      "motor imagery",
+      "BCI",
+      "brain-computer interface",
+      "EEG",
+      "virtual reality",
+      "haptics",
+      "neurorehabilitation"
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000318",
+    "GeneratedBy": [
+      {
+        "CodeURL": "https://github.com/NeuroTechX/moabb",
+        "Name": "moabb",
+        "Description": "Mother of All BCI Benchmarks",
+        "Version": "1.8.0dev0"
+      }
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "10.5281/zenodo.7664068",
+        "URL": "https://zenodo.org/records/7664069"
+      },
+      {
+        "DOI": "doi:10.5281/zenodo.7664068"
+      }
+    ],
+    "PublicationYear": 2022,
+    "EthicsApprovals": [
+      "Written informed consent was obtained from all participants in accordance with the 1964 Declaration of Helsinki (Batista et al. 2022, Zenodo DOI 10.5281/zenodo.7664068). The source does not name the approving ethics committee in-line."
+    ],
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000318-blue)](https://doi.org/10.82901/nemar.nm000318)\n\nBatista2022\n===========\n\nMotor-imagery EEG during NeuRow VR/haptics BCI training [1]_.\n\nDataset Overview\n----------------\n  Code: Batista2022\n  Paradigm: imagery\n  DOI: 10.5281/zenodo.7664068\n  Subjects: 20\n  Sessions per subject: 1\n  Events: left_hand=7, right_hand=8\n  Trial interval: [0, 5] s\n  Runs per session: 5\n  File format: BrainVision\n\nAcquisition\n-----------\n  Sampling rate: 500.0 Hz\n  Number of channels: 38\n  Channel types: eeg=32, ecg=1, resp=1, misc=4\n  Channel names: Fp1, Fz, F3, F7, FT9, FC5, FC1, C3, T7, TP9, CP5, CP1, Pz, P3, P7, O1, Oz, O2, P4, P8, TP10, CP6, CP2, Cz, C4, T8, FT10, FC6, FC2, F4, F8, Fp2\n  Montage: standard_1020\n  Hardware: LiveAmp 32 (Brain Products GmbH)\n  Software: BrainVision Recorder\n  Sensor type: active Ag/AgCl\n  Line frequency: 50.0 Hz\n  Cap manufacturer: Brain Products GmbH\n  Cap model: actiCAP\n  Electrode type: active\n\nParticipants\n------------\n  Number of subjects: 20\n  Health status: healthy\n  Age: mean=24.79, std=3.54\n\nExperimental Protocol\n---------------------\n  Paradigm: imagery\n  Number of classes: 2\n  Class labels: left_hand, right_hand\n  Trial duration: 5.0 s\n  Study design: Within-subject, randomized-order cue-based left- vs right-hand motor imagery of a bimanual rowing task, compared across Graz and NeuRow virtual-reality conditions with optional haptic and head-mounted-display feedback, plus a motor-execution control.\n  Feedback type: visual\n  Stimulus type: visual\n  Stimulus modalities: visual, tactile\n  Synchronicity: cue-based\n  Mode: online\n  Training/test split: False\n  Instructions: Imagine moving the left or right paddle (bimanual rowing) following the directional cue.\n\nHED Event Annotations\n---------------------\n  Schema: HED 8.4.0 | Browse: https://www.hedtags.org/hed-schema-browser\n\n  left_hand\n    ├─ Sensory-event, Experimental-stimulus, Visual-presentation\n    └─ Agent-action\n       └─ Imagine\n          ├─ Move\n          └─ Left, Hand\n\n  right_hand\n    ├─ Sensory-event, Experimental-stimulus, Visual-presentation\n    └─ Agent-action\n       └─ Imagine\n          ├─ Move\n          └─ Right, Hand\n\nParadigm-Specific Parameters\n----------------------------\n  Detected paradigm: motor_imagery\n  Imagery tasks: left_hand, right_hand\n  Imagery duration: 5.0 s\n\nData Structure\n--------------\n  Blocks per session: 5\n  Trials context: One lab session per subject with up to five imagery runs (one per condition: MI, MIMO, MIMOHP, MIMOVR, MIMOVRHP; the motor-execution ME control is excluded). Trials are cue-locked to the left/right-hand marker with a 5 s imagery/feedback window.\n\nPreprocessing\n-------------\n  Data state: raw\n  Preprocessing applied: False\n\nSignal Processing\n-----------------\n  Frequency bands: mu=[8.0, 12.0] Hz; beta=[12.0, 30.0] Hz\n\nCross-Validation\n----------------\n  Evaluation type: within_subject\n\nBCI Application\n---------------\n  Applications: motor rehabilitation, BCI training\n  Environment: lab\n  Online feedback: True\n\nTags\n----\n  Pathology: healthy\n  Modality: motor\n  Type: Motor Imagery\n\nDocumentation\n-------------\n  Description: Motor-imagery EEG plus PPG, respiration, ECG and accelerometry from 20 healthy volunteers performing cued left/right-hand motor imagery of a rowing task during VR/haptics BCI training.\n  DOI: 10.5281/zenodo.7664068\n  License: CC-BY-4.0\n  Investigators: Diogo Batista, Gustavo Caetano, Mathis Fleury, Patricia Figueiredo, Athanasios Vourvopoulos\n  Institution: Instituto Superior Tecnico, Universidade de Lisboa\n  Country: PT\n  Repository: Zenodo\n  Data URL: https://zenodo.org/records/7664069\n  Publication year: 2022\n  Keywords: motor imagery, BCI, brain-computer interface, EEG, virtual reality, haptics, neurorehabilitation\n\nReferences\n----------\nBatista, D., Caetano, G., Fleury, M., Figueiredo, P., and Vourvopoulos, A. (2022). Physiological Signals During Motor Imagery Brain-Computer Interface Training Using Virtual Reality and Haptics. Zenodo. DOI: https://doi.org/10.5281/zenodo.7664068\n\nNotes\n\n.. versionadded:: 1.8.0\nAppelhoff, S., Sanderson, M., Brooks, T., Vliet, M., Quentin, R., Holdgraf, C., Chaumon, M., Mikulan, E., Tavabi, K., Hochenberger, R., Welke, D., Brunner, C., Rockhill, A., Larson, E., Gramfort, A. and Jas, M. (2019). MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis. Journal of Open Source Software 4: (1896). https://doi.org/10.21105/joss.01896\n\nPernet, C. R., Appelhoff, S., Gorgolewski, K. J., Flandin, G., Phillips, C., Delorme, A., Oostenveld, R. (2019). EEG-BIDS, an extension to the brain imaging data structure for electroencephalography. Scientific Data, 6, 103. https://doi.org/10.1038/s41597-019-0104-8\n\n---\nGenerated by MOABB 1.8.0dev0 (Mother of All BCI Benchmarks)\nhttps://github.com/NeuroTechX/moabb\n\nEthics\n------\nEthics approval: the data analysed in this deposit were collected under the\nethics approval obtained by the original investigators and reported in the\nprimary publication cited above (see References/Documentation sections of\nthis README). Participants gave informed consent in the source study. No\nnew human-subject data were collected during this BIDS re-release; this\nNEMAR record only reformats the published source data into BIDS via MOABB.\nPlease consult the primary publication for the exact IRB/ethics committee\nreference.\n\n## Ethics\n\nWritten informed consent was obtained from all participants in accordance with the 1964 Declaration of Helsinki (Batista et al. 2022, Zenodo DOI 10.5281/zenodo.7664068). The source does not name the approving ethics committee in-line.\n\nVerbatim from the source:\n\n> All participants signed an informed consent before participating in the study in accordance with the 1964 Declaration of Helsinki.\n\nSource: Zenodo record 7664068 / 7664069 description (https://zenodo.org/records/7664068).\n\nNote: The source statement is incomplete (no committee named); defers to the primary publication for the full ethics record.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000318",
+    "exists": true,
+    "description": "Batista2022: Motor-imagery EEG during NeuRow VR/haptics BCI training",
+    "created_at": "2026-10-04T17:31:43+00:00",
+    "updated_at": "2026-10-12T03:00:20+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "dataset_id": "nm000364",
+  "date_retrieved": "2026-10-12T10:04:17.056121+00:00",
+  "dataset_description": {
+    "Name": "Task-SEEG recordings from epilepsy patients performing a visual working memory task (Tian, Figshare 32189838)",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "raw",
+    "License": "CC-BY-NC-4.0",
+    "Authors": [
+      "Ziwei Tian"
+    ],
+    "HowToAcknowledge": "Please cite the source dataset: Tian, Ziwei (2026). task-SEEG data from epilepsy patients. figshare. Dataset. https://doi.org/10.6084/m9.figshare.32189838.v1. The Figshare record asks users to cite the associated research article, which it does not name; see README for the candidate articles.",
+    "ReferencesAndLinks": [
+      "https://doi.org/10.6084/m9.figshare.32189838.v1"
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.6084/m9.figshare.32189838.v1",
+        "URL": "https://figshare.com/articles/dataset/task-SEEG_data_from_epilepsy_patients/32189838",
+        "Version": "1"
+      }
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "laneI_convert010.py (iEEG-to-NEMAR redistribution campaign)",
+        "Description": "De-identified copy of the Figshare files: EDF header identity/date fields and one EDF+ annotation text replaced; signal samples unchanged (byte-verified). Channel types corrected from the EDF labels; see README."
+      }
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000364",
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000364-blue)](https://doi.org/10.82901/nemar.nm000364)\n\n# Task-SEEG recordings from epilepsy patients performing a visual working memory task\n\nThis is a BIDS (iEEG) copy of the Figshare dataset\n\n> Tian, Ziwei (2026). *task-SEEG data from epilepsy patients.* figshare. Dataset.\n> https://doi.org/10.6084/m9.figshare.32189838.v1 (article 32189838, version 1, published 2026-05-07)\n\nSource description (Figshare, verbatim): \"This dataset contains stereo-electroencephalography (SEEG) recordings\nacquired from epilepsy patients while they performed a visual working memory task. The data were collected to\ninvestigate the neural mechanisms underlying working memory processes in the human brain.\" Participants: \"patients\nwith drug-resistant epilepsy who underwent SEEG implantation for clinical evaluation. Electrode placement was\ndetermined solely by clinical requirements, with no additional electrodes implanted for research purposes.\"\nElectrodes: \"Intracranial multi-contact depth electrodes (8–16 contacts; length, 2 mm; diameter, 0.8 mm; spacing,\n1.5 mm; Huake-Hengsheng Medical Technology, Beijing, China) were stereotactically implanted with robotic\nassistance.\" Recording: \"Amplifier: Nicolet EEG; Sampling rate: 2048 Hz; Online reference: A white matter site\nselected by the clinical team.\" Task: \"Participants performed a visual working memory task. Further details of the\nexperimental paradigm can be found in the accompanying research article.\"\n\n## Contents\n- 7 participants (sub-01 to sub-07), 8 continuous EDF recordings (sub-03 has two runs), task label `vwm`.\n- 2048 Hz, 148 signals per recording (the EDF+ annotation signal of sub-06 and sub-07 is not counted).\n- Total duration 22,168 s (6.2 h): 1,080.6 to 4,010.9 s per recording (exact values in each `_ieeg.json`).\n- Units as in the EDF headers (µV for SEEG contacts). No filtering, resampling, re-referencing or channel removal\n  was done for this copy. The EDF prefilter fields are empty, so `low_cutoff`/`high_cutoff` are n/a.\n- `participants.tsv`: age, sex, years of education, seizure-onset zone, and the contacts the authors list as frontal\n  eye field and hippocampus. Values are verbatim from the source (columns renamed to snake_case; `male`/`female`\n  coded M/F).\n\n## What the source does not contain\n- **No events, trial or behavioural files.** The Figshare record has none, and the EDFs have no task annotations\n  (sub-07 has one EDF+ annotation \"renwu\", pinyin for \"task\", at 0.75 s; sub-06 and sub-07 also have machine log\n  entries). The `TRIG`\n  channel carries a few analog-like transitions per recording (about 80 to 170 sample-to-sample changes), not a clean\n  digital code. It was kept but not decoded into events. Users need the paradigm from the authors' article.\n- **No electrode coordinates and no imaging.** `electrodes.tsv` lists the SEEG contact names with x/y/z = n/a.\n  `coordsystem.json` says \"Other\" with units n/a.\n- No ethics statement and no funding statement are given in the record.\n\n## Channel types (changed from the source)\nThe source `channels.tsv` (MNE-BIDS output) typed all 148 signals as SEEG. Here the types follow the EDF labels:\nSEEG for electrode contacts (letter, optional prime marks, number); ADC for `DC1`–`DC16` (Nicolet DC auxiliary\ninputs); TRIG for `TRIG`; MISC for `OSAT`, `PR`, `Pleth` and for amplifier inputs with the Nicolet default names\n`C123`–`C128`, which the source does not assign to an electrode. Channels whose digital value is constant over the\nwhole recording are marked `bad` with `status_description` \"flat\". The source channel tables are kept in\n`sourcedata/`.\n\n## Power-line frequency\nThe source sidecars say \"n/a\". `PowerLineFrequency` is set to 50 because the recordings show a clear 50 Hz peak\n(spectral peak-to-neighbour ratio 18 to 6,400 at 50 Hz, about 1 at 60 Hz, in every recording).\n\n## Licence\nCC-BY-NC-4.0\n\n## Associated publications\nThe Figshare record refers to \"the accompanying research article\" but does not name it. These articles by the\nsame first author describe SEEG recordings during a visual working memory task with eye tracking in epilepsy\npatients. The link is inferred from author, paradigm and dates; the record does not state it:\n- Tian Z, Huang S, Liu D, Yang Z, Li S, Hu B, Feng L, Wang Q. Hippocampal interictal spikes disrupt theta-band\n  hippocampal-frontal eye field connectivity: fixation skewness as an indicator of transient network instability.\n  *Epilepsy & Behavior* 181:111071 (2026). https://doi.org/10.1016/j.yebeh.2026.111071 (seven epilepsy patients\n  with hippocampal and frontal-eye-field iEEG; published two days after the Figshare record).\n- Tian Z, Huang S, Liu D, Yang Z, Li S, Hu B, Wang Q, Feng L. Distinct and coordinated contributions of hippocampus\n  and frontal eye field to novelty exploration and revisitation. *NeuroImage* 329:121838 (2026).\n  https://doi.org/10.1016/j.neuroimage.2026.121838\nBoth list affiliations at the Xi'an Institute of Optics and Precision Mechanics (CAS) and Xiangya Hospital, Central\nSouth University. The Figshare record names neither institution.\n\n## De-identification done for this copy\nThe source EDF headers contain a hospital record number, the date of birth and the real recording date. The\nsource `scans.tsv` files contain the real recording dates. The EDF+ annotation signals of sub-06 and sub-07 hold a\n`Montage:` entry that contains a personal name (the files do not say whose; it may be the name of a montage or of a\nstaff member, or a patient). For this copy:\n\nDates truncated to month (day set to 01).\n\n- EDF patient field set to the EDF+ form `X <sex> X X`: sex (M/F, same as participants.tsv) is kept; the hospital\n  record number and the date of birth are removed (birthdate subfield `X`; EDF+ allows only a full date or `X`).\n  The year of birth from the source header is kept in participants.tsv (`birth_year`; day and month removed);\n  it agrees within one year with `age` and the recording year for every participant. Recording field set to\n  `Startdate 01-MMM-YYYY X X X` and start date to `01.MM.YY`, keeping the source year and month. The time of day is\n  kept.\n- In sub-06 and sub-07, the text after `Montage:` in the EDF+ annotation signal is replaced by `X` characters of\n  the same byte length. Other annotations (\"Clip Note\", \"Gain/Filter Change\", \"renwu\") are kept.\n- `scans.tsv` acq_time keeps year, month and time of day, with the day set to 01. The two sub-03 runs were\n  recorded on the same day, so the interval between them is kept.\n- A byte comparison against the source confirmed that no other byte changed: all signal samples are identical\n  to the Figshare files.\n- The source EDF and `scans.tsv` files are therefore **not** included in `sourcedata/`. The other source files\n  (README, dataset_description, participants, channels and sidecar JSON) are included unchanged in\n  `sourcedata/figshare-32189838-v1/`. `PROVENANCE.tsv` there lists every source file with its Figshare MD5 and\n  whether it is included.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000364",
+    "exists": true,
+    "description": "Task-SEEG recordings from epilepsy patients performing a visual working memory task (Tian, Figshare 32189838)",
+    "created_at": "2026-10-06T16:07:04+00:00",
+    "updated_at": "2026-10-08T00:39:17+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

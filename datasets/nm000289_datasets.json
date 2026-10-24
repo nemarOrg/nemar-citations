@@ -1,0 +1,69 @@
+{
+  "dataset_id": "nm000289",
+  "date_retrieved": "2026-10-12T10:01:29.293467+00:00",
+  "dataset_description": {
+    "Name": "I-CARE: International Cardiac Arrest REsearch consortium EEG Database (BIDS)",
+    "BIDSVersion": "1.9.0",
+    "DatasetType": "raw",
+    "License": "CC-BY-NC-SA-4.0",
+    "Authors": [
+      "Amorim, Edilberto",
+      "Zheng, Wei-Long",
+      "Ghassemi, Mohammad M.",
+      "Aghaeeaval, Mahsa",
+      "Kandhare, Pravinkumar",
+      "Karukonda, Vishnu",
+      "Lee, Jong Woo",
+      "Herman, Susan",
+      "Sivaraju, Adithya",
+      "Gaspard, Nicolas",
+      "Hofmeijer, Jeannette",
+      "van Putten, Michel J.A.M.",
+      "Sameni, Reza",
+      "Reyna, Matthew A.",
+      "Clifford, Gari D.",
+      "Westover, M. Brandon"
+    ],
+    "Acknowledgements": "Converted to BIDS from PhysioNet i-care 2.1 (doi:10.13026/m33r-bj81).",
+    "HowToAcknowledge": "Cite Amorim et al., the PhysioNet/CinC Challenge 2023 paper, and PhysioNet.",
+    "ReferencesAndLinks": [
+      "https://doi.org/10.13026/m33r-bj81",
+      "https://doi.org/10.1101/2023.08.28.23294672",
+      "https://physionet.org/content/i-care/2.1/"
+    ],
+    "SourceDatasets": [
+      {
+        "URL": "https://physionet.org/content/i-care/2.1/",
+        "Version": "2.1"
+      }
+    ],
+    "EthicsApprovals": [
+      "As stated by the original PhysioNet release (I-CARE 2.1, doi:10.13026/m33r-bj81): data collection and analysis was performed under independent Institutional Review Board approvals at participating hospitals, and a data sharing agreement was made among participating hospitals. This was a retrospective analysis of data obtained as part of the usual care and the requirement for informed consent was waived."
+    ],
+    "Funding": [
+      "American Heart Association (20CDA35310297)",
+      "CURE Epilepsy Foundation (Taking Flight Award)",
+      "Neurocritical Care Society (NCS research training fellowship)",
+      "Weil-Society of Critical Care Medicine Research Grant",
+      "NIH (1K23NS090900, 1R01NS102190, 1R01NS102574, 1R01NS107291, 1K23NS119794, R01EB030362)",
+      "Epilepsiefonds (NEF 14-18)",
+      "Dutch Heart Foundation (2018T070)"
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000289",
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000289-blue)](https://doi.org/10.82901/nemar.nm000289)\n\n# I-CARE: International Cardiac Arrest REsearch consortium EEG Database (BIDS)\n\n## 1. The dataset\n\n### Study population and recordings\n\nThe International Cardiac Arrest REsearch consortium (I-CARE) database holds continuous EEG and, where available, ECG recordings with baseline clinical information from comatose adults after cardiac arrest, assembled by seven academic hospitals in the United States, the Netherlands and Belgium. Patients had return of spontaneous circulation (ROSC) but remained comatose (Glasgow Coma Score <= 8). EEG monitoring typically began within hours of the arrest and continued for hours to days as part of neurological prognostication. Ages above 89 are recorded as 90, and all times are relative to ROSC.\n\n### Clinical variables and outcome\n\nAge, sex, hospital, out-of-hospital versus in-hospital arrest, initial rhythm (shockable or not), time to ROSC and targeted temperature management (33 C, 36 C or none). Outcome is the Cerebral Performance Category (CPC), dichotomised as good (CPC 1-2) or poor (CPC 3-5). All of these are columns of `participants.tsv`, described in `participants.json`.\n\n### What this deposit contains\n\nThe public release, version 2.1 on PhysioNet (doi:10.13026/m33r-bj81): 607 patients from five of the seven hospitals (de-identified as A, B, D, E and F), 36,123 hourly recordings, 32,712 hours, about 1.5 TB. A further 413 patients are held back by PhysioNet as the hidden test set of the George B. Moody PhysioNet Challenge 2023, for which these data were the training set. Recordings use the standardised 10-20 EEG channels (19-21 per recording, with or without Fpz and F9) plus ECG, reference and other channels where present. Sampling rates vary by site (200, 250, 256, 500, 512, 1024 or 2048 Hz) and are kept at their native value; powerline frequency is 50 or 60 Hz.\n\n### Licence and citation\n\nCC BY-NC-SA 4.0, as on PhysioNet. Please cite Amorim et al. (2023), I-CARE: International Cardiac Arrest REsearch consortium Database, version 2.1, PhysioNet, doi:10.13026/m33r-bj81, and Amorim et al., \"The International Cardiac Arrest Research Consortium Electroencephalography Database\", Critical Care Medicine, 2023, doi:10.1097/CCM.0000000000006074.\n\n## 2. This BIDS conversion\n\n### Layout\n\nEach I-CARE segment (ending on the hour) is one BIDS run, `sub-<NNNN>/eeg/sub-<NNNN>_task-icu_acq-h<HHH>_run-<NNN>_eeg.edf`, where `acq-h<HHH>` is the hour after cardiac arrest at which the segment starts and `run-<NNN>` the segment index. The EEG, ECG, REF and OTHER WFDB records of a segment are merged into one EDF. Per recording, `channels.tsv` gives each channel's type, source record (`group`) and missing-sample count, and `eeg.json` its sampling rate, hour after arrest and conversion notes. Per patient, `sub-<NNNN>_scans.tsv` lists each run's hour, duration, sampling rate and channel counts. The electrodes files hold template 10-20 positions, not digitised ones.\n\n### Signal values and units\n\nThe conversion is numerically lossless: EDF stores the source int16 digital values. A few channels whose full range did not fit EDF's header field are listed under `RescaledChannels` in the recording sidecar. The WFDB records declare no unit (\"nu\"). Applying their gain and baseline, as the official Challenge loader does, gives values whose amplitude distribution is consistent with microvolts, so channels are labelled uV. This is an inference, stated in every sidecar's `UnitsNote`; compare absolute amplitudes across hospitals with caution. Samples flagged missing in the source (digital code -32768) are filled with the ADC-zero value and counted per channel.\n\n### Changes made for this deposit\n\nThe participants column `sampling_frequency` was renamed `sampling_frequencies` (the BIDS name is reserved for a single number), a root `task-icu_channels.json` describes the two extra `channels.tsv` columns, and conversion lock files were removed.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000289",
+    "exists": true,
+    "description": "I-CARE: International Cardiac Arrest REsearch consortium EEG Database (BIDS)",
+    "created_at": "2026-09-30T09:43:03+00:00",
+    "updated_at": "2026-10-05T22:29:05+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

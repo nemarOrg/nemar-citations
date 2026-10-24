@@ -1,0 +1,63 @@
+{
+  "dataset_id": "nm000330",
+  "date_retrieved": "2026-10-12T10:03:17.153881+00:00",
+  "dataset_description": {
+    "Name": "Leelakittisin2025: Sit-to-stand / stand-to-sit transition motor imagery dataset",
+    "BIDSVersion": "1.9.0",
+    "HEDVersion": "8.4.0",
+    "DatasetType": "derivative",
+    "License": "CC0-1.0",
+    "Authors": [
+      "Benjakarn Uengsawapak",
+      "Supavit Kongwudhikunakorn",
+      "Suktipol Kiatthaveephong",
+      "Wipamas Polpakdee",
+      "Rattanaphon Chaisaen",
+      "Poramate Manoonpong",
+      "Chanitsada Chuenchit",
+      "Gun Bhakdisongkhram",
+      "Theerawit Wilaiprasitporn"
+    ],
+    "Keywords": [
+      "Motor",
+      "Motor Imagery",
+      "imagery"
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000330",
+    "GeneratedBy": [
+      {
+        "CodeURL": "https://github.com/NeuroTechX/moabb",
+        "Name": "moabb",
+        "Description": "Mother of All BCI Benchmarks",
+        "Version": "1.8.0dev0"
+      }
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "10.5281/zenodo.20348444"
+      },
+      {
+        "DOI": "doi:10.5281/zenodo.20348444"
+      }
+    ],
+    "PublicationYear": 2025,
+    "EthicsApprovals": [
+      "See the primary publication cited in the README/ReferencesAndLinks for the ethics approval statement obtained by the original investigators; no new human-subject data were collected for this BIDS re-release."
+    ],
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000330-blue)](https://doi.org/10.82901/nemar.nm000330)\n\nLeelakittisin2025\n=================\n\nSit-to-stand / stand-to-sit transition motor imagery dataset [1]_.\n\nDataset Overview\n----------------\n  Code: Leelakittisin2025\n  Paradigm: imagery\n  DOI: 10.5281/zenodo.20348444\n  Subjects: 22\n  Sessions per subject: 2\n  Events: sit_stand=21, stand_sit=32\n  Trial interval: [0, 4] s\n\nAcquisition\n-----------\n  Sampling rate: 1200.0 Hz\n  Number of channels: 63\n  Channel types: eeg=60, eog=2, stim=1\n  Channel names: Fp1, Fp2, AF7, AF8, F7, F8, FT7, FT8, AF3, AF4, AFz, Fz, F1, F2, F3, F4, F5, F6, FCz, Cz, FC1, FC2, FC3, FC4, FC5, FC6, C1, C2, C3, C4, C5, C6, CPz, Pz, CP1, CP2, CP3, CP4, CP5, CP6, TP7, TP8, P1, P2, P3, P4, P5, P6, P7, P8, POz, Oz, PO3, PO4, PO7, PO8, PO9, PO10, O1, O2\n  Montage: 10-05\n  Line frequency: 50.0 Hz\n  Auxiliary channels: EOG (2 ch, horizontal, vertical), EMG (6 ch)\n\nParticipants\n------------\n  Number of subjects: 22\n  Health status: healthy\n  Age: min=18.0, max=30.0\n  Gender distribution: male=15, female=7\n  Handedness: {'right': 19, 'left': 2, 'both': 1}\n  BCI experience: mixed (6 of 22 with prior EEG experience)\n\nExperimental Protocol\n---------------------\n  Paradigm: imagery\n  Number of classes: 2\n  Class labels: sit_stand, stand_sit\n  Trial duration: 4.0 s\n  Trials per class: sit_stand=20, stand_sit=20\n  Study design: Sit-to-stand and stand-to-sit transitions performed under both motor execution and motor imagery conditions; trigger codes at channel 63 mark each transition/rest event. MI: two rounds of 10 trials per task per session (readme index table).\n  Mode: offline\n\nHED Event Annotations\n---------------------\n  Schema: HED 8.4.0 | Browse: https://www.hedtags.org/hed-schema-browser\n\n  sit_stand\n    ├─ Sensory-event\n    └─ Label/sit_stand\n\n  stand_sit\n    ├─ Sensory-event\n    └─ Label/stand_sit\n\nTags\n----\n  Modality: Motor\n  Type: Motor Imagery\n\nDocumentation\n-------------\n  Description: First public EEG dataset explicitly targeting sit-to-stand and stand-to-sit transitions during motor execution and motor imagery, from 22 healthy participants with 60-channel EEG, EOG and EMG.\n  DOI: 10.5281/zenodo.20348444\n  License: CC0-1.0\n  Investigators: Benjakarn Uengsawapak, Supavit Kongwudhikunakorn, Suktipol Kiatthaveephong, Wipamas Polpakdee, Rattanaphon Chaisaen, Poramate Manoonpong, Chanitsada Chuenchit, Gun Bhakdisongkhram, Theerawit Wilaiprasitporn\n  Institution: Vidyasirimedhi Institute of Science and Technology\n  Country: TH\n  Repository: Zenodo\n  Publication year: 2025\n\nReferences\n----------\nLeelakittisin, B. (readme byline: Uengsawapak, B.), Kongwudhikunakorn, S., Kiatthaveephong, S., Polpakdee, W., Chaisaen, R., Manoonpong, P., Chuenchit, C., Bhakdisongkhram, G., & Wilaiprasitporn, T. (2025). EEG-Based Dataset Explicitly Targeting the Transitions between Sitting and Standing for Exploring Neural Activation Patterns in Motor Imagery and Execution. Zenodo. DOI: https://doi.org/10.5281/zenodo.20348444\n\n.. versionadded:: 1.8\nAppelhoff, S., Sanderson, M., Brooks, T., Vliet, M., Quentin, R., Holdgraf, C., Chaumon, M., Mikulan, E., Tavabi, K., Hochenberger, R., Welke, D., Brunner, C., Rockhill, A., Larson, E., Gramfort, A. and Jas, M. (2019). MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis. Journal of Open Source Software 4: (1896). https://doi.org/10.21105/joss.01896\n\nPernet, C. R., Appelhoff, S., Gorgolewski, K. J., Flandin, G., Phillips, C., Delorme, A., Oostenveld, R. (2019). EEG-BIDS, an extension to the brain imaging data structure for electroencephalography. Scientific Data, 6, 103. https://doi.org/10.1038/s41597-019-0104-8\n\n---\nGenerated by MOABB 1.8.0dev0 (Mother of All BCI Benchmarks)\nhttps://github.com/NeuroTechX/moabb\n\nEthics\n------\nEthics approval: the data analysed in this deposit were collected under the\nethics approval obtained by the original investigators and reported in the\nprimary publication cited above (see References/Documentation sections of\nthis README). Participants gave informed consent in the source study. No\nnew human-subject data were collected during this BIDS re-release; this\nNEMAR record only reformats the published source data into BIDS via MOABB.\nPlease consult the primary publication for the exact IRB/ethics committee\nreference.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000330",
+    "exists": true,
+    "description": "Leelakittisin2025: Sit-to-stand / stand-to-sit transition motor imagery dataset",
+    "created_at": "2026-10-04T18:50:52+00:00",
+    "updated_at": "2026-10-12T03:00:45+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

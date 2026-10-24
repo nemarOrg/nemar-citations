@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000289",
   "num_citations": 85,
-  "date_last_updated": "2026-10-11T10:27:47.584827+00:00",
+  "date_last_updated": "2026-10-24T10:16:57.234082+00:00",
   "metadata": {
-    "total_cumulative_citations": 212,
-    "fetch_date": "2026-10-11T10:27:47.584827+00:00",
+    "total_cumulative_citations": 218,
+    "fetch_date": "2026-10-24T10:16:57.234082+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 4,
@@ -29,7 +29,7 @@
       {
         "identifier": "10.1101/2023.08.28.23294672",
         "identifier_type": "doi",
-        "source_relation": "IsDescribedBy",
+        "source_relation": "References",
         "classification": "data_paper",
         "kept": true,
         "kept_reason": "judged_data_paper",
@@ -77,11 +77,10 @@
       "Out-of-Hospital Cardiac Arrest",
       "Coma",
       "Prognosis",
-      "Electroencephalography",
       "intensive care",
       "neurological outcome"
     ],
-    "methods_description": "Continuous EEG was recorded with standard 10-20 electrodes (19-21 channels), plus ECG, reference and other channels where present. Recording began within hours of the arrest and continued for hours to days. Sampling rates varied by site (200-2048 Hz). The source WFDB records were converted losslessly to EDF, one run per hourly segment. Channel units are inferred to be microvolts.",
+    "methods_description": "Continuous EEG with standard 10-20 channels (19-21 per recording) plus ECG and reference channels was recorded in ICU patients, at native sampling rates of 200-2048 Hz depending on site. WFDB records were merged per hourly segment into EDF files without numerical loss. Channel units were inferred to be microvolts.",
     "funding": [
       {
         "funder_name": "CURE Epilepsy Foundation (Taking Flight Award)"
@@ -105,8 +104,8 @@
         "award_title": "NCS research training fellowship"
       },
       {
-        "funder_name": "Society of Critical Care Medicine",
-        "award_title": "Weil-Society of Critical Care Medicine Research Grant"
+        "funder_name": "Weil-Society of Critical Care Medicine",
+        "award_title": "Research Grant"
       },
       {
         "funder_name": "NIH",
@@ -140,13 +139,7 @@
         "funder_name": "Dutch Heart Foundation",
         "award_number": "2018T070"
       }
-    ],
-    "searched_accessions": [
-      "nm000289"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 85
+    ]
   },
   "citation_details": [
     {
@@ -162,11 +155,42 @@
       "openalex_id": "W4405896967",
       "source_doi": "10.13026/m33r-bj81",
       "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.4681484077870846,
+        "similarity_score": 0.4053232967853546,
+        "citation_text_length": 1356,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Toward a Universal Map of EEG: A Semantic, Low‐Dimensional Manifold for EEG Classification, Clustering, and Prognostication",
+      "author": "Laura Krumm, Dominik D. Kranz, Mustafa Halimeh, Alexander Nelde, Edilberto Amorim, Sahar F. Zafar, Jing Jin, ROBERT JOSEPH THOMAS, Michael Brandon Westover, Christian Meisel",
+      "venue": "Annals of Neurology",
+      "year": 2025,
+      "url": "https://doi.org/10.1002/ana.27260",
+      "cited_by": 6,
+      "abstract": "Abstract Despite its complexity, whole-brain neural activity spontaneously organizes into a limited range of states, indicating that a low-dimensional representation or embedding might be sufficient to capture much of its macroscale dynamics. Clinical practice makes use of this notion by classifying EEG into discrete states, for example in the wake-sleep cycle or along the ictal-interictal continuum. Such classification into distinct classes has clinical value and simplifies EEG interpretation (by humans and, more recently, also by artificial intelligence [AI]) but misses subtle differences, mixtures and transitions between states. In other words, it does not adequately reflect the true underlying, low-dimensional continuum of states. The lack of a continuum EEG map limits more realistic characterizations of EEG states and challenges prognostication in patients with disorders of consciousness due to their diverse patterns, etiologies and underlying pathophysiologies. We here use data a",
+      "doi": "10.1002/ana.27260",
+      "pmid": "40539771",
+      "openalex_id": "W4411492285",
+      "source_doi": "10.13026/m33r-bj81",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5721114233136178,
+        "similarity_score": 0.49533456563949585,
+        "citation_text_length": 1354,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Adversarial AI reveals mechanisms and treatments for disorders of consciousness",
-      "author": "Daniel Toker, Zhong Sheng Zheng, Jasmine A. Thum, Jing Guang, Jitka Annen, Hiroyuki Miyamoto, Kazuhiro Yamakawa, Paul M Vespa, Steven Laureys, Caroline Schnakers, Ausaf Bari, Andrew Hudson, Nader Pouratian, Martin M. Monti",
+      "author": "Daniel Toker, Zhong Sheng Zheng, Jasmine A. Thum, Jing Guang, Jitka Annen, Hiroyuki Miyamoto, Kazuhiro Yamakawa, Paul M Vespa, Steven Laureys, Caroline Schnakers A, Ausaf Bari, Andrew Hudson, Nader Pouratian, Martin M. Monti",
       "venue": "Nature Neuroscience",
       "year": 2026,
       "url": "https://doi.org/10.1038/s41593-026-02220-4",
@@ -177,26 +201,19 @@
       "openalex_id": "W7140218162",
       "source_doi": "10.13026/m33r-bj81",
       "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite"
-    },
-    {
-      "title": "Toward a Universal Map of EEG: A Semantic, Low‐Dimensional Manifold for EEG Classification, Clustering, and Prognostication",
-      "author": "Laura Krumm, Dominik D. Kranz, Mustafa Halimeh, Alexander Nelde, Edilberto Amorim, Sahar F. Zafar, Jing Jin, ROBERT JOSEPH THOMAS, Michael Brandon Westover, Christian Meisel",
-      "venue": "Annals of Neurology",
-      "year": 2025,
-      "url": "https://doi.org/10.1002/ana.27260",
-      "cited_by": 4,
-      "abstract": "Abstract Despite its complexity, whole-brain neural activity spontaneously organizes into a limited range of states, indicating that a low-dimensional representation or embedding might be sufficient to capture much of its macroscale dynamics. Clinical practice makes use of this notion by classifying EEG into discrete states, for example in the wake-sleep cycle or along the ictal-interictal continuum. Such classification into distinct classes has clinical value and simplifies EEG interpretation (by humans and, more recently, also by artificial intelligence [AI]) but misses subtle differences, mixtures and transitions between states. In other words, it does not adequately reflect the true underlying, low-dimensional continuum of states. The lack of a continuum EEG map limits more realistic characterizations of EEG states and challenges prognostication in patients with disorders of consciousness due to their diverse patterns, etiologies and underlying pathophysiologies. We here use data a",
-      "doi": "10.1002/ana.27260",
-      "pmid": "40539771",
-      "openalex_id": "W4411492285",
-      "source_doi": "10.13026/m33r-bj81",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.38127176463603973,
+        "similarity_score": 0.36311596632003784,
+        "citation_text_length": 349,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "A principal component entropy metric for assessing global synchronicity in EEG signals",
-      "author": "Luis Anibal Diambra, Anna Hutber, Zakarriah Drakeford-Hafeez, Ran Kwon Mi, Vasiliki Tsirka, Alberto Capurro",
+      "author": "Luis Anibal Diambra, Anna Hutber, Zakarriah Drakeford-Hafeez, Ran Mi, Vasiliki Tsirka, Alberto Capurro",
       "venue": "Scientific Reports",
       "year": 2026,
       "url": "https://doi.org/10.1038/s41598-026-36434-0",
@@ -207,7 +224,15 @@
       "openalex_id": "W7133347920",
       "source_doi": "10.13026/m33r-bj81",
       "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.4750302658975125,
+        "similarity_score": 0.41128161549568176,
+        "citation_text_length": 1245,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Outcome-Blind EEG Microstate Architecture Identifies a Prognostically Relevant State After Cardiac Arrest",
@@ -222,11 +247,19 @@
       "openalex_id": "W7214907846",
       "source_doi": "10.13026/m33r-bj81",
       "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6409047514200211,
+        "similarity_score": 0.6103854775428772,
+        "citation_text_length": 162,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Between Patterns and Predictions: Interpretable Latent EEG Representations for Clinical Insights",
-      "author": "Laura Krumm, Robert Terziev, Dominik D. Kranz, Brandon Westover, Christian Meisel",
+      "author": "Laura Krumm, Robert Terziev, Dominik D. Kranz, Michael Brandon Westover, Christian Meisel",
       "venue": "medRxiv",
       "year": 2026,
       "url": "https://doi.org/10.64898/2026.06.12.26355536",
@@ -237,7 +270,15 @@
       "openalex_id": "W7165543026",
       "source_doi": "10.13026/m33r-bj81",
       "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6351580390334131,
+        "similarity_score": 0.549920380115509,
+        "citation_text_length": 1231,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Recovery-Linked Neural Geometry After Cardiac-Arrest Coma",
@@ -252,11 +293,19 @@
       "openalex_id": "W7162575857",
       "source_doi": "10.13026/m33r-bj81",
       "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7904920077323915,
+        "similarity_score": 0.6844086647033691,
+        "citation_text_length": 613,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "High density EEG and deep learning improves outcome prediction on the first day of coma after cardiac arrest",
-      "author": "Andria Pelentritou, Lucas Gruaz, Manuela Iten, Matthias Hænggi, Frédéric Zubler, Andrea O. Rossetti, Marzia De Lucia",
+      "author": "Andria Pelentritou, Lucas Gruaz, Manuela Iten, Matthias Hænggi, Frédéric Zubler, Andrea O. Rossetti, Marzia De Lucia E",
       "venue": "medRxiv",
       "year": 2025,
       "url": "https://doi.org/10.1101/2025.01.14.25320516",
@@ -267,7 +316,15 @@
       "openalex_id": "W4406419831",
       "source_doi": "10.13026/m33r-bj81",
       "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7608405509591103,
+        "similarity_score": 0.6587364077568054,
+        "citation_text_length": 1272,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "NeuroHero: A QEEG and HRV Based Neural Network for Explainable Post-Anoxic Coma Prognosis",
@@ -282,7 +339,15 @@
       "openalex_id": "W4409019978",
       "source_doi": "10.13026/m33r-bj81",
       "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7309223261475564,
+        "similarity_score": 0.6328331828117371,
+        "citation_text_length": 1209,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Predicting Neurological Recovery from Coma After Cardiac Arrest: The George B. Moody PhysioNet Challenge 2023",
@@ -296,8 +361,16 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2023.08.28.23294672",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.8095459234714508,
+        "similarity_score": 0.7009055614471436,
+        "citation_text_length": 1458,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "HyperEnsemble Learning from Multimodal Biosignals to Robustly Predict Functional Outcome after Cardiac Arrest",
@@ -311,8 +384,16 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2023.08.28.23294672",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.781083598136902,
+        "similarity_score": 0.6762628555297852,
+        "citation_text_length": 1239,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Multimodal Deep Learning Approach to Predicting Neurological Recovery From Coma After Cardiac Arrest",
@@ -326,8 +407,16 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2023.08.28.23294672",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7300000315904618,
+        "similarity_score": 0.6320346593856812,
+        "citation_text_length": 1211,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Functional Outcome Prediction after Cardiac Arrest Using Machine Learning and Network Dynamics of Resting-State Electroencephalography",
@@ -341,8 +430,16 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2023.08.28.23294672",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7816551357507707,
+        "similarity_score": 0.6767576932907104,
+        "citation_text_length": 1282,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Recovery from Coma after Cardiac Arrest: Which Time-Window Counts the Most for Deep Learning Predictions?",
@@ -356,8 +453,16 @@
       "pmid": null,
       "openalex_id": "W4390446998",
       "source_doi": "10.1101/2023.08.28.23294672",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7261353027820587,
+        "similarity_score": 0.6286885738372803,
+        "citation_text_length": 1222,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Model Ensembling for Predicting Neurological Recovery After Cardiac Arrest: Top-Down or Bottom-Up?",
@@ -371,8 +476,16 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2023.08.28.23294672",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7483872681856157,
+        "similarity_score": 0.6479543447494507,
+        "citation_text_length": 742,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "MelicientNet: Harnessing Mel-Spectrograms and EfficientNet Architectures for Predicting Neurological Recovery Post-Cardiac Arrest",
@@ -386,8 +499,16 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2023.08.28.23294672",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6741196659207345,
+        "similarity_score": 0.5836533904075623,
+        "citation_text_length": 1224,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Heart Attack Outcome Predictions Using FMM Models",
@@ -401,8 +522,16 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2023.08.28.23294672",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6549748769402505,
+        "similarity_score": 0.5670778155326843,
+        "citation_text_length": 1220,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Predicting Neurological Outcome After Cardiac Arrest Using a Pretrained Model with Electroencephalography Augmentation",
@@ -416,8 +545,16 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2023.08.28.23294672",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7366525036096574,
+        "similarity_score": 0.6377943754196167,
+        "citation_text_length": 1266,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "MANAS-2: Constrained Reconstruction for EEG Foundation Models",
@@ -431,8 +568,16 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2023.08.28.23294672",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5089344182610512,
+        "similarity_score": 0.4406358599662781,
+        "citation_text_length": 1224,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Predicting Recovery from Coma After Cardiac Arrest Using Low-level Features from EEG Recordings and a Small-sized LSTM Network",
@@ -446,8 +591,16 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2023.08.28.23294672",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7710425180196763,
+        "similarity_score": 0.6675692796707153,
+        "citation_text_length": 1244,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Predicting Neurological Outcomes of Comatose Cardiac Arrest Patients Using Transformer Neural Networks with EEG Data",
@@ -461,8 +614,16 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2023.08.28.23294672",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.710816690325737,
+        "similarity_score": 0.615425705909729,
+        "citation_text_length": 1243,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "A Neurological Recovery Prediction Algorithm Based on Multi-Feature Extraction and Bagging Aggregation",
@@ -476,8 +637,16 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2023.08.28.23294672",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7155082279443742,
+        "similarity_score": 0.6194876432418823,
+        "citation_text_length": 1223,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Combining Complementary Models: Fusing CNNs, RNNs, and XGBoost for Enhanced Outcome Prediction of Comatose Patients after Heart Attack",
@@ -491,8 +660,16 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2023.08.28.23294672",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7333266806602479,
+        "similarity_score": 0.6349148750305176,
+        "citation_text_length": 1244,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "A Machine Learning Approach for Outcome Prediction in Postanoxic Coma Patients Using Frequency Domain Features",
@@ -506,8 +683,16 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2023.08.28.23294672",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7771764618158341,
+        "similarity_score": 0.6728800535202026,
+        "citation_text_length": 1247,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Frequency and Time Domain EEG Analysis for Prognostication of Postanoxic Comatose Patients",
@@ -521,12 +706,20 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2023.08.28.23294672",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7510140556097031,
+        "similarity_score": 0.6502286195755005,
+        "citation_text_length": 1250,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "CardioMex-Q: A Clinical Dataset for Cardiovascular Health Studies in Mexico",
-      "author": "Mariana Avila-Ponce, Sarahi Rodríguez‐González, Eliodoro Castro-Montes, J. Apolinar Muñoz Rodríguez, Sebastián Salazar-Colores, José‐Joel González‐Barbosa, Sergio Muñoz-Gonzalez, Carmen-Lucia Ramírez-Pedraza, Alfonso Ramírez-Pedraza",
+      "author": "Mariana Avila-Ponce, Sarahi Rodríguez‐González, Eliodoro Castro Montes, J. Apolinar Muñoz Rodríguez, Sebastián Salazar-Colores, José‐Joel González‐Barbosa, Sergio Muñoz-Gonzalez, Carmen-Lucia Ramírez-Pedraza, Alfonso Ramírez-Pedraza",
       "venue": "Lecture notes in networks and systems",
       "year": 2026,
       "url": "https://doi.org/10.1007/978-3-032-17321-8_8",
@@ -536,8 +729,16 @@
       "pmid": null,
       "openalex_id": "W7167254651",
       "source_doi": "10.1101/2023.08.28.23294672",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.4943085953593254,
+        "similarity_score": 0.47077009081840515,
+        "citation_text_length": 371,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "SPERA: Spherical Prior EEG Foundation Model with Geometry- and Frequency-Aware Latent Prediction",
@@ -551,8 +752,16 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2023.08.28.23294672",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5212493947148324,
+        "similarity_score": 0.45129817724227905,
+        "citation_text_length": 1217,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Adaptive Anisotropic Attention for Axis-Structured Signals",
@@ -566,8 +775,16 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2023.08.28.23294672",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.4847357690334321,
+        "similarity_score": 0.41968464851379395,
+        "citation_text_length": 1206,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Prediction of Neurological Outcome and Mortality in Cardiac Arrest Patients: An Explainable Machine Learning Study Integrating HRV, EEG, and Clinical Features",
@@ -581,8 +798,16 @@
       "pmid": "42192049",
       "openalex_id": null,
       "source_doi": "10.1101/2023.08.28.23294672",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.82510844796896,
+        "similarity_score": 0.714379608631134,
+        "citation_text_length": 1294,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Physiology-augmented multivariate temporal learning for adaptive simulation of electrical excitation in cardiac myocytes",
@@ -596,8 +821,16 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2023.08.28.23294672",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.4942757695913315,
+        "similarity_score": 0.47073882818222046,
+        "citation_text_length": 267,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Prognostic value of heart rate variability for neurological outcomes in cardiac arrest patients: machine learning-based analysis of the International Cardiac Arrest Research (I-CARE) database",
@@ -611,12 +844,20 @@
       "pmid": "42164178",
       "openalex_id": null,
       "source_doi": "10.1101/2023.08.28.23294672",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.8378669822216035,
+        "similarity_score": 0.7254259586334229,
+        "citation_text_length": 1303,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Predicting Neurological Recovery After Cardiac Arrest Using MLP and Histogram-Based RR Interval Features",
-      "author": "Sebastián Loeza-Saldaña, René Luna-García, Blanca Tovar-Corona",
+      "author": "Sebastián Loeza-Saldaña, R. Luna-García, B. Tovar-Corona",
       "venue": "2025 22nd International Conference on Electrical Engineering, Computing Science and Automatic Control (CCE)",
       "year": 2025,
       "url": "https://doi.org/10.1109/CCE67728.2025.11272035",
@@ -626,8 +867,16 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2023.08.28.23294672",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7846228355169297,
+        "similarity_score": 0.679327130317688,
+        "citation_text_length": 1306,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Autoencoder Artefact Removal for Brain Signals and Impact on Classification Performance",
@@ -641,8 +890,16 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2023.08.28.23294672",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6249417525529862,
+        "similarity_score": 0.5410751104354858,
+        "citation_text_length": 1191,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Variational Autoencoders for Electroencephalogram Feature Extraction in Patients with Coma After Cardiac Arrest",
@@ -656,8 +913,16 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2023.08.28.23294672",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7424996459484101,
+        "similarity_score": 0.6428568363189697,
+        "citation_text_length": 1212,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Prediction of Functional Recovery Post-Cardiac Arrest Using an Ensemble of Extreme Gradient-Boosted Trees",
@@ -671,8 +936,16 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2023.08.28.23294672",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.76639435172081,
+        "similarity_score": 0.6635448932647705,
+        "citation_text_length": 1305,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Time-Embedded EEG Sequence Learning for Comatose Patients' Prognosis",
@@ -686,8 +959,16 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2023.08.28.23294672",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7679315552115442,
+        "similarity_score": 0.6648758053779602,
+        "citation_text_length": 1236,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Predicting Cardiac Arrest Recovery with Shallow and Deep Learning Models",
@@ -701,8 +982,16 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2023.08.28.23294672",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7251955908536911,
+        "similarity_score": 0.6278749704360962,
+        "citation_text_length": 1247,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "A Method with Time-Sensitive Features for the Automated Prognosis Prediction of Cardiac Arrest Patients Based on EEG",
@@ -716,8 +1005,16 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2023.08.28.23294672",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.75559551268816,
+        "similarity_score": 0.654195249080658,
+        "citation_text_length": 1290,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Deep-Learning-Assisted Prediction of Neurological Recovery from Coma After Cardiac Arrest",
@@ -731,8 +1028,16 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2023.08.28.23294672",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7848339092731477,
+        "similarity_score": 0.6795098781585693,
+        "citation_text_length": 1211,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Random Forest and Attention-Based Networks in Quantifying Neurological Recovery",
@@ -746,8 +1051,16 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2023.08.28.23294672",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6868749645352364,
+        "similarity_score": 0.5946969389915466,
+        "citation_text_length": 1240,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Exploring EEG Signal Features for Predicting Post Cardiac Arrest Prognosis",
@@ -761,8 +1074,16 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2023.08.28.23294672",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7029592528939247,
+        "similarity_score": 0.6086227297782898,
+        "citation_text_length": 974,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "A Dynamical Systems Approach to Predicting Patient Outcome After Cardiac Arrest",
@@ -776,8 +1097,16 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2023.08.28.23294672",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7457260590791703,
+        "similarity_score": 0.6456502676010132,
+        "citation_text_length": 1184,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Computationally Efficient Early Prognosis of the Outcome of Comatose Cardiac Arrest Survivors Using Slow-Wave Activity Features in EEG",
@@ -791,8 +1120,16 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2023.08.28.23294672",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7946987503767015,
+        "similarity_score": 0.6880508661270142,
+        "citation_text_length": 1271,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Developing a Machine Learning Pipeline for Predicting Neurological Outcomes in Comatose Cardiac Arrest Survivors Using Continuous EEG Data",
@@ -806,8 +1143,16 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2023.08.28.23294672",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7977595263719559,
+        "similarity_score": 0.690700888633728,
+        "citation_text_length": 1271,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Predicting Neurological Outcomes for Cardiac Arrest Patients from Longitudinal EEG Based on Short-Time Fourier Transform and 3-D Deep Residual Network",
@@ -821,12 +1166,20 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2023.08.28.23294672",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7599404928088189,
+        "similarity_score": 0.657957136631012,
+        "citation_text_length": 1343,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Predicting Recovery from Coma Following Cardiac Arrest with a Reduced Set of EEG Channels",
-      "author": "N. Riek, Jonathan Elmer, Salah S. Al-Zaiti, M. Akçakaya",
+      "author": "N. Riek, Jonathan Elmer, S. Al-Zaiti, M. Akçakaya",
       "venue": "2023 Computing in Cardiology (CinC)",
       "year": 2023,
       "url": "https://doi.org/10.22489/CinC.2023.044",
@@ -836,8 +1189,16 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2023.08.28.23294672",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7126047590374948,
+        "similarity_score": 0.6169738173484802,
+        "citation_text_length": 1212,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "An Optimization Approach to EEG Feature Extraction for the Prediction of Neurological Outcome",
@@ -851,8 +1212,16 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2023.08.28.23294672",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6698185390233995,
+        "similarity_score": 0.5799294710159302,
+        "citation_text_length": 855,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "EEG-Based Cardiac Arrest Outcome Estimation with Highly Interpretable Features",
@@ -866,8 +1235,16 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2023.08.28.23294672",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7985279560089112,
+        "similarity_score": 0.6913661956787109,
+        "citation_text_length": 941,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Predicting Coma Recovery After Cardiac Arrest With Residual Neural Networks",
@@ -881,8 +1258,16 @@
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2023.08.28.23294672",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7740455344319345,
+        "similarity_score": 0.6701692938804626,
+        "citation_text_length": 1177,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Transforming Sleep Monitoring: Review of Wearable and Remote Devices Advancing Home Polysomnography and Their Role in Predicting Neurological Disorders",
@@ -890,14 +1275,22 @@
       "venue": "Biosensors",
       "year": 2025,
       "url": "https://doi.org/10.3390/bios15020117",
-      "cited_by": 36,
+      "cited_by": 39,
       "abstract": "This paper explores the progressive era of sleep monitoring, focusing on wearable and remote devices contributing to advances in the concept of home polysomnography. We begin by exploring the basic physiology of sleep, establishing a theoretical basis for understanding sleep stages and associated changes in physiological variables. The review then moves on to an analysis of specific cutting-edge devices and technologies, with an emphasis on their practical applications, user comfort, and accuracy. Attention is also given to the ability of these devices to predict neurological disorders, particularly Alzheimer's and Parkinson's disease. The paper highlights the integration of hardware innovations, targeted sleep parameters, and partially advanced algorithms, illustrating how these elements converge to provide reliable sleep health information. By bridging the gap between clinical diagnosis and real-world applicability, this review aims to elucidate the role of modern sleep monitoring to",
       "doi": "10.3390/bios15020117",
       "pmid": "39997019",
       "openalex_id": "W4407642961",
       "source_doi": "10.1097/ccm.0000000000006074",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.3663729245960713,
+        "similarity_score": 0.3172059953212738,
+        "citation_text_length": 1355,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Artificial Intelligence and Machine Learning Applications in Critically Ill Brain Injured Patients",
@@ -912,7 +1305,38 @@
       "openalex_id": "W4393851747",
       "source_doi": "10.1097/ccm.0000000000006074",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.4669720467925072,
+        "similarity_score": 0.4043048024177551,
+        "citation_text_length": 1227,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "TDSpy: An open-source implementation of time delay stability analysis",
+      "author": "Tabea F. A. Steinbrinker, Dagmar Krefting, Ronny P. Bartsch, Jan W. Kantelhardt, Nicolai Spicher",
+      "venue": "SoftwareX",
+      "year": 2024,
+      "url": "https://doi.org/10.1016/j.softx.2024.101890",
+      "cited_by": 5,
+      "abstract": "Time Delay Stability (TDS) is an established tool for analyzing the interaction between physiological systems in the human organism. Time series are measured with sensors from different organ systems and are analyzed pairwise. Each pair is characterized by a TDS link strength and by combining these to a network, insights into underlying physiological mechanisms can be obtained. Computing TDS is based on heuristic computations with multiple open parameters. In the past, research groups working with TDS have implemented their own algorithms in different programming languages, which posed the risk of differences between implementations and parameters, leading to a lack of reproducibility. Therefore, we propose a reference implementation written in Python 3, entitled TDSpython ( TDSpy ) that we make publicly available via the Python Package Index (PyPI). In this paper, we give a comprehensive description of the implementation, demonstrate its usage on publicly-available sleep research data",
+      "doi": "10.1016/j.softx.2024.101890",
+      "pmid": null,
+      "openalex_id": "W4402484469",
+      "source_doi": "10.1097/ccm.0000000000006074",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.37875519543886194,
+        "similarity_score": 0.3279265761375427,
+        "citation_text_length": 1213,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Robust EEG Characteristics for Predicting Neurological Recovery from Coma After Cardiac Arrest",
@@ -927,7 +1351,15 @@
       "openalex_id": "W4409410476",
       "source_doi": "10.1097/ccm.0000000000006074",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7380670282244683,
+        "similarity_score": 0.6390190720558167,
+        "citation_text_length": 1191,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Developing an Electroencephalogram-based Model to Predict Awakening after Cardiac Arrest Using Partial Processing with the BIS Engine",
@@ -942,26 +1374,19 @@
       "openalex_id": "W4406199744",
       "source_doi": "10.1097/ccm.0000000000006074",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
-    },
-    {
-      "title": "TDSpy: An open-source implementation of time delay stability analysis",
-      "author": "Tabea F. A. Steinbrinker, Dagmar Krefting, Ronny P. Bartsch, Jan W. Kantelhardt, Nicolai Spicher",
-      "venue": "SoftwareX",
-      "year": 2024,
-      "url": "https://doi.org/10.1016/j.softx.2024.101890",
-      "cited_by": 4,
-      "abstract": "Time Delay Stability (TDS) is an established tool for analyzing the interaction between physiological systems in the human organism. Time series are measured with sensors from different organ systems and are analyzed pairwise. Each pair is characterized by a TDS link strength and by combining these to a network, insights into underlying physiological mechanisms can be obtained. Computing TDS is based on heuristic computations with multiple open parameters. In the past, research groups working with TDS have implemented their own algorithms in different programming languages, which posed the risk of differences between implementations and parameters, leading to a lack of reproducibility. Therefore, we propose a reference implementation written in Python 3, entitled TDSpython ( TDSpy ) that we make publicly available via the Python Package Index (PyPI). In this paper, we give a comprehensive description of the implementation, demonstrate its usage on publicly-available sleep research data",
-      "doi": "10.1016/j.softx.2024.101890",
-      "pmid": null,
-      "openalex_id": "W4402484469",
-      "source_doi": "10.1097/ccm.0000000000006074",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.77266088783741,
+        "similarity_score": 0.6689704656600952,
+        "citation_text_length": 1335,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "AI Discovery of Mechanisms of Consciousness, Its Disorders, and Their Treatment",
-      "author": "Daniel Toker, Zhong Sheng Zheng, Jasmine A. Thum, Jing Guang, Jitka Annen, Hiroyuki Miyamoto, Kazuhiro Yamakawa, Paul M Vespa, Steven Laureys, Caroline Schnakers, Ausaf Bari, Andrew Hudson, Nader Pouratian, Martin M. Monti",
+      "author": "Daniel Toker, Zhong Sheng Zheng, Jasmine A. Thum, Jing Guang, Jitka Annen, Hiroyuki Miyamoto, Kazuhiro Yamakawa, Paul M Vespa, Steven Laureys, Caroline Schnakers A, Ausaf Bari, Andrew Hudson, Nader Pouratian, Martin M. Monti",
       "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
       "year": 2024,
       "url": "https://doi.org/10.1101/2024.10.16.618720",
@@ -972,7 +1397,15 @@
       "openalex_id": "W4403541580",
       "source_doi": "10.1097/ccm.0000000000006074",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.47075691729784014,
+        "similarity_score": 0.40758174657821655,
+        "citation_text_length": 1381,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "A Taxonomy-Driven Survey of AI for Seizure Detection: Thalamic Signals, Phase Dynamics, and Translational Gaps",
@@ -987,11 +1420,19 @@
       "openalex_id": "W4414458630",
       "source_doi": "10.1097/ccm.0000000000006074",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5317685920000077,
+        "similarity_score": 0.46040570735931396,
+        "citation_text_length": 1227,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Towards a Universal Map of EEG: A semantic, low- dimensional manifold for EEG Classification, Clustering and Prognostication",
-      "author": "L. M. Krumm, D. Kranz, M. Halimeh, A. Nelde, E. Amorim, J. Jing, S. Zafar, R. Thomas, B. Westover, C. Meisel",
+      "author": "L. Krumm, D. Kranz, M. Halimeh, A. Nelde, E. Amorim, J. Jing, S. Zafar, R. Thomas, B. Westover, C. Meisel",
       "venue": "n/a",
       "year": 2024,
       "url": "https://doi.org/10.1101/2024.10.25.24316133",
@@ -1002,7 +1443,15 @@
       "openalex_id": null,
       "source_doi": "10.1097/ccm.0000000000006074",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5610357651114465,
+        "similarity_score": 0.48574525117874146,
+        "citation_text_length": 1271,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Transformer Network with Time Prior for Predicting Clinical Outcome from EEG of Cardiac Arrest Patients",
@@ -1017,7 +1466,15 @@
       "openalex_id": null,
       "source_doi": "10.1097/ccm.0000000000006074",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.703930770456791,
+        "similarity_score": 0.6094638705253601,
+        "citation_text_length": 1274,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Leveraging Unlabeled Electroencephalographic Data to Predict Neurologic Recovery after Cardiac Arrest",
@@ -1032,7 +1489,15 @@
       "openalex_id": "W4390450963",
       "source_doi": "10.1097/ccm.0000000000006074",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7195307457447053,
+        "similarity_score": 0.6229703426361084,
+        "citation_text_length": 1308,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Interdisciplinary Medical-Engineering Research in Anesthesia: A Mini-Review of Promising Trends",
@@ -1047,7 +1512,15 @@
       "openalex_id": "W4412444277",
       "source_doi": "10.1097/ccm.0000000000006074",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.34194457948207857,
+        "similarity_score": 0.2960559129714966,
+        "citation_text_length": 1220,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Investigating the impact of feature extraction methods on prediction accuracy of neurological recovery levels in comatose patients post-cardiac arrest",
@@ -1062,7 +1535,15 @@
       "openalex_id": "W4408292299",
       "source_doi": "10.1097/ccm.0000000000006074",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7694891363382341,
+        "similarity_score": 0.6662243604660034,
+        "citation_text_length": 968,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Analysis of EEG Signals for Predicting Neurological Recovery in Post-Cardiac Arrest Comatose Patients",
@@ -1077,7 +1558,15 @@
       "openalex_id": "W4395029597",
       "source_doi": "10.1097/ccm.0000000000006074",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7537925738096238,
+        "similarity_score": 0.6526342630386353,
+        "citation_text_length": 1092,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "A Temporal-Spectral Based Single-lead Electroencephalogram Feature Fusion Network may Provide Potential Clinical Biomarker for Cardiac Arrest",
@@ -1092,7 +1581,15 @@
       "openalex_id": null,
       "source_doi": "10.1097/ccm.0000000000006074",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7335052603483201,
+        "similarity_score": 0.6350694894790649,
+        "citation_text_length": 1317,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Using Embedding Extractor and Transformer Encoder for Predicting Neurological Recovery from Coma After Cardiac Arrest",
@@ -1107,11 +1604,19 @@
       "openalex_id": null,
       "source_doi": "10.1097/ccm.0000000000006074",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6761690640449525,
+        "similarity_score": 0.5854277610778809,
+        "citation_text_length": 1022,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Predicting Comatose Patient's Outcome Using Brain Functional Connectivity with a Random Forest Model",
-      "author": "I. W. Sampaio, Matteo Leccardi, Cristian Drudi, Jiaying Liu, F. Righetti, A. Bianchi, Riccardo Barbieri, L. Mainardi",
+      "author": "I. W. Sampaio, Matteo Leccardi, Cristian Drudi, Jia-Ying Liu, F. Righetti, A. Bianchi, Riccardo Barbieri, L. Mainardi",
       "venue": "2023 Computing in Cardiology (CinC)",
       "year": 2023,
       "url": "https://doi.org/10.22489/CinC.2023.372",
@@ -1122,7 +1627,15 @@
       "openalex_id": null,
       "source_doi": "10.1097/ccm.0000000000006074",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7021750581264496,
+        "similarity_score": 0.6079437732696533,
+        "citation_text_length": 1291,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "3D CNN as an Approach to Predict the Cerebral Performance of Comatose Patients",
@@ -1137,7 +1650,15 @@
       "openalex_id": null,
       "source_doi": "10.1097/ccm.0000000000006074",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7372908881306649,
+        "similarity_score": 0.6383470892906189,
+        "citation_text_length": 1259,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "A Tensor Decomposition-Based Feature Extraction Method to Predict Neurological Recovery from Coma After Cardiac Arrest Using EEG Signals",
@@ -1152,7 +1673,15 @@
       "openalex_id": null,
       "source_doi": "10.1097/ccm.0000000000006074",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7373095446825029,
+        "similarity_score": 0.638363242149353,
+        "citation_text_length": 1240,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Fusion of Features with Neural Networks for Prediction of Secondary Neurological Outcome After Cardiac Arrest",
@@ -1167,7 +1696,15 @@
       "openalex_id": null,
       "source_doi": "10.1097/ccm.0000000000006074",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7063857936859131,
+        "similarity_score": 0.6115894317626953,
+        "citation_text_length": 1234,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "MMCTNet: Multi-Modal Cony-Transformer Network for Predicting Good and Poor Outcomes in Cardiac Arrest Patients",
@@ -1182,7 +1719,15 @@
       "openalex_id": null,
       "source_doi": "10.1097/ccm.0000000000006074",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7292609980702401,
+        "similarity_score": 0.6313948035240173,
+        "citation_text_length": 1253,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "A Multi-channel EEG Data Analysis for Poor Neuro-prognostication in Comatose Patients with Self and Cross-channel Attention Mechanism",
@@ -1197,7 +1742,15 @@
       "openalex_id": null,
       "source_doi": "10.1097/ccm.0000000000006074",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7268015688657762,
+        "similarity_score": 0.6292654275894165,
+        "citation_text_length": 1274,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Factores clínicos y relación no lineal entre edad y desenlace neurológico en pacientes en coma tras un paro cardíaco",
@@ -1212,7 +1765,15 @@
       "openalex_id": "W7214736550",
       "source_doi": "10.1097/ccm.0000000000006074",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5637755870819092,
+        "similarity_score": 0.5369291305541992,
+        "citation_text_length": 213,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Formal Concept Analysis and machine learning for EEG-based neurological outcome classification after cardiac arrest",
@@ -1227,7 +1788,15 @@
       "openalex_id": "W7204550008",
       "source_doi": "10.1097/ccm.0000000000006074",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7594200369715691,
+        "similarity_score": 0.65750652551651,
+        "citation_text_length": 1341,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "An Integrated Multimodal Neurophysiological Monitoring Framework for Six-Month Neurological Outcome Prediction After Cardiac Arrest",
@@ -1242,7 +1811,15 @@
       "openalex_id": "W7202208832",
       "source_doi": "10.1097/ccm.0000000000006074",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6485718369483948,
+        "similarity_score": 0.617687463760376,
+        "citation_text_length": 258,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Population Dynamics and Short-Horizon Forecastability of the Burst-Suppression Ratio After Cardiac Arrest: Implications for Closed-Loop Brain-State Monitoring",
@@ -1257,7 +1834,15 @@
       "openalex_id": "W7167513141",
       "source_doi": "10.1097/ccm.0000000000006074",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6776888501644135,
+        "similarity_score": 0.5867435932159424,
+        "citation_text_length": 1271,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "A Bibliometric Examination of EEGLAB Publications in Scopus and WoS Indexed Sources: A 20-Year Study of Asia-Pacific and Arabian Countries",
@@ -1272,11 +1857,19 @@
       "openalex_id": "W7155560836",
       "source_doi": "10.1097/ccm.0000000000006074",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5463088269531728,
+        "similarity_score": 0.4729946553707123,
+        "citation_text_length": 1240,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Predicting neurological recovery following cardiac arrest based on dynamic brain–heart coupling",
-      "author": "Yanxiang Niu, Renrui Tan, Xi Chen, Jerome Fan, Ziquan Liu, Xiangyan Meng, Yanqing Liu, Lu Lu, Zongya Zhao, Haojun Fan",
+      "author": "Yanxiang Niu, Ruxin Tan, Xi Chen, Jerome Fan, Ziquan Liu, Xiangyan Meng, Yanqing Liu, Lu Lu, Zongya Zhao, Haojun Fan",
       "venue": "Journal of NeuroEngineering and Rehabilitation",
       "year": 2026,
       "url": "https://doi.org/10.1186/s12984-026-01971-2",
@@ -1287,7 +1880,15 @@
       "openalex_id": "W7153559006",
       "source_doi": "10.1097/ccm.0000000000006074",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7492063665390015,
+        "similarity_score": 0.6486635208129883,
+        "citation_text_length": 1296,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "An Uncertainty-Aware Neuroprognostication Pipeline Using Longitudinal Brain Continuity Index and Leave-One-Center-Out Validation",
@@ -1302,7 +1903,15 @@
       "openalex_id": "W7135075088",
       "source_doi": "10.1097/ccm.0000000000006074",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.4535505384206772,
+        "similarity_score": 0.43195289373397827,
+        "citation_text_length": 201,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Rhythmic and Periodic Patterns and Seizures in Hypoxic–Ischemic Encephalopathy",
@@ -1317,11 +1926,19 @@
       "openalex_id": "W7166041280",
       "source_doi": "10.1097/ccm.0000000000006074",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7663128411769868,
+        "similarity_score": 0.6634743213653564,
+        "citation_text_length": 1183,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "High density EEG and deep learning outcome prediction on the first day of coma after cardiac arrest",
-      "author": "Andria Pelentritou, Lucas Gruaz, Manuela Iten, Matthias Hænggi, Frédéric Zubler, Andrea O. Rossetti, Marzia De Lucia",
+      "author": "Andria Pelentritou, Lucas Gruaz, Manuela Iten, Matthias Hænggi, Frédéric Zubler, Andrea O. Rossetti, Marzia De Lucia E",
       "venue": "NeuroImage",
       "year": 2025,
       "url": "https://doi.org/10.1016/j.neuroimage.2025.121658",
@@ -1332,7 +1949,15 @@
       "openalex_id": "W4417411262",
       "source_doi": "10.1097/ccm.0000000000006074",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7413108587265016,
+        "similarity_score": 0.6418275833129883,
+        "citation_text_length": 1266,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "RS-EGT: Resting-State EEG Graph Transformer for Large-Scale EEG Signal Analysis",
@@ -1347,7 +1972,15 @@
       "openalex_id": "W7126079712",
       "source_doi": "10.1097/ccm.0000000000006074",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5297551301121712,
+        "similarity_score": 0.4586624503135681,
+        "citation_text_length": 1241,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Is Attention All You Need for EEG to Predict Neurological Outcomes in Cardiac Arrest?",
@@ -1362,11 +1995,19 @@
       "openalex_id": "W4408520947",
       "source_doi": "10.1097/ccm.0000000000006074",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7282571929693223,
+        "similarity_score": 0.6305257081985474,
+        "citation_text_length": 1345,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "EEG Tensorization Enhances CNN-Based Outcome Classification in Comatose Patients Following a Cardiac Arrest",
-      "author": "R. Teodoro Ors-Quixal, Samuel Ruiperez-Campillo, Francisco Castells, José Millet",
+      "author": "Rafael Teodoro Ors Quixal, Samuel Ruipérez-Campillo, Francisco Castells, José Millet",
       "venue": "2024 46th Annual International Conference of the IEEE Engineering in Medicine and Biology Society (EMBC)",
       "year": 2024,
       "url": "https://doi.org/10.1109/embc53108.2024.10782869",
@@ -1377,7 +2018,15 @@
       "openalex_id": "W4405490449",
       "source_doi": "10.1097/ccm.0000000000006074",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7947305560112001,
+        "similarity_score": 0.6880784034729004,
+        "citation_text_length": 1334,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Biaxialformer: Leveraging Channel Independence and Inter-Channel Correlations in EEG Signal Decoding for Predicting Neurological Outcomes",
@@ -1392,7 +2041,15 @@
       "openalex_id": null,
       "source_doi": "10.1097/ccm.0000000000006074",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.49849187806248674,
+        "similarity_score": 0.43159469962120056,
+        "citation_text_length": 1249,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Assessing Brain Dynamics for Predicting Postanoxic Coma Recovery: An EEG Based Approach",
@@ -1407,7 +2064,15 @@
       "openalex_id": null,
       "source_doi": "10.1097/ccm.0000000000006074",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7423067468404771,
+        "similarity_score": 0.6426898241043091,
+        "citation_text_length": 1255,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Predicting Neurological Recovery from Coma with Longitudinal Electroencephalogram Using Deep Neural Networks",
@@ -1422,7 +2087,31 @@
       "openalex_id": null,
       "source_doi": "10.1097/ccm.0000000000006074",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6967110979557039,
+        "similarity_score": 0.6032130718231201,
+        "citation_text_length": 1201,
+        "dataset_text_length": 2587,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
-  ]
+  ],
+  "confidence_scoring": {
+    "model_used": "Qwen/Qwen3-Embedding-0.6B",
+    "scoring_date": "2026-10-24T11:19:37.352931+00:00",
+    "dataset_text_length": 2587,
+    "num_citations_scored": 85,
+    "summary_stats": {
+      "mean_confidence": 0.674566382672857,
+      "median_confidence": 0.7268015688657762,
+      "std_confidence": 0.12188843055665621,
+      "min_confidence": 0.34194457948207857,
+      "max_confidence": 0.8378669822216035,
+      "high_confidence_count": 53,
+      "medium_confidence_count": 28,
+      "low_confidence_count": 4
+    }
+  }
 }

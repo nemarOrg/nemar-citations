@@ -1,0 +1,85 @@
+{
+  "dataset_id": "nm000390",
+  "date_retrieved": "2026-10-12T10:05:31.378779+00:00",
+  "dataset_description": {
+    "Name": "Brain criticality predicts individual levels of inter-areal synchronization (Fusca, Siebenhuehner, Wang et al., 2023): SEEG/MEG PLV and DFA (derivative)",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "derivative",
+    "License": "CC0-1.0",
+    "Authors": [
+      "Felix Siebenhühner",
+      "Marco Fuscà",
+      "Sheng Hua Wang",
+      "Vladislav Myrov",
+      "Gabriele Arnulfo",
+      "Lino Nobili",
+      "J Matias Palva",
+      "Satu Palva"
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "Authors' analysis pipeline (Fuscà et al., 2023, Nat Commun 14:4736, Methods)",
+        "Description": "10-min eyes-closed resting-state SEEG from 68 drug-resistant focal epilepsy patients (Niguarda Ca' Granda Hospital, Milan; monopolar, 8-15 contacts per shaft); rejection of 500-ms windows with epileptic artifacts; closest-white-matter referencing; FIR broadband filtering (cutoff 440 Hz) and 50 Hz notch filters; 24 Morlet wavelets (m=5), 2-225 Hz; complex phase-locking value (PLV) between all contact pairs and detrended fluctuation analysis (DFA) exponents per contact; epileptogenic-zone (EZ) contact masks from clinical review. MEG: 192 eyes-open resting-state sessions of 52 healthy subjects, source-reconstructed to the 400-parcel Schaefer atlas, wPLI and DFA. Simulations: hierarchical Kuramoto models. Code: https://github.com/palvalab/DFA_Synch/",
+        "CodeURL": "https://github.com/palvalab/DFA_Synch/"
+      },
+      {
+        "Name": "FINISHER-05x repackaging (f05x_build056.py)",
+        "Description": "Repackaging only: the 68-patient SEEG cell arrays of sEEG_data.mat split into one MAT file per patient (values and dtypes unchanged, exact round-trip) plus DFA and contact TSV tables; MEG_data.mat and Simulated_data.zip kept unchanged as group-level files. Code in code/.",
+        "CodeURL": "code/f05x_build056.py"
+      }
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.5061/dryad.vdncjsxzn",
+        "URL": "https://datadryad.org/dataset/doi:10.5061/dryad.vdncjsxzn",
+        "Version": "Dryad version 7 (published 2023-06-27); files obtained from the Dryad-community Zenodo replica https://zenodo.org/records/8088073 and checked against the Dryad sha-256 digests"
+      }
+    ],
+    "HowToAcknowledge": "Please cite Fuscà M, Siebenhühner F, Wang SH, Myrov V, Arnulfo G, Nobili L, Palva JM, Palva S (2023) Brain criticality predicts individual levels of inter-areal synchronization in human electrophysiological data. Nat Commun 14:4736, doi:10.1038/s41467-023-40056-9, and the Dryad dataset doi:10.5061/dryad.vdncjsxzn.",
+    "Funding": [
+      "This work was supported by grants from the Academy of Finland (SA 1266745, 1296304 to J.M.P. and SA 325404 to S.P.), from the Finnish Cultural Foundation to S.H.W. (postdoc fellowship 00220071), and from the Sigrid Jusélius Foundation to S.P. and J.M.P."
+    ],
+    "EthicsApprovals": [
+      "Patients gave written informed consent for participation in research studies and for publication of results pertaining to their data. The ethical committee of the Niguarda Hospital, Milan, approved this study (ID 939) which was performed according to the Declaration of Helsinki. (Fuscà et al. 2023, Nat Commun 14:4736, Methods, Acquisition of SEEG data)",
+      "The study protocol for MEG and MRI data was approved by the Coordinating Ethical Committee of Helsinki University Central Hospital (ID 290/13/03/2013), written informed consent was obtained from each subject prior to the experiment, and all research was carried out according to the Declaration of Helsinki. (Fuscà et al. 2023, Nat Commun 14:4736, Methods, Acquisition of MEG and MRI data)"
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.1038/s41467-023-40056-9",
+      "https://doi.org/10.1101/2022.11.24.517800",
+      "https://doi.org/10.5061/dryad.vdncjsxzn",
+      "https://zenodo.org/records/8088073",
+      "https://github.com/palvalab/DFA_Synch/"
+    ],
+    "Keywords": [
+      "SEEG",
+      "stereo-EEG",
+      "intracranial EEG",
+      "MEG",
+      "resting state",
+      "phase synchronization",
+      "phase-locking value",
+      "detrended fluctuation analysis",
+      "long-range temporal correlations",
+      "criticality",
+      "Griffiths phase",
+      "epileptogenic zone",
+      "derivative"
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000390",
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000390-blue)](https://doi.org/10.82901/nemar.nm000390)\n\n# Brain criticality predicts individual levels of inter-areal synchronization in human electrophysiological data (Fuscà, Siebenhühner, Wang et al., 2023): SEEG/MEG synchronization and DFA (derivative)\n\n**This is a processed-data (derivative) dataset.** It repackages the authors' public Dryad release\n(doi:[10.5061/dryad.vdncjsxzn](https://doi.org/10.5061/dryad.vdncjsxzn), version 7, CC0-1.0), described by the\nauthors as a \"Minimal dataset comprising results of phase synchronization and detrended fluctuation analysis which were\ncomputed for MEG data recorded from 52 healthy participants and SEEG data recorded 68 drug-resistant focal epileptic\npatients, and supporting files, as well as simulated data.\" **The raw recordings are not part of the release and are\nnot included here.** The article's Data availability statement: \"Raw electrophysiological data cannot be shared\npublicly due to regulations imposed by the Ethical Committees but can be shared for collaborative efforts upon\nrequest.\" (We found no open release of the raw 1 kHz resting SEEG of this cohort on Zenodo, OpenNeuro, DANDI or NEMAR.)\n\nArticle: Fuscà M, Siebenhühner F, Wang SH, Myrov V, Arnulfo G, Nobili L, Palva JM, Palva S (2023). Brain criticality\npredicts individual levels of inter-areal synchronization in human electrophysiological data. *Nat Commun* 14:4736.\ndoi:[10.1038/s41467-023-40056-9](https://doi.org/10.1038/s41467-023-40056-9). Code: <https://github.com/palvalab/DFA_Synch/>.\n\n## Data (article, Methods)\n\n- **SEEG, 68 patients** (age 30 ± 9.4 years, 38 male; per-patient values not released): 10 min of eyes-closed resting\n  state at the \"Claudio Munari\" Epilepsy Surgery Centre, Niguarda Ca' Granda Hospital, Milan, without seizures within\n  one hour before or after. Monopolar recordings (shared white-matter reference), 8-15 contacts per shaft, 17 ± 3\n  shafts and 153 ± 20 contacts per patient on average; contacts localised from CT (SEEGA). 500-ms windows with\n  epileptic artifacts rejected; grey-matter contacts referenced to the closest white-matter contact; FIR broadband\n  filtering (cutoff 440 Hz) and 50 Hz notch filters; 24 Morlet wavelets (m = 5), 2-225 Hz; phase-locking value (PLV)\n  between contact pairs and DFA exponents of the amplitude envelopes per contact. Epileptogenic-zone (EZ) contacts were\n  identified by clinicians from peri-ictal and ictal SEEG.\n- **MEG, 52 healthy subjects** (age 31 ± 9.2 years, 27 male), **192 eyes-open resting-state sessions** (3.7 ± 4 per\n  subject), Vectorview/Triux 306-channel, BioMag Laboratory, Helsinki; tSSS, ICA; source-reconstructed to the\n  400-parcel Schaefer atlas; wPLI and DFA. The release gives no session-to-subject mapping, so the MEG data stay\n  group-level.\n- **Simulations**: hierarchical Kuramoto models (uniform vs realistic structural connectomes), pickled statistics.\n\n## Layout\n\n```\nsub-NN/ieeg/                                   NN = 01..68 = row of the patient in sEEG_data.mat\n  sub-NN_task-rest_desc-sync_connectivity.mat   that patient's arrays (MATLAB v5, values/dtypes unchanged):\n      PLV [24 freq x C x C] complex64   complex phase-locking value between contacts\n      DFA [24 x C]                      DFA exponents per contact\n      elec_dist [C x C]                 contact-to-contact distances\n      ref_mask [C x C]                  reference selection mask (release variable ref_masks)\n      acceptcontHealthy [C x 1]         non-EZ contact mask\n      acceptcontEZ [C x 1]              EZ contact mask\n      parcel_assign [C x 1]             parcel code per contact (see group/seeg/parcel_order.tsv)\n      HealthyEZcriteria [1 x 2]         patient selected for non-EZ (col 1) / EZ (col 2) analyses\n      frequencies [1 x 24]              Hz\n  sub-NN_task-rest_desc-dfa_contacts.tsv        DFA exponents, one row per contact, one column per frequency\n  sub-NN_task-rest_contacts.tsv                 contact index, parcel code and name, non-EZ / EZ mask\ngroup/seeg/parcel_order.tsv                    parcel codes and names: Yeo/Schaefer 17-network cortical parcels and\n                                               subcortical regions (code 0 = Unknown), from parcel_order\ngroup/seeg/frequencies.tsv                     the 24 frequencies (Hz)\nsourcedata/dryad-vdncjsxzn/                    the 4 original files byte-for-byte (SHA256SUMS), incl. the authors' README.md\n    sEEG_data.mat        all 68 patients in one file (cell arrays)\n    MEG_data.mat         MATLAB v7.3 (HDF5): wPLI [400 x 400 x 24 x 192 sessions], DFA [400 x 24 x 192],\n                         efidmask [400 x 400 x 192] edge masks (edge fidelity and cpPLV), sfidmask [400 x 192] parcel\n                         masks, parcels (400 Schaefer 7-network names), frequencies (Hz)\n    Simulated_data.zip   six pickles: average amplitude, DFA and amplitude variance per channel and PLV per channel pair\n                         for the model variants (see the authors' README.md)\ncode/                                          f05x_build056.py, f05x_lib.py\n```\n\nEvery per-subject derivative file has a JSON sidecar of the same name (description, `Sources` pointing to the original release file, variables, how it was repackaged).\n\n`C` is the number of contacts of the patient (70-148). Exception as released: for `sub-18`, `parcel_assign` holds 152\ncodes for 148 contacts, so it cannot be aligned to the contacts; it is kept unchanged in the MAT file and the\n`parcel_code`/`parcel_name` columns of that patient's `_contacts.tsv` are `n/a`. Some contacts carry parcel code `-1`,\nwhich is not listed in `parcel_order`; their `parcel_name` is `n/a`. Contact order is the same in every array and table of a patient;\ncontact names and coordinates are not part of the release. The `.mat` files and the `_contacts.tsv` tables are not BIDS\nraw data types and are listed in `.bidsignore`. `participants.tsv` gives, per patient, the number of contacts, the\nsize of the non-EZ and EZ masks and the two `HealthyEZcriteria` selection flags (40 patients selected for non-EZ, 42\nfor EZ analyses).\n\nMEG_data.mat and Simulated_data.zip are group-level files without a per-subject structure; use them directly from\n`sourcedata/dryad-vdncjsxzn/` (`h5py` or MATLAB for the v7.3 MAT file; the pickles need Python and should only be\nunpickled from this trusted source).\n\nRound-trip: every per-patient array was re-read and compared exactly (dtype, shape, values) with the original cell;\nthe TSV tables re-parse to the original values (`code/f05x_build056.py`).\n\n## Loading\n\n```python\nimport scipy.io as sio\nm = sio.loadmat('sub-01/ieeg/sub-01_task-rest_desc-sync_connectivity.mat')\nplv = abs(m['PLV'])          # 24 x C x C\nnonez = m['acceptcontHealthy'].ravel().astype(bool)\n```\n\n## Privacy\n\nThe release identifies patients only by row index. Text files, MAT strings (parcel names) and zip member names were\nscanned for names, dates, record numbers and paths; nothing identifying was found.\n\n## Ethics approval\n\nSEEG: \"Patients gave written informed consent for participation in research studies and for publication of results\npertaining to their data. The ethical committee of the Niguarda Hospital, Milan, approved this study (ID 939) which was\nperformed according to the Declaration of Helsinki.\" (Fuscà et al. 2023, *Nat Commun* 14:4736, Methods, Acquisition of\nSEEG data.)\n\nMEG: \"The study protocol for MEG and MRI data was approved by the Coordinating Ethical Committee of Helsinki University\nCentral Hospital (ID 290/13/03/2013), written informed consent was obtained from each subject prior to the experiment,\nand all research was carried out according to the Declaration of Helsinki.\" (same article, Methods, Acquisition of MEG\nand MRI data.)\n\n## Funding\n\n\"This work was supported by grants from the Academy of Finland (SA 1266745, 1296304 to J.M.P. and SA 325404 to S.P.),\nfrom the Finnish Cultural Foundation to S.H.W. (postdoc fellowship 00220071), and from the Sigrid Jusélius Foundation to\nS.P. and J.M.P.\" (article, Acknowledgements)\n\n## Related\n\nThe SEEG cohort of Siebenhühner et al. (2020, *PLoS Biol*, doi:10.1371/journal.pbio.3000685; Dryad\ndoi:10.5061/dryad.0k86k80; 59 patients) comes from the same Niguarda programme; neither release maps subjects between\nthe two.\n\n## License and citation\n\nCC0-1.0 (Dryad record license). Please cite the article (doi:10.1038/s41467-023-40056-9) and the Dryad dataset\n(doi:10.5061/dryad.vdncjsxzn).\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000390",
+    "exists": true,
+    "description": "Brain criticality predicts individual levels of inter-areal synchronization (Fusca, Siebenhuehner, Wang et al., 2023): SEEG/MEG PLV and DFA (derivative)",
+    "created_at": "2026-10-07T13:06:59+00:00",
+    "updated_at": "2026-10-08T06:11:19+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

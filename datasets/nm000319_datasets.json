@@ -1,0 +1,64 @@
+{
+  "dataset_id": "nm000319",
+  "date_retrieved": "2026-10-12T10:02:50.776750+00:00",
+  "dataset_description": {
+    "Name": "Kueper2024: Unilateral vs bilateral movement-execution EEG dataset",
+    "BIDSVersion": "1.9.0",
+    "HEDVersion": "8.4.0",
+    "DatasetType": "derivative",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "Niklas Kueper",
+      "Su Kyoung Kim",
+      "Elsa Andrea Kirchner"
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.5281/zenodo.10229480"
+    ],
+    "Keywords": [
+      "EEG",
+      "movement intention",
+      "ERP",
+      "BCI",
+      "stroke rehabilitation",
+      "LRP"
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000319",
+    "GeneratedBy": [
+      {
+        "CodeURL": "https://github.com/NeuroTechX/moabb",
+        "Name": "moabb",
+        "Description": "Mother of All BCI Benchmarks",
+        "Version": "1.8.0dev0"
+      }
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "10.1038/s41598-024-65910-8",
+        "URL": "https://doi.org/10.5281/zenodo.10229480"
+      },
+      {
+        "DOI": "doi:10.1038/s41598-024-65910-8"
+      }
+    ],
+    "PublicationYear": 2024,
+    "EthicsApprovals": [
+      "See the primary publication cited in the README/ReferencesAndLinks for the ethics approval statement obtained by the original investigators; no new human-subject data were collected for this BIDS re-release."
+    ],
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000319-blue)](https://doi.org/10.82901/nemar.nm000319)\n\nKueper2024\n==========\n\nUnilateral vs bilateral movement-execution EEG dataset [1]_, [2]_.\n\nDataset Overview\n----------------\n  Code: Kueper2024\n  Paradigm: imagery\n  DOI: 10.1038/s41598-024-65910-8\n  Subjects: 8\n  Sessions per subject: 1\n  Events: unilateral=1, bilateral=2\n  Trial interval: (-2.0, 1.0) s\n  Runs per session: 6\n  File format: BrainVision\n\nAcquisition\n-----------\n  Sampling rate: 500.0 Hz\n  Number of channels: 67\n  Channel types: eeg=64, misc=3\n  Channel names: Fp1, Fp2, F7, F3, Fz, F4, F8, FC5, FC1, FC2, FC6, T7, C3, Cz, C4, T8, TP9, CP5, CP1, CP2, CP6, TP10, P7, P3, Pz, P4, P8, PO9, O1, Oz, O2, PO10, AF7, AF3, AF4, AF8, F5, F1, F2, F6, FT9, FT7, FC3, FC4, FT8, FT10, C5, C1, C2, C6, TP7, CP3, CPz, CP4, TP8, P5, P1, P2, P6, PO7, PO3, POz, PO4, PO8\n  Montage: extended 10-20\n  Hardware: Brain Products LiveAmp64 (wireless, active electrodes)\n  Reference: FCz\n  Ground: AFz\n  Sensor type: active\n  Line frequency: 50.0 Hz\n  Cap manufacturer: Brain Products GmbH\n  Cap model: Acticap slim\n  Electrode type: active\n\nParticipants\n------------\n  Number of subjects: 8\n  Health status: healthy\n  Age: mean=25.5, std=4.0\n  Gender distribution: male=4, female=4\n\nExperimental Protocol\n---------------------\n  Paradigm: imagery\n  Number of classes: 2\n  Class labels: unilateral, bilateral\n  Trial duration: 3.0 s\n  Study design: Self-initiated, self-paced reaching movements in two conditions: unilateral (right arm only, button press) and bilateral (both arms synchronously). 3 sets of 40 movements per condition.\n  Feedback type: none\n  Synchronicity: self-paced\n  Mode: offline\n\nHED Event Annotations\n---------------------\n  Schema: HED 8.4.0 | Browse: https://www.hedtags.org/hed-schema-browser\n\n  unilateral\n    ├─ Sensory-event\n    └─ Label/unilateral\n\n  bilateral\n    ├─ Sensory-event\n    └─ Label/bilateral\n\nData Structure\n--------------\n  Trials: 240\n  Trials per class: unilateral=120, bilateral=120\n  Blocks per session: 6\n  Trials context: 3 sets of 40 self-initiated movements per task (unilateral, bilateral) by design; one run per set, 6 runs per subject (subject XP01 has an extra unilateral set in the release).\n\nPreprocessing\n-------------\n  Data state: raw\n  Preprocessing applied: False\n  Highpass filter: 0.1 Hz\n  Lowpass filter: 131.0 Hz\n  Notes: Hardware-prefiltered by the amplifier to 0.1-131 Hz; no further preprocessing applied.\n\nTags\n----\n  Modality: Motor\n  Type: Movement Execution\n\nDocumentation\n-------------\n  Description: EEG dataset of self-initiated unilateral (right arm) and bilateral movement executions from 8 healthy subjects, for movement intention recognition in exoskeleton-supported rehabilitation.\n  DOI: 10.1038/s41598-024-65910-8\n  License: CC-BY-4.0\n  Investigators: Niklas Kueper, Su Kyoung Kim, Elsa Andrea Kirchner\n  Institution: German Research Centre for Artificial Intelligence (DFKI)\n  Country: DE\n  Repository: Zenodo\n  Data URL: https://doi.org/10.5281/zenodo.10229480\n  Publication year: 2024\n  Keywords: EEG, movement intention, ERP, BCI, stroke rehabilitation, LRP\n\nReferences\n----------\nKueper, N., Kim, S. K., & Kirchner, E. A. (2023). EEG Dataset of Unilateral and Bilateral Movement Executions [Data set]. Zenodo. DOI: https://doi.org/10.5281/zenodo.10229480\n\nKueper, N., Kim, S. K., & Kirchner, E. A. (2024). Avoidance of specific calibration sessions in motor intention recognition for exoskeleton-supported rehabilitation through transfer learning on EEG data. Scientific Reports, 14(1), 16690. DOI: https://doi.org/10.1038/s41598-024-65910-8\n\nNotes\n\n.. versionadded:: 1.8.0\nAppelhoff, S., Sanderson, M., Brooks, T., Vliet, M., Quentin, R., Holdgraf, C., Chaumon, M., Mikulan, E., Tavabi, K., Hochenberger, R., Welke, D., Brunner, C., Rockhill, A., Larson, E., Gramfort, A. and Jas, M. (2019). MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis. Journal of Open Source Software 4: (1896). https://doi.org/10.21105/joss.01896\n\nPernet, C. R., Appelhoff, S., Gorgolewski, K. J., Flandin, G., Phillips, C., Delorme, A., Oostenveld, R. (2019). EEG-BIDS, an extension to the brain imaging data structure for electroencephalography. Scientific Data, 6, 103. https://doi.org/10.1038/s41597-019-0104-8\n\n---\nGenerated by MOABB 1.8.0dev0 (Mother of All BCI Benchmarks)\nhttps://github.com/NeuroTechX/moabb\n\nEthics\n------\nEthics approval: the data analysed in this deposit were collected under the\nethics approval obtained by the original investigators and reported in the\nprimary publication cited above (see References/Documentation sections of\nthis README). Participants gave informed consent in the source study. No\nnew human-subject data were collected during this BIDS re-release; this\nNEMAR record only reformats the published source data into BIDS via MOABB.\nPlease consult the primary publication for the exact IRB/ethics committee\nreference.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000319",
+    "exists": true,
+    "description": "Kueper2024: Unilateral vs bilateral movement-execution EEG dataset",
+    "created_at": "2026-10-04T17:35:57+00:00",
+    "updated_at": "2026-10-12T03:00:24+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

@@ -1,10 +1,10 @@
 {
   "dataset_id": "on006466",
-  "num_citations": 1,
-  "date_last_updated": "2026-10-11T11:09:16.617756+00:00",
+  "num_citations": 3,
+  "date_last_updated": "2026-10-24T11:07:10.974060+00:00",
   "metadata": {
-    "total_cumulative_citations": 8,
-    "fetch_date": "2026-10-11T11:09:16.617756+00:00",
+    "total_cumulative_citations": 12,
+    "fetch_date": "2026-10-24T11:07:10.974060+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -23,7 +23,7 @@
         "paper_title": "Electroencephalography, pupillometry, and behavioral evidence for locus coeruleus-noradrenaline system related tonic hyperactivity in older adults",
         "paper_year": 2025,
         "paper_venue": "bioRxiv (Cold Spring Harbor Laboratory)",
-        "reason": "Same authors as the dataset; the study reports EEG from older adults during passive/active auditory oddball under threat of shock (control vs arousal), matching this dataset's design.",
+        "reason": "Same authors (Kim, Morales, Senior, Mather) report the older-adult EEG passive/active auditory oddball study with threat-of-shock arousal manipulation, matching this HeartBEAM dataset's conditions.",
         "judgment_model": "claude-sonnet-5-5"
       },
       {
@@ -64,22 +64,68 @@
   "citation_details": [
     {
       "title": "DeeperBrain: A Neuro-Grounded EEG Foundation Model Towards Universal BCI",
-      "author": "Jiquan Wang, Sha Zhao, Yangxuan Zhou, Yiming Kang, Shijian Li, Gang Pan",
+      "author": "Jiquan Wang, Sha Zhao, Yang-Xuan Zhou, Yiming Kang, Shi-Jian Li, Gang Pan",
       "venue": "ArXiv",
       "year": 2026,
       "url": "https://doi.org/10.48550/arXiv.2601.06134",
-      "cited_by": 8,
+      "cited_by": 12,
       "abstract": "Electroencephalography (EEG) foundation models hold significant promise for universal Brain-Computer Interfaces (BCIs). However, existing approaches often rely on end-to-end fine-tuning and exhibit limited efficacy under frozen-probing protocols, lacking the intrinsic universality required for broad generalization. This limitation stems from adapting general-purpose sequence architectures that overlook the biophysical and dynamical principles of neural activity. To bridge this gap, we propose DeeperBrain, a neuro-grounded foundation model integrating domain-specific inductive biases into its model design and learning objectives. Architecturally, DeeperBrain incorporates a volume conduction-aware channel encoding to model spatial mixing via 3D geometry, and a neurodynamics-aware temporal encoding capturing slow adaptations using oscillatory and exponential bases. For pretraining, we introduce a dual-objective strategy combining Masked EEG Reconstruction (MER) for local fidelity and Neur",
       "doi": "10.48550/arXiv.2601.06134",
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2025.10.02.680040",
-      "source_relation": "References",
+      "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.46610324352979665,
-        "similarity_score": 0.4035525918006897,
-        "citation_text_length": 1187,
+        "confidence_score": 0.4663124585151673,
+        "similarity_score": 0.4037337303161621,
+        "citation_text_length": 1189,
+        "dataset_text_length": 2298,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "ERP-FM: A Foundation Model for Universal ERP Analysis",
+      "author": "Yi-He Wang, Bo Chen, Tai-Da Li, Yu-Jun Yan, Rui Yin, Xiang Zhang",
+      "venue": "n/a",
+      "year": 2026,
+      "url": "n/a",
+      "cited_by": 0,
+      "abstract": "Foundation models have recently shown strong potential for learning generalizable EEG representations, yet their effectiveness for event-related potential (ERP) analysis remains unclear. In this work, we investigate two fundamental questions: 1) can foundation-model learning benefit ERP analysis, and what limits the transfer of existing EEG foundation models to ERP tasks? 2) can the complementary advantages of single-trial and averaged-trial ERP be integrated into a unified training pipeline? To study these questions, we curate a large-scale ERP corpus comprising 1,517,157 single-trial ERPs from 3,696 subjects across 38 datasets and 18 paradigms. Leveraging this corpus, we introduce ERP-FM, to the best of our knowledge, the first foundation model specifically developed for ERP representation learning. ERP-FM uses single-channel tokenization, temporal and spatial positional embeddings, and mixed masked autoencoding for large-scale single-trial pretraining. We compare our model against 1",
+      "doi": null,
+      "pmid": null,
+      "openalex_id": null,
+      "source_doi": "10.1101/2025.10.02.680040",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5087054796516897,
+        "similarity_score": 0.4404376447200775,
+        "citation_text_length": 1159,
+        "dataset_text_length": 2298,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Molecular programs in human locus coeruleus link APOE and neuromelanin to Alzheimer’s vulnerability",
+      "author": "Bernard Mulvey, Heena R. Divecha, M. Tippani, Svitlana V. Bach, Rahul A. Bharadwaj, Ishbel del Rosario, Sarah E. Maguire, Ryan A. Miller, Aaron J. Salisbury, Atharv Chandra, Beau A. Oster, Kelsey D. Montgomery, Sang Ho Kwon, H. Algrain, Alexis R. Papariello, Louise A. Huuki-Myers, J. Kleinman, L. Collado-Torres, T. Hyde, Shi-Zhong Han, Stephanie C. Hicks, D. Weinberger, S. Page, Kristen R. Maynard, K. Martinowich",
+      "venue": "Acta Neuropathologica",
+      "year": 2026,
+      "url": "https://doi.org/10.1007/s00401-026-03073-8",
+      "cited_by": 0,
+      "abstract": null,
+      "doi": "10.1007/s00401-026-03073-8",
+      "pmid": "42726290",
+      "openalex_id": null,
+      "source_doi": "10.1101/2025.10.02.680040",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.28754039704799655,
+        "similarity_score": 0.2738479971885681,
+        "citation_text_length": 563,
         "dataset_text_length": 2298,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -88,18 +134,18 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-10-11T11:39:38.494912+00:00",
+    "scoring_date": "2026-10-24T11:33:45.541850+00:00",
     "dataset_text_length": 2298,
-    "num_citations_scored": 1,
+    "num_citations_scored": 3,
     "summary_stats": {
-      "mean_confidence": 0.46610324352979665,
-      "median_confidence": 0.46610324352979665,
-      "std_confidence": 0.0,
-      "min_confidence": 0.46610324352979665,
-      "max_confidence": 0.46610324352979665,
+      "mean_confidence": 0.42085277840495117,
+      "median_confidence": 0.4663124585151673,
+      "std_confidence": 0.09584165874874725,
+      "min_confidence": 0.28754039704799655,
+      "max_confidence": 0.5087054796516897,
       "high_confidence_count": 0,
-      "medium_confidence_count": 1,
-      "low_confidence_count": 0
+      "medium_confidence_count": 2,
+      "low_confidence_count": 1
     }
   }
 }

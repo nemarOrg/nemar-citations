@@ -1,0 +1,68 @@
+{
+  "dataset_id": "nm000312",
+  "date_retrieved": "2026-10-12T10:02:32.263019+00:00",
+  "dataset_description": {
+    "Name": "Alawieh2025: Motor-imagery BCI dataset with transcutaneous spinal stimulation",
+    "BIDSVersion": "1.9.0",
+    "HEDVersion": "8.4.0",
+    "DatasetType": "derivative",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "Hussein Alawieh",
+      "Deland Liu",
+      "Jonathan Madera",
+      "Satyam Kumar",
+      "Frigyes Samuel Racz",
+      "Ann Majewicz Fey",
+      "José del R. Millán"
+    ],
+    "EthicsApprovals": [
+      "Approved by the University of Texas at Austin Institutional Review Board (IRB protocol number 2020-03-0073); the study protocol is registered on ClinicalTrials.gov as NCT05183152. Written informed consent was obtained from all participants (Alawieh et al. 2025, PNAS, DOI 10.1073/pnas.2418920122)."
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.5281/zenodo.15454354",
+      "10.1073/pnas.2418920122"
+    ],
+    "Keywords": [
+      "healthy",
+      "spinal cord injury",
+      "Motor",
+      "Motor Imagery",
+      "imagery"
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000312",
+    "GeneratedBy": [
+      {
+        "CodeURL": "https://github.com/NeuroTechX/moabb",
+        "Name": "moabb",
+        "Description": "Mother of All BCI Benchmarks",
+        "Version": "1.8.0dev0"
+      }
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "10.5281/zenodo.15454354",
+        "URL": "https://doi.org/10.5281/zenodo.15454354"
+      },
+      {
+        "DOI": "doi:10.5281/zenodo.15454354"
+      }
+    ],
+    "PublicationYear": 2025,
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000312-blue)](https://doi.org/10.82901/nemar.nm000312)\n\nAlawieh2025\n===========\n\nMotor-imagery BCI dataset with transcutaneous spinal stimulation [1]_ [2]_.\n\nDataset Overview\n----------------\n  Code: Alawieh2025\n  Paradigm: imagery\n  DOI: 10.5281/zenodo.15454354\n  Subjects: 27\n  Sessions per subject: 1\n  Events: left_hand=1, right_hand=2\n  Trial interval: (0, 4) s\n  File format: GDF\n\nAcquisition\n-----------\n  Sampling rate: 512.0 Hz\n  Number of channels: 35\n  Channel types: eeg=32, eog=3\n  Channel names: FP1, FPZ, FP2, F7, F3, FZ, F4, F8, FC5, FC1, FC2, FC6, M1, T7, C3, CZ, C4, T8, M2, CP5, CP1, CP2, CP6, P7, P3, PZ, P4, P8, POZ, O1, OZ, O2, sens7, sens8, sens9\n  Montage: 10-20\n  Hardware: ANT Neuro eego with Ag/AgCl-coated electrodes\n  Reference: CPz\n  Ground: AFz\n  Sensor type: Ag/AgCl\n  Line frequency: 50.0 Hz\n  Auxiliary channels: EOG (3 ch)\n\nParticipants\n------------\n  Number of subjects: 27\n  Health status: able-bodied and spinal cord injury\n  Clinical population: 25 able-bodied, 2 spinal cord injury (SCI)\n\nExperimental Protocol\n---------------------\n  Paradigm: imagery\n  Number of classes: 2\n  Class labels: left_hand, right_hand\n  Trial duration: 4.0 s\n  Feedback type: kinesthetic\n  Synchronicity: cue-based\n  Mode: offline\n\nHED Event Annotations\n---------------------\n  Schema: HED 8.4.0 | Browse: https://www.hedtags.org/hed-schema-browser\n\n  left_hand\n    ├─ Sensory-event, Experimental-stimulus, Visual-presentation\n    └─ Agent-action\n       └─ Imagine\n          ├─ Move\n          └─ Left, Hand\n\n  right_hand\n    ├─ Sensory-event, Experimental-stimulus, Visual-presentation\n    └─ Agent-action\n       └─ Imagine\n          ├─ Move\n          └─ Right, Hand\n\nTags\n----\n  Pathology: healthy, spinal cord injury\n  Modality: Motor\n  Type: Motor Imagery\n\nDocumentation\n-------------\n  Description: Longitudinal two-class (left/right hand) motor-imagery BCI training dataset with transcutaneous electrical spinal stimulation, in able-bodied and spinal cord injury participants.\n  DOI: 10.5281/zenodo.15454354\n  Associated paper DOI: 10.1073/pnas.2418920122\n  License: CC-BY-4.0\n  Investigators: Hussein Alawieh, Deland Liu, Jonathan Madera, Satyam Kumar, Frigyes Samuel Racz, Ann Majewicz Fey, José del R. Millán\n  Institution: The University of Texas at Austin\n  Country: US\n  Repository: Zenodo\n  Data URL: https://doi.org/10.5281/zenodo.15454354\n  Publication year: 2025\n  Ethics approval: University of Texas at Austin IRB Protocol #2020-03-0073; ClinicalTrials.gov NCT05183152\n\nReferences\n----------\nAlawieh, H., Liu, D., Madera, J., Kumar, S., Racz, F. S., Fey, A. M., & Millán, J. del R. (2025). Electrical spinal cord stimulation promotes focal sensorimotor activation that accelerates brain-computer interface skill learning. Proceedings of the National Academy of Sciences, 122(24). DOI: https://doi.org/10.1073/pnas.2418920122\n\nAlawieh, H., Liu, D., Madera, J., Kumar, S., Racz, F. S., Majewicz Fey, A., & Millán, J. del R. (2025). A Multi-Session EEG Dataset of Longitudinal Motor Imagery BCI Training with Transcutaneous Spinal Stimulation in Able-Bodied and Spinal Cord Injury Participants. Zenodo. DOI: https://doi.org/10.5281/zenodo.15454354\n\n.. versionadded:: 1.8\nAppelhoff, S., Sanderson, M., Brooks, T., Vliet, M., Quentin, R., Holdgraf, C., Chaumon, M., Mikulan, E., Tavabi, K., Hochenberger, R., Welke, D., Brunner, C., Rockhill, A., Larson, E., Gramfort, A. and Jas, M. (2019). MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis. Journal of Open Source Software 4: (1896). https://doi.org/10.21105/joss.01896\n\nPernet, C. R., Appelhoff, S., Gorgolewski, K. J., Flandin, G., Phillips, C., Delorme, A., Oostenveld, R. (2019). EEG-BIDS, an extension to the brain imaging data structure for electroencephalography. Scientific Data, 6, 103. https://doi.org/10.1038/s41597-019-0104-8\n\n---\nGenerated by MOABB 1.8.0dev0 (Mother of All BCI Benchmarks)\nhttps://github.com/NeuroTechX/moabb\n\n## Ethics\n\nApproved by the University of Texas at Austin Institutional Review Board (IRB protocol number 2020-03-0073); the study protocol is registered on ClinicalTrials.gov as NCT05183152. Written informed consent was obtained from all participants (Alawieh et al. 2025, PNAS, DOI 10.1073/pnas.2418920122).\n\nVerbatim from the source:\n\n> The study recruited 25 healthy individuals and two SCI patients who provided written informed consent to the procedures of the study protocol, which is published on ClinicalTrials.gov (NCT05183152), as approved by the University of Texas at Austin Institutional Review Board (IRB protocol number: 2020-03-0073).\n\nSource: cached paper .paper-audit/Alawieh2025/paper-10_1073_pnas_2418920122.txt (Alawieh et al. 2025, PNAS 122, DOI 10.1073/pnas.2418920122).\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000312",
+    "exists": true,
+    "description": "Alawieh2025: Motor-imagery BCI dataset with transcutaneous spinal stimulation",
+    "created_at": "2026-10-04T16:15:24+00:00",
+    "updated_at": "2026-10-11T03:10:02+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

@@ -1,0 +1,66 @@
+{
+  "dataset_id": "nm000296",
+  "date_retrieved": "2026-10-12T10:01:50.906084+00:00",
+  "dataset_description": {
+    "Name": "MIMED2024: Motor Imagery MIMED dataset from Wirawan et al. 2024",
+    "BIDSVersion": "1.9.0",
+    "HEDVersion": "8.4.0",
+    "DatasetType": "derivative",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "I Made Agus Wirawan",
+      "Dechrit Maneetham",
+      "I Gede Mahendra Darmawiguna",
+      "Arnon Niyomphol",
+      "Pakornkiat Sawetmethikul",
+      "Padma Nyoman Crisnapati",
+      "Yamin Thwe",
+      "Ni Nyoman Mestri Agustini"
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.17632/zs25xxjkm9.3"
+    ],
+    "Keywords": [
+      "Motor",
+      "Motor Imagery",
+      "imagery"
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000296",
+    "GeneratedBy": [
+      {
+        "CodeURL": "https://github.com/NeuroTechX/moabb",
+        "Name": "moabb",
+        "Description": "Mother of All BCI Benchmarks",
+        "Version": "1.8.0dev0"
+      }
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "10.1016/j.dib.2024.110833",
+        "URL": "https://doi.org/10.17632/zs25xxjkm9.3"
+      },
+      {
+        "DOI": "doi:10.1016/j.dib.2024.110833"
+      }
+    ],
+    "PublicationYear": 2024,
+    "EthicsApprovals": [
+      "See the primary publication cited in the README/ReferencesAndLinks for the ethics approval statement obtained by the original investigators; no new human-subject data were collected for this BIDS re-release."
+    ],
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000296-blue)](https://doi.org/10.82901/nemar.nm000296)\n\nMIMED2024\n=========\n\nMotor Imagery MIMED dataset from Wirawan et al. 2024 [1]_.\n\nDataset Overview\n----------------\n  Code: MIMED2024\n  Paradigm: imagery\n  DOI: 10.1016/j.dib.2024.110833\n  Subjects: 30\n  Sessions per subject: 2\n  Events: left_hand=1, right_hand=2, trunk=3\n  Trial interval: [0, 4] s\n  Runs per session: 6\n  File format: MAT (converted from EDF)\n\nAcquisition\n-----------\n  Sampling rate: 128.0 Hz\n  Number of channels: 14\n  Channel types: eeg=14\n  Channel names: AF3, F7, F3, FC5, T7, P7, O1, O2, P8, T8, FC6, F4, F8, AF4\n  Montage: standard_1020\n  Hardware: Emotiv EPOC X\n  Reference: CMS/DRL (P3/P4)\n  Ground: DRL\n  Sensor type: saline felt (Ag/AgCl)\n  Line frequency: 50.0 Hz\n\nParticipants\n------------\n  Number of subjects: 30\n  Health status: healthy\n  Gender distribution: male=16, female=14\n\nExperimental Protocol\n---------------------\n  Paradigm: imagery\n  Number of classes: 3\n  Class labels: left_hand, right_hand, trunk\n  Stimulus type: video\n  Mode: offline\n\nHED Event Annotations\n---------------------\n  Schema: HED 8.4.0 | Browse: https://www.hedtags.org/hed-schema-browser\n\n  left_hand\n    ├─ Sensory-event, Experimental-stimulus, Visual-presentation\n    └─ Agent-action\n       └─ Imagine\n          ├─ Move\n          └─ Left, Hand\n\n  right_hand\n    ├─ Sensory-event, Experimental-stimulus, Visual-presentation\n    └─ Agent-action\n       └─ Imagine\n          ├─ Move\n          └─ Right, Hand\n\n  trunk\n    ├─ Sensory-event\n    └─ Label/trunk\n\nTags\n----\n  Modality: Motor\n  Type: Motor Imagery\n\nDocumentation\n-------------\n  Description: MIMED: motor imagery and motor execution EEG dataset of six activities recorded from 30 subjects with an Emotiv EPOC X 14-channel headset at 128 Hz.\n  DOI: 10.1016/j.dib.2024.110833\n  License: CC-BY-4.0\n  Investigators: I Made Agus Wirawan, Dechrit Maneetham, I Gede Mahendra Darmawiguna, Arnon Niyomphol, Pakornkiat Sawetmethikul, Padma Nyoman Crisnapati, Yamin Thwe, Ni Nyoman Mestri Agustini\n  Institution: Universitas Pendidikan Ganesha\n  Department: Data Science Laboratories, Engineering and Vocational Faculty\n  Country: ID\n  Repository: Mendeley Data\n  Data URL: https://doi.org/10.17632/zs25xxjkm9.3\n  Publication year: 2024\n\nAbstract\n--------\nThe MIMED dataset provides EEG recordings of motor imagery and motor execution for six activities (raising and lowering each hand, standing and sitting) from 30 subjects, acquired with a 14-channel Emotiv EPOC X headset at 128 Hz. The distributed imagery .mat files carry no per-repetition activity label, so the loader exposes the reliable folder-level 3-class task (left_hand / right_hand / trunk).\n\nReferences\n----------\nWirawan, I. M. A., et al. (2024). Acquisition and processing of Motor Imagery and Motor Execution Dataset (MIMED) for six movement activities. Data in Brief, 56, 110833. DOI: https://doi.org/10.1016/j.dib.2024.110833\n\n.. versionadded:: 1.8\nAppelhoff, S., Sanderson, M., Brooks, T., Vliet, M., Quentin, R., Holdgraf, C., Chaumon, M., Mikulan, E., Tavabi, K., Hochenberger, R., Welke, D., Brunner, C., Rockhill, A., Larson, E., Gramfort, A. and Jas, M. (2019). MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis. Journal of Open Source Software 4: (1896). https://doi.org/10.21105/joss.01896\n\nPernet, C. R., Appelhoff, S., Gorgolewski, K. J., Flandin, G., Phillips, C., Delorme, A., Oostenveld, R. (2019). EEG-BIDS, an extension to the brain imaging data structure for electroencephalography. Scientific Data, 6, 103. https://doi.org/10.1038/s41597-019-0104-8\n\n---\nGenerated by MOABB 1.8.0dev0 (Mother of All BCI Benchmarks)\nhttps://github.com/NeuroTechX/moabb\n\nEthics\n------\nEthics approval: the data analysed in this deposit were collected under the\nethics approval obtained by the original investigators and reported in the\nprimary publication cited above (see References/Documentation sections of\nthis README). Participants gave informed consent in the source study. No\nnew human-subject data were collected during this BIDS re-release; this\nNEMAR record only reformats the published source data into BIDS via MOABB.\nPlease consult the primary publication for the exact IRB/ethics committee\nreference.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000296",
+    "exists": true,
+    "description": "MIMED2024: Motor Imagery MIMED dataset from Wirawan et al. 2024",
+    "created_at": "2026-10-04T14:30:26+00:00",
+    "updated_at": "2026-10-11T03:04:13+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000390",
   "num_citations": 70,
-  "date_last_updated": "2026-10-11T10:38:31.423387+00:00",
+  "date_last_updated": "2026-10-24T10:28:10.679968+00:00",
   "metadata": {
-    "total_cumulative_citations": 445,
-    "fetch_date": "2026-10-11T10:38:31.423387+00:00",
+    "total_cumulative_citations": 463,
+    "fetch_date": "2026-10-24T10:28:10.679968+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 4,
@@ -74,14 +74,15 @@
     ],
     "keywords": [
       "stereo-EEG",
-      "Magnetoencephalography",
+      "MEG",
       "resting state",
       "phase synchronization",
       "detrended fluctuation analysis",
       "criticality",
+      "epileptogenic zone",
       "Epilepsy"
     ],
-    "methods_description": "SEEG: 10 min of eyes-closed resting state recorded monopolarly at Niguarda Hospital, Milan. Epileptic-artifact windows were rejected, contacts were referenced to the closest white matter, and data were filtered with an FIR broadband filter and 50 Hz notch filters. Phase-locking value and DFA exponents were computed with 24 Morlet wavelets (2-225 Hz). MEG: eyes-open resting-state sessions recorded with a 306-channel Vectorview/Triux system, processed with tSSS and ICA, source-reconstructed to the 400-parcel Schaefer atlas, and analyzed with wPLI and DFA. Simulations used hierarchical Kuramoto models.",
+    "methods_description": "SEEG was recorded for 10 minutes of eyes-closed rest per patient. Epileptic artifact windows were removed and contacts were referenced to the closest white-matter contact. Signals were filtered and decomposed with 24 Morlet wavelets (2-225 Hz) to compute PLV between contact pairs and DFA exponents per contact. MEG was recorded in 192 eyes-open resting sessions, source-reconstructed to the 400-parcel Schaefer atlas, and analyzed with wPLI and DFA.",
     "funding": [
       {
         "funder_name": "Academy of Finland",
@@ -102,13 +103,7 @@
       {
         "funder_name": "Sigrid Jusélius Foundation"
       }
-    ],
-    "searched_accessions": [
-      "nm000390"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 70
+    ]
   },
   "citation_details": [
     {
@@ -117,14 +112,22 @@
       "venue": "Neuron",
       "year": 2025,
       "url": "https://doi.org/10.1016/j.neuron.2025.05.020",
-      "cited_by": 55,
-      "abstract": "Brains face selective pressure to optimize computation, broadly defined. This is achieved by mechanisms including development, plasticity, and homeostasis. Is there a universal optimum around which the healthy brain tunes itself, across time and individuals? The criticality hypothesis posits such a setpoint. Criticality is a state imbued with internally generated, multiscale, marginally stable dynamics that maximize the features of information processing. Experimental support emerged two decades ago and has accumulated at an accelerating pace despite disagreement. Here, we lay out the logic of criticality as a general computational endpoint and review experimental evidence. We perform a meta-analysis of 140 datasets published between 2003 and 2024. We find that a long-standing controversy is the product of a methodological choice with no bearing on underlying dynamics. Our results suggest that a new generation of research can leverage criticality-as a unifying principle of brain functi",
+      "cited_by": 65,
+      "abstract": "ABSTRACT Brains face selective pressure to optimize computation, broadly defined. This optimization is achieved by myriad mechanisms and processes that influence the brain’s computational state. These include development, plasticity, homeostasis, and more. Despite enormous variability over time and between individuals, do these diverse mechanisms converge on the same set-point? Is there a universal computational optimum around which the healthy brain tunes itself? The criticality hypothesis posits such a unified computational set-point. Criticality is a special dynamical brain state, defined by internally-generated multi-scale, marginally-stable dynamics which maximize many features of information processing. The first experimental support for this hypothesis emerged two decades ago, and evidence has accumulated at an accelerating pace, despite a contentious history. Here, we lay out the logic of criticality as a general computational end-point and systematically review experimental ev",
       "doi": "10.1016/j.neuron.2025.05.020",
       "pmid": "40555236",
       "openalex_id": "W4411555724",
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5854777067899705,
+        "similarity_score": 0.5069071054458618,
+        "citation_text_length": 1129,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Excitability and synchronization of vanadium dioxide memristor-inspired neurons",
@@ -139,7 +142,15 @@
       "openalex_id": "W4407064362",
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.507700851559639,
+        "similarity_score": 0.4835246205329895,
+        "citation_text_length": 179,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Rhythmicity of neuronal oscillations delineates their cortical and spectral architecture",
@@ -147,14 +158,22 @@
       "venue": "Communications Biology",
       "year": 2024,
       "url": "https://doi.org/10.1038/s42003-024-06083-y",
-      "cited_by": 32,
+      "cited_by": 31,
       "abstract": "Neuronal oscillations are commonly analyzed with power spectral methods that quantify signal amplitude, but not rhythmicity or 'oscillatoriness' per se. Here we introduce a new approach, the phase-autocorrelation function (pACF), for the direct quantification of rhythmicity. We applied pACF to human intracerebral stereoelectroencephalography (SEEG) and magnetoencephalography (MEG) data and uncovered a spectrally and anatomically fine-grained cortical architecture in the rhythmicity of single- and multi-frequency neuronal oscillations. Evidencing the functional significance of rhythmicity, we found it to be a prerequisite for long-range synchronization in resting-state networks and to be dynamically modulated during event-related processing. We also extended the pACF approach to measure 'burstiness' of oscillatory processes and characterized regions with stable and bursty oscillations. These findings show that rhythmicity is double-dissociable from amplitude and constitutes a functional",
       "doi": "10.1038/s42003-024-06083-y",
       "pmid": "38570628",
       "openalex_id": "W4393899741",
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6752298340201378,
+        "similarity_score": 0.5846145749092102,
+        "citation_text_length": 1257,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Critical-like Brain Dynamics in a Continuum from Second- to First-Order Phase Transition",
@@ -169,7 +188,15 @@
       "openalex_id": "W4387492933",
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6980437678098679,
+        "similarity_score": 0.6043668985366821,
+        "citation_text_length": 1290,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Tracking the Distance to Criticality in Systems with Unknown Noise",
@@ -184,7 +211,38 @@
       "openalex_id": "W4401422122",
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.4862273293733597,
+        "similarity_score": 0.42097604274749756,
+        "citation_text_length": 1168,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "A Shift Toward Supercritical Brain Dynamics Predicts Alzheimer’s Disease Progression",
+      "author": "Ehtasham Javed, Isabel Suárez‐Méndez, Gianluca Susi, Juan Verdejo‐Román, Jaakko Matias Palva, Fernando Maestú, Satu Palva",
+      "venue": "Journal of Neuroscience",
+      "year": 2024,
+      "url": "https://doi.org/10.1523/jneurosci.0688-24.2024",
+      "cited_by": 19,
+      "abstract": "Alzheimer’s disease (AD) is the most common form of dementia with continuum of disease progression of increasing severity from subjective cognitive decline (SCD) to mild cognitive impairment (MCI) and lastly to AD. The transition from MCI to AD has been linked to brain hypersynchronization, but the underlying mechanisms leading to this are unknown. Here, we hypothesized that excessive excitation in AD disease progression would shift brain dynamics toward supercriticality across an extended regime of critical-like dynamics. In this framework, healthy brain activity during aging preserves operation at near the critical phase transition at balanced excitation–inhibition (E/I). To test this hypothesis, we used source-reconstructed resting-state MEG data from a cross-sectional cohort ( N = 343) of individuals with SCD, MCI, and healthy controls (HC) as well as from a longitudinal cohort ( N = 45) of MCI patients. We then assessed brain criticality by quantifying long-range temporal correlat",
+      "doi": "10.1523/jneurosci.0688-24.2024",
+      "pmid": "40011070",
+      "openalex_id": "W4405923461",
+      "source_doi": "10.1038/s41467-023-40056-9",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7092441701889038,
+        "similarity_score": 0.6140642166137695,
+        "citation_text_length": 1267,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Neuronal synchrony and critical bistability: Mechanistic biomarkers for localizing the epileptogenic network",
@@ -199,22 +257,15 @@
       "openalex_id": "W4396528236",
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
-    },
-    {
-      "title": "A Shift Toward Supercritical Brain Dynamics Predicts Alzheimer’s Disease Progression",
-      "author": "Ehtasham Javed, Isabel Suárez‐Méndez, Gianluca Susi, Juan Verdejo‐Román, Jaakko Matias Palva, Fernando Maestú, Satu Palva",
-      "venue": "Journal of Neuroscience",
-      "year": 2024,
-      "url": "https://doi.org/10.1523/jneurosci.0688-24.2024",
-      "cited_by": 18,
-      "abstract": "Alzheimer’s disease (AD) is the most common form of dementia with continuum of disease progression of increasing severity from subjective cognitive decline (SCD) to mild cognitive impairment (MCI) and lastly to AD. The transition from MCI to AD has been linked to brain hypersynchronization, but the underlying mechanisms leading to this are unknown. Here, we hypothesized that excessive excitation in AD disease progression would shift brain dynamics toward supercriticality across an extended regime of critical-like dynamics. In this framework, healthy brain activity during aging preserves operation at near the critical phase transition at balanced excitation–inhibition (E/I). To test this hypothesis, we used source-reconstructed resting-state MEG data from a cross-sectional cohort ( N = 343) of individuals with SCD, MCI, and healthy controls (HC) as well as from a longitudinal cohort ( N = 45) of MCI patients. We then assessed brain criticality by quantifying long-range temporal correlat",
-      "doi": "10.1523/jneurosci.0688-24.2024",
-      "pmid": "40011070",
-      "openalex_id": "W4405923461",
-      "source_doi": "10.1038/s41467-023-40056-9",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7372274833917619,
+        "similarity_score": 0.6382921934127808,
+        "citation_text_length": 1285,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Functional excitation-inhibition ratio indicates near-critical oscillations across frequencies",
@@ -229,7 +280,15 @@
       "openalex_id": "W4402911697",
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6691960573196412,
+        "similarity_score": 0.5793905258178711,
+        "citation_text_length": 1308,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Chaotic dynamics and synchronization of multi-region neural network based on locally active memristor",
@@ -237,14 +296,45 @@
       "venue": "Chaos Solitons & Fractals",
       "year": 2025,
       "url": "https://doi.org/10.1016/j.chaos.2025.116437",
-      "cited_by": 15,
+      "cited_by": 16,
       "abstract": null,
       "doi": "10.1016/j.chaos.2025.116437",
       "pmid": null,
       "openalex_id": "W4409719535",
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5058393895626069,
+        "similarity_score": 0.48175179958343506,
+        "citation_text_length": 187,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Defining and measuring proximity to criticality",
+      "author": "J. Samuel Sooter, Antonio J. Fontenele, Andrea K. Barreiro, Cheng Ly, Keith B. Hengen, Woodrow L. Shew",
+      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+      "year": 2025,
+      "url": "https://doi.org/10.1101/2025.08.03.668332",
+      "cited_by": 14,
+      "abstract": "Over the half century since the renormalization group (RG) brought about deep understanding of critical phenomena in condensed matter physics, it has been claimed that diverse social, engineered, astrophysical, and biological systems operate close to criticality. However, these systems do not afford the neat phase diagrams and exquisite control available in condensed matter physics. How can one assess proximity to criticality when control parameters are unknown, difficult to manipulate experimentally, and fluctuating in response to changing environmental or internal conditions? Here we meet this challenge with a rigorous theoretical framework and data-analytic strategy for measuring proximity to criticality from observed system dynamics. We developed a temporal RG, well-suited to commonly measured time series, and an information theoretic quantification of proximity to criticality that is independent of model parameterization. After benchmarking our approach on diverse ground-truth cas",
+      "doi": "10.1101/2025.08.03.668332",
+      "pmid": null,
+      "openalex_id": "W4412883517",
+      "source_doi": "10.1038/s41467-023-40056-9",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.4802676969766618,
+        "similarity_score": 0.41581618785858154,
+        "citation_text_length": 1227,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Linking the microarchitecture of neurotransmitter systems to large-scale MEG resting state networks",
@@ -259,22 +349,15 @@
       "openalex_id": "W4403267450",
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
-    },
-    {
-      "title": "Defining and measuring proximity to criticality",
-      "author": "J. Samuel Sooter, Antonio J. Fontenele, Andrea K. Barreiro, Cheng Ly, Keith B. Hengen, Woodrow L. Shew",
-      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
-      "year": 2025,
-      "url": "https://doi.org/10.1101/2025.08.03.668332",
-      "cited_by": 12,
-      "abstract": "Over the half century since the renormalization group (RG) brought about deep understanding of critical phenomena in condensed matter physics, it has been claimed that diverse social, engineered, astrophysical, and biological systems operate close to criticality. However, these systems do not afford the neat phase diagrams and exquisite control available in condensed matter physics. How can one assess proximity to criticality when control parameters are unknown, difficult to manipulate experimentally, and fluctuating in response to changing environmental or internal conditions? Here we meet this challenge with a rigorous theoretical framework and data-analytic strategy for measuring proximity to criticality from observed system dynamics. We developed a temporal RG, well-suited to commonly measured time series, and an information theoretic quantification of proximity to criticality that is independent of model parameterization. After benchmarking our approach on diverse ground-truth cas",
-      "doi": "10.1101/2025.08.03.668332",
-      "pmid": null,
-      "openalex_id": "W4412883517",
-      "source_doi": "10.1038/s41467-023-40056-9",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6581352692842484,
+        "similarity_score": 0.5698140859603882,
+        "citation_text_length": 1197,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Cortex deviates from criticality during action and deep sleep: a temporal renormalization group approach",
@@ -289,11 +372,19 @@
       "openalex_id": null,
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6125999960303308,
+        "similarity_score": 0.5303896069526672,
+        "citation_text_length": 1228,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Memristor-coupled heterogeneous Hopfield neural network with switchable activation functions and its synchronization control",
-      "author": "Yang Liu, Jie Zhang",
+      "author": "Liu Yang, Jie Zhang",
       "venue": "Chaos Solitons & Fractals",
       "year": 2025,
       "url": "https://doi.org/10.1016/j.chaos.2025.117101",
@@ -304,7 +395,15 @@
       "openalex_id": "W4414164912",
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.42948317974805833,
+        "similarity_score": 0.40903159976005554,
+        "citation_text_length": 195,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "EEG spectral attractors identify a geometric core of brain dynamics",
@@ -312,14 +411,22 @@
       "venue": "Patterns",
       "year": 2024,
       "url": "https://doi.org/10.1016/j.patter.2024.101025",
-      "cited_by": 9,
+      "cited_by": 10,
       "abstract": "Multidimensional reconstruction of brain attractors from electroencephalography (EEG) data enables the analysis of geometric complexity and interactions between signals in state space. Utilizing resting-state data from young and older adults, we characterize periodic (traditional frequency bands) and aperiodic (broadband exponent) attractors according to their geometric complexity and shared dynamical signatures, which we refer to as a geometric cross-parameter coupling. Alpha and aperiodic attractors are the least complex, and their global shapes are shared among all other frequency bands, affording alpha and aperiodic greater predictive power. Older adults show lower geometric complexity but greater coupling, resulting from dedifferentiation of gamma activity. The form and content of resting-state thoughts were further associated with the complexity of attractor dynamics. These findings support a process-developmental perspective on the brain's dynamic core, whereby more complex info",
       "doi": "10.1016/j.patter.2024.101025",
       "pmid": "39568645",
       "openalex_id": "W4400819955",
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.660185975432396,
+        "similarity_score": 0.5715895891189575,
+        "citation_text_length": 1146,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Hierarchical whole-brain modeling of critical synchronization dynamics in the human brain",
@@ -334,7 +441,15 @@
       "openalex_id": "W7138328608",
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.688239233493805,
+        "similarity_score": 0.5958781242370605,
+        "citation_text_length": 1306,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Infra-slow scale-free dynamics modulate the connection of neural and behavioral variability during attention",
@@ -349,7 +464,15 @@
       "openalex_id": "W4412479560",
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6357793503999711,
+        "similarity_score": 0.5504583120346069,
+        "citation_text_length": 1233,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Unstable slow oscillations couple with epileptogenic fast‐rhythm bistability in sleep‐related epilepsy: A stereoelectroencephalographic study",
@@ -364,7 +487,38 @@
       "openalex_id": "W7134839238",
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6171409732103349,
+        "similarity_score": 0.5343211889266968,
+        "citation_text_length": 1441,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Role of criticality in the structure-function relationship in the human brain",
+      "author": "Marianna Angiolelli, Silvia Scarpetta, Pierpaolo Sorrentino, Emahnuel Troisi Lopez, Mario Quarantelli, C. Granata, Giuseppe Sorrentino, Vincenzo Palmieri, Giovanni Messuti, Mattia Stefano, Simonetta Filippi, Christian Cherubini, Alessandro Loppini, Letizia Chiodo",
+      "venue": "Physical Review Research",
+      "year": 2025,
+      "url": "https://doi.org/10.1103/physrevresearch.7.043153",
+      "cited_by": 7,
+      "abstract": "A healthy brain exhibits a rich dynamical repertoire, with flexible spatiotemporal patterns replaying on both microscopic and macroscopic scales. We hypothesize that the observed relationship between empirical structure and functional patterns is best explained when the microscopic neuronal dynamics is close to a critical regime. Using a modular spiking neuronal network model based on empirical connectomes, we posit that multiple stored functional patterns can transiently reoccur when the system operates near a critical regime, generating realistic brain dynamics and structural-functional relationships. The connections in the model are chosen so as to force the network to learn and propagate suited modular spatiotemporal patterns. To test our hypothesis, we employ magnetoencephalography and tractography data from five healthy individuals. We show that the extended critical region of the model maximizes the structure-function correlation and generates realistic features, demonstrating t",
+      "doi": "10.1103/physrevresearch.7.043153",
+      "pmid": null,
+      "openalex_id": "W4416204604",
+      "source_doi": "10.1038/s41467-023-40056-9",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7113650277256965,
+        "similarity_score": 0.615900456905365,
+        "citation_text_length": 1403,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "A memristive hopfield neural network with heterogeneous autapses: dynamics, FPGA implementation and application",
@@ -379,7 +533,15 @@
       "openalex_id": "W4414417127",
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.39561393409967427,
+        "similarity_score": 0.37677517533302307,
+        "citation_text_length": 189,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Chaotic nature of the electroencephalogram during shallow and deep anesthesia: From analysis of the Lyapunov exponent",
@@ -394,7 +556,15 @@
       "openalex_id": "W4401529457",
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6056552839279176,
+        "similarity_score": 0.5243768692016602,
+        "citation_text_length": 1182,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Balancing excitation and inhibition: The role of neural network dynamics in working memory gating",
@@ -409,22 +579,15 @@
       "openalex_id": "W4404368846",
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
-    },
-    {
-      "title": "Role of criticality in the structure-function relationship in the human brain",
-      "author": "Marianna Angiolelli, Silvia Scarpetta, Pierpaolo Sorrentino, Emahnuel Troisi Lopez, Mario Quarantelli, C. Granata, Giuseppe Sorrentino, Vincenzo Palmieri, Giovanni Messuti, Mattia Stefano, Simonetta Filippi, Christian Cherubini, Alessandro Loppini, Letizia Chiodo",
-      "venue": "Physical Review Research",
-      "year": 2025,
-      "url": "https://doi.org/10.1103/physrevresearch.7.043153",
-      "cited_by": 6,
-      "abstract": "A healthy brain exhibits a rich dynamical repertoire, with flexible spatiotemporal patterns replaying on both microscopic and macroscopic scales. We hypothesize that the observed relationship between empirical structure and functional patterns is best explained when the microscopic neuronal dynamics is close to a critical regime. Using a modular spiking neuronal network model based on empirical connectomes, we posit that multiple stored functional patterns can transiently reoccur when the system operates near a critical regime, generating realistic brain dynamics and structural-functional relationships. The connections in the model are chosen so as to force the network to learn and propagate suited modular spatiotemporal patterns. To test our hypothesis, we employ magnetoencephalography and tractography data from five healthy individuals. We show that the extended critical region of the model maximizes the structure-function correlation and generates realistic features, demonstrating t",
-      "doi": "10.1103/physrevresearch.7.043153",
-      "pmid": null,
-      "openalex_id": "W4416204604",
-      "source_doi": "10.1038/s41467-023-40056-9",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.49166327029466633,
+        "similarity_score": 0.4256824851036072,
+        "citation_text_length": 1316,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Role of homeostatic plasticity in critical brain dynamics following focal stroke lesions",
@@ -439,11 +602,19 @@
       "openalex_id": "W4405909523",
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6596664834022523,
+        "similarity_score": 0.5711398124694824,
+        "citation_text_length": 1193,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Emergence of metastability in frustrated oscillatory networks: the key role of hierarchical modularity",
-      "author": "Enrico Caprioglio, Luc Berthouze",
+      "author": "Enrico Caprioglio, Luc Berthouze A",
       "venue": "Frontiers in Network Physiology",
       "year": 2024,
       "url": "https://doi.org/10.3389/fnetp.2024.1436046",
@@ -454,7 +625,38 @@
       "openalex_id": "W4401736817",
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5604355542361737,
+        "similarity_score": 0.4852255880832672,
+        "citation_text_length": 1206,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Toward Unified Biomarkers for Focal Epilepsy",
+      "author": "Sheng Hua Wang, Paul Ferrari, Gabriele Arnulfo, Morgane Marzulli, David Degras, Vladislav O. Myrov, Satu Palva, Lino Nobili, Philippe Ciuciu, Jaakko Matias Palva",
+      "venue": "Journal of Neuroscience",
+      "year": 2025,
+      "url": "https://doi.org/10.1523/jneurosci.0879-25.2025",
+      "cited_by": 4,
+      "abstract": "Abstract Accurately localizing the epileptogenic network (EpiNet) remains a major barrier to effective epilepsy treatment, largely due to limited mechanistic understanding. The EpiNet is a patient-specific brain network shaped by complex, overlapping pathology. While combining biomarkers can improve localization, it also generates high-dimensional feature data that increases the risk of overfitting and reduces interpretability. We hypothesized that the core epileptogenic dynamics could be captured in a low-dimensional latent space derived from empirical data, without the need to record seizures. From interictal stereo-EEG (SEEG) recordings in 64 patients (29 females), we extracted 260 neuronal features and reduced them to 10 latent components using singular value decomposition. A classifier trained on these 10 components was then simplified into a probabilistic EpiNet model requiring only two components as input. Individual position in this two-dimensional latent space correlated with ",
+      "doi": "10.1523/jneurosci.0879-25.2025",
+      "pmid": "41298116",
+      "openalex_id": "W4416714567",
+      "source_doi": "10.1038/s41467-023-40056-9",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5871839207410813,
+        "similarity_score": 0.5083843469619751,
+        "citation_text_length": 1267,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Sleep-related epilepsy through the lens of stereo-EEG: Clinical and research update",
@@ -469,7 +671,15 @@
       "openalex_id": "W4411443075",
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6393815106153489,
+        "similarity_score": 0.5535770654678345,
+        "citation_text_length": 1310,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "A multi-scale information fusion approach for brain network construction in epileptic EEG analysis",
@@ -484,7 +694,15 @@
       "openalex_id": "W4407186575",
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6651959449052811,
+        "similarity_score": 0.6335199475288391,
+        "citation_text_length": 201,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Altered long-range functional connectivity in PTSD: Role of the infraslow oscillations of cortical activity amplitude envelopes",
@@ -499,22 +717,38 @@
       "openalex_id": "W4394676311",
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6162553721666337,
+        "similarity_score": 0.5335544347763062,
+        "citation_text_length": 1255,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
-      "title": "Toward Unified Biomarkers for Focal Epilepsy",
-      "author": "Sheng Hua Wang, Paul Ferrari, Gabriele Arnulfo, Morgane Marzulli, David Degras, Vladislav O. Myrov, Satu Palva, Lino Nobili, Philippe Ciuciu, Jaakko Matias Palva",
-      "venue": "Journal of Neuroscience",
+      "title": "Proximity to explosive synchronization determines network collapse and recovery trajectories in neural and economic crises",
+      "author": "UnCheol Lee, Hyoungkyu Kim, Minkyung Kim, Gabjin Oh, Pangyu Joo, A-young Park, Dinesh Pal, Irene Tracey, Catherine E. Warnaby, JAMIE W. SLEIGH, George A. Mashour",
+      "venue": "Proceedings of the National Academy of Sciences",
       "year": 2025,
-      "url": "https://doi.org/10.1523/jneurosci.0879-25.2025",
+      "url": "https://doi.org/10.1073/pnas.2505434122",
       "cited_by": 3,
-      "abstract": "Abstract Accurately localizing the epileptogenic network (EpiNet) remains a major barrier to effective epilepsy treatment, largely due to limited mechanistic understanding. The EpiNet is a patient-specific brain network shaped by complex, overlapping pathology. While combining biomarkers can improve localization, it also generates high-dimensional feature data that increases the risk of overfitting and reduces interpretability. We hypothesized that the core epileptogenic dynamics could be captured in a low-dimensional latent space derived from empirical data, without the need to record seizures. From interictal stereo-EEG (SEEG) recordings in 64 patients (29 females), we extracted 260 neuronal features and reduced them to 10 latent components using singular value decomposition. A classifier trained on these 10 components was then simplified into a probabilistic EpiNet model requiring only two components as input. Individual position in this two-dimensional latent space correlated with ",
-      "doi": "10.1523/jneurosci.0879-25.2025",
-      "pmid": "41298116",
-      "openalex_id": "W4416714567",
+      "abstract": "Complex systems such as the conscious brain and financial markets often operate near criticality, a regime that supports flexible and efficient function. When perturbed, however, rapid deviations from, and prolonged recovery to, criticality can severely disrupt these systems. The nature of such transitions depends on a system's intrinsic phase transition type. Most systems in nature undergo continuous (second-order) transitions, but some approach a discontinuous, first-order transition known as explosive synchronization (ES). Systems nearer to first-order transitions are more unstable, losing criticality more rapidly and recovering more slowly. However, no existing method can directly determine from empirical data how close a system is to a first-order regime, limiting our ability to predict criticality transition patterns. Here, we introduce a physics-based framework that estimates a network's ES proximity at the critical point. Using modified Stuart-Landau oscillator networks, we sho",
+      "doi": "10.1073/pnas.2505434122",
+      "pmid": "39677733",
+      "openalex_id": "W4415706879",
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5926794111728668,
+        "similarity_score": 0.5131423473358154,
+        "citation_text_length": 1369,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Is critical brain dynamics more prevalent than previously thought?",
@@ -529,7 +763,15 @@
       "openalex_id": "W4414073552",
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6313512074947358,
+        "similarity_score": 0.5466244220733643,
+        "citation_text_length": 1244,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Is mild ADHD beneficial? Brain criticality peaks at intermediate ADHD symptom scores across the population",
@@ -544,7 +786,15 @@
       "openalex_id": "W4311604601",
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.622399848997593,
+        "similarity_score": 0.5388743281364441,
+        "citation_text_length": 1319,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Spectral patterns of MEG oscillatory coupling emerge from meta-stable dynamics with small coupling delays",
@@ -559,7 +809,38 @@
       "openalex_id": "W4413506040",
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6091355225443841,
+        "similarity_score": 0.5273900628089905,
+        "citation_text_length": 1282,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Multifractality in critical neural field dynamics",
+      "author": "Merlin Dumeur, Sheng Hua Wang, Jaakko Matias Palva, Philippe Ciuciu",
+      "venue": "Physical review. E",
+      "year": 2026,
+      "url": "https://doi.org/10.1103/14z6-hzy3",
+      "cited_by": 3,
+      "abstract": "The brain criticality hypothesis has largely only characterized brain dynamics in terms of their self-similarity, although experimental evidence suggests that the brain exhibits significant multifractality. To understand how multifractality may emerge in critical-like systems modeling neuronal activity, we used a neural field model exhibiting neural oscillations and a critical phase transition. We find that multifractality emerges near a synchronization phase transition, and that the pattern of variation in multifractality changes when placing the model at a different phase transition. These findings show that multifractality in temporal dynamics emerges near criticality in neural fields, providing a formal basis for interpreting multifractality in brain recordings.",
+      "doi": "10.1103/14z6-hzy3",
+      "pmid": "42316648",
+      "openalex_id": "W7125932863",
+      "source_doi": "10.1038/s41467-023-40056-9",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6504374796152116,
+        "similarity_score": 0.5631493330001831,
+        "citation_text_length": 949,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Criticality explains structure-function relationships in the human brain",
@@ -574,7 +855,15 @@
       "openalex_id": null,
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5932536274194717,
+        "similarity_score": 0.5650034546852112,
+        "citation_text_length": 302,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Pinning synchronization of networked chaotic oscillators under sporadic control failure",
@@ -589,22 +878,15 @@
       "openalex_id": "W4417032613",
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
-    },
-    {
-      "title": "Proximity to explosive synchronization determines network collapse and recovery trajectories in neural and economic crises",
-      "author": "UnCheol Lee, Hyoungkyu Kim, Minkyung Kim, Gabjin Oh, Pangyu Joo, A-young Park, Dinesh Pal, Irene Tracey, Catherine E. Warnaby, JAMIE W. SLEIGH, George A. Mashour",
-      "venue": "Proceedings of the National Academy of Sciences",
-      "year": 2025,
-      "url": "https://doi.org/10.1073/pnas.2505434122",
-      "cited_by": 2,
-      "abstract": "Complex systems such as the conscious brain and financial markets often operate near criticality, a regime that supports flexible and efficient function. When perturbed, however, rapid deviations from, and prolonged recovery to, criticality can severely disrupt these systems. The nature of such transitions depends on a system's intrinsic phase transition type. Most systems in nature undergo continuous (second-order) transitions, but some approach a discontinuous, first-order transition known as explosive synchronization (ES). Systems nearer to first-order transitions are more unstable, losing criticality more rapidly and recovering more slowly. However, no existing method can directly determine from empirical data how close a system is to a first-order regime, limiting our ability to predict criticality transition patterns. Here, we introduce a physics-based framework that estimates a network's ES proximity at the critical point. Using modified Stuart-Landau oscillator networks, we sho",
-      "doi": "10.1073/pnas.2505434122",
-      "pmid": "41166428",
-      "openalex_id": "W4415706879",
-      "source_doi": "10.1038/s41467-023-40056-9",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.3753517359495163,
+        "similarity_score": 0.3574778437614441,
+        "citation_text_length": 166,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "The fluctuations of alpha power: Bimodalities, connectivity, and neural mass models",
@@ -619,22 +901,15 @@
       "openalex_id": "W4411399592",
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
-    },
-    {
-      "title": "Multifractality in critical neural field dynamics",
-      "author": "Merlin Dumeur, Sheng Hua Wang, Jaakko Matias Palva, Philippe Ciuciu",
-      "venue": "Physical review. E",
-      "year": 2026,
-      "url": "https://doi.org/10.1103/14z6-hzy3",
-      "cited_by": 2,
-      "abstract": "The brain criticality hypothesis has largely only characterized brain dynamics in terms of their self-similarity, although experimental evidence suggests that the brain exhibits significant multifractality. To understand how multifractality may emerge in critical-like systems modeling neuronal activity, we used a neural field model exhibiting neural oscillations and a critical phase transition. We find that multifractality emerges near a synchronization phase transition, and that the pattern of variation in multifractality changes when placing the model at a different phase transition. These findings show that multifractality in temporal dynamics emerges near criticality in neural fields, providing a formal basis for interpreting multifractality in brain recordings.",
-      "doi": "10.1103/14z6-hzy3",
-      "pmid": "42316648",
-      "openalex_id": "W7125932863",
-      "source_doi": "10.1038/s41467-023-40056-9",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5924122300744057,
+        "similarity_score": 0.5129110217094421,
+        "citation_text_length": 1306,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "FlowSDE: a flow-matching-based SDE framework for predicting state transitions",
@@ -649,7 +924,15 @@
       "openalex_id": "W7165126204",
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.43585918307304383,
+        "similarity_score": 0.3773672580718994,
+        "citation_text_length": 1273,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Clinical markers of disease progression in the prodromal to overt alpha-synucleinopathy continuum",
@@ -664,11 +947,19 @@
       "openalex_id": "W7162752883",
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.4573692923784256,
+        "similarity_score": 0.3959907293319702,
+        "citation_text_length": 1816,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Functional and structural connectivity of thalamic subnuclei in major depressive disorder at 7 Tesla",
-      "author": "Weijian Liu, S. Liu, Jurjen Heij, Laurens A. van de Mortel, Luka C. Liebrand, M. Caan, Wietske van der Zwaag, Dick J. Veltman, Lin Lu, Moji Aghajani, Guido Alexander van Wingen",
+      "author": "Weijian Liu, Shu Liu, Jurjen Heij, Laurens A. van de Mortel, Luka C. Liebrand, Matthan W.A. Caan, Wietske van der Zwaag, Dick J. Veltman, Lin Lu, Moji Aghajani, Guido Alexander van Wingen",
       "venue": "Psychiatry and Clinical Neurosciences",
       "year": 2026,
       "url": "https://doi.org/10.1111/pcn.70048",
@@ -679,7 +970,15 @@
       "openalex_id": "W7134959240",
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5462498626112939,
+        "similarity_score": 0.47294360399246216,
+        "citation_text_length": 1363,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Long-range temporal correlations in violence and psychosis: An EEG-based study",
@@ -694,7 +993,15 @@
       "openalex_id": "W4416528384",
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5874491742253305,
+        "similarity_score": 0.5086140036582947,
+        "citation_text_length": 1384,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Noninvasive Biomarkers for Assessing the Excitatory/Inhibitory Imbalance in Children with Epilepsy",
@@ -709,7 +1016,15 @@
       "openalex_id": "W4414562516",
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6012655556201935,
+        "similarity_score": 0.5205762386322021,
+        "citation_text_length": 1283,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Abnormally enhanced temporal correlations of alpha oscillations across multiple timescales in tinnitus patients",
@@ -724,7 +1039,15 @@
       "openalex_id": "W4414380148",
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5515055371820927,
+        "similarity_score": 0.4774939715862274,
+        "citation_text_length": 1256,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Unveiling Cortical Criticality Changes along the Prodromal to the Overt Continuum of Alpha-Synucleinopathy",
@@ -739,7 +1062,15 @@
       "openalex_id": "W4411983226",
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6332361388206483,
+        "similarity_score": 0.5482563972473145,
+        "citation_text_length": 1394,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Node centrality in MEG resting-state networks co-varies with neurotransmitter receptor and transporter density",
@@ -754,7 +1085,15 @@
       "openalex_id": "W4390840497",
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6295992815494538,
+        "similarity_score": 0.5451076030731201,
+        "citation_text_length": 1239,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "The default mode network during sleep: spindle oscillations and long-range cortical interactions in memory consolidation",
@@ -769,7 +1108,15 @@
       "openalex_id": "W4414805130",
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5249018105864526,
+        "similarity_score": 0.4544604420661926,
+        "citation_text_length": 1239,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Outlier detection and removal in multifractal analysis of electrophysiological brain signals",
@@ -784,7 +1131,15 @@
       "openalex_id": "W4413559075",
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5831385469436646,
+        "similarity_score": 0.5048818588256836,
+        "citation_text_length": 1230,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Structural connectome dimension shapes brain dynamics in health and disease",
@@ -799,7 +1154,15 @@
       "openalex_id": null,
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5697139531373978,
+        "similarity_score": 0.49325883388519287,
+        "citation_text_length": 1207,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Optimal Griffiths Phase in Heterogeneous Human Brain Networks: Brain Criticality Embracing Stability and Flexibility across Individuals",
@@ -814,7 +1177,15 @@
       "openalex_id": null,
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6446889209747315,
+        "similarity_score": 0.5581722259521484,
+        "citation_text_length": 1233,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Low-dimensional brain-symptom associations delineate depression phenotypes with distinct connectivity biomarkers and symptom profiles",
@@ -829,7 +1200,15 @@
       "openalex_id": null,
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6435557591915132,
+        "similarity_score": 0.5571911334991455,
+        "citation_text_length": 1389,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "All Roads Lead to Rome: Resting-State Criticality as a Neurophysiological Marker of Brain-Computer Interface (BCI) Performance in People with Amyotrophic Lateral Sclerosis (ALS) and Healthy Participants",
@@ -840,11 +1219,19 @@
       "cited_by": 0,
       "abstract": null,
       "doi": "10.21203/rs.3.rs-10422321/v1",
-      "pmid": null,
+      "pmid": "42856741",
       "openalex_id": "W7214725857",
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5594261884689331,
+        "similarity_score": 0.5327868461608887,
+        "citation_text_length": 359,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Partial synchronization and its applications to brain networks",
@@ -859,7 +1246,15 @@
       "openalex_id": "W7212281440",
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6140571346879007,
+        "similarity_score": 0.5316511988639832,
+        "citation_text_length": 1163,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Magnetoencephalography oscillation-based functional connectivity identifies clinically relevant depression phenotypes",
@@ -874,7 +1269,15 @@
       "openalex_id": "W7204789029",
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5937875828146936,
+        "similarity_score": 0.5141018033027649,
+        "citation_text_length": 1440,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Organoid intelligence: a promising paradigm for autism spectrum disorder research",
@@ -889,11 +1292,19 @@
       "openalex_id": "W7204817155",
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.41686603724956517,
+        "similarity_score": 0.3970152735710144,
+        "citation_text_length": 213,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Decoding neuronal criticality firing patterns for large brain based EEG models",
-      "author": "Szilard L. Beres, Victoria Ribeiro Rodrigues, Christopher Myers, Nicholas J. Napoli",
+      "author": "Szilard L. Beres, Victoria Ribeiro Rodrigues, Christopher W. Myers, Nicholas J. Napoli",
       "venue": "NeuroImage",
       "year": 2026,
       "url": "https://doi.org/10.1016/j.neuroimage.2026.122082",
@@ -904,11 +1315,19 @@
       "openalex_id": "W7167455458",
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7485527676343918,
+        "similarity_score": 0.6480976343154907,
+        "citation_text_length": 1213,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Cortical synchrony is reduced in Alzheimer's disease and relates to arousal state",
-      "author": "Michael C. B. David, Emma‐Jane Mallas, Magdalena Kolanko, Martina Del Giovane, Danielle L. Kurtin, Ramin Nilforooshan, Karl A. Zimmerman, Cristina Bonet Olivares, Peter J. Lally, CR&T Group of UKDRI, David J Sharp, Paresh Malhotra, Gregory Scott",
+      "author": "Michael C. B. David, Emma‐Jane Mallas, Magdalena Kolanko, Martina Del Giovane, Danielle L. Kurtin, Ramin Nilforooshan, Karl A. Zimmerman, Cristina Bonet Olivares, Peter Lally, CR&T Group of UKDRI, David James Sharp, Paresh Malhotra, Gregory Scott",
       "venue": "Alzheimer s & Dementia",
       "year": 2026,
       "url": "https://doi.org/10.1002/alz.71547",
@@ -919,7 +1338,15 @@
       "openalex_id": "W7164384369",
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6640883615612985,
+        "similarity_score": 0.5749682784080505,
+        "citation_text_length": 1388,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "REM sleep reconfigures large-scale network dynamics: a link to its suppressive role in epilepsy",
@@ -934,7 +1361,15 @@
       "openalex_id": "W7133243487",
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7516938149929048,
+        "similarity_score": 0.6508171558380127,
+        "citation_text_length": 1403,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Mitigating activity mixing with personalized whole-brain modeling",
@@ -949,7 +1384,15 @@
       "openalex_id": "W7131299159",
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5938176673650742,
+        "similarity_score": 0.5141278505325317,
+        "citation_text_length": 1274,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Dynamic Rationality: Bridging Neuroeconomics and Dynamical Systems in the Study of Choice",
@@ -964,26 +1407,42 @@
       "openalex_id": "W7129089694",
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.36666957065463074,
+        "similarity_score": 0.31746283173561096,
+        "citation_text_length": 1175,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
-      "title": "Emergent critical oscillations in motor cortex of Parkinson's patients",
+      "title": "Emergent critical oscillations in motor cortex of Parkinson’s patients",
       "author": "Cheng Ly, J. Samuel Sooter, Andrea K. Barreiro, Antonio J. Fontenele, Woodrow L. Shew",
       "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
       "year": 2026,
       "url": "https://doi.org/10.64898/2026.01.09.698590",
       "cited_by": 0,
-      "abstract": "The dynamical state of cortical neural activity constrains the complexity of functions it can perform. A marginally stable dynamical state - called criticality - is thought to be beneficial for brain functions that require multiple time scales, broad dynamic range, and large information storage and transmission. A growing body of evidence suggests that criticality is a feature of healthy brain dynamics, but breaks down in certain brain disorders. Here we ask whether Parkinson's disease incurs deviation from criticality compared to healthy controls. We analyze human resting state EEG activity in primary motor cortex. Parkinson's patients exhibit prominent oscillatory brain activity in multiple frequency bands (low delta and high theta) that is not present in controls. Surprisingly, we find that these emergent oscillations are close to criticality, i.e., amplitude fluctuations with approximate temporal scale invariance. We compare traditional signatures of criticality and more principled",
+      "abstract": "Abstract The dynamical state of cortical neural activity constrains the complexity of functions it can perform. A marginally stable dynamical state - called criticality - is thought to be beneficial for brain functions that require multiple time scales, broad dynamic range, and large information storage and transmission. A growing body of evidence suggests that criticality is a feature of healthy brain dynamics, but breaks down in certain brain disorders. Here we ask whether Parkinson’s disease incurs deviation from criticality compared to healthy controls. We analyze human resting state EEG activity in primary motor cortex. Parkinson’s patients exhibit prominent oscillatory brain activity in multiple frequency bands (low delta and high theta) that is not present in controls. Surprisingly, we find that these emergent oscillations are close to criticality, i.e., amplitude fluctuations with approximate temporal scale invariance. We compare traditional signatures of criticality and more p",
       "doi": "10.64898/2026.01.09.698590",
       "pmid": "41542408",
       "openalex_id": "W7121692654",
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7053998190164568,
+        "similarity_score": 0.6107357740402222,
+        "citation_text_length": 1233,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Replication and validation of two novel magnetoencephalography functional connectivity measures in Alzheimer’s disease",
-      "author": "Elliz P. Scheijbeler, Milo Molleson, Deborah N. Schoonhoven, Anne M van Nifterick, Arjan Hillebrand, Willem de Haan, Cornelis J. Stam, Alida A. Gouw",
+      "author": "Elliz P. Scheijbeler, Milo Molleson, Deborah N. Schoonhoven, Anne M van Nifterick, Arjan Hillebrand, Willem de Haan, Cornelis Jan Stam, Alida A. Gouw",
       "venue": "Imaging Neuroscience",
       "year": 2026,
       "url": "https://doi.org/10.1162/imag.a.1113",
@@ -994,7 +1453,15 @@
       "openalex_id": "W7118391939",
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6648717990517617,
+        "similarity_score": 0.5756465792655945,
+        "citation_text_length": 1326,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Impact of the Excitatory-Inhibitory Neurons Ratio on Scale-Free Dynamics in a Leaky Integrate-and-Fire Model",
@@ -1009,7 +1476,15 @@
       "openalex_id": "W4389154154",
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5375425882637501,
+        "similarity_score": 0.46540483832359314,
+        "citation_text_length": 1259,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Neural Phase Synchronization During Sleep: Comparison of Ischemic Stroke Patients and Healthy Controls Using Kuramoto Model Analysis",
@@ -1024,7 +1499,15 @@
       "openalex_id": null,
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6255664372444154,
+        "similarity_score": 0.5416159629821777,
+        "citation_text_length": 1306,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "ADHD symptoms across the population are explained by individual variability in brain criticality.",
@@ -1039,7 +1522,15 @@
       "openalex_id": null,
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6589993911981584,
+        "similarity_score": 0.5705622434616089,
+        "citation_text_length": 1259,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Activity propagation with Hebbian learning",
@@ -1054,7 +1545,15 @@
       "openalex_id": null,
       "source_doi": "10.1038/s41467-023-40056-9",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.414633259177208,
+        "similarity_score": 0.3589898347854614,
+        "citation_text_length": 1151,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Synchronization transitions on connectome graphs with external force",
@@ -1069,7 +1568,15 @@
       "openalex_id": "W4323668153",
       "source_doi": "10.1101/2022.11.24.517800",
       "source_relation": "References",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5266044791042805,
+        "similarity_score": 0.4559346139431,
+        "citation_text_length": 1178,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Machine Learning Models Trained in a Low-Dimensional Latent Space for Epileptogenic Zone (EZ) Localization",
@@ -1084,7 +1591,15 @@
       "openalex_id": null,
       "source_doi": "10.1101/2022.11.24.517800",
       "source_relation": "References",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6000737392902376,
+        "similarity_score": 0.5195443630218506,
+        "citation_text_length": 1288,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Aberrant brain criticality as a neural basis of preclinical Alzheimer’s disease",
@@ -1099,11 +1614,19 @@
       "openalex_id": "W4312197590",
       "source_doi": "10.1101/2022.11.24.517800",
       "source_relation": "References",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.691227999329567,
+        "similarity_score": 0.5984658002853394,
+        "citation_text_length": 1278,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "E/I unbalance and aberrant oscillation dynamics predict preclinical Alzheimer’s disease",
-      "author": "Ehtasham Javed, Isabel Suárez-Méndez, G. Susi, J. Roman, Matias J. Palva, F. Maestú, S. Palva",
+      "author": "Ehtasham Javed, Isabel Suárez-Méndez, G. Susi, J. Roman, Matias Palva, F. Maestú, S. Palva",
       "venue": "n/a",
       "year": 2022,
       "url": "n/a",
@@ -1114,7 +1637,15 @@
       "openalex_id": null,
       "source_doi": "10.1101/2022.11.24.517800",
       "source_relation": "References",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.48355595022439957,
+        "similarity_score": 0.46052947640419006,
+        "citation_text_length": 207,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Dimensionality reduction of quantitative EEG and clinical profiles uncover associations with monogenic neurodevelopmental phenotypes in SNAREopathies",
@@ -1129,7 +1660,15 @@
       "openalex_id": "W7125799450",
       "source_doi": "10.1101/2022.11.24.517800",
       "source_relation": "References",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6500630405545235,
+        "similarity_score": 0.5628251433372498,
+        "citation_text_length": 1479,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Mathematical modeling and optimization for real life phenomena",
@@ -1144,7 +1683,15 @@
       "openalex_id": "W4392779373",
       "source_doi": "10.1101/2022.11.24.517800",
       "source_relation": "References",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.24461954444646838,
+        "similarity_score": 0.21179181337356567,
+        "citation_text_length": 1129,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Altered Brain Dynamics in idiopathic REM sleep behavior disorder: Implications for a continuum from prodromal to overt alpha-synucleinopathies",
@@ -1159,7 +1706,31 @@
       "openalex_id": "W4375853556",
       "source_doi": "10.1101/2022.11.24.517800",
       "source_relation": "References",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5525300985574724,
+        "similarity_score": 0.47838103771209717,
+        "citation_text_length": 1431,
+        "dataset_text_length": 2554,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
-  ]
+  ],
+  "confidence_scoring": {
+    "model_used": "Qwen/Qwen3-Embedding-0.6B",
+    "scoring_date": "2026-10-24T11:23:00.007678+00:00",
+    "dataset_text_length": 2554,
+    "num_citations_scored": 70,
+    "summary_stats": {
+      "mean_confidence": 0.5861233702450991,
+      "median_confidence": 0.6034604197740555,
+      "std_confidence": 0.09858881463624601,
+      "min_confidence": 0.24461954444646838,
+      "max_confidence": 0.7516938149929048,
+      "high_confidence_count": 6,
+      "medium_confidence_count": 60,
+      "low_confidence_count": 4
+    }
+  }
 }

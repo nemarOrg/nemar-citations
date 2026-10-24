@@ -1,0 +1,76 @@
+{
+  "dataset_id": "nm000379",
+  "date_retrieved": "2026-10-12T10:05:05.295710+00:00",
+  "dataset_description": {
+    "Name": "Rapid coordination of effective learning by the human hippocampus: intracranial EEG during scene recognition with eye tracking",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "raw",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "James E. Kragel",
+      "Stephan Schuele",
+      "Stephen VanHaerents",
+      "Joshua M. Rosenow",
+      "Joel L. Voss"
+    ],
+    "Acknowledgements": "Data release: Zenodo record 4728229 v1.0.0 (Kragel, Schuele, VanHaerents, Rosenow, Voss). BIDS conversion: ieeg-nemar-20261005 campaign (batch-2 Zenodo lane); no signal processing applied.",
+    "HowToAcknowledge": "Please cite Kragel JE, Schuele S, VanHaerents S, Rosenow JM, Voss JL (2021) Rapid coordination of effective learning by the human hippocampus. Sci Adv 7(25):eabf7144. doi:10.1126/sciadv.abf7144, and the data record doi:10.5281/zenodo.4728229.",
+    "Funding": [
+      "National Institute of Neurological Disorders and Stroke T32NS047987",
+      "National Institute of Neurological Disorders and Stroke R01NS113804"
+    ],
+    "EthicsApprovals": [
+      "Informed consent was required before participation in the research protocol in accordance with the Northwestern University Institutional Review Board (Kragel et al. 2021, Methods)."
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.1126/sciadv.abf7144",
+      "https://doi.org/10.5281/zenodo.4728229",
+      "https://cocodataset.org",
+      "https://doi.org/10.1101/2020.10.20.347831",
+      "https://pubmed.ncbi.nlm.nih.gov/34144985/"
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000379",
+    "Keywords": [
+      "intracranial EEG",
+      "stereo-EEG",
+      "hippocampus",
+      "eye movements",
+      "theta",
+      "episodic memory",
+      "learning and memory",
+      "scene recognition",
+      "eye tracking",
+      "revisitation",
+      "theta oscillations",
+      "drug-resistant epilepsy"
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.5281/zenodo.4728229",
+        "URL": "https://zenodo.org/records/4728229",
+        "Version": "1.0.0 (2021-06-18)"
+      }
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "b2zen_convert041.py",
+        "Description": "Lossless re-packaging of the Nihon Kohden ASCII exports (2-decimal uV) into BrainVision INT_32 (resolution 0.01 uV); no filtering, resampling, re-referencing or channel removal."
+      }
+    ],
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000379-blue)](https://doi.org/10.82901/nemar.nm000379)\n\n# Rapid coordination of effective learning by the human hippocampus — intracranial EEG + eye tracking\n\n## Overview\n\nStereo-EEG from **6 patients** with medically refractory epilepsy (Northwestern Memorial Hospital Comprehensive Epilepsy\nCenter, Chicago) performing a scene recognition memory task with concurrent EyeLink eye tracking. Re-packaged in\niEEG-BIDS from the authors' public release (Zenodo record [4728229](https://doi.org/10.5281/zenodo.4728229), v1.0.0,\n\"Data and scripts related to: Rapid coordination of effective learning by the human hippocampus\", CC BY 4.0).\n\nReference article: Kragel JE, Schuele S, VanHaerents S, Rosenow JM, Voss JL (2021). *Rapid coordination of effective\nlearning by the human hippocampus.* Science Advances 7(25):eabf7144. https://doi.org/10.1126/sciadv.abf7144\n\n## Participants\nSix participants (three females; average age 29 years, range 24–38) with medically refractory epilepsy and depth\nelectrodes including the hippocampus (inclusion criterion), implanted for neurosurgical monitoring before elective surgery\n(Kragel et al. 2021). Sex and age are reported only at group level, so `participants.tsv` lists `n/a` per participant.\nThe NEMAR dataset on006065 (Kragel et al. 2025, closed-loop theta stimulation) comes from the same laboratory; it is a\ndifferent study, task and set of recordings.\n\nClinical summary at cohort level (Kragel et al. 2021, Materials and Methods): average FSIQ (WAIS-IV) 98.3 (range 76-112);\nno hippocampal sclerosis on neuroimaging in any participant; etiology typically cortical dysplasia (N = 4); seizure onset\nzones within mesial (N = 2), lateral (N = 1) or multiple (N = 1) temporal lobe structures, with additional onset zones in\nthe cingulate cortex (N = 1) and in nodular heterotopic grey matter lining the temporal and occipital horns of the lateral\nventricle (N = 1). Per participant, `participants.tsv` gives implanted hemispheres (from the authors' MNI coordinates:\nsub-01 both, sub-02 to sub-04 right, sub-05 and sub-06 left), SEEG channel and contact counts, the sampling rate and the\nrecording year and month (2019-05 to 2020-06, from the EyeLink EDF headers of the release; the day is not given).\n\n## Task\nScene recognition memory task (Presentation 18.0): eight blocks; in each block the participant studied a sequence of 24\nimages (natural scenes from Microsoft COCO 2017 train images with people, animals or food; eight of each category per\nblock) followed by a recognition test. Each BIDS run is one block exported by the authors (`S<N>_sl_block<k>.m00` →\n`run-<k>`; participant 3 has blocks 1, 2 and 4 only; participants 4–6 fewer blocks, as released). The scene images are\nnot redistributed (COCO); the image identifiers are in `sourcedata/KragelEtal21_SciAdv/data/behav/S*/S*_stim_array*.txt`.\n\nTiming (Materials and Methods): at study each scene was shown for 3 s after a 0.5 s central fixation cross, with a\n0.8-1.2 s jittered intertrial interval; scenes subtended about 24 x 24 degrees. At test, 24 repeated and 24 novel\ncontent-matched scenes were shown in pseudorandom order with gaze-contingent viewing (grey overlay revealed through a\nGaussian window, sigma 1.25 degrees, at the gaze position), starting from a cue at the highest- or lowest-salience object\n(DeepGaze II); the participant pressed a button to indicate whether the scene was repeated or novel. Eye movements were\nrecorded at 500 Hz with an EyeLink 1000 remote system, validated before every study and test phase.\n\n## Recording\nNihon Kohden amplifier, 1 or 2 kHz per clinical needs (participants 1–3: 2000 Hz; 4–6: 1000 Hz, from the export headers),\nhardware band-pass 0.6–600 Hz. Clinical reference and ground: an implanted strip facing the scalp or a scalp electrode.\nAD-TECH depth electrodes (contacts 5–10 mm apart). Participant 6 also has scalp channels (`sCz`, `sPz`, typed EEG) and a\n`Ref3` channel (MISC).\n\n## What was converted, and how\n- Source: Nihon Kohden ASCII exports (`.m00`), header `TimePoints= Channels= BeginSweep[ms]=0.00 SamplingInterval[ms]=…\n  Bins/uV=1.000 Time=…`, then one row per sample with microvolt values printed with 2 decimals. Each value was written\n  as a BrainVision `INT_32` count with resolution 0.01 µV — **lossless** (the converter asserts that value×100 is an\n  integer for every sample, and the round-trip re-reads every ASCII file).\n- Channel names: as in the export header with the export's `*` flag characters and a split \"`REF 1`\" token removed\n  (the same clean-up as the authors' `ascii_to_h5.m`); the original header token is kept in `channels.tsv:source_label`.\n  The `reference` column is the part after the hyphen (e.g. `REF1`). Participant 3's exports list `J2-REF1` twice\n  (columns with different data positions); both are kept, the repeat is named `J2-REF1_2` (noted in\n  `status_description`).\n- The `DC03`/`DC04` channel is the DC input that the authors' code uses as the **sync-pulse** channel (`ecog_reref.m`);\n  typed TRIG. Its header unit label (`(cm)` or empty) is recorded in `status_description`; the values are written in the\n  same scaling as all other channels.\n- No bipolar re-referencing, line-noise removal or epileptiform-data exclusion (all done in the paper's analysis) was\n  applied.\n- **Events**: the release has no event table aligned to the iEEG samples. Task events in the paper are built by the\n  authors' code from the EyeLink EDF files, the behavioural arrays and the sync pulses (`code/preproc/create_events.m`,\n  `adjust_S1_events.m`). These inputs and the code are included under `sourcedata/`, but no `events.tsv` is generated\n  here, to avoid inventing an alignment.\n- **Electrodes**: contact coordinates from `data/localization/S*/S*_mni.csv` (authors' MNI coordinates: T1 normalized with\n  SPM12, deformations applied to CT-identified contacts with Bioimage Suite). They are labelled `space-IXI549Space`, the\n  BIDS label for SPM12's normalization template; the extra csv columns are kept (`source_*`).\n\n## Analysis preprocessing in the paper (not applied here)\nBipolar re-referencing of adjacent contacts; DFT removal of 60, 120 and 180 Hz; exclusion of data within 1 s of\ninterictal epileptiform discharges (automated detector); bipolar pairs with at least one contact in hippocampus, dorsal\nattention network or visual network analysed.\n\n## sourcedata/\n`sourcedata/KragelEtal21_SciAdv/` holds the release content: the original `.m00` files, behavioural arrays, localization\nCSVs, MATLAB code (GPL-3.0-or-later per the release; includes third-party toolboxes under their own licences) and the\nEyeLink `.edf` files. **EyeLink files were de-identified**: the `** DATE:` header line (recording date and time) was\nchanged to keep year, month and clock time, with the day set to 01 and the weekday masked (`---`), same byte length;\nnothing else was changed (SHA-256 of original and public versions in `sourcedata/b2zen_provenance_IEEG041.json`). The\nunmodified originals remain only in the Zenodo release. External datasets used in the paper (FIGRIM, Memory I/II, Yeo\nparcellation, Harvard-Oxford atlas, DeepGaze II predictions) are not included; see the release readme.\n\n## Licence\nData: CC BY 4.0 (Zenodo metadata license id `cc-by-4.0`). Code in `sourcedata/`: GNU GPL v3 or later, as stated in the\nrelease.\n\n## Known caveats\n- No `events.tsv`: task events must be rebuilt with the authors' code from the EyeLink files, behavioural arrays and\n  sync pulses (see \"What was converted, and how\").\n- Age and sex are only reported at group level; per-participant values are n/a.\n- Participant 3 has iEEG for blocks 1, 2 and 4 only; participants 4-6 have fewer blocks, as released.\n- Recording year-month comes from the eye-tracker clock (EDF headers), not from the iEEG exports.\n\n## How to load\n```python\nfrom mne_bids import BIDSPath, read_raw_bids\nraw = read_raw_bids(BIDSPath(root=\".\", subject=\"01\", task=\"scenerecognition\", run=\"01\", datatype=\"ieeg\"))\n```\n\n## Citation\nKragel JE, Schuele S, VanHaerents S, Rosenow JM, Voss JL (2021). Rapid coordination of effective learning by the human\nhippocampus. Science Advances 7(25):eabf7144. doi:10.1126/sciadv.abf7144. Data: doi:10.5281/zenodo.4728229.\n\n## Provenance of the metadata\nArticle full text (PMC8213228); Zenodo record 4728229 and release files (export headers, localization CSVs, EyeLink EDF\nheaders). Enriched 2026-10-07.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000379",
+    "exists": true,
+    "description": "Rapid coordination of effective learning by the human hippocampus: intracranial EEG during scene recognition with eye tracking",
+    "created_at": "2026-10-06T22:51:08+00:00",
+    "updated_at": "2026-10-08T06:04:09+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

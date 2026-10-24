@@ -1,0 +1,109 @@
+{
+  "dataset_id": "nm000363",
+  "date_retrieved": "2026-10-12T10:04:13.197031+00:00",
+  "dataset_description": {
+    "Name": "Human medial temporal lobe single units during a verbal working memory task (Boran et al.): spike times and waveforms aligned to OpenNeuro ds004752",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "derivative",
+    "License": "CC-BY-SA-4.0",
+    "Authors": [
+      "Ece Boran",
+      "Tommaso Fedele",
+      "Adrian Steiner",
+      "Peter Hilfiker",
+      "Lennart Stieglitz",
+      "Thomas Grunwald",
+      "Johannes Sarnthein"
+    ],
+    "Acknowledgements": "Data recorded and spike-sorted by the authors (Klinik für Neurochirurgie, UniversitätsSpital Zürich; Schweizerisches Epilepsie-Zentrum, Zürich) and released in NIX format on G-Node GIN (doi:10.12751/g-node.d76994). Re-packaged as a BIDS derivative keyed to OpenNeuro ds004752 subject/session labels by Bruno Aristimunha for NEMAR; no values were changed. Source authors' acknowledgement (Boran et al. 2020, Sci Data 7:30): \"We thank the physicians and the staff at Schweizerische Epilepsie-Klinik for their assistance and the subjects for their participation.\"",
+    "HowToAcknowledge": "Please cite Boran E, Fedele T, Steiner A, Hilfiker P, Stieglitz L, Grunwald T, Sarnthein J (2020) Dataset of human medial temporal lobe neurons, scalp and intracranial EEG during a verbal working memory task. Scientific Data 7:30, doi:10.1038/s41597-020-0364-3; Boran E et al. (2019) Persistent hippocampal neural firing and hippocampal-cortical coupling predict verbal working memory load. Science Advances 5(3):eaav3687, doi:10.1126/sciadv.aav3687; and the original data release doi:10.12751/g-node.d76994.",
+    "Funding": [
+      "Swiss National Science Foundation, SNSF 320030_176222 (to J.S.)",
+      "Mach-Gaensslen Stiftung (to J.S.)",
+      "Stiftung für wissenschaftliche Forschung an der Universität Zürich (to J.S.)",
+      "Forschungskredit der Universität Zürich (to T.F.)"
+    ],
+    "EthicsApprovals": [
+      "All subjects provided written informed consent for the study, which was approved by the institutional ethics review board (Kantonale Ethikkommission Zürich, PB-2016-02055). (Boran et al. 2020, Scientific Data 7:30, Methods: Subjects)"
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.1038/s41597-020-0364-3",
+      "https://doi.org/10.1126/sciadv.aav3687",
+      "https://doi.org/10.12751/g-node.d76994",
+      "https://github.com/jniediek/combinato",
+      "https://data.nemar.org/on004752/",
+      "https://doi.org/10.18112/openneuro.ds004752.v1.0.1",
+      "https://gin.g-node.org/doi/Human_MTL_units_scalp_EEG_and_iEEG_verbal_WM",
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC6972902/",
+      "https://doi.org/10.1371/journal.pone.0166598",
+      "https://doi.org/10.7554/eLife.78677",
+      "https://www.neurobs.com/ex_files/expt_view?id=266"
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "laneA_convert_ieeg016.py + laneA_finalize_ieeg016.py",
+        "Description": "Extraction of spike times, mean/std spike waveforms, unit-to-electrode mapping, trial properties and trial event tags from the 37 NIX (HDF5) files of the GIN release, written as TSV keyed to ds004752 participant/session labels. Values copied as stored; no re-sorting, filtering or rescaling. Scalp EEG and iEEG time series were not exported (published in ds004752). Code in code/.",
+        "CodeURL": "code/"
+      },
+      {
+        "Name": "Combinato",
+        "Description": "Spike detection and sorting performed by the original authors (Boran et al. 2020), followed by visual curation and merging of similar clusters on the same microwire.",
+        "CodeURL": "https://github.com/jniediek/combinato"
+      }
+    ],
+    "SourceDatasets": [
+      {
+        "URL": "https://data.nemar.org/on004752/",
+        "DOI": "doi:10.82901/nemar.on004752",
+        "Version": "v1.0.0"
+      },
+      {
+        "URL": "https://doi.org/10.18112/openneuro.ds004752.v1.0.1",
+        "DOI": "doi:10.18112/openneuro.ds004752.v1.0.1",
+        "Version": "1.0.1"
+      },
+      {
+        "URL": "https://doi.org/10.12751/g-node.d76994",
+        "DOI": "doi:10.12751/g-node.d76994",
+        "Version": "GIN DOI release (published 2019-12-04); repository master commit 0b27b34ecd0da217e4403bdd080b4a0d78f155fd"
+      }
+    ],
+    "Keywords": [
+      "single units",
+      "spike times",
+      "microwire",
+      "human",
+      "medial temporal lobe",
+      "hippocampus",
+      "entorhinal cortex",
+      "amygdala",
+      "verbal working memory",
+      "Sternberg task",
+      "epilepsy",
+      "iEEG",
+      "spike sorting",
+      "Combinato",
+      "neuronal action potential",
+      "Neuralynx ATLAS",
+      "NIX",
+      "drug-resistant focal epilepsy",
+      "depth electrodes"
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000363",
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000363-blue)](https://doi.org/10.82901/nemar.nm000363)\n\n# Human medial temporal lobe single units during verbal working memory: spike data aligned to OpenNeuro ds004752\n\n## Companion to NEMAR on004752 (OpenNeuro ds004752): the single-unit data of the same 9 patients\nThis dataset holds the **single-unit (microwire) data** for the **same 9 patients** whose scalp EEG and\nintracranial EEG are published as **NEMAR on004752**, a mirror of **OpenNeuro ds004752**. It does not\nrepeat that EEG/iEEG.\n\n- NEMAR on004752: https://data.nemar.org/on004752/ (DOI https://doi.org/10.82901/nemar.on004752)\n- OpenNeuro ds004752, version 1.0.1: https://doi.org/10.18112/openneuro.ds004752.v1.0.1\n\n**Subject labels are identical.** `sub-01` to `sub-09` here are `sub-01` to `sub-09` of on004752 and\nds004752, the same patients under the same labels. ds004752's `sciAdv_identifier` column (1–9) links them to\n\"Subject 1\"–\"Subject 9\" of the original NIX release and of Boran et al. 2019/2020. Patients `sub-10` to\n`sub-15` of ds004752 had no unit recordings in this release.\n\n**Session labels are identical.** `ses-01` to `ses-07` match the ds004752 sessions of the same subject trial\nby trial: the set size, probe letter and response time agree for every trial. The one exception is\n`sub-08/ses-05`: that NIX session exists only in the original release and has no ds004752 counterpart.\n\n**Trial numbers are identical.** `trial` here equals `nTrial` in the ds004752 `events.tsv`. A spike at\n`spike_time` falls at `onset(nTrial) + spike_time + 6 s` on the ds004752 recording.\n\n## What this dataset is\nThis is a **BIDS derivative** dataset with the **single-unit content** of the dataset by Boran et al.\n(G-Node GIN, doi:10.12751/g-node.d76994; Scientific Data 7:30, 2020, doi:10.1038/s41597-020-0364-3), re-keyed to the\nsubject and session labels of **OpenNeuro ds004752** (mirrored on NEMAR as **on004752**,\ndoi:10.82901/nemar.on004752). ds004752 publishes the scalp EEG and intracranial EEG (iEEG) of the same nine\npatients, plus six more, but none of their microwire unit data. This dataset adds the missing unit data:\n\n- 1526 sorted units (single- and multi-unit activity; the source does not label which) recorded on\n  microwires in the hippocampus, entorhinal cortex and amygdala, from 30 of 37 sessions of nine subjects;\n- 1,526,770 spike times, given per trial;\n- the mean and standard deviation of each unit's waveform;\n- the mapping of each unit to its microwire, depth electrode, macro contact, MNI coordinates and anatomical label;\n- per-trial task properties and trial event tags;\n- participant metadata from the NIX files that ds004752 lacks: handedness, implanted depth electrodes and\n  seizure-onset-zone electrodes.\n\nThe scalp EEG and iEEG time series inside the NIX files are **not** included, because they are already archived\nas ds004752. Combine the two datasets by matching `participant_id`, `session_id` and the trial number.\n\n## Subjects and sessions\nNine patients with drug-resistant focal epilepsy were implanted with depth electrodes in the medial temporal lobe\nfor clinical evaluation (Schweizerisches Epilepsie-Zentrum, Zürich). Subjects `sub-01` to `sub-09` are the\nds004752 labels. The `sciAdv_identifier` column of `participants.tsv` gives the subject number used in the NIX\nrelease and the papers; ds004752's own participants.tsv provides that crosswalk.\n\n**How sessions were matched.** Each NIX session was compared with every ds004752 session of the same subject,\ntrial by trial (set size, probe letter and response time).\n- 36 of the 37 NIX sessions match exactly one ds004752 session with the same number, identical on all trials\n  (see `sub-*/sub-*_sessions.tsv` and `code/source_provenance.json`).\n- NIX `Data_Subject_08_Session_05` (49 trials, 87 units) matches no ds004752 session. It is included as\n  `sub-08/ses-05`, and its EEG/iEEG is not present in ds004752.\n- Seven sessions have no microwire units in the source: sub-01 ses-03 and ses-04, sub-06 ses-04 to ses-07, and\n  sub-07 ses-01. For these sessions only the trial tables are provided.\n\n## Task\nThis is a modified Sternberg task. Each 8-s trial has four phases, timed relative to probe onset:\n- fixation, −6 to −5 s;\n- encoding, −5 to −3 s: eight consonants are shown, and the middle 4, 6 or 8 are the memory items (the set size);\n- maintenance, −3 to 0 s;\n- probe, from 0 s: a probe letter appears, and the subject answers by button press whether it was in the set\n  (IN/OUT).\n\nEach session had about 50 trials. The task was run in Presentation® (Neurobehavioral Systems,\nwww.neurobs.com/ex_files/expt_view?id=266). The task is `verbalWM`, as in ds004752.\n\nFurther task details from Boran et al. 2020 (Sci Data 7:30, Methods):\n- \"The subjects were instructed to respond as rapidly as possible without making errors.\"\n- After the response the probe was turned off and the subjects received acoustic feedback on whether the response was\n  correct; \"a trial with an incorrect response was always followed by a trial with a set size of four\".\n- \"The subjects performed 50 trials in one session, which lasted approximately 10 min\"; several subjects performed\n  more than one session, up to seven, during the recording period of several days.\n- Presentation® version 18.0, run on a notebook computer in front of the subject; event TTL pulses were sent to the\n  ATLAS acquisition system via a parallel port.\n\n## Recording and spike sorting\nThese details are taken from Boran et al. 2020.\n- **Electrodes:** AdTech depth electrodes (1.3 mm diameter, 8 contacts of 1.6 mm, 5 mm spacing). Each electrode\n  has nine microwires protruding about 4 mm from its tip.\n- **Acquisition:** Neuralynx ATLAS, recorded against a common intracranial reference. Microwires were sampled at\n  32 kHz and macro contacts at 4 kHz (resampled to 2 kHz in the release), with a 0.5–5000 Hz passband.\n- **Spike sorting:** Combinato (https://github.com/jniediek/combinato). Steps:\n  - peak detection in the >500 Hz high-passed signal;\n  - wavelet features;\n  - superparamagnetic clustering.\n- **Curation:** clusters were inspected visually. Clusters with firing rate below 0.1 Hz, noisy waveforms or\n  non-uniform shape were removed, and highly similar clusters on the same microwire were merged.\n- **Anatomy:** electrode positions come from post-implantation CT and MRI, normalized to MNI space and labelled\n  with the Brainnetome atlas, with manual labels where needed (`macro_label_manual_entry`).\n- **Implantation:** \"Implantation sites were selected solely based on the clinical indication.\" All subjects \"had\n  normal or corrected-to-normal vision and were right-handed as confirmed by neuropsychological testing\".\n- **Scalp EEG (in ds004752, not here):** 10-20 system with minor adaptations, NicoletOne system at 256 Hz\n  (0.3-100 Hz passband, Natus).\n- **Sorting quality reported by the authors:** sorting yielded single-unit (SUA) and multi-unit activity (MUA);\n  percentage of inter-spike intervals below 3 ms 1.58 ± 4.18%; waveform peak signal-to-noise ratio 3.28 ± 1.56.\n- **Spike-sorting method reference:** Niediek J, Bostrom J, Elger CE, Mormann F (2016) Reliable Analysis of\n  Single-Unit Recordings from the Human Brain under Noisy Conditions: Tracking Neurons over Hours. PLoS One\n  11:e0166598, doi:10.1371/journal.pone.0166598.\n\n## Files\nEach `sub-XX/ses-YY/ieeg/` folder holds the following files, all named `sub-XX_ses-YY_task-verbalWM_<kind>.tsv`.\nTheir column definitions are in the top-level `task-verbalWM_<kind>.json` sidecars.\n\n| file | content |\n|---|---|\n| `_units.tsv` | one row per unit: microwire, macro contact, anatomical label, MNI coordinates, spike count |\n| `_spikes.tsv` | one row per spike: `unit_id`, `trial`, `spike_time` (s, relative to probe onset) |\n| `_waveforms.tsv` | per unit, a mean row and a std row, each with 64 samples (µV) at 32 kHz starting −0.59375 ms before the peak |\n| `_trials.tsv` | set size, probe letter, match, correctness, response code, response time, artifact flag |\n| `_trialevents.tsv` | NIX trial event tags (fixation, stimulus, maintenance, probe, response), trial-relative times |\n\n**Aligning to ds004752.** To place spikes on the ds004752 iEEG/EEG timeline (EDF), take the onset of the\nds004752 `events.tsv` row whose `nTrial` equals `trial` and add `spike_time` + 6 s.\n\n## How to load\n```python\nimport pandas as pd\nd = \"sub-01/ses-01/ieeg/sub-01_ses-01_task-verbalWM_\"\nunits = pd.read_csv(d + \"units.tsv\", sep=\"\\t\")\nspikes = pd.read_csv(d + \"spikes.tsv\", sep=\"\\t\")      # unit_id, trial, spike_time (s from probe onset)\ntrials = pd.read_csv(d + \"trials.tsv\", sep=\"\\t\")\n# spikes of unit 1 in correct set-size-8 trials\nok = trials.query(\"correct == 1 and set_size == 8\").trial\nst = spikes[(spikes.unit_id == 1) & spikes.trial.isin(ok)]\n```\nThe matching iEEG/EEG time series are in on004752/ds004752 (same `sub-`/`ses-` labels; `trial` == `nTrial`).\n\n## Known caveats\n- Units are not labelled as single- or multi-unit in the source; the paper reports both SUA and MUA.\n- Spike times exist only inside the 8-s trial windows ([-6, 2] s around probe onset); inter-trial spikes are not in\n  the source.\n- Unit numbers are defined per session file; the same `unit_id` in two sessions does not imply the same neuron.\n- Seven sessions have no units (listed under Subjects and sessions); `sub-08/ses-05` has no EEG/iEEG in ds004752.\n- `response` holds raw button codes (values 1, 2, 51, 52 occur); the source does not document their mapping.\n  Use `match` and `correct` for the response outcome.\n\n**Validator.** Microelectrode spike data have no BIDS suffix yet, so these files are listed in `.bidsignore`. The\nBIDS validator therefore checks the dataset-level files, `participants.tsv` and `sessions.tsv`.\n\n## Source and changes\n- **Source:** the 37 NIX files of the GIN release (17.3 GB). They were downloaded over the repository's public\n  HTTP endpoint and verified against its git-annex MD5 keys.\n- **Re-checking:** SHA-256 checksums are listed in each `sessions.tsv`. The code that produced this dataset is in\n  `code/`.\n- **Values:** all values are copied as stored, with no re-sorting, filtering or rescaling.\n- **Session label:** the only relabeling is the session label of sub-08's fifth NIX session, which ds004752\n  lacks.\n- **Not copied:** the NIX files themselves, and the `usz_identifier` column of ds004752 (a hospital database\n  number).\n\n## License and citation\nThe source data are licensed CC BY-SA 4.0 (`LICENSE`, copied verbatim from the GIN repository). This derivative\nis distributed under the same license, as share-alike requires.\n\nPlease cite:\n- Boran et al. 2020, Scientific Data 7:30, doi:10.1038/s41597-020-0364-3;\n- Boran et al. 2019, Science Advances 5:eaav3687, doi:10.1126/sciadv.aav3687;\n- the GIN dataset, doi:10.12751/g-node.d76994.\n\nFor the EEG/iEEG, also cite ds004752: Dimakopoulos et al. 2022, eLife 11:e78677,\ndoi:10.18112/openneuro.ds004752.v1.0.1.\n\n## Ethics\nAll subjects gave written informed consent. The study was approved by the Kantonale Ethikkommission Zürich\n(PB-2016-02055) (Boran et al. 2020).\n\n## Funding\nBoran et al. 2020, Acknowledgements: \"We acknowledge grants awarded by the Swiss National Science Foundation (SNSF\n320030_176222 to J.S.), Mach-Gaensslen Stiftung (to J.S.), Stiftung für wissenschaftliche Forschung an der\nUniversität Zürich (to J.S.) and by Forschungskredit der Universität Zürich (to T.F.).\" The same funders are listed in\nthe GIN DataCite record of doi:10.12751/g-node.d76994.\n\n## Atlas labels of the macro contacts (added 2026-10-08)\n\nEach `*_units.tsv` has two derived columns for the unit's macro contact: `macro_contact_atlas_label_AAL3v1` (AAL3v1 label at the contact's MNI coordinate, nearest labelled voxel within 8 mm) and `macro_contact_atlas_label_DesikanKilliany` (aparc label of the nearest fsaverage pial vertex within 5 mm; n/a for deep contacts). They are atlas lookups of the coordinates already in the file (ieeg-atlas project), not labels given by the authors; `anatomical_location` keeps the authors' label. Over the 46 macro contacts the AAL3v1 lookup falls in the same coarse structure as the authors' label for 37.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000363",
+    "exists": true,
+    "description": "Human medial temporal lobe single units during a verbal working memory task (Boran et al.): spike times and waveforms aligned to OpenNeuro ds004752",
+    "created_at": "2026-10-06T16:07:00+00:00",
+    "updated_at": "2026-10-12T03:01:22+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

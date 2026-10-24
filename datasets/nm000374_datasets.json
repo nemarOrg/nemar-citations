@@ -1,0 +1,90 @@
+{
+  "dataset_id": "nm000374",
+  "date_retrieved": "2026-10-12T10:04:50.528462+00:00",
+  "dataset_description": {
+    "Name": "Electrophysiological signatures underlying variability in human memory consolidation: raw intracranial EEG (learning and sleep TMR)",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "raw",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "Wei Duan",
+      "Zhansheng Xu",
+      "Dong Chen",
+      "Jing Wang",
+      "Jiali Liu",
+      "Zheng Tan",
+      "Xue Xiao",
+      "Pengcheng Lv",
+      "Mengyang Wang",
+      "Ken A. Paller",
+      "Nikolai Axmacher",
+      "Liang Wang"
+    ],
+    "Acknowledgements": "Data release: Zenodo record 14885382 (creator: Wei Duan). BIDS conversion: ieeg-nemar-20261005 campaign (batch-2 Zenodo lane); no signal processing applied. The paper also thanks the Core Facilities of the Institute of Psychology, CAS, for support (Duan et al. 2025 Nat Commun 16:2472, doi:10.1038/s41467-025-57766-x, Acknowledgements).",
+    "HowToAcknowledge": "Please cite Duan W, Xu Z, et al. (2025) Electrophysiological signatures underlying variability in human memory consolidation. Nat Commun 16:2472. doi:10.1038/s41467-025-57766-x, and the data record doi:10.5281/zenodo.14885382.",
+    "Funding": [
+      "National Natural Science Foundation of China (32020103009, awarded to L.W.)",
+      "STI2030-Major Projects (2022ZD0205000, awarded to L.W.)",
+      "National Key Research and Development Program of China (2024YFF1206500, awarded to L.W.)",
+      "Ministry Key Project (GW0890006, awarded to L.W.)",
+      "Scientific Foundation of the Institute of Psychology, Chinese Academy of Sciences (E2CX4215CX, awarded to L.W.)",
+      "ERC grant agreement 864164 (ERC-CoG GridRepresentations, awarded to N.A.)"
+    ],
+    "EthicsApprovals": [
+      "Informed consent was obtained from all participants and study procedures were approved by the ethical committee of Beijing Sanbo brain hospital."
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.1038/s41467-025-57766-x",
+      "https://doi.org/10.5281/zenodo.14885382",
+      "https://doi.org/10.5281/zenodo.14583770",
+      "https://doi.org/10.5281/zenodo.14885381",
+      "https://doi.org/10.5281/zenodo.3259369",
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11903871/"
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000374",
+    "Keywords": [
+      "intracranial EEG",
+      "stereo-EEG",
+      "memory consolidation",
+      "targeted memory reactivation",
+      "sleep",
+      "NREM",
+      "hippocampus",
+      "ripples",
+      "object-location memory",
+      "epilepsy",
+      "sleep spindles",
+      "object-location association",
+      "Sanbo Brain Hospital"
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.5281/zenodo.14885382",
+        "URL": "https://zenodo.org/records/14885382",
+        "Version": "Zenodo record 14885382 (published 2025-02-18)"
+      }
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "b2zen_convert040.py",
+        "Description": "Lossless re-packaging of the authors' MATLAB arrays into BrainVision (float32) with BIDS sidecars; no filtering, resampling, re-referencing or channel removal.",
+        "CodeURL": "n/a"
+      }
+    ],
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000374-blue)](https://doi.org/10.82901/nemar.nm000374)\n\n# Electrophysiological signatures underlying variability in human memory consolidation — raw intracranial EEG\n\n## Overview\nIntracranial EEG (stereo-EEG depth electrodes) from **11 patients** with medically refractory temporal lobe epilepsy\n(Sanbo Brain Hospital, Beijing) recorded during (1) learning of object–location associations and (2) targeted memory\nreactivation (TMR) with sounds during NREM sleep. Re-packaged in iEEG-BIDS from the authors' public release\n(Zenodo record [14885382](https://doi.org/10.5281/zenodo.14885382), concept DOI 10.5281/zenodo.14885381, \"Raw data of\narticle: Electrophysiological signatures underlying variability in human memory consolidation\", CC BY 4.0). The Zenodo\nrecord describes itself as \"Raw intracranial electrophysiological signals and behavioral data from 11 participants. All\ndata processed using MATLAB 2019b.\"\n\nReference article: Duan W, Xu Z, Chen D, Wang J, Liu J, Tan Z, Xiao X, Lv P, Wang M, Paller KA, Axmacher N, Wang L (2025).\n*Electrophysiological signatures underlying variability in human memory consolidation.* Nature Communications 16:2472.\nhttps://doi.org/10.1038/s41467-025-57766-x (PMC11903871). Processed data and analysis code:\nhttps://doi.org/10.5281/zenodo.14583770. Ripple-detection code used by the authors: https://doi.org/10.5281/zenodo.3259369.\n\n## Participants / cohort\nEleven patients (2 females and 9 males; mean age 23.9 ± 5.4 years, SD) with medically refractory temporal lobe epilepsy,\nstereotactically implanted with depth contacts to identify epileptogenic zones, recruited at Beijing Sanbo Brain Hospital;\nthey participated voluntarily without compensation, and all reported normal or corrected-to-normal visual acuity and\nnormal colour vision (Duan et al. 2025, Methods). Recording years are not stated in the paper or the release.\nThe release and the paper give sex and age only at group level; `participants.tsv` therefore lists `n/a` for per-subject\nage/sex and carries the per-subject recording-site information of Supplementary Table S1 (total recording sites,\nhippocampal contacts, electrode laterality, seizure onset zone and laterality) and the per-subject TMR cue counts of\nSupplementary Table S3 (total cues and cues per sleep stage N3/N2/N1/wake; number of presentations per cued sound).\n`n_electrode_groups` (number of electrode labels in the channel names) is derived from the release itself.\n\nSubject mapping: release file `subNN_raw_data.mat` = `sub-NN` = paper Subject ID NN. Evidence: Table S1's \"total\nrecording sites\" equals the channel count of each subject's release file for all 11 subjects (checked by the converter);\nthe number of `mark_tmr` markers is lowest for sub-01 (150) and sub-02 (230) and 300 for all others, consistent with the\nMethods statement that the first two participants of Table S3 heard each cued sound 3 and 4 times instead of 6; and\nright-only implants in Table S1 (subjects 1, 5, 8, 9, 10) have only primed electrode labels while the left-only implant\n(subject 7) has only unprimed labels.\n\n## Task\n- `task-learning`: object–location association learning. 50 objects (small squares with 2.3 cm sides) were associated with\n  locations on a grid shown on a monitor (13.6 cm square); each object was paired with a characteristic sound (e.g. goblet\n  with breaking sound). After a preview (items shown at their locations; participants instructed to remember the location\n  of each item), participants placed each item (self-paced; button press to confirm), then saw the correct location for\n  3000 ms as feedback. Rounds (random order) continued until all objects were placed within 3.4 cm of the correct location\n  on two consecutive rounds; correctly placed objects dropped out. Learning took 29.9 ± 9.4 min on average. The authors\n  extracted the segment from 10 s before the first stimulus to 10 s after the last stimulus.\n- `task-sleeptmr`: about 40 min after learning, a pre-sleep test (all 50 objects, no feedback) was given; participants then\n  slept with lights off and low-intensity white noise (~55 dB SPL) from a Bluetooth speaker ~0.5 m from the head. When the\n  participant entered NREM stage 2 or 3 (detected with scalp EEG), 25 cued sounds (paired during learning; chosen so that\n  pre-sleep accuracy was matched for cued and uncued objects) and 25 new control sounds (guitar strum) were presented\n  ~5.5 s apart; each sound was presented 6 times (total TMR stimulation about 30 min) (3 and 4 times for the first two\n  participants of the paper's Table S3). Segment from 10 s before the first to 10 s after the last stimulus. Offline AASM\n  sleep staging (30-s windows) of the cue periods is summarised per subject in Table S3 (`participants.tsv`).\nPre-sleep and post-sleep tests (5.9 ± 0.6 and 5.8 ± 1.1 min) are not part of the release's iEEG arrays.\n\n## Acquisition\nNicolet system (128 channels, 512 Hz; Thermo Nicolet Corporation). Depth electrodes with 8–16 contacts (2 mm long,\n0.8 mm diameter, 1.5 mm spacing; Huake-Hengsheng Medical Technology, Beijing), robot-assisted implantation by clinical\nneed. No seizure occurred during the task period and sleep (paper). For sleep staging the authors also placed scalp EEG\nelectrodes (F3, F4, C3, C4, O1, O2, A1, A2; a nearby electrode was substituted for clinical reasons in 6 patients) and two\nEOG electrodes at the outer canthi; these scalp/EOG channels are not in the release. Contact localisation in the paper\n(post-implantation CT co-registered to pre-operative T1 MRI with FreeSurfer v6.0.0, mapped to MNI space) was not released.\nGround and acquisition filters are not documented.\n\n## Preprocessing already applied by the source\nNone documented beyond the authors' segment extraction (learning and TMR periods). The paper's analysis re-referencing\n(common average; nearby white-matter contact for hippocampal contacts) and notch filtering (50/100/150 Hz) were NOT\napplied to these data.\n\n## What was converted, and how\nEach `subNN_raw_data.mat` (MATLAB 7.3) holds `Raw_ieeg_data_learning`, `Raw_ieeg_data_tmr` (channels × samples, float64),\n`label`, `fs` (512), `mark_learning`, `mark_tmr`, `Behavioral_data` (2 × N). Each array became one BrainVision run\n(IEEE float32, resolution 1: the file value is the stored value rounded to float32). The round-trip check found\nthe BrainVision values identical to the stored float64 values for all 22 runs (the stored values are float32-representable). The original\n.mat files are copied byte-identically under `sourcedata/zenodo-14885382/` (with the Zenodo record JSON), so the exact\nfloat64 values and `Behavioral_data` remain available. No filtering, resampling, re-referencing or channel removal.\n\n## Files\n- `participants.tsv` / `participants.json`: per-subject Table S1 and Table S3 fields (see above).\n- `sub-NN/ieeg/sub-NN_task-{learning,sleeptmr}_ieeg.{vhdr,vmrk,eeg,json}`, `_channels.tsv`, `_events.tsv`.\n- `sub-NN/ieeg/sub-NN_space-Other_electrodes.tsv` / `_coordsystem.json`: contact names and electrode labels only\n  (x, y, z = n/a, because no coordinates are released).\n- `sourcedata/zenodo-14885382/`: original .mat files and Zenodo record JSON; `sourcedata/b2zen_provenance_IEEG040.json`.\n\n## Known caveats\n- **Units**: the release does not state a physical unit. Values have the amplitude of microvolt-scale iEEG (median |x|\n  ≈ 16–32, typical SD 27–68) and are labelled µV. Treat the unit as the authors' export unit, inferred, not documented.\n- **Reference**: not documented in the release (\"raw\" export). The paper's analysis re-referencing (common average; nearby\n  white-matter contact for hippocampal contacts) and notch filtering (50/100/150 Hz) were NOT applied to these data.\n- **Channel names** are kept exactly as in the release (e.g. `A' 01`). An earlier version of this README stated that a\n  prime marks the left hemisphere \"in the usual SEEG naming\"; in this cohort the release labels and Supplementary Table S1\n  point the other way (right-only implants carry only primed labels, the left-only implant only unprimed labels), so do\n  not infer hemisphere from the prime without checking. No electrode coordinates are included in the raw release;\n  `electrodes.tsv` lists contact names with x/y/z = n/a.\n- **Events**: `mark_learning` / `mark_tmr` are stored sample indices (MATLAB 1-based). They are written to `events.tsv`\n  (`sample` = value − 1, `onset` = (value − 1)/512 s, plus `source_value`) and as BrainVision markers. The release does\n  not label marker types (which item, cued vs. uncued, trial phase), so all markers have `trial_type = stimulus_marker`.\n  The number of `mark_learning` entries differs from the number of `Behavioral_data` columns (e.g. sub-01: 404 vs 402;\n  per-subject counts in `sourcedata/b2zen_provenance_IEEG040.json`); their correspondence is not documented and is not\n  guessed here. The `mark_tmr` counts (150, 230, then 300 for sub-03 to sub-11) are not explained in the release\n  (sub-02: 230 markers, whereas 50 sounds × 4 presentations would give 200).\n- Per-subject age, sex, handedness and recording dates are not available from the paper or the release.\n\n## How to load\n```python\nfrom mne_bids import BIDSPath, read_raw_bids\nbp = BIDSPath(root=\".\", subject=\"01\", task=\"sleeptmr\", datatype=\"ieeg\")\nraw = read_raw_bids(bp)          # BrainVision, 512 Hz, SEEG channels\nevents = raw.annotations         # stimulus_marker annotations from events.tsv\n```\n\n## Citation\nDuan W, Xu Z, et al. (2025) Electrophysiological signatures underlying variability in human memory consolidation.\nNat Commun 16:2472. doi:10.1038/s41467-025-57766-x; data: doi:10.5281/zenodo.14885382.\n\n## Provenance / sources\nZenodo record 14885382 (REST metadata JSON under `sourcedata/`); Duan et al. 2025 full text (Europe PMC PMC11903871:\nMethods, Acknowledgements, Data and Code availability) and Supplementary Information (Tables S1 and S3). Metadata\nenrichment 2026-10-07 (see CHANGES).\n\n## Licence\nCC BY 4.0, as stated on the Zenodo record (metadata license id `cc-by-4.0`).\n\n## Ethics approval\n\nVerbatim from Duan W, Xu Z, Chen D, Wang J, et al. (2025). Electrophysiological signatures underlying variability in human memory consolidation. Nature Communications 16:2472. https://doi.org/10.1038/s41467-025-57766-x, Methods, \"Participants\":\n\n> Informed consent was obtained from all participants and study procedures were approved by the ethical committee of Beijing Sanbo brain hospital.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000374",
+    "exists": true,
+    "description": "Electrophysiological signatures underlying variability in human memory consolidation: raw intracranial EEG (learning and sleep TMR)",
+    "created_at": "2026-10-06T22:25:40+00:00",
+    "updated_at": "2026-10-08T05:20:05+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

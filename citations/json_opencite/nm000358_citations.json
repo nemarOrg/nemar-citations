@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000358",
   "num_citations": 15,
-  "date_last_updated": "2026-10-11T10:34:50.832904+00:00",
+  "date_last_updated": "2026-10-24T10:24:19.300208+00:00",
   "metadata": {
-    "total_cumulative_citations": 302,
-    "fetch_date": "2026-10-11T10:34:50.832904+00:00",
+    "total_cumulative_citations": 309,
+    "fetch_date": "2026-10-24T10:24:19.300208+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 3,
@@ -86,14 +86,14 @@
     ],
     "keywords": [
       "Electrocorticography",
-      "ECoG",
       "iEEG",
       "naturalistic behavior",
-      "wrist movement",
       "long-term monitoring",
+      "wrist movement",
+      "pose estimation",
       "Epilepsy"
     ],
-    "methods_description": "ECoG (grids, strips and some depth electrodes) was recorded passively at 1 kHz during 24-hour clinical monitoring on days 3-7 after implantation, with video at 30 fps. The authors applied median DC removal, 1-200 Hz band-pass, 60 Hz notch, downsampling to 500 Hz and common median re-referencing per electrode group. Electrodes were localised with FieldTrip using co-registered MRI and CT and warped to MNI space.",
+    "methods_description": "ECoG (grids, strips and some depth electrodes) was recorded passively at 1 kHz during 24-hour clinical monitoring, with video at 30 fps. The authors applied median DC removal, 1-200 Hz band-pass, 60 Hz notch, downsampling to 500 Hz and common median re-referencing per electrode group. Electrodes were localised with FieldTrip and warped to MNI space. Wrist-movement events and coarse behaviour labels were mapped to BIDS events with verified clock offsets.",
     "funding": [
       {
         "funder_name": "Sloan Foundation"
@@ -116,18 +116,12 @@
         "funder_name": "Defense Advanced Research Projects Agency",
         "award_number": "FA8750-18-2-0259"
       }
-    ],
-    "searched_accessions": [
-      "nm000358"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 15
+    ]
   },
   "citation_details": [
     {
       "title": "AJILE12: Long-term naturalistic human intracranial neural recordings and pose",
-      "author": "Steven M. Peterson, Satpreet H. Singh, Ben Dichter, Michael R. Scheid, Rajesh P. N. Rao, Bingni W. Brunton",
+      "author": "Steven M. Peterson, Satpreet H. Singh, Ben Dichter, Michael R. Scheid, Rajesh P. N. Rao, Bingni Wen Brunton",
       "venue": "Scientific Data",
       "year": 2022,
       "url": "https://doi.org/10.1038/s41597-022-01280-y",
@@ -138,7 +132,15 @@
       "openalex_id": "W4226090302",
       "source_doi": "10.48324/dandi.000055/0.220127.0436",
       "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.9121515199542047,
+        "similarity_score": 0.789741575717926,
+        "citation_text_length": 1238,
+        "dataset_text_length": 2428,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "The Neurodata Without Borders ecosystem for neurophysiological data science",
@@ -146,14 +148,22 @@
       "venue": "eLife",
       "year": 2022,
       "url": "https://doi.org/10.7554/elife.78362",
-      "cited_by": 183,
+      "cited_by": 180,
       "abstract": "The neurophysiology of cells and tissues are monitored electrophysiologically and optically in diverse experiments and species, ranging from flies to humans. Understanding the brain requires integration of data across this diversity, and thus these data must be findable, accessible, interoperable, and reusable (FAIR). This requires a standard language for data and metadata that can coevolve with neuroscience. We describe design and implementation principles for a language for neurophysiology data. Our open-source software (Neurodata Without Borders, NWB) defines and modularizes the interdependent, yet separable, components of a data language. We demonstrate NWB's impact through unified description of neurophysiology data across diverse modalities and species. NWB exists in an ecosystem, which includes data management, analysis, visualization, and archive tools. Thus, the NWB data language enables reproduction, interchange, and reuse of diverse neurophysiology data. More broadly, the de",
       "doi": "10.7554/elife.78362",
       "pmid": "36193886",
       "openalex_id": "W4300716329",
       "source_doi": "10.1038/s41597-022-01280-y",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.4337403908371926,
+        "similarity_score": 0.3755328059196472,
+        "citation_text_length": 1292,
+        "dataset_text_length": 2428,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Generating realistic neurophysiological time series with denoising diffusion probabilistic models",
@@ -161,48 +171,72 @@
       "venue": "Patterns",
       "year": 2024,
       "url": "https://doi.org/10.1016/j.patter.2024.101047",
-      "cited_by": 36,
+      "cited_by": 37,
       "abstract": "Abstract In recent years, deep generative models have had a profound impact in engineering and sciences, revolutionizing domains such as image and audio generation, as well as advancing our ability to model scientific data. In particular, Denoising Diffusion Probabilistic Models (DDPMs) have been shown to accurately model time series as complex high-dimensional probability distributions. Experimental and clinical neuroscience also stand to benefit from this progress, since accurate modeling of neurophysiological time series, such as electroencephalography (EEG), electrocorticography (ECoG), and local field potential (LFP) recordings, and their synthetic generation can enable or improve a variety of neuroscientific applications. Here, we present a method for modeling multi-channel and densely sampled neurophysiological recordings using DDPMs, which can be flexibly applied to different recording modalities and experimental configurations. First, we show that DDPMs can generate realistic ",
       "doi": "10.1016/j.patter.2024.101047",
       "pmid": "39568643",
       "openalex_id": "W4401993431",
       "source_doi": "10.1038/s41597-022-01280-y",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5101889853179455,
+        "similarity_score": 0.4417220652103424,
+        "citation_text_length": 1186,
+        "dataset_text_length": 2428,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Neural Data Transformer 2: Multi-context Pretraining for Neural Spiking Activity",
-      "author": "Joel Ye, Jennifer L. Collinger, Leila Wehbe, Robert A. Gaunt",
-      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+      "author": "Joel Ye, Jennifer L. Collinger, Leila Wehbe, Robert Gaunt",
+      "venue": "neural information processing systems",
       "year": 2023,
-      "url": "https://doi.org/10.1101/2023.09.18.558113",
-      "cited_by": 22,
+      "url": "https://doi.org/10.52202/075280-3523",
+      "cited_by": 28,
       "abstract": "The neural population spiking activity recorded by intracortical brain-computer interfaces (iBCIs) contain rich structure. Current models of such spiking activity are largely prepared for individual experimental contexts, restricting data volume to that collectable within a single session and limiting the effectiveness of deep neural networks (DNNs). The purported challenge in aggregating neural spiking data is the pervasiveness of context-dependent shifts in the neural data distributions. However, large scale unsupervised pretraining by nature spans heterogeneous data, and has proven to be a fundamental recipe for successful representation learning across deep learning. We thus develop Neural Data Transformer 2 (NDT2), a spatiotemporal Transformer for neural spiking activity, and demonstrate that pretraining can leverage motor BCI datasets that span sessions, subjects, and experimental tasks. NDT2 enables rapid adaptation to novel contexts in downstream decoding tasks and opens the pa",
-      "doi": "10.1101/2023.09.18.558113",
+      "doi": "10.52202/075280-3523",
       "pmid": "37781630",
-      "openalex_id": "W4386948794",
+      "openalex_id": "W7133214934",
       "source_doi": "10.1038/s41597-022-01280-y",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.45999814510345466,
+        "similarity_score": 0.3982667922973633,
+        "citation_text_length": 1213,
+        "dataset_text_length": 2428,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "A comparison of neuroelectrophysiology databases",
-      "author": "Priyanka Subash, Alex Gray, Misque Boswell, Samantha L. Cohen, Rachael Garner, Sana Salehi, Calvary Fisher, Samuel M. Hobel, Satrajit Ghosh, Yaroslav O. Halchenko, Ben Dichter, Russell Alan Poldrack, Christopher Johnson Markiewicz, Dora Hermes, Arnaud Delorme, Scott Makeig, Brendan Behan, Alana Sparks, Stephen R. Arnott, Zhengjia Wang, John F. Magnotti, Michael S. Beauchamp, Nader Pouratian, Arthur W. Toga, Dominique Duncan",
+      "author": "Priyanka Subash, Alex Gray, Misque Boswell, Samantha L. Cohen, Rachael Garner, Sana Salehi, Calvary Fisher, Samuel M. Hobel, Satrajit Ghosh, Yaroslav O. Halchenko, Ben Dichter, Russell Alan Poldrack, Christopher Johnson Markiewicz, Dora Hermes, Arnaud Delorme A, Scott Makeig, Brendan Behan, Alana Sparks, Stephen R. Arnott, Zhengjia Wang, John F. Magnotti, Michael S. Beauchamp, Nader Pouratian, Arthur W. Toga, Dominique Duncan",
       "venue": "Scientific Data",
       "year": 2023,
       "url": "https://doi.org/10.1038/s41597-023-02614-0",
-      "cited_by": 20,
+      "cited_by": 21,
       "abstract": "As data sharing has become more prevalent, three pillars - archives, standards, and analysis tools - have emerged as critical components in facilitating effective data sharing and collaboration. This paper compares four freely available intracranial neuroelectrophysiology data repositories: Data Archive for the BRAIN Initiative (DABI), Distributed Archives for Neurophysiology Data Integration (DANDI), OpenNeuro, and Brain-CODE. The aim of this review is to describe archives that provide researchers with tools to store, share, and reanalyze both human and non-human neurophysiology data based on criteria that are of interest to the neuroscientific community. The Brain Imaging Data Structure (BIDS) and Neurodata Without Borders (NWB) are utilized by these archives to make data more accessible to researchers by implementing a common standard. As the necessity for integrating large-scale analysis into data repository platforms continues to grow within the neuroscientific community, this art",
       "doi": "10.1038/s41597-023-02614-0",
       "pmid": "37426452",
       "openalex_id": "W4383711048",
       "source_doi": "10.1038/s41597-022-01280-y",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.4831412190198899,
+        "similarity_score": 0.41830408573150635,
+        "citation_text_length": 1531,
+        "dataset_text_length": 2428,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Learning neural decoders without labels using multiple data streams",
-      "author": "Steven M. Peterson, Rajesh P. N. Rao, Bingni W. Brunton",
+      "author": "Steven M. Peterson, Rajesh P. N. Rao, Bingni Wen Brunton",
       "venue": "Journal of Neural Engineering",
       "year": 2022,
       "url": "https://doi.org/10.1088/1741-2552/ac857c",
@@ -213,7 +247,15 @@
       "openalex_id": "W4288708026",
       "source_doi": "10.1038/s41597-022-01280-y",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.4406370846927166,
+        "similarity_score": 0.38150396943092346,
+        "citation_text_length": 1191,
+        "dataset_text_length": 2428,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Spatiotemporal dynamics of human high gamma discriminate naturalistic behavioral states",
@@ -228,7 +270,15 @@
       "openalex_id": "W4290667487",
       "source_doi": "10.1038/s41597-022-01280-y",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6413116031885148,
+        "similarity_score": 0.5552481412887573,
+        "citation_text_length": 1384,
+        "dataset_text_length": 2428,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Consistent spectro-spatial features of human ECoG successfully decode naturalistic behavioral states",
@@ -243,7 +293,15 @@
       "openalex_id": "W4399157123",
       "source_doi": "10.1038/s41597-022-01280-y",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7211371368169786,
+        "similarity_score": 0.6243611574172974,
+        "citation_text_length": 1203,
+        "dataset_text_length": 2428,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "How Does Artificial Intelligence Contribute to iEEG Research?",
@@ -251,18 +309,49 @@
       "venue": "Studies in neuroscience, psychology and behavioral economics",
       "year": 2023,
       "url": "https://doi.org/10.1007/978-3-031-20910-9_47",
-      "cited_by": 2,
+      "cited_by": 3,
       "abstract": null,
       "doi": "10.1007/978-3-031-20910-9_47",
       "pmid": null,
       "openalex_id": "W4385466225",
       "source_doi": "10.1038/s41597-022-01280-y",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.4199832648038864,
+        "similarity_score": 0.39998406171798706,
+        "citation_text_length": 221,
+        "dataset_text_length": 2428,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "The emerging field of cognitive brain–computer interfaces",
+      "author": "Ignacio Sáez",
+      "venue": "Trends in Cognitive Sciences",
+      "year": 2026,
+      "url": "https://doi.org/10.1016/j.tics.2026.06.012",
+      "cited_by": 1,
+      "abstract": null,
+      "doi": "10.1016/j.tics.2026.06.012",
+      "pmid": "42469083",
+      "openalex_id": "W7169568684",
+      "source_doi": "10.1038/s41597-022-01280-y",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.37771384567022326,
+        "similarity_score": 0.3597274720668793,
+        "citation_text_length": 124,
+        "dataset_text_length": 2428,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Open Data In Neurophysiology: Advancements, Solutions & Challenges",
-      "author": "Colleen J. Gillon, Cody Baker, Ryan Ly, Edoardo Balzani, Bingni W. Brunton, Manuel Schottdorf, Satrajit Ghosh, Nima Dehghani",
+      "author": "Colleen J. Gillon, Cody Baker, Ryan Ly, Edoardo Balzani, Bingni Wen Brunton, Manuel Schottdorf, Satrajit Ghosh, Nima Dehghani",
       "venue": "eNeuro",
       "year": 2025,
       "url": "https://doi.org/10.1523/eneuro.0486-24.2025",
@@ -273,22 +362,15 @@
       "openalex_id": "W4416430721",
       "source_doi": "10.1038/s41597-022-01280-y",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
-    },
-    {
-      "title": "The emerging field of cognitive brain–computer interfaces",
-      "author": "Ignacio Sáez",
-      "venue": "Trends in Cognitive Sciences",
-      "year": 2026,
-      "url": "https://doi.org/10.1016/j.tics.2026.06.012",
-      "cited_by": 0,
-      "abstract": null,
-      "doi": "10.1016/j.tics.2026.06.012",
-      "pmid": "42469083",
-      "openalex_id": "W7169568684",
-      "source_doi": "10.1038/s41597-022-01280-y",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.36340863257646566,
+        "similarity_score": 0.31463950872421265,
+        "citation_text_length": 1236,
+        "dataset_text_length": 2428,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Q-DIVER: Integrated Quantum Transfer Learning and Differentiable Quantum Architecture Search with EEG Data",
@@ -303,7 +385,15 @@
       "openalex_id": "W7160540044",
       "source_doi": "10.1038/s41597-022-01280-y",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.39658776104450233,
+        "similarity_score": 0.34336602687835693,
+        "citation_text_length": 1078,
+        "dataset_text_length": 2428,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "Design and FPGA Implementation of a Light-Weight Gait Decoding Algorithm",
@@ -318,7 +408,15 @@
       "openalex_id": "W7124157957",
       "source_doi": "10.1038/s41597-022-01280-y",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5429122674465181,
+        "similarity_score": 0.47005391120910645,
+        "citation_text_length": 1240,
+        "dataset_text_length": 2428,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "RISE-iEEG: Robust to Inter-Subject Electrodes Implantation Variability iEEG Classifier",
@@ -333,7 +431,15 @@
       "openalex_id": "W4416961313",
       "source_doi": "10.1038/s41597-022-01280-y",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6268564242124559,
+        "similarity_score": 0.542732834815979,
+        "citation_text_length": 1181,
+        "dataset_text_length": 2428,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     },
     {
       "title": "A Combined Channel Approach for Decoding Intracranial EEG Signals: Enhancing Accuracy Through Spatial Information Integration",
@@ -348,7 +454,31 @@
       "openalex_id": "W4415969403",
       "source_doi": "10.1038/s41597-022-01280-y",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.558133535385132,
+        "similarity_score": 0.4832324981689453,
+        "citation_text_length": 1207,
+        "dataset_text_length": 2428,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
-  ]
+  ],
+  "confidence_scoring": {
+    "model_used": "Qwen/Qwen3-Embedding-0.6B",
+    "scoring_date": "2026-10-24T11:21:46.118781+00:00",
+    "dataset_text_length": 2428,
+    "num_citations_scored": 15,
+    "summary_stats": {
+      "mean_confidence": 0.5258601210713388,
+      "median_confidence": 0.4831412190198899,
+      "std_confidence": 0.1439055618689308,
+      "min_confidence": 0.36340863257646566,
+      "max_confidence": 0.9121515199542047,
+      "high_confidence_count": 2,
+      "medium_confidence_count": 10,
+      "low_confidence_count": 3
+    }
+  }
 }

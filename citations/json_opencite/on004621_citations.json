@@ -1,10 +1,10 @@
 {
   "dataset_id": "on004621",
-  "num_citations": 14,
-  "date_last_updated": "2026-10-11T10:56:00.091714+00:00",
+  "num_citations": 16,
+  "date_last_updated": "2026-10-24T11:14:29.602894+00:00",
   "metadata": {
-    "total_cumulative_citations": 60,
-    "fetch_date": "2026-10-11T10:56:00.091714+00:00",
+    "total_cumulative_citations": 62,
+    "fetch_date": "2026-10-24T10:52:21.340250+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 3,
@@ -73,7 +73,14 @@
         "funder_name": "Polish National Science Center (NCN)",
         "award_number": "2016/20/W/NZ4/00354"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "on004621",
+      "ds004621"
+    ],
+    "num_accession_mentions": 2,
+    "num_dataset_citations": 3,
+    "num_datapaper_citations": 13
   },
   "citation_details": [
     {
@@ -159,6 +166,8 @@
       "source_doi": "10.1093/gigascience/giac015",
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
+      "mentions_accession": true,
+      "matched_accession": "ds004621",
       "confidence_scoring": {
         "confidence_score": 0.6230354109406472,
         "similarity_score": 0.5394245982170105,
@@ -170,7 +179,7 @@
     },
     {
       "title": "Common and distinct BOLD correlates of Simon and flanker conflicts which can(not) be reduced to time‐on‐task effects",
-      "author": "Jakub Wojciechowski, Katarzyna Jurewicz, Patrycja Dzianok, Ingrida Antonova, Katarzyna Paluch, Tomasz Wolak, Ewa Kublik",
+      "author": "Jakub Wojciechowski, Katarzyna Jurewicz, Patrycja Dzianok, Ingrida Antonova, Katarzyna Paluch, Tomasz P. Wolak, Ewa Kublik",
       "venue": "Human Brain Mapping",
       "year": 2024,
       "url": "https://doi.org/10.1002/hbm.26549",
@@ -183,9 +192,9 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5403216227889062,
-        "similarity_score": 0.4678109288215637,
-        "citation_text_length": 1293,
+        "confidence_score": 0.5390312916040422,
+        "similarity_score": 0.4666937589645386,
+        "citation_text_length": 1296,
         "dataset_text_length": 2249,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -220,7 +229,7 @@
       "venue": "Journal of Neural Engineering",
       "year": 2025,
       "url": "https://doi.org/10.1088/1741-2552/ade566",
-      "cited_by": 3,
+      "cited_by": 5,
       "abstract": "Abstract Objective . We present a novel and lightweight method that removes ocular artifacts from electroencephalography (EEG) recordings while demanding minimal training data. Approach . A robust, cross-validated thresholding procedure automatically detects the times at which eye blinks occur, then a linear scalp projection is estimated by regressing a simplified time-locked reference signal against the multi-channel EEG. Main results . Performance was compared against four commonly-used and readily available blink removal methods: signal subspace projection and forward regression (Reg) from the MNE toolbox, EEGLab’s independent component analysis (ICA) combined with ICLabel for automated component identification, and Artifact Subspace Reconstruction (ASR) Python implementation compatible with MNE. On semi-synthetic blink-contaminated EEG data, our method exhibited better reconstruction of the ground truth than the two MNE native methods, and comparable (or better in some scenarios) p",
       "doi": "10.1088/1741-2552/ade566",
       "pmid": "40527334",
@@ -397,21 +406,71 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "Predicting Cognitive Tasks from Single-Channel EEG through Task-Semantic Alignment",
+      "author": "Ryota Kanai C",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2610.15104",
+      "cited_by": 0,
+      "abstract": "Studies of data scaling in electroencephalography (EEG) and related noninvasive recordings suggest that simple wearable devices could eventually reveal more about cognitive states. However, publicly available EEG data are difficult to combine. Different laboratories record different tasks, participants, and devices. Task-agnostic self-supervised learning can exploit such data, but representations learned only with EEG signals have not consistently produced feature representations that are directly effective for decoding the cognitive state. We therefore aimed to incorporate task information by embedding experimental instructions, stimuli and response demands in a common semantic space, and trained an EEG encoder to align signals from a single anterior--posterior differential channel with those task vectors. This framework supports zero-shot prediction without target-condition calibration and few-shot prediction using labeled samples. On a reserved ten-class evaluation, the highest observed zero-shot balanced accuracy was 30.13% (chance 10%). In a separate developmental few-shot experiment, balanced accuracy reached 34.47% using 16 labeled EEG examples per class from another participant, and 74.99% using examples from the test participant's own task recording. Our experiments suggest that training models on datasets with multiple tasks per participant appeared useful, whereas adding datasets containing only one or a few tasks sometimes reduced established performance despite broader task coverage. These exploratory results suggest that EEG datasets that repeat varied cognitive tasks and everyday activities within the same individuals across days, devices and independent studies would be particularly useful for training an EEG foundation model for predicting cognitive states.",
+      "doi": "10.48550/arxiv.2610.15104",
+      "pmid": null,
+      "openalex_id": "W7221793578",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004621",
+      "confidence_scoring": {
+        "confidence_score": 0.6611448946595193,
+        "similarity_score": 0.5724198222160339,
+        "citation_text_length": 1660,
+        "dataset_text_length": 2249,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "ACL Framework: Real EEG Validation of Semantic Operators (∘, ⊗, ↻) — Derived Metrics and Reproducible Analysis Package",
+      "author": "Esposito, Giovanni",
+      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "year": 2025,
+      "url": "https://doi.org/10.5281/zenodo.17567434",
+      "cited_by": 0,
+      "abstract": "This archive provides the complete reproducible dataset and analysis materials for the Anti-Congruent Law (ACL) Framework, validating three fundamental semantic operators — composition (∘), recursion (↻), and paradox (⊗) — using real EEG data from OpenNeuro ds004621. The dataset contains 450 fully preprocessed EEG trials (10 participants × 15 trials × 3 operators), each annotated with derived metrics describing symbolic energetics in the ψ-metric space: Variable Meaning Derivation ψ Mean ERP power (300–800 ms, FCz/Cz) mean(V²) ψ′ Theta-band curvature log(1 + varM Semantic variance 1000 / ψ⁴ dψ₍imm₎ / dψ₍del₎ Immediate / delayed modulation z-scored reaction times Preprocessing was performed in MNE-Python v1.7 following BIDS-EEG standards.Statistical analyses were implemented in R (lme4) and Python (Pingouin), with mixed-effects and mediation models confirming all four preregistered hypotheses: Operator-dependent differences in ψ. Time-shifted modulation (dψ₍imm₎ > dψ₍del₎). Mediation of ψ → dψ₍imm₎ through varM. Quartic scaling law varM ∝ ψ⁻⁴ (R² = 0.93). All figures (PNG + PDF + EPS) and scripts (Python, R) are included for direct reproducibility.The repository is journal-neutral, open-license (CC BY 4.0), and version-controlled for archival citation.",
+      "doi": "10.5281/zenodo.17567434",
+      "pmid": null,
+      "openalex_id": "W7104701520",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004621",
+      "confidence_scoring": {
+        "confidence_score": 0.6728165298700333,
+        "similarity_score": 0.5825251340866089,
+        "citation_text_length": 1502,
+        "dataset_text_length": 2249,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-10-11T11:33:44.681939+00:00",
+    "scoring_date": "2026-10-24T11:29:58.832435+00:00",
     "dataset_text_length": 2249,
-    "num_citations_scored": 14,
+    "num_citations_scored": 16,
     "summary_stats": {
-      "mean_confidence": 0.5566377755999566,
-      "median_confidence": 0.561948335543275,
-      "std_confidence": 0.18672453044591178,
+      "mean_confidence": 0.570349996984005,
+      "median_confidence": 0.5740940261632205,
+      "std_confidence": 0.17846206106847087,
       "min_confidence": 0.16794404223561288,
       "max_confidence": 0.9877206748723985,
       "high_confidence_count": 2,
-      "medium_confidence_count": 10,
+      "medium_confidence_count": 12,
       "low_confidence_count": 2
     }
   }

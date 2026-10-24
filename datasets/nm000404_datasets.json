@@ -1,0 +1,65 @@
+{
+  "dataset_id": "nm000404",
+  "date_retrieved": "2026-10-12T10:06:08.518997+00:00",
+  "dataset_description": {
+    "Name": "Internal-external attention switching SEEG epochs, DMN and DAN channels, 25 epilepsy patients (Hammer et al. 2024)",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "derivative",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "Jiri Hammer"
+    ],
+    "Acknowledgements": "Data released by Jiri Hammer (Second Faculty of Medicine, Charles University and Motol University Hospital, Prague) as Zenodo record 10.5281/zenodo.12796062 (version v3). Paper authors: Jiri Hammer, Michaela Kajsova, Adam Kalina, David Krysl, Petr Fabera, Martin Kudr, Petr Jezdik, Radek Janca, Pavel Krsek, Petr Marusic. Repackaged as iEEG-BIDS without further processing for NEMAR.",
+    "HowToAcknowledge": "Please cite Hammer J, Kajsova M, Kalina A, Krysl D, Fabera P, Kudr M, Jezdik P, Janca R, Krsek P, Marusic P (2024) Antagonistic behavior of brain networks mediated by low-frequency oscillations: electrophysiological dynamics during internal-external attention switching. Communications Biology 7:1105, doi:10.1038/s42003-024-06732-2, and the data record doi:10.5281/zenodo.12796062.",
+    "Funding": [
+      "Project LX22NPO5107 (MEYS), financed by the European Union - Next Generation EU",
+      "Czech Science Foundation, Grant No. 20-21339S",
+      "Grant Agency of Charles University, Grant No. 272221",
+      "ERDF project Brain dynamics, No. CZ.02.01.01/00/22_008/0004643"
+    ],
+    "EthicsApprovals": [
+      "Ethics committee of Motol University Hospital, Prague (as stated in Hammer et al. 2024)"
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.1038/s42003-024-06732-2",
+      "https://doi.org/10.5281/zenodo.12796062",
+      "https://doi.org/10.1101/2024.03.14.584984",
+      "https://github.com/JiriHammer/SEEG_dataAnalysis",
+      "https://www.ncbi.nlm.nih.gov/pmc/articles/PMC11385230/"
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.5281/zenodo.12796062",
+        "URL": "https://zenodo.org/records/12796062",
+        "Version": "v3 (2024-07-22)"
+      }
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "Authors' preprocessing (Hammer et al. 2024)",
+        "Description": "Downsampling 2048 -> 512 Hz, removal of broken / seizure-onset / irritative / heterotopic channels, bipolar referencing, 0.1 Hz high-pass and 50 Hz (+harmonics) notch (Butterworth, 6th order, zero phase), epoching -4..+4 s around task switches, selection of DMN/DAN channels (Yeo-7)",
+        "CodeURL": "https://github.com/JiriHammer/SEEG_dataAnalysis"
+      },
+      {
+        "Name": "b3w1_convert_hammer.py (ieeg-nemar-20261005 campaign, batch 3)",
+        "Description": "Format conversion only: epochs written back to back as BrainVision float32; events, channels, electrodes from the release variables"
+      }
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000404",
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000404-blue)](https://doi.org/10.82901/nemar.nm000404)\n\n# Internal-external attention switching: SEEG epochs from 25 epilepsy patients (derivative)\n\nStereo-EEG epochs released with:\n\n> Hammer J, Kajsova M, Kalina A, Krysl D, Fabera P, Kudr M, Jezdik P, Janca R, Krsek P, Marusic P (2024).\n> Antagonistic behavior of brain networks mediated by low-frequency oscillations: electrophysiological dynamics during\n> internal-external attention switching. *Communications Biology* 7:1105. https://doi.org/10.1038/s42003-024-06732-2\n\nSource record: Zenodo https://doi.org/10.5281/zenodo.12796062 (v3, CC-BY-4.0): `msSEI_exportTrials.zip`.\n\n**This is a derivative dataset.** The release contains the authors' preprocessed epochs, not the continuous recordings.\n\n## Participants and task (from the paper)\n\n25 patients with drug-resistant epilepsy (15 female; age 34 +/- 12 years) in presurgical SEEG monitoring at Motol\nUniversity Hospital, Prague; implantation by clinical need only; approved by the hospital's ethics committee; written\ninformed consent. Per-subject age and sex are not in the release; since 2026-10-08 `participants.tsv` gives them from the article's Supplementary Table 1.\n\nSubjects alternated between an external-attention task (visual search: find the T among 35 Ls on a 6x6 grid and report\nwhether it is in the upper or lower half) and an internal-attention task (yes/no answer to a statement about their own\npast experiences), answering on a gamepad within 5 s, with no pause between trials and not switching on every trial.\nFour sessions of several minutes (about 30 min). Each epoch is centred on a task switch: `E-I` (external to internal)\nor `I-E` (internal to external).\n\n## Recording and preprocessing (by the authors)\n\nDIXI Medical depth electrodes, Quantum amplifiers / NeuroWorks, 2048 Hz (0.01-682 Hz), reference and ground in white\nmatter. The authors downsampled to 512 Hz, removed broken channels and channels in the seizure-onset or irritative zone\nor in heterotopic cortex, built bipolar derivations along each shank, high-pass filtered at 0.1 Hz and notch filtered at\n50 Hz and harmonics (Butterworth, 6th order, zero phase), cut epochs from -4 to +4 s around each switch, and kept only\nchannels assigned to the default mode network (DMN) or dorsal attention network (DAN) by the Yeo-7 atlas.\n\n## Files\n\n- `sub-P<k>/ieeg/*_ieeg.vhdr|.eeg|.vmrk`: the epochs written back to back (4097 samples = 8.002 s each), BrainVision\n  IEEE float32. Values are the release's float64 values rounded to float32; no other change. The release does not\n  state the physical unit; the channels are labelled µV because amplitudes of a few to tens of units match µV-scaled\n  iEEG, but this is our assumption, not a statement of the authors.\n- `*_events.tsv`: one row per epoch at the switch time, with `trial_type` (E-I / I-E), epoch number, epoch start and the\n  fraction of samples marked rejected in the release.\n- `*_channels.tsv`: bipolar channel names as released, with the `network` label (DMN / DAN).\n- `*_space-Other_electrodes.tsv`: the release's MNI coordinates per bipolar channel.\n- `sourcedata/zenodo-12796062/`: the original `trials_P<k>.mat` files (including the per-sample rejection masks) and the\n  release read-me, unchanged.\n\nThe figure source data (`code_figures.zip`) and analysis code (`code_pipeline.zip`) of the record are not copied; they\nare available from the source record and GitHub.\n\n## Licence\n\nCC-BY-4.0, as the source record. Please cite the paper and the Zenodo record.\n\n## Additional metadata and localisation (added 2026-10-08)\n\nCompiled after the upload from the article, its supplement and the source deposit (each statement names its source). Text and sidecar metadata only; no data file was changed.\n\n**Recording system.** Medical amplifiers (Quantum, NeuroWorks), sampled at 2048 Hz (bandwidth 0.01-682 Hz), later downsampled to 512 Hz (doi:10.1038/s42003-024-06732-2, Methods 'iEEG data recording and preprocessing'). Deposited trials: 4097 samples from -4.0 to 4.0 s (512 Hz), trials x channels per subject in D.trials (Voyager Job ieeg-b3enr-c-hammer-1007220748). The deposited data are bipolar referenced, high-pass filtered at 0.1 Hz and notch filtered at 50 Hz and harmonics; D.rejected marks rejected samples (deposit readme).\n\n**Reference scheme.** Recording reference and ground electrodes in white matter (subject-specific locations) (doi:10.1038/s42003-024-06732-2); the deposited channels are bipolar pairs of neighbouring contacts (e.g. 'A1-A2') (deposit readme; doi:10.1038/s42003-024-06732-2 Results).\n\n**Electrode types.** Intracerebral (SEEG) electrodes, DIXI Medical; cylindrical contacts 0.8 mm diameter, 2 mm height, 1.5 mm spacing (doi:10.1038/s42003-024-06732-2).\n\n**Localisation method.** Contacts localised on post-implantation CT coregistered to pre-implantation MRI, verified on post-implantation MRI, MRI normalised to MNI space with SPM12; each bipolar channel was given the MNI coordinate of the centre between its contacts and assigned to the DMN or DAN with the Yeo-7 atlas; only DMN/DAN channels are exported (doi:10.1038/s42003-024-06732-2, Methods 'iEEG channel assignment'; deposit readme). The deposit gives channels_MNI for every exported channel; the column `atlas_label_AAL3v1` of each `electrodes.tsv` adds an AAL3v1 atlas lookup of these coordinates (ieeg-atlas `coord_regions.py`, nearest labelled voxel; a derived label, not given by the authors).\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000404",
+    "exists": true,
+    "description": "Internal-external attention switching SEEG epochs, DMN and DAN channels, 25 epilepsy patients (Hammer et al. 2024)",
+    "created_at": "2026-10-07T22:32:05+00:00",
+    "updated_at": "2026-10-11T20:52:33+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

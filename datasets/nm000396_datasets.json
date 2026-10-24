@@ -1,0 +1,69 @@
+{
+  "dataset_id": "nm000396",
+  "date_retrieved": "2026-10-12T10:05:42.489293+00:00",
+  "dataset_description": {
+    "Name": "Developmental ECoG: resting-state electrocorticography from 13 epilepsy patients aged 3-33 years (Miles, Weaver, Webb, Ojemann 2025)",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "raw",
+    "License": "CC-BY-NC-4.0",
+    "Authors": [
+      "Jesse T. Miles",
+      "Kurt E. Weaver",
+      "Sara Jane Webb",
+      "Jeffrey G. Ojemann"
+    ],
+    "Acknowledgements": "Data release: Zenodo record 16954184 (creator: Jesse Miles, Seattle Children's Research Institute). BIDS conversion: ieeg-nemar-20261005 campaign (batch-3, lane W2); no signal processing applied.",
+    "HowToAcknowledge": "Please cite Miles JT, Weaver KE, Webb SJ, Ojemann JG. Developmental relationships between the human alpha rhythm and intrinsic neural timescales are dependent on neural hierarchy. Journal of Neurophysiology 135:143-152 (2026), doi:10.1152/jn.00435.2025 (preprint doi:10.1101/2025.08.21.671637), and the data record doi:10.5281/zenodo.16954184.",
+    "Funding": [
+      "Richard G. Ellenbogen Endowed Chair for Pediatric Neurosurgery (JGO)"
+    ],
+    "EthicsApprovals": [
+      "Participants were recruited from the epilepsy monitoring units at Seattle Children's Hospital and Harborview Medical Center; all gave informed consent (and assent or parental consent for minors) at the time of data collection; data were approved for retrospective review (Miles et al. 2025, Methods)."
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.1152/jn.00435.2025",
+      "https://doi.org/10.1101/2025.08.21.671637",
+      "https://doi.org/10.5281/zenodo.16954184"
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000396",
+    "Keywords": [
+      "electrocorticography",
+      "ECoG",
+      "intracranial EEG",
+      "resting state",
+      "development",
+      "pediatric epilepsy",
+      "alpha rhythm",
+      "intrinsic neural timescales"
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.5281/zenodo.16954184",
+        "URL": "https://zenodo.org/records/16954184",
+        "Version": "Zenodo record 16954184 (published 2025-08-26)"
+      }
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "b3w2_convert_c-dev-ecog.py",
+        "Description": "Lossless re-packaging of the release CSV tables into BrainVision (float32) with BIDS sidecars; no filtering, resampling, re-referencing or channel removal.",
+        "CodeURL": "n/a"
+      }
+    ],
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000396-blue)](https://doi.org/10.82901/nemar.nm000396)\n\n# Developmental ECoG (Miles, Weaver, Webb, Ojemann 2025): resting-state electrocorticography, ages 3-33\n\nResting-state intracranial recordings (subdural grids and strips; depth electrodes in some participants) from **13\npatients with epilepsy aged 3.4-33.9 years** (6 male, 7 female) undergoing intracranial monitoring at Seattle\nChildren's Hospital and Harborview Medical Center (Seattle, WA, USA). Re-packaged in iEEG-BIDS from the authors'\npublic release (Zenodo record [16954184](https://doi.org/10.5281/zenodo.16954184), \"Developmental ECoG\",\nCC-BY-NC-4.0).\n\nReference article: Miles JT, Weaver KE, Webb SJ, Ojemann JG. *Developmental relationships between the human alpha\nrhythm and intrinsic neural timescales are dependent on neural hierarchy.* Journal of Neurophysiology 135:143-152\n(2026). https://doi.org/10.1152/jn.00435.2025 (preprint: https://doi.org/10.1101/2025.08.21.671637).\n\n## Participants\n`participants.tsv` gives age, sex, implanted electrodes, coverage and epileptiform zones for each participant from\nTable 1 of the paper. The release orders participants by age (sub01 = P1, 3.42 years ... sub13 = P13, 33.92 years);\nthe ages in the release montage files match Table 1 (checked by the converter). `release_id` is the pseudonymous\ncode of the release folder.\n\n## Task\n`task-rest`: dedicated resting-state period. Participants were asked to lie quietly, upright, for at least three\nminutes before other research experiments (paper, Methods). There are no events.\n\n## Recording\nSampling rates differ by site and system (512-4800 Hz; release channel tables: 1200 Hz for 9 participants, 4800,\n1525.878906, 1220.703125, 1000 and 512 Hz for the others). Filter settings and notch ranges are copied from the\nrelease channel tables into `channels.tsv`. Power line frequency: 60 Hz.\n\n- **Units.** The release channel tables give the ECoG units as `unscaled` for 12 of the 13 participants: the values\n  are as exported from the acquisition system and the release does not give a scale factor to volts. `channels.tsv`\n  therefore lists `n/a` units for these channels, and the BrainVision header says `unscaled`. Amplitudes are not\n  comparable across participants. sub-02's values are in microvolts.\n- **sub-02** also has the depth electrodes (`A'`...`S'`, named as in the ROSA planning file), one ECG channel\n  (`EKG-Ref`) and one unlabelled channel (`C154-Ref`, type MISC). These are not in the release channel table. Their\n  types are set from the channel names, and the units are assumed to be the same microvolts as the other channels of\n  that export. The release Sample/Time columns show that the excerpt starts at sample 4234240 (8270 s) of the clinical\n  file (see `RecordingDescription` in the sidecar). The release's per-contact anatomical labels for the depth\n  electrodes (`d419f2_Anatomical_Labels.txt`) are kept in `sourcedata/`.\n- **sub-08**: channels 49-64 are marked `bad` (release note: \"49-64 are empty channels\"; 1-32 are a left parietal\n  half grid and 33-48 a left interhemispheric strip).\n- `analysis_region` in `channels.tsv` marks the 12 channels the paper analysed (two per gyrus: middle frontal,\n  precentral, postcentral, supramarginal, superior temporal and middle temporal), from the release montage files.\n- Electrode coordinates are not part of the release. `electrodes.tsv` lists the ECoG/sEEG electrode names with `n/a` coordinates (space `Other`).\n\n## What was converted, and how\nEach `RestingState_<id>_iEEG.csv` (samples × channels) became one BrainVision run (`sub-XX_task-rest_ieeg.vhdr`,\nIEEE float32). The file values are the CSV values rounded to float32, and the round-trip check compares every run\nwith the CSV. No filtering, resampling, re-referencing or channel removal was applied. The paper's processing\n(resampling to 1024 Hz, bipolar re-referencing, drift and line-noise filtering, z-scoring) is **not** applied.\n\n`sourcedata/zenodo-16954184/` holds the original release zip byte for byte (CSV tables, channel tables, montage files,\nthe sub02 anatomical labels and the sub08 note) and the Zenodo record metadata.\n\n## License\n\nCC-BY-NC-4.0\n\n## Additional metadata and localisation (added 2026-10-08)\n\nCompiled after the upload from the article, its supplement and the source deposit (each statement names its source). Text and sidecar metadata only; no data file was changed.\n\n**Recording system.** Sampled \"at a minimum of 512 Hz and maximum of 4800 Hz (depending on acquisition system and site)\" (preprint Methods \"Signal processing\"); per-subject rates in the deposit channels.txt: 1200 Hz (9 subjects), 512, 4800, 1525.88, 1220.70 and 1000 Hz. channels.txt lists low_cutoff 0, high_cutoff 500, notch 58-62, units \"unscaled\" (deposit, e.g. sub06 channels.txt). Amplifier make: n/a (not stated).\n\n**Reference scheme.** The deposit CSVs hold the recorded channels; the paper analysed bipolar pairs of two adjacent contacts within the same gyrus (preprint Methods). channels.txt status_description reads \"keep for referencing\". Original recording reference: n/a.\n\n**Electrode types.** Subdural grids (8x8, 4x8) and strips, some patients also with depth electrodes (preprint Table 1). Deposit note sub08_a9952e/note.txt: \"1-32 are parietal half grid (left); 33-48 are intrahemispheric strip (left); 49-64 are empty channels\".\n\n**Localisation method.** \"ECoG contact locations were identified by clinical MRI reconstructions aligned to CT scans. Electrode orientations (and, by extension, channel numbering) were cross-referenced to a combination of intra-operative placement photos, surgical notes, and clinical monitoring notes.\" \"Gyri were identified based on automated registration of Harvard-Oxford atlas labels to patient clinical neuroimaging using the Localizing Electrodes GUI and manual inspection of co-registered CT and T1-weighted MR images.\" (preprint Methods). The deposit montage.csv per subject gives the gyrus of each analysed contact (empty `ch` = gyrus not analysed for that subject). No coordinates or imaging are deposited. For sub02 the deposit also contains d419f2_Anatomical_Labels.txt (ROSA-planned depth electrodes A'-S', 116 contacts, atlas labels \"not independently verified\"); those depth channels are not part of the deposited resting-state recording.\n\nThese gyrus labels are now in the `anat_label` column of each `*_electrodes.tsv` (n/a for contacts that montage.csv does not list).\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000396",
+    "exists": true,
+    "description": "Developmental ECoG: resting-state electrocorticography from 13 epilepsy patients aged 3-33 years (Miles, Weaver, Webb, Ojemann 2025)",
+    "created_at": "2026-10-07T22:17:53+00:00",
+    "updated_at": "2026-10-08T06:20:16+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

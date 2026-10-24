@@ -1,7 +1,7 @@
 {
   "dataset_id": "on005273",
-  "num_citations": 0,
-  "date_last_updated": "2026-10-11T11:01:32.582471+00:00",
+  "num_citations": 3,
+  "date_last_updated": "2026-10-24T11:15:04.548135+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
     "fetch_date": "2026-10-11T11:01:32.582471+00:00",
@@ -37,13 +37,106 @@
       "unconscious perception"
     ],
     "methods_description": null,
-    "funding": []
+    "funding": [],
+    "searched_accessions": [
+      "on005273",
+      "ds005273"
+    ],
+    "num_accession_mentions": 3,
+    "num_dataset_citations": 3,
+    "num_datapaper_citations": 0
   },
-  "citation_details": [],
+  "citation_details": [
+    {
+      "title": "Neural representation of consciously seen and unseen information",
+      "author": "Pablo Rodríguez-San Esteban, José A. González, Ana B. Chica",
+      "venue": "Scientific Reports",
+      "year": 2025,
+      "url": "https://doi.org/10.1038/s41598-025-92490-y",
+      "cited_by": 5,
+      "abstract": "Machine learning (ML) techniques have steadily gained popularity in Neuroscience research, particularly when applied to the analysis of neuroimaging data. One of the most discussed topics in this field, the neural correlates of conscious (and unconscious) information, has also benefited from these approaches. Nevertheless, further research is still necessary to better understand the minimal neural mechanisms that are necessary and sufficient for experiencing any conscious percept, and which mechanisms are comparable and discernible between conscious and unconscious events. The aim of this study was two-fold. First, to explore whether it was possible to decode task-relevant features from electroencephalography (EEG) signals, particularly those related to perceptual awareness. Secondly, to test whether this decoding could be improved by using time-frequency representations instead of voltage. We employed a perceptual task in which participants were presented with near-threshold Gabor stimuli. They were asked to discriminate the orientation of the grating, and report whether they had perceived it or not. Participants' EEG signal was recorded while performing the task and was then analysed by using ML algorithms to decode distinctive task-related parameters. Results demonstrated the feasibility of decoding the presence/absence of the stimuli from EEG data, as well as participants' subjective perception, although the model failed to extract relevant information related to the orientation of the Gabor. Unconscious processing of unseen stimulation was observed both behaviourally and at the neural level. Moreover, contrary to conscious processing, unconscious representations were less stable across time, and only observed at early perceptual stages (~ 100 ms) and during response preparation. Furthermore, we conducted a comparative analysis of the performance of the classifier when employing either raw voltage signals or time-frequency representations, finding a substantial improvement when the latter was used to train the model, particularly in the theta and alpha bands. These findings underscore the significant potential of ML algorithms in decoding perceptual awareness from EEG data in consciousness research tasks.",
+      "doi": "10.1038/s41598-025-92490-y",
+      "pmid": "40050698",
+      "openalex_id": "W4408190226",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds005273",
+      "confidence_scoring": {
+        "confidence_score": 0.6824667862057687,
+        "similarity_score": 0.5908803343772888,
+        "citation_text_length": 1680,
+        "dataset_text_length": 674,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Fragment-information curves and redundancy in near-threshold EEG detection: a preregistered secondary analysis",
+      "author": "Tristen Pierson",
+      "venue": "OSF Preprints (OSF Preprints)",
+      "year": 2026,
+      "url": "https://doi.org/10.17605/osf.io/gh27r",
+      "cited_by": 0,
+      "abstract": "Preregistered secondary analysis of OpenNeuro ds005273 (near-threshold masked Gabor detection with per-trial seen/unseen reports, 64-channel EEG). Tests whether the decodable stimulus information across disjoint subsets of EEG channels follows a plateau-shaped curve, and whether per-trial redundancy of the stimulus record predicts visibility reports at matched total information.",
+      "doi": "10.17605/osf.io/gh27r",
+      "pmid": null,
+      "openalex_id": "W7221105188",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds005273",
+      "confidence_scoring": {
+        "confidence_score": 0.6420429950952531,
+        "similarity_score": 0.5558813810348511,
+        "citation_text_length": 574,
+        "dataset_text_length": 674,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "What masking geometry works best for EEG foundation models?",
+      "author": "Pierre Guetschel, Bruno Aristimunha, Yassine El Ouahidi, Arnaud Delorme A, Thomas Moreau, Michael Tangermann",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2609.33487",
+      "cited_by": 0,
+      "abstract": "EEG foundation models hold promise for scalable brain-signal decoding across clinical and cognitive neuroscience applications, yet their pre-training pipelines remain poorly understood. Among design choices, the masking strategy is particularly critical: it determines what the network must predict and from which context. Yet it has never been ablated in isolation, as each new model bundles a new masking strategy with a new backbone and objective. In this paper, we formalize the design choices for spatio-temporal masking strategies and train various models with a single pipeline under varying masking configurations across two SSL frameworks (MAE and JEPA). We then systematically evaluate the resulting 58 pre-trained models on the 12 datasets of OpenEEGBench under a linear probe. Both frameworks agree on an optimal masking configuration and on shared failure modes. Outside these, performance is robust: 11 MAE and 9 JEPA configurations are statistically indistinguishable from the best. We further identify a novel JEPA-specific failure mode, tagged bias-inflation collapse, invisible to standard detectors. With a well-chosen mask, our pipeline reaches REVE-level downstream performance at a fraction of REVE's pre-training compute.",
+      "doi": "10.48550/arxiv.2609.33487",
+      "pmid": null,
+      "openalex_id": "W7214740814",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds005273",
+      "confidence_scoring": {
+        "confidence_score": 0.4091556335985661,
+        "similarity_score": 0.3542473018169403,
+        "citation_text_length": 1476,
+        "dataset_text_length": 674,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    }
+  ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-10-11T11:36:06.601250+00:00",
+    "scoring_date": "2026-10-24T11:31:42.060406+00:00",
     "dataset_text_length": 674,
-    "num_citations_scored": 0
+    "num_citations_scored": 3,
+    "summary_stats": {
+      "mean_confidence": 0.5778884716331959,
+      "median_confidence": 0.6420429950952531,
+      "std_confidence": 0.12044804881594423,
+      "min_confidence": 0.4091556335985661,
+      "max_confidence": 0.6824667862057687,
+      "high_confidence_count": 0,
+      "medium_confidence_count": 3,
+      "low_confidence_count": 0
+    }
   }
 }

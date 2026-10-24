@@ -1,10 +1,10 @@
 {
   "dataset_id": "on005095",
-  "num_citations": 5,
-  "date_last_updated": "2026-10-11T11:00:19.057972+00:00",
+  "num_citations": 7,
+  "date_last_updated": "2026-10-24T11:14:57.403359+00:00",
   "metadata": {
     "total_cumulative_citations": 15,
-    "fetch_date": "2026-10-11T11:00:19.057972+00:00",
+    "fetch_date": "2026-10-24T10:57:22.105633+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -23,7 +23,7 @@
         "paper_title": "Working memory processes and intrinsic motivation: An EEG study",
         "paper_year": 2024,
         "paper_venue": "International Journal of Psychophysiology",
-        "reason": "Study paper reports the Sternberg task EEG (N=48) by the same authors, matching the dataset's task and participants; DataCite IsSupplementTo relation supports it.",
+        "reason": "Same authors (Zhozhikashvili, Protopova, Shkurenko, Arsalidou, Zakharov) and Sternberg task EEG study with varying difficulty; the study paper reports this dataset's data (N=48).",
         "judgment_model": "claude-sonnet-5-5"
       },
       {
@@ -53,7 +53,14 @@
       "intrinsic motivation"
     ],
     "methods_description": "Participants performed a Sternberg task during EEG recording. Each trial had a 500-1000 ms fixation cross, then 1500 ms encoding, 2000 ms retention, and 1500 ms retrieval (probe letter). Participants answered yes or no with arrow keys. There were 200 trials in total, 40 per set size, in random block order with equal numbers of positive and negative probes. Stimuli were presented with Psychopy2. Triggers mark only stimulus onset, so retention and retrieval onsets must be computed from the trial design (1500 ms and 3500 ms after the trigger).",
-    "funding": []
+    "funding": [],
+    "searched_accessions": [
+      "on005095",
+      "ds005095"
+    ],
+    "num_accession_mentions": 2,
+    "num_dataset_citations": 2,
+    "num_datapaper_citations": 5
   },
   "citation_details": [
     {
@@ -170,21 +177,71 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "What masking geometry works best for EEG foundation models?",
+      "author": "Pierre Guetschel, Bruno Aristimunha, Yassine El Ouahidi, Arnaud Delorme A, Thomas Moreau, Michael Tangermann",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2609.33487",
+      "cited_by": 0,
+      "abstract": "EEG foundation models hold promise for scalable brain-signal decoding across clinical and cognitive neuroscience applications, yet their pre-training pipelines remain poorly understood. Among design choices, the masking strategy is particularly critical: it determines what the network must predict and from which context. Yet it has never been ablated in isolation, as each new model bundles a new masking strategy with a new backbone and objective. In this paper, we formalize the design choices for spatio-temporal masking strategies and train various models with a single pipeline under varying masking configurations across two SSL frameworks (MAE and JEPA). We then systematically evaluate the resulting 58 pre-trained models on the 12 datasets of OpenEEGBench under a linear probe. Both frameworks agree on an optimal masking configuration and on shared failure modes. Outside these, performance is robust: 11 MAE and 9 JEPA configurations are statistically indistinguishable from the best. We further identify a novel JEPA-specific failure mode, tagged bias-inflation collapse, invisible to standard detectors. With a well-chosen mask, our pipeline reaches REVE-level downstream performance at a fraction of REVE's pre-training compute.",
+      "doi": "10.48550/arxiv.2609.33487",
+      "pmid": null,
+      "openalex_id": "W7214740814",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds005095",
+      "confidence_scoring": {
+        "confidence_score": 0.48264682039618495,
+        "similarity_score": 0.4178760349750519,
+        "citation_text_length": 1476,
+        "dataset_text_length": 2289,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Predicting Cognitive Tasks from Single-Channel EEG through Task-Semantic Alignment",
+      "author": "Ryota Kanai C",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2610.15104",
+      "cited_by": 0,
+      "abstract": "Studies of data scaling in electroencephalography (EEG) and related noninvasive recordings suggest that simple wearable devices could eventually reveal more about cognitive states. However, publicly available EEG data are difficult to combine. Different laboratories record different tasks, participants, and devices. Task-agnostic self-supervised learning can exploit such data, but representations learned only with EEG signals have not consistently produced feature representations that are directly effective for decoding the cognitive state. We therefore aimed to incorporate task information by embedding experimental instructions, stimuli and response demands in a common semantic space, and trained an EEG encoder to align signals from a single anterior--posterior differential channel with those task vectors. This framework supports zero-shot prediction without target-condition calibration and few-shot prediction using labeled samples. On a reserved ten-class evaluation, the highest observed zero-shot balanced accuracy was 30.13% (chance 10%). In a separate developmental few-shot experiment, balanced accuracy reached 34.47% using 16 labeled EEG examples per class from another participant, and 74.99% using examples from the test participant's own task recording. Our experiments suggest that training models on datasets with multiple tasks per participant appeared useful, whereas adding datasets containing only one or a few tasks sometimes reduced established performance despite broader task coverage. These exploratory results suggest that EEG datasets that repeat varied cognitive tasks and everyday activities within the same individuals across days, devices and independent studies would be particularly useful for training an EEG foundation model for predicting cognitive states.",
+      "doi": "10.48550/arxiv.2610.15104",
+      "pmid": null,
+      "openalex_id": "W7221793578",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds005095",
+      "confidence_scoring": {
+        "confidence_score": 0.5998736804723741,
+        "similarity_score": 0.5193711519241333,
+        "citation_text_length": 1660,
+        "dataset_text_length": 2289,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-10-11T11:35:36.946112+00:00",
+    "scoring_date": "2026-10-24T11:31:19.057318+00:00",
     "dataset_text_length": 2289,
-    "num_citations_scored": 5,
+    "num_citations_scored": 7,
     "summary_stats": {
-      "mean_confidence": 0.3533077751398087,
-      "median_confidence": 0.35287050336599357,
-      "std_confidence": 0.11819061634639841,
+      "mean_confidence": 0.40700848236680043,
+      "median_confidence": 0.4675842708349228,
+      "std_confidence": 0.13479194632854036,
       "min_confidence": 0.22160541415214544,
-      "max_confidence": 0.502383452653885,
+      "max_confidence": 0.5998736804723741,
       "high_confidence_count": 0,
-      "medium_confidence_count": 2,
+      "medium_confidence_count": 4,
       "low_confidence_count": 3
     }
   }

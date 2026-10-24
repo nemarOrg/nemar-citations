@@ -1,0 +1,66 @@
+{
+  "dataset_id": "nm000315",
+  "date_retrieved": "2026-10-12T10:02:39.739233+00:00",
+  "dataset_description": {
+    "Name": "Shin2022: Closed-loop 1D left/right motor imagery EEG dataset (live recordings)",
+    "BIDSVersion": "1.9.0",
+    "HEDVersion": "8.4.0",
+    "DatasetType": "derivative",
+    "License": "CC BY 4.0",
+    "Authors": [
+      "Hyonyoung Shin",
+      "Daniel Suma",
+      "Bin He"
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.6084/m9.figshare.20383716",
+      "10.3389/fnhum.2022.951591"
+    ],
+    "Keywords": [
+      "motor imagery",
+      "EEG",
+      "sensorimotor rhythm",
+      "brain-computer interface",
+      "closed-loop",
+      "cursor control",
+      "dry electrodes"
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000315",
+    "GeneratedBy": [
+      {
+        "CodeURL": "https://github.com/NeuroTechX/moabb",
+        "Name": "moabb",
+        "Description": "Mother of All BCI Benchmarks",
+        "Version": "1.8.0dev0"
+      }
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "10.3389/fnhum.2022.951591",
+        "URL": "https://doi.org/10.6084/m9.figshare.20383716"
+      },
+      {
+        "DOI": "doi:10.3389/fnhum.2022.951591"
+      }
+    ],
+    "PublicationYear": 2022,
+    "EthicsApprovals": [
+      "Reviewed and approved by the Institutional Review Board of Carnegie Mellon University. All participants provided written informed consent to participate in the study (Shin, Suma & He 2022, Front. Hum. Neurosci. 16:951591, DOI 10.3389/fnhum.2022.951591)."
+    ],
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000315-blue)](https://doi.org/10.82901/nemar.nm000315)\n\nShin2022\n========\n\nClosed-loop 1D left/right motor imagery EEG dataset (live recordings).\n\nDataset Overview\n----------------\n  Code: Shin2022\n  Paradigm: imagery\n  DOI: 10.3389/fnhum.2022.951591\n  Subjects: 10\n  Sessions per subject: 1\n  Events: right_hand=1, left_hand=2\n  Trial interval: [0, 3.0] s\n  Runs per session: 11\n  File format: BCI2000\n\nAcquisition\n-----------\n  Sampling rate: 250.0 Hz\n  Number of channels: 16\n  Channel types: eeg=16\n  Montage: standard_1005\n  Hardware: g.tec g.Nautilus RESEARCH (16 channel)\n  Software: BCI2000\n  Reference: unknown\n  Sensor type: dry\n  Line frequency: 60.0 Hz\n  Online filters: broadband (online 0.5-30 Hz filter disabled at source)\n  Cap manufacturer: g.tec medical engineering GmbH\n  Cap model: g.SAHARA dry electrode system\n  Electrode type: wire\n\nParticipants\n------------\n  Number of subjects: 10\n  Health status: healthy\n  Species: human\n\nExperimental Protocol\n---------------------\n  Paradigm: imagery\n  Number of classes: 2\n  Class labels: right_hand, left_hand\n  Trial duration: 6.0 s\n  Study design: Closed-loop 1D left/right (LR) center-out SMR cursor control. Left- vs right-hand motor imagery moves a cursor toward a left or right target under continuous visual feedback. 24 trials per run (12 left / 12 right), 11 runs per subject sweeping online control parameters (BW, CV, NT); one recording day per subject.\n  Feedback type: visual\n  Stimulus type: visual cursor\n  Stimulus modalities: visual\n  Primary modality: visual\n  Synchronicity: synchronous\n  Mode: online\n  Instructions: Imagine left- or right-hand movement to drive the cursor toward the cued left or right target.\n\nHED Event Annotations\n---------------------\n  Schema: HED 8.4.0 | Browse: https://www.hedtags.org/hed-schema-browser\n\n  right_hand\n    ├─ Sensory-event, Experimental-stimulus, Visual-presentation\n    └─ Agent-action\n       └─ Imagine\n          ├─ Move\n          └─ Right, Hand\n\n  left_hand\n    ├─ Sensory-event, Experimental-stimulus, Visual-presentation\n    └─ Agent-action\n       └─ Imagine\n          ├─ Move\n          └─ Left, Hand\n\nParadigm-Specific Parameters\n----------------------------\n  Detected paradigm: motor_imagery\n  Imagery tasks: right_hand, left_hand\n\nData Structure\n--------------\n  Trials: 2640\n  Trials per class: right_hand=12, left_hand=12\n  Trials context: 10 subjects x 11 runs x 24 trials (12 left / 12 right)\n\nPreprocessing\n-------------\n  Data state: continuous\n\nSignal Processing\n-----------------\n  Feature extraction: autoregressive_spectrum, alpha_band_power\n  Frequency bands: alpha=[8.0, 12.0] Hz\n  Spatial filters: s, m, a, l, l,  , s, u, r, f, a, c, e,  , L, a, p, l, a, c, i, a, n,  , a, r, o, u, n, d,  , C, 3,  , a, n, d,  , C, 4\n\nCross-Validation\n----------------\n  Evaluation type: within_subject\n\nBCI Application\n---------------\n  Applications: cursor_control\n  Environment: laboratory\n  Online feedback: True\n\nTags\n----\n  Pathology: Healthy\n  Modality: Motor\n  Type: Research\n\nDocumentation\n-------------\n  DOI: 10.3389/fnhum.2022.951591\n  Associated paper DOI: 10.3389/fnhum.2022.951591\n  License: CC BY 4.0\n  Investigators: Hyonyoung Shin, Daniel Suma, Bin He\n  Senior author: Bin He\n  Institution: Carnegie Mellon University\n  Department: Department of Biomedical Engineering\n  Country: US\n  Repository: Figshare\n  Data URL: https://doi.org/10.6084/m9.figshare.20383716\n  Publication year: 2022\n  Keywords: motor imagery, EEG, sensorimotor rhythm, brain-computer interface, closed-loop, cursor control, dry electrodes\n\nReferences\n----------\nH. Shin, D. Suma and B. He, \"Closed-loop motor imagery EEG simulation for brain-computer interfaces,\" Frontiers in Human Neuroscience, vol. 16, 951591, 2022. DOI: 10.3389/fnhum.2022.951591\n\nH. Shin, D. Suma and B. He, \"Data from: Closed-loop motor imagery EEG simulation for brain-computer interfaces,\" figshare, 2022. DOI: 10.6084/m9.figshare.20383716\nAppelhoff, S., Sanderson, M., Brooks, T., Vliet, M., Quentin, R., Holdgraf, C., Chaumon, M., Mikulan, E., Tavabi, K., Hochenberger, R., Welke, D., Brunner, C., Rockhill, A., Larson, E., Gramfort, A. and Jas, M. (2019). MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis. Journal of Open Source Software 4: (1896). https://doi.org/10.21105/joss.01896\n\nPernet, C. R., Appelhoff, S., Gorgolewski, K. J., Flandin, G., Phillips, C., Delorme, A., Oostenveld, R. (2019). EEG-BIDS, an extension to the brain imaging data structure for electroencephalography. Scientific Data, 6, 103. https://doi.org/10.1038/s41597-019-0104-8\n\n---\nGenerated by MOABB 1.8.0dev0 (Mother of All BCI Benchmarks)\nhttps://github.com/NeuroTechX/moabb\n\nEthics\n------\nEthics approval: the data analysed in this deposit were collected under the\nethics approval obtained by the original investigators and reported in the\nprimary publication cited above (see References/Documentation sections of\nthis README). Participants gave informed consent in the source study. No\nnew human-subject data were collected during this BIDS re-release; this\nNEMAR record only reformats the published source data into BIDS via MOABB.\nPlease consult the primary publication for the exact IRB/ethics committee\nreference.\n\n## Ethics\n\nReviewed and approved by the Institutional Review Board of Carnegie Mellon University. All participants provided written informed consent to participate in the study (Shin, Suma & He 2022, Front. Hum. Neurosci. 16:951591, DOI 10.3389/fnhum.2022.951591).\n\nVerbatim from the source:\n\n> The studies involving human participants were reviewed and approved by the Institutional Review Board of Carnegie Mellon University. The patients/participants provided their written informed consent to participate in this study.\n\nSource: cached paper .paper-audit/Shin2022/paper-10_3389_fnhum_2022_951591.txt (Shin, Suma & He 2022, Front. Hum. Neurosci. 16:951591, DOI 10.3389/fnhum.2022.951591).\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000315",
+    "exists": true,
+    "description": "Shin2022: Closed-loop 1D left/right motor imagery EEG dataset (live recordings)",
+    "created_at": "2026-10-04T17:20:39+00:00",
+    "updated_at": "2026-10-11T03:10:24+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

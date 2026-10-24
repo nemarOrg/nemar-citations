@@ -1,0 +1,62 @@
+{
+  "dataset_id": "nm000316",
+  "date_retrieved": "2026-10-12T10:02:43.456463+00:00",
+  "dataset_description": {
+    "Name": "IMUMIA2026: Multi-paradigm motor-imagery EEG dataset (IMU-MI_A)",
+    "BIDSVersion": "1.9.0",
+    "HEDVersion": "8.4.0",
+    "DatasetType": "derivative",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "Jianxiu Li",
+      "Changming Wang",
+      "Chao Chen"
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.5281/zenodo.20421767"
+    ],
+    "Keywords": [
+      "EEG",
+      "motor imagery",
+      "BCI",
+      "fine motor imagery"
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000316",
+    "GeneratedBy": [
+      {
+        "CodeURL": "https://github.com/NeuroTechX/moabb",
+        "Name": "moabb",
+        "Description": "Mother of All BCI Benchmarks",
+        "Version": "1.8.0dev0"
+      }
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "10.5281/zenodo.20421767",
+        "URL": "https://doi.org/10.5281/zenodo.20421767"
+      },
+      {
+        "DOI": "doi:10.5281/zenodo.20421767"
+      }
+    ],
+    "PublicationYear": 2026,
+    "EthicsApprovals": [
+      "See the primary publication cited in the README/ReferencesAndLinks for the ethics approval statement obtained by the original investigators; no new human-subject data were collected for this BIDS re-release."
+    ],
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000316-blue)](https://doi.org/10.82901/nemar.nm000316)\n\nIMUMIA2026\n==========\n\nMulti-paradigm motor-imagery EEG dataset (IMU-MI_A) [1]_.\n\nDataset Overview\n----------------\n  Code: IMUMIA2026\n  Paradigm: imagery\n  DOI: 10.5281/zenodo.20421767\n  Subjects: 5\n  Sessions per subject: 1\n  Events: left_hand=1, right_hand=2, left_foot=3, right_foot=4, left_thumb=5, right_thumb=6, left_index=7, right_index=8, left_pinch=9, right_pinch=10\n  Trial interval: [0, 4] s\n  Runs per session: 5\n  File format: Curry\n\nAcquisition\n-----------\n  Sampling rate: 1000.0 Hz\n  Number of channels: 69\n  Channel types: eeg=64, eog=2, ecg=1, emg=1, misc=1\n  Channel names: FP1, FPZ, FP2, AF3, AF4, F7, F5, F3, F1, FZ, F2, F4, F6, F8, FT7, FC5, FC3, FC1, FCZ, FC2, FC4, FC6, FT8, T7, C5, C3, C1, CZ, C2, C4, C6, T8, M1, TP7, CP5, CP3, CP1, CPZ, CP2, CP4, CP6, TP8, M2, P7, P5, P3, P1, PZ, P2, P4, P6, P8, PO7, PO5, PO3, POZ, PO4, PO6, PO8, CB1, O1, OZ, O2, CB2\n  Montage: standard_1020\n  Hardware: Neuroscan SynAmps (64-channel Quik-Cap)\n  Reference: Cz\n  Ground: forehead\n  Sensor type: Ag/AgCl\n  Line frequency: 50.0 Hz\n  Impedance threshold: 10.0 kOhm\n  Electrode type: passive\n  Auxiliary channels: EOG (2 ch, HEO, VEO), EMG (1 ch), ECG\n\nParticipants\n------------\n  Number of subjects: 5\n  Health status: healthy\n\nExperimental Protocol\n---------------------\n  Paradigm: imagery\n  Number of classes: 10\n  Class labels: left_hand, right_hand, left_foot, right_foot, left_thumb, right_thumb, left_index, right_index, left_pinch, right_pinch\n  Trial duration: 6.0 s\n  Study design: Five motor-imagery tasks (left/right hand, foot, thumb, index finger and index-thumb pinch), each recorded under a Classic Arrow paradigm and a Cue-Execution dual-stage paradigm.\n  Stimulus type: visual\n  Stimulus modalities: visual\n  Synchronicity: cue-based\n  Mode: offline\n  Instructions: Perform the cued left- or right-side motor imagery of the task's body part following the arrow direction.\n\nHED Event Annotations\n---------------------\n  Schema: HED 8.4.0 | Browse: https://www.hedtags.org/hed-schema-browser\n\n  left_hand\n    ├─ Sensory-event, Experimental-stimulus, Visual-presentation\n    └─ Agent-action\n       └─ Imagine\n          ├─ Move\n          └─ Left, Hand\n\n  right_hand\n    ├─ Sensory-event, Experimental-stimulus, Visual-presentation\n    └─ Agent-action\n       └─ Imagine\n          ├─ Move\n          └─ Right, Hand\n\n  left_foot\n    ├─ Sensory-event\n    └─ Label/left_foot\n\n  right_foot\n    ├─ Sensory-event\n    └─ Label/right_foot\n\n  left_thumb\n    ├─ Sensory-event\n    └─ Label/left_thumb\n\n  right_thumb\n    ├─ Sensory-event\n    └─ Label/right_thumb\n\n  left_index\n    ├─ Sensory-event\n    └─ Label/left_index\n\n  right_index\n    ├─ Sensory-event\n    └─ Label/right_index\n\n  left_pinch\n    ├─ Sensory-event\n    └─ Label/left_pinch\n\n  right_pinch\n    ├─ Sensory-event\n    └─ Label/right_pinch\n\nParadigm-Specific Parameters\n----------------------------\n  Detected paradigm: motor_imagery\n  Imagery tasks: left_hand, right_hand, left_foot, right_foot, left_thumb, right_thumb, left_index, right_index, left_pinch, right_pinch\n  Imagery duration: 4.0 s\n\nData Structure\n--------------\n  Blocks per session: 5\n  Trials context: Single session with five runs (one motor-imagery task each). Only the Classic Arrow cues (12 trials per side and task) are labelled by default; the dual-stage paradigm markers are kept in the annotations.\n\nPreprocessing\n-------------\n  Data state: raw\n  Preprocessing applied: False\n\nTags\n----\n  Pathology: healthy\n  Modality: motor\n  Type: Motor Imagery\n\nDocumentation\n-------------\n  Description: Human motor-imagery EEG covering diverse cognitive states: five body-part tasks (hand, foot, thumb, index finger, pinch) under two paradigms, 64-channel Neuroscan at 1000 Hz. Public five-subject sample of a 244-participant dataset.\n  DOI: 10.5281/zenodo.20421767\n  License: CC-BY-4.0\n  Investigators: Jianxiu Li, Changming Wang, Chao Chen\n  Institution: Inner Mongolia University\n  Address: Inner Mongolia, China\n  Country: CN\n  Repository: Zenodo\n  Data URL: https://doi.org/10.5281/zenodo.20421767\n  Publication year: 2026\n  Keywords: EEG, motor imagery, BCI, fine motor imagery\n\nReferences\n----------\nLi, J., Wang, C., and Chen, C. (2026). A Human Motor Imagery EEG Dataset Covering Diverse Cognitive States and Neural Response Patterns. Zenodo. DOI: https://doi.org/10.5281/zenodo.20421767\n\nNotes\n\nThe numeric event code to left/right assignment follows the authors' documented condition order (the \"Left ... MI\" condition is listed before the \"Right ... MI\" condition in every ``task-Task*_events.json``); the archive ships no explicit trigger code book. Users are advised to verify laterality against the EMG/EOG channels before publication.\n\n.. versionadded:: 1.8.0\nAppelhoff, S., Sanderson, M., Brooks, T., Vliet, M., Quentin, R., Holdgraf, C., Chaumon, M., Mikulan, E., Tavabi, K., Hochenberger, R., Welke, D., Brunner, C., Rockhill, A., Larson, E., Gramfort, A. and Jas, M. (2019). MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis. Journal of Open Source Software 4: (1896). https://doi.org/10.21105/joss.01896\n\nPernet, C. R., Appelhoff, S., Gorgolewski, K. J., Flandin, G., Phillips, C., Delorme, A., Oostenveld, R. (2019). EEG-BIDS, an extension to the brain imaging data structure for electroencephalography. Scientific Data, 6, 103. https://doi.org/10.1038/s41597-019-0104-8\n\n---\nGenerated by MOABB 1.8.0dev0 (Mother of All BCI Benchmarks)\nhttps://github.com/NeuroTechX/moabb\n\nEthics\n------\nEthics approval: the data analysed in this deposit were collected under the\nethics approval obtained by the original investigators and reported in the\nprimary publication cited above (see References/Documentation sections of\nthis README). Participants gave informed consent in the source study. No\nnew human-subject data were collected during this BIDS re-release; this\nNEMAR record only reformats the published source data into BIDS via MOABB.\nPlease consult the primary publication for the exact IRB/ethics committee\nreference.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000316",
+    "exists": true,
+    "description": "IMUMIA2026: Multi-paradigm motor-imagery EEG dataset (IMU-MI_A)",
+    "created_at": "2026-10-04T17:27:22+00:00",
+    "updated_at": "2026-10-11T03:10:29+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}
