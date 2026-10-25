@@ -1,10 +1,10 @@
 {
   "dataset_id": "on007056",
-  "num_citations": 0,
-  "date_last_updated": "2026-09-30T10:44:33.709503+00:00",
+  "num_citations": 1,
+  "date_last_updated": "2026-10-25T10:19:02.161816+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
-    "fetch_date": "2026-09-29T11:36:08.298803+00:00",
+    "fetch_date": "2026-10-25T10:16:33.207515+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 1,
@@ -19,12 +19,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "judged_not_data_paper",
         "paper_title": "ERP CORE: An open resource for human event-related potential research",
         "paper_year": 2020,
         "paper_venue": "NeuroImage",
         "reason": "ERP CORE provides standardized ERP paradigms and pipelines; the PURSUE dataset reuses its P3 oddball task design but is a different dataset with its own data.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "judged_not_data_paper"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on007056",
@@ -32,12 +32,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -45,28 +45,63 @@
     ],
     "keywords": [
       "EEG",
-      "Event-Related Potentials, P300",
-      "oddball paradigm",
-      "visual attention",
-      "PURSUE project",
-      "ERP CORE",
-      "electrophysiology"
+      "P300",
+      "visual oddball",
+      "event-related potentials",
+      "Electroencephalography",
+      "Event-Related Potentials, P300"
     ],
-    "methods_description": "EEG data were collected during a visual oddball task from participants at three primarily undergraduate institutions (Southern California, Massachusetts, and Virginia) in 2017 and 2018. Task design details are provided in Kappenman et al. (2021, NeuroImage, 225, 117465, https://doi.org/10.1016/j.neuroimage.2020.117465) and supplementary materials.",
+    "methods_description": "Participants completed a visual oddball task based on the ERP CORE P300 paradigm while EEG was recorded. Data were collected at three academic institutions in 2017 and 2018.",
     "funding": [],
     "searched_accessions": [
       "on007056",
       "ds007056"
     ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
+    "num_accession_mentions": 1,
+    "num_dataset_citations": 1,
     "num_datapaper_citations": 0
   },
-  "citation_details": [],
+  "citation_details": [
+    {
+      "title": "Predicting Cognitive Tasks from Single-Channel EEG through Task-Semantic Alignment",
+      "author": "Ryota Kanai C",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2610.15104",
+      "cited_by": 0,
+      "abstract": "Studies of data scaling in electroencephalography (EEG) and related noninvasive recordings suggest that simple wearable devices could eventually reveal more about cognitive states. However, publicly available EEG data are difficult to combine. Different laboratories record different tasks, participants, and devices. Task-agnostic self-supervised learning can exploit such data, but representations learned only with EEG signals have not consistently produced feature representations that are directly effective for decoding the cognitive state. We therefore aimed to incorporate task information by embedding experimental instructions, stimuli and response demands in a common semantic space, and trained an EEG encoder to align signals from a single anterior--posterior differential channel with those task vectors. This framework supports zero-shot prediction without target-condition calibration and few-shot prediction using labeled samples. On a reserved ten-class evaluation, the highest observed zero-shot balanced accuracy was 30.13% (chance 10%). In a separate developmental few-shot experiment, balanced accuracy reached 34.47% using 16 labeled EEG examples per class from another participant, and 74.99% using examples from the test participant's own task recording. Our experiments suggest that training models on datasets with multiple tasks per participant appeared useful, whereas adding datasets containing only one or a few tasks sometimes reduced established performance despite broader task coverage. These exploratory results suggest that EEG datasets that repeat varied cognitive tasks and everyday activities within the same individuals across days, devices and independent studies would be particularly useful for training an EEG foundation model for predicting cognitive states.",
+      "doi": "10.48550/arxiv.2610.15104",
+      "pmid": null,
+      "openalex_id": "W7221793578",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds007056",
+      "confidence_scoring": {
+        "confidence_score": 0.4860070306062699,
+        "similarity_score": 0.4207853078842163,
+        "citation_text_length": 1660,
+        "dataset_text_length": 1026,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    }
+  ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T11:03:12.817272+00:00",
+    "scoring_date": "2026-10-25T10:33:22.278131+00:00",
     "dataset_text_length": 1026,
-    "num_citations_scored": 0
+    "num_citations_scored": 1,
+    "summary_stats": {
+      "mean_confidence": 0.4860070306062699,
+      "median_confidence": 0.4860070306062699,
+      "std_confidence": 0.0,
+      "min_confidence": 0.4860070306062699,
+      "max_confidence": 0.4860070306062699,
+      "high_confidence_count": 0,
+      "medium_confidence_count": 1,
+      "low_confidence_count": 0
+    }
   }
 }

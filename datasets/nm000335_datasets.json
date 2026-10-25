@@ -1,0 +1,72 @@
+{
+  "dataset_id": "nm000335",
+  "date_retrieved": "2026-10-25T10:01:56.378695+00:00",
+  "dataset_description": {
+    "Name": "Sensory-guided joint-learning MI-BCI study",
+    "BIDSVersion": "1.9.0",
+    "HEDVersion": "8.4.0",
+    "DatasetType": "derivative",
+    "License": "CC-BY-NC-4.0",
+    "Authors": [
+      "Hanwen Wang",
+      "Yisha Zhang",
+      "Maxim Karrenbach",
+      "Yidan Ding",
+      "Bin He"
+    ],
+    "Funding": [
+      "NS124564",
+      "NS131069",
+      "NS127849",
+      "NS096761"
+    ],
+    "ReferencesAndLinks": [
+      "https://kilthub.cmu.edu/articles/dataset/EEG_Datasets_for_Sensory-Guided_Joint_Learning_in_Motor_Imagery_Brain-Computer_Interfaces/32293995",
+      "10.1038/s41467-026-75435-5"
+    ],
+    "Keywords": [
+      "motor imagery",
+      "BCI",
+      "joint learning",
+      "tactile stimulation",
+      "EEGNet"
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000335",
+    "GeneratedBy": [
+      {
+        "CodeURL": "https://github.com/NeuroTechX/moabb",
+        "Name": "moabb",
+        "Description": "Mother of All BCI Benchmarks",
+        "Version": "1.8.0dev0"
+      }
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "10.1184/R1/32293995.v1",
+        "URL": "https://kilthub.cmu.edu/articles/dataset/EEG_Datasets_for_Sensory-Guided_Joint_Learning_in_Motor_Imagery_Brain-Computer_Interfaces/32293995"
+      },
+      {
+        "DOI": "doi:10.1184/R1/32293995.v1"
+      }
+    ],
+    "PublicationYear": 2026,
+    "EthicsApprovals": [
+      "Every experiment involving human participants has been carried out following a protocol approved by the Institutional Review Board of Carnegie Mellon University. Each participant gave informed written consent. (Quoted verbatim from the primary publication's Ethics statement, Wang et al. 2026, Nature Communications 17:6177, DOI 10.1038/s41467-026-75435-5.)"
+    ],
+    "Version": "1.0.1"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000335-blue)](https://doi.org/10.82901/nemar.nm000335)\n\nWang2026\n========\n\nSensory-guided joint-learning MI-BCI study from Wang et al. (2026).\n\nDataset Overview\n----------------\n  Code: Wang2026\n  Paradigm: imagery\n  DOI: 10.1184/R1/32293995.v1\n  Subjects: 39\n  Sessions per subject: 5\n  Events: left_hand=1, right_hand=2, hands=3, rest=4\n  Trial interval: [0.0, 4.999] s\n  File format: MATLAB v7.3\n  Data preprocessed: True\n  Contributing labs: Carnegie Mellon University Biomedical Functional Imaging and Neuroengineering Lab\n\nAcquisition\n-----------\n  Sampling rate: 1000.0 Hz\n  Number of channels: 62\n  Channel types: eeg=62\n  Channel names: Fp1, Fpz, Fp2, AF3, AF4, F7, F5, F3, F1, Fz, F2, F4, F6, F8, FT7, FC5, FC3, FC1, FCz, FC2, FC4, FC6, FT8, T7, C5, C3, C1, Cz, C2, C4, C6, T8, TP7, CP5, CP3, CP1, CPz, CP2, CP4, CP6, TP8, P7, P5, P3, P1, Pz, P2, P4, P6, P8, PO7, PO5, PO3, POz, PO4, PO6, PO8, CB1, O1, Oz, O2, CB2\n  Montage: standard_1005\n  Hardware: Compumedics Neuroscan SynAmps 2/RT\n  Software: BCI2000\n  Reference: midway between Cz and CPz\n  Line frequency: 60.0 Hz\n  Online filters: {'notch': 60.0}\n  Impedance threshold: 5.0 kOhm\n  Cap manufacturer: Compumedics Neuroscan\n  Cap model: Quik-Cap\n\nEthics\n------\n  Every experiment involving human participants has been carried out following a protocol approved by the Institutional Review Board of Carnegie Mellon University. Each participant gave informed written consent. (Quoted verbatim from the primary publication's Ethics statement: Wang, H., Zhang, Y., Karrenbach, M., Ding, Y., & He, B. (2026). Sensory-guided human-machine joint learning accelerates the acquisition of motor imagery brain computer interface control. Nature Communications, 17, 6177. https://doi.org/10.1038/s41467-026-75435-5. Participants were recruited from the Pittsburgh area and compensated $15/hour; informed consent followed the World Medical Association's Declaration of Helsinki.)\n\nParticipants\n------------\n  Number of subjects: 39\n  Health status: healthy\n  BCI experience: naive\n\nExperimental Protocol\n---------------------\n  Paradigm: imagery\n  Task type: online 1D and 2D cursor control\n  Number of classes: 4\n  Class labels: left_hand, right_hand, hands, rest\n  Trial duration: 5.0 s\n  Tasks: left hand imagery, right hand imagery, bilateral hand imagery, rest\n  Study design: One longitudinal MI-BCI study release with 39 unique participants. The primary randomized experiment included 31 participants: joint learning (n=15), BCI2000 control (n=8), and tactile control (n=8). A separately recruited EEGNet-control cohort added 8 participants.\n  Feedback type: visual cursor feedback, with cohort-specific tactile guidance, EEGNet adaptation, or fixed BCI2000 decoding\n  Stimulus type: visual cursor and directional cue\n  Stimulus modalities: visual, tactile\n  Primary modality: visual\n  Synchronicity: synchronous\n  Mode: online\n  Training/test split: True\n  Stimulus presentation: SoftwareName=BCI2000\n\nHED Event Annotations\n---------------------\n  Schema: HED 8.4.0 | Browse: https://www.hedtags.org/hed-schema-browser\n\n  left_hand\n    ├─ Sensory-event, Experimental-stimulus, Visual-presentation\n    └─ Agent-action\n       └─ Imagine\n          ├─ Move\n          └─ Left, Hand\n\n  right_hand\n    ├─ Sensory-event, Experimental-stimulus, Visual-presentation\n    └─ Agent-action\n       └─ Imagine\n          ├─ Move\n          └─ Right, Hand\n\n  hands\n    ├─ Sensory-event, Experimental-stimulus, Visual-presentation\n    └─ Agent-action\n       └─ Imagine, Move, Hand\n\n  rest\n    ├─ Sensory-event\n    ├─ Experimental-stimulus\n    ├─ Visual-presentation\n    └─ Rest\n\nParadigm-Specific Parameters\n----------------------------\n  Detected paradigm: motor_imagery\n  Imagery tasks: left_hand, right_hand, hands, rest\n  Imagery duration: 5.0 s\n\nData Structure\n--------------\n  Trials: varies by run and subject\n  Blocks per session: 6\n  Trials context: Each regular session contains six runs; run0 is a separate initial BCI2000 baseline. Subjects completed 4, 6, or 8 regular sessions.\n\nPreprocessing\n-------------\n  Data state: trial-segmented\n  Preprocessing applied: True\n  Steps: trial segmentation, auxiliary-channel exclusion, per-trial temporal centering in the MOABB reconstruction\n  Notch filter: 60.0 Hz\n  Notes: The release contains 62 selected EEG channels and states that no additional filtering or downsampling was applied. Runs use either fixed-length EEGNet trials or variable-length BCI2000 trials.\n\nSignal Processing\n-----------------\n  Classifiers: weighted EEGNet, EEGNet, BCI2000 linear classifier\n  Feature extraction: EEGNet, autoregressive spectral features\n  Frequency bands: online_EEGNet=[4.0, 40.0] Hz\n  Spatial filters: CSP-based initial sample weighting\n\nBCI Application\n---------------\n  Applications: cursor control\n  Environment: laboratory\n  Online feedback: True\n\nTags\n----\n  Pathology: Healthy\n  Modality: Motor\n  Type: Motor Imagery, Online BCI\n\nDocumentation\n-------------\n  DOI: 10.1184/R1/32293995.v1\n  Associated paper DOI: 10.1038/s41467-026-75435-5\n  License: CC-BY-NC-4.0\n  Investigators: Hanwen Wang, Yisha Zhang, Maxim Karrenbach, Yidan Ding, Bin He\n  Senior author: Bin He\n  Contact: bhe1@andrew.cmu.edu\n  Institution: Carnegie Mellon University\n  Department: Department of Biomedical Engineering\n  Country: US\n  Repository: KiltHub (Figshare)\n  Data URL: https://kilthub.cmu.edu/articles/dataset/EEG_Datasets_for_Sensory-Guided_Joint_Learning_in_Motor_Imagery_Brain-Computer_Interfaces/32293995\n  Publication year: 2026\n  Funding: NS124564; NS131069; NS127849; NS096761\n  Keywords: motor imagery, BCI, joint learning, tactile stimulation, EEGNet\n\nExternal Links\n--------------\n  Source: https://kilthub.cmu.edu/articles/dataset/EEG_Datasets_for_Sensory-Guided_Joint_Learning_in_Motor_Imagery_Brain-Computer_Interfaces/32293995\n  Paper: https://doi.org/10.1038/s41467-026-75435-5\n  Code: https://github.com/bfinl/SensoryGuidedJointLearning\n\nReferences\n----------\nWang, H., Zhang, Y., Karrenbach, M., Ding, Y., & He, B. (2026). Sensory-guided human-machine joint learning accelerates the acquisition of motor imagery brain computer interface control. Nature Communications, 17, 6177. https://doi.org/10.1038/s41467-026-75435-5\n\nWang, H., Zhang, Y., Karrenbach, M., Ding, Y., & He, B. (2026). EEG Datasets for Sensory-Guided Joint Learning in Motor Imagery Brain-Computer Interfaces. Carnegie Mellon University. https://doi.org/10.1184/R1/32293995.v1\nAppelhoff, S., Sanderson, M., Brooks, T., Vliet, M., Quentin, R., Holdgraf, C., Chaumon, M., Mikulan, E., Tavabi, K., Hochenberger, R., Welke, D., Brunner, C., Rockhill, A., Larson, E., Gramfort, A. and Jas, M. (2019). MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis. Journal of Open Source Software 4: (1896). https://doi.org/10.21105/joss.01896\n\nPernet, C. R., Appelhoff, S., Gorgolewski, K. J., Flandin, G., Phillips, C., Delorme, A., Oostenveld, R. (2019). EEG-BIDS, an extension to the brain imaging data structure for electroencephalography. Scientific Data, 6, 103. https://doi.org/10.1038/s41597-019-0104-8\n\n---\nGenerated by MOABB 1.8.0dev0 (Mother of All BCI Benchmarks)\nhttps://github.com/NeuroTechX/moabb\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000335",
+    "exists": true,
+    "description": "Sensory-guided joint-learning MI-BCI study",
+    "created_at": "2026-10-05T17:21:41+00:00",
+    "updated_at": "2026-10-21T21:09:46+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

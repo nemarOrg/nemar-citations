@@ -1,0 +1,81 @@
+{
+  "dataset_id": "nm000436",
+  "date_retrieved": "2026-10-25T10:02:52.346192+00:00",
+  "dataset_description": {
+    "Name": "Intraoperative VIM thalamus microelectrode recordings during transcutaneous afferent patterned stimulation (TAPS) for essential tremor (Luu et al.; derivative: authors' processed 48 kHz signals)",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "derivative",
+    "License": "CC0-1.0",
+    "Authors": [
+      "Cuong P. Luu",
+      "Jordan Ranum",
+      "Youngwon Youn",
+      "Jennifer L. Perrault",
+      "Bryan M. Krause",
+      "Matthew I. Banks",
+      "Laura Buyan-Dent",
+      "Kip A. Ludwig",
+      "Wendell B. Lake",
+      "Aaron J. Suminski"
+    ],
+    "Acknowledgements": "Data and code released on Dryad by Cuong P. Luu et al. (University of Wisconsin-Madison). Repackaged to BIDS for NEMAR.",
+    "HowToAcknowledge": "Cite Luu et al. (2025) Brain Stimulation, doi:10.1016/j.brs.2025.06.004, and the Dryad dataset doi:10.5061/dryad.cjsxksngp.",
+    "Funding": [
+      "University of Wisconsin-Madison School of Medicine and Public Health",
+      "Partial funding of AJS and WBL from Cala Health, Inc. (preprint)"
+    ],
+    "EthicsApprovals": [
+      "University of Wisconsin-Madison Institutional Review Board, protocol 2018-1052"
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.5061/dryad.cjsxksngp",
+      "https://doi.org/10.1016/j.brs.2025.06.004",
+      "https://doi.org/10.1101/2024.12.02.24317799"
+    ],
+    "Keywords": [
+      "essential tremor",
+      "ventral intermediate nucleus",
+      "thalamus",
+      "microelectrode recording",
+      "deep brain stimulation",
+      "peripheral nerve stimulation",
+      "TAPS",
+      "intraoperative"
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.5061/dryad.cjsxksngp",
+        "URL": "https://datadryad.org/dataset/doi:10.5061/dryad.cjsxksngp",
+        "Version": "Dryad version 412969 (published 2025-12-10)"
+      }
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "Authors' processing (MER_loadData -> MER_preprocess)",
+        "Description": "FHC Guideline 4000 LP+ recordings (48 kHz, .apm) loaded into 'R files' (not released) and processed into the released P-Files by MER_preprocess.m (not released): field 'raw' is software low-pass filtered (steep digital roll-off near 8-10 kHz, measured), offset-removed (zero mean) and trimmed to exactly 60 s per trial; motion-artefact masks computed (blankingMask).",
+        "CodeURL": "https://doi.org/10.5061/dryad.cjsxksngp"
+      },
+      {
+        "Name": "b3d_convert_vim.py",
+        "Description": "Repackaging of the P-File field 'raw' (float64, µV) to BrainVision IEEE float32 (relative rounding <= 6e-8, bit-exact to float32 of the P-File values), one run per 60 s trial; TAPS state as acq-off/on; depth, source cell and TAPS settings in scans.tsv; authors' blanking masks as events; coordinates as released (space-Other). Code in code/.",
+        "Version": "2026-10-08"
+      }
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000436",
+    "Version": "1.0.2"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000436-blue)](https://doi.org/10.82901/nemar.nm000436)\n\n# VIM thalamus microelectrode recordings during TAPS for essential tremor (Luu et al. 2025) - DERIVATIVE\n\nIntraoperative microelectrode recordings (MER) from the ventral intermediate nucleus of the thalamus (VIM) region of\n9 adults with medication-refractory essential tremor undergoing DBS surgery (University of Wisconsin-Madison, IRB 2018-1052).\nAt each recording depth, 60 s were recorded without and with transcutaneous afferent patterned stimulation (TAPS) of the\ntreated hand, a wearable peripheral nerve stimulation therapy. Remifentanil was stopped 15 min before mapping (article).\n\n## THIS IS A DERIVATIVE DATASET: the original recordings were never released\n- The original FHC recordings (.apm files) and the authors' intermediate 'R files' (output of MER_loadData.m) are NOT part\n  of the Dryad release. The release contains only the authors' processed MATLAB files ('P-' = \"Processed neural data after\n  signal processing and artifact removal\", Dryad README) and derived files.\n- The signals here are the P-File field `raw` exactly as released (cast to float32): the authors' **software-filtered,\n  offset-removed (zero-mean), 60 s-trimmed** signals. Evidence (measured on all files in Voyager Jobs\n  ieeg-b3w10-vim-insp-1008005934 and ieeg-b3w10-vim-quant-1008010513):\n  - every trace is exactly 2,880,000 samples = 60.0 s at 48 kHz per trial, while the acquisition timestamps (trialTimes)\n    span 2,880,013-2,880,061 ticks: trimmed to exactly 60 s;\n  - the mean of each 60 s trace is ~1e-5..6e-4 µV against a standard deviation of 1e3..7e3 µV (relative 1e-8): offset removed in software;\n  - the power spectrum falls by 13-20 orders of magnitude between 6-8 kHz and 20-24 kHz, i.e. a steep double-precision\n    digital low-pass near 8-10 kHz, whereas the article states a 20 kHz hardware band limit;\n  - the values are not on any ADC quantisation grid (FHC .apm files store integer samples times voltageCalib), so they are\n    not a scaled copy of the acquired samples.\n- Further derived fields of the P-Files (lfp, spk, rawLPCheby, rawBPCheby, raw_blanked, spk_blanked, spike waveforms, PSDs)\n  are not converted; they remain available in sourcedata/P-Files.\n\n## Contents\n- 9 participants (`sub-<NN>` = study subject number 02, 03, 06-12 of IRB study CH1052), 84 runs, 1.40 h at 48 kHz.\n- `task-taps_acq-off` = P-File `base` (TAPS off); `task-taps_acq-on` = P-File `stim` (TAPS on). Runs are numbered in\n  chronological order of acquisition within each subject (P-File trialTimes). A few P-File cells hold two consecutive 60 s\n  trials; each trial is a run, placed right after the cell's first trial (trialTimes gives only the first trial's times,\n  so later trials have n/a trial ticks in scans.tsv).\n- `sub-<NN>_scans.tsv`: TAPS state, depth label and depth (mm above target), source P-File cell, acquisition-clock trial\n  times, TAPS frequency/amplitude, fraction of samples in the authors' artefact mask.\n- Channels `Ant`, `Cen`, `Pos`: the anterior, center and posterior Ben-gun microelectrodes (2 mm apart), each recorded\n  bipolar against the macro contact 1 cm dorsal to its tip (article); type DBS, µV (unit from the authors' figure labels).\n- `events.tsv`: the whole trial (`taps_off_trial` / `taps_on_trial`) and the segments of the authors' motion-artefact\n  blanking mask (`artifact_blanked_by_authors`). The data samples themselves are not blanked.\n- Data format: BrainVision IEEE float32. BrainVision has no float64; the float64 P-File values are stored as float32\n  (relative rounding <= 6e-8, at most 0.002 µV, far below the ~0.022 µV ADC step).\n  Every file was read back and is bit-identical to float32 of the P-File values. The float64 originals are in sourcedata/.\n- Electrodes: `space-Other` per subject, with the P-File coordinates in mm (chanCoord for each track and depth, implantCoord\n  and therapyCoord for the final DBS lead and therapeutic contact). CAVEAT: the authors do not state the frame. The values\n  (x 0, y +2/0/-2 for the anterior/center/posterior tracks, z = depth in mm above the planned target) look like offsets\n  from the planned VIM target along the trajectory. They are NOT MNI/Talairach coordinates; do not use them for atlas lookups.\n- participants.tsv: age and sex are n/a (the article reports only group values: 65 +/- 7 years, 2 of 9 female);\n  implant side (P-File), TAPS-treated hand (TETRAS log), TAPS settings (P-File).\n- Empty P-File cells (no recording) are skipped; they are listed in code/conversion_report.json.\n- sourcedata/: P-Files (MAT header creation date set to day 01, HDF5 content unchanged), the Dryad README, and the root\n  folder zip (analysis scripts, TETRAS scores, stimVbaseSPK.mat; member and MAT header dates set to day 01).\n\n## Source\n- Dryad: Cuong P. Luu, Jordan Ranum, Youngwon Youn, Jennifer L. Perrault, Bryan M. Krause, Matthew I. Banks, Laura Buyan-Dent, Kip A. Ludwig, Wendell B. Lake, Aaron J. Suminski. \"Real-time VIM thalamus recordings during peripheral nerve stimulation treatment for essential\n  tremor: DBS intraoperative dataset\". doi:10.5061/dryad.cjsxksngp (CC0-1.0).\n- Article: Luu et al. (2025) \"Wearable peripheral nerve stimulator reduces essential tremor symptoms through targeted brain\n  modulation\", Brain Stimulation, doi:10.1016/j.brs.2025.06.004. Preprint doi:10.1101/2024.12.02.24317799.\n- Funding: University of Wisconsin-Madison School of Medicine and Public Health; AJS and WBL were partly funded by Cala Health, Inc. (preprint).\n\n## Privacy\nThe release contains study codes only (CH1052-NN). Strings in the P-Files are depth labels and implant side. MAT header\nfile-creation dates (June 2024, processing dates) were set to day 01. No names or recording dates were found.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000436",
+    "exists": true,
+    "description": "Intraoperative VIM thalamus microelectrode recordings during transcutaneous afferent patterned stimulation (TAPS) for essential tremor (Luu et al.; derivative: authors' processed 48 kHz signals)",
+    "created_at": "2026-10-08T07:13:51+00:00",
+    "updated_at": "2026-10-21T21:33:53+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

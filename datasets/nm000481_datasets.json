@@ -1,0 +1,69 @@
+{
+  "dataset_id": "nm000481",
+  "date_retrieved": "2026-10-25T10:04:17.950239+00:00",
+  "dataset_description": {
+    "Name": "s500-literature-201: Whole-night hippocampal depth and scalp Cz sleep EEG with spindle and ripple detections, 14 epilepsy patients (Ngo, Fell & Staresina, 2020) (derivative)",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "derivative",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "Hong-Viet V. Ngo",
+      "Juergen Fell",
+      "Bernhard P. Staresina"
+    ],
+    "HowToAcknowledge": "Cite Ngo HV, Fell J, Staresina B (2020) Sleep spindles mediate hippocampal-neocortical coupling during long-duration ripples. eLife 9:e57011, doi:10.7554/eLife.57011; and the OSF dataset doi:10.17605/OSF.IO/3HPVR.",
+    "ReferencesAndLinks": [
+      "https://doi.org/10.7554/eLife.57011",
+      "https://doi.org/10.17605/OSF.IO/3HPVR",
+      "https://osf.io/3hpvr/",
+      "https://github.com/episodicmemorylab/Ngo_et_al_eLife2020",
+      "https://doi.org/10.1038/nn.4119"
+    ],
+    "Keywords": [
+      "sleep",
+      "hippocampus",
+      "ripples",
+      "sleep spindles",
+      "intracranial EEG",
+      "scalp EEG",
+      "memory consolidation",
+      "epilepsy"
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.17605/OSF.IO/3HPVR",
+        "URL": "https://osf.io/3hpvr/",
+        "Version": "OSF node 3hpvr, 127 files as listed 2026-10-11 (sha256 per file in sourcedata/osf-3hpvr/DEIDENTIFICATION_MANIFEST.tsv)"
+      }
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "o5c_A2_convert_lit201.py",
+        "Description": "Repackaging of the released FieldTrip raw structures (HIPP + NC per patient) into BrainVision float32 (values unchanged, MNE read-back checked); sleep scoring, artifact intervals and the authors' ripple/spindle detections into events.tsv. Code in code/."
+      }
+    ],
+    "EthicsApprovals": [
+      "Approved by the ethics committee of the Medical Faculty of the University of Bonn (reference number 042/16); informed consent from all patients (article)."
+    ],
+    "Funding": [
+      "ERC Starting Grant 'RECALL' (Staresina, as acknowledged in the article)",
+      "Deutsche Forschungsgemeinschaft SFB1089 (Fell)"
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000481",
+    "Version": "1.0.2"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000481-blue)](https://doi.org/10.82901/nemar.nm000481)\n\n# Ngo, Fell & Staresina (2020): whole-night hippocampal and scalp sleep EEG with spindle and ripple detections\n\nWhole-night sleep recordings from 14 pre-surgical epilepsy patients (Department of Epileptology, University of Bonn),\n135.6 h in total, two channels per patient at 1 kHz: `HIPP`, a posterior hippocampal depth contact of the non-pathological\nhemisphere (the contact with the highest spindle density, article), and `NC`, scalp electrode Cz. Released by the authors on OSF\n(https://osf.io/3hpvr/, CC-BY 4.0) with their ripple and spindle detections, sleep scoring and artifact intervals.\n\nTHIS IS A DERIVATIVE DATASET: the release holds the two channels the authors analysed (referenced to linked mastoids, hardware\nband-pass 0.01-300 Hz), not the full clinical recordings; the other scalp electrodes (C3, C4, Oz), EOG and EMG are not released.\n\n## Contents\n- `sub-NN/ieeg/sub-NN_task-sleep_run-1_ieeg.*`: the night's continuous signal (HIPP typed SEEG, NC typed EEG), float32 of the\n  released float64 values (unit µV assumed from the article's thresholds; not stated in the release).\n- `events.tsv`: (1) sleep stages as runs of the released per-sample scoring (`sleep_stage_wake/S1/S2/S3/S4/REM`; the release\n  codes 0-5 are kept in the `sleep_stage` column; the names follow the Rechtschaffen & Kales scoring reported in the article and\n  the detectors' NREM stages 2-4); (2) `artifact_HIPP` / `artifact_NC` intervals from the authors' automated artifact detection;\n  (3) `ripple_HIPP`, `spindle_HIPP`, `spindle_NC` events from the authors' detectors with their stage, rejected flag and envelope\n  amplitude; the detector parameters are in each `events.json` (DetectorParameters).\n- `electrodes.tsv` (space-Other): MNI coordinates of the HIPP contact from Table 3 of the article\n  (written because the release patient numbering matches the article; the\n  template version is not stated). Verification: detected minus rejected spindle counts per patient (release / Table 2):\n\n| patient | NC spindles | HIPP spindles | ripples |\n|---|---|---|---|\n| 1 | 1440 / 1440 | 1296 / 1296 | 255 / 135 |\n| 2 | 1243 / 1243 | 571 / 571 | 410 / 107 |\n| 3 | 1703 / 1703 | 1725 / 1725 | 333 / 116 |\n| 4 | 1074 / 1074 | 978 / 978 | 1130 / 626 |\n| 5 | 1427 / 1427 | 625 / 625 | 910 / 206 |\n| 6 | 1001 / 1001 | 691 / 691 | 769 / 153 |\n| 7 | 903 / 903 | 1975 / 1975 | 1869 / 403 |\n| 8 | 1004 / 1004 | 892 / 892 | 1167 / 400 |\n| 9 | 2079 / 2079 | 2038 / 2038 | 622 / 518 |\n| 10 | 1120 / 1120 | 840 / 840 | 412 / 245 |\n| 11 | 494 / 494 | 739 / 739 | 256 / 208 |\n| 12 | 448 / 448 | 417 / 417 | 113 / 44 |\n| 13 | 1339 / 1339 | 406 / 406 | 416 / 45 |\n| 14 | 1899 / 1899 | 1555 / 1555 | 808 / 542 |\n\n- `participants.tsv`: no per-patient age or sex in the release (group: 35.4 +- 3.0 years, 7 of 14 female).\n- `sourcedata/osf-3hpvr/`: the release files (EEGs, Ripples, Spindles, the control-events zip and the figure source data +\n  scripts) with the MAT text-header creation dates reduced to month/year; `DEIDENTIFICATION_MANIFEST.tsv` lists sha-256 before and after.\n\n## Privacy\nThe release contains no names, dates or identifiers; patients are numbered pat01-pat14. MAT header dates were reduced to month/year.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000481",
+    "exists": true,
+    "description": "s500-literature-201: Whole-night hippocampal depth and scalp Cz sleep EEG with spindle and ripple detections, 14 epilepsy patients (Ngo, Fell & Staresina, 2020) (derivative)",
+    "created_at": "2026-10-11T21:21:15+00:00",
+    "updated_at": "2026-10-21T21:34:40+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

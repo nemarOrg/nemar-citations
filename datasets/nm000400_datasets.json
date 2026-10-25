@@ -1,0 +1,103 @@
+{
+  "dataset_id": "nm000400",
+  "date_retrieved": "2026-10-25T10:02:00.062461+00:00",
+  "dataset_description": {
+    "Name": "Brain-wide human sEEG during aversive eyepuffs and ketamine infusion (Kauvar, Richman, Liu et al. 2025; DANDI 001347)",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "derivative",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "Kauvar I",
+      "Richman EB",
+      "Liu TX",
+      "Li C",
+      "Vesuna S",
+      "Chibukhchyan A",
+      "Yamada L",
+      "Fogarty A",
+      "Solomon E",
+      "Choi EY",
+      "Mortazavi L",
+      "Chau Loo Kung G",
+      "Mukunda P",
+      "Raja C",
+      "Gil-Hernández D",
+      "Patron K",
+      "Zhang X",
+      "Brawer J",
+      "Wrobel S",
+      "Lusk Z",
+      "Lyu D",
+      "Mitra A",
+      "Hack L",
+      "Luo L",
+      "Grosenick L",
+      "van Roessel P",
+      "Williams LM",
+      "Heifets BD",
+      "Henderson JM",
+      "McNab JA",
+      "Rodríguez CI",
+      "Buch V",
+      "Nuyujukian P",
+      "Deisseroth K"
+    ],
+    "HowToAcknowledge": "Please cite Kauvar I*, Richman EB*, Liu TX* et al. (2025) Conserved brain-wide emergence of emotional response from sensory experience in humans and mice. Science, doi:10.1126/science.adt3971, and the DANDI release: Liu TX, Kauvar I, Richman E (2025) Brain-wide human electrophysiology during aversive stimuli and ketamine (Version 0.250528.0702), DANDI Archive, doi:10.48324/dandi.001347/0.250528.0702.",
+    "Funding": [
+      "NIH NIDA P50 DA042012",
+      "NIH NIMH T32 MH019938",
+      "NIH NIMH R01 MH131534",
+      "NIH NIMH R01 MH133553",
+      "NIH NIMH R01 MH105461",
+      "NIH NIMH U54 MH091657",
+      "NIH NIMH R01 MH086373",
+      "NIH NINDS R01 NS095985",
+      "Howard Hughes Medical Institute"
+    ],
+    "EthicsApprovals": [
+      "Stanford Institutional Review Board (study protocol approved; written informed consent; clinicaltrials.gov NCT04861051), as stated in Kauvar et al. 2025, Materials and Methods"
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.1126/science.adt3971",
+      "https://pmc.ncbi.nlm.nih.gov/articles/PMC12286656/",
+      "https://doi.org/10.48324/dandi.001347/0.250528.0702",
+      "https://dandiarchive.org/dandiset/001347/0.250528.0702",
+      "https://clinicaltrials.gov/study/NCT04861051"
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "Kauvar et al. 2025 preprocessing (authors)",
+        "Description": "Nihon Kohden recording (JE-120 amplifier, LAN converter secondary data stream); FIR anti-aliasing low-pass, downsampled to 200 Hz; 20-min windows (10 min before and after the start of the eyepuff series) exported to NWB by the authors. Cut-off frequencies and the original sampling rate are not documented in the release.",
+        "CodeURL": "https://doi.org/10.1126/science.adt3971"
+      },
+      {
+        "Name": "b3w4_kauvar_bids.py",
+        "Description": "NWB -> BIDS-iEEG conversion for NEMAR (batch 3): scale by the authors' scale_to_microvolts factor, write BrainVision float32 microvolts; no filtering, resampling, re-referencing or channel removal.",
+        "Version": "2026-10-08"
+      }
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.48324/dandi.001347/0.250528.0702",
+        "URL": "https://dandiarchive.org/dandiset/001347/0.250528.0702",
+        "Version": "0.250528.0702"
+      }
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000400",
+    "Version": "1.0.2"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000400-blue)](https://doi.org/10.82901/nemar.nm000400)\n\nBrain-wide human sEEG during aversive eyepuffs and ketamine infusion (Kauvar, Richman, Liu et al. 2025; DANDI 001347)\n=====================================================================================================================\n\nOverview\n--------\nStereo-EEG (sEEG) from adult epilepsy patients undergoing Phase 2 extended-stay monitoring at Stanford Hospital who\ntook part in a study of the brain-wide response to brief aversive air puffs to the eye (\"eyepuffs\") and of its\nmodulation by the dissociative drug ketamine (40-min continuous infusion, 0.5 mg/kg). Electrode trajectories were\nchosen for clinical reasons only.\n\nThis dataset is a BIDS-iEEG representation of the human sEEG series that the authors released in NWB format:\n\n  Liu TX, Kauvar I, Richman E (2025). Brain-wide human electrophysiology during aversive stimuli and ketamine\n  (Version 0.250528.0702) [Data set]. DANDI Archive. https://doi.org/10.48324/dandi.001347/0.250528.0702\n  License: CC-BY-4.0.\n\n  Article: Kauvar I*, Richman EB*, Liu TX*, et al., Deisseroth K (2025). Conserved brain-wide emergence of emotional\n  response from sensory experience in humans and mice. Science. https://doi.org/10.1126/science.adt3971\n  (open access: https://pmc.ncbi.nlm.nih.gov/articles/PMC12286656/)\n\nPlease cite both.\n\nEthics (from the article): \"The Stanford Institutional Review Board approved the study protocol, and participants\ndocumented their written informed consent prior to entry into the study\" (clinicaltrials.gov NCT04861051).\nThis deposit redistributes the publicly released data under their CC-BY-4.0 license.\n\nWhy this is a derivative dataset\n--------------------------------\nThe released series are not the raw recordings. The article (Methods) states: \"iEEG voltage traces were lowpass\nfiltered for anti-aliasing (finite impulse response filter), then downsampled to 200 Hz\". The authors also cut each\nsession to a 20-min window (NWB session_description: \"Voltage traces of multichannel SEEG around eyepuffs, 10min pre\nand post puff start\"). The dataset is therefore labelled DatasetType \"derivative\". The article's further steps\n(60 Hz notch, bipolar re-referencing, bad-channel removal) are NOT reflected in the released series as far as we can\ntell: the contacts are monopolar, and a 60 Hz line peak is present in the recordings of SD181-SD245 (no 60 Hz peak in\nSD168/SD172).\n\nContents\n--------\n7 participants (sub-SD168, SD172, SD181, SD185, SD186, SD211, SD245), 30 recordings (3-6 sessions each),\n88-206 sEEG contacts per participant, 200 Hz, 1200 s per recording (10.0 h in total).\n\n  sub-<label>/ses-<session>/ieeg/  BrainVision (.vhdr/.vmrk/.eeg), IEEE float32, microvolts; channels.tsv; ieeg.json;\n                                     electrodes.tsv + coordsystem.json (labels only, no coordinates)\n  sub-<label>/sub-<label>_scans.tsv  source NWB file, its SHA-256 and the float32 rounding error per recording\n  sourcedata/dandi-001347/           byte-identical copies of all 44 sub-SD* NWB files of the DANDI release\n                                     (30 sEEG + 14 behaviour); sourcedata/sourcedata_provenance.json lists size,\n                                     SHA-256 and DANDI asset id of each.\n\nSession labels are the DANDI session labels: puffBaseline / puffPreinfusion (before ketamine), puffInfusion (during\nthe infusion), puffPostinfusion (after; SD211 also has puffPostinfusionfast), puffControl (control series; the\narticle describes an unexpected-auditory control in which the device sounded but was directed away from the\nparticipant). Which control and which infusion schedule applied to each participant is described in the article\nand its supplement, not in the release.\n\nSignal: what was converted and how\n----------------------------------\nSource: processing/ecephys/LFP/v_trace (ElectricalSeries) of each sub-SD*_ecephys.nwb: float64, 240,000 samples x\ncontacts, regular 200 Hz clock starting at 0 s.\n\nUnits. The NWB attribute says unit \"volts\", conversion 1.0, but the series 'comments' (and the device description)\ncarry the authors' factor \"scale_to_microvolts=0.09765625\" (SD168, SD172) or \"=0.390625\" (all others); these are\nthe Nihon Kohden JE-120 amplitude resolutions. We wrote stored value x scale_to_microvolts, in microvolts. Check:\nthe median per-contact standard deviation is 460-580 stored units for SD168/SD172 and 97-185 for the others; after\nscaling both groups are in the same physiological range (about 40-70 microvolts). This is the only change besides\nfloat32 rounding (reported in scans.tsv). No filtering, resampling, re-referencing, cropping or channel removal was\ndone by the conversion.\n\nChannels. All contacts of the source series are kept, in the source order, with the source contact labels.\nchannels.tsv adds:\n  group           the depth electrode (NWB ElectrodeGroup)\n  location_label  the authors' anatomical label (NWB electrodes.location, e.g. AMY, HIPP, INS, THAL ANT, WM)\n  status          \"bad\" where the authors' location label is EXCLUDE, else \"good\".\nThe release has no electrode coordinates (x/y/z are NaN in every NWB file): electrodes.tsv lists the contacts with\nx/y/z = n/a and the authors' labels, and coordsystem.json says so. channels.tsv low_cutoff/high_cutoff are n/a: the\nauthors' anti-aliasing low-pass cut-off is not documented, and the hardware filter settings are not released.\nThe article localised contacts with iELVis from pre-implant MRI and post-implant CT; those coordinates are not part\nof the release.\n\nNot converted (kept in sourcedata only):\n  - acquisition/dc_trace of each sEEG file: 20 channels at 200 Hz (DC01-DC16, SpO2, Pulse, EtCO2, CO2Wave) with\n    unit \"na\"; no physical unit is given, so they are not written to the BIDS signal files.\n  - the behaviour NWB files (sub-SD*_ses-puff_behavior.nwb): eye-closure traces from 200 fps video, puff on/off\n    frame indices and per-trial reflexive/affective eye-closure scores for each series. Their clock is the video\n    clock; the release does not give the offset to the sEEG series, so no events.tsv was derived from them.\n  - 7 participants (SD163, SD170, SD178, SD184, SD207, SD215, SD242) have behaviour files only (no sEEG in the\n    release); they are in sourcedata only and not in participants.tsv.\n\nEvents: the release has no event markers on the sEEG clock. Per the source session description, the eyepuff\nseries starts 10 min (600 s) into each 20-min recording; individual puff times on the sEEG clock are not released.\nThe DC channels in sourcedata may carry the puff trigger, but the release does not say which one, so we did not\nderive events from them.\n\nParticipants\n------------\nAge and sex are not released per participant (NWB subject.age \"P18Y/\" = adult; sex \"O\"); participants.tsv uses n/a\nand keeps the source values in source_age/source_sex. The article reports 14 implanted participants with the full\nprotocol, 7 of whom met the behavioural inclusion criteria for neural analysis; the 7 with sEEG here appear to be\nthose 7.\n\nPrivacy review (2026-10-08)\n---------------------------\nAll string attributes and string datasets of all 44 NWB files were listed: study codes (SDnnn), contact labels,\nanatomical labels, institution/lab, experimenter names (authors), placeholder session_start_time\n2000-01-01T12:00 (sEEG files) and NWB export timestamps 2025-02-28 (behaviour files' session_start_time equals\ntheir file_create_date, i.e. export time, not recording time). No names of patients, recording dates, hospital\nIDs or free-text clinical notes were found.\n\n## Additional metadata and localisation (added 2026-10-08)\n\nCompiled after the upload from the article, its supplement and the source deposit (each statement names its source). Text and sidecar metadata only; no data file was changed.\n\n**Recording system.** \"Electrodes used were from AdTech Inc, had 12-16 platinum contacts, and were 0.86 mm in diameter, 2.29 mm in height, with 3-5 mm center-to-center inter-electrode distance. Data was recorded with the Nihon Kohden recording system, using the JE-120 amplifier for digitization\" (paper Methods). The NWB device is `nihon_kohden` (description `scale_to_microvolts=0.09765625` or `0.390625`).\n\n**Reference.** For analysis, \"Channels were rereferenced with a bipolar montage\" (paper). It is not stated whether the deposited v_trace is monopolar or bipolar. The electrodes table lists single contacts (e.g. LPC1, LPC2), so it is probably the monopolar recording reference, but this is not confirmed.\n\n**Localisation method.** The paper describes it as follows: \"We registered intracranial electrodes to specific anatomical regions using each subjects' preimplantation T1-weighted MRI and postimplantation CT scans … iELVis toolbox … FreeSurfer v6.0.0 recon-all … bbregister … or flirt … we marked these locations by hand using BioImage Suite … dykstraElecPjct\". Yeo7/Yeo17 labels were assigned for grey-matter surface contacts, and an HCP-MMP mapping was made for cortical contacts (table S1). Per-contact region labels (abbreviations such as HIPP, AMY, INS, PMC, THAL ANT, WM, EXCLUDE, OUT OF BRAIN) are stored in the NWB `electrodes.location` column. Coordinates are not deposited: x, y and z are NaN for all contacts.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000400",
+    "exists": true,
+    "description": "Brain-wide human sEEG during aversive eyepuffs and ketamine infusion (Kauvar, Richman, Liu et al. 2025; DANDI 001347)",
+    "created_at": "2026-10-07T22:24:26+00:00",
+    "updated_at": "2026-10-21T21:32:26+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

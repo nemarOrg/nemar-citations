@@ -1,7 +1,7 @@
 {
   "dataset_id": "on005872",
-  "num_citations": 18,
-  "date_last_updated": "2026-10-24T11:04:18.577068+00:00",
+  "num_citations": 19,
+  "date_last_updated": "2026-10-25T10:18:26.837347+00:00",
   "metadata": {
     "total_cumulative_citations": 82,
     "fetch_date": "2026-10-24T11:04:18.577068+00:00",
@@ -76,7 +76,14 @@
         "funder_name": "Swiss National Science Foundation (SNF)",
         "award_number": "100014175875"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "on005872",
+      "ds005872"
+    ],
+    "num_accession_mentions": 1,
+    "num_dataset_citations": 1,
+    "num_datapaper_citations": 18
   },
   "citation_details": [
     {
@@ -492,22 +499,47 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "Croissant Baker: Metadata Generation for Discoverable, Governable, and Reusable ML Datasets",
+      "author": "Rafi Al Attrach, Rajna Fani, Sebastian Lobentanzer, Joan Giner-Miguelez, Debanshu Das, Varuni H. K., Nobin Sarwar, Rajat Ghosh, Anwai Archit, Surbhi Motghare, Christina Conrad Parry, Luis Oala, Lara Grosso, Joaquin Vanschoren, Steffen Vogler, Sujata Goswami, Eric S. Rosenthal, Marzyeh Ghassemi, Matthew B. A. McDermott, Tom Pollard",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2605.15079",
+      "cited_by": 0,
+      "abstract": "Croissant has emerged as the metadata standard for machine learning datasets, providing a structured, JSON-LD-based format that makes dataset discovery, automated ingestion, and reproducible analysis machine-checkable across ML platforms. Adoption has accelerated, and NeurIPS now requires Croissant metadata in every submission to its dataset tracks. Yet in practice Croissant generation usually starts with uploading data to a public platform, a path infeasible for governed and large local repositories that hold much of the high-value data ML increasingly relies on. We release Croissant Baker, a local-first, open-source command-line tool that generates validated Croissant metadata directly from a dataset directory through a modular handler registry. We evaluate Croissant Baker on over 140 datasets, scaling to MIMIC-IV at 886 million rows and 374 Parquet files. On held-out comparisons against producer-authored or standards-derived ground truth, Croissant Baker reaches 97-100% agreement across multiple domains.",
+      "doi": "10.48550/arxiv.2605.15079",
+      "pmid": null,
+      "openalex_id": "W7161232897",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds005872",
+      "confidence_scoring": {
+        "confidence_score": 0.38428455680608753,
+        "similarity_score": 0.33271390199661255,
+        "citation_text_length": 1510,
+        "dataset_text_length": 727,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-10-24T11:33:18.456341+00:00",
+    "scoring_date": "2026-10-25T10:31:28.149552+00:00",
     "dataset_text_length": 727,
-    "num_citations_scored": 18,
+    "num_citations_scored": 19,
     "summary_stats": {
-      "mean_confidence": 0.5088839902356267,
-      "median_confidence": 0.5110633617639542,
-      "std_confidence": 0.11673665063374192,
+      "mean_confidence": 0.5023261253182825,
+      "median_confidence": 0.5081470504403115,
+      "std_confidence": 0.11697996530649604,
       "min_confidence": 0.26688257642090324,
       "max_confidence": 0.7117489671707155,
       "high_confidence_count": 1,
       "medium_confidence_count": 14,
-      "low_confidence_count": 3
+      "low_confidence_count": 4
     }
   }
 }

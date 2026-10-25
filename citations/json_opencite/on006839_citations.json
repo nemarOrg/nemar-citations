@@ -1,10 +1,10 @@
 {
   "dataset_id": "on006839",
   "num_citations": 0,
-  "date_last_updated": "2026-09-30T10:44:33.508071+00:00",
+  "date_last_updated": "2026-10-25T10:15:49.128750+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
-    "fetch_date": "2026-09-29T11:35:07.267320+00:00",
+    "fetch_date": "2026-10-25T10:15:49.128750+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 1,
@@ -19,12 +19,12 @@
         "source_relation": "References",
         "classification": "methodology",
         "kept": false,
+        "kept_reason": "never_anchor",
         "paper_title": "MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis",
         "paper_year": 2019,
         "paper_venue": "The Journal of Open Source Software",
         "reason": "MNE-BIDS is a software tool for organizing electrophysiology data into BIDS, likely used to format this dataset; it does not describe the sham neurofeedback VR EEG data.",
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "never_anchor"
+        "judgment_model": "claude-sonnet-5-5"
       },
       {
         "identifier": "10.82901/nemar.on006839",
@@ -32,12 +32,12 @@
         "source_relation": "References",
         "classification": null,
         "kept": true,
+        "kept_reason": "own_doi",
         "paper_title": null,
         "paper_year": null,
         "paper_venue": null,
         "reason": null,
-        "judgment_model": "claude-sonnet-5-5",
-        "kept_reason": "own_doi"
+        "judgment_model": "claude-sonnet-5-5"
       }
     ],
     "searched_dois": [
@@ -45,13 +45,14 @@
     ],
     "keywords": [
       "EEG",
-      "Neurofeedback",
-      "Virtual Reality",
-      "alpha-band activity",
-      "Attention",
-      "resting state"
+      "neurofeedback",
+      "virtual reality",
+      "alpha band",
+      "attention",
+      "sham feedback",
+      "Electroencephalography"
     ],
-    "methods_description": "EEG signals were recorded using a 32-channel SynAmps RT amplifier (Compumedics NeuroScan Inc.) with Ag/AgCl passive electrodes on an elastic cap (Wuhan Greentek Pty. Ltd.) following the extended 10-20 system. Participants completed positive, negative, and control feedback conditions in a VR environment, plus a resting-state condition alternating eyes open and eyes closed (1.5 min each). Stimuli were presented via a Unity3D-developed VR headset synchronized with event markers sent to the EEG system. Original .cnt recordings were converted to BIDS format using the MNE-BIDS toolbox.",
+    "methods_description": "EEG was recorded with a 32-channel Compumedics NeuroScan SynAmps RT amplifier and Ag/AgCl passive electrodes on an elastic cap following the extended 10-20 system. Stimuli were delivered through a VR headset developed in Unity3D and synchronized with event markers. Each feedback condition consisted of four blocks of about 2 minutes, and the resting-state condition alternated eyes open and eyes closed (1.5 min each). Original .cnt files were converted to BIDS with MNE-BIDS.",
     "funding": [
       {
         "funder_name": "This work was supported by CONICET (Argentina) and Universidad Nacional de Entre Ríos."
@@ -74,7 +75,7 @@
   "citation_details": [],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T11:03:00.960650+00:00",
+    "scoring_date": "2026-10-25T10:32:50.725154+00:00",
     "dataset_text_length": 2335,
     "num_citations_scored": 0
   }

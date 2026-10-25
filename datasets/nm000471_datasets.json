@@ -1,0 +1,71 @@
+{
+  "dataset_id": "nm000471",
+  "date_retrieved": "2026-10-25T10:03:51.496622+00:00",
+  "dataset_description": {
+    "Name": "Treder2021 hippocampal switchboard: epoched intracranial EEG during object/scene localiser and associative recall (extra-hippocampal channels)",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "derivative",
+    "License": "CC0-1.0",
+    "Authors": [
+      "Matthias S. Treder",
+      "Ian Charest",
+      "Sebastian Michelmann",
+      "María Carmen Martín-Buro",
+      "Frédéric Roux",
+      "Fernando Carceller-Benito",
+      "Arturo Ugalde-Canitrot",
+      "David T. Rollings",
+      "Vijay Sawlani",
+      "Ramesh Chelvarajah",
+      "Maria Wimber",
+      "Simon Hanslmayr",
+      "Bernhard P. Staresina"
+    ],
+    "HowToAcknowledge": "Cite Treder MS, Charest I, Michelmann S, et al. (2021) The hippocampus as the switchboard between perception and memory. PNAS 118(50):e2114171118, doi:10.1073/pnas.2114171118, and the OSF release https://osf.io/kpxw9/.",
+    "ReferencesAndLinks": [
+      "https://doi.org/10.1073/pnas.2114171118",
+      "https://doi.org/10.1101/2020.05.20.104539",
+      "https://osf.io/kpxw9/"
+    ],
+    "Keywords": [
+      "intracranial EEG",
+      "hippocampus",
+      "episodic memory",
+      "associative recall",
+      "object",
+      "scene",
+      "epilepsy"
+    ],
+    "SourceDatasets": [
+      {
+        "URL": "https://osf.io/kpxw9/",
+        "Version": "OSF node kpxw9 'Treder_et_al_2021' (files as downloaded 2026-10-11; sha256 in sourcedata/osf-kpxw9/DEIDENTIFICATION_MANIFEST.tsv)"
+      }
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "o5c_A1_convert_lit169.py",
+        "Description": "Repackaging of the FieldTrip epoch structs (eeg.trial) into BrainVision float32, trials back-to-back, with eeg.trialinfo as events. Code in code/."
+      }
+    ],
+    "EthicsApprovals": [
+      "Collected under the source study's approval (see the article, doi:10.1073/pnas.2114171118)."
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000471",
+    "Version": "1.0.2"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000471-blue)](https://doi.org/10.82901/nemar.nm000471)\n\n# Treder et al. 2021, \"The hippocampus as the switchboard between perception and memory\": intracranial EEG epochs\n\nEpoched intracranial EEG from 11 patients (22 recordings, 9.03 h of epochs, 200 Hz) during an object/scene\nlocaliser task and an associative recall task, released by the authors on OSF (https://osf.io/kpxw9/, CC0) with the MATLAB\nscripts that reproduce the PNAS figures.\n\n## What is converted (DatasetType derivative)\n- `sub-XX/ieeg/sub-XX_task-localiser_ieeg.vhdr` and `..._task-recall_ieeg.vhdr`: the released `s<NN>_<task>_EEG_extraHIPP.mat`\n  FieldTrip epochs (single precision, 200 Hz), written back-to-back with one `New Segment` marker per trial; `events.tsv` has\n  each trial's position in the file, the authors' time axis start (-2 s) and every `trialinfo` field as released.\n- Channel names are the released anonymised labels `channel01..N`; no coordinates or anatomical labels are released for them\n  (`electrodes.tsv` with n/a coordinates). Per the file names these are the extra-hippocampal channels; the hippocampal data of\n  the release are time-frequency power only (`*_recall_TFR_HIPP.mat`, derived, not converted; listed in\n  `sourcedata/osf-kpxw9/NOT_COPIED_release_files.tsv` together with the scalp-EEG experiment files of `sharing/EEG/`).\n- Signal units are not stated in the release (`units` = n/a; values unchanged). Preprocessing is described in the article.\n- `sourcedata/osf-kpxw9/`: the converted MAT files, the authors' scripts and auxiliary files, unchanged.\n- Age and sex are not in the release.\n\n## Privacy\nChannel names are anonymised by the authors; files hold trial numbers, responses and reaction times only.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000471",
+    "exists": true,
+    "description": "Treder2021 hippocampal switchboard: epoched intracranial EEG during object/scene localiser and associative recall (extra-hippocampal channels)",
+    "created_at": "2026-10-11T20:56:38+00:00",
+    "updated_at": "2026-10-21T21:34:22+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

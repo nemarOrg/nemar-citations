@@ -1,0 +1,60 @@
+{
+  "dataset_id": "nm000462",
+  "date_retrieved": "2026-10-25T10:03:33.063660+00:00",
+  "dataset_description": {
+    "Name": "stim-seizures (Ojemann et al.; HUP + CHOP): seizure annotations, electrode localisations and preprocessed SEEG seizure traces (derivative)",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "derivative",
+    "License": "CC-BY-NC-SA-4.0",
+    "Authors": [
+      "William K. Ojemann",
+      "Brian Litt",
+      "Erin Conrad"
+    ],
+    "Acknowledgements": "Original release on Pennsieve Discover (dataset 455 version 1, Penn CNT). Manuscript authors: William K.S. Ojemann, Caren Armstrong, Akash Pattnaik, Nina Petillo, Mariam Josyula, Alexander Daum, Daniel J. Zhou, Joshua LaRocque, Jacob Korzun, Catherine V. Kulick-Soper, Eli J. Cornblath, Sarita Damaraju, Russell T. Shinohara, Eric D. Marsh, Kathryn A. Davis, Brian Litt, Erin C. Conrad.",
+    "HowToAcknowledge": "Cite the source dataset (Ojemann WK, Litt B, Conrad EC. stim-seizures. Pennsieve 2025, doi:10.26275/toip-zio0) and the preprint (Ojemann et al., medRxiv 2025, doi:10.1101/2025.08.29.25334082).",
+    "ReferencesAndLinks": [
+      "https://doi.org/10.26275/toip-zio0",
+      "https://discover.pennsieve.io/datasets/455/version/1",
+      "https://doi.org/10.1101/2025.08.29.25334082",
+      "https://github.com/penn-cnt/stim-seizures-manuscript"
+    ],
+    "EthicsApprovals": [
+      "The Institutional Review Boards (IRBs) of the Hospital of the University of Pennsylvania (HUP) and the Children's Hospital of Philadelphia (CHOP) approved retrospective analysis of EEG and clinical data for all patients. Stimulation was performed under IRB-approved research by the IRB at each institution (14 HUP patients; all CHOP patients) or clinical protocols (HUP, N = 41). [verbatim, Ojemann et al., medRxiv doi:10.1101/2025.08.29.25334082, Author Declarations, versions 1 and 2]"
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "stim-seizures-manuscript",
+        "Description": "Authors' processing (seizure annotation, LSTM seizure-mapping model, electrode localisation, preprocessing) that produced the released files",
+        "CodeURL": "https://github.com/penn-cnt/stim-seizures-manuscript"
+      },
+      {
+        "Name": "b3pen NEMAR repackaging",
+        "Description": "BIDS repackaging for NEMAR (iEEG campaign 2026-10): released files kept under sourcedata/, seizure traces to BrainVision float32, electrode localisations to electrodes.tsv, per-subject seizure tables, participants.tsv from the released metadata. No values recomputed."
+      }
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.26275/toip-zio0",
+        "URL": "https://discover.pennsieve.io/datasets/455/version/1",
+        "Version": "1"
+      }
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000462",
+    "Version": "1.0.2"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000462-blue)](https://doi.org/10.82901/nemar.nm000462)\n\n# stim-seizures (Pennsieve 455): processed data, derivative BIDS-iEEG\n\nThis is a **derivative** dataset. It repackages the processed data released by Ojemann, Litt and Conrad on Pennsieve Discover\n(\"stim-seizures\", dataset 455 version 1, doi:10.26275/toip-zio0, Penn CNT) for the study\n\"Can electrical stimulation replace spontaneous seizures?\" (preprint: Ojemann et al., medRxiv 2025, doi:10.1101/2025.08.29.25334082;\nlater version titled \"Automated annotation of low-frequency stimulation-induced seizures uncovers seizure generating networks\").\nThe release contains metadata and processed data checkpoints for the manuscript's analyses and figures. It contains **no raw iEEG\nrecordings**. Code: https://github.com/penn-cnt/stim-seizures-manuscript\n\nPatients were evaluated with intracranial EEG at the Hospital of the University of Pennsylvania (HUP) and the Children's Hospital of\nPhiladelphia (CHOP) and received low-frequency (1 Hz) electrical stimulation. Related NEMAR dataset: nm000402 (Multi-Expert Seizure\nAnnotation, Penn CNT / CHOP, shared authors). Raw HUP recordings of this group are hosted on iEEG.org (recording names in the\n`recording` column, e.g. HUP224_phaseII).\n\n## Contents\n\n- `participants.tsv`: all 105 patients of the release (55 HUP, 50 CHOP). Columns\n  come from the released `METADATA/stim_seizure_information - metadata-4.csv` (HUP) and `METADATA/CHOP_metadata.csv` (CHOP),\n  copied as released (see participants.json). HUP sex codes 1/2 are mapped to M/F as in the authors' `code/metadata_notebook.ipynb`.\n  Age at recording is released only for CHOP patients (rounded here to 0.1 y). 72 of the listed patients appear only\n  in the metadata tables (no seizure rows and no processed files), so they have no subject folder.\n- `sub-<label>/ieeg/sub-<label>_seizures.tsv` (33 patients; listed in `.bidsignore`, not a BIDS file type): one row per\n  seizure from two released tables: `stim_seizure_information_BIDS.csv` (clinician-marked times: approximate_onset, offset (= `end`),\n  EEC, UEO in seconds from the start of the iEEG.org recording; stim flag, stimulation channels, typical semiology, mtl) and the\n  optimized LSTM model annotations (`optimized_predicted_channels_LSTM_tuned_thresholds_v4_sz-mean_pt-mean_smooth-med.pkl`:\n  model, threshold, onset (ueo) and spread (sec) channel sets, strict/loose). Values are copied; lists are space-separated.\n- `sub-<label>/ieeg/sub-<label>_electrodes.tsv` + `_coordsystem.json` (31 patients): contact coordinates and atlas labels\n  from `PROCESSED_DATA/<patient>/electrode_localizations_dkt.pkl` (HUP) or `electrode_localizations_CHOPR.pkl` (CHOP). The release does\n  not state the coordinate space or units, so the coordinate system is `Other` and units `n/a`.\n- `sub-HUP224`, `sub-HUP235`, `sub-HUP238` `_task-ictal_acq-<spontaneous|stiminduced>_ieeg.vhdr`: the four seizure traces the authors\n  released for figure plotting (`plot_sz_224/235/238.pkl`, `plot_st_sz_224.pkl`): preprocessed bipolar SEEG, 128 Hz (the value used\n  in the authors' plotting notebook), HUP224 spontaneous 331.0 s x 153 channels; HUP224 stiminduced 275.0 s x 149 channels; HUP235 spontaneous 371.0 s x 70 channels; HUP238 spontaneous 492.0 s x 69 channels. Amplitude units are not stated in the release (units n/a). Stored as BrainVision\n  IEEE float32; round trip checked (float32 values identical to the released float64 values cast to float32).\n- `sourcedata/pennsieve-455-v1/`: every released file (pickled DataFrames, HDF5 spread matrices, `stim_info*.mat`, metadata CSVs,\n  figure PDFs, Pennsieve manifest/readme). `SOURCE_MANIFEST.json` lists the original SHA-256 of each file. Files are byte-identical\n  to the release except file-creation timestamps in MAT headers and PDF metadata, which were set to day 01 (time removed, same length).\n\n## Privacy\n\nAll files were scanned (text, CSV, MAT strings, HDF5, pickled DataFrames, PDF metadata) for names, initials, record numbers, full\ndates and ages above 89. Patient codes (HUP###, CHOP###) are the pseudonyms used in the public release. Seizure times are seconds from\nrecording start. No ages above 89. Key status: destroyed (we hold no mapping to identities).\n\n## Licence\n\nCC-BY-NC-SA-4.0, as on the source record (Pennsieve: \"Creative Commons Attribution - NonCommercial-ShareAlike\"; DataCite rightsList:\nCreative Commons Attribution Non Commercial Share Alike 4.0 International, cc-by-nc-sa-4.0).\n\n## Ethics\n\nVerbatim from the preprint (medRxiv doi:10.1101/2025.08.29.25334082, Author Declarations): \"The Institutional Review Boards (IRBs) of\nthe Hospital of the University of Pennsylvania (HUP) and the Children's Hospital of Philadelphia (CHOP) approved retrospective analysis\nof EEG and clinical data for all patients. Stimulation was performed under IRB-approved research by the IRB at each institution (14 HUP\npatients; all CHOP patients) or clinical protocols (HUP, N = 41).\"\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000462",
+    "exists": true,
+    "description": "stim-seizures (Ojemann et al.; HUP + CHOP): seizure annotations, electrode localisations and preprocessed SEEG seizure traces (derivative)",
+    "created_at": "2026-10-09T19:03:41+00:00",
+    "updated_at": "2026-10-21T21:11:43+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "dataset_id": "nm000304",
+  "date_retrieved": "2026-10-25T10:01:53.517398+00:00",
+  "dataset_description": {
+    "Name": "PerezBlanco2026: Wrist-motion (4-direction pointing) motor-execution dataset",
+    "BIDSVersion": "1.9.0",
+    "HEDVersion": "8.4.0",
+    "DatasetType": "derivative",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "Jorge German Perez Blanco",
+      "Javier Mauricio Antelis Ortiz",
+      "Luis Guillermo Hernandez Rojas",
+      "Hector Lizarraga Torreblanca"
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.6084/m9.figshare.29666735"
+    ],
+    "Keywords": [
+      "Healthy",
+      "Motor",
+      "Motor Execution",
+      "imagery",
+      "motor_control",
+      "rehabilitation"
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000304",
+    "GeneratedBy": [
+      {
+        "CodeURL": "https://github.com/NeuroTechX/moabb",
+        "Name": "moabb",
+        "Description": "Mother of All BCI Benchmarks",
+        "Version": "1.8.0dev0"
+      }
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "10.1038/s41597-026-07287-z",
+        "URL": "https://doi.org/10.6084/m9.figshare.29666735"
+      },
+      {
+        "DOI": "doi:10.1038/s41597-026-07287-z"
+      }
+    ],
+    "PublicationYear": 2026,
+    "EthicsApprovals": [
+      "Approved by the Institutional Research Ethics Committee of Tecnologico de Monterrey, approval number PR2024-05v1. The study was conducted in accordance with the Declaration of Helsinki, and written informed consent — including explicit agreement for open sharing of de-identified data — was obtained from all participants (Perez-Blanco et al. 2026, Sci. Data, DOI 10.1038/s41597-026-07287-z)."
+    ],
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000304-blue)](https://doi.org/10.82901/nemar.nm000304)\n\nPerezBlanco2026\n===============\n\nWrist-motion (4-direction pointing) motor-execution dataset [1]_.\n\nDataset Overview\n----------------\n  Code: PerezBlanco2026\n  Paradigm: imagery\n  DOI: 10.1038/s41597-026-07287-z\n  Subjects: 45\n  Sessions per subject: 1\n  Events: flexion=1, extension=2, radial_deviation=3, ulnar_deviation=4\n  Trial interval: [0, 2.5] s\n  Runs per session: 8\n  File format: EDF (BIDS, converted from BCI2000 .dat)\n\nAcquisition\n-----------\n  Sampling rate: 512.0 Hz\n  Number of channels: 16\n  Channel types: eeg=8, emg=8\n  Channel names: C3, C1, Cz, C2, C4, CP3, CPz, CP4\n  Montage: 10-10\n  Hardware: g.tec g.USBamp (serial UB-2016.05.01)\n  Reference: right ear\n  Ground: AFz\n  Line frequency: 60.0 Hz\n  Online filters: {'bandpass': [0.1, 200.0], 'notch': 60.0}\n  Cap manufacturer: g.tec\n  Cap model: g.GAMMAcap\n  Auxiliary channels: EMG (8 ch)\n\nParticipants\n------------\n  Number of subjects: 45\n  Health status: healthy\n  Age: mean=38.5, std=19.87, min=20.0, max=83.0\n  Gender distribution: female=26, male=19\n  Handedness: {'right': 40, 'left': 5}\n  Species: human\n\nExperimental Protocol\n---------------------\n  Paradigm: imagery\n  Task type: motor_execution\n  Number of classes: 4\n  Class labels: flexion, extension, radial_deviation, ulnar_deviation\n  Trial duration: 10.0 s\n  Study design: 4-direction wrist-pointing task with a 3-DoF wrist exoskeleton (Biomech Wrist). Flexion-extension controls horizontal cursor motion, radial-ulnar deviation controls vertical cursor motion. 8 runs x 40 trials (10 per movement per run).\n  Feedback type: continuous visual\n  Stimulus type: visual target\n  Stimulus modalities: visual\n  Primary modality: visual\n  Synchronicity: cue-based\n  Mode: offline\n\nHED Event Annotations\n---------------------\n  Schema: HED 8.4.0 | Browse: https://www.hedtags.org/hed-schema-browser\n\n  flexion\n    ├─ Sensory-event\n    └─ Label/flexion\n\n  extension\n    ├─ Sensory-event\n    └─ Label/extension\n\n  radial_deviation\n    ├─ Sensory-event\n    └─ Label/radial_deviation\n\n  ulnar_deviation\n    ├─ Sensory-event\n    └─ Label/ulnar_deviation\n\nParadigm-Specific Parameters\n----------------------------\n  Detected paradigm: motor_imagery\n  Imagery tasks: flexion, extension, radial_deviation, ulnar_deviation\n  Imagery duration: 2.5 s\n\nData Structure\n--------------\n  Trials: 320\n  Trials per class: flexion=80, extension=80, radial_deviation=80, ulnar_deviation=80\n  Trials context: 45 subjects x >=8 runs x 40 trials (10 per class per run); the exact run count varies by subject (e.g. 9 for sub-01, 10 for sub-02), so per-subject totals exceed this minimum\n\nCross-Validation\n----------------\n  Evaluation type: within_subject\n\nBCI Application\n---------------\n  Applications: motor_control, rehabilitation\n  Environment: laboratory\n  Online feedback: True\n\nTags\n----\n  Pathology: Healthy\n  Modality: Motor\n  Type: Motor Execution\n\nDocumentation\n-------------\n  DOI: 10.1038/s41597-026-07287-z\n  License: CC-BY-4.0\n  Investigators: Jorge German Perez Blanco, Javier Mauricio Antelis Ortiz, Luis Guillermo Hernandez Rojas, Hector Lizarraga Torreblanca\n  Institution: Tecnologico de Monterrey\n  Address: Monterrey, Nuevo Leon, Mexico\n  Country: MX\n  Repository: Figshare\n  Data URL: https://doi.org/10.6084/m9.figshare.29666735\n  Publication year: 2026\n\nReferences\n----------\nPerez-Blanco, J. G., Antelis-Ortiz, J. M., Hernandez-Rojas, L. G., & Lizarraga-Torreblanca, H. (2026). An EEG-EMG-kinematics dataset of wrist movements with a rehabilitation exoskeleton. Scientific Data. DOI: https://doi.org/10.1038/s41597-026-07287-z Data: https://doi.org/10.6084/m9.figshare.29666735\n\n.. versionadded:: 1.8\nAppelhoff, S., Sanderson, M., Brooks, T., Vliet, M., Quentin, R., Holdgraf, C., Chaumon, M., Mikulan, E., Tavabi, K., Hochenberger, R., Welke, D., Brunner, C., Rockhill, A., Larson, E., Gramfort, A. and Jas, M. (2019). MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis. Journal of Open Source Software 4: (1896). https://doi.org/10.21105/joss.01896\n\nPernet, C. R., Appelhoff, S., Gorgolewski, K. J., Flandin, G., Phillips, C., Delorme, A., Oostenveld, R. (2019). EEG-BIDS, an extension to the brain imaging data structure for electroencephalography. Scientific Data, 6, 103. https://doi.org/10.1038/s41597-019-0104-8\n\n---\nGenerated by MOABB 1.8.0dev0 (Mother of All BCI Benchmarks)\nhttps://github.com/NeuroTechX/moabb\n\nEthics\n------\nEthics approval: the data analysed in this deposit were collected under the\nethics approval obtained by the original investigators and reported in the\nprimary publication cited above (see References/Documentation sections of\nthis README). Participants gave informed consent in the source study. No\nnew human-subject data were collected during this BIDS re-release; this\nNEMAR record only reformats the published source data into BIDS via MOABB.\nPlease consult the primary publication for the exact IRB/ethics committee\nreference.\n\n## Ethics\n\nApproved by the Institutional Research Ethics Committee of Tecnologico de Monterrey, approval number PR2024-05v1. The study was conducted in accordance with the Declaration of Helsinki, and written informed consent — including explicit agreement for open sharing of de-identified data — was obtained from all participants (Perez-Blanco et al. 2026, Sci. Data, DOI 10.1038/s41597-026-07287-z).\n\nVerbatim from the source:\n\n> The study was conducted in accordance with the Declaration of Helsinki and was approved by the Institutional Research Ethics Committee of Tecnologico de Monterrey (approval number: PR2024-05v1).\n\nSource: cached paper .paper-audit/PerezBlanco2026/paper-10_1038_s41597_026_07287_z.txt (Perez-Blanco et al. 2026, Sci. Data, DOI 10.1038/s41597-026-07287-z).\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000304",
+    "exists": true,
+    "description": "PerezBlanco2026: Wrist-motion (4-direction pointing) motor-execution dataset",
+    "created_at": "2026-10-04T15:41:15+00:00",
+    "updated_at": "2026-10-21T21:28:49+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

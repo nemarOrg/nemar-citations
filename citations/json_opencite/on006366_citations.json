@@ -1,7 +1,7 @@
 {
   "dataset_id": "on006366",
-  "num_citations": 0,
-  "date_last_updated": "2026-10-24T11:06:30.107142+00:00",
+  "num_citations": 1,
+  "date_last_updated": "2026-10-25T10:18:39.895760+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
     "fetch_date": "2026-10-24T11:06:30.107142+00:00",
@@ -57,13 +57,56 @@
         "funder_name": "Lundbeck Foundation",
         "award_number": "R344-2020-749"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "on006366",
+      "ds006366"
+    ],
+    "num_accession_mentions": 1,
+    "num_dataset_citations": 1,
+    "num_datapaper_citations": 0
   },
-  "citation_details": [],
+  "citation_details": [
+    {
+      "title": "Somnus, a tunable, open-source platform for automated EEG sleep scoring in physiological and disease mouse models",
+      "author": "Joshua M. Brenner, Matthew S. Caudill, Huda Yahya Zoghbi",
+      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+      "year": 2026,
+      "url": "https://doi.org/10.64898/2026.10.05.756738",
+      "cited_by": 0,
+      "abstract": "ABSTRACT/SUMMARY Many studies using mouse models of human brain disorders rely on extended recordings of brain electrical activity through electroencephalogram, or EEG. The features that researchers measure in these recordings, such as seizures and epileptiform activity, are deeply influenced by whether the animal is awake, in non-rapid eye movement (NREM) sleep, or in rapid eye movement (REM) sleep. Because total sleep duration varies naturally across animals, rigorous experimental comparisons require classifying the sleep state of every few seconds of a recording. Manual annotation is highly labor-intensive, often requiring hours per subject. While automated scoring tools accelerate this process, they are typically trained exclusively on healthy cohorts and frequently fail when applied to disease models that exhibit atypical or fragmented sleep architecture. Somnus is an open-source Python package designed to automate rodent sleep staging using EEG, muscle activity (EMG), and optional video-tracking data. It includes a robust base model trained on diverse recordings from six independent laboratories, enabling out-of-the-box classification across various equipment setups without requiring prior manual labeling. A central feature of Somnus is its capacity for rapid adaptation to pathological sleep structure. The software provides a graphical interface that directs researchers to the specific epochs where the base model is least certain. Users can manually correct these targeted epochs in a built-in viewer by comparing the model’s classification to the raw EEG signal and video, and then use their corrections to fine-tune the model. This workflow empowers researchers to generate accurate custom scorers for complex disease models or novel treatments with just a few minutes of manual correction, bypassing the need to hand-score entire experimental cohorts or develop their own models from scratch.",
+      "doi": "10.64898/2026.10.05.756738",
+      "pmid": null,
+      "openalex_id": "W7221520818",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds006366",
+      "confidence_scoring": {
+        "confidence_score": 0.7958043748140335,
+        "similarity_score": 0.6890081167221069,
+        "citation_text_length": 1747,
+        "dataset_text_length": 2232,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    }
+  ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-10-24T11:33:40.674051+00:00",
+    "scoring_date": "2026-10-25T10:32:06.523287+00:00",
     "dataset_text_length": 2232,
-    "num_citations_scored": 0
+    "num_citations_scored": 1,
+    "summary_stats": {
+      "mean_confidence": 0.7958043748140335,
+      "median_confidence": 0.7958043748140335,
+      "std_confidence": 0.0,
+      "min_confidence": 0.7958043748140335,
+      "max_confidence": 0.7958043748140335,
+      "high_confidence_count": 1,
+      "medium_confidence_count": 0,
+      "low_confidence_count": 0
+    }
   }
 }

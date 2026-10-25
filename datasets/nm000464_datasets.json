@@ -1,0 +1,62 @@
+{
+  "dataset_id": "nm000464",
+  "date_retrieved": "2026-10-25T10:03:40.446534+00:00",
+  "dataset_description": {
+    "Name": "Vanderbilt BIEN Lab Peri-ictal Dynamics Data (Makhoul et al. 2025): per-seizure SEEG partial directed coherence and imaginary coherence",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "derivative",
+    "License": "CC-BY-NC-SA-4.0",
+    "Authors": [
+      "Ghassan Makhoul",
+      "Kate Wang",
+      "Dario Englot"
+    ],
+    "HowToAcknowledge": "Please cite Makhoul, G. S., Doss, D. J., Johnson, G. W., Withers, C. P., Cavender, A. C., Hidalgo Monroy Lerma, B., Reda, A., Bibro, C. E., Liao, E., Kang, H., Dawant, B. M., Reddy, S. B., Crudele, A. N., Constantinidis, C., Roberson, S. W., Bick, S. K., Morgan, V. L., & Englot, D. J. (2025). Collapse of interictal suppressive networks permits seizure spread. Brain, awaf215. https://doi.org/10.1093/brain/awaf215 and the dataset doi:10.26275/n0bo-jg77.",
+    "Funding": [
+      "This work was supported by the following funding sources: NINDS R01NS112252, R01NS134625, F31NS131056 and F31NS120401, NIGMS T32GM007347, NIBIB T32EB021937, NINDS R01NS108445 and R01NS110130."
+    ],
+    "EthicsApprovals": [
+      "This study was approved by Vanderbilt’s Institutional Review Board, and all patients provided informed consent."
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.1093/brain/awaf215",
+      "https://doi.org/10.26275/n0bo-jg77",
+      "https://discover.pennsieve.io/datasets/467/version/1",
+      "https://github.com/GhassanMakhoul/Ephys/tree/V2.5.ISH"
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "Makhoul et al. 2025 peri-ictal connectivity pipeline (data authors)",
+        "CodeURL": "https://github.com/GhassanMakhoul/Ephys/tree/V2.5.ISH",
+        "Description": "Per-seizure partial directed coherence and imaginary coherence of bipolar SEEG nodes in sliding windows, with per-seizure SOZ/PZ labels (Pennsieve 467 readme; Makhoul et al. 2025)."
+      },
+      {
+        "Name": "NEMAR repackaging (b3p467_build.py)",
+        "Description": "Release files renamed into BIDS subject folders; absolute dates in file contents set to day 01; JSON sidecars, seizures.tsv and participants.tsv written from the files' own fields."
+      }
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.26275/n0bo-jg77",
+        "URL": "https://discover.pennsieve.io/datasets/467/version/1",
+        "Version": "1"
+      }
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000464",
+    "Version": "1.0.2"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000464-blue)](https://doi.org/10.82901/nemar.nm000464)\n\n# Vanderbilt BIEN Lab Peri-ictal Dynamics Data (Makhoul et al. 2025)\n\nDerivative BIDS-iEEG dataset. It holds no raw SEEG: the files are the authors' per-seizure connectivity results\n(partial directed coherence, PDC, and imaginary coherence) from stereo-EEG of patients with drug-resistant epilepsy\nevaluated at Vanderbilt University Medical Center. Source: Pennsieve Discover dataset 467, version 1, \"Vanderbilt BIEN Lab\nPeri-ictal Dynamics Data\" (doi:10.26275/n0bo-jg77; Penn CNT; contributors Ghassan Makhoul, Kate Wang, Dario Englot).\n\nRelease readme (verbatim): \"This dataset contains partial directed coherence (PDC) and imaginary coherence computed per seizure\nfor 75 patients with drug-resistant epilepsy evaluated at Vanderbilt University Medical Center.\"\n\nAssociated paper: Makhoul, G. S., Doss, D. J., Johnson, G. W., Withers, C. P., Cavender, A. C., Hidalgo Monroy Lerma, B., Reda, A., Bibro, C. E., Liao, E., Kang, H., Dawant, B. M., Reddy, S. B., Crudele, A. N., Constantinidis, C., Roberson, S. W., Bick, S. K., Morgan, V. L., & Englot, D. J. (2025). Collapse of interictal suppressive networks permits seizure spread. Brain, awaf215. https://doi.org/10.1093/brain/awaf215\n\n## Contents\n\n- 78 subjects = the 78 patient folders of the release (codes Epat##, Spat## and pat##, the authors' pseudonyms).\n  The release readme and the paper state 75 patients; the release has 78 codes. Codes pat11 (patID pat11, 59 node labels) and Epat11 (patID Epat11, 69 node labels) share 18 node labels; pat33 (patID pat33, 76 node labels) and Epat33 (patID Epat33, 106 node labels) share 10 node labels. The release does\n  not state how the 78 codes map onto the 75 patients.\n- 994 connectivity files (`sub-*/ieeg/*_desc-pdc_connectivity.mat`, `*_desc-imcoh_connectivity.mat`), 708 seizure events,\n  each with a JSON sidecar; 288 figure(s) from the release (`*_plot.png`, MATLAB figures; not described in the release).\n- Seizure types over the PDC files (field sz_type): FAS 135, FBTC 96, FIAS 152, Focal, unknown awareness 297, Unknown 28.\n- `seizures.tsv` / `seizures.json`: one row per connectivity file with the file's own fields (seizure type, awareness label,\n  surgery type, SOZ and PZ strings, number of nodes and windows, durations, sampling rate).\n- `participants.tsv`: sex and age are not stated per patient in the release or the paper (paper Table 1 gives cohort values:\n  43 of 75 female, age 34.7 +/- 12.3 years); seizure types, surgery type and SOZ strings come from the files.\n- `sourcedata/pennsieve-467-v1/`: the release readme, changelog, manifest, Pennsieve metadata, banner, the file\n  `files/Epat26/Epat26_26_FAS_imcoh.err` (a MATLAB 7.3 file with the extension .err; not described in the release; same date\n  edit as the .mat files), and `scrub_log.tsv` (release path, BIDS path, release and NEMAR\n  sha256, what changed). `files/.DS_Store` (macOS Finder metadata) was not copied.\n\n## File contents (from the files and the paper)\n\nEach `.mat` file is MATLAB 7.3 (HDF5) with one struct `pdc.seizure`, read with MATLAB, h5py or mat-io. Main fields:\n`PDC_all_windowed` (and `imcoh_all_windowed` in imaginary-coherence files): matrices for every window of the peri-ictal\nrecording (MATLAB size bands x windows x nodes x nodes); `PDC_interictal_windowed` / `imcoh_interictal_windowed`: the same for\nan interictal clip (field `interictal_window_dur_sec`, values in the files: 300 (994 files) s; hours before the seizure in\n`interictal_hours_before_seizure`); `PDC_pre`, `PDC_ictal`, `PDC_post`, `PDC_interictal`: per-period matrices (MATLAB size bands x nodes x nodes);\n`pwelch_*` and `rms_*`: spectra and RMS per node and window; `bands` (Hz; values stored in the files: 0-3; 4-7; 8-12; 13-30; 31-80; 81-150 (994 files));\n`bip_labels_used` (bipolar node labels, node order), `region_name` (region label per node, e.g. 'Left-Hippocampus',\n'ctx-lh-insula'), `dist_mat`, `soz_per_seizure`, `soz_summed`, `pz10s_designations`, `resected_contacts`, `window_dur_sec`\n(values in the files: 5 (994 files) s), `PDC_hyperparamaters` (values in the files: [\"mvar_order\", 10.0, \"pdc_sub_epoch_length_sec\", 5.0] (994 files)), `fs` (sampling rate; values in\nthe files: 512 (573 files), 500 (234 files), 1024 (133 files), 2048 (54 files) Hz),\n`pre_dur_sec`, `ictal_dur_sec`, `post_dur_sec`, `window_middle_state` / `window_end_state`, and the authors' seizure-table\nrows (`raw_tbl_line`, `raw_interictal_tbl_line`). The JSON sidecars list each file's array sizes, node labels and regions.\nWhich node axis is the source and which the target is not stated in the release; the code link given in the release readme\n(https://github.com/GhassanMakhoul/Ephys/tree/V2.5.ISH) returned HTTP 404 when checked in October 2026.\n\nMethods (paper, verbatim excerpts): \"Each SEEG channel was re-referenced as a bipolar montage. We then filtered SEEG channels\nusing filtfilt function in MATLAB ... with a 1–59, 61–119 and 121–159 Hz bandpass with a fifth order Butterworth filter\";\n\"Using 5 s of time series data from all SEEG channels in grey matter ..., we computed directed connectivity using partial\ndirected coherence (PDC) across five canonical frequency bands: delta (1–4 Hz), theta (4–8 Hz), alpha (8–12 Hz), beta\n(12–30 Hz), low gamma (30–80 Hz) and high gamma (80–150 Hz)\"; \"We used a 1 s stride to generate dynamic connectivity for all\nperi-ictal periods\"; \"For each seizure, we collected 10 min of recordings prior to seizure onset, the entire ictal period, and\n10 min after seizure offset.\" Imaginary coherence is named in the release readme only.\n\n## Changes made for NEMAR\n\nFiles were renamed into BIDS subject folders (mapping in `seizures.tsv` and `scrub_log.tsv`). Absolute dates inside the files\nwere set to day 01, keeping year, month and time of day: the MAT text header creation date, date strings and EDF file names in\nthe authors' seizure-table rows (for example MM:DD:YYYY and <code>_MMDDYYYY_ in EDF names), MATLAB datetime values (seizure\nonset/offset, awareness testing, interictal start/stop), and PNG text/time chunks. Bytes were patched in place; a full byte\ncomparison with each release file confirmed that nothing else changed (counts in `scrub_log.tsv`). Durations and window\ncounts were not changed; intervals computed from the edited absolute date-times are only valid within the same day.\nNo other values were changed. The participant key is not kept (key status: destroyed); the release codes are kept as subject labels.\n\n## Related NEMAR dataset\n\nSame lab: nm000410 (Pennsieve 492, resting-state SEEG, Sundrani et al. 2025), which uses the same code scheme (Epat##,\nSpat##, pat##). Neither release states whether equal codes refer to the same patient.\n\n## Ethics (paper, verbatim)\n\n\"This study was approved by Vanderbilt’s Institutional Review Board, and all patients provided informed consent.\"\n\n## Funding (paper, verbatim)\n\n\"This work was supported by the following funding sources: NINDS R01NS112252, R01NS134625, F31NS131056 and F31NS120401, NIGMS T32GM007347, NIBIB T32EB021937, NINDS R01NS108445 and R01NS110130.\"\n\n## Licence\n\nCreative Commons Attribution-NonCommercial-ShareAlike 4.0 (CC-BY-NC-SA-4.0). Pennsieve licence field: \"Creative Commons\nAttribution - NonCommercial-ShareAlike\"; version 4.0 from the DataCite record of doi:10.26275/n0bo-jg77 (rights: \"Creative Commons\nAttribution Non Commercial Share Alike 4.0 International\").\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000464",
+    "exists": true,
+    "description": "Vanderbilt BIEN Lab Peri-ictal Dynamics Data (Makhoul et al. 2025): per-seizure SEEG partial directed coherence and imaginary coherence",
+    "created_at": "2026-10-09T21:16:23+00:00",
+    "updated_at": "2026-10-21T21:34:18+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

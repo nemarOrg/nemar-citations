@@ -1,0 +1,63 @@
+{
+  "dataset_id": "nm000413",
+  "date_retrieved": "2026-10-25T10:02:19.019448+00:00",
+  "dataset_description": {
+    "Name": "DRE-LZSH: SEEG benchmark dataset for drug-resistant epilepsy (ictal and interictal segments, 29 patients)",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "raw",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "Wang Yalin"
+    ],
+    "Acknowledgements": "Data release: Zenodo record 17272689 'DRE-LZSH: A SEEG Benchmark Dataset and Pilot Exploration for Advancing Precision Medicine in Drug-Resistant Epilepsy' (creator listed as 'Yalin, Wang'). BIDS conversion: ieeg-nemar-20261005 campaign (batch-3, lane W2); no signal processing applied.",
+    "HowToAcknowledge": "Please cite the data record: DRE-LZSH: A SEEG Benchmark Dataset and Pilot Exploration for Advancing Precision Medicine in Drug-Resistant Epilepsy. Zenodo (2025). doi:10.5281/zenodo.17272689.",
+    "Funding": [],
+    "EthicsApprovals": [
+      "Medical Ethics Committee of the Second Hospital of Lanzhou University, approval number 2023A-765. Source: Wang Y et al. (2026), IEEE Trans Neural Syst Rehabil Eng, doi:10.1109/TNSRE.2026.3702844."
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.5281/zenodo.17272689"
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000413",
+    "Keywords": [
+      "stereo-EEG",
+      "SEEG",
+      "drug-resistant epilepsy",
+      "seizure",
+      "ictal",
+      "interictal",
+      "epileptogenic zone",
+      "high-frequency oscillations",
+      "benchmark"
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.5281/zenodo.17272689",
+        "URL": "https://zenodo.org/records/17272689",
+        "Version": "Zenodo record 17272689 (published 2025-10-05)"
+      }
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "b3w2_convert_c-drelzsh.py",
+        "Description": "Lossless re-packaging of the release MATLAB arrays into BrainVision (float32) with BIDS sidecars; no filtering, resampling, re-referencing or channel removal.",
+        "CodeURL": "n/a"
+      }
+    ],
+    "Version": "1.0.2"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000413-blue)](https://doi.org/10.82901/nemar.nm000413)\n\n# DRE-LZSH: SEEG benchmark dataset for drug-resistant epilepsy\n\nStereo-EEG (SEEG) segments from **29 patients with drug-resistant epilepsy** (P001-P029). For each patient there are\nseizure (ictal) segments and interictal segments, plus clinical information and channel-level epileptogenic-zone (EZ)\nannotations. Re-packaged in iEEG-BIDS from the authors' public release (Zenodo record\n[17272689](https://doi.org/10.5281/zenodo.17272689), \"DRE-LZSH: A SEEG Benchmark Dataset and Pilot Exploration for\nAdvancing Precision Medicine in Drug-Resistant Epilepsy\", CC-BY-4.0). The record describes itself as \"the public\ndataset, running code and results for our paper\". No article was found at conversion time (2026-10-08), and the record\ndoes not name the hospital.\n\n## Participants\n`participants.tsv` reproduces the release table `information list/clinical information.xlsx`: sex, age at surgery, age\nat onset, MRI code (P/N), number of seizures, electrodes and contacts, EZ, therapy and Engel outcome (all patients\nEngel I). It also includes the channel numbers of `information list/channel level EZ annotations.xlsx` (EZ channels and\ndeleted, or bad, channels) verbatim. The release does not say whether these numbers index the channel order of the\n`.mat` files or the original montage. Some deleted-channel numbers exceed the number of channels in a file, so they are\nnot mapped onto `channels.tsv`.\n\n**Note on P014 (added 2026-10-09).** In the release file `information list/channel level EZ annotations.xlsx`, the row of P014 (EZ \"Right occipital pole, medial posterior cingulate gyrus, and mid-posterior hippocampus\") has exactly the same EZ channel list (`11 23 24 18 19 21 35 ... 112-118`) and deleted-channel list (`5 6 20 38 121 122`) as P007 (EZ \"Left inferior frontal gyrus, posterior middle frontal gyrus, and part of the orbitofrontal cortex\"). Nine of these numbers (112-118, 121, 122) are larger than the channel count of every P014 file (85 or 107 channels; the clinical table gives 86 contacts). The P014 row is therefore probably a copy of the P007 row in the release. `participants.tsv` reproduces the release unchanged (checked against the deposit on 2026-10-09); do not use the P014 `ez_channel_ids` and `deleted_channel_ids` without confirmation from the authors.\n\n## Recordings\n- `task-ictal`: release folder `ictal state` (seizure segments, typically 40-60 s). `task-interictal`: folder\n  `interictal state` (longer segments). `run-<k>` follows the natural order of the release file names (`sz1`, `sz2`, ...,\n  `sz4-1`). `sub-<P>/sub-<P>_scans.tsv` gives the source file of every run. The release does not document where an\n  ictal segment starts relative to seizure onset, so there are no events.\n- 2000 Hz. Channel names are kept verbatim from the export (`POL A'1`, `EEG C3-Ref`, `POL ECG`, ...). Types are\n  inferred from the names (SEEG, EEG for the scalp channels, ECG, MISC; see `task-*_channels.json`). Units are not\n  stated (`n/a`); the magnitudes are consistent with volts.\n- The release stores three MATLAB layouts: `eeg_data` with an MNE-style `info` struct, `data` with `ch_names`, and `data`\n  with `channel_names` and a channel count. All three are read as stored. Each segment became one BrainVision run (IEEE\n  float32: the stored float64 values rounded to float32), and the round-trip check compares every run with its source.\n  No filtering, resampling, re-referencing or channel removal was applied.\n- There are no electrode coordinates in the release. `electrodes.tsv` lists the SEEG contact names with `n/a`\n  coordinates.\n\n## Other release content\n- `derivatives/dre-lzsh-results/`: the authors' result tables (`Results/`: HFO rates and 1/f power-spectrum fits per\n  segment), copied verbatim.\n- `code/dre-lzsh-release/`: the authors' code (`HFODetector.m` and related scripts, a notebook), copied verbatim.\n- `sourcedata/zenodo-17272689/DRE-LZSH/`: the original `.mat` files and the two information-list spreadsheets. The only\n  change is that the MATLAB header text \"Created on\" (file export date, April and June 2025) has its weekday and day\n  masked. The provenance JSON gives the SHA-256 of each file before and after masking.\n\n## License\n\nCC-BY-4.0\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000413",
+    "exists": true,
+    "description": "DRE-LZSH: SEEG benchmark dataset for drug-resistant epilepsy (ictal and interictal segments, 29 patients)",
+    "created_at": "2026-10-07T23:15:36+00:00",
+    "updated_at": "2026-10-21T21:32:42+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

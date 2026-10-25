@@ -1,0 +1,70 @@
+{
+  "dataset_id": "nm000480",
+  "date_retrieved": "2026-10-25T10:04:13.414215+00:00",
+  "dataset_description": {
+    "Name": "s500-literature-171: Working-memory gating task iEEG, epoched bipolar ECoG/sEEG from 11 patients with Yeo-7 network labels (Johnson et al., 2023) (derivative)",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "derivative",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "Elizabeth L. Johnson",
+      "Jack J. Lin",
+      "David King-Stephens",
+      "Peter B. Weber",
+      "Kenneth D. Laxer",
+      "Ignacio Saez",
+      "Fady Girgis",
+      "Mark D'Esposito",
+      "Robert T. Knight",
+      "David Badre"
+    ],
+    "HowToAcknowledge": "Cite Johnson EL, Lin JJ, King-Stephens D, Weber PB, Laxer KD, Saez I, Girgis F, D'Esposito M, Knight RT, Badre D (2023) A rapid theta network mechanism for flexible information encoding. Nature Communications 14:2872, doi:10.1038/s41467-023-38574-7; and the OSF dataset https://osf.io/rx2zd/.",
+    "ReferencesAndLinks": [
+      "https://doi.org/10.1038/s41467-023-38574-7",
+      "https://doi.org/10.17605/OSF.IO/RX2ZD",
+      "https://osf.io/rx2zd/"
+    ],
+    "Keywords": [
+      "intracranial EEG",
+      "working memory",
+      "input gating",
+      "theta",
+      "high-frequency broadband",
+      "prefrontal cortex",
+      "Yeo networks",
+      "epilepsy"
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.17605/OSF.IO/RX2ZD",
+        "URL": "https://osf.io/rx2zd/",
+        "Version": "OSF node rx2zd, 44 files as listed 2026-10-11 (sha256 per file in sourcedata/osf-rx2zd/DEIDENTIFICATION_MANIFEST.tsv)"
+      }
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "o5c_A2_convert_lit171.py",
+        "Description": "Repackaging of the FieldTrip epoch structs (data.trial) into BrainVision float32, trials back-to-back, with data.trialinfo as events, data.elec.chanpos as electrodes and the Yeo-7 assignment as electrode/channel labels. Code in code/."
+      }
+    ],
+    "EthicsApprovals": [
+      "Collected under research protocols approved by the Institutional Review Boards of UC Irvine, UC Davis and California Pacific Medical Center; written informed consent (article)."
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000480",
+    "Version": "1.0.3"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000480-blue)](https://doi.org/10.82901/nemar.nm000480)\n\n# Johnson et al. (2023), \"A rapid theta network mechanism for flexible information encoding\": epoched iEEG\n\nPreprocessed, bipolar-referenced intracranial EEG from 11 neurosurgical patients (11 recordings, 1.56 h of\nepochs) performing a single-trial working-memory gating task (context-first / context-last), released by the authors on OSF\n(https://osf.io/rx2zd/, CC-BY 4.0) together with the analysis scripts.\n\nTHIS IS A DERIVATIVE DATASET: the release holds the authors' epoched, filtered, artifact-cleaned bipolar channels (article\nMethods), not the raw clinical recordings.\n\n## Contents\n- `sub-NN/ieeg/sub-NN_task-wmgating_ieeg.*`: the released `data.trial` epochs written back-to-back (one `New Segment` marker\n  per trial; `events.tsv` gives each trial's position, its authors' time axis start (-1 s) and every `trialinfo` field as\n  released: trl_num, context, congruency, stimuli, rt, acc, Rel, Irrel, stim1, stim2, stim3, digitStimuli, digit_position, target_position, distractor_position, s2_onset, s3_onset, resp_onset). Unit µV assumed (not stated in the release); values unchanged.\n- Trials have variable length (5.0-18.0 s: 1 s before the first item to 1 s after the response); `events.tsv` onset and\n  duration delimit each trial. The sidecars declare `RecordingType` `discontinuous` (segments of unequal length) and give no\n  `EpochLength` (it held the median trial length, which matches no trial boundary).\n- Channel names are the bipolar pairs (e.g. `LF9-LF1`). The channel type is INFERRED from the pair numbering following the\n  article's montage rule (sEEG: deep-surface neighbours, adjacent numbers; ECoG grids: row-by-row neighbours, non-adjacent\n  numbers); the release itself does not state the electrode type per channel.\n- `sub-NN_space-Other_electrodes.tsv`: `data.elec.chanpos` of each bipolar channel as released. The release does not state\n  whether chanpos is in native or MNI space (the article localizes in native space and transforms to MNI for group display),\n  hence `space-Other`; see coordsystem.json. The per-subject `yeo.mat` (Yeo-7 network per task-responsive electrode) lists\n  fewer entries than channels and carries no channel names, so it could not be mapped to channels; it is kept in sourcedata/\n  (counts per subject in code/conversion_report.json, key yeo_unmapped). Where its length matches the channel count the\n  network is written to the `yeo7_network` column.\n- `participants.tsv`: no per-subject age or sex in the release (article Table S1).\n- `sourcedata/osf-rx2zd/`: every release file (data incl. `behavior.mat`, `trialinfo.mat`, scripts) unchanged apart from MAT\n  text-header dates reduced to month/year; `DEIDENTIFICATION_MANIFEST.tsv` lists sha-256 before and after.\n\n## Privacy\nSubjects are numbered S1-S11; files hold trial parameters, responses and reaction times only.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000480",
+    "exists": true,
+    "description": "s500-literature-171: Working-memory gating task iEEG, epoched bipolar ECoG/sEEG from 11 patients with Yeo-7 network labels (Johnson et al., 2023) (derivative)",
+    "created_at": "2026-10-11T21:18:54+00:00",
+    "updated_at": "2026-10-24T03:00:41+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

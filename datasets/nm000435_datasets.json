@@ -1,0 +1,69 @@
+{
+  "dataset_id": "nm000435",
+  "date_retrieved": "2026-10-25T10:02:48.586996+00:00",
+  "dataset_description": {
+    "Name": "Human medial temporal lobe iEEG during a visual working memory task (Boran et al.; DANDI 000575)",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "derivative",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "Ece Boran",
+      "Peter Hilfiker",
+      "Lennart Stieglitz",
+      "Jan Hohenheim",
+      "Peter Klaver",
+      "Johannes Sarnthein"
+    ],
+    "HowToAcknowledge": "Please cite Boran E, Hilfiker P, Stieglitz L, Sarnthein J, Klaver P (2022) Persistent neuronal firing in the medial temporal lobe supports performance and workload of visual working memory in humans. NeuroImage 254:119123, doi:10.1016/j.neuroimage.2022.119123, and the data release: Boran E, Hilfiker P, Stieglitz L, Hohenheim J, Klaver P, Sarnthein J (2023) Dataset of human medial temporal lobe neurons during a visual working memory task (Version 0.231010.1811), DANDI archive, doi:10.48324/dandi.000575/0.231010.1811.",
+    "Funding": [
+      "Swiss National Science Foundation 204651",
+      "The Kavli Foundation 2586"
+    ],
+    "EthicsApprovals": [
+      "The study was approved by the institutional ethics review board (Kantonale Ethikkommission Zürich, PB-2016-02055) and all participants gave written informed consent."
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.1016/j.neuroimage.2022.119123",
+      "https://doi.org/10.48324/dandi.000575/0.231010.1811",
+      "https://gin.g-node.org/USZ_NCH/Human_MTL_units_visual_WM",
+      "https://github.com/janhohenheim/usz-neuro-conversion",
+      "https://github.com/janhohenheim/nwb-example",
+      "https://www.neurobs.com/ex_files/expt_view?id=285"
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "Authors' export (USZ, usz-neuro-conversion)",
+        "Description": "Neuralynx ATLAS recordings (32 kHz) exported by the authors through FieldTrip MATLAB files to NWB; for 10 of 13 recordings the exported series is at 4 kHz (downsampled by the authors; method not documented).",
+        "CodeURL": "https://github.com/janhohenheim/usz-neuro-conversion"
+      },
+      {
+        "Name": "b3w4_boran_bids.py",
+        "Description": "NWB -> BIDS-iEEG for NEMAR (batch 3): sampling rate corrected from evidence, values written as float32 microvolts, no filtering/resampling/re-referencing; events from the NWB trial, epoch and response tables; MNI coordinates restored from the NWB axis convention. v2: sub-12 exact duplicate columns (31 of 63, identical over the full series) written once.",
+        "Version": "2026-10-08"
+      }
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.48324/dandi.000575/0.231010.1811",
+        "URL": "https://dandiarchive.org/dandiset/000575/0.231010.1811",
+        "Version": "0.231010.1811"
+      }
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000435",
+    "Version": "1.0.2"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000435-blue)](https://doi.org/10.82901/nemar.nm000435)\n\nHuman medial temporal lobe iEEG during a visual working memory task (Boran et al.; DANDI 000575)\n=================================================================================================\n\nOverview\n--------\nIntracranial recordings from depth electrodes in the medial temporal lobe (amygdala, hippocampus, entorhinal and\nparahippocampal cortex) of patients with drug-resistant epilepsy under invasive monitoring at the University Hospital\nZurich, while they performed a visual working memory (change detection) task: arrays of 1, 2, 4 or 6 coloured\nsquares were memorised (encoding 0.8 s), held over a delay (retention 0.9 s), and compared with a test array (probe,\n2 s; answer \"same\" or \"different\"). About 192 trials per session.\n\nThis dataset is a BIDS-iEEG representation of the continuous iEEG series (\"LFP\") that the authors released in NWB:\n\n  Boran E, Hilfiker P, Stieglitz L, Hohenheim J, Klaver P, Sarnthein J (2023). Dataset of human medial temporal\n  lobe neurons during a visual working memory task (Version 0.231010.1811). DANDI archive.\n  https://doi.org/10.48324/dandi.000575/0.231010.1811 (license CC-BY-4.0)\n\n  Article: Boran E, Hilfiker P, Stieglitz L, Sarnthein J, Klaver P (2022). Persistent neuronal firing in the medial\n  temporal lobe supports performance and workload of visual working memory in humans. NeuroImage 254:119123.\n  https://doi.org/10.1016/j.neuroimage.2022.119123\n\nPlease cite both. The same release is on GIN (https://gin.g-node.org/USZ_NCH/Human_MTL_units_visual_WM).\nTask files (Presentation): https://www.neurobs.com/ex_files/expt_view?id=285. Example NWB reader from the authors:\nhttps://github.com/janhohenheim/nwb-example.\nFunding (DANDI record): Swiss National Science Foundation 204651; The Kavli Foundation 2586.\n\nContents\n--------\n11 participants with iEEG (sub-01, 03, 04, 05, 06, 07, 08, 09, 10, 12, 13), 12 sessions, 13 recordings\n(sub-10 is split in two runs, see below), 24-64 contacts per recording.\n\n  sub-<label>/ses-<n>/ieeg/   BrainVision (.vhdr/.vmrk/.eeg), IEEE float32, microvolts; channels.tsv; ieeg.json;\n                              events.tsv; electrodes.tsv (MNI coordinates) + coordsystem.json\n  sub-<label>/sub-<label>_scans.tsv  source NWB, recording month, NWB rate attribute, sampling rate used\n  sourcedata/dandi-000575/    all 18 NWB files of the release (date masked, see Privacy); they also hold the\n                              single-unit spike times and waveforms, which are not converted (see below).\n                              sourcedata/sourcedata_provenance.json: DANDI asset id, original DANDI SHA-256 and\n                              SHA-256 of the masked copy.\n\nSession labels: ses-01 / ses-02 are the session numbers of the NWB identifier\n(Human_MTL_units_visual_WM_subjectXX_sessionYY).\nNot in the BIDS signal tree because their NWB file has no continuous series (units and trials only; kept in\nsourcedata): sub-02 (ses-01), sub-03 ses-02, sub-11 (ses-01), sub-12 ses-02. sub-02 and sub-11 are therefore not in\nparticipants.tsv. For sub-12 ses-01 the release has two NWB files whose iEEG series are identical (sample check)\nand differ only in the rate attribute (obj-1h9ryn9: 0.00025; obj-p4v231: 32000); obj-1h9ryn9 was converted.\nIn both of these files the iEEG series has 63 columns but only 32 distinct contacts: the series' electrode reference\nlists 31 contacts twice (AHL2-AHL8, AL1-AL8, ECL1-ECL8, PHR1-PHR8), and the two columns of each repeated contact are\nidentical over the whole series (checked sample by sample by the conversion script, which stops otherwise). Each\ncontact is written once, so sub-12 has 32 channels; the dropped source columns are listed in the conversion report\n(conversion_report: dropped_duplicate_cols). The NWB files in sourcedata are unchanged.\n\nWhy this is a derivative dataset\n--------------------------------\nThe recordings were made with a Neuralynx ATLAS system (hardware passband 1-8000 Hz, NWB electrodes.filtering). The\nauthors exported them through FieldTrip MATLAB files; 9 of the 12 sessions (10 of 13 recordings) are at 4 kHz, i.e.\ndownsampled by the authors (the method is not documented), and sub-10 was concatenated from two parts. The dataset is therefore labelled\nDatasetType \"derivative\". sub-04, sub-07 and sub-13 are at 32 kHz.\n\nSampling rate: the NWB 'rate' attribute is wrong in most files (please read)\n-------------------------------------------------------------------------\nOf the 13 NWB files with a continuous series, 11 store rate = 32000 Hz, one stores 0.00025 (a sample period stored as\na rate; the authors' converter code passes rate=0.00025, i.e. 4 kHz) and one (sub-10) stores explicit timestamps. We set the rate per recording from three independent checks:\n  1. the 50 Hz mains peak (Switzerland): its position in cycles/sample gives 4000 Hz for sub-01, 03, 05, 06, 08 (both\n     sessions), 09, 10 and 12, and 32000 Hz for sub-04, 07 and 13;\n  2. coverage: at the chosen rate each series covers all trial, response and spike times of its NWB file (at 32 kHz\n     the 4 kHz series would end long before the task does);\n  3. sub-10 stores explicit timestamps with a 0.25 ms step (4 kHz).\nThe rate used and the rate attribute found are listed for every recording in scans.tsv (sampling_frequency_used,\nsource_rate_attribute). The conversion script re-checks 1 for every file and stops if the evidence disagrees.\n\nAmplitude unit: the NWB says unit \"volts\" with conversion 1, but the stored numbers are microvolts (median channel\nSD 4-60 for the 4 kHz series; the authors' converter writes the FieldTrip matrix unscaled while it scales the spike\nwaveforms from microvolts by 1e-6). We wrote the stored values as microvolts, unchanged apart from float32 rounding.\nNo filtering, resampling, re-referencing or cropping was done by this conversion; the only channel change is the\nremoval of the exact duplicate columns of sub-12 described above.\n\nsub-10: the NWB timestamps restart once (sample 2,013,312: from 503.33 s back to 26.48 s). The authors' converter\njoined two recording parts with an offset taken from the trial log and a hand-copied lag; the result is not monotonic,\nso the true position of part 2 on the task clock is unknown. Part 1 is run-1 (with the 71 trials that fall inside it,\nplus their epochs and responses); part 2 is run-2, without events. All trials remain in the NWB file in sourcedata.\n\nsub-12 ses-01: the 4 kHz series lasts 2806 s, longer than the 191 trials of this file (last trial ends at 1406 s);\nthe release does not say what the remaining part contains (the ses-02 trials are in a separate NWB without iEEG and\nwe did not assume a common clock).\n\nChannels and electrodes\n-----------------------\nChannel names are the authors' contact labels (e.g. AHL1-AHL8 = left anterior hippocampus electrode, contacts 1-8;\nAL/AR amygdala, ECL/ECR entorhinal cortex, PHL/PHR parahippocampal cortex). Reference: \"Common intracranial\nreference\" (NWB). channels.tsv/electrodes.tsv column soz = contact inside the seizure onset zone (NWB\nis_inside_soz). electrodes.tsv: MNI coordinates (mm) and the authors' Brainnetome anatomical label. The NWB stores\nthe coordinates in the NWB axis convention (x = -MNI y, y = -MNI z, z = MNI x, as written in the authors' converter);\nwe converted them back. The MNI template is not specified in the release (coordsystem \"Other\").\n\nEvents\n------\nevents.tsv rows: trial (start to end of each trial; set_size; solution same/different), the trial periods fixation,\nmemory (encoding), retention and probe (intervals/epochs), and response (button press: same/different). onset is the\nNWB time minus the time of the first sample of the series. source_table/source_row_id point back to the NWB.\n\nNot converted\n-------------\nSingle units (spike times, mean/SD waveforms, observation intervals) are in the NWB files in sourcedata/ unchanged; no\nBIDS derivative was made from them.\n\nSame participants in other public releases\n------------------------------------------\nThe authors' conversion metadata (https://github.com/janhohenheim/usz-neuro-conversion, in/metadata/participants.csv)\nlinks 7 participants of this release to their verbal working memory release (GIN; NEMAR nm000363, OpenNeuro\nds004752) and/or the fear-video release (OpenNeuro ds003374 / DANDI 000576). See participants.tsv\nsame_participant_in. These are different tasks and different recordings; no data are duplicated.\n\nPrivacy (review 2026-10-08)\n---------------------------\nAll string attributes and datasets of the 18 NWB files were listed. They contain: subject numbers, age, sex,\nhandedness, pathology, electrode lists, contact labels, anatomical labels, institution/lab, the experimenter (author),\nthe task description and the session start date-times. The session dates are real recording dates, so: in the\nsourcedata copies the day of session_start_time and timestamps_reference_time is set to 01 (year, month and time of\nday kept), and the dates in the file names are masked the same way; BIDS files carry only the recording month\n(scans.tsv). No names, birth dates or hospital IDs were found in the NWB files. The authors' public conversion\nrepository holds hospital patient numbers; the hospital therefore keeps a key, and none of those numbers is copied here.\n\n## Ethics\n\nVerbatim from Boran E, Hilfiker P, Stieglitz L, Sarnthein J, Klaver P (2022). Persistent neuronal firing in the medial temporal lobe supports performance and workload of visual working memory in humans. NeuroImage 254:119123. https://doi.org/10.1016/j.neuroimage.2022.119123, section \"Ethics statement\":\n\n> The study was approved by the institutional ethics review board (Kantonale Ethikkommission Zürich, PB-2016-02055) and all participants gave written informed consent.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000435",
+    "exists": true,
+    "description": "Human medial temporal lobe iEEG during a visual working memory task (Boran et al.; DANDI 000575)",
+    "created_at": "2026-10-08T04:19:12+00:00",
+    "updated_at": "2026-10-21T21:33:50+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

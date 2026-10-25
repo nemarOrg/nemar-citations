@@ -1,0 +1,75 @@
+{
+  "dataset_id": "nm000473",
+  "date_retrieved": "2026-10-25T10:03:58.704869+00:00",
+  "dataset_description": {
+    "Name": "Qin2023 action observation ECoG: re-referenced region-of-interest electrocorticography during observation of predictable and unpredictable action movies",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "derivative",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "Chaoyi Qin",
+      "Frederic Michon",
+      "Yoshiyuki Onuki",
+      "Yohei Ishishita",
+      "Keisuke Otani",
+      "Kensuke Kawai",
+      "Pascal Fries",
+      "Valeria Gazzola",
+      "Christian Keysers"
+    ],
+    "HowToAcknowledge": "Cite Qin C, Michon F, Onuki Y, Ishishita Y, Otani K, Kawai K, Fries P, Gazzola V, Keysers C (2023). Predictability alters information flow during action observation in human electrocorticographic activity. Cell Reports 42(12):113432, doi:10.1016/j.celrep.2023.113432, and the OSF release doi:10.17605/OSF.IO/4XJG7.",
+    "ReferencesAndLinks": [
+      "https://doi.org/10.1016/j.celrep.2023.113432",
+      "https://doi.org/10.1101/2022.12.13.519734",
+      "https://doi.org/10.17605/OSF.IO/4XJG7"
+    ],
+    "Keywords": [
+      "ECoG",
+      "electrocorticography",
+      "action observation",
+      "predictive coding",
+      "beta",
+      "gamma",
+      "epilepsy",
+      "Japan"
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.17605/OSF.IO/4XJG7",
+        "URL": "https://osf.io/4xjg7/",
+        "Version": "OSF node 4xjg7 (files as downloaded 2026-10-11; sha256 in sourcedata/osf-4xjg7/DEIDENTIFICATION_MANIFEST.tsv)"
+      }
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "o5c_A1_convert_gen152.py",
+        "Description": "Repackaging of the FieldTrip rerefData structs (continuous, µV) into BrainVision float32 with camera-change events, ACPC and MNI positions of the ROI channels, and the stimulus movies/annotations. Code in code/."
+      }
+    ],
+    "EthicsApprovals": [
+      "Collected under the source study's approval (see the article, doi:10.1016/j.celrep.2023.113432)."
+    ],
+    "Funding": [
+      "Japan Society for the Promotion of Science JP17H04305",
+      "Japan Society for the Promotion of Science JP20H03794",
+      "NWO 452-14-015",
+      "NWO 453-15-009"
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000473",
+    "Version": "1.0.2"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000473-blue)](https://doi.org/10.82901/nemar.nm000473)\n\n# Qin et al. 2023, \"Predictability alters information flow during action observation in human ECoG\": ROI channels\n\nContinuous electrocorticography (10 patients, 8.70 h, 1000 Hz) recorded while epilepsy patients watched movies of\nsequential actions, released by the authors on OSF (doi:10.17605/OSF.IO/4XJG7, CC-BY-4.0) as FieldTrip structures of the\nre-referenced region-of-interest channels used in the article, plus the event tables and stimuli.\n\n## What is converted (DatasetType derivative)\n- `sub-XX/ieeg/sub-XX_task-actionobservation_ieeg.vhdr`: `rerefData.trial{1}` of `Patient<N>LARER_rerefDataInROI.mat` (µV per\n  `hdr.chanunit`, values unchanged, float32), channels = the released ROI contacts (names as released, e.g. A26, B55). The signals\n  are re-referenced by the authors (scheme in the article; not stated in the release) and restricted to ROI channels, hence derivative.\n- `events.tsv`: the released `camInfo` table of `Patient<N>_eventdata.mat` (camera-change triggers in the movies): sample, movie id,\n  movie number, the S/M flag and the intervals before/after. Column meanings were inferred from the values and checked against the\n  BORIS annotation files (see `events.json` and `code/conversion_report.json`).\n- `electrodes.tsv`: ACPC positions (`elec.chanpos`, FieldTrip `coordsys` 'acpc') and MNI positions (`elec.elecposMNI`, template\n  not stated) for the ROI channels. Positions of all implanted contacts are in the sourcedata MAT files.\n- `stimuli/`: the three movie runs (avi), the BORIS camera-change annotations per movie (csv), the stimulus lists and the BORIS\n  project file, as released. `sourcedata/osf-4xjg7/`: all release files unchanged.\n- Age and sex are not in the release. The patient numbers of the release (1,2,3,4,6,8,9,11,12,13) are kept as subject numbers.\n\n## Privacy\nThe release holds patient numbers only. FieldTrip `cfg` fields in the MAT files contain the authors' analysis paths/usernames and\nanalysis timestamps (2022-2023), not patient data.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000473",
+    "exists": true,
+    "description": "Qin2023 action observation ECoG: re-referenced region-of-interest electrocorticography during observation of predictable and unpredictable action movies",
+    "created_at": "2026-10-11T20:58:17+00:00",
+    "updated_at": "2026-10-21T21:34:30+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

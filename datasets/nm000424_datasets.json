@@ -1,0 +1,74 @@
+{
+  "dataset_id": "nm000424",
+  "date_retrieved": "2026-10-25T10:02:26.536423+00:00",
+  "dataset_description": {
+    "Name": "Szabo-2026-neurons-10.1038/s41467-026-71502-z",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "derivative",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "Johanna Petra Szabo",
+      "Panna Hegedüs",
+      "Tamás Laszlovszky",
+      "László Halász",
+      "Gabriella Miklós",
+      "Bálint Király",
+      "György Perczel",
+      "Virág Bokodi",
+      "László Entz",
+      "István Ulbert",
+      "Gertrúd Tamás",
+      "Dániel Fabó",
+      "Loránd Erőss",
+      "Balázs Hangya"
+    ],
+    "HowToAcknowledge": "Cite the Figshare dataset doi:10.6084/m9.figshare.31359616 and the associated article 'Neurons of the human subthalamic nucleus engage with local delta frequency processes during action cancellation'.",
+    "EthicsApprovals": [
+      "Informed consent forms and all research protocols were approved by the Institutional Research Ethics Committee of NIMNN or its predecessors (OKITI IKEB1/2018; OMIII IKEB 21/2023) and the National Scientific and Ethical Committee of the Medical Research Council, Budapest, Hungary (OGYÉI/64814-6/2023); informed consent was obtained from all subjects. Source: Szabo et al. 2026, Nat Commun, doi:10.1038/s41467-026-71502-z (Methods, Patient selection), the article of this Figshare dataset."
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.6084/m9.figshare.31359616"
+    ],
+    "Keywords": [
+      "subthalamic nucleus",
+      "local field potential",
+      "stop-signal task",
+      "response inhibition",
+      "Parkinson's disease",
+      "deep brain stimulation"
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.6084/m9.figshare.31359616",
+        "URL": "https://figshare.com/articles/dataset/31359616",
+        "Version": "Figshare version 2"
+      }
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "Authors' processing",
+        "Description": "Intraoperative STN microelectrode LFP released as EEGLAB files at 250 Hz, high-pass filtered (0.5 or 2 Hz) and notch-filtered or cleaned."
+      },
+      {
+        "Name": "b3w11_convert_stndelta.py",
+        "Description": "Repackaging of the 0.5 Hz high-pass LFP files to BrainVision float32 µV with unchanged values; annotations to events.tsv; dated folder names dropped. Code in code/."
+      }
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000424",
+    "Version": "1.0.1"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000424-blue)](https://doi.org/10.82901/nemar.nm000424)\n\n# Human STN LFP during a stop-signal task (STN delta) - DERIVATIVE\n\nIntraoperative local field potentials from the subthalamic nucleus (STN) of patients with Parkinson's disease\nundergoing DBS surgery, recorded with microelectrodes while they performed a stop-signal reaction time task.\n\nTHIS IS A DERIVATIVE DATASET. The release provides the continuous STN LFP only as the authors' filtered 250 Hz EEGLAB\nfiles. Each recording exists in a 0.5 Hz and a 2 Hz high-pass version; only the 0.5 Hz version is included here.\n\n## Source\n- Figshare: Johanna Petra Szabo, Panna Hegedüs, Tamás Laszlovszky, László Halász, Gabriella Miklós, Bálint Király, György Perczel, Virág Bokodi, László Entz, István Ulbert, Gertrúd Tamás, Dániel Fabó, Loránd Erőss, Balázs Hangya. \"Dataset for \"Neurons of the human subthalamic nucleus engage with local delta frequency processes during action cancellation\"\". doi:10.6084/m9.figshare.31359616 (CC BY 4.0).\n  Both Figshare files matched their MD5 checksums.\n- The original release (human-STN-delta_data.zip, 8.5 GB) also contains single-/multi-unit waveforms and spike times\n  (MClust/CellBase), behavioural trial files, scalp EEG (intraoperative and postoperative) and epoched/CSD files. They are\n  not repackaged here: BIDS-iEEG has no spike format, scalp EEG is not intracranial, and the epoched files duplicate the\n  continuous data. Get them from the Figshare record. The release's session folder names are surgery dates, so they\n  are not copied.\n\n## Contents\n- 13 patients (`sub-pd<NN>` = release patient id), 24 recordings, 5.13 h at 250 Hz.\n- `ses-intraop<k>`: intraoperative session k of that patient (ordered by date; dates removed).\n- `acq-<side>stim<off|on>`: hemisphere and the release's stimulation label (folder `stim<off|on>_<side>_LFP`).\n- Channels Ch1..Ch5: the release's microelectrode tracks (type DBS, µV, values unchanged as float32).\n- `events.tsv`: the EEGLAB annotations (StimulusOn, KeyPress1, Feedback, StopSignal, ...).\n- No coordinates are released; electrodes.tsv lists the tracks with x, y, z = n/a and the stated target (STN).\n\n## Privacy\nRecording dates (in the release folder names) are dropped. No names were found.\n\n## Ethics\nVerbatim from the article of this Figshare dataset, Szabo JP et al. (2026) \"Neurons of the human subthalamic nucleus engage with\nlocal delta frequency processes during action cancellation\", Nat Commun, doi:10.1038/s41467-026-71502-z (Europe PMC PMC13287684,\nMethods, Patient selection):\n\n> \"Thirteen patients with Parkinson-disease (6 males; age, 60.92 ± 12.6 years; Supplementary Table S1) undergoing bilateral STN\n> DBS implantation (Supplementary Table S2) were enrolled in this study, recruited from the Institute of Neurosurgery and\n> Neurointervention (formerly National Institute of Clinical Neuroscience) of Semmelweis University (Budapest, Hungary). Informed\n> consent was obtained from all subjects. Informed consent forms and all research protocols were approved by the Institutional\n> Research Ethics Committee of NIMNN or its predecessors (OKITI IKEB1/2018; OMIII IKEB 21/2023) and the National Scientific and\n> Ethical Committee of the Medical Research Council, Budapest, Hungary (OGYÉI/64814-6/2023).\"\n\nThe 13 patients of the article are the 13 patients of this dataset.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000424",
+    "exists": true,
+    "description": "Human STN LFP during a stop-signal task (STN delta)",
+    "created_at": "2026-10-08T00:45:46+00:00",
+    "updated_at": "2026-10-21T21:09:55+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

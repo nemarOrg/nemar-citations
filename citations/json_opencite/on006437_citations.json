@@ -1,7 +1,7 @@
 {
   "dataset_id": "on006437",
-  "num_citations": 0,
-  "date_last_updated": "2026-10-11T11:09:06.909983+00:00",
+  "num_citations": 2,
+  "date_last_updated": "2026-10-25T10:18:43.414305+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
     "fetch_date": "2026-10-11T11:09:06.909983+00:00",
@@ -40,13 +40,81 @@
       "resting state"
     ],
     "methods_description": "Baseline resting EEG (5 minutes) was recorded in the lab about 2 weeks before the first session (session 0). LIGHT sessions were conducted virtually, except sessions 1, 4, and 8, during which EEG and ECG were recorded. Each session followed a script of guided relaxation/induction, visualization of a place of comfort, a path or stairs, a chair and crown, and a light moving through the body, ending with a count up to an awake state. Hypnotherapy recordings vary in length and contain events marking hypnotherapist phase transitions.",
-    "funding": []
+    "funding": [],
+    "searched_accessions": [
+      "on006437",
+      "ds006437"
+    ],
+    "num_accession_mentions": 2,
+    "num_dataset_citations": 2,
+    "num_datapaper_citations": 0
   },
-  "citation_details": [],
+  "citation_details": [
+    {
+      "title": "Multi-Source Domain Generalization with Few-Shot Calibration for Cross-Dataset EEG Hypnosis Depth Classification under Proxy Labels",
+      "author": "Zexiao Weng, Minpo Jung",
+      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "year": 2026,
+      "url": "https://doi.org/10.5281/zenodo.21531272",
+      "cited_by": 0,
+      "abstract": "Repository. This archive is the versioned software and results companion to the manuscript \"Multi-Source Domain Generalization with Few-Shot Calibration for Cross-Dataset EEG Hypnosis Depth Classification under Proxy Labels\". The continuously updated source of record is the public GitHub repository https://github.com/korose523/Hypnotise. Scope. The deposit contains the complete source code, experiment scripts, configuration files, and result JSON files for a multi-source domain generalization study of proxy-labeled cross-dataset EEG state classification spanning 8 publicly available EEG datasets. The framework aligns heterogeneous datasets to a common 14-channel EPOC+ representation with 63-dimensional spectral features, trains Random Forest classifiers on 7 diverse source domains, and evaluates zero-shot transfer versus few-shot target-domain calibration across 8 held-out target domains. Contents. Reproducible runners (run_exp101_reproducible.py, run_exp101_v2_mitigation.py, run_exp104_eegnet_reproducible.py, run_exp104_v2_focal.py), Mahalanobis-weighted WFSC benchmark (scripts/exp103_*, shared/mahalanobis_wfsc.py), SHAP diagnostics (analyze_shap_rf.py), dataset preprocessing/label-recovery scripts, configuration (config.yaml, requirements.txt), all experimental outputs under results/, the STROBE/TRIPOD-AI reporting checklist, and the manuscript source. Reproduction. From the repository root, python run_exp101_reproducible.py regenerates the headline LODO results. All raw EEG recordings are obtained from the original public sources listed under Related identifiers; only derived intermediate matrices are redistributed here, as the raw files are large (tens of GB) and governed by the original data-use licenses. Important caveats (proxy labels). The three-class Awake/Light/Deep labels are proxies derived from task conditions, event-phase markers, or arousal self-reports, and are not validated clinical hypnosis-depth scores. Aggregate calibration gains are driven primarily by a single domain (ds006437) and reflect a majority-class flip rather than genuine cross-domain three-class discrimination (balanced accuracy remains at chance). The archive documents these limitations transparently; see the manuscript. Ethics. This is a secondary analysis of de-identified, publicly available data. The authors' institutional IRB (Youngsan University IRB) granted exemption for this secondary analysis (exemption No. YSUIRB-202607-HR-219-02, 2026-07-22). No new participants were recruited and no identifiable information was accessed. v1.0.3: corrected Table 10 domain-generalization baseline accuracies (SEED to DREAMER, SEED to DEAP) to the zero-shot values reproduced by run_exp105_da_baselines.py. v1.0.4: applied remaining PONE reviewer-report items B1 (evaluation-subset class counts for ds006437 reported in §4.4), B16 (Wilcoxon signed-rank statistic V=1,329, Z≈−4.11 with explicit zero-difference handling in §3.5), and B17 (Overall SD over n=160 observations noted in Tables 3–4 captions). v1.0.5: applied remaining PONE reviewer-report items A3 (replaced residual 'five of eight at or below chance (33.3%)' with the verified 1-learnable / 2-marginal / 5-noise taxonomy in §5.1) and A9 (archive citations moved to the concept DOI 10.5281/zenodo.21531272 with GitHub tag v1.0.5 for unambiguous reproducibility). v1.0.12: applied a systematic terminology-consistency and technical-expression review of the manuscript plus a full audit pass. Changes include: en/US spelling unification; within-/cross-dataset terminology unification; first-use definitions for WFSC, ZS and RF; eigendecomposition renamed to generalized eigenvalue decomposition; Table 14 reproducibility filename correction; dataset name normalized to SEED-IV (D10); and complete page numbers for AAAI references [12] (pp. 3490-3497) and [14] (pp. 2058-2065). Companion code at GitHub tag v1.0.12. v1.0.13: re-published to align the deposited archive with the submission files after the global Zenodo DOI / GitHub tag unification pass. The concept DOI 10.5281/zenodo.21531272 now resolves to this versioned record (21922961). Changes carried since v1.0.11: systematic terminology-consistency review; dataset name normalized to SEED-IV (D10); complete page numbers for AAAI references [12] (pp. 3490-3497) and [14] (pp. 2058-2065); unified Zenodo concept DOI + versioned-record citation and GitHub tag v1.0.13 throughout the manuscript and S2 checklist. Companion code at GitHub tag v1.0.13.",
+      "doi": "10.5281/zenodo.21531272",
+      "pmid": null,
+      "openalex_id": "W7170802129",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds006437",
+      "confidence_scoring": {
+        "confidence_score": 0.6130872005224228,
+        "similarity_score": 0.5308114290237427,
+        "citation_text_length": 1749,
+        "dataset_text_length": 2169,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Multi-source domain generalization with few-shot calibration for cross-dataset EEG state classification under proxy labels",
+      "author": "Zexiao Weng, Minpo Jung",
+      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+      "year": 2026,
+      "url": "https://doi.org/10.64898/2026.08.19.745846",
+      "cited_by": 0,
+      "abstract": "Abstract Cross-dataset generalization of EEG-based classification under weak, proxy-derived labels remains an open problem for altered-states research. We present a reproducible eight-dataset alignment pipeline that maps eight heterogeneous EEG corpora (712,832 windows; 697,906 with valid labels) to a common 14-channel EPOC+ montage with 63-dimensional spectral features, and we recover the real 1–9 arousal self-assessments for MAHNOB-HCI from session.xml. Random Forest classifiers are trained on seven source domains and evaluated on the held-out target under both zero-shot (ZS) and 20%-participant few-shot calibration. The benchmark exposes two methodological pitfalls rather than a performance result: (i) per-class recall shows that all targets but DEAP collapse to a single majority class, and (ii) a within-dataset upper-bound experiment (Table 3) shows that of eight proxy label sets, one is learnable within-dataset, two are marginal, and five sit at or below three-class chance even when trained and tested on the same dataset, so the cross-dataset failure is a label-validity problem rather than a transfer-method problem. Across the eight targets (20 seeds, 8,000 windows each), zero-shot accuracy averages 36.85% (95% CI 34.40–39.30) and calibrated 43.76% (41.77–45.75), but zero-shot balanced accuracy stays at 33.01–35.62% (Cohen’s κ ≤ 0.068), i.e. at chance. The +6.91pp mean change is driven almost entirely by one target, ds006437 (6.31% → 60.60%); after Holm–Bonferroni correction only ds006437 and ds004572 remain significant, the latter with a practically null effect (+0.39pp). The collapse persists under SMOTE oversampling, an EEGNet-v4 baseline, and CORAL/AdaBN feature alignment, locating the bottleneck in proxy-label validity and feature-space class overlap rather than classifier capacity.",
+      "doi": "10.64898/2026.08.19.745846",
+      "pmid": null,
+      "openalex_id": "W7203441605",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds006437",
+      "confidence_scoring": {
+        "confidence_score": 0.4733885926008225,
+        "similarity_score": 0.4098602533340454,
+        "citation_text_length": 1723,
+        "dataset_text_length": 2169,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    }
+  ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-10-11T11:39:33.956514+00:00",
+    "scoring_date": "2026-10-25T10:32:13.691999+00:00",
     "dataset_text_length": 2169,
-    "num_citations_scored": 0
+    "num_citations_scored": 2,
+    "summary_stats": {
+      "mean_confidence": 0.5432378965616227,
+      "median_confidence": 0.5432378965616227,
+      "std_confidence": 0.06984930396080016,
+      "min_confidence": 0.4733885926008225,
+      "max_confidence": 0.6130872005224228,
+      "high_confidence_count": 0,
+      "medium_confidence_count": 2,
+      "low_confidence_count": 0
+    }
   }
 }

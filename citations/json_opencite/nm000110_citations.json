@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000110",
-  "num_citations": 52,
-  "date_last_updated": "2026-10-11T10:11:39.127120+00:00",
+  "num_citations": 56,
+  "date_last_updated": "2026-10-25T10:19:41.028027+00:00",
   "metadata": {
-    "total_cumulative_citations": 247,
-    "fetch_date": "2026-10-11T10:11:39.127120+00:00",
+    "total_cumulative_citations": 265,
+    "fetch_date": "2026-10-25T10:06:43.148629+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -66,7 +66,13 @@
       "scalp EEG"
     ],
     "methods_description": "Continuous scalp EEG was recorded at 256 Hz with 16-bit resolution, mostly 23 channels in the International 10-20 system using bipolar montages. Some recordings also include ECG and vagal nerve stimulus channels. Original EDF files were converted to BIDS with MNE-BIDS. Channel names were standardized to 10-05 naming, protected health information was replaced with surrogates, and seizure annotations were converted to events.tsv.",
-    "funding": []
+    "funding": [],
+    "searched_accessions": [
+      "nm000110"
+    ],
+    "num_accession_mentions": 1,
+    "num_dataset_citations": 56,
+    "num_datapaper_citations": 0
   },
   "citation_details": [
     {
@@ -75,7 +81,7 @@
       "venue": "Royal Society Open Science",
       "year": 2024,
       "url": "https://doi.org/10.1098/rsos.230601",
-      "cited_by": 36,
+      "cited_by": 41,
       "abstract": "Epilepsy is a life-threatening neurological condition. Manual detection of epileptic seizures (ES) is laborious and burdensome. Machine learning techniques applied to electroencephalography (EEG) signals are widely used for automatic seizure detection. Some key factors are worth considering for the real-world applicability of such systems: (i) continuous EEG data typically has a higher class imbalance; (ii) higher variability across subjects is present in physiological signals such as EEG; and (iii) seizure event detection is more practical than random segment detection. Most prior studies failed to address these crucial factors altogether for seizure detection. In this study, we intend to investigate a generalized cross-subject seizure event detection system using the continuous EEG signals from the CHB-MIT dataset that considers all these overlooked aspects. A 5-second non-overlapping window is used to extract 92 features from 22 EEG channels; however, the most significant 32 feature",
       "doi": "10.1098/rsos.230601",
       "pmid": "39076791",
@@ -98,7 +104,7 @@
       "venue": "Scientific Reports",
       "year": 2025,
       "url": "https://doi.org/10.1038/s41598-025-18479-9",
-      "cited_by": 28,
+      "cited_by": 30,
       "abstract": "Excessive electrical activity in the brain causes epileptic seizures which can be detected through Electroencephalogram (EEG) signals. The research aims to identify epileptic seizures using EEG records automatically. Firstly, EEG bands are extracted using Discrete Wavelet Transform (DWT) and concatenated. Secondly, the resulting feature vector is fed into a 1-dimensional Convolutional Neural Network (CNN) to extract spatial information. The Long-Short Term Memory (LSTM) layer then receives the feature maps in order to extract the temporal information. Ultimately, a fully connected layer will use the generated spatiotemporal features as input to categorize the signal. Results show that the suggested model performs well on the following datasets: the TUSZ corpus, which has 94.32% accuracy, 86.08% Kappa value, and 79.01% GDR; the BONN dataset, which has 97.24% accuracy, 97.92% Kappa value, and 99.18% GDR; and the CHB-MIT dataset, which has 96.94% accuracy, 94.33% Kappa value, and 96.36% G",
       "doi": "10.1038/s41598-025-18479-9",
       "pmid": "40998985",
@@ -144,7 +150,7 @@
       "venue": "Journal of Neural Engineering",
       "year": 2024,
       "url": "https://doi.org/10.1088/1741-2552/ada0e5",
-      "cited_by": 20,
+      "cited_by": 22,
       "abstract": "OBJECTIVE: Automatic detection and prediction of epilepsy are crucial for improving patient care and quality of life. However, existing methods typically focus on single-dimensional information and often confuse the periodic and aperiodic components in electrophysiological signals. APPROACH: We propose a novel deep learning framework that integrates temporal, spatial, and frequency information of EEG signals, in which periodic and aperiodic components are separated in the frequency domain. Specifically, we calculated the periodic and aperiodic components in single channel and the synchronization index of each component between channels. A self-attention mechanism is employed to filter single-channel features by selectively focusing on the most distinguishing features. Then, a hybrid bilinear deep learning network is utilized to capture the spatiotemporal features by combining a convolutional neural network (CNN) and a long short-term memory (LSTM) network. Finally, a bilinear pooling l",
       "doi": "10.1088/1741-2552/ada0e5",
       "pmid": "39693763",
@@ -208,6 +214,29 @@
       }
     },
     {
+      "title": "MLTCN-EEG: metric learning-based temporal convolutional network for seizure EEG classification",
+      "author": "Zheng You Lim, Ying Han Pang, Ooi Shih Yin, Wee How Khoh, Fu San Hiew",
+      "venue": "Neural Computing and Applications",
+      "year": 2024,
+      "url": "https://doi.org/10.1007/s00521-024-10783-1",
+      "cited_by": 12,
+      "abstract": null,
+      "doi": "10.1007/s00521-024-10783-1",
+      "pmid": null,
+      "openalex_id": "W4405179480",
+      "source_doi": "10.13026/c2k01r",
+      "source_relation": "IsVersionOf",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6015535712242127,
+        "similarity_score": 0.5729081630706787,
+        "citation_text_length": 223,
+        "dataset_text_length": 2229,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Prediction of epileptic seizures based on multivariate multiscale modified-distribution entropy",
       "author": "Si Thu Aung, Yodchanan Wongsawat",
       "venue": "PeerJ Computer Science",
@@ -231,23 +260,23 @@
       }
     },
     {
-      "title": "MLTCN-EEG: metric learning-based temporal convolutional network for seizure EEG classification",
-      "author": "Zheng You Lim, Ying Han Pang, Ooi Shih Yin, Wee How Khoh, Fu San Hiew",
-      "venue": "Neural Computing and Applications",
-      "year": 2024,
-      "url": "https://doi.org/10.1007/s00521-024-10783-1",
-      "cited_by": 11,
-      "abstract": null,
-      "doi": "10.1007/s00521-024-10783-1",
-      "pmid": null,
-      "openalex_id": "W4405179480",
+      "title": "Retraining and evaluation of machine learning and deep learning models for seizure classification from EEG data",
+      "author": "Juan Pablo Carvajal-Dossman, Laura Guio, Danilo Alejandro García Orjuela, Jennifer Julieth Guzmán-Porras, Kelly Garcés, Andrés Naranjo, Silvia Juliana Maradei Anaya, Jorge Duitama",
+      "venue": "Scientific Reports",
+      "year": 2025,
+      "url": "https://doi.org/10.1038/s41598-025-98389-y",
+      "cited_by": 10,
+      "abstract": "Electroencephalography (EEG) is one of the most used techniques to perform diagnosis of epilepsy. However, manual annotation of seizures in EEG data is a major time-consuming step in the analysis process of EEGs. Different machine learning models have been developed to perform automated detection of seizures from EEGs. However, a large gap is observed between initial accuracies and those observed in clinical practice. In this work, we reproduced and assessed the accuracy of a large number of models, including deep learning networks, for detection of seizures from EEGs. Benchmarking included three different datasets for training and initial testing, and a manually annotated EEG from a local patient for further testing. Random forest and a convolutional neural network achieved the best results on public data, but a large reduction of accuracy was observed testing with the local data, especially for the neural network. We expect that the retrained models and the data available in this wor",
+      "doi": "10.1038/s41598-025-98389-y",
+      "pmid": "40316648",
+      "openalex_id": "W4410042968",
       "source_doi": "10.13026/c2k01r",
       "source_relation": "IsVersionOf",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6015535712242127,
-        "similarity_score": 0.5729081630706787,
-        "citation_text_length": 223,
+        "confidence_score": 0.6216654968261719,
+        "similarity_score": 0.538238525390625,
+        "citation_text_length": 1347,
         "dataset_text_length": 2229,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -277,35 +306,12 @@
       }
     },
     {
-      "title": "Retraining and evaluation of machine learning and deep learning models for seizure classification from EEG data",
-      "author": "Juan Pablo Carvajal-Dossman, Laura Guio, Danilo Alejandro García Orjuela, Jennifer J Guzmán-Porras, Kelly Garcés, Andrés Naranjo, Silvia Juliana Maradei Anaya, Jorge Duitama",
-      "venue": "Scientific Reports",
-      "year": 2025,
-      "url": "https://doi.org/10.1038/s41598-025-98389-y",
-      "cited_by": 9,
-      "abstract": "Electroencephalography (EEG) is one of the most used techniques to perform diagnosis of epilepsy. However, manual annotation of seizures in EEG data is a major time-consuming step in the analysis process of EEGs. Different machine learning models have been developed to perform automated detection of seizures from EEGs. However, a large gap is observed between initial accuracies and those observed in clinical practice. In this work, we reproduced and assessed the accuracy of a large number of models, including deep learning networks, for detection of seizures from EEGs. Benchmarking included three different datasets for training and initial testing, and a manually annotated EEG from a local patient for further testing. Random forest and a convolutional neural network achieved the best results on public data, but a large reduction of accuracy was observed testing with the local data, especially for the neural network. We expect that the retrained models and the data available in this wor",
-      "doi": "10.1038/s41598-025-98389-y",
-      "pmid": "40316648",
-      "openalex_id": "W4410042968",
-      "source_doi": "10.13026/c2k01r",
-      "source_relation": "IsVersionOf",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.6240590429306031,
-        "similarity_score": 0.5403108596801758,
-        "citation_text_length": 1341,
-        "dataset_text_length": 2229,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Performance Analysis of Entropy Methods in Detecting Epileptic Seizure from Surface Electroencephalograms",
       "author": "Emran Ali, Radhagayathri K. Udhayakumar, Maia N Angelova, Chandan Kumar Karmakar",
       "venue": "Proceedings of the Annual International Conference of the IEEE Engineering in Medicine and Biology Society",
       "year": 2021,
       "url": "https://doi.org/10.1109/embc46164.2021.9629538",
-      "cited_by": 9,
+      "cited_by": 10,
       "abstract": "Physiological signals like Electrocardiography (ECG) and Electroencephalography (EEG) are complex and nonlinear in nature. To retrieve diagnostic information from these, we need the help of nonlinear methods of analysis. Entropy estimation is a very popular approach in the nonlinear category, where entropy estimates are used as features for signal classification and analysis. In this study, we analyze and compare the performances of four entropy methods; namely Distribution entropy (DistEn), Shannon entropy (ShanEn), Renyi entropy (RenEn) and LempelZiv complexity (LempelZiv) as classification features to detect epileptic seizure (ES) from surface Electroencephalography (sEEG) signal. Experiments were conducted on sEEG data from 23 subjects, obtained from the CHB-MIT database of PhysioNet. ShanEn, RenEn and LempelZiv entropy are found to be potential features for accurate and consistent detection of ES from sEEG, across multiple channels and subjects.",
       "doi": "10.1109/embc46164.2021.9629538",
       "pmid": "34891475",
@@ -317,6 +323,29 @@
         "confidence_score": 0.5570171713829041,
         "similarity_score": 0.4822659492492676,
         "citation_text_length": 1294,
+        "dataset_text_length": 2229,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Addressing Inter-Patient Variability in EEG: Diversity-Enhanced Data Augmentation and Few-Shot Learning-based Epilepsy Detection",
+      "author": "Raghdah Saem Aldahr, Munid Alanazi, Mohammad Ilyas",
+      "venue": "n/a",
+      "year": 2022,
+      "url": "https://doi.org/10.1109/iche55634.2022.10179887",
+      "cited_by": 9,
+      "abstract": "Electroencephalogram (EEG) signals are a key source in epileptic seizure recognition. The patient-specific data scantiness in EEG signals, referring to the inter-patient variability of EEG, hinders the accurate recognition of epileptic seizure patterns. This work presents a multi-class epileptic seizure detection scheme with a two-step solution for addressing the data scantiness and inter-patient variability constraint. The proposed Diversity-enhanced data Augmentation and graph theory-assisted FEw-shot Learning for Multi-class seizure detection (DAFEM) approach incorporates diversified data augmentation, graph theory-based feature extraction, and few-shot learning-based multi-class classification. Initially, the data augmentation utilized a Generative Adversarial Network (GAN) with diversified EEG sample generation to conquer EEG data scarcity. Subsequently, it extracts the potential set of features from the augmented data using the graph theory method based on the analysis of inheren",
+      "doi": "10.1109/iche55634.2022.10179887",
+      "pmid": null,
+      "openalex_id": "W4384520082",
+      "source_doi": "10.13026/c2k01r",
+      "source_relation": "IsVersionOf",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6287945026159287,
+        "similarity_score": 0.5444108247756958,
+        "citation_text_length": 1220,
         "dataset_text_length": 2229,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -346,58 +375,12 @@
       }
     },
     {
-      "title": "Addressing Inter-Patient Variability in EEG: Diversity-Enhanced Data Augmentation and Few-Shot Learning-based Epilepsy Detection",
-      "author": "Raghdah Saem Aldahr, Munid Alanazi, Mohammad Ilyas",
-      "venue": "n/a",
-      "year": 2022,
-      "url": "https://doi.org/10.1109/iche55634.2022.10179887",
-      "cited_by": 7,
-      "abstract": "Electroencephalogram (EEG) signals are a key source in epileptic seizure recognition. The patient-specific data scantiness in EEG signals, referring to the inter-patient variability of EEG, hinders the accurate recognition of epileptic seizure patterns. This work presents a multi-class epileptic seizure detection scheme with a two-step solution for addressing the data scantiness and inter-patient variability constraint. The proposed Diversity-enhanced data Augmentation and graph theory-assisted FEw-shot Learning for Multi-class seizure detection (DAFEM) approach incorporates diversified data augmentation, graph theory-based feature extraction, and few-shot learning-based multi-class classification. Initially, the data augmentation utilized a Generative Adversarial Network (GAN) with diversified EEG sample generation to conquer EEG data scarcity. Subsequently, it extracts the potential set of features from the augmented data using the graph theory method based on the analysis of inheren",
-      "doi": "10.1109/iche55634.2022.10179887",
-      "pmid": null,
-      "openalex_id": "W4384520082",
-      "source_doi": "10.13026/c2k01r",
-      "source_relation": "IsVersionOf",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.6287945026159287,
-        "similarity_score": 0.5444108247756958,
-        "citation_text_length": 1220,
-        "dataset_text_length": 2229,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Feature fusion based on global-local weighted attention model for automatic epileptic seizure detection",
-      "author": "Xiang Li, Ke Zhang, Xin Wang, Zhiheng Zhang, pengshuai zhu, Mingxing Zhu, Xianhai Zeng, Shixiong Chen",
-      "venue": "Journal of Neural Engineering",
-      "year": 2025,
-      "url": "https://doi.org/10.1088/1741-2552/ae00f4",
-      "cited_by": 5,
-      "abstract": "Abstract Objective . Epilepsy is a neurological disorder characterized by recurrent seizures, which present significant challenges in both diagnosis and treatment. Despite advances in seizure detection, existing methods often struggle with accurately capturing the complex and dynamic interactions between temporal, spatial, and spectral features of electroencephalography (EEG) signals. This leads to limitations in the detection accuracy and generalization across different datasets. Approach . To address these challenges, we propose global-local weighted attention (GLWA) model, which integrates temporal, spatial, and spectral features through a local-global attention mechanism. At the same time, GLWA effectively balances both global and local features, capturing comprehensive information from EEG signals to enhance seizure detection accuracy. Main results . Our proposed model achieves accuracy rates of 98.82% and 98.89% on the CHB-MIT and Siena datasets, respectively. These results demon",
-      "doi": "10.1088/1741-2552/ae00f4",
-      "pmid": "40882672",
-      "openalex_id": "W4413820916",
-      "source_doi": "10.13026/c2k01r",
-      "source_relation": "IsVersionOf",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5863673695921898,
-        "similarity_score": 0.5076773762702942,
-        "citation_text_length": 1272,
-        "dataset_text_length": 2229,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Digital Twin for EEG seizure prediction using time reassigned Multisynchrosqueezing transform-based CNN-BiLSTM-Attention mechanism model",
       "author": "Antara Ghosh, Debangshu Dey",
       "venue": "Biomedical Physics & Engineering Express",
       "year": 2024,
       "url": "https://doi.org/10.1088/2057-1976/ad992c",
-      "cited_by": 5,
+      "cited_by": 6,
       "abstract": "The prediction of epileptic seizures is a classical research problem, representing one of the most challenging tasks in the analysis of brain disorders. There is active research into digital twins (DT) for various healthcare applications, as they can transform research into customized and personalized healthcare. The widespread adoption of DT technology relies on ample patient data to ensure precise monitoring and decision-making, leveraging Machine Learning (ML) and Deep Learning (DL) algorithms. Given the non-stationarity of EEG recordings, characterized by substantial frequency variations over time, there is a notable preference for advanced time-frequency methods in seizure prediction. This research proposes a DT-based seizure prediction system by applying an advanced time-frequency analysis approach known as Time-Reassigned MultiSynchroSqueezing Transform (TMSST) to EEG data to extract patient-specific impulse features and subsequently, a Deep Learning strategy, CNN-BiLSTM-Attenti",
       "doi": "10.1088/2057-1976/ad992c",
       "pmid": "39622083",
@@ -415,12 +398,35 @@
       }
     },
     {
+      "title": "Feature fusion based on global-local weighted attention model for automatic epileptic seizure detection",
+      "author": "Xiang Li, Ke Zhang, Xin Wang, Zhiheng Zhang, Pengsheng Zhu, Mingxing Zhu, Xianhai Zeng, Shixiong Chen",
+      "venue": "Journal of Neural Engineering",
+      "year": 2025,
+      "url": "https://doi.org/10.1088/1741-2552/ae00f4",
+      "cited_by": 5,
+      "abstract": "Abstract Objective . Epilepsy is a neurological disorder characterized by recurrent seizures, which present significant challenges in both diagnosis and treatment. Despite advances in seizure detection, existing methods often struggle with accurately capturing the complex and dynamic interactions between temporal, spatial, and spectral features of electroencephalography (EEG) signals. This leads to limitations in the detection accuracy and generalization across different datasets. Approach . To address these challenges, we propose global-local weighted attention (GLWA) model, which integrates temporal, spatial, and spectral features through a local-global attention mechanism. At the same time, GLWA effectively balances both global and local features, capturing comprehensive information from EEG signals to enhance seizure detection accuracy. Main results . Our proposed model achieves accuracy rates of 98.82% and 98.89% on the CHB-MIT and Siena datasets, respectively. These results demon",
+      "doi": "10.1088/1741-2552/ae00f4",
+      "pmid": "40882672",
+      "openalex_id": "W4413820916",
+      "source_doi": "10.13026/c2k01r",
+      "source_relation": "IsVersionOf",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5877398997545242,
+        "similarity_score": 0.5088657140731812,
+        "citation_text_length": 1272,
+        "dataset_text_length": 2229,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Epileptic Seizure Prediction Using a Deep Hybrid CNN-GAN Model on EEG Data",
       "author": "Nowshad Hasan, Md. Maskat Sharif, Miskatur Rahman, Md. Saiful Islam, M. A. S. K. Khan, Md Jiabul Hoque, Anamul Bahar",
       "venue": "IEEE International Conference on Robotics, Automation, Artificial-Intelligence and Internet-of-Things (RAAICON)",
       "year": 2024,
       "url": "https://doi.org/10.1109/raaicon64172.2024.10928493",
-      "cited_by": 3,
+      "cited_by": 4,
       "abstract": "Epileptic seizure detection from EEG signals is essential for the diagnosis and treatment of neurological conditions. However, this task is difficult because of the complex and fluctuating characteristics of EEG data. To overcome these difficulties, this research employs a specialized CNN-GAN hybrid model designed to improve seizure prediction by generating realistic synthetic data. This approach addresses class imbalance and enhances feature learning. The process begins with preprocessing EEG datasets to remove noise and artifacts. Data augmentation follows, expanding the dataset and reducing the risk of overfitting. Segmentation then isolates important features to boost prediction accuracy. Feature extraction is achieved using a custom CNN model, and classification is performed with a GAN model. The model demonstrates high accuracy, with results of 99.95% on the BONN Dataset, 98.93% on the CHB-MIT Dataset and 98.80% on the SWEC-ETHZ Dataset. Overall, the custom CNN-GAN hybrid model s",
       "doi": "10.1109/raaicon64172.2024.10928493",
       "pmid": null,
@@ -530,6 +536,29 @@
       }
     },
     {
+      "title": "Dynamic Graph Contrastive Learning for EEG-Based Epileptic Seizure Detection",
+      "author": "Zejing Zhang, Dengdi Sun",
+      "venue": "IEEE Information Technology and Mechatronics Engineering Conference (ITOEC)",
+      "year": 2025,
+      "url": "https://doi.org/10.1109/itoec63606.2025.10968415",
+      "cited_by": 2,
+      "abstract": "Conventional methods for diagnosing epilepsy using EEG struggle to capture the complex spatiotemporal relationships inherent in brain activity. This paper introduces Dynamic Graph Contrastive Learning (DGCL) for detecting epileptic seizures. DGCL combines dynamic graph neural networks (DGNNs) with self-supervised contrastive learning, enabling the model to capture the intricate spatiotemporal dependencies in EEG data while minimizing the need for labeled data. The model utilizes DGNNs to represent the evolving state of the brain network and applies contrastive learning techniques to extract robust feature representations from unlabeled data. Experiments conducted on the CHB-MIT dataset show that DGCL outperforms existing methods, achieving accuracies of 96.95% for patient-specific data and 73.67% for cross-patient data. Comparisons with other state-of-the-art techniques further validate DGCL’s effectiveness in classification accuracy and its ability to generalize. These results confirm",
+      "doi": "10.1109/itoec63606.2025.10968415",
+      "pmid": null,
+      "openalex_id": "W4409725028",
+      "source_doi": "10.13026/c2k01r",
+      "source_relation": "IsVersionOf",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6230730682611466,
+        "similarity_score": 0.5394572019577026,
+        "citation_text_length": 1214,
+        "dataset_text_length": 2229,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Stochastic memristive devices for low cost learning of spatiotemporal signals in spiking neural networks",
       "author": "Aabid Amin Fida, Sparsh Mittal",
       "venue": "Engineering Research Express",
@@ -601,21 +630,44 @@
     {
       "title": "Classifying Epileptic Seizure Events from EEG Signals by a Lightweight Machine Learning Model",
       "author": "Josh Schilling, Naveenkumar G Venkataswamy, Masudul H. Imtiaz",
-      "venue": "Preprints.org",
+      "venue": "International Conference on Electrical, Computer and Energy Technologies (ICECET)",
       "year": 2023,
-      "url": "https://doi.org/10.20944/preprints202306.1255.v1",
+      "url": "https://doi.org/10.1109/icecet58911.2023.10389312",
       "cited_by": 2,
-      "abstract": "Due to the large interest and need, there has been much recent work in epileptic seizure detection using machine learning models. Using un-intrusive measurements of brain activity such as electroencephalograms (EEG) has allowed for large datasets to be constructed and used for computational intelligence to identify seizure events within EEG data. In this paper, we use a publicly avaibale EEG dataset to develop a lightweight Machine learning supervised model (simple Decision Tree) to classify seizure events from brain waves. The performance of this developed model was compared with a complex ML model (Support Vector Machine). The cross-validated Decision Tree model performed better for seizure event classification with an overall accuracy of 91.17%. This lightweight model will allow for developing mobile applications and user comfort",
-      "doi": "10.20944/preprints202306.1255.v1",
+      "abstract": "Because of the substantial interest and necessity, there has been much recent work in epileptic seizure detection using machine learning models. U sing un-intrusive measurements of brain activity such as electroencephalograms (EEG) has allowed for large datasets to be constructed and used for computational intelligence to identify seizure events within EEG data. In this paper, we use a publicly available EEG dataset to develop a lightweight Machine-learning supervised model (simple Decision Tree) to classify seizure events from brain waves. The performance of this developed model was compared with a complex ML model (Support Vector Machine). The cross-validated Decision Tree model performed better for seizure event classification with an overall accuracy of 91.17%. This lightweight model will allow for developing mobile applications and user comfort.",
+      "doi": "10.1109/icecet58911.2023.10389312",
       "pmid": null,
-      "openalex_id": "W4381123046",
+      "openalex_id": "W4391094842",
       "source_doi": "10.13026/c2k01r",
       "source_relation": "IsVersionOf",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5898554563522339,
-        "similarity_score": 0.5106973648071289,
-        "citation_text_length": 1050,
+        "confidence_score": 0.5782518383860589,
+        "similarity_score": 0.500650942325592,
+        "citation_text_length": 1136,
+        "dataset_text_length": 2229,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "An edge–cloud continuum service for personalized seizure forecasting: communication-efficient digital twins with few-shot updates",
+      "author": "Menglong Li, Weiqiang Zhang, Yujie Zhang, Quanquan Liu, Wei Xing",
+      "venue": "Journal of Cloud Computing Advances Systems and Applications",
+      "year": 2026,
+      "url": "https://doi.org/10.1186/s13677-026-00910-9",
+      "cited_by": 1,
+      "abstract": "Abstract Personalized seizure forecasting with wearable electroencephalography (EEG) is promising for remote healthcare, but practical deployment is constrained by limited patient-specific data, inter-patient heterogeneity, latency requirements, battery limits, and privacy risks. This paper presents an edge-twin-cloud continuum service architecture for deploying the GenDT-MAML workload under realistic physical constraints. The proposed design partitions real-time inference and lightweight adaptation to the edge, places generative augmentation and dispatch decisions at the Twin/Fog layer, and uses the cloud for global meta-parameter aggregation. We further introduce a context-aware state machine to coordinate uplink transmission, edge fine-tuning, and Twin-triggered downlink updates. Trace-driven simulation on CHB-MIT-derived workloads shows that the proposed orchestration reduces communication overhead by 98.3% relative to continuous streaming, while maintaining clinically meaningful p",
+      "doi": "10.1186/s13677-026-00910-9",
+      "pmid": null,
+      "openalex_id": "W7163336095",
+      "source_doi": "10.13026/c2k01r",
+      "source_relation": "IsVersionOf",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5217961487174034,
+        "similarity_score": 0.4517715573310852,
+        "citation_text_length": 1292,
         "dataset_text_length": 2229,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -669,7 +721,7 @@
     },
     {
       "title": "An EEG-based patient-independent epileptic seizure detection method based on domain generative adversarial network",
-      "author": "Yulang Feng, Tianshu Zhou, Yu Shan Tian, Chengkai Wu, Jianda Wang, Jianhua Feng, Jingsong Li",
+      "author": "Yulang Feng, Tianshu Zhou, Yu Tian, Chengkai Wu, Jianda Wang, Jianhua Feng, Jingsong Li",
       "venue": "Health Information Science and Systems",
       "year": 2025,
       "url": "https://doi.org/10.1007/s13755-025-00366-2",
@@ -682,32 +734,9 @@
       "source_relation": "IsVersionOf",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6138824164867401,
-        "similarity_score": 0.584649920463562,
-        "citation_text_length": 271,
-        "dataset_text_length": 2229,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Dynamic Graph Contrastive Learning for EEG-Based Epileptic Seizure Detection",
-      "author": "Zejing Zhang, Dengdi Sun",
-      "venue": "IEEE Information Technology and Mechatronics Engineering Conference (ITOEC)",
-      "year": 2025,
-      "url": "https://doi.org/10.1109/itoec63606.2025.10968415",
-      "cited_by": 1,
-      "abstract": "Conventional methods for diagnosing epilepsy using EEG struggle to capture the complex spatiotemporal relationships inherent in brain activity. This paper introduces Dynamic Graph Contrastive Learning (DGCL) for detecting epileptic seizures. DGCL combines dynamic graph neural networks (DGNNs) with self-supervised contrastive learning, enabling the model to capture the intricate spatiotemporal dependencies in EEG data while minimizing the need for labeled data. The model utilizes DGNNs to represent the evolving state of the brain network and applies contrastive learning techniques to extract robust feature representations from unlabeled data. Experiments conducted on the CHB-MIT dataset show that DGCL outperforms existing methods, achieving accuracies of 96.95% for patient-specific data and 73.67% for cross-patient data. Comparisons with other state-of-the-art techniques further validate DGCL’s effectiveness in classification accuracy and its ability to generalize. These results confirm",
-      "doi": "10.1109/itoec63606.2025.10968415",
-      "pmid": null,
-      "openalex_id": "W4409725028",
-      "source_doi": "10.13026/c2k01r",
-      "source_relation": "IsVersionOf",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.6230730682611466,
-        "similarity_score": 0.5394572019577026,
-        "citation_text_length": 1214,
+        "confidence_score": 0.6129247426986695,
+        "similarity_score": 0.583737850189209,
+        "citation_text_length": 266,
         "dataset_text_length": 2229,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -783,8 +812,31 @@
       }
     },
     {
+      "title": "Electrocorticographic Network Feature Space Constriction as a Preictal Biomarker",
+      "author": "Jeremy Goetz, John M. Beggs, Robert Worth, Louis R. Nemzer",
+      "venue": "Neuroinformatics",
+      "year": 2026,
+      "url": "https://doi.org/10.1007/s12021-026-09824-y",
+      "cited_by": 0,
+      "abstract": null,
+      "doi": "10.1007/s12021-026-09824-y",
+      "pmid": null,
+      "openalex_id": "W7223298233",
+      "source_doi": "10.13026/c2k01r",
+      "source_relation": "IsVersionOf",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5665086686611176,
+        "similarity_score": 0.5395320653915405,
+        "citation_text_length": 181,
+        "dataset_text_length": 2229,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Patient-Adaptive Seizure Detection via Cluster-Based Zero-Shot and Fine-Tuned TCN on Pediatric EEG",
-      "author": "Nafisa Binte Ghulam Kibria, Zareen Tasnim Pear, Md Kishor Morol, Ramisa Anjum Oishi, Tamzid Tanvi Alam, Diya Rahman",
+      "author": "Nafisa Binte Ghulam Kibria, Zareen Tasnim Pear, Md. Kishor Morol, Ramisa Anjum Oishi, Tamzid Tanvi Alam, Diya Rahman",
       "venue": "Lecture notes in computer science",
       "year": 2026,
       "url": "https://doi.org/10.1007/978-3-032-39379-1_12",
@@ -797,9 +849,9 @@
       "source_relation": "IsVersionOf",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6116377472877502,
-        "similarity_score": 0.5825121402740479,
-        "citation_text_length": 273,
+        "confidence_score": 0.6110147774219513,
+        "similarity_score": 0.5819188356399536,
+        "citation_text_length": 274,
         "dataset_text_length": 2229,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -823,6 +875,29 @@
         "confidence_score": 0.5408192226290703,
         "similarity_score": 0.46824175119400024,
         "citation_text_length": 1254,
+        "dataset_text_length": 2229,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Patient-independent EEG seizure detection using channel attention and dual-branch time–frequency features",
+      "author": "Hrishikesh Tiwary, Arnav Bhavsar, H Muralikrishna",
+      "venue": "Neural Computing and Applications",
+      "year": 2026,
+      "url": "https://doi.org/10.1007/s00521-026-12518-w",
+      "cited_by": 0,
+      "abstract": "Abstract We developed a patient-independent EEG-based seizure detection model that generalizes across subjects despite inter-subject variability in spatial seizure expression, electrode characteristics, and artifacts. Scalp EEG recordings from the CHB–MIT (18 channels) and the TUSZ v2.0.3 (20 channels) datasets were evaluated under strict subject-disjoint protocols, employing leave-one-subject-out (LOSO) cross-validation for CHB–MIT and the official subject-disjoint train/dev/eval split for TUSZ. A channel-wise attention front end adaptively reweights EEG channels prior to feature extraction. The reweighted signals are processed through dual-branch time–frequency representations based on empirical mode decomposition (EMD) and discrete wavelet transform (DWT). Lightweight attention-augmented convolutional neural networks model each branch, and their embeddings are fused for seizure/non-seizure classification. Episode-level decisions are obtained by averaging window-level probabilities f",
+      "doi": "10.1007/s00521-026-12518-w",
+      "pmid": null,
+      "openalex_id": "W7221347395",
+      "source_doi": "10.13026/c2k01r",
+      "source_relation": "IsVersionOf",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7232988184690476,
+        "similarity_score": 0.6262327432632446,
+        "citation_text_length": 1226,
         "dataset_text_length": 2229,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -876,7 +951,7 @@
     },
     {
       "title": "An adaptive epilepsy detection system using federated learning",
-      "author": "H. H. ElHadidi, Hanem H. Saad, G. M. Behery",
+      "author": "H. H. El Hadidi, Hanem H. Saad, G. M. Behery",
       "venue": "Multimedia Tools and Applications",
       "year": 2026,
       "url": "https://doi.org/10.1007/s11042-026-21858-7",
@@ -889,9 +964,9 @@
       "source_relation": "IsVersionOf",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.48879058063030245,
-        "similarity_score": 0.4655148386955261,
-        "citation_text_length": 165,
+        "confidence_score": 0.4884711787104607,
+        "similarity_score": 0.4652106463909149,
+        "citation_text_length": 166,
         "dataset_text_length": 2229,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -921,31 +996,8 @@
       }
     },
     {
-      "title": "An edge–cloud continuum service for personalized seizure forecasting: communication-efficient digital twins with few-shot updates",
-      "author": "Menglong Li, Weiqiang Zhang, Yujie Zhang, Quanquan Liu, Wei Xing",
-      "venue": "Journal of Cloud Computing Advances Systems and Applications",
-      "year": 2026,
-      "url": "https://doi.org/10.1186/s13677-026-00910-9",
-      "cited_by": 0,
-      "abstract": "Abstract Personalized seizure forecasting with wearable electroencephalography (EEG) is promising for remote healthcare, but practical deployment is constrained by limited patient-specific data, inter-patient heterogeneity, latency requirements, battery limits, and privacy risks. This paper presents an edge-twin-cloud continuum service architecture for deploying the GenDT-MAML workload under realistic physical constraints. The proposed design partitions real-time inference and lightweight adaptation to the edge, places generative augmentation and dispatch decisions at the Twin/Fog layer, and uses the cloud for global meta-parameter aggregation. We further introduce a context-aware state machine to coordinate uplink transmission, edge fine-tuning, and Twin-triggered downlink updates. Trace-driven simulation on CHB-MIT-derived workloads shows that the proposed orchestration reduces communication overhead by 98.3% relative to continuous streaming, while maintaining clinically meaningful p",
-      "doi": "10.1186/s13677-026-00910-9",
-      "pmid": null,
-      "openalex_id": "W7163336095",
-      "source_doi": "10.13026/c2k01r",
-      "source_relation": "IsVersionOf",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5217961487174034,
-        "similarity_score": 0.4517715573310852,
-        "citation_text_length": 1292,
-        "dataset_text_length": 2229,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "EEG-Based Seizure Prediction Approaches Within Clinically Relevant Pre-seizure Windows Using Scalp EEG Datasets: A Systematic Review",
-      "author": "Aesha Ali Alasade, Ahmed-Lamin Gehani, Hind Mohammedsalih Osman, Abdulwahhab Al-Shaikhli, A. A. Idris, Asim Ahmed, Almalik Abla",
+      "author": "Aesha Ali Alasade, Ahmed-Lamin Gehani, Hind Mohammedsalih Osman, Abdulwahhab Al-Shaikhli, A. A. Idris, Asim Ahmed, Abla Almalik",
       "venue": "Cureus",
       "year": 2026,
       "url": "https://doi.org/10.7759/cureus.109989",
@@ -958,8 +1010,8 @@
       "source_relation": "IsVersionOf",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6196677312254906,
-        "similarity_score": 0.5365088582038879,
+        "confidence_score": 0.620133594274521,
+        "similarity_score": 0.536912202835083,
         "citation_text_length": 1304,
         "dataset_text_length": 2229,
         "scoring_method": "sentence_transformers",
@@ -1076,6 +1128,29 @@
         "confidence_score": 0.509826609492302,
         "similarity_score": 0.4855491518974304,
         "citation_text_length": 205,
+        "dataset_text_length": 2229,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Machine Learning‐Guided Co‐Design of Compact EEG Acquisition for Epileptic Seizure Detection",
+      "author": "Maria Julia Lamim, Edward Garcia‐Lopez, Liliam Becherán, Abiel Roche Lima, Alejandro Rafael García Ramírez",
+      "venue": "Electronics Letters",
+      "year": 2026,
+      "url": "https://doi.org/10.1049/ell2.70752",
+      "cited_by": 0,
+      "abstract": "ABSTRACT Electroencephalography (EEG)‐based seizure detection is increasingly being considered for wearable neurological monitoring, but conventional approaches often rely on dense electrode configurations and high‐dimensional feature representations. This letter presents a machine learning‐guided co‐design framework in which feature relevance informs EEG acquisition design. From 18 bipolar derivations of the CHB‐MIT database, 270 wavelet descriptors were extracted. The available reduced inputs comprise 10 features from nine derivations and a separate four‐feature configuration comprising four bipolar derivations and eight scalp electrodes. In 75/25 sample‐level evaluations, random forest achieved 93.75%, 91.67% and 93.75% accuracy for the full, 10‐feature, and four‐feature inputs, respectively. These exploratory results demonstrate a traceable link between feature relevance and acquisition‐design decisions, supporting the proposed feature‐to‐derivation mapping as a candidate strategy ",
+      "doi": "10.1049/ell2.70752",
+      "pmid": null,
+      "openalex_id": "W7222902330",
+      "source_doi": "10.13026/c2k01r",
+      "source_relation": "IsVersionOf",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6963599967956544,
+        "similarity_score": 0.6029090881347656,
+        "citation_text_length": 1256,
         "dataset_text_length": 2229,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1244,7 +1319,7 @@
     },
     {
       "title": "Can a pre-trained EEG neonatal model be used for seizure detection in pediatrics?",
-      "author": "Lavanya Vinod Pampana, Aengus Daly, Joaquim Bauxell Cornet, Andriy Temko, Emanuel Mihai Popovici",
+      "author": "Lavanya Vinod Pampana, Aengus Daly, Joaquim Bauxell, Andriy Temko, Emanuel Mihai Popovici",
       "venue": "Irish Signals and Systems Conference",
       "year": 2023,
       "url": "https://doi.org/10.1109/issc59246.2023.10162069",
@@ -1257,9 +1332,34 @@
       "source_relation": "IsVersionOf",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.7168744245171548,
-        "similarity_score": 0.62067049741745,
-        "citation_text_length": 1064,
+        "confidence_score": 0.7152217707037927,
+        "similarity_score": 0.6192396283149719,
+        "citation_text_length": 1057,
+        "dataset_text_length": 2229,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "An Order Estimation Based Approach to Identify Response Genes for Microarray Time Course Data",
+      "author": "Zhiheng K Lu, Allen O. Brian, Anthony F. Desmond",
+      "venue": "Statistical Applications in Genetics and Molecular Biology",
+      "year": 2012,
+      "url": "https://doi.org/10.1515/1544-6115.1818",
+      "cited_by": 2,
+      "abstract": "Gene expression profiles from microarray time course experiments provide a unique opportunity to examine genome-wide signal processing and gene responses. A fundamental issue in microarray experiments is that the treatment condition can only be controlled at the cell level rather than at the gene level. The treatment condition does not affect all genes equally. Some genes depend on other genes to detect external changes. The dependency between genes is not fully deterministic and may vary with treatment condition. Thus the expression of each gene is potentially affected by two confounding effects: the treatment effect and the gene context effect arising from the regulatory interactions among genes. This gene context effect is hard to isolate. Neither can it be simply ignored. Instead, this gene context information which may be different under different treatment conditions is of primary biological interest. We introduce an approach which deals with the confounding effects and takes into account the uncontrollable gene context effect. Our method is based on the estimation of the number of hidden states, which, in our development, corresponds to the order of a hidden Markov model (HMM). For each gene, its observed expression is modeled by a gamma distribution determined by the corresponding hidden state at each time point. Those genes showing evidence for more than one hidden state can be categorized as the signalling genes, or in a wider sense, as the response genes which are coordinated by a cell system in reaction to a specific external condition. These response genes can be used in the comparison of different treatment conditions, to investigate the gene context effect under different treatments. Microarray time course data are also analyzed to demonstrate our method.",
+      "doi": "10.1515/1544-6115.1818",
+      "pmid": "23241685",
+      "openalex_id": "W2265464824",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "nm000110",
+      "confidence_scoring": {
+        "confidence_score": 0.28299041986465456,
+        "similarity_score": 0.25726401805877686,
+        "citation_text_length": 1738,
         "dataset_text_length": 2229,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1268,18 +1368,18 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-10-11T11:18:01.005500+00:00",
+    "scoring_date": "2026-10-25T10:22:03.287091+00:00",
     "dataset_text_length": 2229,
-    "num_citations_scored": 52,
+    "num_citations_scored": 56,
     "summary_stats": {
-      "mean_confidence": 0.5505048468221839,
-      "median_confidence": 0.5644451169669629,
-      "std_confidence": 0.10451746505017226,
+      "mean_confidence": 0.5514231869338879,
+      "median_confidence": 0.5666846573352814,
+      "std_confidence": 0.1109442670573446,
       "min_confidence": 0.164143303334713,
       "max_confidence": 0.7881729501485826,
-      "high_confidence_count": 2,
-      "medium_confidence_count": 46,
-      "low_confidence_count": 4
+      "high_confidence_count": 3,
+      "medium_confidence_count": 48,
+      "low_confidence_count": 5
     }
   }
 }

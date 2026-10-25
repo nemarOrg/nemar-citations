@@ -1,0 +1,76 @@
+{
+  "dataset_id": "nm000456",
+  "date_retrieved": "2026-10-25T10:03:21.988341+00:00",
+  "dataset_description": {
+    "Name": "Human-AI collaboration for co-managing epilepsy in real time: scalp EEG and SEEG from 13 epilepsy monitoring unit patients",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "raw",
+    "License": "CC-BY-NC-SA-4.0",
+    "Authors": [
+      "Haoer Shi",
+      "Zack Goldblum",
+      "William Ojemann",
+      "Carlos Aguila",
+      "Kerry Nix",
+      "Katherine Walsh",
+      "Sarah Lavelle",
+      "Kathryn Davis",
+      "Nishant Sinha",
+      "Erin Conrad",
+      "Brian Litt"
+    ],
+    "Acknowledgements": "Data collected at the Penn Epilepsy Center (Hospital of the University of Pennsylvania), Litt lab / Center for Neuroengineering and Therapeutics. BIDS conversion for NEMAR by Bruno Aristimunha.",
+    "HowToAcknowledge": "Cite the source dataset (Shi H, Goldblum Z, Ojemann W, et al. Data for Human-AI Collaboration for Co-Managing Epilepsy in Real Time. Pennsieve Discover, dataset 696 v2, doi:10.26275/xbu9-ulpn) and Goldblum Z, Shi H, Xu Z, et al. An Implantable Device that Converses with Patients and Learns to Co-Manage Epilepsy. medRxiv 2026, doi:10.64898/2026.01.26.26344234.",
+    "Funding": [
+      "NIH Pioneer Award DP1-NS-122038",
+      "NIH/NINDS R01-NS-125137",
+      "NIH T32NS091006",
+      "Jonathan and Bonnie Rothberg",
+      "Neil and Barbara Smit",
+      "Small Lake Foundation",
+      "NIH/NINDS R61-NS-125568 (K.A.D.)",
+      "NIH/NINDS R01-NS-116504 (K.A.D.)",
+      "NIH/NINDS K99NS138680 (N.S.)",
+      "Department of Defense W81XWH2210593 (N.S.)",
+      "NIH/NINDS K23 NS121401-01A1 (E.C.)",
+      "Burroughs Wellcome Fund (E.C.)"
+    ],
+    "EthicsApprovals": [
+      "University of Pennsylvania Institutional Review Board (IRB protocol #849276)"
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.64898/2026.01.26.26344234",
+      "https://doi.org/10.26275/xbu9-ulpn",
+      "https://discover.pennsieve.io/datasets/696/version/2"
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.26275/xbu9-ulpn",
+        "URL": "https://discover.pennsieve.io/datasets/696/version/2",
+        "Version": "2"
+      }
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "b3w9_convert_humanai.py (EDF header date scrub, data records unchanged; annotation CSVs to events.tsv)",
+        "Description": "ieeg-nemar-handoff batch 3 (Voyager Kubernetes Jobs)"
+      }
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000456",
+    "Version": "1.0.2"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000456-blue)](https://doi.org/10.82901/nemar.nm000456)\n\n# Human-AI collaboration for co-managing epilepsy in real time (scalp EEG + SEEG)\n\nBIDS version of Pennsieve Discover dataset 696 version 2, \"Data for Human-AI Collaboration for Co-Managing Epilepsy in Real Time\"\n(Shi, Goldblum, Ojemann, Aguila, Nix, Walsh, Lavelle, Davis, Sinha, Conrad, Litt; doi:10.26275/xbu9-ulpn; licence CC-BY-NC-SA-4.0,\nkept unchanged). Paper: Goldblum Z, Shi H, Xu Z, et al., \"An Implantable Device that Converses with Patients and Learns to Co-Manage\nEpilepsy\", medRxiv 2026, doi:10.64898/2026.01.26.26344234. Ethics: University of Pennsylvania IRB protocol #849276.\n\n**Task / paradigm.** Inpatient prototype linking scalp and intracranial EEG to a conversational AI agent on the patient's smartphone during continuous video-EEG monitoring in the Penn Level 4 EMU; 13 patients; seizure detection retrained with patient/clinician feedback (Goldblum, Shi et al., medRxiv 2026, doi:10.64898/2026.01.26.26344234, abstract and Methods). Deposit: one EDF per recording day (raw_data/edf/PennEPIxxxxx/PennEPIxxxxx_dayNN.edf, 69 files), annotation CSVs (seizure_events, patient_events, sleep, medications, databricks_events) and model outputs (deposit readme.md).\n\n**Modality.** participants.tsv recording_type: 11 of 13 patients are **Scalp** EEG; only 2 are SEEG (PID007 = PennEPI00202, PID013 = PennEPI02154) (deposit files/participants.tsv). The atlas modality \"ECoG+SEEG\" should read \"scalp EEG + SEEG (2 of 13)\".\n\n**Recording system / filters.** Processing: bandpass 0.5-100 Hz (scalp) and 0.5-250 Hz (iEEG), notch 60 and 120 Hz; CAR or bipolar re-referencing per algorithm (paper Methods \"Cloud data processing\"). Acquisition amplifier and sampling rate not stated (n/a; read from EDF headers).\n\n**Localisation method.** None in the deposit or paper: only clinical lobe-level epilepsy localization and laterality per patient (participants.tsv Localization/Laterality). PennEPI00202 and PennEPI02154 (the 2 SEEG patients) are not among the 104 public PennEPI single-subject releases, so no public electrode localisation exists for them.\n\n## Contents\n\n- 13 subjects, `sub-<PennEPI id>`. 11 scalp-EEG patients (`eeg/`) and 2 stereo-EEG patients (`ieeg/`: sub-PennEPI00202, sub-PennEPI02154), kept\n  together as one dataset as deposited.\n- One EDF per deposit recording day: `sub-<id>_task-monitoring_run-<NN>_<eeg|ieeg>.edf`, run NN = deposit day number (file `dayNN`);\n  69 recordings. Scalp: 46 signal channels at 256 Hz (10-20 + Fpz/Pz/A1/A2, F9/F10/T9/T10/P9/P10, LOC/ROC, EKG, X11-X18, DC1-4,\n  OSAT, PR). SEEG: 1024 Hz depth contacts (L*), plus ECG, DC, TRIG, OSAT/PR/Pleth and unused inputs (C99-C128, typed MISC).\n  Channel types are inferred from labels; references, amplifier and hardware filters are not stated by the source (n/a).\n- `events.tsv` per run from the deposit annotation CSVs: seizures (seizure_events), patient push-button events (patient_events),\n  sleep-stage onsets (sleep), medication administrations (medications) and patient annotations through the human-AI platform\n  (databricks_events). Onsets are seconds from the EDF start; events outside the span of any EDF stay only in sourcedata/annots.\n- `derivatives/humanai-seizure-detection/`: the deposit's `intermediate_data` (CITL day-by-day predictions, fine-tuning runs,\n  metrics) - model outputs, not raw data.\n- `sourcedata/`: `annots/` (deposit annotation CSVs, dates scrubbed as below), `pennsieve/` (deposit readme, changelog, manifest,\n  participants table and sidecar), `edf_provenance.tsv` (deposit path -> BIDS path, sha256 of the data records of both files),\n  `edf_discontinuities.tsv` (EDF+D record gaps).\n\n## Conversion and privacy review (2026-10-08)\n\n- The EDFs are the deposit files with a header-only edit. Every header was scanned: patient field `X X X X`, recording field\n  `Startdate DD-JAN-2001 X X X`, no names or hospital numbers in any header or channel field, and no text in any EDF+ annotation\n  of any data record. The deposit had already shifted all dates to January 2001 with DD = deposit day; following the\n  release rule (keep year and month, day -> 01) the day was set to 01 in the startdate field and in the `Startdate`\n  recording subfield of 58 files (the other 11 files already had day 01 and are byte-identical to the deposit).\n  The data records are unchanged: sha256 of the data region of each written file equals that of the deposit file\n  (sourcedata/edf_provenance.tsv). The original headers of the edited files (only difference: the day number, which is kept as\n  the run label / scans.tsv deposit_day) are not redistributed; the unchanged deposit files remain at the DOI above.\n- Annotation CSVs and model outputs: every timestamp column has its day set to 01, and the deposit day is kept in an added\n  `<column>_deposit_day` column, so relative timing is preserved. One free-text medication note in participants.tsv contained a\n  month/day calendar date; its day was set to 01.\n- PennEPI identifiers are research identifiers of the Penn epilepsy registry, used as subject labels as in the deposit.\n- Some scalp files are EDF+D (discontinuous; scans.tsv edf_subtype). RecordingDuration is the wall-clock span; gaps are listed\n  in sourcedata/edf_discontinuities.tsv.\n\n## Overlap with other public data\n\nNot in NEMAR, OpenNeuro, DANDI or EEGDash (searched 2026-10-07/08 by DOI, title, authors and PennEPI ids). Of the 13 patients,\nonly PennEPI00037 also has a public PennEPI single-subject release (Pennsieve 613, doi:10.26275/zm8u-bo15), which holds a different,\nintracranial recording; the scalp EEG here is not part of it. The two SEEG patients (PennEPI00202, PennEPI02154) have no PennEPI\nrelease, and no electrode coordinates or contact localisation are public for them (participants.tsv gives the clinical\nlobe-level localisation and laterality only).\n\n## Electrodes\n\nThe two SEEG subjects have `electrodes.tsv` (contact names from the EDF labels, `group` = shaft prefix, x/y/z = n/a) and\n`coordsystem.json` (space Other, unknown): no electrode localisation is public for them. events.tsv `event_text` holds the\nsource free text; `response_onset` is the patient's platform response time in seconds from the EDF start.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000456",
+    "exists": true,
+    "description": "Human-AI collaboration for co-managing epilepsy in real time: scalp EEG and SEEG from 13 epilepsy monitoring unit patients",
+    "created_at": "2026-10-08T22:00:42+00:00",
+    "updated_at": "2026-10-21T21:34:12+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

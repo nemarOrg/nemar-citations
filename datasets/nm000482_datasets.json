@@ -1,0 +1,57 @@
+{
+  "dataset_id": "nm000482",
+  "date_retrieved": "2026-10-25T10:04:21.638334+00:00",
+  "dataset_description": {
+    "Name": "StarkweatherOFC-CCEP: orbitofrontal cortico-cortical evoked potential recordings, 7 patients (Starkweather et al.) (derivative)",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "derivative",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "Clara Starkweather"
+    ],
+    "HowToAcknowledge": "Cite the figshare dataset doi:10.6084/m9.figshare.31083118.v2 and the manuscript \"Rapid Homotopic Communication Between Human Orbitofrontal Subregions\" (Starkweather et al.).",
+    "ReferencesAndLinks": [
+      "https://doi.org/10.6084/m9.figshare.31083118.v2"
+    ],
+    "EthicsApprovals": [
+      "Collected under the source study's approval; the figshare record does not state the committee (see the manuscript)"
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.6084/m9.figshare.31083118.v2",
+        "URL": "https://figshare.com/articles/dataset/31083118",
+        "Version": "figshare version 2 (2026-01-22T23:17:02Z)"
+      }
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "o5c_B_conv_lit138.py",
+        "Description": "Authors' preprocessed per-electrode timeseries (unreferenced and bipolar) repackaged as BrainVision float32 in microvolts; stimulation pulses from stimset.mat to events.tsv; all release files in sourcedata/. No further processing. Code in code/."
+      }
+    ],
+    "Keywords": [
+      "orbitofrontal cortex",
+      "cortico-cortical evoked potentials",
+      "CCEP",
+      "single-pulse electrical stimulation",
+      "intracranial EEG",
+      "effective connectivity"
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000482",
+    "Version": "1.0.2"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000482-blue)](https://doi.org/10.82901/nemar.nm000482)\n\n# Orbitofrontal cortico-cortical evoked potential (CCEP) recordings, 7 patients (Starkweather et al.) - derivative\n\nRelease: figshare 31083118 \"Rapid Homotopic Communication Between Human Orbitofrontal Subregions - dataset and MATLAB codes\" (Clara Starkweather; doi:10.6084/m9.figshare.31083118.v2, CC BY 4.0). Release description:\n\"Data and codes pertaining to the manuscript \"Rapid Homotopic Communication Between Human Orbitofrontal Subregions\" by Starkweather et al. This is a cortico-cortical evoked potential mapping study. This uploaded data contains preprocessed data timeseries (condensed_ecog_OFC_only.mat) with each item within the structure referring to an individual electrode. condensed_ecog(eRec).bipolar refers to the bipolar referenced data from electrode eRec, and condensed_eocg(eRec).lat_coor corresponds to the medial/lateral distance from the lateral orbital sulcus. The critical data analysis summary (Figure 3a) contained in the manuscript was obtained by first running automate_stim_metadata_collection_zscores.m, followed by CCEP_multiplearrays_multiplesubjects_zscores\"\n\n## Content (7 participants, 4.41 h per acquisition)\nFor each participant the release holds `condensed_ecog_OFC_only.mat`, a struct array with one element per orbitofrontal\nelectrode contact carrying the authors' preprocessed timeseries at 1000 Hz: `unreferenced_ecog` (written here as\n`acq-unreferenced`) and `bipolar` (adjacent-contact re-referenced, `acq-bipolar`; the first contact of a chain has no\nbipolar signal and is marked `bad`). Values are written in microvolts (files whose release values are in volts are\nmultiplied by 1e6; stated per channel in channels.tsv). This is a DERIVATIVE dataset: the raw recordings are not in the\nrelease. Channel names are `<brain_region><contact>` from the release fields. Single-pulse stimulation times and\namplitudes (`stimset.mat`) are in events.tsv (onset = release sample / 1000).\n  - sub-01: 18 OFC contacts (OL), 23.8 min, reference n/a\n  - sub-02: 23 OFC contacts (LOFC, LSFG, ROFC, RSFG), 25.2 min, reference n/a\n  - sub-03: 20 OFC contacts (LOD, ROD), 14.1 min, reference n/a\n  - sub-04: 42 OFC contacts (LOFC, ROFC, RSGC), 90.0 min, reference ROFC1Ref\n  - sub-05: 27 OFC contacts (LOFC, ROFC), 43.0 min, reference ROFC1Ref\n  - sub-06: 30 OFC contacts (LOFC, ROFC), 45.0 min, reference ROFC1Ref\n  - sub-07: 31 OFC contacts (LOFC, ROFC), 23.6 min, reference RACC1Ref\n\n## Localisation\nNo x/y/z coordinates are released. electrodes.tsv carries the release's sulcus-relative distances per contact\n(`lat_coor` = medial/lateral distance from the lateral orbital sulcus per the release description; `med_coor`,\n`mid_coor`, `olf_coor`, `trans_coor` copied with their release names) and the release electrode label (`brain_region`).\n\n## sourcedata/figshare-31083118/\nAll release files per subject folder, byte for byte: `condensed_ecog_OFC_only.mat`, `condensed_ecog_info_only.mat` (the\nfiles of subjects 04 and 07 are truncated in the release, 2.9 kB / 2.2 kB, and cannot be opened), `metadata.mat` (CCEP\nonset latency / peak amplitude / peak latency / significance per stimulated -> recorded pair), `stimset.mat`, and the\nauthors' MATLAB scripts under `code/`.\n\n## Provenance\nConverted by the ieeg-nemar-20261005 campaign (lane o5c-B) with `code/o5c_B_conv_lit138.py`; round-trip checks (MNE\nread-back) in code/conversion_report.json. A different dataset of the same first author (approach-avoidance SEEG HFA) is\nNEMAR nm000383; participant overlap is unknown.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000482",
+    "exists": true,
+    "description": "StarkweatherOFC-CCEP: orbitofrontal cortico-cortical evoked potential recordings, 7 patients (Starkweather et al.) (derivative)",
+    "created_at": "2026-10-11T21:24:51+00:00",
+    "updated_at": "2026-10-21T21:34:47+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

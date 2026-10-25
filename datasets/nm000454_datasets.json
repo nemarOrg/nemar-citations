@@ -1,0 +1,62 @@
+{
+  "dataset_id": "nm000454",
+  "date_retrieved": "2026-10-25T10:03:14.608350+00:00",
+  "dataset_description": {
+    "Name": "A multimodal epilepsy dataset of paired 3-Tesla and 7-Tesla MRI and intracranial EEG (Penn 3T-7T, Pennsieve 662)",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "raw",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "Alfredo Lucas",
+      "Mariam Josyula",
+      "Nina Petillo",
+      "Joost Wagenaar",
+      "Joel Stein",
+      "Sandhitsu Das",
+      "Nishant Sinha",
+      "Kathryn Davis",
+      "Tamjid Imtiaz"
+    ],
+    "Acknowledgements": "Converted to BIDS-iEEG for NEMAR from Pennsieve Discover dataset 662 version 1 (doi:10.26275/aosz-hj9u); see README for every change.",
+    "HowToAcknowledge": "This work was supported by funding from the National Institute of Neurological Disorders and Stroke (NINDS) of the National Institutes of Health under award numbers K99NS138680 (PI: Sinha), R01NS116504 (PI: Davis), R01NS125137 (PI: Litt), R61NS125568 (PI: Davis), U24NS134536 (PI: Wagenaar) and Department of Defense W81XWH2210593 (PI: Sinha). Please cite doi:10.1038/s41597-026-07540-5 and doi:10.26275/aosz-hj9u.",
+    "Funding": [
+      "NINDS K99NS138680 / R00NS138680 (PI: Sinha)",
+      "NINDS R01NS116504 (PI: Davis)",
+      "NINDS R01NS125137 (PI: Litt)",
+      "NINDS R61NS125568 (PI: Davis)",
+      "NINDS U24NS134536 (PI: Wagenaar)",
+      "U.S. Department of Defense W81XWH2210593 (PI: Sinha)"
+    ],
+    "EthicsApprovals": [
+      "University of Pennsylvania institutional review boards: IRB#819126 (3T), IRB#818407 (7T), IRB#821778 (iEEG data)"
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.1038/s41597-026-07540-5",
+      "https://doi.org/10.26275/aosz-hj9u",
+      "https://doi.org/10.1038/s41597-025-06075-5"
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.26275/aosz-hj9u",
+        "URL": "https://discover.pennsieve.io/datasets/662/version/1",
+        "Version": "1"
+      }
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000454",
+    "Version": "1.0.2"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000454-blue)](https://doi.org/10.82901/nemar.nm000454)\n\n# A multimodal epilepsy dataset of paired 3-Tesla and 7-Tesla MRI and intracranial EEG\n\nRedistribution on NEMAR of Pennsieve Discover dataset 662, version 1 (doi:10.26275/aosz-hj9u, licence CC-BY-4.0),\ndescribed in Sci Data 2026, doi:10.1038/s41597-026-07540-5. Authors: Alfredo Lucas, Mariam Josyula, Nina Petillo, Joost Wagenaar, Joel Stein, Sandhitsu Das, Nishant Sinha, Kathryn Davis, Tamjid Imtiaz.\n\n## Description from the deposit\n\nThis dataset comprises multimodal paired 3T and 7T MRI scans collected from 30 patients with drug-resistant focal epilepsy along with intracranial EEG data.\n\n## Details (from the paper and the deposit)\n\n# c-penn3t7t: Penn 3T-7T Paired Epilepsy Imaging (Pennsieve 662 v1, doi:10.26275/aosz-hj9u)\n\n**Task / paradigm.** 30 patients with drug-resistant focal epilepsy with paired 3T and 7T MRI (structural, resting fMRI); for the 15 who later had intracranial EEG, curated ictal and interictal epochs. Ictal epochs from EMU epileptologist notes; interictal epochs randomly selected while awake, >72 h after implantation, >=2 h before seizures and >=2/6/12 h after subclinical/focal/focal-to-bilateral seizures (doi:10.1038/s41597-026-07540-5 (Sci Data 2026, \"A multimodal epilepsy dataset of paired 3-Tesla and 7-Tesla MRI and intracranial EEG\", PMC13582879), Methods \"Intracranial electroencephalography\"). The deposit has 1261 EDF epochs under sourcedata/sub-*/ses-clinical01/ieeg with BIDS channels/events/ieeg.json sidecars.\n\n**Recording system.** Sampling rates 500, 512 or 1024 Hz (paper Methods). Preprocessing described in the paper: 60 Hz notch (Q=30) and 3rd-order Butterworth 1-120 Hz, forward-backward (paper Methods). Amplifier not stated.\n\n**Reference scheme.** Not stated in the paper text extracted (n/a); see the *_ieeg.json iEEGReference of the deposit.\n\n**Electrode types.** ECoG grids and strips, SEEG depth electrodes, or both (paper Methods). SEEG contacts in white matter, outside the brain or noisy were excluded from all recordings (paper Methods).\n\n**Localisation method.** Electrodes manually selected on post-implant CT, mapped to the pre-implant MRI with iEEG-recon; atlas assignment (AAL, Lausanne, DKT) per patient (paper Methods \"Electrode localization\"). The deposit holds, for 15 subjects, iEEG-recon outputs: electrode names, CT voxel, T1 (T00mri) mm/vox and MNI152NLin2009cAsym mm/vox coordinates, and for 12 subjects module3 atlas assignments (DKT antspynet, Atropos tissue, piriform ASHS).\n\n## What this BIDS version contains and what was changed\n\n- Raw data: the authors' BIDS tree (deposit `files/sourcedata/`) is the root: 30 subjects; `ses-research3T` and\n  `ses-research7T` (anat, func resting state), `ses-clinical01` (iEEG, 15 subjects). Task and run labels of the iEEG\n  epochs (`task-ictal<n>` / `task-interictal<n>`, one task label per curated epoch) are kept as released;\n  `events.tsv` marks each epoch `ictal` or `interictal`.\n- iEEG EDF files are the deposit files. Only the EDF header was changed: patient field set to `X X X X` and the day\n  of the start date set to 01 (year, month and clock time kept); the data records are byte-identical (sha256 checked,\n  `sourcedata/pennsieve-662-v1/edf_scrub.tsv`).\n- The EDFs are not filtered: a 60 Hz line peak is present and power above 120 Hz is kept (spectral check of 40 files),\n  so they are labelled raw (`SoftwareFilters` n/a). The notch and 1-120 Hz band-pass in the paper are its analysis steps.\n- `_ieeg.json`: `PowerLineFrequency` 60 (paper Methods: 60 Hz notch; USA). `_channels.tsv` `units` follow the EDF\n  physical dimension of each channel.\n- Electrode positions: `*_space-MNI152NLin2009cAsym_electrodes.tsv` (15 subjects) from the deposit's iEEG-recon\n  outputs (MNI152NLin2009cAsym mm, plus native pre-implant MRI (T00mri) mm columns, DKT/Atropos labels for 12 subjects).\n  `region_coarse` and `atlas_label_aal3_coarse` are added by the NEMAR conversion and are derived values.\n- Anatomical MRI: only the images released as defaced are in the BIDS tree; `defaced` is part of the `acq` label\n  (`acq-3D_defaced` became `acq-3Ddefaced`, images without an acq label got `acq-defaced`).\n  The MP2RAGE inversion images (`inv-1`/`inv-2`) are in `sourcedata/pennsieve-662-v1/files/sourcedata/` with their\n  original names, because their sidecars lack `RepetitionTimeExcitation`/`RepetitionTimePreparation`, which BIDS\n  requires and which we do not invent. Head images were checked by eye (sagittal projections) before release.\n  Heudiconv placeholders were removed from sidecars (`TaskName` `TODO...` -> `rest`, `CogAtlasID` TODO dropped).\n- Derivatives from the deposit: `derivatives/fmriprep3T`, `fmriprep7T`, `freesurfer3T`, `freesurfer7T`, `ieeg_recon`\n  (same files, regrouped by pipeline).\n- Everything else of the deposit is in `sourcedata/pennsieve-662-v1/` with its original relative path (deposit README,\n  manifest, changelog, metadata spreadsheets, clinical CT / pre-implant MRI in iEEG-recon space, electrode voxel files).\n- Calendar dates in text files are set to day 01 (`sourcedata/pennsieve-662-v1/date_scrub.tsv`).\n- Not redistributed here (1249 files; list in `sourcedata/pennsieve-662-v1/withheld.tsv`):\n  556 x fMRIPrep report figures/html (slices of the non-defaced T1w); 220 x FreeSurfer whole-head volume computed from non-defaced input (face visible, eye check); 216 x 7T B0 field maps released without defacing (magnitude images show the face); 119 x fMRIPrep preprocessed T1w (whole head; face visible for at least one subject, eye check); 45 x iEEG-recon head image: defacing incomplete for some subjects (eye check); 30 x iEEG-recon registration figure (slices of head MRI/CT); 18 x MP2RAGE UNIT1 image: removal of the face could not be confirmed on the eye check (noise-filled background); inversion images of the same scan are kept; 15 x clinical pre-implant T1w (T00mri): iEEG-recon copies of this scan still show the face for some subjects (eye check); 15 x clinical post-implant CT: facial skeleton/soft tissue not removed (eye check); 9 x FreeSurfer backup transforms (processing timestamp in the file name); 5 x anatomical image not released as defaced; 1 x spreadsheet has date/identifier-like cells or date formats (privacy; participants.tsv carries the clinical columns). They remain available from the original\n  Pennsieve deposit.\n- Missing values are `n/a`; nothing was added that the paper or the deposit does not state.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000454",
+    "exists": true,
+    "description": "A multimodal epilepsy dataset of paired 3-Tesla and 7-Tesla MRI and intracranial EEG (Penn 3T-7T, Pennsieve 662)",
+    "created_at": "2026-10-08T20:42:56+00:00",
+    "updated_at": "2026-10-21T21:34:06+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

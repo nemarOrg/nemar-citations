@@ -1,0 +1,71 @@
+{
+  "dataset_id": "nm000429",
+  "date_retrieved": "2026-10-25T10:02:30.352630+00:00",
+  "dataset_description": {
+    "Name": "Human subthalamic nucleus microelectrode recordings during an interrupted reach task (London et al., 2021)",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "raw",
+    "License": "CC0-1.0",
+    "Authors": [
+      "Dennis London",
+      "Arash Fazl",
+      "Kalman Katlowitz",
+      "Marisol Soula",
+      "Michael Pourfar",
+      "Alon Mogilner",
+      "Roozbeh Kiani"
+    ],
+    "EthicsApprovals": [
+      "NYU School of Medicine Office of Science and Research Institutional Review Board, Study ID S16-01855 (article)"
+    ],
+    "Funding": [
+      "NIMH R01 MH109180",
+      "McKnight Scholar Award",
+      "Simons Collaboration on the Global Brain 542997, 543009",
+      "Pew Scholarship in the Biomedical Sciences"
+    ],
+    "HowToAcknowledge": "Cite London D, Fazl A, Katlowitz K, Soula M, Pourfar MH, Mogilner AY, Kiani R (2021) Distinct population code for movement kinematics and changes of ongoing movements in human subthalamic nucleus. eLife 10:e64893, doi:10.7554/eLife.64893; and the Dryad dataset doi:10.5061/dryad.2jm63xsq2.",
+    "ReferencesAndLinks": [
+      "https://doi.org/10.7554/eLife.64893",
+      "https://doi.org/10.5061/dryad.2jm63xsq2",
+      "https://github.com/dlondon12/InterruptedReachClustMass"
+    ],
+    "Keywords": [
+      "subthalamic nucleus",
+      "microelectrode recording",
+      "single units",
+      "local field potential",
+      "Parkinson's disease",
+      "reaching",
+      "movement change"
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.5061/dryad.2jm63xsq2",
+        "URL": "https://datadryad.org/dataset/doi:10.5061/dryad.2jm63xsq2"
+      }
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "b3w10_convert_stnint.py",
+        "Description": "Alpha Omega MATLAB export RAW streams (int16) scaled to µV with the stored BitResolution/Gain, written as BrainVision float32; port/TTL events to events.tsv. Code in code/."
+      }
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000429",
+    "Version": "1.0.2"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000429-blue)](https://doi.org/10.82901/nemar.nm000429)\n\n# Human subthalamic nucleus microelectrode recordings during an interrupted reach task (London et al., 2021)\n\nIntraoperative microelectrode recordings from the subthalamic nucleus (STN) of patients with Parkinson's disease during\ndeep brain stimulation surgery (NYU Langone), while they performed an extended reaching task on a touchscreen in which the\ntarget sometimes changed during the movement (\"interrupted reach\"). Article: subjects were off anti-Parkinsonian medication;\none or two Neuroprobe Sonus tungsten microelectrodes (1 MOhm, Alpha Omega), 2 mm apart, driven on one microdrive;\nrecordings referenced to the outer cannula; raw signals sampled at 44 kHz.\n\n## Source\n- Dryad: Dennis London, Arash Fazl, Kalman Katlowitz, Marisol Soula, Michael Pourfar, Alon Mogilner, Roozbeh Kiani. Distinct population code for movement kinematics and changes of ongoing movements in human\n  subthalamic nucleus. doi:10.5061/dryad.2jm63xsq2. License CC0 1.0.\n- Article: eLife 10:e64893 (2021), doi:10.7554/eLife.64893. Code: https://github.com/dlondon12/InterruptedReachClustMass\n- The 8 subject zips were downloaded through the Dryad API on Voyager and matched the Dryad SHA-256 digests.\n  Not mirrored: CWT_mean.zip, Hilbert_beta_mean.zip, PPC_*.zip (time-frequency and phase-consistency derivatives) and\n  processed_data.mat (spiking/behaviour summary); they remain on Dryad.\n\n## Contents\n- `sub-<nn>/ieeg/sub-<nn>_task-interruptedreach_run-<block>_ieeg.*`: 16 task blocks of 8 subjects\n  (2.57 h). `run` = the release block number. Channels: `CRAW_xx` = microelectrode tip, `CMacro_RAW_xx` = macro\n  contact of the same lead, wideband RAW streams at the acquisition rate (44 kHz; Sub04: 22 kHz, rate from the stored\n  sample count and begin/end times). Values: int16 x BitResolution / Gain (both stored per channel) in µV, float32.\n- `events.tsv`: digital port words (CPORT__1) and digital-input rising edges (CDIG_IN_x) on the RAW time axis; see\n  task-interruptedreach_events.json for the time convention. Trial-level behaviour (touch trajectories, trial types) is in\n  the behaviour .mat files in sourcedata.\n- `sourcedata/dryad-2jm63xsq2/SubXX/BlockYY/`: every file of the subject zips: the complete Alpha Omega export (also the\n  online LFP streams at 1.375 kHz, spike segments, digital channels), the behaviour/task .mat and the Plexon spike-time\n  .txt files (sorted units). Changes: MAT-file header dates set to day 01; file names with patient initials and a date\n  were renamed (4 files: Sub02_OR_HandR_STNL_Block02.mat, Sub09_HandR_STNL_Block02.mat, plexon_Sub02_OR_HandR_STNL_Block02_spikes1.txt, plexon_Sub02_OR_HandR_STNL_Block02_spikes2.txt).\n\n## Timing caveat\nSampling rate = the nominal rate stored per channel (_KHz). In some exports the stored begin/end times span more time than\nsamples / rate, which indicates recording pauses concatenated in the export; event onsets there are exact only up to the\nfirst pause: Sub02/Block01: 29792526 samples over TimeBegin-TimeEnd 1634.2 s (18231.1 Hz vs nominal 44000 Hz); Sub04/Block01: 8873514 samples over TimeBegin-TimeEnd 172.2 s (51522.8 Hz vs nominal 22000 Hz); Sub11/Block01: 29672592 samples over TimeBegin-TimeEnd 133.8 s (221785.2 Hz vs nominal 44000 Hz); Sub11/Block05: 26669440 samples over TimeBegin-TimeEnd 139.9 s (190625.3 Hz vs nominal 44000 Hz); Sub11/Block06: 28558928 samples over TimeBegin-TimeEnd 138.0 s (207009.3 Hz vs nominal 44000 Hz); Sub11/Block07: 27740369 samples over TimeBegin-TimeEnd 135.2 s (205178.1 Hz vs nominal 44000 Hz); Sub13/Block02: 30603712 samples over TimeBegin-TimeEnd 139.1 s (219961.2 Hz vs nominal 44000 Hz).\n\n## Localisation\nRecordings were from the STN (article); the side comes from the file names (STNL/STNR). No coordinates or depths are in\nthe release; electrodes.tsv lists the channels with x, y, z = n/a.\n\n## Participants\nAge/sex per patient are in the article's Supplementary file 1, which is not linked to subject numbers in the release; n/a here.\n\n## Privacy\nFile names with initials and dates were renamed; MAT headers keep year and month only. String scan of the behaviour .mat\nfiles: no names, dates or identifiers found.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000429",
+    "exists": true,
+    "description": "Human subthalamic nucleus microelectrode recordings during an interrupted reach task (London et al., 2021)",
+    "created_at": "2026-10-08T02:28:58+00:00",
+    "updated_at": "2026-10-21T21:33:31+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

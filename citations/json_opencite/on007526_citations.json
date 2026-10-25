@@ -1,10 +1,10 @@
 {
   "dataset_id": "on007526",
-  "num_citations": 1,
-  "date_last_updated": "2026-10-11T11:11:54.254491+00:00",
+  "num_citations": 6,
+  "date_last_updated": "2026-10-25T10:19:18.372215+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
-    "fetch_date": "2026-10-11T11:11:54.254491+00:00",
+    "fetch_date": "2026-10-25T10:17:50.346277+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -53,7 +53,14 @@
       "clinical assessment"
     ],
     "methods_description": "EEG was recorded with a 64-channel Geodesic EEG System 400 (EGI). Participants completed about 4 minutes of eyes-open resting state while sitting and about 4 minutes of walking on a treadmill at a comfortable speed while holding the handrails. Clinical assessments included demographics, LEDD, MoCA, MDS-UPDRS and the Color Trails Test.",
-    "funding": []
+    "funding": [],
+    "searched_accessions": [
+      "on007526",
+      "ds007526"
+    ],
+    "num_accession_mentions": 5,
+    "num_dataset_citations": 6,
+    "num_datapaper_citations": 0
   },
   "citation_details": [
     {
@@ -70,6 +77,8 @@
       "source_doi": "10.1002/mds.70348",
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
+      "mentions_accession": true,
+      "matched_accession": "ds007526",
       "confidence_scoring": {
         "confidence_score": 0.8855951231718064,
         "similarity_score": 0.7667490243911743,
@@ -78,21 +87,146 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "Walking-State Geometry Separates Parkinson Disease from Controls More Clearly Than Paired Rest-to-Walk Reconfiguration",
+      "author": "Robin Langell",
+      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "year": 2026,
+      "url": "https://doi.org/10.5281/zenodo.21179086",
+      "cited_by": 0,
+      "abstract": "The walking EEG export ds007526 contains two different inference problems that should not be forced into one coordinate contract. PD walk vs HC walk is a between-subject disease-state question and is therefore evaluated here in cohort_anchored space, whereas PD walk vs rest is a within-subject task-reconfiguration question and is therefore evaluated in subject_anchored space. We analyzed 277 processed runs from 144 participants (116 Parkinson disease, 28 healthy controls), using the refreshed bundle data/raw/neuralmanifolddynamics_ds007526_20260610_121725. In the base standard family, BH-FDR q < 0.05 retained 4 cohort-walk rows, 3 Parkinson paired rows, and 1 healthy-control paired context row. The cohort-walk headline was concentrated in the d family: global walk d_n_mean (d = 0.766, q = 0.030), d_n_median (d = 0.746, q = 0.030), d_mean (d = 0.711, q = 0.036), and d_median (d = 0.718, q = 0.036). A targeted subject-anchor dispersion extension that added within-run IQR and MAD summaries sharpened the paired Parkinson branch more strongly than the original central-tendency-only pass, led by m_a_iqr (d_z = 0.472, q = 6.55e-4), d_iqr (d_z = 0.403, q = 7.28e-4), d_mad (d_z = 0.412, q = 7.28e-4), together with d_n_mean (d_z = 0.409, q = 7.28e-4). The secondary healthy-control paired context remained dominated by m_a_mean (d_z = 0.888, q = 0.0176). The same dispersion extension also revealed strong rest-side clinical associations, especially global d_s_iqr with age (rho = -0.377, q = 8.38e-4) and CTT (rho = -0.351, q = 0.00489), plus parietal-occipital e_iqr with CTT (rho = 0.439, q = 1.25e-4). Supplement-level supportive layers still showed a rest-weighted global reachability branch and an exploratory compact-summary trajectory layer. The present bundle did not expose conventional_eeg, so no classical comparator claim is made. Within this export surface, walking in a cohort-shared frame separates Parkinson disease from controls more clearly than paired rest-to-walk reconfiguration, but the paired Parkinson branch becomes materially stronger once dispersion summaries are included",
+      "doi": "10.5281/zenodo.21179086",
+      "pmid": null,
+      "openalex_id": "W7167206656",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds007526",
+      "confidence_scoring": {
+        "confidence_score": 0.8606836009025575,
+        "similarity_score": 0.745180606842041,
+        "citation_text_length": 1726,
+        "dataset_text_length": 2293,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "MoveAtlas harmonized release: Rest and treadmill-walking EEG in Parkinson's disease (OpenNeuro ds007526)",
+      "author": "Xavier Vasques",
+      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "year": 2026,
+      "url": "https://doi.org/10.5281/zenodo.22307402",
+      "cited_by": 0,
+      "abstract": "MoveAtlas harmonized release: Rest and treadmill-walking EEG in Parkinson's disease (OpenNeuro ds007526) (dataset id: pd_walking_eeg_ds007526, family: eeg). This record holds the CANONICAL artifacts produced by the MoveAtlas ingestion (contracts in configs/canonical_*.yaml): harmonized tensors, manifests and audits. It is a derived work; the original data remains at the source below, which must be cited alongside this record. Source licence: CC0. Taxonomy cells: B2, B5-adjacent; M6. Subjects: 144. Known issues: the stored amplitudes are about 1000 times larger than scalp EEG although the source declares µV; every record carries the flag and nothing is rescaled. Load it with the MoveAtlas package: pip install moveatlas import moveatlas records, meta = moveatlas.dataset(\"pd_walking_eeg_ds007526\").get_data()",
+      "doi": "10.5281/zenodo.22307402",
+      "pmid": null,
+      "openalex_id": "W7213258569",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds007526",
+      "confidence_scoring": {
+        "confidence_score": 0.9252631518244745,
+        "similarity_score": 0.8010936379432678,
+        "citation_text_length": 1029,
+        "dataset_text_length": 2293,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Theta-band EEG network reconfiguration from rest to walking in Parkinson's disease: analysis code",
+      "author": "Nida Mateen",
+      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "year": 2026,
+      "url": "https://doi.org/10.5281/zenodo.23438257",
+      "cited_by": 0,
+      "abstract": "Initial public release of the MATLAB analysis pipeline accompanying the manuscript \"Theta-band EEG network reconfiguration from rest to walking is attenuated in Parkinson's disease.\" This release includes EEG preprocessing, ICA quality control, regional functional connectivity estimation, network-based statistical analysis, secondary analyses, sensitivity assessments, and figure-generation scripts. Source dataset: OpenNeuro ds007526, version 1.0.2 Software: MATLAB R2023b and FieldTrip 20240916 License: MIT Installation instructions, execution order, and reproducibility documentation are provided in README.md.",
+      "doi": "10.5281/zenodo.23438257",
+      "pmid": null,
+      "openalex_id": "W7222805894",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds007526",
+      "confidence_scoring": {
+        "confidence_score": 0.8016359585523607,
+        "similarity_score": 0.6940571069717407,
+        "citation_text_length": 819,
+        "dataset_text_length": 2293,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Rest-to-walking EEG functional connectivity and statistical analysis data in Parkinson's disease",
+      "author": "Nida Mateen",
+      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "year": 2026,
+      "url": "https://doi.org/10.5281/zenodo.23438441",
+      "cited_by": 0,
+      "abstract": "Overview This dataset accompanies the study titled “Theta-band EEG network reconfiguration from rest to walking is attenuated in Parkinson’s disease.” It provides derived functional connectivity and statistical analysis data supporting the investigation of frequency-specific EEG network changes between seated rest and treadmill walking in individuals with Parkinson’s disease (PD) and healthy controls (HC). Source dataset and participants The analyses use the publicly available OpenNeuro dataset ds007526, version 1.0.2. The analytic cohort comprises 130 participants (23 HC and 107 PD), with 117 participants (22 HC and 95 PD) meeting the complete-network criteria for the primary analysis. Data processing and analysis EEG signals were processed using MATLAB R2023b and FieldTrip 20240916. Functional connectivity was estimated using the debiased squared weighted phase-lag index (db-wPLI) across 11 regional nodes and 55 undirected connections in the theta (4–8 Hz), alpha (8–13 Hz), and beta (13–30 Hz) frequency bands. The principal outcome was the within-participant change in connectivity from rest to walking (Walk − Rest). Statistical analyses included age- and sex-adjusted group comparisons, network-based statistics, secondary network analyses, and sensitivity assessments addressing preprocessing burden and potential movement-related artifacts. Reproducibility The derived data are intended to support verification of the reported statistical findings. The accompanying MATLAB analysis code, execution instructions, and methodological documentation are publicly available at: https://github.com/NidaMateen/pd-eeg-rest-to-walk-connectivity Software release (v1.0.0): https://doi.org/10.5281/zenodo.23438258 Source data attribution The original EEG recordings are not redistributed in this deposit. They are available from OpenNeuro: https://doi.org/10.18112/openneuro.ds007526.v1.0.2 Users should cite the original dataset, the accompanying software, and the associated research article where applicable.",
+      "doi": "10.5281/zenodo.23438441",
+      "pmid": null,
+      "openalex_id": "W7222788125",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds007526",
+      "confidence_scoring": {
+        "confidence_score": 0.8751822888851167,
+        "similarity_score": 0.7577335834503174,
+        "citation_text_length": 1702,
+        "dataset_text_length": 2293,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Instantaneous-Frequency EEG Microstate Dynamics Stratify Motor Subtypes in Parkinson’s Disease",
+      "author": "Sou Nobukawa, Hirohisa Watanabe",
+      "venue": "medRxiv",
+      "year": 2026,
+      "url": "https://doi.org/10.64898/2026.06.09.26355312",
+      "cited_by": 0,
+      "abstract": "Abstract Parkinson’s disease (PD) is clinically heterogeneous, yet objective electrophysiological markers of its postural-instability/gait-difficulty (PIGD) and tremor-dominant (TD) motor subtypes are lacking. We tested whether the temporal dynamics of instantaneous-frequency (IF) microstates in resting-state electroen-cephalography (EEG) distinguish these subtypes from each other and from healthy controls (HC). In a publicly available cohort (OpenNeuro ds007526) comprising 28 HC and 97 PD patients classified as PIGD (n = 50) or TD (n = 47), the spatial distribution of the IF was reduced by principal component analysis and modeled with a Gaussian hidden Markov model, yielding three recurrent microstates. Per-participant mean dwell time, occupancy, and state-transition probabilities were compared across the three groups and, within PD, correlated with clinical scores. We found that the dynamics of one microstate varied systematically across groups: its dwell time, occupancy, and self-transition probability increased monotonically from HC through TD to PIGD, while outgoing transitions decreased, so that the state became an increasingly persistent attractor. For dwell time, all three pairwise contrasts survived correction (HC versus PIGD, Hedges’ g = 1.06; HC versus TD, g = 0.59; PIGD versus TD, g = 0.40). None of the dynamic indices was associated with clinical severity, disease duration, or medication dose within PD. IF-microstate dynamics thus stratify the PD motor subtypes along a graded continuum without tracking continuous disease severity. The approach offers a candidate objective EEG marker for motor-subtype stratification, complementing spectral characterizations of PD.",
+      "doi": "10.64898/2026.06.09.26355312",
+      "pmid": null,
+      "openalex_id": "W7165107165",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds007526",
+      "confidence_scoring": {
+        "confidence_score": 0.6867387235164643,
+        "similarity_score": 0.5945789813995361,
+        "citation_text_length": 1671,
+        "dataset_text_length": 2293,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-10-11T11:40:46.960473+00:00",
+    "scoring_date": "2026-10-25T10:34:30.324506+00:00",
     "dataset_text_length": 2293,
-    "num_citations_scored": 1,
+    "num_citations_scored": 6,
     "summary_stats": {
-      "mean_confidence": 0.8855951231718064,
-      "median_confidence": 0.8855951231718064,
-      "std_confidence": 0.0,
-      "min_confidence": 0.8855951231718064,
-      "max_confidence": 0.8855951231718064,
-      "high_confidence_count": 1,
-      "medium_confidence_count": 0,
+      "mean_confidence": 0.8391831411421301,
+      "median_confidence": 0.8679329448938371,
+      "std_confidence": 0.07742861239962112,
+      "min_confidence": 0.6867387235164643,
+      "max_confidence": 0.9252631518244745,
+      "high_confidence_count": 5,
+      "medium_confidence_count": 1,
       "low_confidence_count": 0
     }
   }

@@ -1,0 +1,77 @@
+{
+  "dataset_id": "nm000453",
+  "date_retrieved": "2026-10-25T10:03:10.830115+00:00",
+  "dataset_description": {
+    "Name": "DBS microelectrode recordings from 132 patients, University Clinical Centre Gdańsk (Osowska, Szymański, Libionka 2026; derivative: authors' band-passed, classifier-selected MER segments)",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "derivative",
+    "License": "CC0-1.0",
+    "Authors": [
+      "Katarzyna Osowska",
+      "Julian Szymański",
+      "Witold Libionka"
+    ],
+    "Acknowledgements": "Recordings from DBS procedures at the University Clinical Centre in Gdańsk, Poland; data and code released on MOST Wiedzy (Gdańsk University of Technology) by J. Szymański et al. Repackaged to BIDS for NEMAR.",
+    "HowToAcknowledge": "Cite Osowska K., Szymański J., Libionka W. (2026) A Dataset of Microelectrode Recordings from Deep Brain Stimulation Procedures. Scientific Data 13:870, doi:10.1038/s41597-026-07492-w, and the MOST Wiedzy dataset doi:10.34808/nq8v-t162.",
+    "Funding": [
+      "Gdańsk University of Technology (partial)",
+      "Cloud Artificial Intelligence Service Engineering (CAISE) platform, grant KPOD.05.10-IW.10-0005/24, European IPCEI-CIS programme, financed by the National Recovery and Resilience Plan (NRRP)"
+    ],
+    "EthicsApprovals": [
+      "Ethics Commission of Medical Sciences Department, University of Warmia and Mazury, 43/2016",
+      "Bioethical Commission of Nicolaus Copernicus University in Toruń, KB 416/2008 and KB 28/2010 (extension 2021)"
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.34808/nq8v-t162",
+      "https://doi.org/10.1038/s41597-026-07492-w",
+      "https://github.com/kasiaOsowska/Deep-Brain-Stimulation-Microelectrode-Recordings"
+    ],
+    "Keywords": [
+      "deep brain stimulation",
+      "microelectrode recording",
+      "MER",
+      "basal ganglia",
+      "globus pallidus",
+      "subthalamic nucleus",
+      "Parkinson's disease",
+      "Huntington's disease",
+      "dystonia",
+      "intraoperative"
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.34808/nq8v-t162",
+        "URL": "https://mostwiedzy.pl/en/open-research-data/dbs-recordings,1209080239123979-0",
+        "Version": "DBS_dataset_v3 (MOST Wiedzy record 0_12090802391239790_ORD, published 2025)"
+      }
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "Authors' processing (codes/parser + signal_quality_classifier)",
+        "Description": "ISIS MER .dat files (int16, 20 kHz; not released) decoded, overflow-corrected, band-passed 500-5000 Hz (4th-order Butterworth, causal lfilter) and clipped to +-500 instrument units; a Random Forest signal-quality classifier on 0.5 s windows then kept, per recording, the longest continuous fragment with >= 3 consecutive 'Neuronal activity' windows (>= 1.5 s) or else the longest artefact-free fragment >= 2 s; an electrophysiologist annotated 29 excerpts (striatum/putamen, GPe, GPi).",
+        "CodeURL": "https://github.com/kasiaOsowska/Deep-Brain-Stimulation-Microelectrode-Recordings"
+      },
+      {
+        "Name": "f2_gdansk_convert.py",
+        "Description": "Repackaging of every released CSV as one BrainVision IEEE float32 run (values bit-exact to float32 of the CSV values; integer '1: raw' values exact), electrode label as acq, protocol order as run; depth, source file and segment offset in scans.tsv and events.tsv; annotated excerpts as task-merannot runs and as events in the matching task-mer runs. Code in code/.",
+        "Version": "2026-10-08"
+      }
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000453",
+    "Version": "1.0.2"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000453-blue)](https://doi.org/10.82901/nemar.nm000453)\n\n# DBS microelectrode recordings, University Clinical Centre Gdańsk (Osowska, Szymański, Libionka 2026) - DERIVATIVE\n\nIntraoperative microelectrode recordings (MER) from 132 patients undergoing deep brain stimulation (DBS) surgery at the\nUniversity Clinical Centre in Gdańsk, Poland (Parkinson's disease, Huntington's disease, dystonia, tremor/other movement\ndisorders, epilepsy; awake surgery under local anaesthesia). Up to five parallel microelectrodes (Ben-gun: central, anterior,\nposterior, medial, lateral; inomed ISIS MER system, MicroMacro electrodes) were advanced towards the target, recording at\nsuccessive depths relative to the MRI-planned target (typically from -10 mm; 0 mm = target). Scalp reference, chest ground.\n\n## THIS IS A DERIVATIVE DATASET of short, filtered, classifier-selected segments\n- The original surgical recordings (ISIS .dat files, int16, 20 kHz) were NOT released by the authors.\n- Every run is ONE SHORT SEGMENT, not a continuous recording: from each depth recording the authors' Random Forest\n  signal-quality classifier (0.5 s windows: neuronal activity / background / artifact) kept only the longest continuous\n  fragment with >= 3 consecutive 'neuronal activity' windows, or else the longest artefact-free fragment of >= 2 s.\n  Here: median 10.00 s, range 1.54-143.41 s; 22.43 h in 6646 runs.\n  RecordingType is 'epoched' (one epoch per run). `source_time_start_s` (scans.tsv) is the offset of the kept segment\n  within the unreleased site recording. Segments of different electrodes at the same depth were selected independently and\n  are NOT time-aligned; each electrode/depth is its own run.\n- The signal channel `<label>` is the CSV column '2: preprocessed': software band-pass 500-5000 Hz (4th-order Butterworth,\n  causal scipy lfilter, after an int16 overflow correction) and amplitude clipped to +-500 (authors' parser, codes.zip).\n- Units: the authors had no manufacturer conversion; amplitudes are 'instrument units' that they interpret as\n  'µV-equivalent', possibly off by an unknown global factor (article, Methods). They are labelled µV here as in the\n  release README; treat the absolute scale with that caveat.\n- Where the CSV also has '1: raw' (the 29 annotated excerpts), it is kept as a second channel\n  `<label>_raw`: the int16 values decoded from the .dat file over the same samples, unfiltered (also instrument units).\n\n## Layout\n- `sub-<P###>`: the authors' patient code (P001-P132). `participants.tsv`: age, sex, ICD-10 diagnosis, surgical target and\n  procedure year-month from metadata.csv (36 patients have no retrievable diagnosis/target: n/a).\n- `task-mer_acq-<label>_run-<k>`: one released MER/<P>/depth<d>_kanal<label>.csv. acq = electrode label from the file name\n  in lower case (central, anterior, posterior, medial, lateral; a leading digit 3-5 is the amplifier channel number that the\n  authors' parser kept, e.g. 3central; `centrallateral` is the label 'Central3Lateral' that comes from a protocol line\n  '2: Central3: Lateral' and cannot be resolved to one electrode). Run k follows the protocol site order, then depth.\n  Side (hemisphere) is not recorded in the release: n/a.\n- `task-merannot_acq-<label>_run-<k>`: the 29 expert-annotated excerpts (brain_layer_annotations; patients P106 and P121,\n  GPi-targeted trajectories): striatum/putamen, external (GPe) or internal (GPi) globus pallidus. The structure is in\n  scans.tsv (`annotated_structure`) and events.tsv. When the excerpt's interval on the source time axis lies inside the\n  matching task-mer segment (same patient, electrode, depth), that run's events.tsv carries an `annotated_<structure>`\n  interval too. This mapping uses the CSV 'Time' values only: the excerpts' preprocessed values are NOT sample-identical to\n  the task-mer files (the authors evidently filtered the excerpts separately), see code/conversion_report.json.\n- `sub-<P>_scans.tsv`: depth (mm from target), electrode label, trajectory, protocol site number, source CSV, segment\n  start/end on the source time axis, samples, raw-channel flag, annotated structure.\n- `events.tsv` per run: the whole segment (`mer_segment`, with depth) plus any annotated intervals.\n- Data format: BrainVision IEEE float32 at 20 kHz. The CSV text values (float64 printouts of float32 processing) were\n  cast to float32; max |difference| 1.53e-05; every .eeg was read back and is bit-identical to float32 of the CSV values;\n  the integer raw values are exact. MNE reads every file.\n- No electrode coordinates are released; brain location is given by depth relative to the planned target, the surgical\n  target per patient and the expert structure labels.\n\n## sourcedata/most_wiedzy_nq8v-t162\nmetadata.csv and readme.md (unchanged), the per-patient acquisition protocols (dates set to day 01, archive ids in .dat\npaths replaced by <id>), the authors' codes.zip (member dates day 01, .pyc dropped, one first name in the parser's\nexclusion list redacted), and file_map.tsv (every source CSV -> BIDS run, with SHA-256 of the released CSV).\n\n## Related data (not duplicates)\nMendeley Data tr93krswn2 ('RAW Deep Brain Stimulation Recordings', 46 PD surgeries) and h9tbvgjgjv ('STN/SNr raw DBS\nrecordings', 83 PD surgeries) by K.A. Ciecierski and T. Mandat (CC BY-NC 3.0, Warsaw) are separate MER collections; they are\nnot on NEMAR. This Gdańsk release states a single centre (University Clinical Centre in Gdańsk) and shares no patient codes\nor file names with them; no patient overlap can be established from either release.\n\n## Source\n- Dataset: Szymański J. et al., \"DBS recordings\", MOST Wiedzy, Gdańsk University of Technology, doi:10.34808/nq8v-t162 (CC0 1.0).\n- Article: Osowska K., Szymański J., Libionka W. (2026) \"A Dataset of Microelectrode Recordings from Deep Brain Stimulation\n  Procedures\", Scientific Data 13:870, doi:10.1038/s41597-026-07492-w.\n- Code: https://github.com/kasiaOsowska/Deep-Brain-Stimulation-Microelectrode-Recordings\n- Funding: Gdańsk University of Technology (partial); CAISE platform grant KPOD.05.10-IW.10-0005/24 (European IPCEI-CIS, NRRP).\n- Ethics: University of Warmia and Mazury 43/2016; Nicolaus Copernicus University Toruń KB 416/2008, KB 28/2010.\n\n## Privacy\nPatient codes P001-P132 are the authors' pseudonyms. metadata.csv holds year-month only. The protocols carried full\nprocedure dates (day set to 01 here) and numeric archive ids in file paths (replaced). No names were found in file names,\nCSV headers or protocols.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000453",
+    "exists": true,
+    "description": "DBS microelectrode recordings from 132 patients, University Clinical Centre Gdańsk (Osowska, Szymański, Libionka 2026; derivative: authors' band-passed, classifier-selected MER segments)",
+    "created_at": "2026-10-08T20:02:02+00:00",
+    "updated_at": "2026-10-21T21:34:02+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

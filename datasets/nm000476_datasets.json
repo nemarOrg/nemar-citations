@@ -1,0 +1,76 @@
+{
+  "dataset_id": "nm000476",
+  "date_retrieved": "2026-10-25T10:04:06.052307+00:00",
+  "dataset_description": {
+    "Name": "Hoy2024 effort decision LFP: subthalamic/pallidal and prefrontal recordings during an effort-based decision task (DBS surgery)",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "derivative",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "Colin W. Hoy",
+      "Coralie de Hemptinne",
+      "Sarah S. Wang",
+      "Catherine J. Harmer",
+      "Matthew A. J. Apps",
+      "Masud Husain",
+      "Philip A. Starr",
+      "Simon Little"
+    ],
+    "HowToAcknowledge": "Cite Hoy CW, de Hemptinne C, Wang SS, Harmer CJ, Apps MAJ, Husain M, Starr PA, Little S (2024). Beta and theta oscillations track effort and previous reward in the human basal ganglia and prefrontal cortex during decision making. PNAS 121(31):e2322869121, doi:10.1073/pnas.2322869121, and the OSF release doi:10.17605/OSF.IO/JQ6Z4.",
+    "ReferencesAndLinks": [
+      "https://doi.org/10.1073/pnas.2322869121",
+      "https://doi.org/10.1101/2023.12.05.570285",
+      "https://doi.org/10.17605/OSF.IO/JQ6Z4"
+    ],
+    "Keywords": [
+      "local field potential",
+      "subthalamic nucleus",
+      "globus pallidus",
+      "prefrontal cortex",
+      "effort",
+      "reward",
+      "decision making",
+      "deep brain stimulation",
+      "beta",
+      "theta"
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.17605/OSF.IO/JQ6Z4",
+        "URL": "https://osf.io/jq6z4/",
+        "Version": "OSF node jq6z4 (files as downloaded 2026-10-11; sha256 in sourcedata/osf-jq6z4/DEIDENTIFICATION_MANIFEST.tsv)"
+      }
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "o5c_A1_convert_lit174.py",
+        "Description": "Repackaging of the preprocessed FieldTrip epochs (acq-preproc, with sbj_data.bhv as events) and of the continuous neural exports (acq-raw) into BrainVision float32. Code in code/."
+      }
+    ],
+    "EthicsApprovals": [
+      "Collected under the source study's approval (see the article, doi:10.1073/pnas.2322869121)."
+    ],
+    "Funding": [
+      "Wellcome Trust 226645/Z/22/Z",
+      "NIH NINDS K23NS120037",
+      "NIH NIMH F32MH132174",
+      "UKRI BBSRC BB/R010668/2"
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000476",
+    "Version": "1.0.2"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000476-blue)](https://doi.org/10.82901/nemar.nm000476)\n\n# Hoy et al. 2024: basal ganglia and prefrontal LFP during effort-based decisions (intraoperative DBS recordings)\n\n5 subjects, 14 recordings, 3.90 h. Released by the authors on OSF (doi:10.17605/OSF.IO/JQ6Z4, CC-BY-4.0).\n\n## Organisation (DatasetType derivative)\n- `*_acq-preproc_ieeg.vhdr` (PFC01, PFC03, PFC04, PFC05): the authors' preprocessed, epoched bipolar signals (`sbj_data.ts`, trials\n  -2 to 9 s around the offer, 422 or 500 Hz) with the two channel labels of the release (STN or GPi; FPC or OFC), written\n  back-to-back with one `New Segment` marker per trial. `events.tsv` carries every per-trial field of `sbj_data.bhv` (key, rt,\n  block, effort, stake, decision, previous-trial values, model values SV/EFFs/p_accept/dec_ease, ...); `code/*_bhvextra.json` holds the\n  index lists (good_key_ix, reject_ix, ...) and the model parameters (`sbj_data.mdl`).\n- `*_acq-raw_run-<k>_ieeg.vhdr` (all five subjects, two runs each): the continuous neural exports of `raw_data/` (`signal` 2 x N at\n  422 Hz, or `datar` N x 4 at 500 Hz for PFC01) written unchanged. The release does not document the channel order or units of these\n  exports (channels `ch1..`, `units` n/a) and the behavioural trial timestamps are on a separate clock (sync files), so these runs\n  have no events.tsv.\n- No electrode coordinates are released (`electrodes.tsv` with n/a). Age and sex are not in the release.\n- `sourcedata/osf-jq6z4/`: the preprocessed and neural MAT files (MAT header export dates set to day 01). The behavioural and sync\n  files contain exact session timestamps and are not redistributed (see `NOT_COPIED_release_files.txt`); session months:\n  {\"PFC01_behavioral_data_run1.mat\": \"2020-06-01\", \"PFC01_behavioral_data_run2.mat\": \"2020-06-01\", \"PFC03_behavioral_data_run1.mat\": \"2019-12-01\", \"PFC03_behavioral_data_run2.mat\": \"2019-12-01\", \"PFC04_behavioral_data_run1.mat\": \"2019-09-01\", \"PFC04_behavioral_data_run2.mat\": \"2019-09-01\", \"PFC05_behavioral_data_run1.mat\": \"2019-09-01\", \"PFC05_behavioral_data_run2.mat\": \"2019-09-01\", \"PMC10_behavioral_data_run1.mat\": \"2020-01-01\", \"PMC10_behavioral_data_run2.mat\": \"2020-01-01\"}.\n\n## Privacy\nSubject codes only; the behavioural files with exact timestamps are excluded. String scan of the converted MAT files:\n12 flagged strings (see code/conversion_report.json).\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000476",
+    "exists": true,
+    "description": "Hoy2024 effort decision LFP: subthalamic/pallidal and prefrontal recordings during an effort-based decision task (DBS surgery)",
+    "created_at": "2026-10-11T21:07:37+00:00",
+    "updated_at": "2026-10-21T21:34:33+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

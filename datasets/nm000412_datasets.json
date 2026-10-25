@@ -1,0 +1,83 @@
+{
+  "dataset_id": "nm000412",
+  "date_retrieved": "2026-10-25T10:02:15.111569+00:00",
+  "dataset_description": {
+    "Name": "ECoG hemispheric asymmetry during reaching (Merrick et al. 2022): authors' 1000 Hz intracranial exports with reach kinematics",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "derivative",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "Christina M. Merrick",
+      "Tanner C. Dixon",
+      "Assaf Breska",
+      "Jack J. Lin",
+      "Edward F. Chang",
+      "David King-Stephens",
+      "Kenneth D. Laxer",
+      "Peter B. Weber",
+      "Jose M. Carmena",
+      "Robert T. Knight",
+      "Richard B. Ivry"
+    ],
+    "Acknowledgements": "Data release: Zenodo record 4761390 'ECoG_Hemispheric_Asymmetry_dataset' (creator: Christina Merrick). BIDS packaging: ieeg-nemar-20261005 campaign (batch-3, lane W2); the converter applies no signal processing.",
+    "HowToAcknowledge": "Please cite Merrick CM, Dixon TC, Breska A, Lin J, Chang EF, King-Stephens D, Laxer KD, Weber PB, Carmena J, Knight RT, Ivry RB (2022). Left hemisphere dominance for bilateral kinematic encoding in the human brain. eLife 11:e69977. doi:10.7554/eLife.69977, and the data record doi:10.5281/zenodo.4761390.",
+    "Funding": [
+      "National Institutes of Health NS097480 (to Robert T. Knight, Richard B. Ivry, Jose Carmena)"
+    ],
+    "EthicsApprovals": [
+      "Procedures approved by the institutional review boards at the hospitals and the Committee for Protection of Human Subjects, University of California, Berkeley (protocol 2010-02-783); informed consent from all patients (Merrick et al. 2022)."
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.7554/eLife.69977",
+      "https://doi.org/10.1101/2021.05.01.442295",
+      "https://doi.org/10.5281/zenodo.4761390",
+      "https://github.com/cmerrick15/Asymmetry_ECoG_dataset",
+      "https://www.biorxiv.org/content/10.1101/2021.05.01.442295v1"
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000412",
+    "Keywords": [
+      "electrocorticography",
+      "ECoG",
+      "reaching",
+      "motor control",
+      "kinematics",
+      "hemispheric asymmetry",
+      "ipsilateral",
+      "epilepsy"
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "Authors' preprocessing (Merrick et al. 2022)",
+        "Description": "Exports at 1000 Hz (UCI 5000 Hz and UCSF 3052 Hz recordings were anti-alias low-pass filtered at 500 Hz and downsampled to 1000 Hz per the paper); channels listed as bad in the release metadata are absent. Whether common-average referencing and notch filtering are included is not stated in the release.",
+        "CodeURL": "https://github.com/cmerrick15/Asymmetry_ECoG_dataset"
+      },
+      {
+        "Name": "b3w2_convert_c-merrick.py",
+        "Description": "Lossless re-packaging of SDATA.data into BrainVision (float32) and kin_mat into _physio.tsv.gz, with BIDS sidecars; no further processing.",
+        "CodeURL": "n/a"
+      }
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.5281/zenodo.4761390",
+        "URL": "https://zenodo.org/records/4761390",
+        "Version": "Zenodo record 4761390 (published 2021-05-14)"
+      }
+    ],
+    "Version": "1.0.2"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000412-blue)](https://doi.org/10.82901/nemar.nm000412)\n\n# ECoG hemispheric asymmetry during reaching (Merrick et al. 2022): authors' 1000 Hz exports\n\nIntracranial recordings from **six patients with intractable epilepsy** implanted with subdural grids, three with\nleft-hemisphere implants (L1-L3) and three with right-hemisphere implants (R4-R6). They were recorded at the University\nof California, Irvine, the University of California, San Francisco Medical Center and California Pacific Medical\nCenter, San Francisco, two patients per site. Patients performed an **instructed-delay reaching task** on a touchscreen,\nwith two blocks of 40 trials for each arm, in counterbalanced order. Re-packaged from the authors' public release\n(Zenodo record [4761390](https://doi.org/10.5281/zenodo.4761390), \"ECoG_Hemispheric_Asymmetry_dataset\", CC-BY-4.0).\n\nReference article: Merrick CM, Dixon TC, Breska A, Lin J, Chang EF, King-Stephens D, Laxer KD, Weber PB, Carmena J,\nKnight RT, Ivry RB. *Left hemisphere dominance for bilateral kinematic encoding in the human brain.* eLife 11:e69977\n(2022). https://doi.org/10.7554/eLife.69977. Code: https://github.com/cmerrick15/Asymmetry_ECoG_dataset\n\n## This is a derivative dataset\nThe neural arrays in the release are the authors' exports at **1000 Hz**. The paper says UCI recorded at 5000 Hz\n(Nihon Kohden), UCSF at 3052 Hz (Tucker Davis Technologies) and CPMC at 1000 Hz (Nihon Kohden). The UCI and UCSF data\nwere low-pass filtered at 500 Hz and downsampled to 1000 Hz. Channels that the release metadata lists as bad\n(`SDATA.metadata.bad_electrodes`) are already absent from the arrays. The release does not say whether its exports also\ninclude the paper's common-average reference and 60/120/180 Hz notch filters. The dataset is therefore labelled\n`DatasetType: derivative`. The packaging itself changes no values.\n\n## Layout\n- `sub-L1`...`sub-R6` = release patient IDs. `task-reach`, `acq-lefthand` / `acq-righthand` = arm used,\n  `run-1` / `run-2` = block.\n- `*_ieeg.vhdr`: `SDATA.data` (float32 BrainVision; values are the stored float64 values rounded to float32). Channel\n  names are as in `SDATA.info.channel_labels`. The release does not give units; the magnitudes differ by site (see\n  `task-reach_channels.json`).\n- `*_recording-kinematics_physio.tsv.gz`: the release `kin_mat` (position, speed, x, y, z, theta, phi) at 100 Hz. The\n  paper estimated the movement profiles from the button and touch times. `StartTime` 0 assumes that the kinematics start\n  with the neural export: the lengths agree at 10:1 to within one sample, but the release does not state the alignment.\n- The release holds no trial events: the `SDATA.events` structures are empty, and R5's is an undocumented MATLAB table\n  object. The photodiode and microswitch analog channels (`SDATA.analog`, 4 channels at 24414 Hz for UCSF, 5000 Hz for\n  UCI L3 and 1000 Hz for CPMC; absent for R4) remain only in the source files in `sourcedata/`.\n- `participants.tsv`: age and handedness from Table 1 for L1-L3. Table 1 names the right-hemisphere patients R1-R3\n  (ages 26, 32 and 34, all right-handed), but the release uses R4-R6 and does not state the correspondence, so R4-R6 are\n  `n/a`. Sex is given only at group level (two of six female). `recording_site` is inferred from the release session\n  codes (EC = UCSF, IR = UCI, CP = CPMC) and the analog sampling rates, which matches the paper's two patients per site.\n- Channel types: the release types electrodes only for L1 and L2 (grid / strip). Elsewhere all channels are typed ECOG\n  (see `task-reach_channels.json`). There are no electrode coordinates in the release. `electrodes.tsv` lists names with\n  `n/a` coordinates.\n\n## Source files\n`sourcedata/zenodo-4761390/` holds all 48 release `.mat` files: the neural `SDATA` structures, including the analog\nchannels, the empty events, `info.id` session codes and, for R4 right-hand block 1, an extra `data_ref` array. It also\nholds the kinematics files and the Zenodo record metadata. The only change is that the MATLAB header text \"Created on\"\n(file export date, 2019-2021) has its weekday and day masked. The provenance JSON gives the SHA-256 of each file before\nand after masking.\n\n## License\n\nCC-BY-4.0\n\n## Additional metadata and localisation (added 2026-10-08)\n\nCompiled after the upload from the article, its supplement and the source deposit (each statement names its source). Text and sidecar metadata only; no data file was changed.\n\n**Recording system.** Nihon Kohden at UCI (128 ch, 5000 Hz) and CPMC (128 ch, 1000 Hz); Tucker Davis Technologies at UCSF (128 ch, 3052 Hz); signals not at 1000 Hz were low-pass filtered at 500 Hz and downsampled to 1000 Hz (paper Methods). Deposit SDATA.info.sampling_rate = 1000 for all six; L1/L2 also carry analog_sr 24414.0625 (TDT analog rate).\n\n**Reference scheme.** Common average reference applied in the paper's preprocessing; notch 60/120/180 Hz (paper Methods). Whether the deposited SDATA.data is pre- or post-CAR is not stated (n/a).\n\n**Electrode types.** Subdural grids and strips; spacing 1 cm in four patients and 4 mm in the other two (paper \"Electrode localization\"). 752 electrodes in total, 82 removed for noise and 5 for epileptic activity -> 665 analysed (paper Methods).\n\n**Localisation.** Electrode locations visualised on each patient's 3D cortical reconstruction by co-registering post-operative CT to pre-operative MRI (Stolk et al. 2018 pipeline); each electrode was categorised with the Desikan-Killiany parcellation; pooled proportions are shown per hemisphere in Figure 2-figure supplement 1 (premotor: superior frontal, caudal middle frontal, pars opercularis; sensorimotor: pre-/post-central; parietal: supramarginal, superior parietal, inferior parietal; 70% of electrodes in these parcels). Per-electrode coordinates/labels are not deposited.\n\n### Regions per participant (as published; no coordinates exist)\n\n| participant | region (as stated) | hemisphere | contacts | source |\n|---|---|---|---|---|\n| cohort-left(L1-L3) | Superior frontal; Caudal middle frontal; Opercularis | left | n/a | doi:10.7554/eLife.69977, Figure 2-figure supplement 1 (premotor group |\n| cohort-left(L1-L3) | Pre-central; Post-central | left | n/a | doi:10.7554/eLife.69977, Figure 2-figure supplement 1 (sensorimotor) |\n| cohort-left(L1-L3) | Supra marginal; Superior parietal; Inferior parietal | left | n/a | doi:10.7554/eLife.69977, Figure 2-figure supplement 1 (parietal) |\n| cohort-right(R4-R6) | Superior frontal; Caudal middle frontal; Opercularis | right | n/a | doi:10.7554/eLife.69977, Figure 2-figure supplement 1 |\n| cohort-right(R4-R6) | Pre-central; Post-central | right | n/a | doi:10.7554/eLife.69977, Figure 2-figure supplement 1 |\n| cohort-right(R4-R6) | Supra marginal; Superior parietal; Inferior parietal | right | n/a | doi:10.7554/eLife.69977, Figure 2-figure supplement 1 |\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000412",
+    "exists": true,
+    "description": "ECoG hemispheric asymmetry during reaching (Merrick et al. 2022): authors' 1000 Hz intracranial exports with reach kinematics",
+    "created_at": "2026-10-07T23:03:54+00:00",
+    "updated_at": "2026-10-21T21:11:26+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

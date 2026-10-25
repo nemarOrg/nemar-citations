@@ -1,0 +1,76 @@
+{
+  "dataset_id": "nm000433",
+  "date_retrieved": "2026-10-25T10:02:41.308642+00:00",
+  "dataset_description": {
+    "Name": "Dareplane proof of concept: STN LFP, ECoG and EOG during the CopyDraw task with open- and closed-loop DBS (1 Parkinson's disease patient)",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "raw",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "Matthias Dold",
+      "Joana Pereira",
+      "Bastian Sajonz",
+      "Volker A. Coenen",
+      "Jordy Thielen",
+      "Marcus L.F. Janssen",
+      "Michael Tangermann"
+    ],
+    "HowToAcknowledge": "Cite the dataset (Dold, M., Pereira, J., Sajonz, B., Coenen, V.A., Thielen, J., Janssen, M.L.F., Tangermann, M. (2024). LFP and ECoG data during CopyDraw task with deep brain stimulation - Dareplane data for proof of concept paper. Version 1. Radboud University. https://doi.org/10.34973/d214-m342) and the Dareplane paper (arXiv:2408.01242). The release asks to acknowledge: 'Data were provided (in part) by the Radboud University, Nijmegen, The Netherlands'.",
+    "Funding": [
+      "Dareplane collaboration project, co-funded by the PPP Allowance of Health Holland, Top Sector Life Sciences & Health, and the Dutch Brain Foundation (MD)",
+      "Deutsche Forschungsgemeinschaft, Walter Benjamin Program, project 510112977 (JP)",
+      "PD-Interaktiv I study: Bundesministerium fuer Bildung und Forschung, grant 16SV8011"
+    ],
+    "EthicsApprovals": [
+      "Ethics committee of the Medical Center - University of Freiburg, EK application 21-1545; study PD-Interaktiv I, DRKS000287039 (as stated in the paper)"
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.34973/d214-m342",
+      "https://arxiv.org/abs/2408.01242",
+      "https://github.com/bsdlab/Dareplane"
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000433",
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.34973/d214-m342",
+        "URL": "https://doi.org/10.34973/d214-m342",
+        "Version": "1"
+      },
+      {
+        "DOI": "n/a"
+      }
+    ],
+    "Keywords": [
+      "deep brain stimulation",
+      "adaptive DBS",
+      "closed-loop",
+      "subthalamic nucleus",
+      "local field potential",
+      "ECoG",
+      "Parkinson's disease",
+      "CopyDraw",
+      "Dareplane"
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "b3w11_convert_radboud.py",
+        "Description": "Neuro Omega .mat exports to BIDS-iEEG BrainVision (int16 counts unchanged); events from the Neuro Omega port and stimulation markers; privacy-scrubbed originals in sourcedata. Code in code/."
+      }
+    ],
+    "Version": "1.0.2"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000433-blue)](https://doi.org/10.82901/nemar.nm000433)\n\n# Dareplane proof of concept: STN LFP, ECoG and EOG during CopyDraw with open- and closed-loop DBS\n\nIntracranial recordings from one patient with Parkinson's disease (67 years, female, right-handed; \"PD4\" in the paper) with\nexternalised bilateral subthalamic DBS leads and an epidural ECoG strip over the left primary motor cortex, recorded on\ndays 2, 3 and 4 after implantation at the Medical Center - University of Freiburg while she performed the CopyDraw task\nwith DBS OFF, with continuous open-loop DBS ON and (day 4) with closed-loop adaptive DBS run on the Dareplane platform.\n\nSource: Dold, M., Pereira, J., Sajonz, B., Coenen, V.A., Thielen, J., Janssen, M.L.F., Tangermann, M. (2024). \"LFP and ECoG\ndata during CopyDraw task with deep brain stimulation - Dareplane data for proof of concept paper\". Version 1. Radboud\nUniversity. https://doi.org/10.34973/d214-m342 (CC BY 4.0). Paper: Dold et al., \"Dareplane: A modular open-source software\nplatform for BCI research with application in closed-loop deep brain stimulation\", arXiv:2408.01242 (J. Neural Eng.).\nPlease acknowledge: \"Data were provided (in part) by the Radboud University, Nijmegen, The Netherlands\".\n\n## Contents\n- `sub-P001` (release label), sessions `ses-day2`, `ses-day3`, `ses-day4` (days after implantation).\n- 41 recordings, 2.72 h at 22 kHz. One recording = one Neuro Omega .mat file of the release; runs are numbered in\n  recording order (Neuro Omega clock) within a session. `acq-stimoff` / `acq-stimon` / `acq-closedloop` follow the file\n  names (`copydraw_off`, `copydraw_on`, `clcopydraw_on`). `scans.tsv` gives the source file, block number and file part\n  for every run. Several blocks were saved in more than one file (e.g. block1 parts 0001-0004 on day 2), some only a few\n  seconds long; they are kept as separate runs, unchanged.\n- 24 channels per recording, names from the release README CHANNEL_MAP:\n  - `LFP_1`-`LFP_8`: Boston Scientific Vercise directional lead in the left STN (`LFP_1` tip, most ventral; `LFP_8` most dorsal);\n  - `LFP_9`-`LFP_16`: same for the right STN (`LFP_9` tip);\n  - `ECOG_1`-`ECOG_4`: 4-contact Ad-Tech strip, epidural over left M1 (`ECOG_1` most caudal, `ECOG_4` most rostral);\n  - `EOG_1` above the right eyebrow, `EOG_2` below the right eye, `EOG_3` left of the left eye, `EOG_4` right of the right eye.\n  Type DBS / ECOG / EOG. The README does not say which of contacts 2-7 are the directional segments.\n- Values: the Neuro Omega int16 counts are stored unchanged (BrainVision INT_16); the header resolution is\n  BitResolution/Gain = 38.14697265625/55 = 0.6935813210 uV per count (Neuro Omega convention). Note that the\n  authors' load_xdf.py treats the raw counts directly as microvolts (no gain); multiply by 55/38.14697265625 to reproduce that.\n  LFP channels saturate (int16 limits) during stimulation; counts per channel are in code/conversion_report.json.\n- Reference and ground (paper): ECoG referenced to the left earlobe, DBS recordings to the left mastoid, ground on the\n  right mastoid. Hardware filter settings are not stated (n/a).\n- Auxiliary Neuro Omega analog inputs (CANALOG_IN_1-8, CADD_ANALOG_IN_1-8, 2.75 kHz) are written as separate\n  `acq-<condition>analog` files (MISC, raw counts, unit not documented) only where they are not constant (41 recordings).\n- No coordinates are released. electrodes.tsv lists the 16 DBS and 4 ECoG contacts with x, y, z = n/a and the stated\n  target (STN / left M1, hemisphere).\n\n## Events\n`events.tsv` holds two kinds of markers stored in the .mat files, aligned as in the authors' load_xdf.py\n(onset = marker time on the 44 kHz Neuro Omega clock - TimeBegin of the 22 kHz channels):\n- `port_marker`: non-zero values of the Neuro Omega hardware port CPORT__1 (zeros reset the port). The values are given as\n  recorded. They do not always equal the CopyDraw codes (README: 10-21 start of copy-drawing trace k, 110-121 end, 50\n  self-paced readiness): on day 3 the port only shows value 1 and on days 2 and 4 only part of the code range appears.\n- `stim_marker_<k>`: the Neuro Omega stimulation marker channel CStimMarker_<k> (README: arrival times of the stimulation\n  pulses); `value` is the identifier stored with the marker.\nThe full CopyDraw marker stream (CopyDrawParadigmMarkerStream), the LSL copy of the signals (AODataStream), the closed-loop\ncontrol streams and the mouse/keyboard streams are in the XDF files in sourcedata, on the LSL clock. The release does not\ndocument an alignment between the LSL clock and the .mat sample clock other than the port markers, so the XDF markers are\nnot copied into events.tsv.\n\n## sourcedata/radboud-d214-m342\nThe release files of the patient (README.md, ABOUT.txt, LICENSE.txt, MANIFEST.txt, analysis_scripts/load_xdf.py and\ndata/sub-P001_ses-day*/{ao,bv,lsl,behavioral}): Neuro Omega .mat exports, BrainAmp ExG BrainVision files (heart rate,\nrespiration, GSR; days 2-3), LSL XDF files and the CopyDraw behavioural YAML files (stylus traces per trial, block settings,\nprojection results). All SHA-256 sums matched MANIFEST.txt on download. Files changed for privacy are listed in\nPRIVACY_CHANGES.tsv with their new SHA-256 (all other files are byte-identical to the release).\n\nNot included: the benchtop tests (AO_test, Arduino_test, CT_* XDF/pickles), the c-VEP scalp-EEG speller data of three\nhealthy participants (data/data_p00*), and intermediate analysis results (data/*.hdf, *.npy, *.joblib). Get them from the\nRadboud record.\n\n## Privacy\nNo names or hospital identifiers were found. Dates were reduced to year and month (day set to 01, same byte length):\nthe export date in the .mat text headers and date strings in the XDF headers/marker strings and text files\n(see PRIVACY_CHANGES.tsv). The BrainVision marker files already carry the placeholder date 1900-01-01. Age, sex and\nhandedness are those published in the paper.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000433",
+    "exists": true,
+    "description": "Dareplane proof of concept: STN LFP, ECoG and EOG during the CopyDraw task with open- and closed-loop DBS (1 Parkinson's disease patient)",
+    "created_at": "2026-10-08T03:29:48+00:00",
+    "updated_at": "2026-10-21T21:12:03+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

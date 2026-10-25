@@ -1,0 +1,88 @@
+{
+  "dataset_id": "nm000430",
+  "date_retrieved": "2026-10-25T10:02:34.032869+00:00",
+  "dataset_description": {
+    "Name": "Intracranial recordings before and after left anterior temporal lobe disconnection during a speech prediction task (Kocsis et al., 2023) - derivative",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "derivative",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "Zsuzsanna Kocsis",
+      "Rick L. Jenison",
+      "Peter N. Taylor",
+      "Ryan M. Calmus",
+      "Bob McMurray",
+      "Ariane E. Rhone",
+      "McCall E. Sarrett",
+      "Carolina Deifelt Streese",
+      "Yukiko Kikuchi",
+      "Phillip E. Gander",
+      "Joel I. Berger",
+      "Christopher K. Kovach",
+      "Inyong Choi",
+      "Jeremy D. Greenlee",
+      "Hiroto Kawasaki",
+      "Thomas E. Cope",
+      "Timothy D. Griffiths",
+      "Matthew A. Howard III",
+      "Christopher I. Petkov"
+    ],
+    "EthicsApprovals": [
+      "Institutional Review Board of the University of Iowa, IRB #200112047; written informed consent (article)"
+    ],
+    "Funding": [
+      "Medical Research Council MR/X003701/1",
+      "Academy of Medical Sciences SGL024\\1069",
+      "Wellcome Trust WT091681MA",
+      "National Institute for Health Research (NIHR) CL-2018-14-007",
+      "NIDCD NIH HHS R01 DC004290"
+    ],
+    "HowToAcknowledge": "Cite Kocsis Z, et al. (2023) Immediate neural impact and incomplete compensation after semantic hub disconnection. Nat Commun 14 (2023), doi:10.1038/s41467-023-42088-7; and the Zenodo dataset doi:10.5281/zenodo.8110724.",
+    "ReferencesAndLinks": [
+      "https://doi.org/10.1038/s41467-023-42088-7",
+      "https://doi.org/10.5281/zenodo.8110724"
+    ],
+    "Keywords": [
+      "electrocorticography",
+      "anterior temporal lobe",
+      "semantic hub",
+      "diaschisis",
+      "predictive coding",
+      "speech",
+      "epilepsy surgery"
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.5281/zenodo.8110724",
+        "URL": "https://zenodo.org/records/8110724",
+        "Version": "Zenodo record 8110724 (published 2023-07-05)"
+      }
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "Authors' processing",
+        "Description": "ECoG sampled at 2000 Hz (TDT, 0.7-800 Hz), downsampled to 1000 Hz ('data_raw' files); DBT denoising + removal of the first SVD component ('DBT_SVD' files) (article)."
+      },
+      {
+        "Name": "b3w10_convert_semhub.py",
+        "Description": "Repackaging into BrainVision float32 (values unchanged, float64 -> float32), events and electrode tables from the release. Code in code/."
+      }
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000430",
+    "Version": "1.0.2"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000430-blue)](https://doi.org/10.82901/nemar.nm000430)\n\n# Intracranial recordings before and after semantic hub (left ATL) disconnection (Kocsis et al., 2023) - DERIVATIVE\n\nAcute electrocorticography from two epilepsy surgery patients (University of Iowa) recorded during a speech prediction task\nminutes before (`ses-pre`) and after (`ses-post`) neurosurgical disconnection of the left anterior temporal lobe (ATL).\nArticle: left hemisphere; frontal grid (96 contacts P1, 64 contacts P2), temporal pole, subtemporal and lateral temporal\nstrips, an 8-contact Heschl's gyrus depth electrode; two subgaleal electrodes as ground and reference; anaesthesia stopped\nat least 20 min before each recording.\n\nTHIS IS A DERIVATIVE DATASET: the release's \"raw\" files are already downsampled from 2000 Hz to 1000 Hz (article:\n\"sampled at 2000 Hz ... then downsampled to 1000 Hz\"), so they are labelled `desc-downsampled`; the denoised files are\n`desc-dbtsvd` (demodulated band transform + removal of the first SVD component).\n\n## Source\n- Zenodo: Zsuzsanna Kocsis, Rick L. Jenison, Peter N. Taylor et al. doi:10.5281/zenodo.8110724 (2023-07-05). License CC-BY-4.0.\n- Article: Nat Commun 14 (2023), doi:10.1038/s41467-023-42088-7 (PMC10560235).\n- All 14 release files were downloaded from Zenodo on Voyager (md5 verified) and are in `sourcedata/zenodo-8110724/` unchanged.\n\n## Contents\n- `sub-0<p>/ses-<pre|post>/ieeg/*_task-speechprediction_desc-<downsampled|dbtsvd>_ieeg.*`: 128 channels at 1000 Hz,\n  1.92 h per desc in total. Units are not stated in the release (n/a). Values float64 -> float32.\n- Channel names from Information_sheet.xlsx (grid N, TemporalPole N, SubtemporalStrip N, LateralTemporalStrip N, HGdepth N).\n  Matrix channels not listed in the sheet are named chNNN, type MISC: ch085, ch086, ch087, ch088, ch089, ch090, ch091, ch092, ch093, ch094, ch095, ch096, ch097, ch098, ch099, ch100, ch101, ch102, ch103, ch104, ch105, ch106, ch107, ch108, ch109, ch110, ch111, ch112, ch113, ch114, ch115, ch116, ch117, ch118, ch119, ch120, ch121, ch122, ch123, ch124, ch125, ch126, ch127, ch128.\n- `events.tsv`: event code and sample from the *_events.mat files; meanings from the sheet 'event codes' (biasing sentence\n  onset; target word onset with B/P bias and VOT 0-40 ms; filler trials).\n\n## Localisation\n`electrodes.tsv` per session: MNI coordinates (mm) and Desikan-Killiany / Destrieux labels per contact, as listed in the\nrelease sheet for each period (the frontal grid positions differ pre/post; article: displacement was checked and corrected).\nThe MNI template is not named, so `coordsystem.json` says Other with that description. Temporal pole and subtemporal strip\ncontacts have no coordinates in the release. Sheet notes: P1: sheet has 2 location tables, both headed 'Pre-disconnection locations'; the second is taken as post-disconnection (frontal grid coordinates differ; article: grid displacement after disconnection was corrected) | P1 pre: channel numbers in the sheet are not consecutive ([113]...); mapped by row order starting at 1 | P2: sheet has 2 location tables, both headed 'Pre-disconnection locations'; the second is taken as post-disconnection (frontal grid coordinates differ; article: grid displacement after disconnection was corrected) | P2 pre: channel numbers in the sheet are not consecutive ([97, 98, 99, 100, 101]...); mapped by row order starting at 1 | P2 post: channel numbers in the sheet are not consecutive ([97, 98, 99, 100, 101]...); mapped by row order starting at 1\n\n## Privacy\nThe release holds participant codes P1/P2, signals, event codes and contact tables; age and sex come from the article.\nString scan of the event files: 4 flagged strings.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000430",
+    "exists": true,
+    "description": "Intracranial recordings before and after left anterior temporal lobe disconnection during a speech prediction task (Kocsis et al., 2023) - derivative",
+    "created_at": "2026-10-08T02:29:10+00:00",
+    "updated_at": "2026-10-21T21:33:34+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}
