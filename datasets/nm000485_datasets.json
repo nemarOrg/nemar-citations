@@ -1,0 +1,71 @@
+{
+  "dataset_id": "nm000485",
+  "date_retrieved": "2026-10-25T10:04:32.736342+00:00",
+  "dataset_description": {
+    "Name": "s500-generic-45: Letter and word selective SEEG responses in the ventral occipito-temporal cortex, fast periodic visual stimulation (Lochy et al., 2018) (derivative)",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "derivative",
+    "License": "CC0-1.0",
+    "Authors": [
+      "Aliette Lochy",
+      "Corentin Jacques",
+      "Louis Maillard",
+      "Sophie Colnat-Coulbois",
+      "Bruno Rossion",
+      "Jacques Jonas"
+    ],
+    "EthicsApprovals": [
+      "Collected under the source study's approval (University Hospital of Nancy; participants gave written informed consent), see the article DOI 10.1073/pnas.1718987115"
+    ],
+    "HowToAcknowledge": "Cite Lochy A, Jacques C, Maillard L, Colnat-Coulbois S, Rossion B, Jonas J (2018) Selective visual representation of letters and words in the left ventral occipito-temporal cortex with intracerebral recordings. PNAS 115(32):E7595-E7604, doi:10.1073/pnas.1718987115; and the Dryad dataset doi:10.5061/dryad.6s39h64.",
+    "ReferencesAndLinks": [
+      "https://doi.org/10.1073/pnas.1718987115",
+      "https://doi.org/10.5061/dryad.6s39h64",
+      "http://www.nocions.org/letswave/"
+    ],
+    "Keywords": [
+      "reading",
+      "visual word form area",
+      "SEEG",
+      "intracerebral recordings",
+      "fast periodic visual stimulation",
+      "frequency tagging",
+      "fusiform gyrus",
+      "letters",
+      "words"
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.5061/dryad.6s39h64",
+        "URL": "https://datadryad.org/dataset/doi:10.5061/dryad.6s39h64",
+        "Version": "Dryad version 1 (published 2019-07-09)"
+      }
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "Authors' preprocessing in Letswave 5",
+        "Description": "Import of Micromed TRC in Letswave 5, low-pass 40 Hz (Butterworth order 4), each sequence cut from 2 s after onset to ~68 s (integer number of 2 Hz cycles), sequences of one condition merged into one file (README)."
+      },
+      {
+        "Name": "o5c_C_convert_nancy.py",
+        "Description": "Repackaging: Letswave float32 sequences back-to-back in BrainVision (values unchanged); Letswave events to events.tsv; coordinates from the release xlsx to electrodes.tsv. Code in code/."
+      }
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000485",
+    "Version": "1.0.2"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000485-blue)](https://doi.org/10.82901/nemar.nm000485)\n\n# s500-generic-45: Letter and word selective SEEG responses in the ventral occipito-temporal cortex, fast periodic visual stimulation (Lochy et al., 2018) (derivative)\n\nSEEG from 37 patients with refractory epilepsy (University Hospital of Nancy) viewing fast periodic visual stimulation:\npseudofonts, nonwords (non-fonts) or pseudowords at 10 Hz with a real word every fifth item (2 Hz). Selective responses to\nletters and words are measured at 2 Hz and its harmonics (article).\n\nTHIS IS A DERIVATIVE DATASET: the release contains the authors' Letswave files, low-pass filtered at 40 Hz\n(Butterworth order 4) and cut into sequences, not the raw Micromed recordings.\n\n## Source\n- Dryad: Aliette Lochy, Corentin Jacques, Louis Maillard, Sophie Colnat-Coulbois, Bruno Rossion, Jacques Jonas. Data from: Selective visual representation of letters and words in the left ventral occipito-temporal cortex with intracerebral recordings. doi:10.5061/dryad.6s39h64 (version 1, 2019-07-09). License: CC0 1.0 (Dryad record).\n- Article: Lochy A, Jacques C, Maillard L, Colnat-Coulbois S, Rossion B, Jonas J (2018) Selective visual representation of letters and words in the left ventral occipito-temporal cortex with intracerebral recordings. PNAS 115(32):E7595-E7604, doi:10.1073/pnas.1718987115.\n- Dryad files: 3 zips (participants P001-P012, P013-P024, P025-P037) + 3 READMEs, verified against the Dryad md5 digests by the download lane.\n\n## Contents\n- `sub-<id>/ieeg/sub-<id>_task-<task>_run-1_ieeg.*`: 111 files, 37 participants, 6.11 h. Each file holds the\n  sequences of one condition back-to-back (one BrainVision segment per sequence; `RecordingType` epoched, `EpochLength` =\n  sequence length). Values are the release's float32 values, unchanged (MNE read-back matches). Sampling rate from the\n  Letswave header. Tasks:\n  - `task-wordspseudofont`: VC-W: words at 2 Hz among pseudofonts at 10 Hz\n  - `task-wordsnonfont`: NW-W: words at 2 Hz among nonwords (non-fonts) at 10 Hz\n  - `task-wordspseudoword`: PW-W: words at 2 Hz among pseudowords at 10 Hz\n- Channels: labels from the Letswave header. Intracerebral contacts are typed SEEG; scalp electrodes recorded with the\n  SEEG (labels `s<10-20 name>`) EEG; ECG, physiological monitors (MISC) and marker inputs (TRIG) as labelled. Unit µV is\n  assumed (Letswave import of Micromed TRC; not stated in the release). The reference is not stated per participant.\n- Electrode coordinates: each participant's folder has an xlsx table (Channel, Tal_x/y/z, MNI_x/y/z). They are written to `space-Talairach_electrodes.tsv` (37 participants) and `space-Other_electrodes.tsv` (MNI, 37 participants; the MNI template version is not stated in the release so the system is recorded as Other, see coordsystem.json). Contacts not present in the table have x/y/z n/a.\n- `events.tsv`: the Letswave events (code, sequence, latency) of each file that has any (0 files have no Letswave\n  events and no events.tsv); most frequent codes: [('s1', 501795), ('seq_stimuli_to_use_sinstim_Localiser_10Hz_VisualcontrolWords_Per_1', 10), ('seq_stimuli_to_use_sinstim_Localiser_10Hz_NonwordsWords_Per_1', 6), ('seq_stimuli_to_use_sinstim_Localiser_10Hz_PseudowordsWords_Per_1', 6), ('1', 5), ('unk', 2), ('NW_W', 2), ('seq_PW-W', 1)].\n- Letswave history per file is in each `ieeg.json` (`SoftwareFilters`).\n- `sourcedata/dryad-6s39h64-deidentified/`: the release's files, de-identified (below);\n  `DEIDENTIFICATION_MANIFEST.tsv` lists original and new sha-256 per file.\n- `stimuli/`: the stimulus images (BMP) and `stimuli_bigram_frequency.txt` from the first zip's Stimuli folder (released by the authors with the data).\n\n## Privacy\n- Letswave event codes with a leading participant-code token were replaced by 'seq' in events.tsv and in the\n  de-identified .lw5 headers (26 distinct tokens; a byte search of the whole output found\n  0 remaining occurrences). Letswave history dates and MAT text-header dates in sourcedata are reduced to\n  month and year (day -> 01). The .lw5 headers were rewritten with scipy (savemat, MATLAB v5, compressed); their content is\n  otherwise unchanged.\n- Age and sex are not given per participant in the release.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000485",
+    "exists": true,
+    "description": "s500-generic-45: Letter and word selective SEEG responses in the ventral occipito-temporal cortex, fast periodic visual stimulation (Lochy et al., 2018) (derivative)",
+    "created_at": "2026-10-11T21:29:23+00:00",
+    "updated_at": "2026-10-21T21:34:55+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "dataset_id": "nm000406",
+  "date_retrieved": "2026-10-25T10:02:07.616569+00:00",
+  "dataset_description": {
+    "Name": "Microelectrode recordings (MER) from deep brain stimulation surgery in Parkinson's disease (STN targeting, 14 patients)",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "raw",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "Alfredo Rosado-Muñoz",
+      "Juan Francisco Guerrero-Martínez",
+      "Antonio Gutierrez Martín"
+    ],
+    "Acknowledgements": "Data release: Zenodo record 7352058 (creators: Alfredo Rosado-Muñoz, Juan Francisco Guerrero-Martínez, Antonio Gutierrez Martín). BIDS conversion: ieeg-nemar-20261005 campaign (batch-3, lane W2); no signal processing applied.",
+    "HowToAcknowledge": "Please cite the data record: Rosado-Muñoz A, Guerrero-Martínez JF, Gutierrez Martín A (2022). Microelectrode register (MER) data from Deep Brain Stimulation (DBS) surgery in Parkinson's disease patients. Zenodo. doi:10.5281/zenodo.7352058. Related article: Tepper Á, Henrich MC, Schiaffino L, Rosado Muñoz A, Gutiérrez A, Guerrero Martínez J (2017). Selection of the Optimal Algorithm for Real-Time Estimation of Beta Band Power during DBS Surgeries in Patients with Parkinson's Disease. Computational Intelligence and Neuroscience 2017:1512504. doi:10.1155/2017/1512504.",
+    "Funding": [],
+    "EthicsApprovals": [
+      "Ethical Committee for Biomedical Research of La Fe Hospital (Valencia, Spain), registration number 2015/0824, approved 17 May 2016; patients signed an informed consent for DBS surgery with microelectrode recording (MER). Quoted from Bellino et al. 2019, Entropy 21(4):346, doi:10.3390/e21040346: \"All of the patients met medical accepted selection criteria and signed an informed consent for DBS surgery with MER. These investigations that use human data were carried out following the rules of the Declaration of Helsinki. The Ethical Committee for Biomedical Research of La Fe Hospital approved the research procedures for the project with registration number 2015/0824 in May 17, 2016.\" Coverage of the recordings in this release by this approval is attested by the depositor (Bruno Aristimunha, 2026-10-08)."
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.5281/zenodo.7352058",
+      "https://doi.org/10.1155/2017/1512504"
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000406",
+    "Keywords": [
+      "microelectrode recording",
+      "MER",
+      "deep brain stimulation",
+      "DBS",
+      "subthalamic nucleus",
+      "STN",
+      "Parkinson's disease",
+      "intraoperative"
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.5281/zenodo.7352058",
+        "URL": "https://zenodo.org/records/7352058",
+        "Version": "Zenodo record 7352058 (published 2022-11-23)"
+      }
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "b3w2_convert_c-mer.py",
+        "Description": "Lossless re-packaging of the release MATLAB int16 arrays into BrainVision (float32) with BIDS sidecars; no filtering, resampling, re-referencing or channel removal. Shorter channels of a file are NaN-padded at the end.",
+        "CodeURL": "n/a"
+      }
+    ],
+    "Version": "1.0.2"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000406-blue)](https://doi.org/10.82901/nemar.nm000406)\n\n# Microelectrode recordings (MER) from deep brain stimulation surgery in Parkinson's disease\n\nIntraoperative microelectrode recordings (MER) from **14 patients with Parkinson's disease** (9 male, 5 female;\n65.1 ± 5.6 years) during stereotactic surgery to implant deep brain stimulation (DBS) electrodes in the subthalamic\nnucleus (STN). Re-packaged in iEEG-BIDS from the authors' public release (Zenodo record\n[7352058](https://doi.org/10.5281/zenodo.7352058), \"Microelectrode register (MER) data from Deep Brain Stimulation\n(DBS) surgery in Parkinson's disease patients\", Rosado-Muñoz, Guerrero-Martínez and Gutierrez Martín, CC-BY-4.0).\n\nThe release description says: \"MER data consist of brain signal in different depths when DBS surgery is being done.\nIn each depth, a data file is created, with different duration depending on the depth, and up to three channels.\"\nDepths are grouped into STN-IN and STN-OUT (inside / outside the subthalamic nucleus), \"classification [...] made by\nthe neurophysiologists and surgeons\". Eight patients have left and right trajectories, one right only and five left\nonly. \"No filtering or data processing was made, they are directly obtained from the MER acquisition system.\"\n\nThe record lists one related article as using these data: Tepper et al. (2017), *Selection of the Optimal Algorithm\nfor Real-Time Estimation of Beta Band Power during DBS Surgeries in Patients with Parkinson's Disease*, Computational\nIntelligence and Neuroscience 2017:1512504 (https://doi.org/10.1155/2017/1512504). It describes MER from 9 bilateral\nSTN-DBS surgeries at La Fe Hospital, Valencia, Spain, with the MicroGuide system (Alpha Omega) and tungsten\nmicroelectrodes, amplified 10000 times, band-pass 200-6000 Hz, 12 kHz sampling, 12-bit A/D. The release does not say\nwhich of its 14 patients are those 9, so these settings are not copied into the sidecars.\n\n## Layout\n- `sub-<NN>` = release patient `P<NN>` (P1-P14). Age and sex are given only at group level, so `participants.tsv` has\n  `n/a` for them.\n- `task-mer`, `acq-left` / `acq-right` = trajectory side, `run-<k>` = one release file (one depth). Runs are numbered per\n  side in ascending order of the release file name (the \"depth label\"). The release does not document this label's\n  unit or origin; it is kept verbatim in `sub-<NN>_scans.tsv` (`source_depth_label`) together with the STN-IN / STN-OUT\n  classification (`stn_classification`) and the source path.\n- Three channels per file (`Electrode1`-`Electrode3`, as named in the release; type SEEG, units n/a: the release stores\n  int16 values without a scale factor). Channel 1 is close to flat in most files; the release does not say why.\n- Sampling frequency per run is computed from the release time vector as (N-1)/time[-1]: 12000 Hz in 432 files and\n  about 12019 Hz in the other 398 (exact value per run in the sidecar and in `scans.tsv`).\n- In 226 of the 830 files the three channels have different lengths (differences are whole 752-sample blocks). The\n  release does not document how channels of unequal length line up. Every channel is written from its first sample, and\n  shorter channels are NaN after their last sample. `channels.tsv` gives each channel's source length\n  (`source_n_samples`), and the sidecar's `RecordingDescription` repeats the lengths.\n- There are no electrode coordinates in the release. `electrodes.tsv` (per side) lists the three channels with `n/a`\n  coordinates.\n\n## What was converted, and how\nEach `.mat` (struct `signal`: `channel`, `data` int16, `time`) became one BrainVision run (IEEE float32: int16 values\nare exact). The round-trip check compares every run with its source file. No filtering, resampling or re-referencing\nwas applied. `sourcedata/zenodo-7352058/data/...` holds the original `.mat` files. The only change is that the MATLAB\nheader text \"Created on\" (file export date, 2018 or 2021) has its weekday and day masked (`--- Mon 01`). Year, month\nand all data are unchanged, and the provenance JSON gives the SHA-256 of each file before and after masking.\n\n## License\n\nCC-BY-4.0\n\n## Ethics\n\nThe recordings in this dataset are covered by the Ethical Committee for Biomedical Research of La Fe Hospital (Valencia, Spain), registration number 2015/0824, approved 17 May 2016. Patients signed an informed consent for DBS surgery with microelectrode recording (MER).\n\nStatement from Bellino et al. (2019), section 2.1 \"Database\" (verbatim), describing MER from DBS surgery at La Fe Hospital by the same group (J. Guerrero, A. Rosado-Muñoz):\n\n> All of the patients met medical accepted selection criteria and signed an informed consent for DBS surgery with MER. These investigations that use human data were carried out following the rules of the Declaration of Helsinki. The Ethical Committee for Biomedical Research of La Fe Hospital approved the research procedures for the project with registration number 2015/0824 in May 17, 2016.\n\nBellino GM, Schiaffino L, Battisti M, Guerrero J, Rosado-Muñoz A (2019). Optimization of the KNN Supervised Classification Algorithm as a Support Tool for the Implantation of Deep Brain Stimulators in Patients with Parkinson's Disease. Entropy 21(4):346. https://doi.org/10.3390/e21040346 (PMC7514830).\n\nThe Zenodo record 7352058 itself contains no ethics statement. Coverage of the recordings in this release by La Fe approval 2015/0824 is attested by the depositor (Bruno Aristimunha, 2026-10-08).\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000406",
+    "exists": true,
+    "description": "Microelectrode recordings (MER) from deep brain stimulation surgery in Parkinson's disease (STN targeting, 14 patients)",
+    "created_at": "2026-10-07T22:35:31+00:00",
+    "updated_at": "2026-10-21T21:11:33+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

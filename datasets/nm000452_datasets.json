@@ -1,0 +1,69 @@
+{
+  "dataset_id": "nm000452",
+  "date_retrieved": "2026-10-25T10:03:07.152392+00:00",
+  "dataset_description": {
+    "Name": "ECoG_HB_02: hybrid-density ECoG high-gamma features with synchronised speech, one participant (derivative)",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "derivative",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "Xupeng Chen"
+    ],
+    "Acknowledgements": "Data deposited on Mendeley Data by Xupeng Chen (New York University). Study team per the paper: Xupeng Chen, Ran Wang, Amirhossein Khalilian-Gourtani, Leyao Yu, Patricia Dugan, Daniel Friedman, Werner Doyle, Orrin Devinsky, Yao Wang, Adeen Flinker.",
+    "HowToAcknowledge": "Cite the data (Chen, Xupeng (2024), 'ECoG_HB_02', Mendeley Data, V2, doi:10.17632/fp4bv9gtwk.2) and the paper (Chen, X., Wang, R., Khalilian-Gourtani, A., Yu, L., Dugan, P., Friedman, D., Doyle, W., Devinsky, O., Wang, Y. & Flinker, A. A neural speech decoding framework leveraging deep learning and speech synthesis. Nature Machine Intelligence 6, 467-480 (2024). doi:10.1038/s42256-024-00824-8).",
+    "Funding": [
+      "U.S. National Science Foundation IIS-1912286",
+      "U.S. National Science Foundation 2309057 (paper acknowledgements)",
+      "National Institutes of Health R01NS115929",
+      "National Institutes of Health R01NS109367",
+      "National Institutes of Health R01DC018805"
+    ],
+    "EthicsApprovals": [
+      "Institutional Review Board of NYU Grossman School of Medicine (Chen et al. 2024)"
+    ],
+    "ReferencesAndLinks": [
+      "Chen, X., Wang, R., Khalilian-Gourtani, A., Yu, L., Dugan, P., Friedman, D., Doyle, W., Devinsky, O., Wang, Y. & Flinker, A. A neural speech decoding framework leveraging deep learning and speech synthesis. Nature Machine Intelligence 6, 467-480 (2024). doi:10.1038/s42256-024-00824-8",
+      "https://doi.org/10.17632/fp4bv9gtwk.2",
+      "https://github.com/flinkerlab/neural_speech_decoding",
+      "Chen, X. & Wang, R. Neural speech decoding 1.0 (Zenodo, 2024). doi:10.5281/zenodo.10719428"
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000452",
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.17632/fp4bv9gtwk.2",
+        "URL": "https://data.mendeley.com/datasets/fp4bv9gtwk/2",
+        "Version": "2 (published 2024-03)"
+      },
+      {
+        "DOI": "n/a"
+      }
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "Chen et al. 2024 preprocessing (data authors)",
+        "Description": "Per the paper Methods: ECoG sampled at 2,048 Hz, downsampled to 512 Hz; artefactual and epileptiform electrodes rejected; common average reference; Hilbert envelope of high gamma (70-150 Hz); downsampled to 125 Hz; z-scored per electrode to pre-stimulus silent baselines. Output released as HB02.h5 together with 16 kHz speech audio and speech features.",
+        "CodeURL": "https://github.com/flinkerlab/neural_speech_decoding"
+      },
+      {
+        "Name": "NEMAR iEEG repackaging (f2_convert_hb.py)",
+        "Version": "1.0.0",
+        "Description": "ecog_alldataset written frame for frame as BrainVision float32 at 125 Hz (cast from float64, deviation measured), all-zero columns marked bad, word trials as events; HB02.h5 kept unchanged in sourcedata/. No signal processing added."
+      }
+    ],
+    "Version": "1.0.2"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000452-blue)](https://doi.org/10.82901/nemar.nm000452)\n\n# ECoG_HB_02 (derivative): hybrid-density ECoG high-gamma features with synchronised speech\n\n**This is a DERIVATIVE dataset.** It repackages the single file of the Mendeley Data record \"ECoG_HB_02\"\n(Xupeng Chen, doi:10.17632/fp4bv9gtwk.2, CC-BY-4.0), the one participant of Chen et al. 2024 (Nature Machine\nIntelligence) who consented to public release of neural and audio data. **The raw ECoG voltage recordings were not\nreleased by the authors**; what is shared is their processed 125 Hz feature matrix.\n\n## What the signal is\n- Source: `ecog_alldataset` in `HB02.h5` (169075 frames x 225 columns, float64), described by the record as\n  \"hybrid-density ECoG data with synchronized speech and other features\".\n- Processing, as stated in the paper Methods (not re-done here): ECoG sampled at 2,048 Hz and downsampled to 512 Hz;\n  electrodes with artefacts (line noise, poor contact, high-amplitude shifts) or interictal/epileptiform activity\n  rejected; common average reference subtracted; Hilbert envelope of the high gamma (70-150 Hz) component, downsampled to\n  125 Hz; each electrode normalised (z-scored) to the mean and variance of 250-ms silent periods before each trial's\n  stimulus in the training set.\n- Measured here: values -2.388 to 4.466, unitless (z-score). 128 columns carry signal\n  and 97 columns are exactly 0 for every frame; those are marked `status=bad` in channels.tsv\n  (1-based columns: 2, 4, 6, 8, 16, 17, 18, 19, 20, 21, 22, 23, 32, 34, 36, 38, 46, 47, 48, 49, 50, 51, 52, 53, 62, 64, 66, 68, 76, 77, 78, 79, 80, 81, 82, 83, 92, 94, 98, 104, 106, 107, 108, 113, 118, 119, 120, 122, 124, 128, 134, 136, 137, 138, 139, 143, 147, 148, 149, 150, 152, 154, 158, 162, 164, 166, 167, 168, 169, 173, 177, 178, 179, 180, 182, 184, 188, 192, 194, 196, 197, 198, 199, 203, 204, 206, 207, 208, 209, 210, 212, 214, 216, 218, 220, 222, 224). The paper describes the hybrid-density grid as 128 contacts\n  (64 macro contacts in an 8 x 8 layout at 10-mm spacing plus 64 interspersed 1-mm contacts). The mapping from the\n  225 columns to grid contacts, and contact coordinates, were not released; electrodes.tsv therefore lists the columns with n/a coordinates only.\n- Implant hemisphere left and sex female, per the authors' `configs/AllSubjectInfo.json` in the code repository.\n\n## Time axis: not a continuous raw recording\nThe file is a single run, one BIDS sample per frame of `ecog_alldataset` (125 Hz, 1352.6 s, 0.376 h).\nThe release does not document how the 169075 frames were assembled (the authors' notebook calls the arrays\n`*_alldataset` and segments trials by onset/offset indices). The trial order in the file is not chronological along\nthe array (`start_ind_re_valid_alldataset` jumps backward after trial index 321),\nso the array is probably assembled from separate pieces. Do not treat the time axis as one continuous session and do not filter across the whole run without\nchecking. `RecordingType` is therefore `discontinuous`.\n\n## Events\n`events.tsv` has one row per entry of `label_alldataset` (372 trials, 51 distinct words), sorted by onset,\nwith onset/duration from `start_ind_re_valid_alldataset` / `end_ind_re_valid_alldataset` (frames / 125 Hz), the word,\nand `source_index` (position in the deposit arrays). `TestNum_cum` in the file is 50; per the paper, 50 trials per\nparticipant were held out for testing (which ones is not encoded in the file).\n\n## Data format and fidelity\nBrainVision, IEEE float32, multiplexed, 125 Hz. The float64 values were cast to float32: max absolute deviation\n2.38e-07 (max relative 5.96e-08). The .eeg file reads back bit-exactly equal to float32 of the\ndeposit, also through MNE-BIDS. The BrainVision header carries no unit (readers default to microvolts); the values are\nz-scores, and channels.tsv says units `n/a`.\n\n## sourcedata/\n`sourcedata/HB02.h5` is the deposit file, byte-identical (SHA-256 018294464a291521a6f6c14878ec04dd95ac3e953123dfe3c54a75d1f9c8aa5d). Besides the ECoG\nfeatures it holds the synchronised speech audio (`wave_re_alldataset`, 16 kHz, 128 audio samples per ECoG frame),\nspectrograms (`wave_re_spec_alldataset`, `wave_re_spec_amp_alldataset`), formants, pitch, intensity, the noise\nprofile (`noisesample_re_alldataset`) and the trial labels/indices. The speech audio was published by the authors under\nCC-BY-4.0 with the participant's consent (paper, Data availability).\n\n## Source and licence\n- Data: Chen, Xupeng (2024), \"ECoG_HB_02\", Mendeley Data, V2, doi:10.17632/fp4bv9gtwk.2. Licence CC-BY-4.0 (kept).\n- Paper: Chen, X., Wang, R., Khalilian-Gourtani, A., Yu, L., Dugan, P., Friedman, D., Doyle, W., Devinsky, O., Wang, Y. & Flinker, A. A neural speech decoding framework leveraging deep learning and speech synthesis. Nature Machine Intelligence 6, 467-480 (2024). doi:10.1038/s42256-024-00824-8\n- Code: https://github.com/flinkerlab/neural_speech_decoding\n- Ethics (paper): Institutional Review Board of NYU Grossman School of Medicine; written and oral consent.\n- Funding: NSF IIS-1912286 and 2309057; NIH R01NS109367, R01NS115929, R01DC018805.\n- Changes made here (CC-BY \"indicate if changes were made\"): format conversion only (float64 -> float32 BrainVision),\n  sidecars and events added; the original file is included unchanged.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000452",
+    "exists": true,
+    "description": "ECoG_HB_02: hybrid-density ECoG high-gamma features with synchronised speech, one participant (derivative)",
+    "created_at": "2026-10-08T19:56:58+00:00",
+    "updated_at": "2026-10-21T21:11:57+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

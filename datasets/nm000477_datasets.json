@@ -1,0 +1,75 @@
+{
+  "dataset_id": "nm000477",
+  "date_retrieved": "2026-10-25T10:04:09.850747+00:00",
+  "dataset_description": {
+    "Name": "Intraoperative microelectrode recordings in human substantia nigra and globus pallidus during a social ultimatum game",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "raw",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "Arianna Davis",
+      "Ofer Perl",
+      "Brian Kopell",
+      "Matthew Heflin",
+      "Salman Qasim",
+      "Zarghona Imtiaz",
+      "Ayaka Kato",
+      "Soojung Na",
+      "Navid Mikail",
+      "Helen S. Mayberg",
+      "P. Read Montague",
+      "Ignacio Saez",
+      "Xiaosi Gu"
+    ],
+    "HowToAcknowledge": "Cite the figshare dataset doi:10.6084/m9.figshare.29082671.v2 and the article \"Single neurons in the human substantia nigra encode social learning signals\" (Davis et al.).",
+    "ReferencesAndLinks": [
+      "https://doi.org/10.6084/m9.figshare.29082671.v2"
+    ],
+    "EthicsApprovals": [
+      "Collected under the source study's approval (Icahn School of Medicine at Mount Sinai per the behaviour logs); see the article associated with the figshare record"
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.6084/m9.figshare.29082671.v2",
+        "URL": "https://figshare.com/articles/dataset/29082671",
+        "Version": "figshare version 2 (2025-10-14T22:31:54Z)"
+      }
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "o5c_B_conv_lit9.py",
+        "Description": "Alpha Omega MATLAB export RAW streams (int16) scaled to uV with the stored BitResolution/Gain, written as BrainVision float32; TTL edges to events.tsv; all release files in sourcedata/ (MAT header day set to 01). Code in code/."
+      }
+    ],
+    "Funding": [
+      "R01MH124115",
+      "F30MH135658"
+    ],
+    "Keywords": [
+      "substantia nigra",
+      "globus pallidus",
+      "microelectrode recording",
+      "single neurons",
+      "dopamine",
+      "social learning",
+      "ultimatum game",
+      "DBS surgery"
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000477",
+    "Version": "1.0.2"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000477-blue)](https://doi.org/10.82901/nemar.nm000477)\n\n# Intraoperative microelectrode recordings in human substantia nigra and globus pallidus during a social ultimatum game (Davis et al., 2025)\n\nRelease: figshare 29082671 \"Single neurons in the human substantia nigra encode social learning signals\" (Arianna Davis, Ofer Perl, Brian Kopell, Matthew Heflin, Salman Qasim, Zarghona Imtiaz, Ayaka Kato, Soojung Na, Navid Mikail, Helen S. Mayberg, P. Read Montague, Ignacio Saez, Xiaosi Gu;\ndoi:10.6084/m9.figshare.29082671.v2, CC BY 4.0). Release description (excerpt): \"Description of the data and file structure  Behavioral and electrophysiological data were collected from neurosurgical patients who played a social exchange game while undergoing single-unit electrophysiological recording from the substantia nigra and globus pallidus in order to delineate the potential roles of these neurons in encoding social learning signals.  Files and variables  File: Code.zip   Description:  This compressed folder contains all scripts required to conduct the behavioral and neural analyses presented in the paper. It is organized into two subfolders: behavior and neural. The behavior folder is further organized into a prep folder and a modeling folder. The scripts in the prep folder are what were used for data cleaning, organizing, and model-free analyses. All model scripts are in the modeling folder. Scripts for carrying out neural analyses are in the neural folder. ...\"\n\n## Content (67 runs, 5.19 h, 24 participants, 33 sessions)\nEach Alpha Omega file of the release (one microelectrode position = `run-<file number>`) is one BrainVision recording with\nthe wideband RAW streams at 44 kHz: the microelectrode tip (`<side>T<track>micro<nn>`, Alpha Omega `CRAW_nn`) and the macro\ncontact of the same lead (`...macro<nn>`, `CMacro_RAW_nn`), int16 counts x BitResolution / Gain in microvolts (float32;\nthe exact factors are in channels.tsv). Where a file's streams differ in length by a few samples they are cut to the\nshortest (listed in code/conversion_report.json). Sessions: `ses-1` = release folder `ptNNNN`, `ses-2` = `ptNNNN_2`; the\nside, track and drive depth of every run come from the Alpha Omega file name (`LT1D-0.490F0002` = left track 1, depth\n-0.490 mm, file 2) and are in `*_scans.tsv`. Target (substantia nigra / globus pallidus) from the release folders.\nevents.tsv: rising/falling edges of the digital inputs (task synchronisation pulses).\n\nNot converted (kept in `sourcedata/figshare-29082671/`): the online LFP (`CLFP`, `CMacro_LFP`, 1.375 kHz) and spike-band\n(`CSPK`) streams, threshold spike segments (`CSEG`), analog inputs, the behaviour logs (`behavior/*.json.txt`, `*.csv`), the\nOSORT cluster-to-unit merge sheets (`merge_pt*.xlsx`) and the Alpha Omega MAT files themselves (byte-identical except the\nMAT header creation day set to 01). The release's Code.zip (analysis scripts) and the unit waveform figures\n(Data_SN_morph-unit-plots.zip) are not included; they remain in the figshare record.\n\n## Localisation\nNo coordinates are released. `electrodes.tsv` lists the microelectrode/macro channels per session with the target structure;\nhemisphere, track and depth per run are in scans.tsv.\n\n## Provenance\nConverted by the ieeg-nemar-20261005 campaign (lane o5c-B) with `code/o5c_B_conv_lit9.py` (round-trip checks in\ncode/conversion_report.json).\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000477",
+    "exists": true,
+    "description": "Intraoperative microelectrode recordings in human substantia nigra and globus pallidus during a social ultimatum game",
+    "created_at": "2026-10-11T21:10:18+00:00",
+    "updated_at": "2026-10-21T21:11:37+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

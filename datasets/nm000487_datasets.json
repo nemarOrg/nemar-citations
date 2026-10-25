@@ -1,0 +1,70 @@
+{
+  "dataset_id": "nm000487",
+  "date_retrieved": "2026-10-25T10:04:36.444382+00:00",
+  "dataset_description": {
+    "Name": "s500-literature-164: Face-selective SEEG across the ventral occipito-temporal cortex in 140 participants, fast periodic visual stimulation (Jacques et al., 2025) (derivative)",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "derivative",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "Corentin Jacques",
+      "Jacques Jonas",
+      "Sophie Colnat-Coulbois",
+      "Bruno Rossion"
+    ],
+    "HowToAcknowledge": "Cite Jacques C, Jonas J, Colnat-Coulbois S, Rossion B (2025) Concurrent category-selective neural activity across the ventral occipito-temporal cortex supports a non-hierarchical view of human visual recognition. eLife reviewed preprint, doi:10.7554/eLife.109640.1; and the OSF dataset doi:10.17605/OSF.IO/2QZYM.",
+    "ReferencesAndLinks": [
+      "https://doi.org/10.7554/eLife.109640.1",
+      "https://doi.org/10.17605/OSF.IO/2QZYM",
+      "https://osf.io/2qzym/",
+      "http://www.nocions.org/letswave/"
+    ],
+    "Keywords": [
+      "SEEG",
+      "intracerebral recordings",
+      "face recognition",
+      "fast periodic visual stimulation",
+      "frequency tagging",
+      "ventral occipito-temporal cortex",
+      "high-frequency broadband",
+      "epilepsy",
+      "Talairach"
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.17605/OSF.IO/2QZYM",
+        "URL": "https://osf.io/2qzym/",
+        "Version": "OSF node 2qzym, files as listed 2026-10-11 (5 zips seeg_data_p*.zip + File information/; sha256 per file in sourcedata/osf-2qzym-deidentified/DEIDENTIFICATION_MANIFEST.tsv)"
+      }
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "Authors' preprocessing in Letswave 5",
+        "Description": "Micromed TRC imported in Letswave 5, each recording segmented into FPVS sequences (2 s before onset to 2 s after the end) and merged per participant; no further transform (README)."
+      },
+      {
+        "Name": "o5c_A2_convert_lit164.py",
+        "Description": "Repackaging: Letswave float32 sequences back-to-back in BrainVision (values unchanged, MNE read-back checked); Letswave events to events.tsv; Talairach coordinates and anatomical labels from the Letswave chanlocs to electrodes.tsv; demographics and reference contact from the release tables. Code in code/."
+      }
+    ],
+    "EthicsApprovals": [
+      "Collected under the source study's approval (University Hospital of Nancy, presurgical SEEG evaluation; see the article doi:10.7554/eLife.109640.1)."
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000487",
+    "Version": "1.0.2"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000487-blue)](https://doi.org/10.82901/nemar.nm000487)\n\n# Jacques, Jonas, Colnat-Coulbois & Rossion (2025): face-selective SEEG across the ventral occipito-temporal cortex (140 participants)\n\nIntracerebral EEG (SEEG) from 140 patients with refractory epilepsy (University Hospital of Nancy) viewing fast periodic\nvisual stimulation: natural images of objects at 6 Hz with a face every 5th image (1.2 Hz). 140 files, 9.67 h of\nsequences, 22160 SEEG channels in total (20495 with Talairach coordinates). Sampling rate {512.0: 126, 256.0: 3, 500.0: 11} (files per rate).\nReleased by the authors on OSF (https://osf.io/2qzym/, CC-BY 4.0) with the Letswave loader and participant tables.\n\nTHIS IS A DERIVATIVE DATASET: the release holds the authors' minimally preprocessed Letswave 5 files (segmented into\nstimulation sequences and merged per participant; no filtering stated), not the raw Micromed recordings.\n\n## Contents\n- `sub-NNN/ieeg/sub-NNN_task-fpvsfaces_run-1_ieeg.*`: the participant's FPVS sequences back-to-back (one BrainVision segment per\n  sequence; `RecordingType` epoched, `EpochLength` = sequence length incl. the 2 s before and after). Values are the release's\n  float32 values, unchanged. The sequence time axis starts at `xstart` (-2 s, or -1.8333 s for participants whose first trigger\n  was missing; `participants.tsv` first_trigger_missing, `ieeg.json` SequenceStartTime).\n- `channels.tsv`: labels from the Letswave header (a prime ' marks the left hemisphere); all contacts typed SEEG; unit µV\n  assumed (Letswave import of Micromed TRC; not stated in the release); reference = the participant's reference contact from\n  `140_participants_seeg_info.txt`.\n- `sub-NNN_space-Talairach_electrodes.tsv`: Talairach x/y/z per contact from the Letswave header (chanlocs.xyz_coord_Talairach)\n  plus the authors' anatomical labels: `anatomy_main_region` (OCC, PTL, ATL, MTL, TP, WM...), `anatomy_sub_region` and `votc`\n  (inside the authors' VOTC region or not). Contacts without finite coordinates have n/a.\n- `events.tsv`: Letswave events (trigger codes, sequence, latency); the README says the codes are meaningless for most\n  participants (stimulus onsets are periodic).\n- `participants.tsv`: age at SEEG, sex, handedness (release demographics), reference contact, first-trigger flag, sequence\n  length, sampling rate, number of sequences and of channels.\n- `sourcedata/osf-2qzym-deidentified/`: the release's Letswave files per participant (headers rewritten, see Privacy), the README,\n  loader and the two participant .txt tables (`140_participants_info.xlsx` is not copied: it could not be inspected in the\n  conversion environment; the .txt tables carry the same information); `DEIDENTIFICATION_MANIFEST.tsv` lists original and\n  new sha-256 per file.\n\n## Privacy\n- Letswave event codes with a leading participant-code token were replaced ('seq_...'; other free-text codes 'unk') in\n  events.tsv and in the de-identified .lw5 headers (108 distinct tokens; a byte\n  search of the output found 0 remaining occurrences). Header `name` fields were\n  blanked, history dates reduced to month/year and file paths removed; MAT text-header dates reduced to month/year.\n- Participants are identified by number only; demographics are age, sex and handedness as released.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000487",
+    "exists": true,
+    "description": "s500-literature-164: Face-selective SEEG across the ventral occipito-temporal cortex in 140 participants, fast periodic visual stimulation (Jacques et al., 2025) (derivative)",
+    "created_at": "2026-10-12T00:18:53+00:00",
+    "updated_at": "2026-10-21T21:34:58+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

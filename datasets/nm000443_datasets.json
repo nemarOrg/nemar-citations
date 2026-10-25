@@ -1,0 +1,76 @@
+{
+  "dataset_id": "nm000443",
+  "date_retrieved": "2026-10-25T10:02:59.779700+00:00",
+  "dataset_description": {
+    "Name": "Subthalamic and thalamic local field potentials during DBS in cervical dystonia, DC-removed derivative at 4096 Hz",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "derivative",
+    "License": "CC-BY-SA-4.0",
+    "Authors": [
+      "Christoph Wiest",
+      "Flavie Torrecillos",
+      "Francesca Morgante",
+      "Erlick Pereira",
+      "Huiling Tan"
+    ],
+    "Acknowledgements": "Data collected and shared by the MRC Brain Network Dynamics Unit, University of Oxford (Tan group), with St George's University Hospitals NHS Foundation Trust, London. Copyright 2020-2022, University of Oxford.",
+    "HowToAcknowledge": "Cite the dataset (Wiest C, Torrecillos F, Morgante F, Pereira E, Tan H. University of Oxford, doi:10.5287/bodleian:qrnqjnpv7) and Wiest C, Morgante F, Torrecillos F, Pogosyan A, He S, Baig F, Bertaina I, Hart MG, Edwards MJ, Pereira EA, Tan H (2023). Subthalamic Nucleus Stimulation-Induced Local Field Potential Changes in Dystonia. Mov Disord 38(3), doi:10.1002/mds.29302.",
+    "Funding": [
+      "Medical Research Council UK (MC_UU_00003/2, MR/P012272/1, MR/V00655X/1)",
+      "National Institute for Health Research (NIHR) Oxford Biomedical Research Centre",
+      "Rosetrees Trust (PGL21/10115)"
+    ],
+    "EthicsApprovals": [
+      "Health Research Authority UK and National Research Ethics Service Local Research Ethics Committee (IRAS: 46576) (Wiest et al. 2022)"
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.5287/bodleian:qrnqjnpv7",
+      "https://doi.org/10.1002/mds.29302",
+      "https://data.mrc.ox.ac.uk/"
+    ],
+    "Keywords": [
+      "dystonia",
+      "cervical dystonia",
+      "subthalamic nucleus",
+      "zona incerta",
+      "thalamus",
+      "local field potential",
+      "deep brain stimulation",
+      "evoked resonant neural activity",
+      "single-pulse stimulation"
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.5287/bodleian:qrnqjnpv7",
+        "URL": "https://doi.org/10.5287/bodleian:qrnqjnpv7",
+        "Version": "Cambium release (zips 'P1,P2', 'P3,P4', 'P5,P6,P7')"
+      }
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "Authors' processing",
+        "Description": "TMSi Saga recordings at 4096 Hz exported to Spike2 .smr and MATLAB SmrData structs; the released signals have no DC offset on any channel (undocumented DC removal/high-pass, cutoff not stated); derived channels (F-*, S-*, f*) included by the authors."
+      },
+      {
+        "Name": "b3w12_convert_dyst.py",
+        "Description": "Repackaging of the Spike2/MATLAB exports to BrainVision float32 with values unchanged (exact); Spike2 Mark events; code in code/."
+      }
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000443",
+    "Version": "1.0.2"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000443-blue)](https://doi.org/10.82901/nemar.nm000443)\n\n# Subthalamic and thalamic LFPs during DBS in cervical dystonia (Wiest et al. 2022) - DERIVATIVE\n\nLocal field potentials (LFPs) from externalised octopolar deep brain stimulation (DBS) leads in 7 patients with isolated\nidiopathic (cranio)cervical dystonia (12 hemispheres; leads span the subthalamic nucleus (STN, inferior contacts), the rostral\nzona incerta and the ventrolateral thalamus (superior contacts)), recorded 4-7 days after surgery off anti-dystonic medication\nat St George's University Hospitals, London, while stimulation was applied through the lead. Scalp EEG, EMG of dystonic neck\nmuscles and accelerometers were recorded in some patients. The data were first analysed in Wiest et al. (2022/2023),\nwhich reports broadband power suppression, evoked resonant neural activity (ERNA) and finely tuned gamma under STN stimulation.\n\n## Source\n- Wiest C, Torrecillos F, Morgante F, Pereira E, Tan H. \"Subthalamic and thalamic local field potential recordings from patients\n  with cervical dystonia\". University of Oxford, MRC Brain Network Dynamics Unit data sharing platform (Cambium). doi:10.5287/bodleian:qrnqjnpv7\n- Wiest C, Morgante F, Torrecillos F, Pogosyan A, He S, Baig F, Bertaina I, Hart MG, Edwards MJ, Pereira EA, Tan H (2023).\n  Subthalamic Nucleus Stimulation-Induced Local Field Potential Changes in Dystonia. Mov Disord 38(3). doi:10.1002/mds.29302\n- Funding (release README and paper): Medical Research Council UK (MC_UU_00003/2, MR/P012272/1, MR/V00655X/1), NIHR Oxford\n  Biomedical Research Centre, Rosetrees Trust.\n- Ethics (paper): Health Research Authority UK and National Research Ethics Service Local Research Ethics Committee (IRAS 46576);\n  written informed consent.\n\n## Licence\nCC BY-SA 4.0. The Cambium record page, its download form and the README.txt inside each of the three zips all state\nCC BY-SA 4.0 (no other licence file is in the zips). Copyright 2020-2022, University of Oxford. README.txt is in sourcedata/bndu/.\n\n## Recording\nTMSi Saga amplifier, 4096 Hz, custom acquisition software (paper); exported via Spike2 to MATLAB (SmrData structs). Boston\nScientific Vercise Standard Lead 2201 (non-directional, 8 ring contacts; level 1 most inferior). Contacts adjacent to the\nstimulated level are recorded bipolar (label e.g. L13 when L2 is stimulated); all other contacts and the EEG are unipolar with\ncommon mode rejection (README). The release does not state units, so channels.tsv lists units as n/a; values are unchanged.\nTHIS IS A DERIVATIVE DATASET. The release README and the paper describe no filtering before release (the paper's 1 Hz\nhigh-pass and 50 Hz notch are later analysis steps), but every released channel, including the head accelerometers, is free of\nDC offset: there is no gravity component on the accelerometers, and 10 s window means are small compared with each channel's\nstandard deviation, although the TMSi Saga is DC-coupled. The Spike2 files also came from a 'processed_data/SMR' folder. An\nundocumented DC removal / high-pass was therefore applied before release (cutoff not stated), so the dataset is labelled\nderivative. The sampling rate is the acquisition rate (4096 Hz, no resampling). Channels prefixed F-, S- or f are additional\nchannels that the authors derived (e.g. F-L1 is close to L1); they are kept as MISC.\n\n## Contents\n- 68 continuous recordings, 9.65 h in total, 1.9-17.0 min each, all at 4096 Hz.\n  One BIDS run per release .mat file; the release file is listed in each sub-*_scans.tsv (source_file).\n  - `task-dbsramp` (62 files; release labels 'Testing' and, for participant 2, 'DBS'): continuous 130 Hz\n    monopolar DBS of one of the six middle contact levels (2-7; `acq-<L|R><level>`) with the intensity increased in 0.5 mA steps\n    up to 4.5 mA or the side-effect threshold. In patient 2 the paper also tested 100/130/150/180 Hz for 2 min each at one contact.\n  - `task-singlepulse` (5 files, participants 5-7; `acq-left|right`): 25 single pulses applied to each of the 8\n    contact levels in sequence, the remaining contacts recorded unipolar.\n  - `task-paired` (1 file, participant 7, release label 'Paired', left contact level 2): not described in the\n    release or the paper; kept as released.\n- Channels (types in channels.tsv; release labels kept, repeated release labels such as AUX1 get a suffix _2, _3):\n  DBS = lead contacts L1-L8/R1-R8 and bipolar pairs (e.g. L13); EEG = scalp electrodes; EMG = neck muscles (e.g. SplL, SCML);\n  MISC = accelerometer, stimulation current channels (Cur*/Am*: time stamps and intensity of the applied stimulation, README)\n  and any release channel the README does not describe (e.g. F-*, S-*, f*, Rs*/Res*, *Spc, AUX*), kept unchanged.\n- events.tsv: Spike2 'Mark' channel time stamps from the release (SmrData.EvData). Stimulation timing and intensity are in\n  the Cur/Am channels.\n- electrodes.tsv: lead contacts with x, y, z = n/a, hemisphere, contact level and the stated targets; no coordinates are released.\n- participants.tsv: age, sex, diagnosis, disease duration and days after surgery from Wiest et al. (2022) Table 1. The release\n  numbering is taken to be the paper's patient numbering: the release README says participants 5-7 received single-pulse\n  stimulation, as Table 1 does, and participant 5 has only a left single-pulse file, matching Table 1 (single pulse: L).\n\n## sourcedata/bndu\nREADME.txt and the 68 original .mat files. Changed for privacy only: the MAT header 'Created on' day is set to 01; the Spike2\nFileName (an internal lab code) and FilePath (lab drive path containing the recording date and hospital/lab codes) strings are\noverwritten in place with the release file name and '[path removed]'. WvData (signals) is byte-identical to the release\n(checked); SHA-256 of original and edited files in code/conversion_report.json.\n\n## Privacy\nNo names or hospital numbers remain. Recording dates were only in the removed FilePath strings; scans.tsv acq_time is n/a.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000443",
+    "exists": true,
+    "description": "Subthalamic and thalamic local field potentials during DBS in cervical dystonia, DC-removed derivative at 4096 Hz",
+    "created_at": "2026-10-08T12:54:14+00:00",
+    "updated_at": "2026-10-21T21:33:57+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

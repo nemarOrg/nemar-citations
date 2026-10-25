@@ -1,0 +1,76 @@
+{
+  "dataset_id": "nm000469",
+  "date_retrieved": "2026-10-25T10:03:47.856313+00:00",
+  "dataset_description": {
+    "Name": "Xie2026 amygdala ablation PTSD: epoched stereo-EEG of the index patient before and after right amygdala radiofrequency ablation (interpretation-bias task)",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "derivative",
+    "License": "CC-BY-NC-4.0",
+    "Authors": [
+      "Tao Xie",
+      "Sanne J. H. van Rooij",
+      "Sai Sun",
+      "Noah K. Bryson",
+      "Phillip Demarest",
+      "Haeorum Park",
+      "Luigi Maccotta",
+      "Shuo Wang",
+      "Peter Brunner",
+      "Jon T. Willie"
+    ],
+    "HowToAcknowledge": "Cite Xie T et al. (2026) Right amygdala ablation reduces maladaptive negative interpretation bias and symptoms in a patient with PTSD. Nature Communications, doi:10.1038/s41467-026-74099-5, and the OSF release https://osf.io/63tym/.",
+    "ReferencesAndLinks": [
+      "https://doi.org/10.1038/s41467-026-74099-5",
+      "https://osf.io/63tym/"
+    ],
+    "Keywords": [
+      "stereo-EEG",
+      "amygdala",
+      "radiofrequency ablation",
+      "PTSD",
+      "interpretation bias",
+      "event-related potentials"
+    ],
+    "SourceDatasets": [
+      {
+        "URL": "https://osf.io/63tym/",
+        "Version": "OSF node 63tym (files as downloaded 2026-10-11; sha256 in sourcedata/osf-63tym/DEIDENTIFICATION_MANIFEST.tsv)"
+      }
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "o5c_A1_convert_lit67.py",
+        "Description": "Repackaging of eeg.data epochs (per session, back-to-back) into BrainVision float32 with the released event fields and chanlocs annotations/coordinates. Code in code/."
+      }
+    ],
+    "EthicsApprovals": [
+      "Collected under the source study's approval (see the article, doi:10.1038/s41467-026-74099-5); the release states the signals are de-identified."
+    ],
+    "Funding": [
+      "NIH R01-MH120194",
+      "NIH K01-MH121653",
+      "NIH R01-MH129426",
+      "NIH R01-EB026439, U24-NS109103, U01-NS108916, U01-NS128612, P41-EB018783, R01-EY037195",
+      "American Epilepsy Society Research & Training Fellowship for clinicians",
+      "McDonnell Center for Systems Neuroscience",
+      "Brain & Behavior Research Foundation",
+      "Fondazione Neurone"
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000469",
+    "Version": "1.0.2"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000469-blue)](https://doi.org/10.82901/nemar.nm000469)\n\n# Xie et al. 2026: SEEG of the index PTSD patient before and after right amygdala ablation\n\nEpoched stereo-EEG (157 contacts, 200 Hz, 588 trials, 0.21 h of epochs) from one patient with\npost-traumatic stress disorder recorded during a face interpretation-bias task before (`ses-pre`) and after (`ses-post`)\nSEEG-guided radiofrequency ablation of the right amygdala. Released by the authors on OSF (https://osf.io/63tym/, CC-BY-NC-4.0)\nas `indexPatient.mat` (\"de-identified SEEG signals, event markers, and channel information for the index patient\") with the\nanalysis script `analysis_script.m` / `IndexPatient_example_code.m` (in sourcedata).\n\n## Organisation (DatasetType derivative)\n- One BrainVision file per session with the released epochs written back-to-back (one `New Segment` marker per trial;\n  `events.tsv` gives each trial's position, the authors' trial fields and the trial's index in the released array).\n  Epoch window -0.5 to 0.795 s (`eeg.times`), 260 samples at 200 Hz. Signal units are not stated (`units` = n/a; values are the\n  released float32 numbers unchanged; the preprocessing is described in the article).\n- `electrodes.tsv` (space-Other): coordinates from `chanlocs.tala` (field name suggests Talairach; template not stated in the\n  release), with the released per-contact anatomical labels (`annoLab`, e.g. amygdala nuclei) and categories (`annoCat`).\n- `participants.tsv`: age and sex are not in the release.\n\n## Privacy\nRelease described as de-identified; string scan of the MAT file: 1 flagged strings. MAT header export date day set to 01 in sourcedata.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000469",
+    "exists": true,
+    "description": "Xie2026 amygdala ablation PTSD: epoched stereo-EEG of the index patient before and after right amygdala radiofrequency ablation (interpretation-bias task)",
+    "created_at": "2026-10-11T20:53:12+00:00",
+    "updated_at": "2026-10-21T21:11:48+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

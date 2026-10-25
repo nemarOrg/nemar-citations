@@ -1,0 +1,69 @@
+{
+  "dataset_id": "nm000475",
+  "date_retrieved": "2026-10-25T10:04:02.422315+00:00",
+  "dataset_description": {
+    "Name": "s500-generic-44: Crossmodal face-name person-identity frequency tagging, SEEG of the left ventral temporal cortex (Volfart et al., 2020) (derivative)",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "derivative",
+    "License": "CC0-1.0",
+    "Authors": [
+      "Angélique Volfart",
+      "Jacques Jonas",
+      "Louis Maillard",
+      "Sophie Colnat-Coulbois",
+      "Bruno Rossion"
+    ],
+    "EthicsApprovals": [
+      "Collected under the source study's approval (University Hospital of Nancy; participants gave written informed consent), see the article DOI 10.1371/journal.pbio.3000659"
+    ],
+    "HowToAcknowledge": "Cite Volfart A, Jonas J, Maillard L, Colnat-Coulbois S, Rossion B (2020) Neurophysiological evidence for crossmodal (face-name) person-identity representation in the human left ventral temporal cortex. PLoS Biology 18(4):e3000659, doi:10.1371/journal.pbio.3000659; and the Dryad dataset doi:10.5061/dryad.m8t391m.",
+    "ReferencesAndLinks": [
+      "https://doi.org/10.1371/journal.pbio.3000659",
+      "https://doi.org/10.5061/dryad.m8t391m",
+      "http://www.nocions.org/letswave/"
+    ],
+    "Keywords": [
+      "face perception",
+      "person identity",
+      "names",
+      "crossmodal",
+      "SEEG",
+      "intracerebral recordings",
+      "frequency tagging",
+      "ventral temporal cortex"
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.5061/dryad.m8t391m",
+        "URL": "https://datadryad.org/dataset/doi:10.5061/dryad.m8t391m",
+        "Version": "Dryad version 2 (published 2020-02-28)"
+      }
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "Authors' preprocessing in Letswave 5",
+        "Description": "Import of Micromed TRC in Letswave 5, low-pass 30 Hz (Butterworth order 4), each sequence cut from 2 s after onset to ~61 s (30471 bins, integer number of 0.571 Hz cycles), sequences of one condition merged into one file (README)."
+      },
+      {
+        "Name": "o5c_C_convert_nancy.py",
+        "Description": "Repackaging: Letswave float32 sequences back-to-back in BrainVision (values unchanged); Letswave events to events.tsv; coordinates from the release xlsx to electrodes.tsv. Code in code/."
+      }
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000475",
+    "Version": "1.0.2"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000475-blue)](https://doi.org/10.82901/nemar.nm000475)\n\n# s500-generic-44: Crossmodal face-name person-identity frequency tagging, SEEG of the left ventral temporal cortex (Volfart et al., 2020) (derivative)\n\nSEEG (Experiment 2 of the article) from 7 patients with refractory epilepsy (University Hospital of Nancy) during crossmodal\nfrequency tagging: pictures of faces and written names of a famous identity at 4 Hz with another identity every 7th item\n(0.571 Hz), plus face-only and name-only control conditions. The scalp-EEG experiments of the release (Experiment 1 and\nExperiment 2, Biosemi 128, trial-averaged Letswave files) are NOT converted; their de-identified files are in sourcedata/.\nNOTE: in the Dryad release (version 2) the SEEG .mat data files of participants ['P01', 'P02', 'P04', 'P05'] are EMPTY\nMATLAB arrays (1960-byte files whose 'data' carries the MATLAB_empty flag; the .lw5 headers list the channels but\ndatasize has 0 sequences). Only the 3 participants with data (P03, P06, P07) are converted; the empty\nfiles are kept in sourcedata/ as released.\n\nTHIS IS A DERIVATIVE DATASET: the release contains the authors' Letswave files, low-pass filtered at 30 Hz\n(Butterworth order 4) and cut into sequences, not the raw Micromed recordings.\n\n## Source\n- Dryad: Angélique Volfart, Jacques Jonas, Louis Maillard, Sophie Colnat-Coulbois, Bruno Rossion. Data from: Neurophysiological evidence for crossmodal person-identity representation in the human left ventral temporal cortex. doi:10.5061/dryad.m8t391m (version 2, 2020-02-28). License: CC0 1.0 (Dryad record).\n- Article: Volfart A, Jonas J, Maillard L, Colnat-Coulbois S, Rossion B (2020) Neurophysiological evidence for crossmodal (face-name) person-identity representation in the human left ventral temporal cortex. PLoS Biology 18(4):e3000659, doi:10.1371/journal.pbio.3000659.\n- Dryad files: FaceNameAssociation_Metadata.zip + README, verified against the Dryad md5 digests by the download lane.\n\n## Contents\n- `sub-<id>/ieeg/sub-<id>_task-<task>_run-1_ieeg.*`: 9 files, 3 participants, 0.32 h. Each file holds the\n  sequences of one condition back-to-back (one BrainVision segment per sequence; `RecordingType` epoched, `EpochLength` =\n  sequence length). Values are the release's float32 values, unchanged (MNE read-back matches). Sampling rate from the\n  Letswave header. Tasks:\n  - `task-facename`: FaceName: faces and names of one identity at 4 Hz, identity change every 7th item (0.571 Hz)\n  - `task-faceonly`: FaceOnly: faces only, identity change every 7th item\n  - `task-nameonly`: NameOnly: names only, identity change every 7th item\n- Channels: labels from the Letswave header. Intracerebral contacts are typed SEEG; scalp electrodes recorded with the\n  SEEG (labels `s<10-20 name>`) EEG; ECG, physiological monitors (MISC) and marker inputs (TRIG) as labelled. Unit µV is\n  assumed (Letswave import of Micromed TRC; not stated in the release). The reference is not stated per participant.\n- Electrode coordinates: each SEEG participant's folder has an xlsx table of Talairach coordinates (README: 'Talairach MNI space', used for display only; anatomical definitions were made on individual anatomy). They are written to `space-Talairach_electrodes.tsv` (3 participants). Contacts not present in the table have x/y/z n/a.\n- `events.tsv`: the Letswave events (code, sequence, latency) of each file that has any (9 files have no Letswave\n  events and no events.tsv); most frequent codes: [].\n- Letswave history per file is in each `ieeg.json` (`SoftwareFilters`).\n- `sourcedata/dryad-m8t391m-deidentified/`: the release's files, de-identified (below);\n  `DEIDENTIFICATION_MANIFEST.tsv` lists original and new sha-256 per file.\n- No stimuli are included in the release.\n\n## Privacy\n- Letswave event codes with a leading participant-code token were replaced by 'seq' in events.tsv and in the\n  de-identified .lw5 headers (0 distinct tokens; a byte search of the whole output found\n  0 remaining occurrences). Letswave history dates and MAT text-header dates in sourcedata are reduced to\n  month and year (day -> 01). The .lw5 headers were rewritten with scipy (savemat, MATLAB v5, compressed); their content is\n  otherwise unchanged.\n- Age and sex are not given per participant in the release.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000475",
+    "exists": true,
+    "description": "s500-generic-44: Crossmodal face-name person-identity frequency tagging, SEEG of the left ventral temporal cortex (Volfart et al., 2020) (derivative)",
+    "created_at": "2026-10-11T21:01:27+00:00",
+    "updated_at": "2026-10-21T21:11:40+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

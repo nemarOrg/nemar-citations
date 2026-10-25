@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000195",
   "num_citations": 39,
-  "date_last_updated": "2026-10-11T10:19:12.734347+00:00",
+  "date_last_updated": "2026-10-25T10:11:30.498047+00:00",
   "metadata": {
-    "total_cumulative_citations": 1221,
-    "fetch_date": "2026-10-11T10:19:12.734347+00:00",
+    "total_cumulative_citations": 1220,
+    "fetch_date": "2026-10-25T10:11:30.498047+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -59,14 +59,17 @@
     ],
     "keywords": [
       "EEG",
-      "Brain-Computer Interfaces",
-      "Event-Related Potentials, P300",
+      "brain-computer interface",
+      "event-related potentials",
       "P300 speller",
+      "P300",
+      "copy-spelling",
       "unsupervised learning",
       "learning from label proportions",
-      "expectation-maximization"
+      "expectation-maximization",
+      "MIX method"
     ],
-    "methods_description": "31-channel EEG recorded at 1000 Hz with BrainAmp DC amplifiers and EasyCap Ag/AgCl electrodes (nose reference). Participants spelled 35 characters in three blocks. Each character involved 68 highlighting events with 250 ms SOA and 100 ms stimulus duration, using two interleaved highlighting sequences that created known target to non-target ratios for unsupervised learning.",
+    "methods_description": "31-channel EEG was recorded at 1000 Hz with a BrainAmp DC amplifier and Ag/AgCl electrodes in an extended 10-20 montage, with a nose reference. Participants spelled 35 characters in three blocks on a modified 6x6 matrix speller extended with 10 '#' blanks. Two interleaved highlighting sequences were used, with 250 ms SOA and 100 ms stimulus duration.",
     "funding": [
       {
         "funder_name": "Special Research Fund of Ghent University"
@@ -84,10 +87,6 @@
         "funder_name": "European Union Horizon 2020",
         "award_number": "657679",
         "award_title": "Marie Sklodowska-Curie grant agreement"
-      },
-      {
-        "funder_name": "Ghent University",
-        "award_title": "Special Research Fund"
       },
       {
         "funder_name": "DFG",
@@ -111,7 +110,7 @@
       "venue": "Neurocomputing",
       "year": 2020,
       "url": "https://doi.org/10.1016/j.neucom.2020.09.017",
-      "cited_by": 474,
+      "cited_by": 470,
       "abstract": "Abstract Electroencephalogram (EEG) signal analysis, which is widely used for human-computer interaction and neurological disease diagnosis, requires a large amount of labeled data for training. However, the collection of substantial EEG data could be difficult owing to its randomness and non-stationary. Moreover, there is notable individual difference in EEG data, which affects the reusability and generalization of models. For mitigating the adverse effects from the above factors, transfer learning is applied in this field to transfer the knowledge learnt in one domain into a different but related domain. Transfer learning adjusts models with small-scale data of the task, and also maintains the learning ability with individual difference. This paper describes four main methods of transfer learning and explores their practical applications in EEG signal analysis in recent years. Finally, we discuss challenges and opportunities of transfer learning and suggest areas for further study.",
       "doi": "10.1016/j.neucom.2020.09.017",
       "pmid": null,
@@ -130,11 +129,11 @@
     },
     {
       "title": "Riemannian Procrustes Analysis: Transfer Learning for Brain–Computer Interfaces",
-      "author": "Pedro Luiz Coelho Rodrigues, Christian Jutten, Marco Congedo",
+      "author": "Pedro Luiz Coelho Rodrigues, Christian Jutten B, Marco Congedo",
       "venue": "IEEE Transactions on Biomedical Engineering",
       "year": 2018,
       "url": "https://doi.org/10.1109/tbme.2018.2889705",
-      "cited_by": 221,
+      "cited_by": 219,
       "abstract": "OBJECTIVE: This paper presents a Transfer Learning approach for dealing with the statistical variability of electroencephalographic (EEG) signals recorded on different sessions and/or from different subjects. This is a common problem faced by brain-computer interfaces (BCI) and poses a challenge for systems that try to reuse data from previous recordings to avoid a calibration phase for new users or new sessions for the same user. METHOD: We propose a method based on Procrustes analysis for matching the statistical distributions of two datasets using simple geometrical transformations (translation, scaling, and rotation) over the data points. We use symmetric positive definite matrices (SPD) as statistical features for describing the EEG signals, so the geometrical operations on the data points respect the intrinsic geometry of the SPD manifold. Because of its geometry-aware nature, we call our method the Riemannian Procrustes analysis (RPA). We assess the improvement in transfer learn",
       "doi": "10.1109/tbme.2018.2889705",
       "pmid": "30596565",
@@ -143,9 +142,9 @@
       "source_relation": "IsDerivedFrom",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5532896637916566,
-        "similarity_score": 0.5029906034469604,
-        "citation_text_length": 1221,
+        "confidence_score": 0.5552823185920716,
+        "similarity_score": 0.5048021078109741,
+        "citation_text_length": 1223,
         "dataset_text_length": 2360,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -157,7 +156,7 @@
       "venue": "Physics Reports",
       "year": 2021,
       "url": "https://doi.org/10.1016/j.physrep.2021.03.002",
-      "cited_by": 213,
+      "cited_by": 214,
       "abstract": "Abstract Brain-computer interfaces (BCIs) development is closely related to physics. In this paper, we review the physical principles of BCIs, and underlying novel approaches for registration, analysis, and control of brain activity. We analyse recent advances in BCI studies focusing on their applications for (i) controlling the movement of robots and exoskeletons, (ii) revealing and preventing brain pathologies, (iii) assessing and controlling psychophysiological states, and (iv) monitoring and controlling normal and pathological cognitive activity. After introducing the topic to the reader in chapter 1, in chapter 2 we consider the BCI as a hardware/software communication system that allows interaction of humans or animals with their surroundings without the involvement of peripheral nerves and muscles, using control signals generated from brain cerebral activity. Classifying BCIs into three main types (active, reactive and passive), we describe their functional models and neuroimagi",
       "doi": "10.1016/j.physrep.2021.03.002",
       "pmid": null,
@@ -175,35 +174,12 @@
       }
     },
     {
-      "title": "Error Correction Regression Framework for Enhancing the Decoding Accuracies of Ear-EEG Brain–Computer Interfaces",
-      "author": "No-Sang Kwak, Seong–Whan Lee",
-      "venue": "IEEE Transactions on Cybernetics",
-      "year": 2019,
-      "url": "https://doi.org/10.1109/tcyb.2019.2924237",
-      "cited_by": 61,
-      "abstract": "Ear-electroencephalography (EEG) is a promising tool for practical brain-computer interface (BCI) applications because it is more unobtrusive, comfortable, and mobile than a typical scalp-EEG system. However, an ear-EEG has a natural constraint of electrode location (e.g., limited in or around the ear) for acquiring informative brain signals sufficiently. Achieving reliable performance of ear-EEG in specific BCI paradigms that do not utilize brain signals on the temporal lobe around the ear is difficult. For example, steady-state visual evoked potentials (SSVEPs), which are mainly generated in the occipital area, have a significantly attenuated and distorted amplitude in ear-EEG. Therefore, preserving the high level of decoding accuracy is challenging and essential for SSVEP BCI based on ear-EEG. In this paper, we first investigate linear and nonlinear regression methods to increase the decoding accuracy of ear-EEG regarding SSVEP paradigm by utilizing the estimated target EEG signals ",
-      "doi": "10.1109/tcyb.2019.2924237",
-      "pmid": "31295141",
-      "openalex_id": "W2961557730",
-      "source_doi": "10.1109/mci.2018.2807039",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.517504096031189,
-        "similarity_score": 0.4704582691192627,
-        "citation_text_length": 1211,
-        "dataset_text_length": 2360,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "The largest EEG-based BCI reproducibility study for open science: the MOABB benchmark",
       "author": "Sylvain Chevallier, Igor Carrara, B. Aristimunha, Pierre Guetschel, Sara Sedlar, Bruna J. Lopes, Sébastien Velut, Salim Khazem, Thomas Moreau",
       "venue": "ArXiv",
       "year": 2024,
       "url": "https://doi.org/10.48550/arXiv.2404.15319",
-      "cited_by": 59,
+      "cited_by": 61,
       "abstract": "Objective. This study conduct an extensive Brain-computer interfaces (BCI) reproducibility analysis on open electroencephalography datasets, aiming to assess existing solutions and establish open and reproducible benchmarks for effective comparison within the field. The need for such benchmark lies in the rapid industrial progress that has given rise to undisclosed proprietary solutions. Furthermore, the scientific literature is dense, often featuring challenging-to-reproduce evaluations, making comparisons between existing approaches arduous. Approach. Within an open framework, 30 machine learning pipelines (separated into raw signal: 11, Riemannian: 13, deep learning: 6) are meticulously re-implemented and evaluated across 36 publicly available datasets, including motor imagery (14), P300 (15), and SSVEP (7). The analysis incorporates statistical meta-analysis techniques for results assessment, encompassing execution time and environmental impact considerations. Main results. The stu",
       "doi": "10.48550/arXiv.2404.15319",
       "pmid": null,
@@ -221,12 +197,35 @@
       }
     },
     {
+      "title": "Error Correction Regression Framework for Enhancing the Decoding Accuracies of Ear-EEG Brain–Computer Interfaces",
+      "author": "No-Sang Kwak, Seong–Whan Lee",
+      "venue": "IEEE Transactions on Cybernetics",
+      "year": 2019,
+      "url": "https://doi.org/10.1109/tcyb.2019.2924237",
+      "cited_by": 58,
+      "abstract": "Ear-electroencephalography (EEG) is a promising tool for practical brain-computer interface (BCI) applications because it is more unobtrusive, comfortable, and mobile than a typical scalp-EEG system. However, an ear-EEG has a natural constraint of electrode location (e.g., limited in or around the ear) for acquiring informative brain signals sufficiently. Achieving reliable performance of ear-EEG in specific BCI paradigms that do not utilize brain signals on the temporal lobe around the ear is difficult. For example, steady-state visual evoked potentials (SSVEPs), which are mainly generated in the occipital area, have a significantly attenuated and distorted amplitude in ear-EEG. Therefore, preserving the high level of decoding accuracy is challenging and essential for SSVEP BCI based on ear-EEG. In this paper, we first investigate linear and nonlinear regression methods to increase the decoding accuracy of ear-EEG regarding SSVEP paradigm by utilizing the estimated target EEG signals ",
+      "doi": "10.1109/tcyb.2019.2924237",
+      "pmid": "31295141",
+      "openalex_id": "W2961557730",
+      "source_doi": "10.1109/mci.2018.2807039",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.517504096031189,
+        "similarity_score": 0.4704582691192627,
+        "citation_text_length": 1211,
+        "dataset_text_length": 2360,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Introducing block-Toeplitz covariance matrices to remaster linear discriminant analysis for event-related potential brain–computer interfaces",
       "author": "Jan Sosulski, Michael Tangermann",
       "venue": "Journal of Neural Engineering",
       "year": 2022,
       "url": "https://doi.org/10.1088/1741-2552/ac9c98",
-      "cited_by": 25,
+      "cited_by": 26,
       "abstract": "Abstract Objective. Covariance matrices of noisy multichannel electroencephalogram (EEG) time series data provide essential information for the decoding of brain signals using machine learning methods. However, small datasets and high dimensionality make it hard to estimate these matrices. In brain–computer interfaces (BCI) based on event-related potentials (ERP) and a linear discriminant analysis (LDA) classifier, the state of the art covariance estimation uses shrinkage regularization. As this is a general covariance regularization approach, we aim at improving LDA further by better exploiting the domain-specific characteristics of the EEG to regularize the covariance estimates. Approach. We propose to enforce a block-Toeplitz structure for the covariance matrix of the LDA, which implements an assumption of signal stationarity in short time windows for each channel. Main results. An offline re-analysis of data collected from 213 subjects under 13 different event-related potential BCI",
       "doi": "10.1088/1741-2552/ac9c98",
       "pmid": "36270502",
@@ -249,7 +248,7 @@
       "venue": "IEEE Transactions on Neural Systems and Rehabilitation Engineering",
       "year": 2023,
       "url": "https://doi.org/10.1109/tnsre.2023.3310883",
-      "cited_by": 25,
+      "cited_by": 26,
       "abstract": "A brain-computer interface (BCI) establishes a direct communication pathway between the brain and an external device. Electroencephalogram (EEG) is the most popular input signal in BCIs, due to its convenience and low cost. Most research on EEG-based BCIs focuses on the accurate decoding of EEG signals; however, EEG signals also contain rich private information, e.g., user identity, emotion, and so on, which should be protected. This paper first exposes a serious privacy problem in EEG-based BCIs, i.e., the user identity in EEG data can be easily learned so that different sessions of EEG data from the same user can be associated together to more reliably mine private information. To address this issue, we further propose two approaches to convert the original EEG data into identity-unlearnable EEG data, i.e., removing the user identity information while maintaining the good performance on the primary BCI task. Experiments on seven EEG datasets from five different BCI paradigms showed t",
       "doi": "10.1109/tnsre.2023.3310883",
       "pmid": "37651476",
@@ -272,7 +271,7 @@
       "venue": "Conference proceedings/Conference proceedings - IEEE International Conference on Systems, Man, and Cybernetics",
       "year": 2019,
       "url": "https://doi.org/10.1109/smc.2019.8914536",
-      "cited_by": 23,
+      "cited_by": 25,
       "abstract": "With advances in technologies, robots can be employed in collaboration with human for completing the shared objective(s). This paper proposes a novel time-variant human cognitive performance modeling approach for human-robot collaborative actions. The proposed model considers human cognitive performance as a function of human cognitive workload, robot performance, and human physical performance. Novel about the proposed model is its ability to relate human cognitive workload and the task complexity to a utilization factor which is functionally correlated with the robot's mistake probability. The developed model is validated via a simulation environment and confirms that if the task complexity or the robot's mistake probability increases, human cognitive performance reduces over time.",
       "doi": "10.1109/smc.2019.8914536",
       "pmid": null,
@@ -295,7 +294,7 @@
       "venue": "Handbook of clinical neurology",
       "year": 2020,
       "url": "https://doi.org/10.1016/b978-0-444-63934-9.00023-8",
-      "cited_by": 20,
+      "cited_by": 19,
       "abstract": "Brain-computer interfaces (BCIs) are systems that translate brain activity patterns into commands that can be executed by an artificial device. This enables the possibility of controlling devices such as a prosthetic arm or exoskeleton, a wheelchair, typewriting applications, or games directly by modulating our brain activity. For this purpose, BCI systems rely on signal processing and machine learning algorithms to decode the brain activity. This chapter provides an overview of the main steps required to do such a process, including signal preprocessing, feature extraction and selection, and decoding. Given the large amount of possible methods that can be used for these processes, a comprehensive review of them is beyond the scope of this chapter, and it is focused instead on the general principles that should be taken into account, as well as discussing good practices on how these methods should be applied and evaluated for proper design of reliable BCI systems.",
       "doi": "10.1016/b978-0-444-63934-9.00023-8",
       "pmid": "32164862",
@@ -451,6 +450,52 @@
       }
     },
     {
+      "title": "A systematic review of artificial intelligence techniques based on electroencephalography analysis in the diagnosis of epilepsy disorders: A clinical perspective",
+      "author": "Seyyed Ali Zendehbad, Athena Sharifi Razavi, Nasim Tabrizi, Zahra Sedaghat",
+      "venue": "Epilepsy Research",
+      "year": 2025,
+      "url": "https://doi.org/10.1016/j.eplepsyres.2025.107582",
+      "cited_by": 6,
+      "abstract": "In recent years, Artificial Intelligence (AI), with a specific emphasis on attention mechanisms instead of conventional Deep Learning (DL) or Machine Learning (ML), has demonstrated significant applicability across diverse medical domains. This paper redirects its focus from general brain mapping techniques to specifically investigate the impact of AI in the field of epilepsy diagnosis, concentrating exclusively on Electroencephalography (EEG) data. While earlier studies have predominantly centered on the automatic identification and prediction of seizures using EEG records, an emerging body of research delves into the potential of AI techniques to enhance the analysis of EEG data. This systematic review offers a comprehensive overview, commencing with a concise theoretical exposition on Artificial Neural Networks (ANNs) and attention mechanisms. Subsequent sections explore the applications of AI in EEG analysis for epilepsy, covering aspects such as diagnosis, lateralization, automate",
+      "doi": "10.1016/j.eplepsyres.2025.107582",
+      "pmid": "40393108",
+      "openalex_id": "W4410421658",
+      "source_doi": "10.1109/mci.2018.2807039",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.36559351444244387,
+        "similarity_score": 0.3165311813354492,
+        "citation_text_length": 1291,
+        "dataset_text_length": 2360,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Protecting Multiple Types of Privacy Simultaneously in EEG-Based Brain-Computer Interfaces",
+      "author": "Lubin Meng, Xue Jiang, Tianwang Jia, Dongrui Wu",
+      "venue": "Conference proceedings/Conference proceedings - IEEE International Conference on Systems, Man, and Cybernetics",
+      "year": 2024,
+      "url": "https://doi.org/10.1109/smc54092.2024.10832088",
+      "cited_by": 5,
+      "abstract": "A brain-computer interface (BCI) enables direct communication between the brain and an external device. Electroencephalogram (EEG) is the preferred input signal in non-invasive BCIs, due to its convenience and low cost. EEG-based BCIs have been successfully used in many applications, such as neurological rehabilitation, text input, games, and so on. However, EEG signals inherently carry rich personal information, necessitating privacy protection. This paper demonstrates that multiple types of private information (user identity, gender, and BCI-experience) can be easily inferred from EEG data, imposing a serious privacy threat to BCIs, To address this issue, we design perturbations to convert the original EEG data into privacy-protected EEG data, which conceal the private information while maintaining the primary BCI task performance. Experimental results demonstrated that the privacy-protected EEG data can significantly reduce the classification accuracy of user identity, gender and BC",
+      "doi": "10.1109/smc54092.2024.10832088",
+      "pmid": null,
+      "openalex_id": "W4406611705",
+      "source_doi": "10.1109/mci.2018.2807039",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.4872216340899468,
+        "similarity_score": 0.4218369126319885,
+        "citation_text_length": 1286,
+        "dataset_text_length": 2360,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Unsupervised learning in a BCI chess application using label proportions and expectation-maximization",
       "author": "David Hübner, Albrecht Schall, Michael Tangermann",
       "venue": "Brain-Computer Interfaces",
@@ -468,29 +513,6 @@
         "confidence_score": 0.4993711799383164,
         "similarity_score": 0.43235599994659424,
         "citation_text_length": 1214,
-        "dataset_text_length": 2360,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "A systematic review of artificial intelligence techniques based on electroencephalography analysis in the diagnosis of epilepsy disorders: A clinical perspective",
-      "author": "Seyyed Ali Zendehbad, Athena Sharifi Razavi, Nasim Tabrizi, Zahra Sedaghat",
-      "venue": "Epilepsy Research",
-      "year": 2025,
-      "url": "https://doi.org/10.1016/j.eplepsyres.2025.107582",
-      "cited_by": 5,
-      "abstract": "In recent years, Artificial Intelligence (AI), with a specific emphasis on attention mechanisms instead of conventional Deep Learning (DL) or Machine Learning (ML), has demonstrated significant applicability across diverse medical domains. This paper redirects its focus from general brain mapping techniques to specifically investigate the impact of AI in the field of epilepsy diagnosis, concentrating exclusively on Electroencephalography (EEG) data. While earlier studies have predominantly centered on the automatic identification and prediction of seizures using EEG records, an emerging body of research delves into the potential of AI techniques to enhance the analysis of EEG data. This systematic review offers a comprehensive overview, commencing with a concise theoretical exposition on Artificial Neural Networks (ANNs) and attention mechanisms. Subsequent sections explore the applications of AI in EEG analysis for epilepsy, covering aspects such as diagnosis, lateralization, automate",
-      "doi": "10.1016/j.eplepsyres.2025.107582",
-      "pmid": "40393108",
-      "openalex_id": "W4410421658",
-      "source_doi": "10.1109/mci.2018.2807039",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.36559351444244387,
-        "similarity_score": 0.3165311813354492,
-        "citation_text_length": 1291,
         "dataset_text_length": 2360,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -537,29 +559,6 @@
         "confidence_score": 0.6992488709092141,
         "similarity_score": 0.6054102778434753,
         "citation_text_length": 1116,
-        "dataset_text_length": 2360,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Protecting Multiple Types of Privacy Simultaneously in EEG-Based Brain-Computer Interfaces",
-      "author": "Lubin Meng, Xue Jiang, Tianwang Jia, Dongrui Wu",
-      "venue": "Conference proceedings/Conference proceedings - IEEE International Conference on Systems, Man, and Cybernetics",
-      "year": 2024,
-      "url": "https://doi.org/10.1109/smc54092.2024.10832088",
-      "cited_by": 4,
-      "abstract": "A brain-computer interface (BCI) enables direct communication between the brain and an external device. Electroencephalogram (EEG) is the preferred input signal in non-invasive BCIs, due to its convenience and low cost. EEG-based BCIs have been successfully used in many applications, such as neurological rehabilitation, text input, games, and so on. However, EEG signals inherently carry rich personal information, necessitating privacy protection. This paper demonstrates that multiple types of private information (user identity, gender, and BCI-experience) can be easily inferred from EEG data, imposing a serious privacy threat to BCIs, To address this issue, we design perturbations to convert the original EEG data into privacy-protected EEG data, which conceal the private information while maintaining the primary BCI task performance. Experimental results demonstrated that the privacy-protected EEG data can significantly reduce the classification accuracy of user identity, gender and BC",
-      "doi": "10.1109/smc54092.2024.10832088",
-      "pmid": null,
-      "openalex_id": "W4406611705",
-      "source_doi": "10.1109/mci.2018.2807039",
-      "source_relation": "IsDerivedFrom",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.4872216340899468,
-        "similarity_score": 0.4218369126319885,
-        "citation_text_length": 1286,
         "dataset_text_length": 2360,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1005,13 +1004,13 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-10-11T11:21:57.637717+00:00",
+    "scoring_date": "2026-10-25T10:25:16.725689+00:00",
     "dataset_text_length": 2360,
     "num_citations_scored": 39,
     "summary_stats": {
-      "mean_confidence": 0.4698818246370708,
+      "mean_confidence": 0.46993291834990186,
       "median_confidence": 0.49414318040013316,
-      "std_confidence": 0.1083413937686467,
+      "std_confidence": 0.10838117935167929,
       "min_confidence": 0.23632768243551255,
       "max_confidence": 0.6992488709092141,
       "high_confidence_count": 0,

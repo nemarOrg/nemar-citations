@@ -1,7 +1,7 @@
 {
   "dataset_id": "ds004582",
-  "num_citations": 1,
-  "date_last_updated": "2026-06-15T13:01:22.042175+00:00",
+  "num_citations": 2,
+  "date_last_updated": "2026-10-25T10:19:36.729695+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
     "fetch_date": "2026-06-15T13:01:22.042175+00:00",
@@ -16,8 +16,8 @@
     "searched_accessions": [
       "ds004582"
     ],
-    "num_accession_mentions": 1,
-    "num_dataset_citations": 1,
+    "num_accession_mentions": 2,
+    "num_dataset_citations": 2,
     "num_datapaper_citations": 0
   },
   "citation_details": [
@@ -45,21 +45,46 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "What masking geometry works best for EEG foundation models?",
+      "author": "Pierre Guetschel, Bruno Aristimunha, Yassine El Ouahidi, Arnaud Delorme A, Thomas Moreau, Michael Tangermann",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2609.33487",
+      "cited_by": 0,
+      "abstract": "EEG foundation models hold promise for scalable brain-signal decoding across clinical and cognitive neuroscience applications, yet their pre-training pipelines remain poorly understood. Among design choices, the masking strategy is particularly critical: it determines what the network must predict and from which context. Yet it has never been ablated in isolation, as each new model bundles a new masking strategy with a new backbone and objective. In this paper, we formalize the design choices for spatio-temporal masking strategies and train various models with a single pipeline under varying masking configurations across two SSL frameworks (MAE and JEPA). We then systematically evaluate the resulting 58 pre-trained models on the 12 datasets of OpenEEGBench under a linear probe. Both frameworks agree on an optimal masking configuration and on shared failure modes. Outside these, performance is robust: 11 MAE and 9 JEPA configurations are statistically indistinguishable from the best. We further identify a novel JEPA-specific failure mode, tagged bias-inflation collapse, invisible to standard detectors. With a well-chosen mask, our pipeline reaches REVE-level downstream performance at a fraction of REVE's pre-training compute.",
+      "doi": "10.48550/arxiv.2609.33487",
+      "pmid": null,
+      "openalex_id": "W7214740814",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004582",
+      "confidence_scoring": {
+        "confidence_score": 0.49063041329383855,
+        "similarity_score": 0.424788236618042,
+        "citation_text_length": 1476,
+        "dataset_text_length": 2231,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-17T10:39:01.868654+00:00",
+    "scoring_date": "2026-10-25T10:21:45.414714+00:00",
     "dataset_text_length": 2231,
-    "num_citations_scored": 1,
+    "num_citations_scored": 2,
     "summary_stats": {
-      "mean_confidence": 0.39895218640565877,
-      "median_confidence": 0.39895218640565877,
-      "std_confidence": 0.0,
+      "mean_confidence": 0.44479129984974863,
+      "median_confidence": 0.44479129984974863,
+      "std_confidence": 0.04583911344408989,
       "min_confidence": 0.39895218640565877,
-      "max_confidence": 0.39895218640565877,
+      "max_confidence": 0.49063041329383855,
       "high_confidence_count": 0,
-      "medium_confidence_count": 0,
+      "medium_confidence_count": 1,
       "low_confidence_count": 1
     }
   }

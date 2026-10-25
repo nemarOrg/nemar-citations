@@ -1,0 +1,99 @@
+{
+  "dataset_id": "nm000455",
+  "date_retrieved": "2026-10-25T10:03:18.306624+00:00",
+  "dataset_description": {
+    "Name": "The neural activity of auditory conscious perception: intracranial EEG epochs (Christison-Lagay et al. 2025; derivative: authors' 2-s grey-matter epochs)",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "derivative",
+    "License": "CC0-1.0",
+    "Authors": [
+      "Kate L. Christison-Lagay",
+      "Aya Khalaf",
+      "Noah C. Freedman",
+      "Christopher Micek",
+      "Sharif I. Kronemer",
+      "Mariana M. Gusso",
+      "Lauren Kim",
+      "Sarit Forman",
+      "Julia Ding",
+      "Mark Aksen",
+      "Ahmad Abdel-Aty",
+      "Hunki Kwon",
+      "Noah Markowitz",
+      "Erin Yeagle",
+      "Elizabeth Espinal",
+      "Jose Herrero",
+      "Stephan Bickel",
+      "James Young",
+      "Ashesh Mehta",
+      "Kun Wu",
+      "Jason Gerrard",
+      "Eyiyemisi Damisah",
+      "Dennis Spencer",
+      "Jiayin Qu",
+      "Hal Blumenfeld"
+    ],
+    "Acknowledgements": "Data released on Dryad by Kate L. Christison-Lagay, Hal Blumenfeld et al. (Yale University). Repackaged to BIDS for NEMAR.",
+    "HowToAcknowledge": "Cite Christison-Lagay et al. (2025) NeuroImage 308:121041, doi:10.1016/j.neuroimage.2025.121041, and the Dryad dataset doi:10.5061/dryad.h44j0zpww.",
+    "Funding": [
+      "NIH R01 NS134655 (HB)",
+      "NIH R01 DC007657 (Europe PMC grant list)",
+      "Mark Loughridge and Michelle Williams Foundation (HB)",
+      "Betsy and Jonathan Blattmachr Family (HB)",
+      "CAPES 88887.147295/2017-00 and 88881.186875/2018-01 (MG)",
+      "Fundação Araucária and CAPES 88887.185226/2018-00 (MG)"
+    ],
+    "EthicsApprovals": [
+      "Institutional review boards of Yale University, The Mount Sinai Hospital and Northwell Health (article section 2.1); written informed consent"
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.5061/dryad.h44j0zpww",
+      "https://doi.org/10.1016/j.neuroimage.2025.121041",
+      "https://doi.org/10.1101/2023.01.12.523829"
+    ],
+    "Keywords": [
+      "conscious perception",
+      "auditory perception",
+      "perceptual threshold",
+      "intracranial EEG",
+      "epilepsy",
+      "epochs",
+      "derivative"
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.5061/dryad.h44j0zpww",
+        "URL": "https://datadryad.org/dataset/doi:10.5061/dryad.h44j0zpww",
+        "Version": "Dryad version 369244 (published 2025-06-09)"
+      }
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "Authors' epoching and artifact screening (MATLAB 2019a)",
+        "Description": "Continuous icEEG (not released) segmented around the target sound; epochs with clinical or subclinical epileptic events removed by visual inspection; four-stage artifact rejection (Welch PSD peak > 200 µV/Hz above 30 Hz; MSE < 200 µV^2; MSE to the mean trace > 3000 µV^2, at most 20 % per electrode; samples > 5 SD); trials sorted into Perceived / Not Perceived / blank; grey-matter electrodes only (article sections 2.3-2.5). Released as 2-s epochs (Dryad README); removed channel-epochs are NaN. Some file names state further steps, e.g. 'sounds_restricted', 'CPonly', 'recalibrated', 'no_TTL_artifact_subtract_30Hz_movmean' (not documented further).",
+        "CodeURL": "https://doi.org/10.5061/dryad.h44j0zpww"
+      },
+      {
+        "Name": "f2_convert_aud.py",
+        "Description": "Repackaging of BC_trials / WG_trials / blank_TN_trials (float64) to BrainVision IEEE float32 (bit-exact to float32 of the source, NaN kept), one file per participant and implantation with the epochs concatenated and marked in events.tsv; montage-map values as released (space-Other). Code in code/.",
+        "Version": "2026-10-08"
+      }
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000455",
+    "Version": "1.0.2"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000455-blue)](https://doi.org/10.82901/nemar.nm000455)\n\n# The neural activity of auditory conscious perception (Christison-Lagay et al. 2025): intracranial EEG epochs. DERIVATIVE\n\nIntracranial EEG from adults with drug-resistant epilepsy (subdural grids, strips and depth electrodes; Yale New Haven Hospital,\nNorthwell Health, Mount Sinai) performing an auditory perceptual threshold task. A 75 ms target sound (waterdrop, whistle or\n'laser') was embedded in white noise at each participant's 50 % detection threshold (14 % blank trials). Each trial asked whether a\nsound was heard and which one. Perceived = heard and correctly identified; Not Perceived = not heard and wrongly identified.\n\n## THIS IS A DERIVATIVE DATASET: the continuous recordings were not released\n- The release holds only the authors' **epoched, artifact-screened** trials, sorted by category (sorted_trials_*.mat). The\n  continuous icEEG recordings and the TTL trigger channels were not released by the authors.\n- Each epoch is **2 s** long (\"samples contain 2 seconds at the patient's sampling rate\", Dryad README). The release does not state\n  where the target sound falls within the 2-s epoch. The article describes 4-s epochs centred on the target with the outer 500 ms\n  later pruned for the gamma analysis. Treat the epoch timing relative to the stimulus as unknown unless you verify it.\n- **Grey-matter electrodes only** (article: 2,805 of 5,793 contacts), as chosen by the authors from co-registered MRI/CT.\n- Authors' processing (article sections 2.3-2.5): trials sorted by behaviour; epochs with clinical or subclinical epileptic events removed\n  by visual inspection; four-stage artifact rejection (Welch PSD peak > 200 µV/Hz above 30 Hz; mean-square < 200 µV²; MSE to the electrode's\n  mean trace > 3000 µV², at most 20 % of epochs; any sample > 5 SD). Removed channel-epochs are **NaN** in the release and stay NaN\n  here (events.tsv `channels_rejected`; channels.tsv `status_description`). Several source file names name further processing that is\n  not documented further: `sounds_restricted`, `CPonly`, `recalibrated`, `redone`, `extended_norun6or8`, `_r_`, and for two\n  participants (436, 451) **`no_TTL_artifact_subtract_30Hz_movmean`** (TTL artifact handling with a 30 Hz moving mean). The source\n  file of each recording is listed in its `_ieeg.json` (`SourceFile`).\n- Reference: the referential montage of the original acquisition (one reference electrode chosen by the clinical team; not identified).\n\n## Contents\n- 30 participants, 32 recordings (`ses-2` = second implantation, release folders with suffix `_2`),\n  8946 epochs, 4.97 h of epochs. Sampling rates 1024, 2000, 3051, 4096, 16384 Hz (= samples per epoch / 2 s).\n- One file per participant and session: `task-auditorythreshold` with all epochs concatenated in the order Perceived (BC_trials), Not\n  Perceived (WG_trials), blank (blank_TN_trials), each in the order of the MATLAB pages (order of appearance within the category).\n  **The file is not a continuous recording**: every epoch is one `events.tsv` row (onset, 2 s, trial_type), and BrainVision\n  'New Segment' markers mark every epoch boundary. The sidecar says `RecordingType: epoched`, `EpochLength: 2`.\n- Single trials cannot be linked to the behaviour files from the release alone (artifact rejection and per-sound exclusions removed\n  trials). The behaviour files are in sourcedata.\n- Channels `E001`... = electrode # of the release (channel i of the arrays = electrode #i of the montage maps). Type `EEG` because\n  the release does not say which contacts are grid, strip or depth. µV (unit implied by the article's µV thresholds; not stated in the files).\n- Data format: BrainVision IEEE float32. The float64 source values are stored as float32 (largest relative difference\n  5.96e-08, i.e. float32 rounding). CAVEAT: some released epochs contain implausibly large values (|value| > 1e6 µV; recording: [number of samples, largest |value|]): sub-MS001_ses-1: [244000, 1.96e+38]. They are kept exactly as released (float32 rounding only); treat them as artifacts. Every file was read back bit-identical to float32 of the source, NaN included, and read with MNE.\n  The float64 originals are in sourcedata/.\n- Electrodes: `space-Other` with columns 2-4 of the authors' L_/R_MontageMap.mat, unchanged. CAVEAT: the README calls them \"3d MNI\n  coordinates\" and the article says BioImage Suite placed electrodes in \"MNI space (Colin 22 brain template)\". But the values are all\n  positive (about 10-200), i.e. image coordinates in the template volume, not MNI millimetres. The transform is not given, so they are not\n  labelled MNI here. `hemisphere` = which montage file lists the electrode. Recordings whose electrodes are not (all) listed in the\n  montage maps have n/a coordinates for those electrodes: sub-383_ses-1, sub-451_ses-1, sub-528_ses-1, sub-MS001_ses-1.\n- Hardware filters and sites (article 2.4): Yale 4096 Hz, 0.1-1330 Hz (one patient 1024 Hz, 0.1-400 Hz); Northwell (NS*) TDT PZ5M 3 kHz,\n  0.4-1500 Hz; Mount Sinai (MS*) 2048 Hz, 0.1-670 Hz.\n- participants.tsv: age and sex n/a (article: 38 enrolled, 16 female, mean age 38.8, range 16-69; 31 analysed).\n- Conversion notes:\n  - 383: montage electrode numbers [1, 2, 3, 4, 5]..[132, 133, 134] (n=134) do not cover channels 1..136; coordinates kept only for listed numbers\n  - 383: electrodes.tsv has n/a rows for channels missing from the montage maps\n  - Part1of4icEEGandelectrodes/390/sorted_trials_sounds_restricted_all_gray_matter.mat: MAT v5 file (read with scipy.io.loadmat)\n  - 390: samples/2 s = 3051.0 Hz differs from the article's rate for Yale New Haven Hospital (4096 Hz)\n  - 451: montage electrode numbers [1, 2, 3, 4, 5]..[82, 83, 84] (n=84) do not cover channels 1..85; coordinates kept only for listed numbers\n  - 451: electrodes.tsv has n/a rows for channels missing from the montage maps\n  - 528: montage electrode numbers [1, 2, 3, 4, 5]..[74, 75, 76] (n=76) do not cover channels 1..84; coordinates kept only for listed numbers\n  - 528: electrodes.tsv has n/a rows for channels missing from the montage maps\n  - 532: samples/2 s = 16384.0 Hz differs from the article's rate for Yale New Haven Hospital (4096 Hz)\n  - Part4of4icEEGandelectrodes/543/L_MontageMap.mat: MAT v5 file, variables [('L_MontageMap', (182, 4))]\n  - Part4of4icEEGandelectrodes/543/R_MontageMap.mat: MAT v5 file, variables [('R_MontageMap', (0, 0))]\n  - MS001: samples/2 s = 2000.0 Hz differs from the article's rate for Mount Sinai Hospital (2048 Hz)\n  - MS001: montage electrode numbers []..[] (n=0) do not cover channels 1..61; coordinates kept only for listed numbers\n  - MS001: BC_trials page 75 (perceived_75) has 244000 samples with |value| > 1e6 µV (max 1.96e+38); kept as released\n  - MS001: electrodes.tsv has n/a rows for channels missing from the montage maps\n  - NS140: samples/2 s = 3051.0 Hz differs from the article's rate for Northwell Health (3000 Hz)\n  - NS140_2: samples/2 s = 3051.0 Hz differs from the article's rate for Northwell Health (3000 Hz)\n  - NS142: samples/2 s = 3051.0 Hz differs from the article's rate for Northwell Health (3000 Hz)\n- sourcedata/: all sorted_trials and montage files (MAT header dates set to day 01), behaviour files (renamed and the\n  subject_idnumber field replaced because they contained initials), Dryad README files. Parcellation maps not included.\n\n## Source\n- Dryad: Kate L. Christison-Lagay, Aya Khalaf, Noah C. Freedman, Christopher Micek, Sharif I. Kronemer, Mariana M. Gusso, Lauren Kim, Sarit Forman, Julia Ding, Mark Aksen, Ahmad Abdel-Aty, Hunki Kwon, Noah Markowitz, Erin Yeagle, Elizabeth Espinal, Jose Herrero, Stephan Bickel, James Young, Ashesh Mehta, Kun Wu, Jason Gerrard, Eyiyemisi Damisah, Dennis Spencer, Jiayin Qu, Hal Blumenfeld. \"The neural activity of auditory conscious perception\". doi:10.5061/dryad.h44j0zpww (CC0-1.0).\n- Article: Christison-Lagay KL et al. (2025) NeuroImage 308:121041, doi:10.1016/j.neuroimage.2025.121041. Preprint doi:10.1101/2023.01.12.523829.\n- Funding: NIH R01 NS134655 (HB); NIH R01 DC007657 (Europe PMC grant list); Mark Loughridge and Michelle Williams Foundation (HB); Betsy and Jonathan Blattmachr Family (HB); CAPES 88887.147295/2017-00 and 88881.186875/2018-01 (MG); Fundação Araucária and CAPES 88887.185226/2018-00 (MG).\n- Ethics: IRBs of Yale University, The Mount Sinai Hospital and Northwell Health; written informed consent (article 2.1).\n\n## Privacy\nSubject labels are the authors' study codes. The MAT files hold no strings in the signal and montage files. The MAT header file-creation\ndates were set to day 01. The behaviour file names and their subject_idnumber field contained participant initials. They were removed,\nand the key status is recorded as retained.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000455",
+    "exists": true,
+    "description": "The neural activity of auditory conscious perception: intracranial EEG epochs (Christison-Lagay et al. 2025; derivative: authors' 2-s grey-matter epochs)",
+    "created_at": "2026-10-08T20:50:01+00:00",
+    "updated_at": "2026-10-21T21:11:53+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

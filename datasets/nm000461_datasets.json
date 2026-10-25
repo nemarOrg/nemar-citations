@@ -1,0 +1,65 @@
+{
+  "dataset_id": "nm000461",
+  "date_retrieved": "2026-10-25T10:03:29.463548+00:00",
+  "dataset_description": {
+    "Name": "iEEG networks preprocessing study (Shi, Pattnaik et al. 2024; HUP + MUSC): functional-connectivity networks for 2 re-referencing x 24 connectivity pipelines (derivative)",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "derivative",
+    "License": "CDLA-Sharing-1.0",
+    "Authors": [
+      "Haoer Shi",
+      "Akash Pattnaik",
+      "Erin Conrad"
+    ],
+    "Acknowledgements": "Original release on Pennsieve Discover (dataset 355 version 1, Penn CNT). Article authors: Haoer Shi, Akash Ranjan Pattnaik, Carlos Aguila, Alfredo Lucas, Nishant Sinha, Brian Prager, Marissa Mojena, Ryan Gallagher, Alexandra Parashos, Leonardo Bonilha, Ezequiel Gleichgerrcht, Kathryn A. Davis, Brian Litt, Erin C. Conrad.",
+    "HowToAcknowledge": "Cite the source dataset (Shi H, Pattnaik A, Conrad E. iEEG networks preprocessing study. Pennsieve 2023, doi:10.26275/4p8l-n5kt) and the article (Shi H, Pattnaik AR, et al. Utility of intracranial EEG networks depends on re-referencing and connectivity choice. Brain Communications 2024;6(3):fcae165, doi:10.1093/braincomms/fcae165).",
+    "ReferencesAndLinks": [
+      "https://doi.org/10.26275/4p8l-n5kt",
+      "https://discover.pennsieve.io/datasets/355/version/1",
+      "https://doi.org/10.1093/braincomms/fcae165",
+      "https://github.com/penn-cnt/CNT_Preprocessing_Toolkit"
+    ],
+    "EthicsApprovals": [
+      "iEEG and imaging data collection for research was approved by the Institutional Review Boards of the Hospital of the University of Pennsylvania (HUP) and Medical University of South Carolina (MUSC). [verbatim, Shi et al., Brain Communications 2024, doi:10.1093/braincomms/fcae165, Materials and methods, Patient information]"
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "CNT_Preprocessing_Toolkit",
+        "Description": "Authors' pipeline (re-referencing + connectivity, demo/ana_pipeline.m) that produced the released networks",
+        "CodeURL": "https://github.com/penn-cnt/CNT_Preprocessing_Toolkit"
+      },
+      {
+        "Name": "b3pen NEMAR repackaging",
+        "Description": "BIDS repackaging for NEMAR (iEEG campaign 2026-10): released files under sourcedata/, each network file also placed in its subject folder with a JSON sidecar, participants.tsv from patientList.mat. No values recomputed."
+      }
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.26275/4p8l-n5kt",
+        "URL": "https://discover.pennsieve.io/datasets/355/version/1",
+        "Version": "1"
+      },
+      {
+        "DOI": "doi:10.18112/openneuro.ds004100.v1.1.3",
+        "URL": "https://openneuro.org/datasets/ds004100",
+        "Description": "age/sex for the HUP patients that are in ds004100 (NEMAR mirror on004100)"
+      }
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000461",
+    "Version": "1.0.2"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000461-blue)](https://doi.org/10.82901/nemar.nm000461)\n\n# iEEG networks preprocessing study (Pennsieve 355): functional-connectivity networks, derivative BIDS-iEEG\n\nThis is a **derivative** dataset. It repackages the release \"iEEG networks preprocessing study\" by Haoer Shi, Akash Pattnaik and\nErin Conrad on Pennsieve Discover (dataset 355 version 1, doi:10.26275/4p8l-n5kt, Penn CNT), the data of\nShi H, Pattnaik AR, et al. \"Utility of intracranial EEG networks depends on re-referencing and connectivity choice\",\nBrain Communications 2024;6(3):fcae165, doi:10.1093/braincomms/fcae165 (the article's data availability statement points to this DOI).\nIt contains **no time series**: the raw iEEG is on iEEG.org (recording names in participants.tsv, `ieeg_org_recording`).\nCode: https://github.com/penn-cnt/CNT_Preprocessing_Toolkit (demo/ana_pipeline.m).\n\n## Contents\n\n- `participants.tsv`: 148 patients (127 HUP, 21 MUSC) with at least one network file; 125 in the grey/white (gw)\n  set, 96 in the left/right (LR) set. Columns from the released `patientList.mat` files (iEEG.org recording name, sampling rate,\n  ILAE, Engel, seizure-onset laterality/region, temporal flag). The Pennsieve release has no age or sex; for the 53 HUP patients\n  that are also in OpenNeuro ds004100 (NEMAR on004100, CC0) age and sex are copied from that dataset's participants.tsv\n  (`demographics_source`). patientList rows without network files: none.\n- `sub-<label>/ieeg/sub-<label>_task-interictal_acq-<gw|LR>_run-<n>_connectivity.mat` + `.json` (1105 files; listed in\n  `.bidsignore`, not a BIDS file type): one file per patient, channel set and 2-minute interictal epoch (run 1-5), byte-identical to\n  `sourcedata/pennsieve-355-v1/files/<centre>/<set>/result/<patient>_<n>.mat`. Variable `results` = re-referencing (CAR, bipolar) x\n  24 measures (Pearson, squared Pearson, cross-correlation; coherence, phase-locking value and relative entropy in delta 0.5-4,\n  theta 4-8, alpha 8-12, beta 12-30, gamma 30-80, ripple 80-250 and broadband 0.5-250 Hz) x channel x channel (LR: x hemisphere, 36\n  standard slots); `full_ind` = channel masks. The JSON sidecar gives these dimensions, the iEEG.org recording, and for the gw set\n  the channel names from `patientList.chan_gw` when their number equals the network size (298 files; 327 files where\n  it does not, noted in the sidecar).\n- `sourcedata/pennsieve-355-v1/`: every released file (results, four `patientList.mat`, Pennsieve manifest/readme).\n  `SOURCE_MANIFEST.json` lists the original SHA-256 of each file. Files are byte-identical to the release except the MAT-file header\n  creation dates, which were set to day 01 (weekday and time removed, same length).\n\nRelated NEMAR datasets: on004100 (OpenNeuro ds004100, HUP iEEG, overlapping HUP patients); nm000438 (Penn epilepsy iEEG, PennEPI).\n\n## Privacy\n\nAll files were scanned (text, MAT strings and headers) for names, initials, record numbers, full dates and ages above 89. Patient\ncodes (HUP###, MP####) and iEEG.org recording names are the pseudonyms used in the public releases. No dates are present apart from\nfile-creation timestamps (scrubbed as above). Key status: destroyed (we hold no mapping to identities).\n\n## Licence\n\nCDLA-Sharing-1.0, as on the source record (Pennsieve: \"Community Data License Agreement – Sharing\"; DataCite rightsList: Community\nData License Agreement Sharing 1.0, cdla-sharing-1.0). The age/sex values copied from ds004100 are CC0 there.\n\n## Ethics\n\nVerbatim from the article (Shi et al. 2024, Materials and methods, Patient information): \"iEEG and imaging data collection for\nresearch was approved by the Institutional Review Boards of the Hospital of the University of Pennsylvania (HUP) and Medical\nUniversity of South Carolina (MUSC).\"\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000461",
+    "exists": true,
+    "description": "iEEG networks preprocessing study (Shi, Pattnaik et al. 2024; HUP + MUSC): functional-connectivity networks for 2 re-referencing x 24 connectivity pipelines (derivative)",
+    "created_at": "2026-10-09T18:45:26+00:00",
+    "updated_at": "2026-10-21T21:11:17+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

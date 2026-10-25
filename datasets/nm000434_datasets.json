@@ -1,0 +1,57 @@
+{
+  "dataset_id": "nm000434",
+  "date_retrieved": "2026-10-25T10:02:44.960677+00:00",
+  "dataset_description": {
+    "Name": "Klocke-2024-supraspinal-10.1093/brain/awae223",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "raw",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "Philipp Klocke",
+      "Moritz Loeffler",
+      "Daniel Weiss"
+    ],
+    "HowToAcknowledge": "Cite Klocke P, Loeffler M, Weiss D (2024), 'Supraspinal circuits contribute to the failure of antagonistic inhibition and freezing of gait in Parkinson's disease', Mendeley Data, V1, doi:10.17632/c9ckcvjxc7.1, and the associated article.",
+    "ReferencesAndLinks": [
+      "https://doi.org/10.17632/c9ckcvjxc7.1",
+      "https://github.com/PKlocke/SenseFOG-Documentation"
+    ],
+    "EthicsApprovals": [
+      "Ethics Committee of Tübingen University (166/2020BO1), as stated in the release documentation"
+    ],
+    "Keywords": [
+      "Parkinson's disease",
+      "freezing of gait",
+      "subthalamic nucleus",
+      "local field potential",
+      "deep brain stimulation",
+      "Medtronic Percept",
+      "EEG",
+      "EMG",
+      "IMU",
+      "gait"
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "b3w11_convert_sensefog.py",
+        "Description": "Repackaging of the Mendeley release into BIDS with unchanged signal values; scrubbed originals in sourcedata/. Code in code/."
+      }
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000434",
+    "Version": "1.0.1"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000434-blue)](https://doi.org/10.82901/nemar.nm000434)\n\n# SenseFOG: STN LFP, EEG/EMG and IMU during gait and freezing of gait in Parkinson's disease\n\nPatients with idiopathic Parkinson's disease and bilateral subthalamic (STN) DBS with a Medtronic Percept PC\nimplantable pulse generator, recorded at the University Hospital Tübingen (Department of Neurology) while sitting,\nstanding, walking through a narrow corridor, walking with self-initiated stops and walking with a dual task\n(serial subtraction), after overnight withdrawal of dopaminergic medication and with stimulation OFF (release\ndocumentation). Signals: bipolar STN local field potentials streamed by the Percept (BrainSense, 250 Hz), 48-channel\nscalp EEG with 8 surface EMG channels and 2 'IPG' channels (Brain Products, 1000 Hz), and three APDM Opal inertial\nsensors (lumbar spine and both legs/feet, 128 Hz).\n\n## Source\n- Philipp Klocke, Moritz Loeffler, Daniel Weiss (2024). \"Supraspinal circuits contribute to the failure of antagonistic inhibition and freezing of gait in Parkinson’s disease\". Mendeley Data, V1, doi:10.17632/c9ckcvjxc7.1. Licence CC BY 4.0.\n  All 277 files were downloaded and matched the SHA-256 checksums listed by Mendeley.\n- Documentation and analysis code: https://github.com/PKlocke/SenseFOG-Documentation (study design, inclusion\n  criteria, task descriptions and the authors' hard-coded walking/stop/freezing time points live there).\n- Ethics: Ethics Committee of Tübingen University (166/2020BO1).\n\n## Contents\n- 12 participants (`sub-XX` = release subject id).\n- `ieeg/`: 43 Percept BrainSense TimeDomain recordings (2.50 h), 2 bipolar channels each, named\n  with the Percept stream label (e.g. `ONE_THREE_LEFT` = contact levels 1 and 3 of the left lead). Values are the\n  Percept `TimeDomainData` unchanged (float32 BrainVision); Percept JSON exports store these in µV. Missing packets\n  are not filled in; the Percept packet sequence numbers are in the sourcedata JSON. No contact coordinates are\n  released: `electrodes.tsv` lists the contact levels with x/y/z = n/a, the lead model and the stated target (STN).\n- `eeg/`: 45 BrainVision recordings (2.73 h). The `.eeg` files are byte-identical to the release;\n  the headers were rewritten only to point at the BIDS file names (the released headers named the pre-rename files,\n  e.g. `PD01_gehen.eeg`). Channel types: EEG, EMG (TA_/GA_), MISC (IPG_1/IPG_2). `events.tsv` lists the recorded markers.\n- `motion/`: 43 APDM Opal recordings: the 'Calibrated' accelerometer, gyroscope, magnetometer,\n  orientation and temperature arrays of each sensor, written exactly (17 significant digits). Tracked points use the\n  sensor labels stored in each file (Lumbar, Left/Right Leg or Foot).\n- Task labels: the release's `ses-<condition>` folders are conditions of one visit and are BIDS tasks here:\n  sitting, standing, walk, walkws (walking with stops), walkint (dual task; sub-14 has two: run-1, run-2).\n- Not all modalities exist for every condition. Not converted (kept in sourcedata): the authors' pre-aligned files\n  `*_lfpalg.mat`, `*_eegalg.mat`, `*_gaitalg.mat` (sub-10 all conditions, ECG-artefact-cleaned; sub-05 standing;\n  sub-11 and sub-17 sitting LFP), the gait-event files `*_gaitfilt_cor.mat`, and the Percept export of sub-11\n  sitting (no time-domain stream). EEG, LFP and IMU are not resampled or aligned to each other here; the release\n  aligns them on the stimulation artefact at the start of each recording.\n\n## Privacy\n- Percept exports: every date (session, device clock, implant, date of birth, event logs, packet times) set to day\n  01 of its month (year, month and time of day kept); free-text therapy group names removed. Patient name fields\n  hold only placeholders in the release (e.g. 'NAME, FIRST', 'MUSTERMANN, MAX'); serial numbers are masked.\n- BrainVision marker files: 'New Segment' recording date set to day 01. APDM HDF5 copies: the absolute time vectors\n  (Time, SyncValue, Annotations) shifted back by whole days so they fall on day 01 of the month; sensor data unchanged.\n- MATLAB files: dates embedded in the authors' structures and in the MAT header set to day 01; numeric contents verified equal.\n- BIDS files carry no dates. No scans.tsv acquisition times.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000434",
+    "exists": true,
+    "description": "Klocke-2024-supraspinal-10.1093/brain/awae223",
+    "created_at": "2026-10-08T03:31:41+00:00",
+    "updated_at": "2026-10-21T21:33:46+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

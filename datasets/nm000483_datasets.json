@@ -1,0 +1,70 @@
+{
+  "dataset_id": "nm000483",
+  "date_retrieved": "2026-10-25T10:04:25.267809+00:00",
+  "dataset_description": {
+    "Name": "VakilnaSEEG-fingerprint: sEEG seizure-onset and interictal segments of one polymicrogyria patient with electrode coordinates (Vakilna et al., 2025) (derivative)",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "derivative",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "Vakilna, Yash Shashank",
+      "Atilgan, Deniz",
+      "Hampson, Johnson P",
+      "Chinara, Chinmay",
+      "Medani, Takfarinas",
+      "Leahy, Richard",
+      "Lacuey Lecumberri, Nuria",
+      "Lhatoo, Samden",
+      "Pati, Sandipan",
+      "Mosher, John",
+      "Gavvala, Jay"
+    ],
+    "HowToAcknowledge": "Cite Vakilna YS et al. (2025) Time-Frequency Fingerprint Analysis in SEEG Source-Space to Identify the Epileptogenic Zone, Ann Clin Transl Neurol, doi:10.1002/acn3.70115, and the Zenodo dataset doi:10.5281/zenodo.14807262.",
+    "ReferencesAndLinks": [
+      "https://doi.org/10.5281/zenodo.14807262",
+      "https://doi.org/10.1002/acn3.70115"
+    ],
+    "EthicsApprovals": [
+      "Collected under the source study's approval (University of Texas Health Science Center at Houston); see the article"
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.5281/zenodo.14807262",
+        "URL": "https://zenodo.org/records/14807262",
+        "Version": "Zenodo version v1 (2025-02-05)"
+      }
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "o5c_B_conv_lit187.py",
+        "Description": "Brainstorm sensor-space data files (notch-filtered, resampled to 1000 Hz by the authors) repackaged as BrainVision float32 in microvolts; Brainstorm events to events.tsv; channel locations (SCS) to electrodes.tsv. No further processing. Code in code/."
+      }
+    ],
+    "Keywords": [
+      "source localization",
+      "time-frequency decomposition",
+      "SEEG",
+      "Polymicrogyria",
+      "stereo-EEG",
+      "epileptogenic zone",
+      "seizure onset",
+      "Brainstorm"
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000483",
+    "Version": "1.0.2"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000483-blue)](https://doi.org/10.82901/nemar.nm000483)\n\n# sEEG seizure-onset and interictal segments of one polymicrogyria patient, with electrode coordinates (Vakilna et al., 2025) - derivative\n\nRelease: Zenodo 14807262 \"Time-Frequency Fingerprint Analysis in SEEG Source-Space to Identify the Epileptogenic Zone\" (Vakilna, Yash Shashank, Atilgan, Deniz, Hampson, Johnson P, Chinara, Chinmay, Medani, Takfarinas, Leahy, Richard, Lacuey Lecumberri, Nuria, Lhatoo, Samden, Pati, Sandipan, Mosher, John, Gavvala, Jay; doi:10.5281/zenodo.14807262, CC-BY-4.0), the Brainstorm database\n(`BST_dataset.zip`) behind the case study doi:10.1002/acn3.70115. Zenodo description: \"This case study highlights the application of seizure fingerprint analysis in the source-space of SEEG data to accurately localize the epileptogenic zone (EZ) in patients with complex cortical malformations. A 25-year-old female with extensive bilateral perisylvian polymicrogyria presented with intractable focal seizures. The source-level analysis performed in Brainstorm using the sLORETA imaging algorithm subsequently showed EZ fingerprint analysis. The patient underwent MR-guided laser interstitial thermal therapy, targeting the identified EZ, resulting in postoperative seizure freedom with minimal complications. Extending the analysis from the sensor-space to the source-space could further enhance surgical planning and improve outcomes in complex epilepsy cases.\"\n\n## Content (1 participant, 5 recordings, 1.2 min of sensor-space data)\nThe release contains three short sensor-space segments of the clinical stereo-EEG (Nihon Kohden EEG-1200A, 2000 Hz) that\nthe authors imported into Brainstorm, notch-filtered (180-900 Hz harmonics) and resampled to 1000 Hz, and their bipolar\n('bipolar 2') montage versions. They are written here as BrainVision float32 in microvolts (Brainstorm stores volts),\n`acq-monopolar` (267 channels: 228 located sEEG contacts, 20 sEEG contacts without location, scalp EEG, ECG, DC and\nmarker channels, as typed in the Brainstorm channel file) and `acq-bipolar` (206 bipolar pairs). This is a DERIVATIVE\ndataset; the full raw recording is not in the release. Brainstorm events (clinical marks, the authors' onset/wave/spike\nmarkers and channel annotations) are in events.tsv; the time axis of each segment (0 = reference event) is kept in the\n`brainstorm_time` column.\n  - `sub-01_task-seizureonsetlvfa_acq-monopolar`: LVFA_and_wave/data_sEEG_onset__SPS_PLON_trial001_notch_resample.mat (sEEG onset: SPS/PLON (#1) | notch(180Hz 300Hz 420Hz 540Hz 660Hz 780Hz 900Hz)), 267 ch, 1000 Hz, 30 s, time axis -15..15 s, 7 events\n  - `sub-01_task-seizureonsetlvfa_acq-bipolar`: LVFA_and_wave_bipolar_2/data_sEEG_onset__SPS_PLON_trial001_notch_resample_montage.mat (sEEG onset: SPS/PLON (#1) | notch(180Hz 300Hz 420Hz 540Hz 660Hz 780Hz 900Hz) | bipolar 2), 206 ch, 1000 Hz, 30 s, time axis -15..15 s, 7 events\n  - `sub-01_task-seizureonsetspike_acq-monopolar`: ictal_repetitive_spike/data_EEG_onset_trial001_notch_resample.mat (sEEG onset (#1) | notch(180Hz 300Hz 420Hz 540Hz 660Hz 780Hz 900Hz)), 267 ch, 1000 Hz, 30 s, time axis -15..15 s, 6 events\n  - `sub-01_task-seizureonsetspike_acq-bipolar`: ictal_repetitive_spike_bipolar_2/data_EEG_onset_trial001_notch_resample_montage.mat (sEEG onset (#1) | notch(180Hz 300Hz 420Hz 540Hz 660Hz 780Hz 900Hz) | bipolar 2), 206 ch, 1000 Hz, 30 s, time axis -15..15 s, 6 events\n  - `sub-01_task-interictalspike_acq-monopolar`: interictal_spike/data_Spike_trial001_notch_resample.mat (Spike (#1) | notch(180Hz 300Hz 420Hz 540Hz 660Hz 780Hz 900Hz)), 267 ch, 1000 Hz, 10 s, time axis -5..5 s, 3 events\n\n## Localisation\n`electrodes.tsv` carries the Brainstorm channel locations (subject coordinate system SCS, native space, mm) of 228 sEEG\ncontacts of 16 depth electrodes (AH, ALAT, ALON, MC, MPM, MPS, PH, PIN, PLAT, PLON, POP, PSIN, SMA, SPL, SPM, SPS); electrode geometry (contact number,\nspacing, diameter) is in `sourcedata/zenodo-14807262/intra_electrodes.json`. The subject's T1 MRI, head/cortex surfaces and\nvolume atlases of the release are NOT redistributed (the MRI is not defaced); they, and the authors' source-space results\n(OpenMEEG head model, sLORETA kernels, time-frequency maps, scout time series), remain in the Zenodo record.\n\n## Provenance\nConverted by the ieeg-nemar-20261005 campaign (lane o5c-B) with `code/o5c_B_conv_lit187.py`; round-trip checks (MNE\nread-back) in code/conversion_report.json. sourcedata holds the converted Brainstorm data/channel/study files verbatim.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000483",
+    "exists": true,
+    "description": "VakilnaSEEG-fingerprint: sEEG seizure-onset and interictal segments of one polymicrogyria patient with electrode coordinates (Vakilna et al., 2025) (derivative)",
+    "created_at": "2026-10-11T21:27:46+00:00",
+    "updated_at": "2026-10-21T21:34:48+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

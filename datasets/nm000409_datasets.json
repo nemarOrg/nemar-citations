@@ -1,0 +1,71 @@
+{
+  "dataset_id": "nm000409",
+  "date_retrieved": "2026-10-25T10:02:11.269400+00:00",
+  "dataset_description": {
+    "Name": "ECoG during a simple auditory reaction-time task, 8 subjects: stimulus-locked, response-locked and rest epochs at 400 Hz (Cho et al., physiological origin of ERPs)",
+    "BIDSVersion": "1.10.0",
+    "DatasetType": "derivative",
+    "License": "CC-BY-4.0",
+    "Authors": [
+      "Hohyun Cho",
+      "Gerwin Schalk",
+      "Markus Adamek",
+      "Ladan Moheimanian",
+      "William G. Coon",
+      "Sung Chan Jun",
+      "Jonathan R. Wolpaw",
+      "Peter Brunner"
+    ],
+    "Acknowledgements": "Data and code released by the authors as Zenodo record 10.5281/zenodo.4361654 (contact in the record: Peter Brunner). Repackaged as iEEG-BIDS without further processing for NEMAR.",
+    "HowToAcknowledge": "Please cite Cho H, Schalk G, Adamek M, Moheimanian L, Coon WG, Jun SC, Wolpaw JR, Brunner P. Revealing the physiological origin of event-related potentials using electrocorticography in humans. bioRxiv 2021, doi:10.1101/2021.02.12.430921, and the data record doi:10.5281/zenodo.4361654.",
+    "ReferencesAndLinks": [
+      "https://doi.org/10.1101/2021.02.12.430921",
+      "https://doi.org/10.5281/zenodo.4361654"
+    ],
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.5281/zenodo.4361654",
+        "URL": "https://zenodo.org/records/4361654",
+        "Version": "published 2020-12-15"
+      }
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "Authors' processing (Cho et al.)",
+        "Description": "Channel exclusion, downsampling to 400 Hz, epoching around auditory stimulus and button press, 1-s rest segments (data/s<k>_auditory_ds.mat)"
+      },
+      {
+        "Name": "b3w1_convert_cho.py (ieeg-nemar-20261005 campaign, batch 3)",
+        "Description": "Format conversion only (BrainVision float32, epochs back to back, events at the alignment points)"
+      }
+    ],
+    "Funding": [
+      "NIH/NIBIB (P41-EB018783, R01-EB026439)",
+      "NIH/NINDS (U01-NS108916 and U24-NS109103)",
+      "NIH/NIMH (P50-MH109429)",
+      "US Army Research Office (W911NF-07-1-0415, W911NF-08-1-0216 and W911NF-14-1-0440)",
+      "Fondazione Neurone",
+      "Institute of Information & Communications Technology Planning & Evaluation (IITP) grant funded by the Korea government (No. 2017-0-00451)"
+    ],
+    "EthicsApprovals": [
+      "Institutional Review Board of Albany Medical College",
+      "Human Research Protections Office of the U.S. Army Medical Research and Materiel Command"
+    ],
+    "DatasetDOI": "10.82901/nemar.nm000409",
+    "Version": "1.0.2"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.nm000409-blue)](https://doi.org/10.82901/nemar.nm000409)\n\n# ECoG during a simple auditory reaction-time task (derivative)\n\nElectrocorticography (ECoG) from 8 subjects performing a simple reaction-time task (press a button as fast as possible\nafter an auditory stimulus), released with the code of:\n\n> Cho H, Schalk G, Adamek M, Moheimanian L, Coon WG, Jun SC, Wolpaw JR, Brunner P (2021). Revealing the physiological\n> origin of event-related potentials using electrocorticography in humans. bioRxiv, https://doi.org/10.1101/2021.02.12.430921\n\nSource record: Zenodo https://doi.org/10.5281/zenodo.4361654 (CC-BY-4.0), `Evoked_Potentials_ECoG_Data.zip`\n(\"ECoG activity from eight human subjects; EEG activity from seven human subjects; recorded during a simple\nreaction-time task\").\n\n**This is a derivative dataset**: the release holds the authors' downsampled (400 Hz) epochs, not continuous recordings.\n\n## Files\n\nFor each subject `sub-01` ... `sub-08` (release files `s1` ... `s8`), three BrainVision files (float32 = the release's\nfloat64 values rounded), epochs written back to back, trial `k` at the same position in all three:\n\n- `desc-stimlocked`: -1.0 to +1.5 s around the auditory stimulus (1000 samples per trial);\n- `desc-responselocked`: -1.5 to +1.5 s around the button press (1200 samples per trial);\n- `desc-rest`: a 1-s rest segment per trial (400 samples), used by the authors as baseline.\n\nEpoch windows are those of the authors' figure scripts (`linspace(-1,1.5,srate*2.5)`, `linspace(-1.5,1.5,srate*3)`).\n`*_events.tsv` has one row per trial at the alignment point. `channels.tsv` marks the channels the paper used as\nauditory (`ach_data_final.mat`) and motor (`mch_data_final.mat`) channels.\n\n## Limitations\n\n- The release has no channel names (channels are numbered `ch001...` in column order), no electrode positions matched to\n  the channels, and no per-subject age or sex.\n- The physical unit is not stated; the channels are labelled µV as an assumption.\n- The original sampling rate and the anti-alias filter used for downsampling are not stated.\n- Line frequency 60 Hz is taken from the release's notch parameters (58-62 Hz, 117-123 Hz).\n- `sourcedata/zenodo-4361654/sub-XX_parameters.json` holds the analysis parameters stored in each subject file, without\n  the original file paths, subject numbers and brain-model file names (these carry site study codes).\n- The EEG data, figure data, cortical models and code of the release are not copied; they remain in the source record.\n\n## Licence\n\nCC-BY-4.0, as the source record. Please cite the preprint and the Zenodo record.\n\n## Additional metadata and localisation (added 2026-10-08)\n\nCompiled after the upload from the article, its supplement and the source deposit (each statement names its source). Text and sidecar metadata only; no data file was changed.\n\n**Recording system.** BCI2000 with eight 16-channel g.USBamp amplifiers or one 256-channel g.HIamp (g.tec), sampling rate 1,200 Hz; a connector split the cables between the clinical system and the research amplifiers (doi:10.1101/2021.02.12.430921, Methods 'Data collection'). The deposited s<N>_auditory_ds.mat are downsampled ('_ds'): the preprint downsampled 1200 -> 400 Hz after 0.05 Hz high-pass and common median reference (doi:10.1101/2021.02.12.430921, 'Data pre-processing'); each file holds ecog.rest_data, ecog.stim_data, ecog.button_data (samples x channels), ecog.srate, ecog.n_trials, ecog.parameters (Voyager Job ieeg-b3enr-c-cho-erp-1007221214).\n\n**Reference scheme.** Offline common median reference, excluding channels with excessive 60 Hz noise (doi:10.1101/2021.02.12.430921). Hardware reference not stated (n/a).\n\n**Electrode types.** Subdural grids (Ad-Tech Medical, Racine WI; PMT, Chanhassen MN), platinum-iridium, 4 mm diameter (2.3 mm exposed), 10 mm centre-to-centre (doi:10.1101/2021.02.12.430921, Methods 'Subjects').\n\n**Localisation method.** Postoperative radiographs and CT, with MRI, were used to build subject-specific 3D cortical models and derive electrode locations (Coon et al. 2016) (doi:10.1101/2021.02.12.430921). The deposit contains, per subject, the brain model with electrode coordinates (data/s<N>_brain.mat and talairach_alignment/s<N>/orig_brain_model.mat) and the same electrodes aligned to the activeBrain Talairach template (talairach_alignment/s<N>/talairach_tal_brain_model.mat); These positions are not assigned to channels in this dataset: the release has no channel names and each subject's data have 0-5 more columns than the brain model has electrodes (see coordsystem.json), so the electrode-to-channel mapping cannot be verified.\n\n## Correction (2026-10-09)\n\nThe `hemisphere` column of `participants.tsv` listed all eight subjects as left. It had been copied from the release analysis parameter `IsRightHemisphere`, which is `no` in every subject file. The preprint (doi:10.1101/2021.02.12.430921, Methods 'Subjects') places the grids in the left hemisphere for S1, S3, S6 and S7 and in the right hemisphere for S2, S4, S5 and S8, and the electrode coordinates in the deposit agree (positive x for s2, s4, s5 and s8). `sub-02`, `sub-04`, `sub-05` and `sub-08` are now `right`. No data file or coordinate was changed.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/nm000409",
+    "exists": true,
+    "description": "ECoG during a simple auditory reaction-time task, 8 subjects: stimulus-locked, response-locked and rest epochs at 400 Hz (Cho et al., physiological origin of ERPs)",
+    "created_at": "2026-10-07T22:41:47+00:00",
+    "updated_at": "2026-10-21T21:11:29+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}
