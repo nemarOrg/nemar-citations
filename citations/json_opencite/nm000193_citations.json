@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000193",
-  "num_citations": 10,
-  "date_last_updated": "2026-10-11T10:19:00.426212+00:00",
+  "num_citations": 12,
+  "date_last_updated": "2026-10-26T10:04:09.670469+00:00",
   "metadata": {
-    "total_cumulative_citations": 30,
-    "fetch_date": "2026-10-11T10:19:00.426212+00:00",
+    "total_cumulative_citations": 34,
+    "fetch_date": "2026-10-26T10:03:21.023467+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 3,
@@ -60,19 +60,25 @@
     ],
     "keywords": [
       "EEG",
-      "Brain-Computer Interfaces",
+      "brain-computer interface",
       "P300",
       "auditory stream segregation",
       "selective attention",
       "Riemannian geometry"
     ],
-    "methods_description": "64-channel EEG and 2-channel EOG were recorded at 1000 Hz with BrainAmp amplifiers, referenced to the right earlobe. Piano tones (150 ms, SOA 180 ms) formed three streams with 90% standard and 10% deviant tones, presented to the right ear. Each session had two task blocks of three 5-minute runs. Classification used xDAWN spatial filtering and Riemannian geometry with 10-fold cross validation.",
+    "methods_description": "EEG (64 channels) and EOG (2 channels) were recorded at 1000 Hz with BrainAmp amplifiers and Ag-AgCl electrodes, referenced to the right earlobe. Piano tones (150 ms, SOA 180 ms) were presented to the right ear in three streams with 90% standard and 10% deviant tones. Each session had two task blocks of three 5-minute runs. Analysis used bandpass filtering, artifact rejection, xDAWN spatial filtering, and Riemannian geometry classification with 10-fold cross validation.",
     "funding": [
       {
         "funder_name": "JSPS KAKENHI",
         "award_number": "JP23K11811"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "nm000193"
+    ],
+    "num_accession_mentions": 2,
+    "num_dataset_citations": 2,
+    "num_datapaper_citations": 10
   },
   "citation_details": [
     {
@@ -104,7 +110,7 @@
       "venue": "ArXiv",
       "year": 2026,
       "url": "https://doi.org/10.48550/arXiv.2605.08495",
-      "cited_by": 16,
+      "cited_by": 19,
       "abstract": "Deep learning and large public datasets have recently catalyzed the proliferation of AI models for processing brain recordings. However, systematically evaluating these models remains a challenge: not only do the preprocessing pipelines, training and finetuning approaches largely vary across studies, but their downstream evaluation is often limited to small sets of tasks and/or datasets. Here, we present NeuralBench: a unified framework for benchmarking AI models of brain activity. We accompany this framework with NeuralBench-EEG v1.0 -- a large EEG benchmark that includes 36 electroencephalography (EEG) tasks and 14 deep learning architectures, and is evaluated on 94 datasets accessed through a standardized interface. This first EEG-focused release already highlights two main findings. First, current foundation models only marginally outperform task-specific models. Second, a large set of tasks (e.g. cognitive decoding, clinical predictions) remain highly challenging, even for the bes",
       "doi": "10.48550/arXiv.2605.08495",
       "pmid": null,
@@ -127,7 +133,7 @@
       "venue": "EngMedicine",
       "year": 2025,
       "url": "https://doi.org/10.1016/j.engmed.2025.100090",
-      "cited_by": 7,
+      "cited_by": 8,
       "abstract": "Neurological disorders, such as Parkinson’s disease, stroke, and spinal cord injury, present significant global health challenges, contributing to high morbidity, mortality, and loss of functional independence for afflicted patients. Brain–machine interfaces (BMIs) have emerged as a transformative technology with promising potential for the diagnosis, treatment, and management of these conditions. By creating a direct communication interface between the brain and external devices, BMIs allow patients with severe neurological impairments to regain partial motor function, engage in nonverbal communication, and restore control over lost physiological functions. This review provides a comprehensive overview of recent clinical advancements in BMI applications for neurological disorders, including motor, consciousness, and affective disorders. This study highlights the utility of BMIs in improving motor and sensory functions, enabling communication between severely disabled patients, and del",
       "doi": "10.1016/j.engmed.2025.100090",
       "pmid": null,
@@ -304,22 +310,72 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "Multiple Gene Expression Analyses in Paraffin-Embedded Tissues by TaqMan Low-Density Array",
+      "author": "Adam D. Steg, Wenquan Wang, Carmelo Blanquicett, Jessica M. Grunda, Isam A. Eltoum, Kangsheng Wang, Donald J. Buchsbaum, Selwyn Maurice Vickers, Suzanne M. Russo, Robert B. Diasio, Andra R. Frost, Albert F. LoBuglio, William E. Grizzle, Martin R. Johnson",
+      "venue": "Journal of Molecular Diagnostics",
+      "year": 2006,
+      "url": "https://doi.org/10.2353/jmoldx.2006.040402",
+      "cited_by": 82,
+      "abstract": null,
+      "doi": "10.2353/jmoldx.2006.040402",
+      "pmid": "16436637",
+      "openalex_id": "W1553996898",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "nm000193",
+      "confidence_scoring": {
+        "confidence_score": 0.2993965148925781,
+        "similarity_score": 0.2993965148925781,
+        "citation_text_length": 403,
+        "dataset_text_length": 2403,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Predicting Cognitive Tasks from Single-Channel EEG through Task-Semantic Alignment",
+      "author": "Ryota Kanai C",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2610.15104",
+      "cited_by": 0,
+      "abstract": "Studies of data scaling in electroencephalography (EEG) and related noninvasive recordings suggest that simple wearable devices could eventually reveal more about cognitive states. However, publicly available EEG data are difficult to combine. Different laboratories record different tasks, participants, and devices. Task-agnostic self-supervised learning can exploit such data, but representations learned only with EEG signals have not consistently produced feature representations that are directly effective for decoding the cognitive state. We therefore aimed to incorporate task information by embedding experimental instructions, stimuli and response demands in a common semantic space, and trained an EEG encoder to align signals from a single anterior--posterior differential channel with those task vectors. This framework supports zero-shot prediction without target-condition calibration and few-shot prediction using labeled samples. On a reserved ten-class evaluation, the highest observed zero-shot balanced accuracy was 30.13% (chance 10%). In a separate developmental few-shot experiment, balanced accuracy reached 34.47% using 16 labeled EEG examples per class from another participant, and 74.99% using examples from the test participant's own task recording. Our experiments suggest that training models on datasets with multiple tasks per participant appeared useful, whereas adding datasets containing only one or a few tasks sometimes reduced established performance despite broader task coverage. These exploratory results suggest that EEG datasets that repeat varied cognitive tasks and everyday activities within the same individuals across days, devices and independent studies would be particularly useful for training an EEG foundation model for predicting cognitive states.",
+      "doi": "10.48550/arxiv.2610.15104",
+      "pmid": null,
+      "openalex_id": "W7221793578",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "nm000193",
+      "confidence_scoring": {
+        "confidence_score": 0.5831376519799233,
+        "similarity_score": 0.5048810839653015,
+        "citation_text_length": 1660,
+        "dataset_text_length": 2403,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-10-11T11:21:51.347650+00:00",
+    "scoring_date": "2026-10-26T10:08:31.645513+00:00",
     "dataset_text_length": 2403,
-    "num_citations_scored": 10,
+    "num_citations_scored": 12,
     "summary_stats": {
-      "mean_confidence": 0.6490052966773512,
-      "median_confidence": 0.6577327765524388,
-      "std_confidence": 0.08190677871444345,
-      "min_confidence": 0.42581548690795906,
+      "mean_confidence": 0.6143822611371678,
+      "median_confidence": 0.6479503753781319,
+      "std_confidence": 0.12222485966194507,
+      "min_confidence": 0.2993965148925781,
       "max_confidence": 0.7438849121332171,
       "high_confidence_count": 2,
-      "medium_confidence_count": 8,
-      "low_confidence_count": 0
+      "medium_confidence_count": 9,
+      "low_confidence_count": 1
     }
   }
 }

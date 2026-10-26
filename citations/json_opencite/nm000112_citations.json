@@ -1,13 +1,13 @@
 {
   "dataset_id": "nm000112",
-  "num_citations": 100,
-  "date_last_updated": "2026-10-25T10:06:48.680283+00:00",
+  "num_citations": 101,
+  "date_last_updated": "2026-10-26T10:02:10.631780+00:00",
   "metadata": {
-    "total_cumulative_citations": 1167,
-    "fetch_date": "2026-10-25T10:06:48.680283+00:00",
+    "total_cumulative_citations": 1168,
+    "fetch_date": "2026-10-26T10:02:10.631780+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
-    "anchor_count": 2,
+    "anchor_count": 3,
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
@@ -43,13 +43,13 @@
         "identifier": "10.7303/syn50614194",
         "identifier_type": "doi",
         "source_relation": "IsDerivedFrom",
-        "classification": null,
-        "kept": false,
-        "kept_reason": "unjudged",
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
+        "classification": "data_paper",
+        "kept": true,
+        "kept_reason": "judged_data_paper",
+        "paper_title": "THU_EP",
+        "paper_year": 2023,
+        "paper_venue": "Synapse",
+        "reason": "Synapse record syn50614194 (Tsinghua emotion BCI) appears to be the original FACED data deposit that nm000112 derives from (IsDerivedFrom); the THU_EP title is a project name, so moderate confidence.",
         "judgment_model": "claude-sonnet-5-5"
       },
       {
@@ -68,6 +68,7 @@
     ],
     "searched_dois": [
       "10.1038/s41597-023-02650-w",
+      "10.7303/syn50614194",
       "10.82901/nemar.nm000112"
     ],
     "keywords": [
@@ -79,13 +80,7 @@
       "Electroencephalography"
     ],
     "methods_description": "EEG was recorded from 32 channels placed according to the 10-20 system with a Biosemi system, sampled at 1000 Hz (92 subjects) or 250 Hz (31 subjects). Participants sat 60 cm from a 22-inch monitor. Each trial had a 5 s fixation cross, a video clip (typically 30-60 s; individual clips range from about 34 to 129 s), and a 12-item emotion rating. Blocks of clips were separated by arithmetic problems to reduce carryover effects. Raw BDF files were converted to BIDS with MNE-BIDS, and events were parsed from evt.bdf annotations.",
-    "funding": [],
-    "searched_accessions": [
-      "nm000112"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 100
+    "funding": []
   },
   "citation_details": [
     {
@@ -94,7 +89,7 @@
       "venue": "ArXiv",
       "year": 2025,
       "url": "https://doi.org/10.48550/arXiv.2510.21585",
-      "cited_by": 121,
+      "cited_by": 122,
       "abstract": "Foundation models have transformed AI by reducing reliance on task-specific data through large-scale pretraining. While successful in language and vision, their adoption in EEG has lagged due to the heterogeneity of public datasets, which are collected under varying protocols, devices, and electrode configurations. Existing EEG foundation models struggle to generalize across these variations, often restricting pretraining to a single setup, resulting in suboptimal performance, in particular under linear probing. We present REVE (Representation for EEG with Versatile Embeddings), a pretrained model explicitly designed to generalize across diverse EEG signals. REVE introduces a novel 4D positional encoding scheme that enables it to process signals of arbitrary length and electrode arrangement. Using a masked autoencoding objective, we pretrain REVE on over 60,000 hours of EEG data from 92 datasets spanning 25,000 subjects, representing the largest EEG pretraining effort to date. REVE ach",
       "doi": "10.48550/arXiv.2510.21585",
       "pmid": null,
@@ -871,29 +866,6 @@
       }
     },
     {
-      "title": "Spiking neural networks for EEG signal analysis: From theory to practice",
-      "author": "Siqi Cai, Zheyuan Lin, Xiaoli Liu, Wenjie Wei, Shuai Wang, Malu Zhang, Tanja Schultz, Haizhou Li",
-      "venue": "Neural Networks",
-      "year": 2025,
-      "url": "https://doi.org/10.1016/j.neunet.2025.108127",
-      "cited_by": 9,
-      "abstract": "The intricate and efficient information processing of the human brain, driven by spiking neural interactions, has led to the development of spiking neural networks (SNNs) as a cutting-edge neural network paradigm. Unlike traditional artificial neural networks (ANNs) that use continuous values, SNNs emulate the brain's spiking mechanisms, offering enhanced temporal information processing and computational efficiency. This review addresses the critical gap between theoretical advancements and practical applications of SNNs in EEG signal analysis. We provide a comprehensive examination of recent SNN methodologies and their application to EEG signals, highlighting their potential benefits over conventional deep learning approaches. The review encompasses foundational knowledge of SNNs, detailed implementation strategies for EEG analysis, and challenges inherent to SNN-based methods. Practical guidance is provided through step-by-step instructions and accessible code available on GitHub, ai",
-      "doi": "10.1016/j.neunet.2025.108127",
-      "pmid": "41004906",
-      "openalex_id": "W4414578882",
-      "source_doi": "10.1038/s41597-023-02650-w",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.4453644552826882,
-        "similarity_score": 0.3855969309806824,
-        "citation_text_length": 1222,
-        "dataset_text_length": 2274,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "ACCNet: Adaptive cross-frequency coupling graph attention for EEG emotion recognition",
       "author": "Dongyuan Tian, Yucheng Wang, Peiliang Gong, Zhewen Xu, Zhenghua Chen, Xiaohui Wei, Min Wu",
       "venue": "Neural Networks",
@@ -1049,6 +1021,29 @@
         "confidence_score": 0.5522894221544267,
         "similarity_score": 0.4781726598739624,
         "citation_text_length": 1176,
+        "dataset_text_length": 2274,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Spiking neural networks for EEG signal analysis: From theory to practice",
+      "author": "Siqi Cai, Zheyuan Lin, Xiaoli Liu, Wenjie Wei, Shuai Wang, Malu Zhang, Tanja Schultz, Haizhou Li",
+      "venue": "Neural Networks",
+      "year": 2025,
+      "url": "https://doi.org/10.1016/j.neunet.2025.108127",
+      "cited_by": 5,
+      "abstract": null,
+      "doi": "10.1016/j.neunet.2025.108127",
+      "pmid": "41004906",
+      "openalex_id": "W4414578882",
+      "source_doi": "10.1038/s41597-023-02650-w",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.45575612336397175,
+        "similarity_score": 0.4340534508228302,
+        "citation_text_length": 210,
         "dataset_text_length": 2274,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1469,29 +1464,6 @@
       }
     },
     {
-      "title": "EEGTune: A data-efficient fine-tuning framework for EEG foundation models",
-      "author": "Zelin Liao, Yonghao Song, Chengjian Xu, Haochuan Zhang, Qingqing Zheng",
-      "venue": "Pattern Recognition",
-      "year": 2026,
-      "url": "https://doi.org/10.1016/j.patcog.2026.113591",
-      "cited_by": 2,
-      "abstract": null,
-      "doi": "10.1016/j.patcog.2026.113591",
-      "pmid": null,
-      "openalex_id": "W7141563107",
-      "source_doi": "10.1038/s41597-023-02650-w",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5285158932209015,
-        "similarity_score": 0.5033484697341919,
-        "citation_text_length": 189,
-        "dataset_text_length": 2274,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Beyond Vital Signs: Emotion-Aware Remote Patient Monitoring",
       "author": "Mai Ali, Bilal Taha, Dimitrios Hatzinakos, Deepa Kundur",
       "venue": "IEEE Journal of Biomedical and Health Informatics",
@@ -1509,6 +1481,29 @@
         "confidence_score": 0.3900025834143162,
         "similarity_score": 0.33766457438468933,
         "citation_text_length": 1202,
+        "dataset_text_length": 2274,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "EEGTune: A data-efficient fine-tuning framework for EEG foundation models",
+      "author": "Zelin Liao, Yonghao Song, Chengjian Xu, Haochuan Zhang, Qingqing Zheng",
+      "venue": "Pattern Recognition",
+      "year": 2026,
+      "url": "https://doi.org/10.1016/j.patcog.2026.113591",
+      "cited_by": 2,
+      "abstract": null,
+      "doi": "10.1016/j.patcog.2026.113591",
+      "pmid": null,
+      "openalex_id": "W7141563107",
+      "source_doi": "10.1038/s41597-023-02650-w",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5285158932209015,
+        "similarity_score": 0.5033484697341919,
+        "citation_text_length": 189,
         "dataset_text_length": 2274,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -2211,7 +2206,7 @@
       "year": 2026,
       "url": "https://doi.org/10.1016/j.ins.2026.123997",
       "cited_by": 0,
-      "abstract": "Electroencephalography (EEG) signals provide millisecond-level temporal resolution, but their analysis is limited by substantial noise and inter-subject variability, making robust personalization difficult when annotations are scarce. Unsupervised Individual Continual Learning (UICL) addresses this practical challenge: a model pretrained on a labeled cohort must adapt online to unlabeled subject streams under strict memory constraints. However, existing UICL methods typically store full past samples, which weakens the continual-learning goal of avoiding expensive retraining and unbounded storage. Motivated by the well-structured morphologies present in EEG, we propose A daptive Da ta Co mpression and Re construction (ADaCoRe) for UICL. ADaCoRe is a memory-efficient pipeline composed of saliency-driven keyframe protection, rational polyphase compression, adjoint reconstruction with verbatim overwrite on protected indices, and prototype-confidence selection for adaptive exemplar maintena",
+      "abstract": "Electroencephalography (EEG) signals provide millisecond-level temporal resolution but their analysis is limited by remarkable noise and inter-subject variability, making robust personalization difficult under limited annotations. Unsupervised Individual Continual Learning (UICL) has been proposed to address this practical challenge, where a model pretrained on a labeled cohort must adapt online to unlabeled subject streams under strict memory constraints. However, existing UICL methods typically store full past samples, which undermine the continual learning goal of avoiding retraining. Observing that EEG signals exhibit well-structured morphologies to be exploited via morphology-aware selection, compression, and reconstruction, here we propose Adaptive Data Compression and Reconstruction (ADaCoRe) for UICL. This is a memory-efficient pipeline composed of saliency-driven keyframe protection, rational polyphase compression, adjoint reconstruction with verbatim overwrite on protected in",
       "doi": "10.1016/j.ins.2026.123997",
       "pmid": null,
       "openalex_id": "W7160424947",
@@ -2219,8 +2214,8 @@
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.4808433651924134,
-        "similarity_score": 0.41631460189819336,
+        "confidence_score": 0.48149847865104684,
+        "similarity_score": 0.416881799697876,
         "citation_text_length": 1170,
         "dataset_text_length": 2274,
         "scoring_method": "sentence_transformers",
@@ -2387,21 +2382,44 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "GNN4EEG: A Benchmark and Toolkit for Electroencephalography Classification with Graph Neural Network",
+      "author": "Kaiyuan Zhang, Ziyi Ye, Qingyao Ai, Xiaohui Xie, Yiqun Liu",
+      "venue": "n/a",
+      "year": 2024,
+      "url": "https://doi.org/10.1145/3675094.3678475",
+      "cited_by": 4,
+      "abstract": "Electroencephalography (EEG) classification is a crucial task in neuroscience, neural engineering, and several commercial applications. Traditional EEG classification models, however, have often overlooked or inadequately leveraged the brain's topological information. Recognizing this shortfall, there has been a burgeoning interest in recent years in harnessing the potential of Graph Neural Networks (GNN) to exploit the topological information by modeling features selected from each EEG channel in a graph structure. To further facilitate research in this direction, we introduce GNN4EEG, a versatile and user-friendly toolkit for GNN-based modeling of EEG signals. GNN4EEG comprises three components: (i)~A large benchmark constructed with four EEG classification tasks based on EEG data collected from 123 participants. (ii)~Easy-to-use implementations on various state-of-the-art GNN-based EEG classification models, e.g., DGCNN, RGNN, etc. (iii)~Implementations of comprehensive experimental",
+      "doi": "10.1145/3675094.3678475",
+      "pmid": null,
+      "openalex_id": "W4402722012",
+      "source_doi": "10.7303/syn50614194",
+      "source_relation": "IsDerivedFrom",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5412899735569955,
+        "similarity_score": 0.46864932775497437,
+        "citation_text_length": 1200,
+        "dataset_text_length": 2274,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-10-25T10:22:10.518584+00:00",
+    "scoring_date": "2026-10-26T10:07:18.380494+00:00",
     "dataset_text_length": 2274,
-    "num_citations_scored": 100,
+    "num_citations_scored": 101,
     "summary_stats": {
-      "mean_confidence": 0.6030675662085415,
-      "median_confidence": 0.6126974719762803,
-      "std_confidence": 0.1275136992657704,
+      "mean_confidence": 0.6025652809500105,
+      "median_confidence": 0.6122820085287095,
+      "std_confidence": 0.12689888456906523,
       "min_confidence": 0.23334310457110408,
       "max_confidence": 0.9997407951951027,
       "high_confidence_count": 24,
-      "medium_confidence_count": 70,
+      "medium_confidence_count": 71,
       "low_confidence_count": 6
     }
   }
