@@ -1,7 +1,7 @@
 {
   "dataset_id": "on002725",
-  "num_citations": 72,
-  "date_last_updated": "2026-10-24T10:38:04.230686+00:00",
+  "num_citations": 74,
+  "date_last_updated": "2026-10-26T10:05:15.297452+00:00",
   "metadata": {
     "total_cumulative_citations": 1723,
     "fetch_date": "2026-10-24T10:38:04.230686+00:00",
@@ -53,7 +53,14 @@
       "simultaneous EEG-fMRI"
     ],
     "methods_description": "Simultaneous EEG and fMRI were recorded from 21 healthy adult participants in 2016 while they listened to affective music stimuli. Participants self-reported their felt affective states as they listened.",
-    "funding": []
+    "funding": [],
+    "searched_accessions": [
+      "on002725",
+      "ds002725"
+    ],
+    "num_accession_mentions": 2,
+    "num_dataset_citations": 3,
+    "num_datapaper_citations": 71
   },
   "citation_details": [
     {
@@ -279,7 +286,9 @@
       "openalex_id": "W3034275316",
       "source_doi": "10.1038/s41598-019-45105-2",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "mentions_accession": true,
+      "matched_accession": "ds002725"
     },
     {
       "title": "The Neural Blending of Words and Movement: Event-Related Potential Signatures of Semantic and Action Processes during Motor–Language Coupling",
@@ -1135,6 +1144,40 @@
       "source_doi": "10.1038/s41598-019-45105-2",
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite"
+    },
+    {
+      "title": "Musical Intelligence Reproduction Archive — Results Layer (1,097 verdicts, engine-free)",
+      "author": "Amaç Erdem",
+      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "year": 2026,
+      "url": "https://doi.org/10.5281/zenodo.19744623",
+      "cited_by": 0,
+      "abstract": "Reproducibility bundle for Musical Intelligence v9.5.7 Cycle 17 cross-subject per-piece BOLD encoding analysis on ds003720 (Nakai 2021, 4 subjects, 720 music clips). Contains MI 26-D region activation map features, baseline encoder features (MERT-768, CLAP-music-512, Random-26/768), per-subject HRF-lagged per-clip BOLD vectors, and Python analysis scripts for shuffle-null inference, Ridge 5-fold CV encoding, and CKA architecture tests. Reproduces every numerical claim in the paper's §Results \"Cross-subject per-piece encoding on ds003720\" section without requiring access to the MI engine source code. The four analyses included:- Deney 1: Shuffle-clip null (500 permutations per encoder per subject, Benjamini-Hochberg FDR over 24 tests).- Deney 2: Ridge regression 5-fold CV with nested inner alpha selection, top-5% voxel held-out Pearson r, Fisher-z mean across subjects.- Deney 3: Feature-level CKA (MI-full vs MI-naive, MERT, CLAP, Random-26/768).- Deney 3b: CKA vs per-subject BOLD (encoding-geometry test). Headline results reproducible from this bundle: MI 4/4 subjects pass BH-FDR shuffle-null (effect +0.047); MI-naive 1/4; Random 0/4; MERT 4/4 (+0.054). Ridge held-out r: MI 0.165 vs MI-naive 0.084 (+93% architectural lift); vs Random-26 0.090 (+83% dimensionality-matched lift); MERT 0.221 at 30x more feature dimensions. CKA feature-level (MI-full, MI-naive) = 0.994 (literal R5 H2 floor Δ ≥ 0.02 fails honestly; dimensionality-confounded). Engine IP note: MI engine source code remains under SRC9 Sonic Intelligence LLC copyright. This deposit is an artifact-only release — the numerical encoding analysis is fully reproducible from the deposited features + BOLD + scripts without engine access. Research-use source access is available upon email request to amace@bu.edu (see bundle DOWNLOAD.md). Paper-time engine state is pinned to git tag v9.5.3-paper-time-snapshot (SHA 5beaee5c) in the private SRC9 Musical Intelligence repository. This reproducibility model follows NeurIPS artifact-track guidelines and industry-research conventions (e.g., Gemini tech reports, GPT-4 technical report). Runtime: ~40 min CPU (Apple M2 or equivalent). No GPU required. Bundle integrity verified via MANIFEST.sha256 (38 files).",
+      "doi": "10.5281/zenodo.19744623",
+      "pmid": null,
+      "openalex_id": "W7155541057",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds002725"
+    },
+    {
+      "title": "MI Engine Outputs — Neuroimaging cache (ds002725, ds003720, ds004007, ds006583)",
+      "author": "Amaç Erdem",
+      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "year": 2026,
+      "url": "https://doi.org/10.5281/zenodo.20476218",
+      "cited_by": 0,
+      "abstract": "Heavy per-frame engine output cache for the Musical Intelligence (MI) Reproduction Archive. This deposit complements the main MI Reproduction Archive v2.0.0 (DOI: 10.5281/zenodo.20457643). It contains the per-frame .npz files required to reproduce the 05.3 ds002725 single-subject + 05.5 ds003720 voxelwise + 05.6 cross-dataset pytest phases in cache-mode (no engine source, no audio WAVs required). To use: Download and extract the main archive (DOI 10.5281/zenodo.20457643). Download this .tar file and extract into Musical_Intelligence_Results/engine_outputs/neuroimaging/. Run pytest under the relevant validation phase directory. Content: Per-frame .npz feature caches for 4 OpenNeuro fMRI datasets used in MI's mech×region grounding phases. Subdirs: ds002725/ (6.0 GB), ds003720/ (6.8 GB), ds003720_raw_gtzan/ (84 MB), ds004007/ (1.6 GB), ds006583/ (461 MB), ds006583_behav/ (462 MB). File: mi-engine-outputs-neuroimaging.tar — MD5: 7945f92848a6ff65fae1bf6cf6212130 Format: uncompressed tar (payload .npz is already zlib-compressed numpy zip; outer gzip would add wall-clock with ~0% size reduction). Engine version: SHA 318eb2f5 (FROZEN). Bit-identical reproduction guaranteed when paired with the engine at this commit. License: PolyForm Noncommercial 1.0.0 (matches the main archive). Engine source remains proprietary to SRC9 Sonic Intelligence LLC and is not included in this deposit.",
+      "doi": "10.5281/zenodo.20476218",
+      "pmid": null,
+      "openalex_id": "W7163030970",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds002725"
     }
   ]
 }

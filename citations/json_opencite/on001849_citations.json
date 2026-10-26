@@ -1,7 +1,7 @@
 {
   "dataset_id": "on001849",
-  "num_citations": 47,
-  "date_last_updated": "2026-10-24T10:36:24.382269+00:00",
+  "num_citations": 50,
+  "date_last_updated": "2026-10-26T10:04:45.858988+00:00",
   "metadata": {
     "total_cumulative_citations": 972,
     "fetch_date": "2026-10-24T10:36:24.382269+00:00",
@@ -52,7 +52,14 @@
       "cosine similarity"
     ],
     "methods_description": "Data were collected using concurrent TMS-EEG recordings. TMS was applied at multiple sites with concurrent EEG acquisition to capture TMS-evoked potentials.",
-    "funding": []
+    "funding": [],
+    "searched_accessions": [
+      "on001849",
+      "ds001849"
+    ],
+    "num_accession_mentions": 3,
+    "num_dataset_citations": 4,
+    "num_datapaper_citations": 46
   },
   "citation_details": [
     {
@@ -698,7 +705,9 @@
       "openalex_id": "W7117258189",
       "source_doi": "10.1371/journal.pone.0216185",
       "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite"
+      "discovery_backend": "opencite",
+      "mentions_accession": true,
+      "matched_accession": "ds001849"
     },
     {
       "title": "A Structured ICA-based Process for Removing Auditory Evoked Potentials Reveals TMS-evoked Potentials and TMS-modulated Oscillations",
@@ -759,6 +768,57 @@
       "source_doi": "10.1371/journal.pone.0216185",
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite"
+    },
+    {
+      "title": "Identifying site- and stimulation-specific TMS-evoked EEG potentials using a quantitative cosine similarity metric",
+      "author": "Michael Freedberg, Jack A. Reeves, Sara J. Hussain, Kareem A. Zaghloul, Eric M. Wassermann",
+      "venue": "PLoS ONE",
+      "year": 2020,
+      "url": "https://doi.org/10.1371/journal.pone.0216185",
+      "cited_by": 44,
+      "abstract": "The ability to interpret transcranial magnetic stimulation (TMS)-evoked electroencephalography (EEG) potentials (TEPs) is limited by artifacts, such as auditory evoked responses produced by discharge of the TMS coil. TEPs generated from direct cortical stimulation should vary in their topographical activity pattern according to stimulation site and differ from responses to sham stimulation. Responses that do not show these effects are likely to be artifactual. In 20 healthy volunteers, we delivered active and sham TMS to the right prefrontal, left primary motor, and left posterior parietal cortex and compared the waveform similarity of TEPs between stimulation sites and active and sham TMS using a cosine similarity-based analysis method. We identified epochs after the stimulus when the spatial pattern of TMS-evoked activation showed greater than random similarity between stimulation sites and sham vs. active TMS, indicating the presence of a dominant artifact. To do this, we binarized the derivatives of the TEPs recorded from 30 EEG channels and calculated cosine similarity between conditions at each time point with millisecond resolution. Only TEP components occurring before approximately 80 ms differed across stimulation sites and between active and sham, indicating site and condition-specific responses. We therefore conclude that, in the absence of noise masking or other measures to decrease neural artifact, TEP components before about 80 ms can be safely interpreted as stimulation location-specific responses to TMS, but components beyond this latency should be interpreted with caution due to high similarity in their topographical activity pattern.",
+      "doi": "10.1371/journal.pone.0216185",
+      "pmid": "31929531",
+      "openalex_id": "W2998903841",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds001849"
+    },
+    {
+      "title": "EEGDash: An open-source platform for machine learning on public neurophysiological data",
+      "author": "Bruno Aristimunha, Aviv Dotan, Pierre Guetschel, Aman Jaiswal, Gal Ashkenazi, Dung Truong, Kuntal Kokate, Amitrava Majumdar, Oren Shriki, Arnaud Delorme A",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2606.16041",
+      "cited_by": 0,
+      "abstract": "Public recordings of electroencephalography (EEG), magnetoencephalography (MEG), intracranial EEG (iEEG), functional near-infrared spectroscopy (fNIRS) and electromyography (EMG) are easy to find and hard to train on. Turning a deposit into model input still means writing download, parsing, repair and windowing code for each dataset, and a dataset that meets a metadata standard can still fail to load. EEGDash is an open-source registry over public Brain Imaging Data Structure (BIDS) datasets from the OpenNeuro and NEMAR archives and from local deposits. Each dataset becomes a Python class; format defects are repaired lazily; signal handling, windowing and format checking are delegated to MNE-Python, Braindecode and the official BIDS validator. Semantic search, a web browser, publication-derived dataset tags and a feature-extraction module share the registry. EEGDash indexes the metadata of 892 public BIDS datasets (43,911 participants and 126,672 hours across the five modalities), loads any of them into a PyTorch dataset without custom data-loading code, and shows on 503 OpenNeuro EEG datasets that passing the BIDS validator does not predict whether a dataset loads (Spearman $ρ= -0.05$), so an archive built for machine learning has to track both.",
+      "doi": "10.48550/arxiv.2606.16041",
+      "pmid": null,
+      "openalex_id": "W7164887302",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds001849"
+    },
+    {
+      "title": "RS_TMSEEG_Data",
+      "author": "Michael Freedberg, Jack A. Reeves, Sara J. Hussain, Kareem A. Zaghloul, Eric M. Wassermann",
+      "venue": "UC San Diego",
+      "year": 2026,
+      "url": "https://doi.org/10.82901/nemar.on001849",
+      "cited_by": 0,
+      "abstract": "This dataset contains transcranial magnetic stimulation (TMS) combined with electroencephalography (EEG) recordings acquired to identify site- and stimulation-specific TMS-evoked potentials. It accompanies a study that applied a quantitative cosine similarity metric to distinguish TMS-evoked EEG responses across stimulation sites and conditions. The data are mirrored on NEMAR from OpenNeuro (ds001849).",
+      "doi": "10.82901/nemar.on001849",
+      "pmid": null,
+      "openalex_id": "W7165463754",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds001849"
     }
   ]
 }

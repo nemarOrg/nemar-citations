@@ -1,7 +1,7 @@
 {
   "dataset_id": "nm000275",
-  "num_citations": 102,
-  "date_last_updated": "2026-10-24T10:16:11.991409+00:00",
+  "num_citations": 103,
+  "date_last_updated": "2026-10-26T10:04:33.440760+00:00",
   "metadata": {
     "total_cumulative_citations": 5991,
     "fetch_date": "2026-10-24T10:16:11.991409+00:00",
@@ -183,7 +183,13 @@
         "funder_name": "U.S. Army Research Laboratory (ARL)",
         "award_number": "W911NF-10-D-0002/TO 0023"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "nm000275"
+    ],
+    "num_accession_mentions": 1,
+    "num_dataset_citations": 1,
+    "num_datapaper_citations": 102
   },
   "citation_details": [
     {
@@ -2534,21 +2540,46 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "Predicting Cognitive Tasks from Single-Channel EEG through Task-Semantic Alignment",
+      "author": "Ryota Kanai C",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2610.15104",
+      "cited_by": 0,
+      "abstract": "Studies of data scaling in electroencephalography (EEG) and related noninvasive recordings suggest that simple wearable devices could eventually reveal more about cognitive states. However, publicly available EEG data are difficult to combine. Different laboratories record different tasks, participants, and devices. Task-agnostic self-supervised learning can exploit such data, but representations learned only with EEG signals have not consistently produced feature representations that are directly effective for decoding the cognitive state. We therefore aimed to incorporate task information by embedding experimental instructions, stimuli and response demands in a common semantic space, and trained an EEG encoder to align signals from a single anterior--posterior differential channel with those task vectors. This framework supports zero-shot prediction without target-condition calibration and few-shot prediction using labeled samples. On a reserved ten-class evaluation, the highest observed zero-shot balanced accuracy was 30.13% (chance 10%). In a separate developmental few-shot experiment, balanced accuracy reached 34.47% using 16 labeled EEG examples per class from another participant, and 74.99% using examples from the test participant's own task recording. Our experiments suggest that training models on datasets with multiple tasks per participant appeared useful, whereas adding datasets containing only one or a few tasks sometimes reduced established performance despite broader task coverage. These exploratory results suggest that EEG datasets that repeat varied cognitive tasks and everyday activities within the same individuals across days, devices and independent studies would be particularly useful for training an EEG foundation model for predicting cognitive states.",
+      "doi": "10.48550/arxiv.2610.15104",
+      "pmid": null,
+      "openalex_id": "W7221793578",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "nm000275",
+      "confidence_scoring": {
+        "confidence_score": 0.6452235585451127,
+        "similarity_score": 0.5586351156234741,
+        "citation_text_length": 1660,
+        "dataset_text_length": 2321,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-10-24T11:19:24.614512+00:00",
+    "scoring_date": "2026-10-26T10:10:25.129872+00:00",
     "dataset_text_length": 2321,
-    "num_citations_scored": 102,
+    "num_citations_scored": 103,
     "summary_stats": {
-      "mean_confidence": 0.4881617424439858,
-      "median_confidence": 0.5304869695007801,
-      "std_confidence": 0.1764499244271962,
+      "mean_confidence": 0.48968661444496764,
+      "median_confidence": 0.5333525401353837,
+      "std_confidence": 0.176265346356831,
       "min_confidence": 0.11287991479039193,
       "max_confidence": 0.9089512705802918,
       "high_confidence_count": 8,
-      "medium_confidence_count": 64,
+      "medium_confidence_count": 65,
       "low_confidence_count": 30
     }
   }

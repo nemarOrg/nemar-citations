@@ -1,7 +1,7 @@
 {
   "dataset_id": "on000248",
-  "num_citations": 0,
-  "date_last_updated": "2026-10-11T10:40:37.791288+00:00",
+  "num_citations": 2,
+  "date_last_updated": "2026-10-26T10:04:43.811110+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
     "fetch_date": "2026-10-11T10:40:37.791288+00:00",
@@ -111,7 +111,49 @@
         "funder_name": "ANR",
         "award_number": "ANR-14-NEUC-0002-01"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "on000248",
+      "ds000248"
+    ],
+    "num_accession_mentions": 2,
+    "num_dataset_citations": 2,
+    "num_datapaper_citations": 0
   },
-  "citation_details": []
+  "citation_details": [
+    {
+      "title": "MEG-BIDS, the brain imaging data structure extended to magnetoencephalography",
+      "author": "Guiomar Niso, Krzysztof J. Gorgolewski, Elizabeth A. Bock, Teon L Brooks, Guillaume Flandin, Alexandre Gramfort, Richard N. Henson, Mainak Jas, Vladimir Litvak A, Jeremy T. Moreau, Robert Oostenveld, Jan‐Mathijs Schoffelen, François Tadel, Joseph Wexler, Sylvain Baillet",
+      "venue": "Scientific Data",
+      "year": 2018,
+      "url": "https://doi.org/10.1038/sdata.2018.110",
+      "cited_by": 171,
+      "abstract": "We present a significant extension of the Brain Imaging Data Structure (BIDS) to support the specific aspects of magnetoencephalography (MEG) data. MEG measures brain activity with millisecond temporal resolution and unique source imaging capabilities. So far, BIDS was a solution to organise magnetic resonance imaging (MRI) data. The nature and acquisition parameters of MRI and MEG data are strongly dissimilar. Although there is no standard data format for MEG, we propose MEG-BIDS as a principled solution to store, organise, process and share the multidimensional data volumes produced by the modality. The standard also includes well-defined metadata, to facilitate future data harmonisation and sharing efforts. This responds to unmet needs from the multimodal neuroimaging community and paves the way to further integration of other techniques in electrophysiology. MEG-BIDS builds on MRI-BIDS, extending BIDS to a multimodal data structure. We feature several data-analytics software that have adopted MEG-BIDS, and a diverse sample of open MEG-BIDS data resources available to everyone.",
+      "doi": "10.1038/sdata.2018.110",
+      "pmid": "29917016",
+      "openalex_id": "W2809461164",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds000248"
+    },
+    {
+      "title": "Noise Injection as a Structural Diagnostic Tool for Deep Model Reduction",
+      "author": "Chu-Hui Lee, Chun-Ming Huang, Wei-Lin Lai",
+      "venue": "n/a",
+      "year": 2026,
+      "url": "https://doi.org/10.3390/engproc2025120031",
+      "cited_by": 1,
+      "abstract": "In this study, we introduce a novel, functionally driven method for model pruning guided by sensitivity analysis. Conventional model compression techniques often rely on proxy metrics, such as weight magnitude, which may not accurately reflect a component’s true functional importance. The proposed method directly assesses this by systematically injecting controlled noise into network layers and measuring the resultant perturbation on inference output. Components exhibiting low sensitivity to this noise are identified as functionally redundant and are pruned. We validated the method on EEGNet, a compact convolutional neural network, using the MNE Sample Event-Related Potential (ERP) dataset, a widely used benchmark for electroencephalography classification. After training the baseline model, we generated a sensitivity profile by quantifying how noise injection at different layers impacts predictive accuracy. This profile then guided targeted pruning of less influential convolutional kernels and weights. Experimental results demonstrate the method’s efficacy, achieving a significant reduction in both parameter count and computational complexity. Crucially, the pruned model retains classification accuracy nearly identical to the original, heavyweight EEGNet. This confirms that sensitivity-guided pruning effectively removes redundancy without degrading performance. In conclusion, our noise injection framework provides a more direct and interpretable criterion for neural network simplification. By linking component pruning to functional impact, our method enables a more precise and efficient model reduction than traditional heuristic-based approaches. The method developed presents a practical pathway toward developing lightweight, accurate, and low-latency models essential for real-world neuro-computational applications. Future work will focus on automating the pruning pipeline and extending the framework’s applicability to diverse neural architectures.",
+      "doi": "10.3390/engproc2025120031",
+      "pmid": null,
+      "openalex_id": "W7127414711",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds000248"
+    }
+  ]
 }
