@@ -1,7 +1,7 @@
 {
   "dataset_id": "on004117",
-  "num_citations": 100,
-  "date_last_updated": "2026-10-24T10:45:50.826750+00:00",
+  "num_citations": 105,
+  "date_last_updated": "2026-10-27T10:02:21.551716+00:00",
   "metadata": {
     "total_cumulative_citations": 37046,
     "fetch_date": "2026-10-24T10:45:50.826750+00:00",
@@ -61,7 +61,14 @@
         "funder_name": "National Institutes of Health",
         "award_number": "NS047293"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "on004117",
+      "ds004117"
+    ],
+    "num_accession_mentions": 5,
+    "num_dataset_citations": 5,
+    "num_datapaper_citations": 100
   },
   "citation_details": [
     {
@@ -2363,21 +2370,146 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "End-to-End Processing of M/EEG Data with BIDS, HED, and EEGLAB",
+      "author": "Dung Truong, Kay A. Robbins, Arnaud Delorme A, Scott Makeig",
+      "venue": "Neuromethods",
+      "year": 2024,
+      "url": "https://doi.org/10.1007/978-1-0716-4260-3_6",
+      "cited_by": 2,
+      "abstract": "Abstract Reliable and reproducible machine-learning enabled neuroscience research requires large-scale data sharing and analysis. Essential for the effective and efficient analysis of shared datasets are standardized data and metadata organization and formatting, a well-documented, automated analysis pipeline, a comprehensive software framework, and a compute environment that can adequately support the analysis process. In this chapter, we introduce the combined Brain Imaging Data Structure (BIDS) and Hierarchical Event Descriptors (HED) frameworks and illustrate their example use through the organization and time course annotation of a publicly shared EEG (electroencephalography) dataset. We show how the open-source software EEGLAB can operate on data formatted using these standards to perform EEG analysis using a variety of techniques including group-based statistical analysis. Finally, we present a way to exploit freely available high-performance computing resources that allows the application of computationally intensive learning methods to ever larger and more diverse data collections.",
+      "doi": "10.1007/978-1-0716-4260-3_6",
+      "pmid": null,
+      "openalex_id": "W4405194326",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004117",
+      "confidence_scoring": {
+        "confidence_score": 0.5827630752325059,
+        "similarity_score": 0.5045567750930786,
+        "citation_text_length": 1279,
+        "dataset_text_length": 2280,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Predicting Cognitive Tasks from Single-Channel EEG through Task-Semantic Alignment",
+      "author": "Ryota Kanai C",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2610.15104",
+      "cited_by": 0,
+      "abstract": "Studies of data scaling in electroencephalography (EEG) and related noninvasive recordings suggest that simple wearable devices could eventually reveal more about cognitive states. However, publicly available EEG data are difficult to combine. Different laboratories record different tasks, participants, and devices. Task-agnostic self-supervised learning can exploit such data, but representations learned only with EEG signals have not consistently produced feature representations that are directly effective for decoding the cognitive state. We therefore aimed to incorporate task information by embedding experimental instructions, stimuli and response demands in a common semantic space, and trained an EEG encoder to align signals from a single anterior--posterior differential channel with those task vectors. This framework supports zero-shot prediction without target-condition calibration and few-shot prediction using labeled samples. On a reserved ten-class evaluation, the highest observed zero-shot balanced accuracy was 30.13% (chance 10%). In a separate developmental few-shot experiment, balanced accuracy reached 34.47% using 16 labeled EEG examples per class from another participant, and 74.99% using examples from the test participant's own task recording. Our experiments suggest that training models on datasets with multiple tasks per participant appeared useful, whereas adding datasets containing only one or a few tasks sometimes reduced established performance despite broader task coverage. These exploratory results suggest that EEG datasets that repeat varied cognitive tasks and everyday activities within the same individuals across days, devices and independent studies would be particularly useful for training an EEG foundation model for predicting cognitive states.",
+      "doi": "10.48550/arxiv.2610.15104",
+      "pmid": null,
+      "openalex_id": "W7221793578",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004117",
+      "confidence_scoring": {
+        "confidence_score": 0.6385544952750206,
+        "similarity_score": 0.5528610348701477,
+        "citation_text_length": 1660,
+        "dataset_text_length": 2280,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Conflict Delays, Load Creates Tail Risk: Distributional Signatures Across Two Cognitive Paradigms",
+      "author": "Thomas S. Mitchell",
+      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "year": 2026,
+      "url": "https://doi.org/10.5281/zenodo.19932823",
+      "cited_by": 0,
+      "abstract": "We analyze reaction-time (RT) distributions across two cognitive paradigms—Eriksen Flanker (response conflict) and Sternberg working memory (load)—to determine how different constraints reshape behavioral structure. Results show two distinct distributional regimes. In the Flanker task, incongruent trials produce a near-uniform shift across quantiles, consistent with additive delay. In contrast, increasing working-memory load (5→7 items) produces a selective expansion of the upper tail (P90), with P90 shifts (~+234 ms) far exceeding lower-quantile shifts (~+47 ms at P10). This upper-tail emergence is robust to outlier removal, confirmed by bootstrap confidence intervals, and captured by a significant increase in the Tail Risk Index (TRI = P90 − P50). Subjects exhibiting stronger tail expansion show lower accuracy (p = 0.043), indicating that tail risk identifies performance-relevant structure. Pupil-linked physiology shows no detectable association with these distributional metrics. These findings demonstrate that cognitive constraint operates in at least two regimes: translation under response conflict and upper-tail risk emergence under memory load. Behavioral distribution shape provides a low-cost, physiology-independent marker of cognitive constraint beyond mean RT or variance. Data sources: OpenNeuro ds000102 (Flanker) and ds004117 (Sternberg). Cross-task generalization beyond these paradigms remains to be tested.",
+      "doi": "10.5281/zenodo.19932823",
+      "pmid": null,
+      "openalex_id": "W7158842701",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004117",
+      "confidence_scoring": {
+        "confidence_score": 0.6149776393175126,
+        "similarity_score": 0.5324481725692749,
+        "citation_text_length": 1651,
+        "dataset_text_length": 2280,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Decoding Working Memory Load from EEG and Behavioral Dynamics",
+      "author": "Xiaoyu Ye",
+      "venue": "International Journal of Biology and Life Sciences",
+      "year": 2026,
+      "url": "https://doi.org/10.54097/y2c4fp94",
+      "cited_by": 0,
+      "abstract": "Working memory (WM) is critical for cognitive tasks such as reasoning and problem-solving, and its performance is heavily influenced by cognitive load. This study explores the use of EEG, combined with Common Spatial Pattern (CSP) and Support Vector Machine (SVM) classification, to predict cog- nitive states under different memory load conditions (easy, medium, and hard). Behavioral performance, including accuracy and reaction time (RT), was assessed across memory load levels, with RT increasing and accuracy decreasing as memory load became more difficult. EEG data were preprocessed to isolate probe-related activity, and CSP was employed for spatial feature extraction, followed by SVM classifica- tion to decode cognitive states. Our results demonstrated robust binary and multi-class classification per- formance, with average test accuracies consistently exceeding 80% across subjects. Notably, the model achieved high accuracy in distinguishing between memory load conditions, with minimal misclassifi- cations and strong consistency between test and cross-validation results. These findings highlight the potential of the CSP-SVM framework for real-time cognitive state monitoring, offering a non-invasive method for tracking cognitive load in both healthy and clinical populations. Future work will explore further applications in neuroadaptive technologies and cognitive impairment monitoring.",
+      "doi": "10.54097/y2c4fp94",
+      "pmid": null,
+      "openalex_id": "W7125986414",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004117",
+      "confidence_scoring": {
+        "confidence_score": 0.69978357732296,
+        "similarity_score": 0.6058732271194458,
+        "citation_text_length": 1567,
+        "dataset_text_length": 2280,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Reduced-observable dynamic mode decomposition for identifying theta and beta activity in working-memory EEG",
+      "author": "David Chavez-Huerta, Mohammad Khosravi",
+      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+      "year": 2026,
+      "url": "https://doi.org/10.64898/2026.10.20.760227",
+      "cited_by": 0,
+      "abstract": "The analysis of transient oscillatory activity in neural recordings remains challenging for linear methods, particularly when signals are nonlinear, noisy, and distributed across multiple channels. This paper introduces a Reduced-Observable Extended Dynamic Mode Decomposition (RO-eDMD) algorithm using a Random Fourier Features dictionary to characterize high-dimensional data in electroencephalography (EEG) recordings. The method extends the Koopman operator framework by incorporating rank reduction directly in the observable space and employing a randomized feature map that approximates the Gaussian kernel, enabling the capture of transient components without explicit dictionary optimization. To assess the method and demonstrate applicability, a logistic regression model is trained using a working memory paradigm as a test case, using dominant power values extracted via RO-eDMD in the theta band as a predictor and the type of event (encoding vs.\\ fixation) as the dependent variable. We find correlations between oscillatory power and memory encoding events in the analyzed bands. Additionally, we find an increase in correlation associated with theta power and memory load, replicating similar results in the literature. The presented algorithm offers a computationally efficient, interpretable framework applied to a working memory paradigm dataset, but is relevant to the analysis of neural time series from diverse experimental contexts.",
+      "doi": "10.64898/2026.10.20.760227",
+      "pmid": null,
+      "openalex_id": "W7223450423",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004117",
+      "confidence_scoring": {
+        "confidence_score": 0.6582858985662461,
+        "similarity_score": 0.5699445009231567,
+        "citation_text_length": 1678,
+        "dataset_text_length": 2280,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-10-24T11:27:38.899746+00:00",
+    "scoring_date": "2026-10-27T10:08:16.724160+00:00",
     "dataset_text_length": 2280,
-    "num_citations_scored": 100,
+    "num_citations_scored": 105,
     "summary_stats": {
-      "mean_confidence": 0.5005851770699025,
-      "median_confidence": 0.4965572461485863,
-      "std_confidence": 0.09534423457513115,
+      "mean_confidence": 0.5071703085019476,
+      "median_confidence": 0.4973294234275818,
+      "std_confidence": 0.09797584671498769,
       "min_confidence": 0.2756935805082321,
-      "max_confidence": 0.6978628277778626,
+      "max_confidence": 0.69978357732296,
       "high_confidence_count": 0,
-      "medium_confidence_count": 83,
+      "medium_confidence_count": 88,
       "low_confidence_count": 17
     }
   }

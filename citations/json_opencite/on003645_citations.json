@@ -1,7 +1,7 @@
 {
   "dataset_id": "on003645",
-  "num_citations": 97,
-  "date_last_updated": "2026-10-24T10:41:46.754163+00:00",
+  "num_citations": 98,
+  "date_last_updated": "2026-10-27T10:02:43.735498+00:00",
   "metadata": {
     "total_cumulative_citations": 7079,
     "fetch_date": "2026-10-24T10:41:46.754163+00:00",
@@ -92,7 +92,14 @@
         "funder_name": "NIH",
         "award_number": "R24 MH120037-01"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "on003645",
+      "ds003645"
+    ],
+    "num_accession_mentions": 1,
+    "num_dataset_citations": 3,
+    "num_datapaper_citations": 95
   },
   "citation_details": [
     {
@@ -1105,7 +1112,12 @@
         "dataset_text_length": 2325,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
+      },
+      "mentions_accession": true,
+      "matched_accession": "ds003645",
+      "superseded_dois": [
+        "10.1101/2021.05.06.442841"
+      ]
     },
     {
       "title": "Structural and functional multi-platform MRI series of a single human volunteer over more than fifteen years",
@@ -1243,7 +1255,9 @@
         "dataset_text_length": 2325,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
+      },
+      "mentions_accession": true,
+      "matched_accession": "ds003645"
     },
     {
       "title": "Empirical Bayes evaluation of fused EEG-MEG source reconstruction: Application to auditory mismatch evoked responses",
@@ -2325,21 +2339,46 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "Transformer networks are robust learners of source localization for EEG measurements",
+      "author": "David M. Hart, Simon Polichtchouk, Moritz Dannhauer",
+      "venue": "Journal of Neural Engineering",
+      "year": 2026,
+      "url": "https://doi.org/10.1088/1741-2552/aeb82c",
+      "cited_by": 0,
+      "abstract": "OBJECTIVE: EEG source localization is an ill-posed inverse problem complicated by measurement noise, electrode dropout from sensor miscalibration, and variability in the number of active sources. Classical methods such as eLORETA and LCMV beamforming impose regularization assumptions that degrade under realistic noise conditions and do not naturally extend to multi-source scenarios. Recent neural network approaches improve localization accuracy but are typically trained and evaluated under idealized conditions that limit their applicability to real-world EEG acquisition. This work aims to develop and evaluate a source localization model that generalizes across the noise levels, source counts, and electrode configurations encountered in clinical and experimental EEG settings. Approach: We present a transformer-based model for single- and multi-source EEG localization. Hundreds of thousands of simulated EEG measurements are generated from known source locations, spanning a range of noise levels, source counts, and electrode dropout configurations, to train and evaluate the model. We establish a systematic evaluation framework that explicitly factors in source region density, signal-to-noise ratio, and electrode availability, and benchmark the transformer against classical (eLORETA, LCMV beamforming) and deep learning baselines across these conditions. We additionally conduct a thorough ablation study on network architecture and training pipeline design. Main results: Across all tested conditions, the transformer consistently outperforms classical and deep learning approaches, with improvements as high as 12\\,mm in mean localization error (MLE) for multi-source scenarios under high noise. Additionally, when number of sources is unknown, the transformer can correctly predict the number and location of sources and drastically out perform the threshold-based approach (e.g an F1 Score of 68\\% vs 12\\% when simulated at 25\\% noise). The multiembedding transformers maintains reasonable performance under conditions such as electrode dropout and increased noise. Significance: By explicitly modeling the noise, electrode dropout, and multi-source variability that characterize real EEG acquisition, this work addresses a key gap between benchmark performance and experimental utility in EEG source localization. These results lay the groundwork for more robust localization techniques applicable to real EEG data, with potential relevance to applications such as brain-computer interfaces. The data and code for this work will be made publicly available to support further development and benchmarking in the field.",
+      "doi": "10.1088/1741-2552/aeb82c",
+      "pmid": "42913696",
+      "openalex_id": "W7223215284",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds003645",
+      "confidence_scoring": {
+        "confidence_score": 0.5177085050940514,
+        "similarity_score": 0.4482324719429016,
+        "citation_text_length": 1703,
+        "dataset_text_length": 2325,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-10-24T11:25:56.740672+00:00",
+    "scoring_date": "2026-10-27T10:06:26.205789+00:00",
     "dataset_text_length": 2325,
-    "num_citations_scored": 97,
+    "num_citations_scored": 98,
     "summary_stats": {
-      "mean_confidence": 0.5102743290810241,
-      "median_confidence": 0.5184924933314324,
-      "std_confidence": 0.11692821660601992,
+      "mean_confidence": 0.5103501880199326,
+      "median_confidence": 0.5181004992127419,
+      "std_confidence": 0.116332513545893,
       "min_confidence": 0.1904897838830948,
       "max_confidence": 0.7308210968971253,
       "high_confidence_count": 4,
-      "medium_confidence_count": 76,
+      "medium_confidence_count": 77,
       "low_confidence_count": 17
     }
   }

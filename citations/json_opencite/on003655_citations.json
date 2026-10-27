@@ -1,7 +1,7 @@
 {
   "dataset_id": "on003655",
-  "num_citations": 23,
-  "date_last_updated": "2026-10-24T10:41:51.851169+00:00",
+  "num_citations": 25,
+  "date_last_updated": "2026-10-27T10:01:54.064154+00:00",
   "metadata": {
     "total_cumulative_citations": 242,
     "fetch_date": "2026-10-24T10:41:51.851169+00:00",
@@ -57,7 +57,14 @@
       {
         "funder_name": "Unknown"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "on003655",
+      "ds003655"
+    ],
+    "num_accession_mentions": 2,
+    "num_dataset_citations": 4,
+    "num_datapaper_citations": 21
   },
   "citation_details": [
     {
@@ -288,7 +295,9 @@
         "dataset_text_length": 470,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
+      },
+      "mentions_accession": true,
+      "matched_accession": "ds003655"
     },
     {
       "title": "The Association between Oscillatory Burst Features and Human Working Memory Accuracy",
@@ -518,7 +527,9 @@
         "dataset_text_length": 470,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
+      },
+      "mentions_accession": true,
+      "matched_accession": "ds003655"
     },
     {
       "title": "Balancing Efficiency and Compensation: Age-related Theta and Alpha Dynamics in High-load Working Memory",
@@ -588,21 +599,71 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "A Sparse Multiclass Motor Imagery EEG Classification Using 1D-ConvResNet",
+      "author": "Harshini Gangapuram, Vidya B. Manian",
+      "venue": "Signals",
+      "year": 2023,
+      "url": "https://doi.org/10.3390/signals4010013",
+      "cited_by": 4,
+      "abstract": "Multiclass motor imagery classification is essential for brain–computer interface systems such as prosthetic arms. The compressive sensing of EEG helps classify brain signals in real-time, which is necessary for a BCI system. However, compressive sensing is limited, despite its flexibility and data efficiency, because of its sparsity and high computational cost in reconstructing signals. Although the constraint of sparsity in compressive sensing has been addressed through neural networks, its signal reconstruction remains slow, and the computational cost increases to classify the signals further. Therefore, we propose a 1D-Convolutional Residual Network that classifies EEG features in the compressed (sparse) domain without reconstructing the signal. First, we extract only wavelet features (energy and entropy) from raw EEG epochs to construct a dictionary. Next, we classify the given test EEG data based on the sparse representation of the dictionary. The proposed method is computationally inexpensive, fast, and has high classification accuracy as it uses a single feature to classify without preprocessing. The proposed method is trained, validated, and tested using multiclass motor imagery data of 109 subjects from the PhysioNet database. The results demonstrate that the proposed method outperforms state-of-the-art classifiers with 96.6% accuracy.",
+      "doi": "10.3390/signals4010013",
+      "pmid": null,
+      "openalex_id": "W4324141423",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds003655",
+      "confidence_scoring": {
+        "confidence_score": 0.4978154920041562,
+        "similarity_score": 0.43100908398628235,
+        "citation_text_length": 1521,
+        "dataset_text_length": 470,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Predicting Cognitive Tasks from Single-Channel EEG through Task-Semantic Alignment",
+      "author": "Ryota Kanai C",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2610.15104",
+      "cited_by": 0,
+      "abstract": "Studies of data scaling in electroencephalography (EEG) and related noninvasive recordings suggest that simple wearable devices could eventually reveal more about cognitive states. However, publicly available EEG data are difficult to combine. Different laboratories record different tasks, participants, and devices. Task-agnostic self-supervised learning can exploit such data, but representations learned only with EEG signals have not consistently produced feature representations that are directly effective for decoding the cognitive state. We therefore aimed to incorporate task information by embedding experimental instructions, stimuli and response demands in a common semantic space, and trained an EEG encoder to align signals from a single anterior--posterior differential channel with those task vectors. This framework supports zero-shot prediction without target-condition calibration and few-shot prediction using labeled samples. On a reserved ten-class evaluation, the highest observed zero-shot balanced accuracy was 30.13% (chance 10%). In a separate developmental few-shot experiment, balanced accuracy reached 34.47% using 16 labeled EEG examples per class from another participant, and 74.99% using examples from the test participant's own task recording. Our experiments suggest that training models on datasets with multiple tasks per participant appeared useful, whereas adding datasets containing only one or a few tasks sometimes reduced established performance despite broader task coverage. These exploratory results suggest that EEG datasets that repeat varied cognitive tasks and everyday activities within the same individuals across days, devices and independent studies would be particularly useful for training an EEG foundation model for predicting cognitive states.",
+      "doi": "10.48550/arxiv.2610.15104",
+      "pmid": null,
+      "openalex_id": "W7221793578",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds003655",
+      "confidence_scoring": {
+        "confidence_score": 0.6033706480264664,
+        "similarity_score": 0.522398829460144,
+        "citation_text_length": 1660,
+        "dataset_text_length": 470,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-10-24T11:26:00.876380+00:00",
+    "scoring_date": "2026-10-27T10:06:30.638328+00:00",
     "dataset_text_length": 470,
-    "num_citations_scored": 23,
+    "num_citations_scored": 25,
     "summary_stats": {
-      "mean_confidence": 0.5890582571275856,
+      "mean_confidence": 0.5859810421586037,
       "median_confidence": 0.6004223620891572,
-      "std_confidence": 0.11234766337637747,
+      "std_confidence": 0.10928848011433054,
       "min_confidence": 0.24890624865889552,
       "max_confidence": 0.7699554812908174,
       "high_confidence_count": 3,
-      "medium_confidence_count": 19,
+      "medium_confidence_count": 21,
       "low_confidence_count": 1
     }
   }
