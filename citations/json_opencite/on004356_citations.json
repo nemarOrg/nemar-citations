@@ -1,7 +1,7 @@
 {
   "dataset_id": "on004356",
-  "num_citations": 25,
-  "date_last_updated": "2026-10-24T10:48:31.238300+00:00",
+  "num_citations": 27,
+  "date_last_updated": "2026-10-27T10:02:36.473305+00:00",
   "metadata": {
     "total_cumulative_citations": 146,
     "fetch_date": "2026-10-24T10:48:31.238300+00:00",
@@ -60,7 +60,14 @@
       {
         "funder_name": "Schmitt Program in Neuroscience"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "on004356",
+      "ds004356"
+    ],
+    "num_accession_mentions": 2,
+    "num_dataset_citations": 2,
+    "num_datapaper_citations": 25
   },
   "citation_details": [
     {
@@ -637,21 +644,71 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "What masking geometry works best for EEG foundation models?",
+      "author": "Pierre Guetschel, Bruno Aristimunha, Yassine El Ouahidi, Arnaud Delorme A, Thomas Moreau, Michael Tangermann",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2609.33487",
+      "cited_by": 0,
+      "abstract": "EEG foundation models hold promise for scalable brain-signal decoding across clinical and cognitive neuroscience applications, yet their pre-training pipelines remain poorly understood. Among design choices, the masking strategy is particularly critical: it determines what the network must predict and from which context. Yet it has never been ablated in isolation, as each new model bundles a new masking strategy with a new backbone and objective. In this paper, we formalize the design choices for spatio-temporal masking strategies and train various models with a single pipeline under varying masking configurations across two SSL frameworks (MAE and JEPA). We then systematically evaluate the resulting 58 pre-trained models on the 12 datasets of OpenEEGBench under a linear probe. Both frameworks agree on an optimal masking configuration and on shared failure modes. Outside these, performance is robust: 11 MAE and 9 JEPA configurations are statistically indistinguishable from the best. We further identify a novel JEPA-specific failure mode, tagged bias-inflation collapse, invisible to standard detectors. With a well-chosen mask, our pipeline reaches REVE-level downstream performance at a fraction of REVE's pre-training compute.",
+      "doi": "10.48550/arxiv.2609.33487",
+      "pmid": null,
+      "openalex_id": "W7214740814",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004356",
+      "confidence_scoring": {
+        "confidence_score": 0.49725390225648886,
+        "similarity_score": 0.4305228590965271,
+        "citation_text_length": 1476,
+        "dataset_text_length": 2332,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "MindMix : a multimodal foundation model for auditory perception decoding via deep neural-acoustic alignment",
+      "author": "R Liu, Z Chen, S Peng, W You, Huang, ZA, J Wu, KC Tan",
+      "venue": "PolyU Institutional Research Archive (Hong Kong Polytechnic University)",
+      "year": 2026,
+      "url": "https://openalex.org/W7161921708",
+      "cited_by": 0,
+      "abstract": "The Fourteenth International Conference on Learning Representations, ICLR 2026, Rio de Janeiro, Brazil, Apr 23 2026",
+      "doi": null,
+      "pmid": null,
+      "openalex_id": "W7161921708",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004356",
+      "confidence_scoring": {
+        "confidence_score": 0.6375846987962723,
+        "similarity_score": 0.5520213842391968,
+        "citation_text_length": 385,
+        "dataset_text_length": 2332,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-10-24T11:28:40.277723+00:00",
+    "scoring_date": "2026-10-27T10:09:06.957438+00:00",
     "dataset_text_length": 2332,
-    "num_citations_scored": 25,
+    "num_citations_scored": 27,
     "summary_stats": {
-      "mean_confidence": 0.6884534535169601,
-      "median_confidence": 0.7144882446527482,
-      "std_confidence": 0.15284647777466537,
+      "mean_confidence": 0.679487960702843,
+      "median_confidence": 0.7136577183008195,
+      "std_confidence": 0.1516606569205264,
       "min_confidence": 0.20207992136478425,
       "max_confidence": 0.9147578608989716,
       "high_confidence_count": 14,
-      "medium_confidence_count": 10,
+      "medium_confidence_count": 12,
       "low_confidence_count": 1
     }
   }

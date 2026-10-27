@@ -1,7 +1,7 @@
 {
   "dataset_id": "on003004",
-  "num_citations": 100,
-  "date_last_updated": "2026-10-24T10:38:55.364427+00:00",
+  "num_citations": 101,
+  "date_last_updated": "2026-10-27T10:01:32.320800+00:00",
   "metadata": {
     "total_cumulative_citations": 17277,
     "fetch_date": "2026-10-24T10:38:55.364427+00:00",
@@ -79,7 +79,14 @@
       "high-density EEG"
     ],
     "methods_description": "Participants listened to 15 voice recordings, each prompting imagination of a scenario evoking a target emotion, and pressed a handheld button at the onset and end of the felt emotion. Relaxation suggestions were played before and between the emotion periods. Raw data were preprocessed to fix event codes and remove excessively noisy channels, then high-pass filtered at 1 Hz for ICA decomposition.",
-    "funding": []
+    "funding": [],
+    "searched_accessions": [
+      "on003004",
+      "ds003004"
+    ],
+    "num_accession_mentions": 1,
+    "num_dataset_citations": 2,
+    "num_datapaper_citations": 99
   },
   "citation_details": [
     {
@@ -2127,7 +2134,9 @@
         "dataset_text_length": 1851,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
+      },
+      "mentions_accession": true,
+      "matched_accession": "ds003004"
     },
     {
       "title": "Classifying oscillatory brain activity associated with Indian Rasas using network metrics",
@@ -2381,21 +2390,46 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "What masking geometry works best for EEG foundation models?",
+      "author": "Pierre Guetschel, Bruno Aristimunha, Yassine El Ouahidi, Arnaud Delorme A, Thomas Moreau, Michael Tangermann",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2609.33487",
+      "cited_by": 0,
+      "abstract": "EEG foundation models hold promise for scalable brain-signal decoding across clinical and cognitive neuroscience applications, yet their pre-training pipelines remain poorly understood. Among design choices, the masking strategy is particularly critical: it determines what the network must predict and from which context. Yet it has never been ablated in isolation, as each new model bundles a new masking strategy with a new backbone and objective. In this paper, we formalize the design choices for spatio-temporal masking strategies and train various models with a single pipeline under varying masking configurations across two SSL frameworks (MAE and JEPA). We then systematically evaluate the resulting 58 pre-trained models on the 12 datasets of OpenEEGBench under a linear probe. Both frameworks agree on an optimal masking configuration and on shared failure modes. Outside these, performance is robust: 11 MAE and 9 JEPA configurations are statistically indistinguishable from the best. We further identify a novel JEPA-specific failure mode, tagged bias-inflation collapse, invisible to standard detectors. With a well-chosen mask, our pipeline reaches REVE-level downstream performance at a fraction of REVE's pre-training compute.",
+      "doi": "10.48550/arxiv.2609.33487",
+      "pmid": null,
+      "openalex_id": "W7214740814",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds003004",
+      "confidence_scoring": {
+        "confidence_score": 0.4102738219499589,
+        "similarity_score": 0.3552154302597046,
+        "citation_text_length": 1476,
+        "dataset_text_length": 1851,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-10-24T11:24:33.428662+00:00",
+    "scoring_date": "2026-10-27T10:05:18.638411+00:00",
     "dataset_text_length": 1851,
-    "num_citations_scored": 100,
+    "num_citations_scored": 101,
     "summary_stats": {
-      "mean_confidence": 0.4651534544721246,
-      "median_confidence": 0.45186966806650164,
-      "std_confidence": 0.09839216983094455,
+      "mean_confidence": 0.46461009177388535,
+      "median_confidence": 0.45173983275890356,
+      "std_confidence": 0.09805453437820098,
       "min_confidence": 0.2569597601890564,
       "max_confidence": 0.7873016685247423,
       "high_confidence_count": 2,
-      "medium_confidence_count": 70,
+      "medium_confidence_count": 71,
       "low_confidence_count": 28
     }
   }
