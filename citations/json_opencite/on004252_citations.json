@@ -1,13 +1,13 @@
 {
   "dataset_id": "on004252",
   "num_citations": 4,
-  "date_last_updated": "2026-10-24T10:47:30.926868+00:00",
+  "date_last_updated": "2026-11-02T11:46:52.546125+00:00",
   "metadata": {
     "total_cumulative_citations": 100,
-    "fetch_date": "2026-10-24T10:47:30.926868+00:00",
+    "fetch_date": "2026-11-02T11:46:52.546125+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
-    "anchor_count": 1,
+    "anchor_count": 2,
     "anchor_errors": {},
     "schema_version": "2.1",
     "discovery_backend": "opencite",
@@ -17,13 +17,13 @@
         "identifier": "10.31234/osf.io/wp73u",
         "identifier_type": "doi",
         "source_relation": "IsDescribedBy",
-        "classification": null,
-        "kept": false,
-        "kept_reason": "unjudged",
-        "paper_title": null,
-        "paper_year": null,
-        "paper_venue": null,
-        "reason": null,
+        "classification": "data_paper",
+        "kept": true,
+        "kept_reason": "judged_data_paper",
+        "paper_title": "Rotation-tolerant representations elucidate the time-course of high-level object processing",
+        "paper_year": 2026,
+        "paper_venue": "PLoS ONE",
+        "reason": "Candidate is the study paper (preprint DOI cited in README) with the same title, authors, and EEG experiment (eight rotations, 5 Hz and 20 Hz) as this dataset.",
         "judgment_model": "claude-sonnet-5-5"
       },
       {
@@ -41,6 +41,7 @@
       }
     ],
     "searched_dois": [
+      "10.31234/osf.io/wp73u",
       "10.82901/nemar.on004252"
     ],
     "keywords": [
@@ -52,16 +53,32 @@
       "multivariate pattern analysis"
     ],
     "methods_description": "EEG was recorded while participants viewed object images in rapid visual streams at 5 Hz and 20 Hz, with stimuli presented in eight different 2-D rotations. Data are organized in standard BIDS format.",
-    "funding": [],
-    "searched_accessions": [
-      "on004252",
-      "ds004252"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 4,
-    "num_datapaper_citations": 0
+    "funding": []
   },
   "citation_details": [
+    {
+      "title": "Robust neural decoding with low-density EEG",
+      "author": "Ling Huang, Manuel Varlet, Tijl Grootswagers",
+      "venue": "Scientific Reports",
+      "year": 2026,
+      "url": "https://doi.org/10.1038/s41598-025-27703-5",
+      "cited_by": 2,
+      "abstract": "High-density Electroencephalography (EEG) recording enhances spatial resolution for neural signal decoding, yet the relationship between electrode density and decoding performance remains unclear. To address this, we systematically investigated decoding accuracy across electrode configurations of varying densities (16, 32, 64, 96, and 128 electrodes) using visual grating stimuli characterized by orientation, contrast, spatial frequency, and color. As expected, decoding accuracy increased with electrode density. Remarkably, however, reliable above-chance decoding was still achieved with as few as 16 electrodes, highlighting the robustness of decodable neural signals. To test the generalization of these results to more complex natural stimuli, we conducted a similar analysis with a diverse set of naturalistic images categorizable into living/non-living and moving/non-moving. The results consistently showed that effective decoding persists even with a 16-electrode configuration, showing r",
+      "doi": "10.1038/s41598-025-27703-5",
+      "pmid": "41495105",
+      "openalex_id": "W7118789426",
+      "source_doi": "10.31234/osf.io/wp73u",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6278590589761734,
+        "similarity_score": 0.5436009168624878,
+        "citation_text_length": 1144,
+        "dataset_text_length": 1172,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
     {
       "title": "Visual Representations: Insights from Neural Decoding",
       "author": "Amanda K. Robinson, Genevieve L. Quek, Thomas A. Carlson",
@@ -130,34 +147,11 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
-    },
-    {
-      "title": "Robust neural decoding with low-density EEG",
-      "author": "Ling Huang, Manuel Varlet, Tijl Grootswagers",
-      "venue": "Scientific Reports",
-      "year": 2026,
-      "url": "https://doi.org/10.1038/s41598-025-27703-5",
-      "cited_by": 2,
-      "abstract": "High-density Electroencephalography (EEG) recording enhances spatial resolution for neural signal decoding, yet the relationship between electrode density and decoding performance remains unclear. To address this, we systematically investigated decoding accuracy across electrode configurations of varying densities (16, 32, 64, 96, and 128 electrodes) using visual grating stimuli characterized by orientation, contrast, spatial frequency, and color. As expected, decoding accuracy increased with electrode density. Remarkably, however, reliable above-chance decoding was still achieved with as few as 16 electrodes, highlighting the robustness of decodable neural signals. To test the generalization of these results to more complex natural stimuli, we conducted a similar analysis with a diverse set of naturalistic images categorizable into living/non-living and moving/non-moving. The results consistently showed that effective decoding persists even with a 16-electrode configuration, showing r",
-      "doi": "10.1038/s41598-025-27703-5",
-      "pmid": "41495105",
-      "openalex_id": "W7118789426",
-      "source_doi": "10.82901/nemar.on004252",
-      "source_relation": "References",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.6278590589761734,
-        "similarity_score": 0.5436009168624878,
-        "citation_text_length": 1144,
-        "dataset_text_length": 1172,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-10-24T11:28:11.211733+00:00",
+    "scoring_date": "2026-11-02T12:33:49.483028+00:00",
     "dataset_text_length": 1172,
     "num_citations_scored": 4,
     "summary_stats": {

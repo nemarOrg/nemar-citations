@@ -1,10 +1,10 @@
 {
   "dataset_id": "on005385",
-  "num_citations": 21,
-  "date_last_updated": "2026-10-24T11:15:13.527347+00:00",
+  "num_citations": 24,
+  "date_last_updated": "2026-11-02T12:16:23.184562+00:00",
   "metadata": {
-    "total_cumulative_citations": 42,
-    "fetch_date": "2026-10-11T11:02:40.709006+00:00",
+    "total_cumulative_citations": 0,
+    "fetch_date": "2026-11-02T11:59:06.804695+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 1,
@@ -64,8 +64,8 @@
       "on005385",
       "ds005385"
     ],
-    "num_accession_mentions": 21,
-    "num_dataset_citations": 21,
+    "num_accession_mentions": 24,
+    "num_dataset_citations": 24,
     "num_datapaper_citations": 0
   },
   "citation_details": [
@@ -100,7 +100,7 @@
       "venue": "Scientific Data",
       "year": 2024,
       "url": "https://doi.org/10.1038/s41597-024-03797-w",
-      "cited_by": 31,
+      "cited_by": 32,
       "abstract": "This dataset consists of 64-channels resting-state EEG recordings of 608 participants aged between 20 and 70 years, 61.8% female, as well as follow-up measurements after approximately 5 years of 208 participants, starting 2021. The EEG was measured for three minutes with eyes open and eyes closed before and after a 2-hour block of cognitive experimental tasks. The data set is part of the Dortmund Vital Study, a prospective study on the determinants of healthy cognitive aging. The dataset can be used for (1) analyzing cross-sectional resting-state EEG of healthy individuals across the adult life span; (2) generating normalization data sets for comparison of resting-state EEG data of patients with clinically relevant disorders; (3) studying effects of performing cognitive tasks on resting-state EEG and age; (4) exploring intra-individual changes in resting-state EEG and effects of task performance over a time period of about 5 years. The data are provided in Brain Imaging Data Structure (BIDS) format and are available on OpenNeuro.",
       "doi": "10.1038/s41597-024-03797-w",
       "pmid": "39256413",
@@ -176,7 +176,7 @@
       "year": 2026,
       "url": "https://doi.org/10.21203/rs.3.rs-10749583/v1",
       "cited_by": 0,
-      "abstract": null,
+      "abstract": "Abstract Whether EEG microstate sequences carry temporal structure beyond a first-order (Markov-1) transition matrix bears on how memoryless large-scale brain dynamics are, but the answer depends critically on the surrogate that defines the null. Likelihood-based tests commonly compare a sequence model against a Markov-1 baseline using a shuffle that preserves only single-symbol (unigram) counts; this destroys the bigram statistics the baseline relies on and over-credits the model. We introduce an exact bigram-preserving surrogate (a randomised Eulerian-trail traversal of each subject's bigram multigraph) that reproduces the per-subject bigram count matrix exactly while resampling all higher-order structure, so a count-based Markov-1 likelihood is invariant under it by construction. On synthetic data the test held false positives at the nominal rate while remaining well powered. Across three independent resting-state cohorts (LEMON, Dortmund, SRM; N = 931), all processed identically, the corrected test isolated a small but reliably positive residual (its 95% confidence interval excluded zero in every cohort), while the naive unigram null over-credited the same detector by 1.1–1.8× (and a transformer up to threefold); two of the three cohorts agreed in magnitude (+0.008 and +0.010 bits/token), and the third was larger. The residual matches a generative first-order surrogate to within Monte-Carlo error and is captured as well by an order-2 Markov chain as by a transformer: small, short-range structure with a prominent second-order return tendency, not a neural-network discovery. We recommend exact bigram-preserving surrogates as a default conditional null when testing symbolic neural time series for structure beyond observed first-order transition counts.",
       "doi": "10.21203/rs.3.rs-10749583/v1",
       "pmid": null,
       "openalex_id": "W7213541091",
@@ -186,9 +186,9 @@
       "discovery_method": "accession_mention",
       "matched_accession": "ds005385",
       "confidence_scoring": {
-        "confidence_score": 0.6228460729122162,
-        "similarity_score": 0.5931867361068726,
-        "citation_text_length": 201,
+        "confidence_score": 0.6492415326833726,
+        "similarity_score": 0.562113881111145,
+        "citation_text_length": 1713,
         "dataset_text_length": 2381,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -201,7 +201,7 @@
       "year": 2026,
       "url": "https://doi.org/10.21203/rs.3.rs-10890554/v1",
       "cited_by": 0,
-      "abstract": null,
+      "abstract": "Abstract Background. Ganzfeld and tACS are candidate precision manipulations, but individual Jansen–Rit neural-mass (JR-NMM) inversion from scalp EEG is rarely gated by preregistered stopping rules. Methods. Preregistered boundary-setting (seed=42) used synthetic recovery (N=50), a 3×3 full-band fidelity grid (n=10), and OpenNeuro ds005385, ds004902, and ds004148. Post-review diagnostics were a numerical Fisher information matrix (FIM), a 48-cell Welch grid, a hybrid aperiodic+oscillatory comparator, and Gaussian-copula transfer scores. Results. Six kinetic parameters were practically unrecoverable under Welch PSD (r<0.5); only log G recovered (r=0.917). FIM is sloppy but does not isolate log G as the unique stiff direction. JR-only full-band r lost to a 1/f null, yet a hybrid model beat the aperiodic null (median ΔAIC=−76.7; CV 10/10). Welch re-parameterization did not reproduce the original kill-gate (0/48 cells). Cross-dataset copula coverage was 65.2% (MMD p=0.010). Conclusions. Individual kinetic profiling is practically unfeasible under Welch PSD. Oscillatory columns add validity once an aperiodic term is explicit. Usable outputs are observation-layer resting-state generators, not physiological subjects; ds004902 is sleep deprivation, not a Ganzfeld proxy.",
       "doi": "10.21203/rs.3.rs-10890554/v1",
       "pmid": null,
       "openalex_id": "W7206205243",
@@ -211,9 +211,34 @@
       "discovery_method": "accession_mention",
       "matched_accession": "ds005385",
       "confidence_scoring": {
-        "confidence_score": 0.4839192241430283,
-        "similarity_score": 0.4608754515647888,
-        "citation_text_length": 172,
+        "confidence_score": 0.587800000011921,
+        "similarity_score": 0.5089177489280701,
+        "citation_text_length": 1466,
+        "dataset_text_length": 2381,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "The Syncytial Mesh Model: glial spatial control, neuronal response geometry, and the limits of local EEG reduction",
+      "author": "Andreu Ballús Santacana",
+      "venue": "Research Square",
+      "year": 2026,
+      "url": "https://doi.org/10.21203/rs.3.rs-11421911/v1",
+      "cited_by": 0,
+      "abstract": "Abstract Neuronal circuits generate most measurable electrophysiological currents, but slower physiological variables governing their excitability and spatial coordination need not be neuronal. The Syncytial Mesh Model (SMM) proposes that local astroglial coupling forms a distinct control geometry alongside neuronal connectivity. We formalize this architecture and examine a potassium-mediated realization (SMM-K). Under stated conditions its passive two-compartment ionic subsystem is dissipative. Coupled bidirectionally to neuronal populations, glial transport modifies responses to patterned perturbations. In a reproducible seven-domain linearized model, enabling reference transport reduces the central excitatory response by 24%, increases the adjacent response by 68%, and changes the adjacent-to-central ratio from 0.116 to 0.256 after 20 s of normalized focal glial input; homogeneous uniform forcing is transport-insensitive. The effect persists for focal neuron-derived potassium input with lateral neuronal coupling, but becomes small relative to neuronal propagation under direct neuronal excitation. A spatial-mode transfer function isolates the frequency-dependent transport sensitivity. The EEG predictor used in the frozen human comparison, however, retained only a local two-pole ionic filter and omitted spatial glial transport, making its predicted spectra exactly independent of the defining transport parameter. A separately documented post-open amended analysis of 535 participants favored a flexible generic two-state comparator over this local predictor (mean held-out difference − 0.00918; 95% bootstrap interval [-0.01016, -0.00823]); the untouched primary remained not evaluable. SMM-K therefore yields a conditional spatial-intervention prediction, while the adverse EEG comparison constrains a narrower local projection rather than directly testing syncytial transport.",
+      "doi": "10.21203/rs.3.rs-11421911/v1",
+      "pmid": null,
+      "openalex_id": "W7223861628",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds005385",
+      "confidence_scoring": {
+        "confidence_score": 0.4073010621964932,
+        "similarity_score": 0.35264161229133606,
+        "citation_text_length": 1691,
         "dataset_text_length": 2381,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -226,7 +251,7 @@
       "year": 2026,
       "url": "https://doi.org/10.21203/rs.3.rs-8883336/v1",
       "cited_by": 0,
-      "abstract": null,
+      "abstract": "Abstract This study presents a real-time brain-computer interface (BCI) framework for generating culturally resonant music from neural oscillations, tailored for potential therapeutic applications in children with autism spectrum disorder (ASD). An optimized embedded Runge-Kutta 7(6) pair was developed to efficiently integrate Jansen-Rit neural mass models, achieving approximately 50% fewer function evaluations and latencies below 50 ms compared to standard benchmarks, enabling smooth performance on consumer-grade hardware. Using publicly available resting-state EEG datasets and model simulations, band-specific power estimates (alpha, theta, beta) were mapped to musical parameters inspired by Orff-Schulwerk principles and Chinese ethnic minority children's songs: pentatonic scales, repetitive cyclic phrases, isochronous rhythms (60–90 bpm modulated by alpha power), and prosodic arcs shaped by theta dynamics. The generated melodies exhibited strong perceptual fidelity to reference folk excerpts, as quantified by reduced mel-frequency cepstral coefficients (MFCC) distances. The platform's emphasis on predictable, low-arousal, and speech-like structures aligns with evidence-based music therapy mechanisms for promoting relaxation (enhanced alpha activity) and supporting communicative development in ASD. While evaluations were limited to simulations and adult resting-state data, the reproducible design establishes technical feasibility and cultural relevance, laying groundwork for future studies examining relaxation and language-supportive applications in pediatric ASD populations.",
       "doi": "10.21203/rs.3.rs-8883336/v1",
       "pmid": null,
       "openalex_id": "W7148850319",
@@ -236,9 +261,9 @@
       "discovery_method": "accession_mention",
       "matched_accession": "ds005385",
       "confidence_scoring": {
-        "confidence_score": 0.45107924938201904,
-        "similarity_score": 0.4295992851257324,
-        "citation_text_length": 265,
+        "confidence_score": 0.4680212196707726,
+        "similarity_score": 0.4052131772041321,
+        "citation_text_length": 1777,
         "dataset_text_length": 2381,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -251,7 +276,7 @@
       "year": 2026,
       "url": "https://doi.org/10.21203/rs.3.rs-9123867/v1",
       "cited_by": 0,
-      "abstract": null,
+      "abstract": "Abstract Resting-state electroencephalography (EEG) is attractive for depression recognition, but practical deployment still faces scarce labels, unstable signal quality, and heterogeneous resource budgets across end, edge, and cloud layers. We therefore propose a cloud-edge collaborative framework that integrates self-supervised pretraining, downstream fine-tuning, and a hierarchical three-stage quality-control ladder with coarse screening (Q1), statistical refinement (Q2), and geometry-aware refinement (Q3). The framework is evaluated by pretraining on a large public healthy resting-state EEG dataset from OpenNeuro (ds005385), main validation on selected data from the public TDBRAIN and MODMA multi-channel resting-state datasets, and controlled robustness testing on EEGdenoiseNet.Three findings emerge. First, on TDBRAIN, pretrained initialization clearly outperforms random initialization, reaching 0.8734 versus 0.6825. Second, hierarchical quality control strengthens weaker baselines, improving scratch accuracy from 0.6825 under No-QC to 0.7339 with Q1+Q2 and 0.7659 with Q1+Q2+Q3.Third, resource profiling supports layered deployment: Q1 runs at 6.78 ms per epoch, the classifier head has 2242 parameters, and the encoder and pretraining model reach 49,504 and 90,419 parameters, respectively. These results provide a quantitative basis and practical design principle for cloud-edge collaborative EEG depression recognition.",
       "doi": "10.21203/rs.3.rs-9123867/v1",
       "pmid": null,
       "openalex_id": "W7140046382",
@@ -261,9 +286,9 @@
       "discovery_method": "accession_mention",
       "matched_accession": "ds005385",
       "confidence_scoring": {
-        "confidence_score": 0.5435669302940369,
-        "similarity_score": 0.5176827907562256,
-        "citation_text_length": 219,
+        "confidence_score": 0.6014835825562478,
+        "similarity_score": 0.5207650065422058,
+        "citation_text_length": 1674,
         "dataset_text_length": 2381,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -495,6 +520,31 @@
       }
     },
     {
+      "title": "Preliminary Quantitative Electroencephalographic Evidence of Depression-Aligned Neurophysiological Patterns in Interictal Migraine: A Multi-Dataset Study",
+      "author": "Dokyung Lee",
+      "venue": "Headache and Pain Research",
+      "year": 2026,
+      "url": "https://doi.org/10.62087/hpr.2026.0022",
+      "cited_by": 0,
+      "abstract": "Purpose: This study aimed to examine whether interictal migraine shows neurophysiological patterns aligned with an external major depressive disorder (MDD) reference dataset, using quantitative electroencephalography (qEEG) indices less sensitive to absolute amplifier gain.Methods: Three datasets were analyzed: ds005385 (normative reference, n=608; age-matched subset, 45–70 years, n=309), TDBRAIN (MDD, n=120; insomnia, n=30; healthy controls, n=47), and 25 patients with interictal migraine (chronic migraine, n=7; episodic migraine, n=18; mean age, 60.0 years; female, n=17). Eight candidate qEEG indices were ranked by effect size in TDBRAIN; the aperiodic exponent and frontal-parietal low-beta asymmetry (FP_asym_LowBeta) showed the largest effects and were selected for analysis. Four arousal-state windows were evaluated: eyes-closed resting, hyperventilation, post-hyperventilation 120 seconds, and post-hyperventilation 300 seconds.Results: In TDBRAIN, patients with MDD showed a reduced aperiodic exponent (Cohen’s d=–0.63, p=0.001) and elevated FP_ asym_LowBeta (Cohen’s d=+0.83, p<0.001) versus healthy controls. In migraine, FP_asym_LowBeta was significantly elevated versus the age-matched normative reference after false discovery rate (FDR) correction during hyperventilation (p=0.015), post-hyperventilation 120 seconds (p=0.004), and post-hyperventilation 300 seconds (p=0.003); the eyes-closed resting window showed a nonsignificant trend (p=0.058). Compared with episodic migraine, chronic migraine showed a consistent but exploratory trend toward a lower aperiodic exponent across windows (Cohen’s d=-0.95 to -1.12, using sample-size-weighted pooled standard deviations), though no comparison survived FDR correction. A linear mixed-effects model showed no significant main effect of migraine subtype (p=0.084).Conclusion: Interictal migraine showed preliminary qEEG patterns aligned with those observed in an external MDD reference dataset, particularly in frontal-parietal low-beta asymmetry during hyperventilation and recovery. However, these exploratory findings require validation in larger, age-matched cohorts with appropriate control for medication use and mood-related confounders.",
+      "doi": "10.62087/hpr.2026.0022",
+      "pmid": null,
+      "openalex_id": "W7224814402",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds005385",
+      "confidence_scoring": {
+        "confidence_score": 0.5475189556181431,
+        "similarity_score": 0.4740423858165741,
+        "citation_text_length": 1729,
+        "dataset_text_length": 2381,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "A Preoperative Electroencephalography Signature for Predicting Treatment Response to Deep Brain Stimulation in Obsessive-Compulsive Disorder",
       "author": "Wenlong Wang, Jiayue Cheng, Xin Zhang, Xi Wu, Hanyang Ruan, Binxin Huang, T. L. Xu, Feifei Qi, Yan Liang, Hongyi Zhi, Jian Gao, Luolong Cao, Yang Wang, Kaiming Zhuo, Corey J. Keller, Gerwin Schalk, Jing Jiang, Qing Fan, Nolan Williams, Huiqin Han, Wei Wu, Zhen Wang",
       "venue": "medRxiv",
@@ -570,12 +620,37 @@
       }
     },
     {
+      "title": "Longitudinal persistence of EEG brain fingerprints: phase and complex coherency geometry across sessions and functional states",
+      "author": "Dmitry Goldstein, Anthonios Deeb, Bashar Nassir, Saleh Sawaed, Nezer Jacob Zaidenberg",
+      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+      "year": 2026,
+      "url": "https://doi.org/10.64898/2026.10.26.761764",
+      "cited_by": 0,
+      "abstract": "EEG connectivity can distinguish individuals, but the persistence of its phase and magnitude structure across visits and functional states remains incompletely understood. We examined two geometric representations of complex coherency: unit phasors and full complex coherency, alongside triangle holonomies and magnitude-only descriptors. Using direct enrollment-probe matching without a trained identity classifier, we analyzed three independent longitudinal cohorts: RestCog (N = 60; approximately one month), L-FAME (N = 44; six weeks), and Dortmund (N = 206; approximately five years). In eyes-closed rest-to-rest matching, alpha phasors identified 81.67% of participants in RestCog (AUC 0.9473) and 79.55% in L-FAME (AUC 0.9735); full complex coherency identified 78.33% and 84.09%, respectively. After five years in Dortmund, fixed row-standardized alpha-beta fusion yielded 77.67% rank-1 identification (AUC 0.9744) for phasors and 70.39% (AUC 0.9527) for full coherency. Changes in functional state exposed different strengths: full coherency preserved higher rank-1 accuracy in some monthly RestCog rest-to-task comparisons, whereas alpha phasors retained higher verification AUC. Switching between eyes-closed and eyes-open recordings in Dortmund substantially weakened identification with both representations. Triangle holonomies also retained individual information across visits. An exact factorization of complex cosine shows how magnitude-pattern alignment and magnitude-weighted phase agreement contribute to full-coherency matching. Together, the results reveal persistent individual structure in both phase and complex coherency over weeks to years, while distinguishing temporal persistence from robustness across functional states.",
+      "doi": "10.64898/2026.10.26.761764",
+      "pmid": null,
+      "openalex_id": "W7225004992",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds005385",
+      "confidence_scoring": {
+        "confidence_score": 0.6667097103595734,
+        "similarity_score": 0.5772378444671631,
+        "citation_text_length": 1789,
+        "dataset_text_length": 2381,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Three Pre-registered Null Results for EEG Binary Transition Rate as an Aging Biomarker",
       "author": "Jaba Tkemaladze",
       "venue": "Longevity Horizon",
       "year": 2026,
       "url": "https://doi.org/10.65649/a184qf96",
-      "cited_by": 4,
+      "cited_by": 5,
       "abstract": "The Ze Vectors Theory (ZeVT) predicts that the binary transition rate v of binarised neural signals approaches a universal reference value v* ≈ 0.456 in healthy young individuals and decreases with aging. We report three pre-registered confirmatory tests of this prediction in resting-state EEG. Study 1 tested v-derived chi_Ze (χ_Ze) in the gamma band (25–35 Hz) in the Dortmund Vital Study (N = 60; d = 0.422, p = 0.113). Study 2 pre-registered (OSF osf.io/9m3yx) a confirmatory alpha band (8–13 Hz) test in MPI-LEMON (N = 30; d = 0.217, p = 0.558). Study 3 pre-registered (OSF osf.io/qhtz7) a confirmatory delta band (1–4 Hz) test of v directly in the Dortmund Vital Study (N = 60; d = −0.002, p = 0.995), motivated by a post-hoc pilot signal (d = 0.913, p = 0.036, N = 24) that did not replicate. Across all three studies, no significant age-related difference in v or χ_Ze was found (all p > 0.10). The null series is consistent with statistical artefact (winner's curse) rather than a genuine effect. A theoretical diagnosis reveals that the χ_Ze formula is only discriminative when individual subjects' v values straddle v, a condition met only in the gamma band; for lower frequencies *v* << *v* for all subjects, making χ_Ze a linear monotone rescaling of v with no additional discriminative power. We report these null findings transparently in line with open-science standards and discuss theoretical revisions needed before further empirical testing.",
       "doi": "10.65649/a184qf96",
       "pmid": null,
@@ -597,17 +672,17 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-10-24T11:32:02.840828+00:00",
+    "scoring_date": "2026-11-02T12:38:15.866227+00:00",
     "dataset_text_length": 2381,
-    "num_citations_scored": 21,
+    "num_citations_scored": 24,
     "summary_stats": {
-      "mean_confidence": 0.6169589397382169,
-      "median_confidence": 0.609817140698433,
-      "std_confidence": 0.10325072079029475,
-      "min_confidence": 0.45107924938201904,
+      "mean_confidence": 0.6159500967028241,
+      "median_confidence": 0.6056503616273403,
+      "std_confidence": 0.10181307336431553,
+      "min_confidence": 0.4073010621964932,
       "max_confidence": 1.0,
       "high_confidence_count": 1,
-      "medium_confidence_count": 20,
+      "medium_confidence_count": 23,
       "low_confidence_count": 0
     }
   }
