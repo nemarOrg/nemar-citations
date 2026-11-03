@@ -1,0 +1,55 @@
+{
+  "dataset_id": "on008968",
+  "date_retrieved": "2026-11-03T11:01:16.165950+00:00",
+  "dataset_description": {
+    "Name": "Spell-IT-Out",
+    "BIDSVersion": "1.11.1",
+    "DatasetType": "raw",
+    "License": "CC0",
+    "Authors": [
+      "Tommaso Cortecchia",
+      "Stefano Tortora",
+      "Jeff Kiesner",
+      "Emanuele Menegatti",
+      "Luca Tonin"
+    ],
+    "Acknowledgements": "This publication is part of the project PNRR-NGEU which has received funding from the MUR–DM 118/2023",
+    "EthicsApprovals": [
+      "The study was approved by the Ethics Committee for Psychological Research, Area 17,  at the University of Padua (ref. code 1801-a)"
+    ],
+    "Keywords": [
+      "EEG",
+      "speech production",
+      "imagined speech",
+      "syllabification"
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "MNE-BIDS",
+        "Version": "0.17.0",
+        "CodeURL": "https://mne.tools/mne-bids/"
+      }
+    ],
+    "DatasetDOI": "10.82901/nemar.on008968",
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.18112/openneuro.ds008968.v1.1.0"
+      }
+    ],
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.on008968-blue)](https://doi.org/10.82901/nemar.on008968)\n\n# Spell-IT-OUT\n\nEEG recorded while native Italian speakers listened to sentences, repeated\nthem, and then produced them again syllable by syllable at a fixed pace,\neither aloud (`task-overt`) or in their mind without moving (`task-covert`).\nFor the overt task, the participants' speech was recorded and its word and\nsyllable timing aligned by hand; the timing is released as events, the voice\nrecordings are not.\n\n- 25 participants, one session each (about one hour)\n- 2 tasks × 3 runs × 20 trials = 150 recordings, 3000 trials\n- 20 sentences, 161 distinct words, 192 distinct syllables\n- 61 EEG channels + 1 EOG channel at 2048 Hz, BrainVision format\n\n## Participants\n\n25 native Italian speakers (14 male, 11 female), aged 22–33. Three were\nleft-handed (2 male, 1 female), the others predominantly right-handed. None\nreported neurological or psychiatric disorders; all had normal hearing and\nnormal or corrected-to-normal vision. Some had taken part in motor-imagery\nBCI experiments before. Per-participant demographics are not released.\n\nParticipants gave written consent to the collection and dissemination of\ntheir data. The study was approved by the Ethics Committee for Psychological\nResearch, Area 17, University of Padova (ref. 1801-a), in accordance with the\nDeclaration of Helsinki. Participant IDs were randomized and recording dates\nremoved.\n\n## Protocol\n\nParticipants sat in an electrically shielded, acoustically isolated room,\n30–50 cm from a screen. Before the recording they read the sentence list to\nget familiar with the words and the phonetic notation used for the syllables.\n\nThe overt block (3 runs) always came first, followed by the covert block\n(3 runs). Each run lasted about 10 minutes and presented the 20 sentences once,\nin random order. A trial (about 35 s) went as follows:\n\n1. **Fixation** (`fixation`, 2 s): a cross at the centre of the screen.\n2. **Listening** (`listening_cue`, ~8 s): the sentence is shown and played by a\n   text-to-speech synthesizer (Google gTTS); a 3 s pause after playback lets\n   participants finish reading.\n3. **Repetition** (`repetition_cue`, 5 s): the sentence disappears and\n   participants repeat it aloud (overt) or imagine repeating it (covert).\n4. **Syllabification**: a three-dot countdown (`pre_syllabification_dot`,\n   0.6 s each) sets the pace, then the syllables scroll on screen one every\n   0.6 s (`syllabification_cue`), with the current one highlighted.\n   Participants pronounce, or imagine pronouncing, each syllable as it appears.\n5. **Trial end**: a visual cue, then a 4 s pause.\n\nCovert instructions: *\"Imagine that you have something to say, but you cannot\nsay it out loud or show any facial expression. You should feel your jaw, lips,\ntongue, and vocal cords as if they were about to activate, but in reality, you\nremain motionless.\"* Participants were also asked not to grind their teeth or\nnod to keep the rhythm. During the overt runs the experimenter noted\nproduction errors and gave feedback after each run.\n\n## Stimuli\n\n20 handcrafted sentences with a similar structure (subject–verb–complement),\n10–13 words and 20–26 syllables each, about 4–4.5 s when spoken. Words were\nchosen to cover the Italian phonetic inventory with a phoneme distribution\nclose to PhonItalia, which also provided the syllabification and phonetic\ntranscription.\n\n`stimuli/wordlist.tsv` has no header; its columns are sentence id, sentence,\nand syllabification (syllables separated by `.`, words by spaces).\n`stimuli/audio/` holds the synthesized sentences with their TextGrids.\n\n## Acquisition\n\n- ANT Neuro waveguard original cap, 64 Ag/AgCl electrodes, extended 10–20\n  layout; ANT Neuro eego sports amplifier.\n- 2048 Hz, reference CPz, ground AFz, impedances below 10 kΩ.\n- EOG electrode below the left eye.\n- Recorded with ROS-Neuro on Linux. EEG was stored as GDF and audio as ROS\n  bags; the two streams were aligned through the event markers logged in both.\n  The residual synchronization error was not measured.\n- Overt speech was recorded with the computer's built-in microphone, then\n  resampled to 44112 Hz and saved as mono 16-bit WAV.\n- EEG and audio were cropped from 0.5 s before the first event to 0.5 s after\n  the last one.\n\nElectrode positions are the standard 10–20 template, not digitized positions.\n\n## Speech annotations\n\nSpeech in the overt runs was segmented with Silero-VAD, aligned to the\ntranscriptions with the Montreal Forced Aligner, and then checked and\ncorrected by hand in Praat at sentence, word and syllable level. Syllables\nthat were skipped or produced incorrectly have no annotation (45 in the\nsyllabification phase). The resulting timings are in the events files\n(`repetition_word`, `repetition_syllable`, `syllabification_syllable`). The\nvoice recordings themselves are not distributed, to protect the participants'\nidentity.\n\n## Files\n\n```\nsub-XX/ses-01/eeg/              raw EEG (BrainVision), events, channels, electrodes\nstimuli/                        sentence list, synthesized sentences and TextGrids\nderivatives/preprocessing/      cleaned continuous EEG (see its README)\nderivatives/syllable-datasets/  syllable epochs in HDF5, ready for ML (see its README)\n```\n\n## Events\n\n`*_events.tsv` has one row per event:\n\n| Column | Content |\n|---|---|\n| `onset`, `duration` | seconds |\n| `trial_type` | event name (below) |\n| `phase` | trial phase the event belongs to |\n| `trial_index`, `token_index` | trial and word/syllable position |\n| `token` | word or syllable (phonetic notation) |\n| `trigger_code` | original trigger, for trigger-based events |\n| `event_source` | `gdf_trigger`, `textgrid_word` or `textgrid_syllable` |\n| `stimulus_id`, `stim_file` | sentence id and stimulus audio |\n\nEvent names:\n\n- from triggers: `trial_start`, `fixation`, `listening_cue`, `repetition_cue`,\n  `pre_syllabification_dot`, `syllabification_cue`, `trial_end`;\n- from the stimulus alignment: `listening_word`, `listening_syllable`;\n- from the participant's speech (overt only): `repetition_word`,\n  `repetition_syllable`, `syllabification_syllable`.\n\n`na` is a real syllable. When reading the TSVs with pandas use\n`keep_default_na=False`, otherwise it becomes a missing value. Missing values\nare written as `n/a`.\n\n## Things to keep in mind\n\n- The overt block always preceded the covert one, so condition comparisons may\n  include practice or fatigue effects.\n- Syllables were shown on screen, so cue-aligned EEG also contains visual\n  responses, in both tasks.\n- Overt recordings contain muscle activity from speaking, also after\n  preprocessing, which was deliberately conservative.\n- Consecutive syllable epochs overlap. For machine learning, split by trial,\n  run or participant rather than by epoch; we suggest training on the first\n  two runs and testing on the third.\n\n## Getting started\n\nThe `spellitout` Python package loads the dataset through MNE-BIDS:\n<https://github.com/neurorobotics-iaslab/spell-it-out>.\n\n```python\nfrom spellitout import SpellItOutDataset\n\ndataset = SpellItOutDataset(\"path/to/spellitout\")\nrun = dataset.get_run(subject=1, task=\"overt\", run=1)\nrun.raw, run.events\n```\n\n## License and citation\n\nReleased under CC0. If you use this dataset, please cite:\n\nCortecchia, T., Tortora, S., Kiesner, J., Menegatti, E., Tonin, L. *Spell-It-Out, a speech EEG dataset for\novert and covert production of Italian syllables.* TODO: journal and DOI.\n\nContact: Tommaso Cortecchia (tommaso.cortecchia@polito.it), Luca Tonin\n(luca.tonin@unipd.it).\n\n## References\n\nAppelhoff, S., Sanderson, M., Brooks, T., Vliet, M., Quentin, R., Holdgraf, C., Chaumon, M., Mikulan, E., Tavabi, K., Höchenberger, R., Welke, D., Brunner, C., Rockhill, A., Larson, E., Gramfort, A. and Jas, M. (2019). MNE-BIDS: Organizing electrophysiological data into the BIDS format and facilitating their analysis. Journal of Open Source Software 4: (1896). https://doi.org/10.21105/joss.01896\n\nPernet, C. R., Appelhoff, S., Gorgolewski, K. J., Flandin, G., Phillips, C., Delorme, A., Oostenveld, R. (2019). EEG-BIDS, an extension to the brain imaging data structure for electroencephalography. Scientific Data, 6, 103. https://doi.org/10.1038/s41597-019-0104-8\n\nGoslin, J., Galluzzi, C. & Romani, C. (2014). PhonItalia: a phonological lexicon for Italian. Behavior Research Methods, 46, 872–886.\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/on008968",
+    "exists": true,
+    "description": "Spell-IT-Out",
+    "created_at": "2026-10-28T13:01:01+00:00",
+    "updated_at": "2026-11-03T03:00:33+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

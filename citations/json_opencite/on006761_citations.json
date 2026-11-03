@@ -1,7 +1,7 @@
 {
   "dataset_id": "on006761",
-  "num_citations": 7,
-  "date_last_updated": "2026-11-02T12:07:43.307670+00:00",
+  "num_citations": 8,
+  "date_last_updated": "2026-11-03T11:06:08.435419+00:00",
   "metadata": {
     "total_cumulative_citations": 5,
     "fetch_date": "2026-11-02T12:07:43.307670+00:00",
@@ -80,7 +80,14 @@
         "funder_name": "Australian Research Council",
         "award_number": "DE230100380"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "on006761",
+      "ds006761"
+    ],
+    "num_accession_mentions": 1,
+    "num_dataset_citations": 1,
+    "num_datapaper_citations": 7
   },
   "citation_details": [
     {
@@ -243,20 +250,45 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "Rock, Paper, Scissors EEG classification dataset",
+      "author": "Raghu Vatsavai",
+      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "year": 2026,
+      "url": "https://doi.org/10.5281/zenodo.23665773",
+      "cited_by": 0,
+      "abstract": "This release provides a prepared EEG classification dataset derived from “Neural decoding of competitive decision-making in Rock-Paper-Scissors”, OpenNeuro ds006761, version 1.0.0, originally released under CC0 by Moerel and colleagues. The classification target is a player’s eventual choice of rock (rock), paper (paper) or scissors (scissors) from their decision-period EEG. The source contains 31 simultaneously recorded pairs comprising 62 players. Screening 29,760 player-trial candidates excludes 249 individual nonresponses, leaving 29,511 examples. A nonresponse excludes only the nonresponding player’s example; their opponent’s example remains eligible. Each example contains 64 scalp EEG channels and 512 samples at 256 Hz, expressed in volts. Preparation extracts the 2 second interval beginning at decision onset, excluding the response and feedback periods. Processing includes the source acquisition/player-bank correction, per-channel temporal centering, polyphase downsampling from 2,048 to 256 Hz, interpolation of the authors’ published bad channels and common average reference. Signals are stored at float32 precision. No additional bandpass filtering or automatic amplitude, ocular or muscle artifact rejection is applied. A pair-level random split with seed 42 produces 23,799 TRAIN examples from 25 pairs (50 players) and 5,712 TEST examples from six pairs (12 players). Both opponents and all their trials remain in the same partition. TRAIN contains 8,464 rock, 7,791 paper and 7,544 scissors examples; TEST contains 1,964 rock, 1,812 paper and 1,936 scissors examples. The release includes three files: RockPaperScissors_TRAIN.ts and RockPaperScissors_TEST.ts: signals and class labels in aeon format. RockPaperScissors_rows.tsv: row-aligned pair IDs, individual participant IDs, labels, source trial and sample coordinates, and optional grouped validation fold assignments. Five optional validation folds were constructed within TRAIN using StratifiedGroupKFold with random seed 42, keeping complete pairs together. TEST is excluded from these folds. The two signal files support the standard fixed TRAIN/TEST benchmark; the companion table enables pair-aware tuning and reporting of pair-wise classification metrics. Players choose different gestures across trials, so predictions should be evaluated per player-trial, optionally averaging performance across pairs. Both opponents must remain together during validation because their recordings arise from the same interaction. This single-trial classification task for unseen pairs differs from the source paper’s within-person analysis using aggregated trials. The participants and held-out pairs have been explored previously, so this release supports exploratory benchmarking rather than independent external validation. Published bad-channel flags are used for both TRAIN and TEST recordings, and potentially artifactual windows remain. Source dataset: OpenNeuro ds006761, version 1.0.0Source paper: Neural decoding of competitive decision-making in Rock-Paper-Scissors",
+      "doi": "10.5281/zenodo.23665773",
+      "pmid": null,
+      "openalex_id": "W7223705205",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds006761",
+      "confidence_scoring": {
+        "confidence_score": 0.9932081794738771,
+        "similarity_score": 0.8599205017089844,
+        "citation_text_length": 1657,
+        "dataset_text_length": 1121,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-11-02T12:41:15.009960+00:00",
+    "scoring_date": "2026-11-03T11:12:53.170894+00:00",
     "dataset_text_length": 1121,
-    "num_citations_scored": 7,
+    "num_citations_scored": 8,
     "summary_stats": {
-      "mean_confidence": 0.540654837191105,
-      "median_confidence": 0.5498533652722837,
-      "std_confidence": 0.09708973056608587,
+      "mean_confidence": 0.5972240049764515,
+      "median_confidence": 0.57473375312984,
+      "std_confidence": 0.17506744133678187,
       "min_confidence": 0.38416327983140947,
-      "max_confidence": 0.6643236681818963,
-      "high_confidence_count": 0,
+      "max_confidence": 0.9932081794738771,
+      "high_confidence_count": 1,
       "medium_confidence_count": 6,
       "low_confidence_count": 1
     }
