@@ -1,7 +1,7 @@
 {
   "dataset_id": "nm000109",
-  "num_citations": 100,
-  "date_last_updated": "2026-11-02T11:01:04.617150+00:00",
+  "num_citations": 102,
+  "date_last_updated": "2026-11-03T11:07:04.549244+00:00",
   "metadata": {
     "total_cumulative_citations": 3939,
     "fetch_date": "2026-11-02T11:01:04.617150+00:00",
@@ -67,7 +67,13 @@
       "Mathematics"
     ],
     "methods_description": "EEG was recorded with a Neurocom 23-channel monopolar system at 500 Hz, using 10/20 electrode placement and interconnected ear electrode references. Filters were a 0.5 Hz high-pass, a 45 Hz low-pass, and a 50 Hz notch. Participants had a 3-minute adaptation period, then 3 minutes of eyes-closed rest, then a 4-minute mental arithmetic task (4-digit minuend minus 2-digit subtrahend). The dataset stores the last 180 s of rest and the first 60 s of the task. Only artifact-free segments were retained.",
-    "funding": []
+    "funding": [],
+    "searched_accessions": [
+      "nm000109"
+    ],
+    "num_accession_mentions": 2,
+    "num_dataset_citations": 2,
+    "num_datapaper_citations": 100
   },
   "citation_details": [
     {
@@ -2369,22 +2375,72 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "Transcript identification by analysis of short sequence tags--influence of tag length, restriction site and transcript database",
+      "author": "Per Unneberg",
+      "venue": "Nucleic Acids Research",
+      "year": 2003,
+      "url": "https://doi.org/10.1093/nar/gkg313",
+      "cited_by": 20,
+      "abstract": "There exist a number of gene expression profiling techniques that utilize restriction enzymes for generation of short expressed sequence tags. We have studied how the choice of restriction enzyme influences various characteristics of tags generated in an experiment. We have also investigated various aspects of in silico transcript identification that these profiling methods rely on. First, analysis of 14 248 mRNA sequences derived from the RefSeq transcript database showed that 1-30% of the sequences lack a given restriction enzyme recognition site. Moreover, 1-5% of the transcripts have recognition sites located less than 10 bases from the poly(A) tail. The uniqueness of 10 bp tags lies in the range 90-95%, which increases only slightly with longer tags, due to the existence of closely related transcripts. Furthermore, 3-30% of upstream 10 bp tags are identical to 3' tags, introducing a risk of misclassification if upstream tags are present in a sample. Second, we found that a sequence length of 16-17 bp, including the recognition site, is sufficient for unique transcript identification by BLAST based sequence alignment to the UniGene Human non-redundant database. Third, we constructed a tag-to-gene mapping for UniGene and compared it to an existing mapping database. The mappings agreed to 79-83%, where the selection of representative sequences in the UniGene clusters is the main cause of the disagreement. The results of this study may serve to improve the interpretation of sequence-based expression studies and the design of hybridization arrays, by identifying short tags that have a high reliability and separating them from tags that carry an inherent ambiguity in their capacity to discriminate between genes. To this end, supplementary information in the form of a web companion to this paper is located at http:// biobase.biotech.kth.se/tagseq.",
+      "doi": "10.1093/nar/gkg313",
+      "pmid": "12682372",
+      "openalex_id": "W2073612468",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "nm000109",
+      "confidence_scoring": {
+        "confidence_score": 0.1637204706668854,
+        "similarity_score": 0.14883679151535034,
+        "citation_text_length": 1700,
+        "dataset_text_length": 2296,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Predicting Cognitive Tasks from Single-Channel EEG through Task-Semantic Alignment",
+      "author": "Ryota Kanai C",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2610.15104",
+      "cited_by": 0,
+      "abstract": "Studies of data scaling in electroencephalography (EEG) and related noninvasive recordings suggest that simple wearable devices could eventually reveal more about cognitive states. However, publicly available EEG data are difficult to combine. Different laboratories record different tasks, participants, and devices. Task-agnostic self-supervised learning can exploit such data, but representations learned only with EEG signals have not consistently produced feature representations that are directly effective for decoding the cognitive state. We therefore aimed to incorporate task information by embedding experimental instructions, stimuli and response demands in a common semantic space, and trained an EEG encoder to align signals from a single anterior--posterior differential channel with those task vectors. This framework supports zero-shot prediction without target-condition calibration and few-shot prediction using labeled samples. On a reserved ten-class evaluation, the highest observed zero-shot balanced accuracy was 30.13% (chance 10%). In a separate developmental few-shot experiment, balanced accuracy reached 34.47% using 16 labeled EEG examples per class from another participant, and 74.99% using examples from the test participant's own task recording. Our experiments suggest that training models on datasets with multiple tasks per participant appeared useful, whereas adding datasets containing only one or a few tasks sometimes reduced established performance despite broader task coverage. These exploratory results suggest that EEG datasets that repeat varied cognitive tasks and everyday activities within the same individuals across days, devices and independent studies would be particularly useful for training an EEG foundation model for predicting cognitive states.",
+      "doi": "10.48550/arxiv.2610.15104",
+      "pmid": null,
+      "openalex_id": "W7221793578",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "nm000109",
+      "confidence_scoring": {
+        "confidence_score": 0.70074449300766,
+        "similarity_score": 0.6067051887512207,
+        "citation_text_length": 1660,
+        "dataset_text_length": 2296,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-11-02T12:18:05.101809+00:00",
+    "scoring_date": "2026-11-03T11:08:20.909487+00:00",
     "dataset_text_length": 2296,
-    "num_citations_scored": 100,
+    "num_citations_scored": 102,
     "summary_stats": {
-      "mean_confidence": 0.5906574316866696,
+      "mean_confidence": 0.5875510601209952,
       "median_confidence": 0.6023452949523926,
-      "std_confidence": 0.13150275382731375,
-      "min_confidence": 0.16673310466110708,
+      "std_confidence": 0.13729557005023715,
+      "min_confidence": 0.1637204706668854,
       "max_confidence": 0.8560408732295037,
-      "high_confidence_count": 19,
+      "high_confidence_count": 20,
       "medium_confidence_count": 70,
-      "low_confidence_count": 11
+      "low_confidence_count": 12
     }
   }
 }
