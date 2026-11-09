@@ -1,7 +1,7 @@
 {
   "dataset_id": "on003638",
-  "num_citations": 0,
-  "date_last_updated": "2026-11-02T11:40:51.036088+00:00",
+  "num_citations": 2,
+  "date_last_updated": "2026-11-09T11:01:19.144880+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
     "fetch_date": "2026-11-02T11:40:51.036088+00:00",
@@ -42,13 +42,81 @@
       "psychiatry"
     ],
     "methods_description": "Human EEG was collected circa 2014-2016 in San Diego during three tasks and analyzed circa 2015-2021 in New Mexico. Triggers were odd binary recombinations re-translated into 0-255 values in MATLAB, with scripts and a Trigger Translator spreadsheet provided.",
-    "funding": []
+    "funding": [],
+    "searched_accessions": [
+      "on003638",
+      "ds003638"
+    ],
+    "num_accession_mentions": 2,
+    "num_dataset_citations": 2,
+    "num_datapaper_citations": 0
   },
-  "citation_details": [],
+  "citation_details": [
+    {
+      "title": "Electrophysiological biomarkers of behavioral dimensions from cross-species paradigms",
+      "author": "James F. Cavanagh, David Gregg, Gregory A. Light, Sarah L. Olguin, Richard F. Sharp, Andrew W. Bismark, Savita G. Bhakta, Neal R. Swerdlow, Jonathan L. Brigman, Jared W. Young",
+      "venue": "Translational Psychiatry",
+      "year": 2021,
+      "url": "https://doi.org/10.1038/s41398-021-01562-w",
+      "cited_by": 46,
+      "abstract": "There has been a fundamental failure to translate preclinically supported research into clinically efficacious treatments for psychiatric disorders. One of the greatest impediments toward improving this species gap has been the difficulty of identifying translatable neurophysiological signals that are related to specific behavioral constructs. Here, we present evidence from three paradigms that were completed by humans and mice using analogous procedures, with each task eliciting candidate a priori defined electrophysiological signals underlying effortful motivation, reinforcement learning, and cognitive control. The effortful motivation was assessed using a progressive ratio breakpoint task, yielding a similar decrease in alpha-band activity over time in both species. Reinforcement learning was assessed via feedback in a probabilistic learning task with delta power significantly modulated by reward surprise in both species. Additionally, cognitive control was assessed in the five-choice continuous performance task, yielding response-locked theta power seen across species, and modulated by difficulty in humans. Together, these successes, and also the teachings from these failures, provide a roadmap towards the use of electrophysiology as a method for translating findings from the preclinical assays to the clinical settings.",
+      "doi": "10.1038/s41398-021-01562-w",
+      "pmid": "34535625",
+      "openalex_id": "W3200545521",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds003638",
+      "confidence_scoring": {
+        "confidence_score": 0.7406253165006639,
+        "similarity_score": 0.6412340402603149,
+        "citation_text_length": 1668,
+        "dataset_text_length": 892,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Laya: A LeJEPA Approach to EEG via Latent Prediction over Reconstruction",
+      "author": "Saarang Panchavati, Uddhav Panchavati, Hiroki Nariai, Corey Arnold, William F Speier",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2603.16281",
+      "cited_by": 8,
+      "abstract": "Electroencephalography (EEG) is a widely used tool for studying brain function, with applications in clinical neuroscience, diagnosis, and brain-computer interfaces (BCIs). Recent EEG foundation models trained on large unlabeled corpora aim to learn transferable representations, but their effectiveness remains unclear; reported improvements over smaller task-specific models are often modest, sensitive to downstream adaptation and fine-tuning strategies, and limited under linear probing. We hypothesize that one contributing factor is the reliance on signal reconstruction as the primary self-supervised learning (SSL) objective, which biases representations toward high-variance artifacts rather than task-relevant neural structure. To address this limitation, we explore an SSL paradigm based on Joint Embedding Predictive Architectures (JEPA), which learn by predicting latent representations instead of reconstructing raw signals. We introduce Laya, the first EEG foundation model based on LeJEPA. We show that latent prediction yields representations that encode semantic structure in EEG: Laya embeddings track clinically meaningful state changes such as seizure onset, are resilient to noise, and achieve the strongest mean clinical accuracy under frozen linear probing, with particular gains on tasks where relevant neural patterns are subtle and easily obscured by artifacts. Controlled ablations against matched MAE variants confirm that the choice of pretraining objective, rather than architecture or data, is the primary driver of these gains.",
+      "doi": "10.48550/arxiv.2603.16281",
+      "pmid": null,
+      "openalex_id": "W7138972657",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds003638",
+      "confidence_scoring": {
+        "confidence_score": 0.5520439611375333,
+        "similarity_score": 0.47796013951301575,
+        "citation_text_length": 1721,
+        "dataset_text_length": 892,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    }
+  ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-11-02T12:31:40.656369+00:00",
+    "scoring_date": "2026-11-09T11:05:35.105239+00:00",
     "dataset_text_length": 892,
-    "num_citations_scored": 0
+    "num_citations_scored": 2,
+    "summary_stats": {
+      "mean_confidence": 0.6463346388190986,
+      "median_confidence": 0.6463346388190986,
+      "std_confidence": 0.0942906776815653,
+      "min_confidence": 0.5520439611375333,
+      "max_confidence": 0.7406253165006639,
+      "high_confidence_count": 1,
+      "medium_confidence_count": 1,
+      "low_confidence_count": 0
+    }
   }
 }

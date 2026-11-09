@@ -1,7 +1,7 @@
 {
   "dataset_id": "on004348",
-  "num_citations": 100,
-  "date_last_updated": "2026-11-02T11:47:43.996048+00:00",
+  "num_citations": 101,
+  "date_last_updated": "2026-11-09T11:02:09.162020+00:00",
   "metadata": {
     "total_cumulative_citations": 3579,
     "fetch_date": "2026-11-02T11:47:43.996048+00:00",
@@ -53,7 +53,14 @@
       "Sleep"
     ],
     "methods_description": "Each participant completed two recordings at home. In the first, a 'wake' task, they relaxed in a chair reading or watching television. In the second, a 'sleep' task, they were recorded overnight from the time they went to bed. Recording equipment was mounted in the afternoon. Partial PSG (EEG, EOG, chin EMG) was combined with 14 ear-EEG electrodes, and the data are stored in EEGLAB .set format. Two ear-EEG channels, ERB1 and ELB1, were not used in the original study but are included in the dataset.",
-    "funding": []
+    "funding": [],
+    "searched_accessions": [
+      "on004348",
+      "ds004348"
+    ],
+    "num_accession_mentions": 1,
+    "num_dataset_citations": 1,
+    "num_datapaper_citations": 100
   },
   "citation_details": [
     {
@@ -2355,21 +2362,46 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "Learning the relative composition of EEG signals using pairwise relative shift pretraining",
+      "author": "Christopher M. Sandino, Sayeri Lala, Geeling Chau, Melika Ayoughi, Behrooz Mahasseni, Ellen L. Zippi, Ali Moin, Erdrin Azemi, Hanlin Goh",
+      "venue": "arXiv (Cornell University)",
+      "year": 2025,
+      "url": "https://doi.org/10.48550/arxiv.2511.11940",
+      "cited_by": 0,
+      "abstract": "Self-supervised learning (SSL) offers a promising approach for learning electroencephalography (EEG) representations from unlabeled data, reducing the need for expensive annotations for clinical applications like sleep staging and seizure detection. While current EEG SSL methods predominantly use masked reconstruction strategies like masked autoencoders (MAE) that capture local temporal patterns, position prediction pretraining remains underexplored despite its potential to learn long-range dependencies in neural signals. We introduce PAirwise Relative Shift or PARS pretraining, a novel pretext task that predicts relative temporal shifts between randomly sampled EEG window pairs. Unlike reconstruction-based methods that focus on local pattern recovery, PARS encourages encoders to capture relative temporal composition and long-range dependencies inherent in neural signals. Through comprehensive evaluation on various EEG decoding tasks, we demonstrate that PARS-pretrained transformers consistently outperform existing pretraining strategies in label-efficient and transfer learning settings, establishing a new paradigm for self-supervised EEG representation learning.",
+      "doi": "10.48550/arxiv.2511.11940",
+      "pmid": null,
+      "openalex_id": "W4416454347",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004348",
+      "confidence_scoring": {
+        "confidence_score": 0.5960645771026613,
+        "similarity_score": 0.5160732269287109,
+        "citation_text_length": 1472,
+        "dataset_text_length": 2270,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-11-02T12:34:10.564478+00:00",
+    "scoring_date": "2026-11-09T11:07:25.297798+00:00",
     "dataset_text_length": 2270,
-    "num_citations_scored": 100,
+    "num_citations_scored": 101,
     "summary_stats": {
-      "mean_confidence": 0.6218630044415593,
-      "median_confidence": 0.6325375917553903,
-      "std_confidence": 0.11025051544847987,
+      "mean_confidence": 0.6216075744679068,
+      "median_confidence": 0.6308348953723908,
+      "std_confidence": 0.1097330958508906,
       "min_confidence": 0.2828288346529007,
       "max_confidence": 0.8798312124609948,
       "high_confidence_count": 23,
-      "medium_confidence_count": 73,
+      "medium_confidence_count": 74,
       "low_confidence_count": 4
     }
   }

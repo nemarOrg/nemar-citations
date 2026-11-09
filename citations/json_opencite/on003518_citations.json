@@ -1,7 +1,7 @@
 {
   "dataset_id": "on003518",
-  "num_citations": 98,
-  "date_last_updated": "2026-11-02T11:39:54.465234+00:00",
+  "num_citations": 99,
+  "date_last_updated": "2026-11-09T11:01:12.550493+00:00",
   "metadata": {
     "total_cumulative_citations": 4905,
     "fetch_date": "2026-11-02T11:39:54.465234+00:00",
@@ -53,7 +53,14 @@
       "cognitive conflict"
     ],
     "methods_description": "Participants performed a Simon conflict task with a reinforcement manipulation, written in Matlab, while EEG was recorded. Study 2 was a double-blind drug study in which participants received cabergoline 1.25 mg in one of two sessions. Trigger codes are documented in CC_Triggers.mat and further metadata in an .xls sheet in the code folder.",
-    "funding": []
+    "funding": [],
+    "searched_accessions": [
+      "on003518",
+      "ds003518"
+    ],
+    "num_accession_mentions": 1,
+    "num_dataset_citations": 1,
+    "num_datapaper_citations": 98
   },
   "citation_details": [
     {
@@ -2309,21 +2316,46 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "Laya: A LeJEPA Approach to EEG via Latent Prediction over Reconstruction",
+      "author": "Saarang Panchavati, Uddhav Panchavati, Hiroki Nariai, Corey Arnold, William F Speier",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2603.16281",
+      "cited_by": 8,
+      "abstract": "Electroencephalography (EEG) is a widely used tool for studying brain function, with applications in clinical neuroscience, diagnosis, and brain-computer interfaces (BCIs). Recent EEG foundation models trained on large unlabeled corpora aim to learn transferable representations, but their effectiveness remains unclear; reported improvements over smaller task-specific models are often modest, sensitive to downstream adaptation and fine-tuning strategies, and limited under linear probing. We hypothesize that one contributing factor is the reliance on signal reconstruction as the primary self-supervised learning (SSL) objective, which biases representations toward high-variance artifacts rather than task-relevant neural structure. To address this limitation, we explore an SSL paradigm based on Joint Embedding Predictive Architectures (JEPA), which learn by predicting latent representations instead of reconstructing raw signals. We introduce Laya, the first EEG foundation model based on LeJEPA. We show that latent prediction yields representations that encode semantic structure in EEG: Laya embeddings track clinically meaningful state changes such as seizure onset, are resilient to noise, and achieve the strongest mean clinical accuracy under frozen linear probing, with particular gains on tasks where relevant neural patterns are subtle and easily obscured by artifacts. Controlled ablations against matched MAE variants confirm that the choice of pretraining objective, rather than architecture or data, is the primary driver of these gains.",
+      "doi": "10.48550/arxiv.2603.16281",
+      "pmid": null,
+      "openalex_id": "W7138972657",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds003518",
+      "confidence_scoring": {
+        "confidence_score": 0.52050932854414,
+        "similarity_score": 0.4506574273109436,
+        "citation_text_length": 1721,
+        "dataset_text_length": 1458,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-11-02T12:31:17.796530+00:00",
+    "scoring_date": "2026-11-09T11:05:16.233427+00:00",
     "dataset_text_length": 1458,
-    "num_citations_scored": 98,
+    "num_citations_scored": 99,
     "summary_stats": {
-      "mean_confidence": 0.4508589764821287,
-      "median_confidence": 0.4511485993862152,
-      "std_confidence": 0.0841418125223904,
+      "mean_confidence": 0.451562515391846,
+      "median_confidence": 0.4512110829353333,
+      "std_confidence": 0.08400498674686854,
       "min_confidence": 0.16109102949500087,
       "max_confidence": 0.6651628196239472,
       "high_confidence_count": 0,
-      "medium_confidence_count": 77,
+      "medium_confidence_count": 78,
       "low_confidence_count": 21
     }
   }

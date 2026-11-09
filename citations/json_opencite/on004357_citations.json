@@ -1,7 +1,7 @@
 {
   "dataset_id": "on004357",
-  "num_citations": 31,
-  "date_last_updated": "2026-11-02T11:48:00.130416+00:00",
+  "num_citations": 34,
+  "date_last_updated": "2026-11-09T11:02:10.731847+00:00",
   "metadata": {
     "total_cumulative_citations": 69,
     "fetch_date": "2026-11-02T11:48:00.130416+00:00",
@@ -52,7 +52,14 @@
       "Gabor stimuli"
     ],
     "methods_description": "Participants viewed fast streams of Gabor-like stimuli presented at 6.67 Hz and 20 Hz rates while EEG was recorded. They performed an orthogonal fixation colour change detection task. Sessions lasted about 1 hour.",
-    "funding": []
+    "funding": [],
+    "searched_accessions": [
+      "on004357",
+      "ds004357"
+    ],
+    "num_accession_mentions": 3,
+    "num_dataset_citations": 3,
+    "num_datapaper_citations": 31
   },
   "citation_details": [
     {
@@ -767,21 +774,96 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "Mapping the dynamics of visual feature coding: Insights into perception and integration",
+      "author": "Tijl Grootswagers, Amanda K. Robinson, Sophia M. Shatek, Thomas A. Carlson",
+      "venue": "PLoS Computational Biology",
+      "year": 2024,
+      "url": "https://doi.org/10.1371/journal.pcbi.1011760",
+      "cited_by": 30,
+      "abstract": "Abstract The basic computations performed in the human early visual cortex are the foundation for visual perception. While we know a lot about these computations, a key missing piece is how the coding of visual features relates to our perception of the environment. To investigate visual feature coding, interactions, and their relationship to human perception, we investigated neural responses and perceptual similarity judgements to a large set of visual stimuli that varied parametrically along four feature dimensions. We measured neural responses using electroencephalography (N=16) to 256 grating stimuli that varied in orientation, spatial frequency, contrast, and colour. We then mapped the response profiles of the neural coding of each visual feature and their interactions, and related these to independently obtained behavioural judgements of stimulus similarity. The results confirmed fundamental principles of feature coding in the visual system, such that all four features were processed simultaneously but differed in their dynamics, and there was distinctive conjunction coding for different combinations of features in the neural responses. Importantly, modelling of the behaviour revealed that every stimulus feature contributed to perceptual judgements, despite the untargeted nature of the behavioural task. Further, the relationship between neural coding and behaviour was evident from initial processing stages, signifying that the fundamental features, not just their interactions, contribute to perception. This study highlights the importance of understanding how feature coding progresses through the visual hierarchy and the relationship between different stages of processing and perception. Author summary This study investigates the foundational computations in the human early visual cortex that underlie visual perception. Using electroencephalography (EEG), neural responses to 256 grating stimuli with variations in orientation, spatial frequency, contrast, and colour were measured in 16 participants. We explored how the neural coding of these visual features and their interactions relate to perceptual similarity judgments. Results confirmed simultaneous processing of all four features with distinct dynamics, revealing conjunction coding for various feature combinations. Behavioural modelling demonstrated that each stimulus feature contributes to perceptual judgments. This work emphasizes the significance of understanding feature coding progression through the visual hierarchy and its relationship to perception from early processing stages.",
+      "doi": "10.1371/journal.pcbi.1011760",
+      "pmid": "38190390",
+      "openalex_id": "W4390660265",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004357",
+      "confidence_scoring": {
+        "confidence_score": 0.7147258919477464,
+        "similarity_score": 0.6188102960586548,
+        "citation_text_length": 1726,
+        "dataset_text_length": 871,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "What masking geometry works best for EEG foundation models?",
+      "author": "Pierre Guetschel, Bruno Aristimunha, Yassine El Ouahidi, Arnaud Delorme A, Thomas Moreau, Michael Tangermann",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2609.33487",
+      "cited_by": 0,
+      "abstract": "EEG foundation models hold promise for scalable brain-signal decoding across clinical and cognitive neuroscience applications, yet their pre-training pipelines remain poorly understood. Among design choices, the masking strategy is particularly critical: it determines what the network must predict and from which context. Yet it has never been ablated in isolation, as each new model bundles a new masking strategy with a new backbone and objective. In this paper, we formalize the design choices for spatio-temporal masking strategies and train various models with a single pipeline under varying masking configurations across two SSL frameworks (MAE and JEPA). We then systematically evaluate the resulting 58 pre-trained models on the 12 datasets of OpenEEGBench under a linear probe. Both frameworks agree on an optimal masking configuration and on shared failure modes. Outside these, performance is robust: 11 MAE and 9 JEPA configurations are statistically indistinguishable from the best. We further identify a novel JEPA-specific failure mode, tagged bias-inflation collapse, invisible to standard detectors. With a well-chosen mask, our pipeline reaches REVE-level downstream performance at a fraction of REVE's pre-training compute.",
+      "doi": "10.48550/arxiv.2609.33487",
+      "pmid": null,
+      "openalex_id": "W7214740814",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004357",
+      "confidence_scoring": {
+        "confidence_score": 0.555023467540741,
+        "similarity_score": 0.48053979873657227,
+        "citation_text_length": 1476,
+        "dataset_text_length": 871,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "REVE: A Foundation Model for EEG - Adapting to Any Setup with Large-Scale Pretraining on 25,000 Subjects",
+      "author": "Yassine El Ouahidi, Jonathan Lys, Philipp Thölke, Nicolas Farrugia, Bastien Pasdeloup, Vincent Gripon, Karim Jerbi, Giulia Lioi",
+      "venue": "neural information processing systems",
+      "year": 2025,
+      "url": "https://doi.org/10.52202/085713-0760",
+      "cited_by": 64,
+      "abstract": "Foundation models have transformed AI by reducing reliance on task-specific data through large-scale pretraining. While successful in language and vision, their adoption in EEG has lagged due to the heterogeneity of public datasets, which are collected under varying protocols, devices, and electrode configurations. Existing EEG foundation models struggle to generalize across these variations, often restricting pretraining to a single setup, resulting in suboptimal performance, in particular under linear probing. We present REVE (Representation for EEG with Versatile Embeddings), a pretrained model explicitly designed to generalize across diverse EEG signals. REVE introduces a novel 4D positional encoding scheme that enables it to process signals of arbitrary length and electrode arrangement. Using a masked autoencoding objective, we pretrain REVE on over 60,000 hours of EEG data from 92 datasets spanning 25,000 subjects, representing the largest EEG pretraining effort to date. REVE achieves state-of-the-art results on 10 downstream EEG tasks, including motor imagery classification, seizure detection, sleep staging, cognitive load estimation, and emotion recognition. With little to no fine-tuning, it demonstrates strong generalization, and nuanced spatio-temporal modeling. We release code, pretrained weights, and tutorials to support standardized EEG research and accelerate progress in clinical neuroscience.",
+      "doi": "10.52202/085713-0760",
+      "pmid": null,
+      "openalex_id": "W7197020048",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004357",
+      "confidence_scoring": {
+        "confidence_score": 0.6516315677762032,
+        "similarity_score": 0.5641831755638123,
+        "citation_text_length": 1737,
+        "dataset_text_length": 871,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-11-02T12:34:18.413825+00:00",
+    "scoring_date": "2026-11-09T11:07:33.331885+00:00",
     "dataset_text_length": 871,
-    "num_citations_scored": 31,
+    "num_citations_scored": 34,
     "summary_stats": {
-      "mean_confidence": 0.5922689297843364,
-      "median_confidence": 0.6076613107323647,
-      "std_confidence": 0.1225282404896513,
+      "mean_confidence": 0.5965211103111506,
+      "median_confidence": 0.6140394075214863,
+      "std_confidence": 0.11939804421711571,
       "min_confidence": 0.1798449602723122,
       "max_confidence": 0.7987346926331521,
-      "high_confidence_count": 6,
-      "medium_confidence_count": 23,
+      "high_confidence_count": 7,
+      "medium_confidence_count": 25,
       "low_confidence_count": 2
     }
   }
