@@ -1,9 +1,9 @@
 {
   "dataset_id": "on004043",
-  "num_citations": 46,
-  "date_last_updated": "2026-11-02T11:44:34.977758+00:00",
+  "num_citations": 47,
+  "date_last_updated": "2026-11-09T11:02:16.201523+00:00",
   "metadata": {
-    "total_cumulative_citations": 469,
+    "total_cumulative_citations": 405,
     "fetch_date": "2026-11-02T11:44:34.977758+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
@@ -88,7 +88,14 @@
         "funder_name": "Medical Research Council",
         "award_number": "SUAG/052/G101400"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "on004043",
+      "ds004043"
+    ],
+    "num_accession_mentions": 2,
+    "num_dataset_citations": 6,
+    "num_datapaper_citations": 41
   },
   "citation_details": [
     {
@@ -1036,22 +1043,27 @@
     },
     {
       "title": "REVE: A Foundation Model for EEG - Adapting to Any Setup with Large-Scale Pretraining on 25,000 Subjects",
-      "author": "Y. El Ouahidi, Jonathan Lys, Philipp Thölke, Nicolas Farrugia, B. Pasdeloup, Vincent Gripon, Karim Jerbi, Giulia Lioi",
-      "venue": "ArXiv",
+      "author": "Yassine El Ouahidi, Jonathan Lys, Philipp Thölke, Nicolas Farrugia, Bastien Pasdeloup, Vincent Gripon, Karim Jerbi, Giulia Lioi",
+      "venue": "neural information processing systems",
       "year": 2025,
-      "url": "https://doi.org/10.48550/arXiv.2510.21585",
-      "cited_by": 128,
-      "abstract": "Foundation models have transformed AI by reducing reliance on task-specific data through large-scale pretraining. While successful in language and vision, their adoption in EEG has lagged due to the heterogeneity of public datasets, which are collected under varying protocols, devices, and electrode configurations. Existing EEG foundation models struggle to generalize across these variations, often restricting pretraining to a single setup, resulting in suboptimal performance, in particular under linear probing. We present REVE (Representation for EEG with Versatile Embeddings), a pretrained model explicitly designed to generalize across diverse EEG signals. REVE introduces a novel 4D positional encoding scheme that enables it to process signals of arbitrary length and electrode arrangement. Using a masked autoencoding objective, we pretrain REVE on over 60,000 hours of EEG data from 92 datasets spanning 25,000 subjects, representing the largest EEG pretraining effort to date. REVE ach",
-      "doi": "10.48550/arXiv.2510.21585",
+      "url": "https://doi.org/10.52202/085713-0760",
+      "cited_by": 64,
+      "abstract": "Foundation models have transformed AI by reducing reliance on task-specific data through large-scale pretraining. While successful in language and vision, their adoption in EEG has lagged due to the heterogeneity of public datasets, which are collected under varying protocols, devices, and electrode configurations. Existing EEG foundation models struggle to generalize across these variations, often restricting pretraining to a single setup, resulting in suboptimal performance, in particular under linear probing. We present REVE (Representation for EEG with Versatile Embeddings), a pretrained model explicitly designed to generalize across diverse EEG signals. REVE introduces a novel 4D positional encoding scheme that enables it to process signals of arbitrary length and electrode arrangement. Using a masked autoencoding objective, we pretrain REVE on over 60,000 hours of EEG data from 92 datasets spanning 25,000 subjects, representing the largest EEG pretraining effort to date. REVE achieves state-of-the-art results on 10 downstream EEG tasks, including motor imagery classification, seizure detection, sleep staging, cognitive load estimation, and emotion recognition. With little to no fine-tuning, it demonstrates strong generalization, and nuanced spatio-temporal modeling. We release code, pretrained weights, and tutorials to support standardized EEG research and accelerate progress in clinical neuroscience.",
+      "doi": "10.52202/085713-0760",
       "pmid": null,
-      "openalex_id": null,
-      "source_doi": "10.82901/nemar.on004043",
-      "source_relation": "References",
-      "discovery_backend": "opencite",
+      "openalex_id": "W7197020048",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004043",
+      "superseded_dois": [
+        "10.48550/arxiv.2510.21585"
+      ],
       "confidence_scoring": {
-        "confidence_score": 0.5003332659602167,
-        "similarity_score": 0.4331889748573303,
-        "citation_text_length": 1265,
+        "confidence_score": 0.501022628992796,
+        "similarity_score": 0.4337858259677887,
+        "citation_text_length": 1737,
         "dataset_text_length": 1380,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -1147,22 +1159,50 @@
         "dataset_text_length": 1380,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      },
+      "superseded_dois": [
+        "10.48550/arxiv.2609.33487"
+      ]
+    },
+    {
+      "title": "Predicting Cognitive Tasks from Single-Channel EEG through Task-Semantic Alignment",
+      "author": "Ryota Kanai",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2610.15104",
+      "cited_by": 0,
+      "abstract": "Studies of data scaling in electroencephalography (EEG) and related noninvasive recordings suggest that simple wearable devices could eventually reveal more about cognitive states. However, publicly available EEG data are difficult to combine. Different laboratories record different tasks, participants, and devices. Task-agnostic self-supervised learning can exploit such data, but representations learned only with EEG signals have not consistently produced feature representations that are directly effective for decoding the cognitive state. We therefore aimed to incorporate task information by embedding experimental instructions, stimuli and response demands in a common semantic space, and trained an EEG encoder to align signals from a single anterior--posterior differential channel with those task vectors. This framework supports zero-shot prediction without target-condition calibration and few-shot prediction using labeled samples. On a reserved ten-class evaluation, the highest observed zero-shot balanced accuracy was 30.13% (chance 10%). In a separate developmental few-shot experiment, balanced accuracy reached 34.47% using 16 labeled EEG examples per class from another participant, and 74.99% using examples from the test participant's own task recording. Our experiments suggest that training models on datasets with multiple tasks per participant appeared useful, whereas adding datasets containing only one or a few tasks sometimes reduced established performance despite broader task coverage. These exploratory results suggest that EEG datasets that repeat varied cognitive tasks and everyday activities within the same individuals across days, devices and independent studies would be particularly useful for training an EEG foundation model for predicting cognitive states.",
+      "doi": "10.48550/arxiv.2610.15104",
+      "pmid": null,
+      "openalex_id": "W7221793578",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004043",
+      "confidence_scoring": {
+        "confidence_score": 0.5270189505815507,
+        "similarity_score": 0.4562934637069702,
+        "citation_text_length": 1658,
+        "dataset_text_length": 1380,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-11-02T12:33:01.666876+00:00",
+    "scoring_date": "2026-11-09T11:06:36.627105+00:00",
     "dataset_text_length": 1380,
-    "num_citations_scored": 46,
+    "num_citations_scored": 47,
     "summary_stats": {
-      "mean_confidence": 0.5848841261701739,
-      "median_confidence": 0.5725592149794103,
-      "std_confidence": 0.09341315043295188,
+      "mean_confidence": 0.5836676195200454,
+      "median_confidence": 0.5723167830705643,
+      "std_confidence": 0.09277741534739427,
       "min_confidence": 0.40997738242149356,
       "max_confidence": 0.7771346738934518,
       "high_confidence_count": 6,
-      "medium_confidence_count": 40,
+      "medium_confidence_count": 41,
       "low_confidence_count": 0
     }
   }
