@@ -1,10 +1,10 @@
 {
   "dataset_id": "on004515",
-  "num_citations": 0,
-  "date_last_updated": "2026-11-02T11:50:02.282087+00:00",
+  "num_citations": 2,
+  "date_last_updated": "2026-11-10T12:13:48.066959+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
-    "fetch_date": "2026-11-02T11:50:02.282087+00:00",
+    "fetch_date": "2026-11-10T11:49:27.846080+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 1,
@@ -44,15 +44,76 @@
       "on004515",
       "ds004515"
     ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
+    "num_accession_mentions": 2,
+    "num_dataset_citations": 2,
     "num_datapaper_citations": 0
   },
-  "citation_details": [],
+  "citation_details": [
+    {
+      "title": "Laya: A LeJEPA Approach to EEG via Latent Prediction over Reconstruction",
+      "author": "Saarang Panchavati, Uddhav Panchavati, Hiroki Nariai, Corey Arnold, William F Speier",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2603.16281",
+      "cited_by": 8,
+      "abstract": "Electroencephalography (EEG) is a widely used tool for studying brain function, with applications in clinical neuroscience, diagnosis, and brain-computer interfaces (BCIs). Recent EEG foundation models trained on large unlabeled corpora aim to learn transferable representations, but their effectiveness remains unclear; reported improvements over smaller task-specific models are often modest, sensitive to downstream adaptation and fine-tuning strategies, and limited under linear probing. We hypothesize that one contributing factor is the reliance on signal reconstruction as the primary self-supervised learning (SSL) objective, which biases representations toward high-variance artifacts rather than task-relevant neural structure. To address this limitation, we explore an SSL paradigm based on Joint Embedding Predictive Architectures (JEPA), which learn by predicting latent representations instead of reconstructing raw signals. We introduce Laya, the first EEG foundation model based on LeJEPA. We show that latent prediction yields representations that encode semantic structure in EEG: Laya embeddings track clinically meaningful state changes such as seizure onset, are resilient to noise, and achieve the strongest mean clinical accuracy under frozen linear probing, with particular gains on tasks where relevant neural patterns are subtle and easily obscured by artifacts. Controlled ablations against matched MAE variants confirm that the choice of pretraining objective, rather than architecture or data, is the primary driver of these gains.",
+      "doi": "10.48550/arxiv.2603.16281",
+      "pmid": null,
+      "openalex_id": "W7138972657",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004515",
+      "confidence_scoring": {
+        "confidence_score": 0.6312859439849854,
+        "similarity_score": 0.5465679168701172,
+        "citation_text_length": 1721,
+        "dataset_text_length": 871,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Replication data for \"Compact Trial-Distribution Readouts for Selection-Aware Alcohol-Task EEG Decoding",
+      "author": "Wenxiang Geng, Kang Yuan, Zihan Chen, Xinshuo Wu, Haohao Xi, Yiwen Wang, Zheng Chang, Zenghui Ding",
+      "venue": "ScienceDB",
+      "year": 2026,
+      "url": "https://doi.org/10.57760/sciencedb.018o6",
+      "cited_by": 0,
+      "abstract": "It is the derived data and reproduction package for the paper \"Compact Trial-Distribution Readouts for Selection-Aware Alcohol-Task EEG Decoding\" (CCISP 2026, Paper ID S091). Two public alcohol-task EEG cohorts were used: OpenNeuro ds005907 (v1.0.0; 50 usable participants, 15,132 events, cue-locked) and OpenNeuro ds004515 (v1.0.0; 51 participants, 8,160 events, feedback-locked), with 49 participants shared between the two cohorts and the two tasks always evaluated separately. No new participants were recruited, no intervention was performed and no participant was re-contacted. Processing was carried out in Python 3.10 or later with numpy, scipy, scikit-learn, pandas, matplotlib and MNE; the four neural-network baselines (BIOT, BENDR, LaBraM, DBConformer) additionally used PyTorch, torchvision, timm and einops on one consumer GPU with 8 GB of memory. All other analyses were CPU-only, and every random seed is recorded in the result logs.Records were epoched and normalised to a 250 Hz working rate, with within-epoch, per-channel z-scoring. The spatial support is the original EEG montage of each public dataset: no source localisation, no spatial interpolation and no cross-montage resampling were applied, so the spatial reference is the electrode montage as published. Feature space was compressed to 966 (ds005907) and 938 (ds004515) coordinates per event and 7,728 and 7,504 coordinates per participant, from which eight across-trial distribution summaries are computed — mean, median, standard deviation, interquartile range, q90 minus q10, mean minus median, skewness and excess kurtosis — giving eight statistics per coordinate. Evaluation is a fully nested, participant-blocked cross-validation in which model selection and refitting occur only inside the inner leave-one-subject-out loop, so each held-out participant contributes exactly one out-of-fold prediction; the held-out decision uses class-balanced L2 logistic regression on 65 (ds005907) and 257 (ds004515) head coefficients. Temporal information therefore follows the original recordings, and no absolute clock time or participant time is retained.The package contains 140 files in open formats. TRACEABILITY.csv holds 28 rows, one per number reported in the paper, with the columns as_reported (the value printed in the paper), source_file and json_path (where that value is stored), script and protocol (how it was produced) and check (the tolerance comparison; all 28 rows read OK). logs/ contains 54 JSON result logs, each a flat, self-describing object that also embeds the protocol and script digests; logs/resource_profile/results.json holds 90 timing observations (3 subjects x 2 datasets x 2 readouts x 5 repeats on one pinned core), where observations[].total_seconds is the latency in seconds and observations[].value is the reused prediction vector rather than a latency. Balanced accuracy is stored as a fraction between 0 and 1; latencies are stored in seconds and reported in milliseconds.Files are grouped by function. code/scripts/ holds 41 analysis scripts for feature extraction, nested evaluation, baselines and audits; code/experiments/ holds the frozen entry point run_nested_readout_family.py with FREEZE.sha256 and PROTOCOL.md; code/paper_figures/ holds the camera-ready figure scripts and the re-derivation scripts for the reported p-values and CPU latencies; protocols/ holds 13 frozen protocol documents with their .sha256 seals, that is, the analysis rules as written before any result was inspected; logs/ holds the result logs described above; figures/source_data/ holds the exact plotting values so every figure can be redrawn without refitting a model, and figures/FIG3_CELL_AUDIT.md records the cell-by-cell reconciliation of Fig. 3(b); manuscript/ holds the camera-ready paper; MANIFEST.sha256 gives the SHA-256 digest of every file in the package.Raw EEG is deliberately not redistributed: both cohorts are public and are fetched by script, so no raw recording, no participant identifier and no personally identifiable information is contained here. There are no missing values in the stored predictions or tabular files, because every held-out participant contributes exactly one prediction; the only absent content is the raw recordings described above. Known limitations are stated explicitly rather than hidden: the neural-baseline checkpoints are not bundled and are pulled from their public release URLs at run time; Fig. 3(a) was rebuilt at camera-ready stage to add a colour bar, which changed the rendering but no underlying value; the Fig. 3(b) cell audit has been checked once against the rendered panel at 300 dpi but not by a second independent reader; and the CPU latencies are single-machine measurements (AMD EPYC 7282, one pinned core, one thread), so they are descriptive rather than portable, although the Hybrid8-to-MSM ratio should be. Uncertainty is reported rather than concealed: the primary comparison gives participant-level balanced accuracies of 0.7756 and 0.7454 for Hybrid8 against 0.6811 and 0.7069 for the matched MSM control, both paired 95% intervals include zero, and the exact paired randomisation test gives p = 0.4922 (exact McNemar p = 0.5078), so the difference is reported as directionally consistent but not confirmed. Floating-point differences in the last digits are possible across BLAS builds and do not change any reported rounded value. All content is in CSV, JSON, Markdown, Python or PDF, none of which requires proprietary software, a licence or a special viewer.",
+      "doi": "10.57760/sciencedb.018o6",
+      "pmid": null,
+      "openalex_id": "W7225425048",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004515",
+      "confidence_scoring": {
+        "confidence_score": 0.8298821157217027,
+        "similarity_score": 0.7185126543045044,
+        "citation_text_length": 1749,
+        "dataset_text_length": 871,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    }
+  ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-11-02T12:35:05.548324+00:00",
+    "scoring_date": "2026-11-10T12:33:14.513913+00:00",
     "dataset_text_length": 871,
-    "num_citations_scored": 0
+    "num_citations_scored": 2,
+    "summary_stats": {
+      "mean_confidence": 0.730584029853344,
+      "median_confidence": 0.730584029853344,
+      "std_confidence": 0.09929808586835864,
+      "min_confidence": 0.6312859439849854,
+      "max_confidence": 0.8298821157217027,
+      "high_confidence_count": 1,
+      "medium_confidence_count": 1,
+      "low_confidence_count": 0
+    }
   }
 }

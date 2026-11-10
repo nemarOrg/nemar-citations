@@ -1,10 +1,10 @@
 {
   "dataset_id": "on006695",
-  "num_citations": 8,
-  "date_last_updated": "2026-11-02T12:07:29.273294+00:00",
+  "num_citations": 9,
+  "date_last_updated": "2026-11-10T12:06:46.977352+00:00",
   "metadata": {
-    "total_cumulative_citations": 15,
-    "fetch_date": "2026-11-02T12:07:29.273294+00:00",
+    "total_cumulative_citations": 17,
+    "fetch_date": "2026-11-10T12:06:46.977352+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -53,14 +53,7 @@
       "Sleep"
     ],
     "methods_description": "Sleep was recorded with a three-electrode CGX forehead patch alongside 33-channel polysomnography. Patch data were aligned to the cap start time using data-collector records, segmented into 30-second windows, and compared with manual visual hypnogram scoring (Wake, REM, N1, N2, N3). Hypnograms were trimmed at the end when the patch recording was shorter.",
-    "funding": [],
-    "searched_accessions": [
-      "on006695",
-      "ds006695"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 8
+    "funding": []
   },
   "citation_details": [
     {
@@ -92,7 +85,7 @@
       "venue": "Sensors",
       "year": 2025,
       "url": "https://doi.org/10.3390/s25196021",
-      "cited_by": 4,
+      "cited_by": 5,
       "abstract": "Advancements in electroencephalography (EEG) technology and feature extraction methods have paved the way for wearable, non-invasive systems that enable continuous sleep monitoring outside clinical environments. This study presents the development and evaluation of an EEG-based acquisition system for sleep staging, which can be adapted for wearable applications. The system utilizes a custom experimental setup with the ADS1299EEG-FE-PDK evaluation board to acquire EEG signals from the forehead and in-ear regions under various conditions, including visual and auditory stimuli. Afterward, the acquired signals were processed to extract a wide range of features in time, frequency, and non-linear domains, selected based on their physiological relevance to sleep stages and disorders. The feature set was reduced using the Minimum Redundancy Maximum Relevance (mRMR) algorithm and Principal Component Analysis (PCA), resulting in a compact and informative subset of principal components. Experimen",
       "doi": "10.3390/s25196021",
       "pmid": "41094844",
@@ -156,23 +149,92 @@
       }
     },
     {
-      "title": "Advancing Pediatric Sleep Assessment through Spectral Sleep Scoring: A Comparison with Polysomnography",
-      "author": "Alessandra E. Shuster, J. Onton, N. Nakra, Katharine C. Simon",
-      "venue": "bioRxiv",
+      "title": "Smart Wearable EEG Devices: A Review of Lightweight, Multi-Sensor Systems for Sleep and Everyday Neurophysiology",
+      "author": "Helena Svobodová, Dušan Horváth, Diana Vitazkova, Erik Foltan, Michal Pečík, Erik Vavrinský",
+      "venue": "Biosensors",
       "year": 2026,
-      "url": "https://doi.org/10.64898/2026.08.28.747921",
-      "cited_by": 0,
-      "abstract": null,
-      "doi": "10.64898/2026.08.28.747921",
-      "pmid": "42922587",
-      "openalex_id": null,
+      "url": "https://doi.org/10.3390/bios16070374",
+      "cited_by": 1,
+      "abstract": "Wearable electroencephalography (EEG) is rapidly evolving toward lightweight, user-friendly systems that enable brain monitoring in naturalistic settings. Traditional multi-channel, gel-based systems provide broad scalp coverage and high signal fidelity but are impractical for unsupervised or long-term use. This review focuses on the emerging generation of smart wearable EEG devices that are easy to wear, require minimal setup, and typically integrate additional physiological sensors such as photoplethysmography (PPG), temperature, or motion sensors. We review wearable EEG systems across four main form factors: head-worn EEG devices, smart EEG patches and tattoos, in-ear and headphone-based EEG, and glasses-integrated EEG. Head-worn systems offer broader signal coverage and support more complex applications such as sleep staging, human-machine interaction, and epilepsy monitoring. Patch-based systems are well suited to comfortable long-term monitoring, particularly in sleep-related app",
+      "doi": "10.3390/bios16070374",
+      "pmid": "42505450",
+      "openalex_id": "W7167675636",
       "source_doi": "10.3389/frsle.2024.1349537",
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.6445562660694123,
-        "similarity_score": 0.6138631105422974,
-        "citation_text_length": 197,
+        "confidence_score": 0.6632733249664308,
+        "similarity_score": 0.5742626190185547,
+        "citation_text_length": 1252,
+        "dataset_text_length": 2224,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "LaBraM at Scale: Scaling Data and Models for EEG Pretraining",
+      "author": "Junyu Pan, Ruicheng Yin, Bao‐Liang Lu, Dongsheng Li, Wei-Long Zheng, Yansen Wang",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2611.03165",
+      "cited_by": 0,
+      "abstract": "LaBraM, an early EEG foundation model, demonstrated that large-scale EEG pretraining can yield strong representations for diverse downstream tasks. Building on this foundation, we expand pretraining data and model capacity while retaining its core encoder and objective. We train ten encoders with 5.8 million to 1.97 billion parameters on three EEG collections spanning 25,067 to 79,910 hours, adapting signal preparation and training to heterogeneous recordings. Across 23 tasks, Atom-L* reaches 59.05% mean balanced accuracy at its best evaluated full fine-tuning (Full-FT) checkpoint, 3.61 percentage points above the strongest baseline EEG foundation model. Quark-G leads linear probing (LP) at 54.33%, a 1.24-point margin. Both also lead average task rank. At the last evaluated checkpoints, larger encoders improve Full-FT more consistently than LP, and stronger LP does not guarantee stronger Full-FT. Preserving patch structure improves LP over average pooling. Data-fraction experiments sug",
+      "doi": "10.48550/arxiv.2611.03165",
+      "pmid": null,
+      "openalex_id": "W7225188755",
+      "source_doi": "10.3389/frsle.2024.1349537",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5653664946556092,
+        "similarity_score": 0.48949480056762695,
+        "citation_text_length": 1205,
+        "dataset_text_length": 2224,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Advancing Pediatric Sleep Assessment through Spectral Sleep Scoring: A Comparison with Polysomnography",
+      "author": "Alessandra E. Shuster, Julie Onton, Neal Nakra, Katharine C.N.S. Simon",
+      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+      "year": 2026,
+      "url": "https://doi.org/10.64898/2026.08.28.747921",
+      "cited_by": 0,
+      "abstract": "Understanding how sleep changes across development requires methods that are both efficient and sensitive to maturational differences in sleep physiology. Spectral sleep scoring is a promising approach, but has primarily been validated in adult populations. This study presents and validates a spectral scoring approach for pediatric sleep. Participants (n = 192; 9-18y) completed overnight in-lab sleep studies. Visual scoring was determined by registered polysomnographic technologists and confirmed by board certified sleep physicians following AASM guidelines. Visual stages included: wake, non-rapid eye movement (NREM) stage 1 (N1), NREM stage 2 (N2), NREM stage 3 (N3), and rapid-eye movement (REM) sleep. Spectral activity within each epoch was assessed for the following spectral stages: Wake (40-95 Hz), Light (~11- 15.5 Hz), Hi Deep (1-3 Hz), Lo Deep (0.1-1 Hz), and REM (~17-26 Hz). Concordance rates were checked across agreement matrices between visual and spectral stages, with expecte",
+      "doi": "10.64898/2026.08.28.747921",
+      "pmid": "42922587",
+      "openalex_id": "W7208756300",
+      "source_doi": "10.3389/frsle.2024.1349537",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7369090139865877,
+        "similarity_score": 0.6380164623260498,
+        "citation_text_length": 1250,
+        "dataset_text_length": 2224,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Viewpoint: Next-Generation Sensor Technologies for Studying Mental Health",
+      "author": "Christina H. Liu, Yvonne M. Bennett",
+      "venue": "IEEE Sensors Letters",
+      "year": 2026,
+      "url": "https://doi.org/10.1109/lsens.2026.3673618",
+      "cited_by": 0,
+      "abstract": "Sensors of all kinds continue to be further refined and developed for a wide range of applications, including in the biomedical domain. Sensors are routinely used for vital sign tracking and motion. However, more work is needed to further enhance research efforts in the study of mental health. This letter highlights this area of bioelectronics and biosensing to encourage researchers to improve capabilities in electrochemical sensing-a gap area, to enable synchronous monitoring of brain activity and behavior, leading to new insights into brain circuit function and improving closed-loop therapies.",
+      "doi": "10.1109/lsens.2026.3673618",
+      "pmid": "42311862",
+      "openalex_id": "W7136779350",
+      "source_doi": "10.3389/frsle.2024.1349537",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.4762935760617257,
+        "similarity_score": 0.41237539052963257,
+        "citation_text_length": 769,
         "dataset_text_length": 2224,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -200,66 +262,20 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
-    },
-    {
-      "title": "Smart Wearable EEG Devices: A Review of Lightweight, Multi-Sensor Systems for Sleep and Everyday Neurophysiology",
-      "author": "Helena Kosnáčová, Dušan Horváth, D. Vitazkova, Erik Foltan, Michal Pecik, E. Vavrinsky",
-      "venue": "Biosensors",
-      "year": 2026,
-      "url": "https://doi.org/10.3390/bios16070374",
-      "cited_by": 0,
-      "abstract": "Wearable electroencephalography (EEG) is rapidly evolving toward lightweight, user-friendly systems that enable brain monitoring in naturalistic settings. Traditional multi-channel, gel-based systems provide broad scalp coverage and high signal fidelity but are impractical for unsupervised or long-term use. This review focuses on the emerging generation of smart wearable EEG devices that are easy to wear, require minimal setup, and typically integrate additional physiological sensors such as photoplethysmography (PPG), temperature, or motion sensors. We review wearable EEG systems across four main form factors: head-worn EEG devices, smart EEG patches and tattoos, in-ear and headphone-based EEG, and glasses-integrated EEG. Head-worn systems offer broader signal coverage and support more complex applications such as sleep staging, human–machine interaction, and epilepsy monitoring. Patch-based systems are well suited to comfortable long-term monitoring, particularly in sleep-related app",
-      "doi": "10.3390/bios16070374",
-      "pmid": "42505450",
-      "openalex_id": null,
-      "source_doi": "10.3389/frsle.2024.1349537",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.6617653799057007,
-        "similarity_score": 0.5729570388793945,
-        "citation_text_length": 1247,
-        "dataset_text_length": 2224,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Viewpoint: Next-Generation Sensor Technologies for Studying Mental Health",
-      "author": "Christina H. Liu, Yvonne M. Bennett",
-      "venue": "IEEE sensors letters",
-      "year": 2026,
-      "url": "https://doi.org/10.1109/LSENS.2026.3673618",
-      "cited_by": 0,
-      "abstract": "Sensors of all kinds continue to be further refined and developed for a wide range of applications, including in the biomedical domain. Sensors are routinely used for vital sign tracking and motion. However, more work is needed to further enhance research efforts in the study of mental health. This letter highlights this area of bioelectronics and biosensing to encourage researchers to improve capabilities in electrochemical sensing—a gap area, to enable synchronous monitoring of brain activity and behavior, leading to new insights into brain circuit function and improving closed-loop therapies.",
-      "doi": "10.1109/LSENS.2026.3673618",
-      "pmid": "42311862",
-      "openalex_id": null,
-      "source_doi": "10.3389/frsle.2024.1349537",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.4782118619978429,
-        "similarity_score": 0.41403624415397644,
-        "citation_text_length": 769,
-        "dataset_text_length": 2224,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-11-02T12:41:10.816447+00:00",
+    "scoring_date": "2026-11-10T12:39:31.334068+00:00",
     "dataset_text_length": 2224,
-    "num_citations_scored": 8,
+    "num_citations_scored": 9,
     "summary_stats": {
-      "mean_confidence": 0.6825344255939128,
-      "median_confidence": 0.68841712474823,
-      "std_confidence": 0.1360051820678744,
-      "min_confidence": 0.4782118619978429,
+      "mean_confidence": 0.6797315896054109,
+      "median_confidence": 0.7150688695907594,
+      "std_confidence": 0.134939643894989,
+      "min_confidence": 0.4762935760617257,
       "max_confidence": 0.8898916375637055,
-      "high_confidence_count": 4,
+      "high_confidence_count": 5,
       "medium_confidence_count": 4,
       "low_confidence_count": 0
     }

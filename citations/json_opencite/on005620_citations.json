@@ -1,10 +1,10 @@
 {
   "dataset_id": "on005620",
-  "num_citations": 15,
-  "date_last_updated": "2026-11-02T12:16:44.855535+00:00",
+  "num_citations": 17,
+  "date_last_updated": "2026-11-10T12:15:14.386149+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
-    "fetch_date": "2026-11-02T12:02:20.774300+00:00",
+    "fetch_date": "2026-11-10T12:01:36.011025+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 1,
@@ -76,8 +76,8 @@
       "on005620",
       "ds005620"
     ],
-    "num_accession_mentions": 15,
-    "num_dataset_citations": 15,
+    "num_accession_mentions": 17,
+    "num_dataset_citations": 17,
     "num_datapaper_citations": 0
   },
   "citation_details": [
@@ -101,6 +101,56 @@
         "confidence_score": 0.49317403793334963,
         "similarity_score": 0.4269905090332031,
         "citation_text_length": 1476,
+        "dataset_text_length": 2465,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "EEGDash Corpus: A Training-Ready Public Corpus for EEG Foundation Models",
+      "author": "Kuber Shahi, Bruno Aristimunha, Arnaud Delorme A",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2611.06356",
+      "cited_by": 0,
+      "abstract": "Foundation models for electroencephalography (EEG) are pretrained on tens of thousands of hours of recordings, and their accuracy grows with that amount. Such data is hard to assemble. The largest sources are clinical archives that cannot be redistributed, and the public sources are spread over several archives, file formats, and licences. We release eegdash-corpus-v0, a training-ready corpus of 77 public EEG datasets, as the gated Hugging Face dataset EEGDash/eegdash-corpus-v0 with the SHA-256 of every file. REVE, the largest published EEG foundation model, names 89 datasets as its pretraining corpus. Twelve cannot be redistributed: four clinical archives that hold 82% of its hours, and eight under no-derivatives licences. The corpus holds the 76 others that REVE's sampling rate allows and one more from REVE's release card: 77 datasets, 14,075 hours from 7,272 subjects, 5.0 million 10-second samples and 6.21 billion tokens per epoch. Every dataset is fetched through EEGDash, converted once with REVE's recipe, and stored in its own buckets of a chunked Zarr store with its licence recorded beside it, so a model can train on the whole store or on any subset of datasets. To test that the store pretrains a model, we retrain REVE-Base from scratch twice with the authors' code, changed only in how it reads data, and score it on seven public OpenEEGBench tasks. It reaches 0.331 under linear probing and 0.273 after fine-tuning, against 0.333 and 0.325 for the released model and 0.200 and 0.205 for an untrained encoder. The converter, the conversion reports, and the loader changes are released with the corpus.",
+      "doi": "10.48550/arxiv.2611.06356",
+      "pmid": null,
+      "openalex_id": "W7225336390",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds005620",
+      "confidence_scoring": {
+        "confidence_score": 0.6391553601622583,
+        "similarity_score": 0.5533812642097473,
+        "citation_text_length": 1685,
+        "dataset_text_length": 2465,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "REVE: A Foundation Model for EEG - Adapting to Any Setup with Large-Scale Pretraining on 25,000 Subjects",
+      "author": "Yassine El Ouahidi, Jonathan Lys, Philipp Thölke, Nicolas Farrugia, Bastien Pasdeloup, Vincent Gripon, Karim Jerbi, Giulia Lioi",
+      "venue": "neural information processing systems",
+      "year": 2025,
+      "url": "https://doi.org/10.52202/085713-0760",
+      "cited_by": 66,
+      "abstract": "Foundation models have transformed AI by reducing reliance on task-specific data through large-scale pretraining. While successful in language and vision, their adoption in EEG has lagged due to the heterogeneity of public datasets, which are collected under varying protocols, devices, and electrode configurations. Existing EEG foundation models struggle to generalize across these variations, often restricting pretraining to a single setup, resulting in suboptimal performance, in particular under linear probing. We present REVE (Representation for EEG with Versatile Embeddings), a pretrained model explicitly designed to generalize across diverse EEG signals. REVE introduces a novel 4D positional encoding scheme that enables it to process signals of arbitrary length and electrode arrangement. Using a masked autoencoding objective, we pretrain REVE on over 60,000 hours of EEG data from 92 datasets spanning 25,000 subjects, representing the largest EEG pretraining effort to date. REVE achieves state-of-the-art results on 10 downstream EEG tasks, including motor imagery classification, seizure detection, sleep staging, cognitive load estimation, and emotion recognition. With little to no fine-tuning, it demonstrates strong generalization, and nuanced spatio-temporal modeling. We release code, pretrained weights, and tutorials to support standardized EEG research and accelerate progress in clinical neuroscience.",
+      "doi": "10.52202/085713-0760",
+      "pmid": null,
+      "openalex_id": "W7197020048",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds005620",
+      "confidence_scoring": {
+        "confidence_score": 0.6528526425361634,
+        "similarity_score": 0.5652403831481934,
+        "citation_text_length": 1737,
         "dataset_text_length": 2465,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -158,24 +208,24 @@
     },
     {
       "title": "The Relational Foundation V2",
-      "author": "Daniel O'Keeffe",
-      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "author": "O'Keeffe Daniel",
+      "venue": "PhilPapers (PhilPapers Foundation)",
       "year": 2026,
       "url": "https://doi.org/10.5281/zenodo.19051613",
       "cited_by": 0,
       "abstract": "Abstract Relativity describes the structure of a world once definite reality is in play. This paper proposes a complementary shift in perspective: that definite reality itself is constituted by physical encounter at the quantum boundary. Where Einstein showed that properties are relative to a frame of reference, this framework proposes that existence is relational—forged through interaction, not given in advance. The paper advances two claims of differing epistemic weight. The first is ontological: that relatedness is fundamental, meaning definiteness arises through encounter, not prior to it. The second is a metaphysical proposal: that consciousness, as known in integrated biological organisms, is best understood as the intrinsic interior of recursively organised relational actualisation. An empirical programme is proposed, centred on the Integration-Dissipation Ratio (RID = Sprod / CL), with explicit failure conditions. Independent computational validation on real human EEG (OpenNeuro ds005620, Bajwa et al. 2024, 21 subjects, propofol sedation) confirms the framework’s central prediction: RID is statistically invariant between wakefulness and light propofol sedation with preserved dreaming (p = 0.48, BF = 178.60), and collapses significantly under deep propofol where consciousness is abolished (p = 0.0065). The scalar proxy does not recover window-level linear coupling (r = 0.003); this is expected, as the proxy compresses spatially distributed, directed tensor structure into a single undirected scalar. Cross-species validation on rat neocortical LFP (DANDI 000041, Watson et al.) confirms magnitude consistency with human values (KR1–KR4 all pass). Human sleep deprivation EEG (OpenNeuro ds004902, 21 paired subjects) confirms elevated waking RID under homeostatic debt (p = 0.033). Overnight polysomnography (Sleep-EDF, 152 recordings) reveals a methodological boundary of the histogram-based entropy production proxy, suggesting that the thermodynamic signature of consciousness may require multi-dimensional operationalisation. Four datasets, two species, and three recording modalities are reported with full transparency. The scalar proxy analysis was not designed to test the full tensor equation; its role was to test whether an aggregate projection of the framework carried empirical signal. It did (p = 0.48, BF = 178.60). The framework’s fundamental equation, derived from a Nakajima-Zwanzig coarse-graining of quantum relative entropy (Appendix F), is the Relational Tensor: Σμν(t) = Π ∫ K(t−τ) (dCμν/dτ) dτ + Λμμδμν, where Σμν is the directed thermodynamic flux tensor, Cμν is the directed relational complexity tensor (identified as classical transfer entropy under decoherence), Π = αkBln 2 is the Landauer-bounded thermodynamic cost constant (α ≥ 1), K is a causal memory kernel, and Λμμδμν is the strictly diagonal local bath dissipation baseline. The empirical RID is formally recovered as the macroscopic scalar projection (global spatial summation) of this tensor. The proper test of the elementwise equation requires spatially resolved, directed, temporally filtered network analysis on high-density data. PC algorithm causal discovery confirms three robust causal edges (Sprod–CL, Sprod–Conscious, CL–Conscious), with the Sprod–CLcoupling persisting within conscious and unconscious states independently (r ≥ 0.995). A formal coarse-graining reduction establishes the mathematical chain from quantum relational entropy to macroscopic transfer entropy via the Nakajima-Zwanzig formalism, diagonal trapping of bath correlations, and decoherence-induced projection, with full dimensional consistency against the Landauer bound. The thermodynamic structure of the tensor equation is shown to belong to the same family as emergent gravity: when evaluated on a Bekenstein-saturating system at a local Rindler horizon, it reproduces both inputs to Jacobson’s (1995) thermodynamic derivation of Einstein’s field equations, establishing the framework as a specific instance of the information-geometry correspondence. The core theorems have been independently verified by two formally distinct proof kernels: Lean 4 (v4.14.0) and Rocq/Coq (v9.1.1), with zero placeholders in either verification. A matrix of sixteen falsifiable predictions defines the precise conditions under which the framework would be disconfirmed. Keywords: Relational Ontology, Quantum Decoherence, Consciousness, Ontological Resolution, Thermodynamic Irreversibility, Hard Problem of Consciousness, Integration-Dissipation Ratio, Relational Tensor, Nonequilibrium Brain Dynamics, Quantum Darwinism, Pixel Tax, Causal Discovery, Bayesian Model Comparison, Dual Formal Verification, EEG Validation",
       "doi": "10.5281/zenodo.19051613",
       "pmid": null,
-      "openalex_id": "W7136725780",
+      "openalex_id": "W7153957511",
       "source_doi": null,
       "source_relation": null,
       "discovery_backend": "openalex",
       "discovery_method": "accession_mention",
       "matched_accession": "ds005620",
       "confidence_scoring": {
-        "confidence_score": 0.4947479005157948,
-        "similarity_score": 0.4283531606197357,
-        "citation_text_length": 1638,
+        "confidence_score": 0.488747684955597,
+        "similarity_score": 0.4231581687927246,
+        "citation_text_length": 1616,
         "dataset_text_length": 2465,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -459,17 +509,17 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-11-02T12:39:22.169053+00:00",
+    "scoring_date": "2026-11-10T12:37:39.177470+00:00",
     "dataset_text_length": 2465,
-    "num_citations_scored": 15,
+    "num_citations_scored": 17,
     "summary_stats": {
-      "mean_confidence": 0.5914102539122105,
-      "median_confidence": 0.6221745246648789,
-      "std_confidence": 0.11664353584906488,
+      "mean_confidence": 0.597480093871846,
+      "median_confidence": 0.6290368312597275,
+      "std_confidence": 0.11133155077107174,
       "min_confidence": 0.38304523855447775,
       "max_confidence": 0.7535541003942491,
       "high_confidence_count": 4,
-      "medium_confidence_count": 9,
+      "medium_confidence_count": 11,
       "low_confidence_count": 2
     }
   }

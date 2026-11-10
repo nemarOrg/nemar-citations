@@ -1,10 +1,10 @@
 {
   "dataset_id": "on004603",
-  "num_citations": 5,
-  "date_last_updated": "2026-11-02T12:15:31.894714+00:00",
+  "num_citations": 8,
+  "date_last_updated": "2026-11-10T12:14:00.251908+00:00",
   "metadata": {
-    "total_cumulative_citations": 3,
-    "fetch_date": "2026-11-02T11:51:49.237517+00:00",
+    "total_cumulative_citations": 1,
+    "fetch_date": "2026-11-10T11:51:06.502372+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -58,9 +58,9 @@
       "on004603",
       "ds004603"
     ],
-    "num_accession_mentions": 2,
-    "num_dataset_citations": 2,
-    "num_datapaper_citations": 3
+    "num_accession_mentions": 4,
+    "num_dataset_citations": 4,
+    "num_datapaper_citations": 4
   },
   "citation_details": [
     {
@@ -81,6 +81,29 @@
         "confidence_score": 0.42310340255498896,
         "similarity_score": 0.3663232922554016,
         "citation_text_length": 1206,
+        "dataset_text_length": 1302,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "LaBraM at Scale: Scaling Data and Models for EEG Pretraining",
+      "author": "Junyu Pan, Ruicheng Yin, Bao‐Liang Lu, Dongsheng Li, Wei-Long Zheng, Yansen Wang",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2611.03165",
+      "cited_by": 0,
+      "abstract": "LaBraM, an early EEG foundation model, demonstrated that large-scale EEG pretraining can yield strong representations for diverse downstream tasks. Building on this foundation, we expand pretraining data and model capacity while retaining its core encoder and objective. We train ten encoders with 5.8 million to 1.97 billion parameters on three EEG collections spanning 25,067 to 79,910 hours, adapting signal preparation and training to heterogeneous recordings. Across 23 tasks, Atom-L* reaches 59.05% mean balanced accuracy at its best evaluated full fine-tuning (Full-FT) checkpoint, 3.61 percentage points above the strongest baseline EEG foundation model. Quark-G leads linear probing (LP) at 54.33%, a 1.24-point margin. Both also lead average task rank. At the last evaluated checkpoints, larger encoders improve Full-FT more consistently than LP, and stronger LP does not guarantee stronger Full-FT. Preserving patch structure improves LP over average pooling. Data-fraction experiments sug",
+      "doi": "10.48550/arxiv.2611.03165",
+      "pmid": null,
+      "openalex_id": "W7225188755",
+      "source_doi": "10.1016/j.cortex.2023.08.004",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.39055453509092336,
+        "similarity_score": 0.338142454624176,
+        "citation_text_length": 1205,
         "dataset_text_length": 1302,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -138,7 +161,7 @@
       "venue": "Cortex",
       "year": 2023,
       "url": "https://doi.org/10.1016/j.cortex.2023.08.004",
-      "cited_by": 2,
+      "cited_by": 3,
       "abstract": "Predictive coding theories assert that perceptual inference is a hierarchical process of belief updating, wherein the onset of unexpected sensory data causes so-called prediction error responses that calibrate erroneous inferences. Given the functionally specialised organisation of visual cortex, it is assumed that prediction error propagation interacts with the specific visual attribute violating an expectation. We sought to test this within the temporal domain by applying time-resolved decoding methods to electroencephalography (EEG) data evoked by contextual trajectory violations of either brightness, size, or orientation within a bound stimulus. We found that following ∼170 ms post stimulus onset, responses to both size violations and orientation violations were decodable from physically identical control trials in which no attributes were violated. These two violation types were then directly compared, with attribute-specific signalling being decoded from 265 ms. Temporal generalisation suggested that this dissociation was driven by latency shifts in shared expectation signalling between the two conditions. Using a novel temporal bias method, we then found that this shared signalling occurred earlier for size violations than orientation violations. To our knowledge, we are among the first to decode expectation violations in humans using EEG and have demonstrated a temporal dissociation in attribute-specific expectancy violations.",
       "doi": "10.1016/j.cortex.2023.08.004",
       "pmid": "37716110",
@@ -181,22 +204,72 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "EEGDash Corpus: A Training-Ready Public Corpus for EEG Foundation Models",
+      "author": "Kuber Shahi, Bruno Aristimunha, Arnaud Delorme A",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2611.06356",
+      "cited_by": 0,
+      "abstract": "Foundation models for electroencephalography (EEG) are pretrained on tens of thousands of hours of recordings, and their accuracy grows with that amount. Such data is hard to assemble. The largest sources are clinical archives that cannot be redistributed, and the public sources are spread over several archives, file formats, and licences. We release eegdash-corpus-v0, a training-ready corpus of 77 public EEG datasets, as the gated Hugging Face dataset EEGDash/eegdash-corpus-v0 with the SHA-256 of every file. REVE, the largest published EEG foundation model, names 89 datasets as its pretraining corpus. Twelve cannot be redistributed: four clinical archives that hold 82% of its hours, and eight under no-derivatives licences. The corpus holds the 76 others that REVE's sampling rate allows and one more from REVE's release card: 77 datasets, 14,075 hours from 7,272 subjects, 5.0 million 10-second samples and 6.21 billion tokens per epoch. Every dataset is fetched through EEGDash, converted once with REVE's recipe, and stored in its own buckets of a chunked Zarr store with its licence recorded beside it, so a model can train on the whole store or on any subset of datasets. To test that the store pretrains a model, we retrain REVE-Base from scratch twice with the authors' code, changed only in how it reads data, and score it on seven public OpenEEGBench tasks. It reaches 0.331 under linear probing and 0.273 after fine-tuning, against 0.333 and 0.325 for the released model and 0.200 and 0.205 for an untrained encoder. The converter, the conversion reports, and the loader changes are released with the corpus.",
+      "doi": "10.48550/arxiv.2611.06356",
+      "pmid": null,
+      "openalex_id": "W7225336390",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004603",
+      "confidence_scoring": {
+        "confidence_score": 0.4445121744275094,
+        "similarity_score": 0.38485902547836304,
+        "citation_text_length": 1685,
+        "dataset_text_length": 1302,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "REVE: A Foundation Model for EEG - Adapting to Any Setup with Large-Scale Pretraining on 25,000 Subjects",
+      "author": "Yassine El Ouahidi, Jonathan Lys, Philipp Thölke, Nicolas Farrugia, Bastien Pasdeloup, Vincent Gripon, Karim Jerbi, Giulia Lioi",
+      "venue": "neural information processing systems",
+      "year": 2025,
+      "url": "https://doi.org/10.52202/085713-0760",
+      "cited_by": 66,
+      "abstract": "Foundation models have transformed AI by reducing reliance on task-specific data through large-scale pretraining. While successful in language and vision, their adoption in EEG has lagged due to the heterogeneity of public datasets, which are collected under varying protocols, devices, and electrode configurations. Existing EEG foundation models struggle to generalize across these variations, often restricting pretraining to a single setup, resulting in suboptimal performance, in particular under linear probing. We present REVE (Representation for EEG with Versatile Embeddings), a pretrained model explicitly designed to generalize across diverse EEG signals. REVE introduces a novel 4D positional encoding scheme that enables it to process signals of arbitrary length and electrode arrangement. Using a masked autoencoding objective, we pretrain REVE on over 60,000 hours of EEG data from 92 datasets spanning 25,000 subjects, representing the largest EEG pretraining effort to date. REVE achieves state-of-the-art results on 10 downstream EEG tasks, including motor imagery classification, seizure detection, sleep staging, cognitive load estimation, and emotion recognition. With little to no fine-tuning, it demonstrates strong generalization, and nuanced spatio-temporal modeling. We release code, pretrained weights, and tutorials to support standardized EEG research and accelerate progress in clinical neuroscience.",
+      "doi": "10.52202/085713-0760",
+      "pmid": null,
+      "openalex_id": "W7197020048",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004603",
+      "confidence_scoring": {
+        "confidence_score": 0.4120987907052041,
+        "similarity_score": 0.3567954897880554,
+        "citation_text_length": 1737,
+        "dataset_text_length": 1302,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-11-02T12:35:41.109734+00:00",
+    "scoring_date": "2026-11-10T12:33:51.353627+00:00",
     "dataset_text_length": 1302,
-    "num_citations_scored": 5,
+    "num_citations_scored": 8,
     "summary_stats": {
-      "mean_confidence": 0.5302898434102536,
-      "median_confidence": 0.5073868538439275,
-      "std_confidence": 0.11291126392364685,
-      "min_confidence": 0.40042756855487827,
+      "mean_confidence": 0.4873268396593631,
+      "median_confidence": 0.4338077884912492,
+      "std_confidence": 0.10596644510204882,
+      "min_confidence": 0.39055453509092336,
       "max_confidence": 0.6834996432065964,
       "high_confidence_count": 0,
-      "medium_confidence_count": 5,
-      "low_confidence_count": 0
+      "medium_confidence_count": 7,
+      "low_confidence_count": 1
     }
   }
 }

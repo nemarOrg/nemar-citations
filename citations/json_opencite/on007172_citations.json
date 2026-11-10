@@ -1,10 +1,10 @@
 {
   "dataset_id": "on007172",
-  "num_citations": 2,
-  "date_last_updated": "2026-11-03T11:06:26.616102+00:00",
+  "num_citations": 3,
+  "date_last_updated": "2026-11-10T12:09:35.162895+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
-    "fetch_date": "2026-11-02T12:10:27.042163+00:00",
+    "fetch_date": "2026-11-10T12:09:35.162895+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -80,16 +80,55 @@
       "face processing"
     ],
     "methods_description": "Participants completed a resting-state recording of about 8 minutes (eyes open and closed periods of 63 s each), followed by four tasks in randomized order (words, faces, emotions, houses). Each task had a practice block and separate right-hand and left-hand response blocks (80 stimuli each, 160 total). Stimuli were shown for 1 s, followed by a fixation cross of 500-700 ms. Participants pressed the space bar only for target stimuli (animal names, female faces, houses with pitched roofs).",
-    "funding": [],
-    "searched_accessions": [
-      "on007172",
-      "ds007172"
-    ],
-    "num_accession_mentions": 1,
-    "num_dataset_citations": 2,
-    "num_datapaper_citations": 0
+    "funding": []
   },
   "citation_details": [
+    {
+      "title": "LaBraM at Scale: Scaling Data and Models for EEG Pretraining",
+      "author": "Junyu Pan, Ruicheng Yin, Bao‐Liang Lu, Dongsheng Li, Wei-Long Zheng, Yansen Wang",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2611.03165",
+      "cited_by": 0,
+      "abstract": "LaBraM, an early EEG foundation model, demonstrated that large-scale EEG pretraining can yield strong representations for diverse downstream tasks. Building on this foundation, we expand pretraining data and model capacity while retaining its core encoder and objective. We train ten encoders with 5.8 million to 1.97 billion parameters on three EEG collections spanning 25,067 to 79,910 hours, adapting signal preparation and training to heterogeneous recordings. Across 23 tasks, Atom-L* reaches 59.05% mean balanced accuracy at its best evaluated full fine-tuning (Full-FT) checkpoint, 3.61 percentage points above the strongest baseline EEG foundation model. Quark-G leads linear probing (LP) at 54.33%, a 1.24-point margin. Both also lead average task rank. At the last evaluated checkpoints, larger encoders improve Full-FT more consistently than LP, and stronger LP does not guarantee stronger Full-FT. Preserving patch structure improves LP over average pooling. Data-fraction experiments sug",
+      "doi": "10.48550/arxiv.2611.03165",
+      "pmid": null,
+      "openalex_id": "W7225188755",
+      "source_doi": "10.1080/1357650x.2025.2591660",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5860243231058121,
+        "similarity_score": 0.5073803663253784,
+        "citation_text_length": 1205,
+        "dataset_text_length": 2210,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Predicting Cognitive Tasks from Single-Channel EEG through Task-Semantic Alignment",
+      "author": "Ryota Kanai",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2610.15104",
+      "cited_by": 0,
+      "abstract": "Studies of data scaling in electroencephalography (EEG) and related noninvasive recordings suggest that simple wearable devices could eventually reveal more about cognitive states. However, publicly available EEG data are difficult to combine. Different laboratories record different tasks, participants, and devices. Task-agnostic self-supervised learning can exploit such data, but representations learned only with EEG signals have not consistently produced feature representations that are directly effective for decoding the cognitive state. We therefore aimed to incorporate task information by embedding experimental instructions, stimuli and response demands in a common semantic space, and trained an EEG encoder to align signals from a single anterior--posterior differential channel with those task vectors. This framework supports zero-shot prediction without target-condition calibration and few-shot prediction using labeled samples. On a reserved ten-class evaluation, the highest obse",
+      "doi": "10.48550/arxiv.2610.15104",
+      "pmid": null,
+      "openalex_id": "W7221793578",
+      "source_doi": "10.1080/1357650x.2025.2591660",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6184100317955018,
+        "similarity_score": 0.5354199409484863,
+        "citation_text_length": 1158,
+        "dataset_text_length": 2210,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
     {
       "title": "Hemispheric segregation is evident in early perception, not just higher cognition",
       "author": "Petunia Reinke, Sebastian Ocklenburg",
@@ -111,49 +150,22 @@
         "dataset_text_length": 2210,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      },
-      "mentions_accession": true,
-      "matched_accession": "ds007172"
-    },
-    {
-      "title": "Predicting Cognitive Tasks from Single-Channel EEG through Task-Semantic Alignment",
-      "author": "Ryota Kanai C",
-      "venue": "arXiv (Cornell University)",
-      "year": 2026,
-      "url": "https://doi.org/10.48550/arxiv.2610.15104",
-      "cited_by": 0,
-      "abstract": "Studies of data scaling in electroencephalography (EEG) and related noninvasive recordings suggest that simple wearable devices could eventually reveal more about cognitive states. However, publicly available EEG data are difficult to combine. Different laboratories record different tasks, participants, and devices. Task-agnostic self-supervised learning can exploit such data, but representations learned only with EEG signals have not consistently produced feature representations that are directly effective for decoding the cognitive state. We therefore aimed to incorporate task information by embedding experimental instructions, stimuli and response demands in a common semantic space, and trained an EEG encoder to align signals from a single anterior--posterior differential channel with those task vectors. This framework supports zero-shot prediction without target-condition calibration and few-shot prediction using labeled samples. On a reserved ten-class evaluation, the highest observed zero-shot balanced accuracy was 30.13% (chance 10%). In a separate developmental few-shot experiment, balanced accuracy reached 34.47% using 16 labeled EEG examples per class from another participant, and 74.99% using examples from the test participant's own task recording. Our experiments suggest that training models on datasets with multiple tasks per participant appeared useful, whereas adding datasets containing only one or a few tasks sometimes reduced established performance despite broader task coverage. These exploratory results suggest that EEG datasets that repeat varied cognitive tasks and everyday activities within the same individuals across days, devices and independent studies would be particularly useful for training an EEG foundation model for predicting cognitive states.",
-      "doi": "10.48550/arxiv.2610.15104",
-      "pmid": null,
-      "openalex_id": "W7221793578",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds007172",
-      "confidence_scoring": {
-        "confidence_score": 0.6258105558156968,
-        "similarity_score": 0.5418273210525513,
-        "citation_text_length": 1660,
-        "dataset_text_length": 2210,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-11-03T11:13:24.622044+00:00",
+    "scoring_date": "2026-11-10T12:40:29.718390+00:00",
     "dataset_text_length": 2210,
-    "num_citations_scored": 2,
+    "num_citations_scored": 3,
     "summary_stats": {
-      "mean_confidence": 0.6537440264225007,
-      "median_confidence": 0.6537440264225007,
-      "std_confidence": 0.0279334706068039,
-      "min_confidence": 0.6258105558156968,
+      "mean_confidence": 0.6287039506435396,
+      "median_confidence": 0.6184100317955018,
+      "std_confidence": 0.03972283973020194,
+      "min_confidence": 0.5860243231058121,
       "max_confidence": 0.6816774970293046,
       "high_confidence_count": 0,
-      "medium_confidence_count": 2,
+      "medium_confidence_count": 3,
       "low_confidence_count": 0
     }
   }

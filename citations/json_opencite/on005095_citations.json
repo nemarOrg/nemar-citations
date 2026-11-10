@@ -1,10 +1,10 @@
 {
   "dataset_id": "on005095",
-  "num_citations": 8,
-  "date_last_updated": "2026-11-02T12:16:05.189613+00:00",
+  "num_citations": 10,
+  "date_last_updated": "2026-11-10T12:14:33.569088+00:00",
   "metadata": {
-    "total_cumulative_citations": 16,
-    "fetch_date": "2026-11-02T11:56:33.657922+00:00",
+    "total_cumulative_citations": 21,
+    "fetch_date": "2026-11-10T11:56:03.036638+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -58,8 +58,8 @@
       "on005095",
       "ds005095"
     ],
-    "num_accession_mentions": 3,
-    "num_dataset_citations": 3,
+    "num_accession_mentions": 5,
+    "num_dataset_citations": 5,
     "num_datapaper_citations": 5
   },
   "citation_details": [
@@ -69,7 +69,7 @@
       "venue": "BMC Psychology",
       "year": 2024,
       "url": "https://doi.org/10.1186/s40359-024-02254-y",
-      "cited_by": 10,
+      "cited_by": 14,
       "abstract": "BACKGROUND: Previous research has shown that higher self-efficacy predicts lower cognitive load. Nevertheless, there is limited research exploring the dynamic calibration phenomenon of cognitive resources by self-efficacy during task execution through experimental methods. METHODS: This study elucidates the relationships and longitudinal mediating effects among self-efficacy, state anxiety, and cognitive load through two studies that employed convenience sampling. Study 1, which aims to provide a comprehensive theoretical understanding of the research question, is an interview study that examines the prevalence of fluctuations in self-efficacy among 22 university students through an in-depth interview. On the other hand, study 2 reveals further causal relationships through experimental methods. It adopts a 3 (repeated measures: first time, second time, third time) × 2 (conditions: feedback group, non-feedback group) mixed design by 86 participants, utilizing a false feedback paradigm t",
       "doi": "10.1186/s40359-024-02254-y",
       "pmid": "39695770",
@@ -92,7 +92,7 @@
       "venue": "BMC Medical Education",
       "year": 2024,
       "url": "https://doi.org/10.1186/s12909-024-06254-9",
-      "cited_by": 5,
+      "cited_by": 6,
       "abstract": "BACKGROUND: Self-regulated learning (SRL) is the core purpose of lifelong learning and the precondition for medical staff to continuously adapt to and excel in their current and future positions. Good SRL abilities positively impact the academic performance and clinical skills of medical students. Despite its importance, the factors influencing SRL among medical students in China remain under-explored. This study investigates these factors among Chinese medical undergraduates. METHODS: This cross-sectional survey was conducted among a convenience sample of undergraduate students at all four medical universities in Guangxi, using a questionnaire developed and tailored by Zude Zhu. Responses from 2,179 Chinese medical undergraduate students were included in the analyses. The data were collected using the College Student SRL Questionnaire which consisted of 69 items rated on a 6-point Likert scale, ranging from 1 (very inconsistent) to 6 (very consistent), and scored by calculating the me",
       "doi": "10.1186/s12909-024-06254-9",
       "pmid": "39478526",
@@ -230,7 +230,7 @@
     },
     {
       "title": "Predicting Cognitive Tasks from Single-Channel EEG through Task-Semantic Alignment",
-      "author": "Ryota Kanai C",
+      "author": "Ryota Kanai",
       "venue": "arXiv (Cornell University)",
       "year": 2026,
       "url": "https://doi.org/10.48550/arxiv.2610.15104",
@@ -245,9 +245,59 @@
       "discovery_method": "accession_mention",
       "matched_accession": "ds005095",
       "confidence_scoring": {
-        "confidence_score": 0.5998736804723741,
-        "similarity_score": 0.5193711519241333,
-        "citation_text_length": 1660,
+        "confidence_score": 0.5988150072097779,
+        "similarity_score": 0.5184545516967773,
+        "citation_text_length": 1658,
+        "dataset_text_length": 2289,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "EEGDash Corpus: A Training-Ready Public Corpus for EEG Foundation Models",
+      "author": "Kuber Shahi, Bruno Aristimunha, Arnaud Delorme A",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2611.06356",
+      "cited_by": 0,
+      "abstract": "Foundation models for electroencephalography (EEG) are pretrained on tens of thousands of hours of recordings, and their accuracy grows with that amount. Such data is hard to assemble. The largest sources are clinical archives that cannot be redistributed, and the public sources are spread over several archives, file formats, and licences. We release eegdash-corpus-v0, a training-ready corpus of 77 public EEG datasets, as the gated Hugging Face dataset EEGDash/eegdash-corpus-v0 with the SHA-256 of every file. REVE, the largest published EEG foundation model, names 89 datasets as its pretraining corpus. Twelve cannot be redistributed: four clinical archives that hold 82% of its hours, and eight under no-derivatives licences. The corpus holds the 76 others that REVE's sampling rate allows and one more from REVE's release card: 77 datasets, 14,075 hours from 7,272 subjects, 5.0 million 10-second samples and 6.21 billion tokens per epoch. Every dataset is fetched through EEGDash, converted once with REVE's recipe, and stored in its own buckets of a chunked Zarr store with its licence recorded beside it, so a model can train on the whole store or on any subset of datasets. To test that the store pretrains a model, we retrain REVE-Base from scratch twice with the authors' code, changed only in how it reads data, and score it on seven public OpenEEGBench tasks. It reaches 0.331 under linear probing and 0.273 after fine-tuning, against 0.333 and 0.325 for the released model and 0.200 and 0.205 for an untrained encoder. The converter, the conversion reports, and the loader changes are released with the corpus.",
+      "doi": "10.48550/arxiv.2611.06356",
+      "pmid": null,
+      "openalex_id": "W7225336390",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds005095",
+      "confidence_scoring": {
+        "confidence_score": 0.5990395742654802,
+        "similarity_score": 0.5186489820480347,
+        "citation_text_length": 1685,
+        "dataset_text_length": 2289,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "REVE: A Foundation Model for EEG - Adapting to Any Setup with Large-Scale Pretraining on 25,000 Subjects",
+      "author": "Yassine El Ouahidi, Jonathan Lys, Philipp Thölke, Nicolas Farrugia, Bastien Pasdeloup, Vincent Gripon, Karim Jerbi, Giulia Lioi",
+      "venue": "neural information processing systems",
+      "year": 2025,
+      "url": "https://doi.org/10.52202/085713-0760",
+      "cited_by": 66,
+      "abstract": "Foundation models have transformed AI by reducing reliance on task-specific data through large-scale pretraining. While successful in language and vision, their adoption in EEG has lagged due to the heterogeneity of public datasets, which are collected under varying protocols, devices, and electrode configurations. Existing EEG foundation models struggle to generalize across these variations, often restricting pretraining to a single setup, resulting in suboptimal performance, in particular under linear probing. We present REVE (Representation for EEG with Versatile Embeddings), a pretrained model explicitly designed to generalize across diverse EEG signals. REVE introduces a novel 4D positional encoding scheme that enables it to process signals of arbitrary length and electrode arrangement. Using a masked autoencoding objective, we pretrain REVE on over 60,000 hours of EEG data from 92 datasets spanning 25,000 subjects, representing the largest EEG pretraining effort to date. REVE achieves state-of-the-art results on 10 downstream EEG tasks, including motor imagery classification, seizure detection, sleep staging, cognitive load estimation, and emotion recognition. With little to no fine-tuning, it demonstrates strong generalization, and nuanced spatio-temporal modeling. We release code, pretrained weights, and tutorials to support standardized EEG research and accelerate progress in clinical neuroscience.",
+      "doi": "10.52202/085713-0760",
+      "pmid": null,
+      "openalex_id": "W7197020048",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds005095",
+      "confidence_scoring": {
+        "confidence_score": 0.5762370684742928,
+        "similarity_score": 0.49890655279159546,
+        "citation_text_length": 1737,
         "dataset_text_length": 2289,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -256,17 +306,17 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-11-02T12:37:19.462104+00:00",
+    "scoring_date": "2026-11-10T12:35:33.339572+00:00",
     "dataset_text_length": 2289,
-    "num_citations_scored": 8,
+    "num_citations_scored": 10,
     "summary_stats": {
-      "mean_confidence": 0.4491649360209704,
-      "median_confidence": 0.4751155456155539,
-      "std_confidence": 0.16312248092787554,
+      "mean_confidence": 0.47675374576449403,
+      "median_confidence": 0.5090805727243424,
+      "std_confidence": 0.15606148731501043,
       "min_confidence": 0.22160541415214544,
       "max_confidence": 0.7111292392015457,
       "high_confidence_count": 1,
-      "medium_confidence_count": 4,
+      "medium_confidence_count": 6,
       "low_confidence_count": 3
     }
   }

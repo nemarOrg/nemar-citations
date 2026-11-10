@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000134",
-  "num_citations": 1,
-  "date_last_updated": "2026-11-02T11:03:32.743329+00:00",
+  "num_citations": 6,
+  "date_last_updated": "2026-11-10T11:03:08.350438+00:00",
   "metadata": {
-    "total_cumulative_citations": 0,
-    "fetch_date": "2026-11-02T11:03:32.743329+00:00",
+    "total_cumulative_citations": 2,
+    "fetch_date": "2026-11-10T11:03:08.350438+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -54,15 +54,78 @@
       "natural images"
     ],
     "methods_description": "Participants viewed images for 100 ms followed by 100 ms of blank screen in an RSVP paradigm, with an orthogonal oddball detection task (button press on Woody character catch trials). EEG was recorded at 256 Hz with 32 Ag/AgCl gel electrodes in an extended 10-20 montage centered on occipital and visual regions. Each session had 19 blocks of about 5 minutes. Data were exported as EDF and converted to BIDS with MNE-BIDS.",
-    "funding": [],
-    "searched_accessions": [
-      "nm000134"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 1
+    "funding": []
   },
   "citation_details": [
+    {
+      "title": "SCORE: Subject Coordinate Recovery for Label-Free Cross-Subject EEG-to-Image Retrieval",
+      "author": "Zhenyao Cui, Siyuan Kan, Siyang Li, Ziwei Wang, Dongrui Wu",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2608.19134",
+      "cited_by": 1,
+      "abstract": "Accurate visual decoding can reveal how the brain represents visual information and recover perceived content from neural signals such as electroencephalography (EEG), with potential for neural communication. However, current EEG-to-image retrieval methods perform far below their within-subject counterparts for new users without labeled calibration, limiting real-world deployment. To understand this gap, we analyze EEG features across subjects and find that different subjects preserve similar relationships among concepts but express them along different coordinate directions. We therefore propose Subject Coordinate Recovery (SCORE), a target label-free framework combining recovery-aware source training with coordinate alignment at deployment. During training, SCORE aligns source subject EEG with a common image space and simulates unseen-subject recovery through source-only episodes. At deployment, with both encoders frozen, SCORE selects reliable EEG-image landmarks through hubness-cor",
+      "doi": "10.48550/arxiv.2608.19134",
+      "pmid": null,
+      "openalex_id": "W7203931711",
+      "source_doi": "10.48550/arxiv.2508.18571",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6649506935477257,
+        "similarity_score": 0.5757148861885071,
+        "citation_text_length": 1209,
+        "dataset_text_length": 2280,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "ENIGMA: EEG-to-Image in 15 Minutes Using Less Than 1% of the Parameters",
+      "author": "Reese Kneeland, Wangshu Jiang, Ugo Bruzadin Nunes, Paul Steven Scotti, Arnaud Delorme A, Jonathan Xu",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2602.10361",
+      "cited_by": 1,
+      "abstract": "To be practical for real-life applications, models for brain-computer interfaces must be easily and quickly deployable on new subjects, effective on affordable scanning hardware, and small enough to run locally on accessible computing resources. To directly address these current limitations, we introduce ENIGMA, a multi-subject electroencephalography (EEG)-to-Image decoding model that reconstructs seen images from EEG recordings and achieves state-of-the-art (SOTA) performance on the research-grade THINGS-EEG2 and consumer-grade AllJoined-1.6M benchmarks, while fine-tuning effectively on new subjects with as little as 15 minutes of data. ENIGMA boasts a simpler architecture and requires less than 1% of the trainable parameters necessary for previous approaches. Our approach integrates a subject-unified spatio-temporal backbone along with a set of multi-subject latent alignment layers and an MLP projector to map raw EEG signals to a rich visual latent space. We evaluate our approach usi",
+      "doi": "10.48550/arxiv.2602.10361",
+      "pmid": null,
+      "openalex_id": "W7128722549",
+      "source_doi": "10.48550/arxiv.2508.18571",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7778458946943284,
+        "similarity_score": 0.6734596490859985,
+        "citation_text_length": 1236,
+        "dataset_text_length": 2280,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "LaBraM at Scale: Scaling Data and Models for EEG Pretraining",
+      "author": "Junyu Pan, Ruicheng Yin, Bao‐Liang Lu, Dongsheng Li, Wei-Long Zheng, Yansen Wang",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2611.03165",
+      "cited_by": 0,
+      "abstract": "LaBraM, an early EEG foundation model, demonstrated that large-scale EEG pretraining can yield strong representations for diverse downstream tasks. Building on this foundation, we expand pretraining data and model capacity while retaining its core encoder and objective. We train ten encoders with 5.8 million to 1.97 billion parameters on three EEG collections spanning 25,067 to 79,910 hours, adapting signal preparation and training to heterogeneous recordings. Across 23 tasks, Atom-L* reaches 59.05% mean balanced accuracy at its best evaluated full fine-tuning (Full-FT) checkpoint, 3.61 percentage points above the strongest baseline EEG foundation model. Quark-G leads linear probing (LP) at 54.33%, a 1.24-point margin. Both also lead average task rank. At the last evaluated checkpoints, larger encoders improve Full-FT more consistently than LP, and stronger LP does not guarantee stronger Full-FT. Preserving patch structure improves LP over average pooling. Data-fraction experiments sug",
+      "doi": "10.48550/arxiv.2611.03165",
+      "pmid": null,
+      "openalex_id": "W7225188755",
+      "source_doi": "10.48550/arxiv.2508.18571",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6174213033914566,
+        "similarity_score": 0.5345638990402222,
+        "citation_text_length": 1205,
+        "dataset_text_length": 2280,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
     {
       "title": "Seeing Like a Brain: Predicting Subject-Specific EEG Responses to Natural Visual Stimuli",
       "author": "Hanchuan Peng, Jiaqi Yang, Baodan Bai",
@@ -85,21 +148,67 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "ProCA: Progressive Contrastive Alignment for Robust EEG Visual Decoding",
+      "author": "Kanglei Zhou, Chunyan Lan, Dongyang Li, Jun Zhu, Liyuan Wang",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2609.05094",
+      "cited_by": 0,
+      "abstract": "Electroencephalogram (EEG) visual decoding aims to recover visual semantics from non-invasive neural time-series signals, for which robust alignment between noisy neural responses and stable semantic representations is key to achieving high-performance decoding. Despite recent advances in contrastive learning, robust EEG decoding remains challenging because existing methods rely on fixed visual or textual anchors whose semantic relations may become misaligned with EEG representations that vary across trials, subjects, and learning stages. Our empirical evidence shows that this instability appears across both standard EEG decoding protocols and more challenging robustness settings, including strict cross-subject transfer and realistic personalized continual adaptation. We provide a formal analysis showing that fixed semantic supervision can bias optimization when EEG-specific relations evolve, and that structure-agnostic perturbations may distort semantically important EEG components. T",
+      "doi": "10.48550/arxiv.2609.05094",
+      "pmid": null,
+      "openalex_id": "W7211871015",
+      "source_doi": "10.48550/arxiv.2508.18571",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5824191337823869,
+        "similarity_score": 0.5042589902877808,
+        "citation_text_length": 1196,
+        "dataset_text_length": 2280,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Beyond Trial Averaging: Anchoring Neural and Visual Representations for Few-Repetition Brain-to-Image Retrieval",
+      "author": "Zhenyao Cui, Siyuan Kan, Dingkun Liu, Dongrui Wu",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2608.19128",
+      "cited_by": 0,
+      "abstract": "Decoding visual information from brain signals probes neural representations and enables neuro-rehabilitation and dream decoding. Recent brain-to-image retrieval approaches have achieved promising performance, typically by averaging many (up to 80) neural trials per image, requiring repeated stimulus presentation that increases latency, cost, and user burden. When only one or a few repetitions are available, the retrieval accuracy drops sharply. This drop is commonly attributed to query noise because averaging suppresses noise and increases signal stability. However, we find a non-transitive alignment pattern: the low-repetition query signal and the image representation each align with the high-repetition center, but not directly with each other. This pattern shows that query noise is only part of the problem and that gallery placement also affects retrieval. We therefore propose a neural-anchor-based retrieval (NEAR) framework that treats the high-repetition center as an anchor and ap",
+      "doi": "10.48550/arxiv.2608.19128",
+      "pmid": null,
+      "openalex_id": "W7203924027",
+      "source_doi": "10.48550/arxiv.2508.18571",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5743979868292809,
+        "similarity_score": 0.4973142743110657,
+        "citation_text_length": 1224,
+        "dataset_text_length": 2280,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-11-02T12:19:19.182031+00:00",
+    "scoring_date": "2026-11-10T12:17:04.839196+00:00",
     "dataset_text_length": 2280,
-    "num_citations_scored": 1,
+    "num_citations_scored": 6,
     "summary_stats": {
-      "mean_confidence": 0.7560316354036333,
-      "median_confidence": 0.7560316354036333,
-      "std_confidence": 0.0,
-      "min_confidence": 0.7560316354036333,
-      "max_confidence": 0.7560316354036333,
-      "high_confidence_count": 1,
-      "medium_confidence_count": 0,
+      "mean_confidence": 0.6621777746081353,
+      "median_confidence": 0.6411859984695911,
+      "std_confidence": 0.07985948484116867,
+      "min_confidence": 0.5743979868292809,
+      "max_confidence": 0.7778458946943284,
+      "high_confidence_count": 2,
+      "medium_confidence_count": 4,
       "low_confidence_count": 0
     }
   }

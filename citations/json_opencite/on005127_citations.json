@@ -1,10 +1,10 @@
 {
   "dataset_id": "on005127",
-  "num_citations": 1,
-  "date_last_updated": "2026-11-02T12:16:07.082457+00:00",
+  "num_citations": 2,
+  "date_last_updated": "2026-11-10T12:14:35.646942+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
-    "fetch_date": "2026-11-02T11:57:03.126216+00:00",
+    "fetch_date": "2026-11-10T11:56:31.345945+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 1,
@@ -48,8 +48,8 @@
       "on005127",
       "ds005127"
     ],
-    "num_accession_mentions": 1,
-    "num_dataset_citations": 1,
+    "num_accession_mentions": 2,
+    "num_dataset_citations": 2,
     "num_datapaper_citations": 0
   },
   "citation_details": [
@@ -77,21 +77,46 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "A Scaling Study for fMRI Foundation Models",
+      "author": "Wenhao Ye, Xuanye Pan, Junfeng Xia, Junxiang Zhang, Mo Wang, Quanying Liu",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2609.27232",
+      "cited_by": 1,
+      "abstract": "Scaling laws have guided large-model development in computer vision and natural language processing, but the relationships among data, model size, and compute remain unclear for functional magnetic resonance imaging (fMRI) foundation models. Here, we conduct a controlled empirical study using pretraining data from more than 200 source datasets and over 10,000 GPU-hours of experiments. Holding the pretraining framework and downstream protocol fixed, we vary pretraining data size, model size, and training duration. Downstream performance generally improves with compute, yet models using similar compute can perform substantially differently. Additional pretraining data bring larger gains at larger model sizes, suggesting that data and model size should be scaled together. At matched compute, increasing pretraining data benefits more tasks than increasing model size, although the pattern varies across tasks. We then use in-distribution (ID) downstream performance to select the combination of pretraining data size, model size, and training duration at two fixed compute budgets. The resulting models are locked before out-of-distribution (OOD) evaluation. They achieve the highest average performance across the evaluated OOD tasks among the compared fMRI foundation models while using less pretraining compute. Overall, our results show that compute alone does not characterize fMRI scaling: performance depends on how pretraining data, model size, and training duration are combined.",
+      "doi": "10.48550/arxiv.2609.27232",
+      "pmid": null,
+      "openalex_id": "W7214239549",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds005127",
+      "confidence_scoring": {
+        "confidence_score": 0.4476182493567467,
+        "similarity_score": 0.3875482678413391,
+        "citation_text_length": 1676,
+        "dataset_text_length": 832,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-11-02T12:37:26.801844+00:00",
+    "scoring_date": "2026-11-10T12:35:41.077507+00:00",
     "dataset_text_length": 832,
-    "num_citations_scored": 1,
+    "num_citations_scored": 2,
     "summary_stats": {
-      "mean_confidence": 0.4812839627265931,
-      "median_confidence": 0.4812839627265931,
-      "std_confidence": 0.0,
-      "min_confidence": 0.4812839627265931,
+      "mean_confidence": 0.4644511060416699,
+      "median_confidence": 0.4644511060416699,
+      "std_confidence": 0.01683285668492318,
+      "min_confidence": 0.4476182493567467,
       "max_confidence": 0.4812839627265931,
       "high_confidence_count": 0,
-      "medium_confidence_count": 1,
+      "medium_confidence_count": 2,
       "low_confidence_count": 0
     }
   }

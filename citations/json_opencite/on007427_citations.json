@@ -1,10 +1,10 @@
 {
   "dataset_id": "on007427",
-  "num_citations": 1,
-  "date_last_updated": "2026-11-03T11:06:34.671167+00:00",
+  "num_citations": 2,
+  "date_last_updated": "2026-11-10T12:11:00.568205+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
-    "fetch_date": "2026-11-02T12:11:40.352147+00:00",
+    "fetch_date": "2026-11-10T12:11:00.568205+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -56,36 +56,50 @@
       {
         "funder_name": "Comité para el Desarrollo de la Investigación - CODI, Universidad de Antioquia"
       }
-    ],
-    "searched_accessions": [
-      "on007427",
-      "ds007427"
-    ],
-    "num_accession_mentions": 1,
-    "num_dataset_citations": 1,
-    "num_datapaper_citations": 0
+    ]
   },
   "citation_details": [
     {
-      "title": "Comprehensive methodology for sample enrichment in EEG biomarker studies for Alzheimer’s risk classification",
-      "author": "Verónica Henao Isaza, David Fernando Aguillon, Carlos Tobón, Francisco Javier Lopera, John Fredy Ochoa-Gómez",
-      "venue": "PLoS ONE",
+      "title": "LaBraM at Scale: Scaling Data and Models for EEG Pretraining",
+      "author": "Junyu Pan, Ruicheng Yin, Bao‐Liang Lu, Dongsheng Li, Wei-Long Zheng, Yansen Wang",
+      "venue": "arXiv (Cornell University)",
       "year": 2026,
-      "url": "https://doi.org/10.1371/journal.pone.0343722",
+      "url": "https://doi.org/10.48550/arxiv.2611.03165",
       "cited_by": 0,
-      "abstract": "OBJECTIVE: Dementia, particularly Alzheimer's disease (AD), constitutes a major global health concern, with AD accounting for approximately 70% of all cases. EEG-based biomarkers hold promise for early identification of individuals at risk; however, small and heterogeneous samples frequently limit generalizability. METHODS: An EEG-based sample enrichment framework was developed by integrating advanced signal processing, component-level feature extraction, data harmonization (neuroHarmonize), and Propensity Score Matching (PSM). EEG data from four independent cohorts were harmonized to reduce site-related variability while preserving covariates such as age and sex. Features including power, entropy, coherence, synchronization likelihood, and cross-frequency coupling were extracted from independent components. PSM was applied at 2:1, 5:1, and 10:1 ratios to expand and balance the control group (HC) relative to the Alzheimer's risk group (ACr), composed of PSEN1-E280A mutation carriers without cognitive symptoms. RESULTS: Sample enrichment through PSM improved classification accuracy, with decision tree models yielding values between 0.91 and 0.96. Higher enrichment ratios enhanced model stability and generalizability, as shown by learning curves and confusion matrices. Feature selection was based on model performance and effect sizes (Cohen's d). CONCLUSIONS: The proposed framework addresses sample size and variability constraints in EEG-based AD risk classification. SIGNIFICANCE: Harmonization and statistical balancing provide a replicable strategy for multicenter EEG studies targeting early AD detection.",
-      "doi": "10.1371/journal.pone.0343722",
-      "pmid": "41811929",
-      "openalex_id": "W7130553955",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds007427",
+      "abstract": "LaBraM, an early EEG foundation model, demonstrated that large-scale EEG pretraining can yield strong representations for diverse downstream tasks. Building on this foundation, we expand pretraining data and model capacity while retaining its core encoder and objective. We train ten encoders with 5.8 million to 1.97 billion parameters on three EEG collections spanning 25,067 to 79,910 hours, adapting signal preparation and training to heterogeneous recordings. Across 23 tasks, Atom-L* reaches 59.05% mean balanced accuracy at its best evaluated full fine-tuning (Full-FT) checkpoint, 3.61 percentage points above the strongest baseline EEG foundation model. Quark-G leads linear probing (LP) at 54.33%, a 1.24-point margin. Both also lead average task rank. At the last evaluated checkpoints, larger encoders improve Full-FT more consistently than LP, and stronger LP does not guarantee stronger Full-FT. Preserving patch structure improves LP over average pooling. Data-fraction experiments sug",
+      "doi": "10.48550/arxiv.2611.03165",
+      "pmid": null,
+      "openalex_id": "W7225188755",
+      "source_doi": "10.1371/journal.pone.0343722",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 1.0,
-        "similarity_score": 0.8689625263214111,
-        "citation_text_length": 1763,
+        "confidence_score": 0.6795436969399453,
+        "similarity_score": 0.5883495211601257,
+        "citation_text_length": 1205,
+        "dataset_text_length": 804,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Predictive EEG Signatures of Alzheimer's Disease: A Cross-Validated, Cross-Method Analysis Using ANCOVA Filtering and Sparse Logistic Regression",
+      "author": "Garima Joshi",
+      "venue": "Research Square",
+      "year": 2026,
+      "url": "https://doi.org/10.21203/rs.3.rs-11390599/v1",
+      "cited_by": 0,
+      "abstract": "Abstract Alzheimer’s Disease (AD) changes how the brain’s electrical activity behaves, and these changes can, in principle, be picked up directly from a resting-state EEG recording without any invasive testing. This study asks a much narrower question: does a small subset of four EEG-derived measurement families, namely signal complexity, spectral power, functional connectivity and network topology, reliably separate individuals with AD from Healthy Controls (HC), and does that separation hold up under strict, leakage-free testing? Using a public dataset of 36 AD and 29 HC subjects, candidate features were selected through permutation-based ANCOVA with false discovery rate correction, controlling for age and gender, and each selected feature was then re-checked using a complementary method (Mann-Whitney U with FDR correction, plus network-based statistics for connectivity), applied to the same subjects, to confirm the finding wasn’t an artifact of the first method’s particular assumpti",
+      "doi": "10.21203/rs.3.rs-11390599/v1",
+      "pmid": null,
+      "openalex_id": "W7223060882",
+      "source_doi": "10.1371/journal.pone.0343722",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.8218967673182488,
+        "similarity_score": 0.7115989327430725,
+        "citation_text_length": 1210,
         "dataset_text_length": 804,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -94,17 +108,17 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-11-03T11:13:36.142804+00:00",
+    "scoring_date": "2026-11-10T12:40:55.553236+00:00",
     "dataset_text_length": 804,
-    "num_citations_scored": 1,
+    "num_citations_scored": 2,
     "summary_stats": {
-      "mean_confidence": 1.0,
-      "median_confidence": 1.0,
-      "std_confidence": 0.0,
-      "min_confidence": 1.0,
-      "max_confidence": 1.0,
+      "mean_confidence": 0.7507202321290971,
+      "median_confidence": 0.7507202321290971,
+      "std_confidence": 0.07117653518915174,
+      "min_confidence": 0.6795436969399453,
+      "max_confidence": 0.8218967673182488,
       "high_confidence_count": 1,
-      "medium_confidence_count": 0,
+      "medium_confidence_count": 1,
       "low_confidence_count": 0
     }
   }

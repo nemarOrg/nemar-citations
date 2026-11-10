@@ -1,10 +1,10 @@
 {
   "dataset_id": "on004279",
-  "num_citations": 4,
-  "date_last_updated": "2026-11-09T11:02:04.957805+00:00",
+  "num_citations": 0,
+  "date_last_updated": "2026-11-10T11:46:36.741956+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
-    "fetch_date": "2026-11-02T11:47:13.819279+00:00",
+    "fetch_date": "2026-11-10T11:46:36.741956+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 1,
@@ -48,131 +48,13 @@
         "award_number": "21211883",
         "award_title": "Doctoral scholarship"
       }
-    ],
-    "searched_accessions": [
-      "on004279",
-      "ds004279"
-    ],
-    "num_accession_mentions": 4,
-    "num_dataset_citations": 4,
-    "num_datapaper_citations": 0
+    ]
   },
-  "citation_details": [
-    {
-      "title": "Brain-inspired cascaded EEG speech decoding with conformal calibration and adaptive exit: simulation validation and five-stage real-data assessment",
-      "author": "Daqian Chen",
-      "venue": "Research Square",
-      "year": 2026,
-      "url": "https://doi.org/10.21203/rs.3.rs-11134147/v1",
-      "cited_by": 0,
-      "abstract": "Abstract Background Online EEG-based speech decoding faces dual challenges: limited computational resources for real-time deployment, and unreliable early-exit decisions when models underestimate their own errors (silent dropping of speech segments). Existing deep decoding models lack statistically rigorous uncertainty quantification, and the exchangeability assumption of conformal prediction— commonly used for calibration—is questionable for strongly auto-correlated neural signals. Systematic evidence on when and why conformal guarantees fail on real EEG, and whether online repair is feasible, remains scarce. New method We propose a brain-inspired three-tier cascaded decoding architecture (linear baseline → MLP residual corrections), equipped with pinball quantile error heads (τ = 0.75) for conservative error estimation, split-conformal temperature calibration with a block-wise variant to mitigate exchangeability violation, and an adaptive exit controller that decouples computational budget (ρ- quantile) from precision safety (κ· ˆe ≤ ϵ). For online distribution shifts, we implement Gibbs–Candès adaptive conformal inference (ACI) to dynamically adjust κ without relying on error-head quality. The framework is validated through simulation and a five-stage real-data assessment on OpenNeuro ds004279 (3 subjects, speech-perception EEG), plus an extended three-method cross-validation (temporal TRF, CCA lag scan, word-onset ERP permutation) to adjudicate millisecond-scale speech tracking. Results Simulation confirms conformal coverage at 84.5% (target 85%), exit rate anchored at 39.5%±0.6%, and 18 non-dominated Pareto solutions all outperforming the full-run baseline. On square-wave event labels, coverage remains 85.0% across four scenarios, and adaptive exit beats both full-run and baseline in 3/3 subjects. Switching to real audio envelopes increases label information 3.4-fold (|r| 0.057→0.194) but collapses coverage to 7–29%. Block-conformal root-cause analysis identifies six-fold κ drift across subjects, strongly coupled to error-head calibration failure. ACI repairs coverage to ∼99% in 2/3 subjects (including one with negative calibration correlation), while the remaining case is diagnosed as “uncalibratable” due to test-segment error-structure collapse, necessitating data-quality gating. Extended experiment shows that crude pipelines yield all-negative results from dual technical failures (drift artifact, ERD normalization failure); after official preprocessing alignment, word-boundary β/γ ERD emerges (group p = 0.028, 3/9 individual significant) and temporal CCA shows group significance (t = 5.24, p = 0.0004) despite individual r < 0.03, while band-power CCA significance (p = 0.0065) is falsified as segment-level coupling artifact. Comparison with existing methods Unlike conventional deep decoders (CNNs, LSTMs) and recent attention-based models that provide only point estimates without uncertainty bounds, our framework delivers distribution-free coverage guarantees via conformal calibration. The adaptive exit mechanism offers flexible speed-accuracy trade-offs absent in fixed-architecture models. Critically, ACI maintains validity even when error-head ranking fails—a property not achievable by static conformal approaches. Our five-stage negative-result trajectory (including coverage collapse and rootcause diagnosis) provides an applicability boundary map for conformal prediction on real neural data, which prior studies have not systematically documented. The extended three-method cross-validation further reveals that band-power CCA, commonly used in the literature, can produce false positives due to segment-level coupling, whereas temporal CCA and word-onset ERP provide more reliable group-level speech-tracking signals. Conclusions The proposed cascaded framework with conformal calibration and adaptive exit is validated both in simulation and real-EEG scenarios, with ACI effectively repairing coverage under distribution shifts. The deployable profile defaults to TRF linear regression + ACI + quality gating, with cascaded MLP reserved for high-signal-to-noise conditions. The extended experiment establishes a methodological baseline requiring full preprocessing-chain alignment, temporal features, and threemethod cross-validation for speech-tracking studies. All code and results are released open-source for reproducible research.",
-      "doi": "10.21203/rs.3.rs-11134147/v1",
-      "pmid": null,
-      "openalex_id": "W7214405362",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004279",
-      "confidence_scoring": {
-        "confidence_score": 0.7473447042703629,
-        "similarity_score": 0.6470516920089722,
-        "citation_text_length": 1712,
-        "dataset_text_length": 2221,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Laya: A LeJEPA Approach to EEG via Latent Prediction over Reconstruction",
-      "author": "Saarang Panchavati, Uddhav Panchavati, Hiroki Nariai, Corey Arnold, William F Speier",
-      "venue": "arXiv (Cornell University)",
-      "year": 2026,
-      "url": "https://doi.org/10.48550/arxiv.2603.16281",
-      "cited_by": 8,
-      "abstract": "Electroencephalography (EEG) is a widely used tool for studying brain function, with applications in clinical neuroscience, diagnosis, and brain-computer interfaces (BCIs). Recent EEG foundation models trained on large unlabeled corpora aim to learn transferable representations, but their effectiveness remains unclear; reported improvements over smaller task-specific models are often modest, sensitive to downstream adaptation and fine-tuning strategies, and limited under linear probing. We hypothesize that one contributing factor is the reliance on signal reconstruction as the primary self-supervised learning (SSL) objective, which biases representations toward high-variance artifacts rather than task-relevant neural structure. To address this limitation, we explore an SSL paradigm based on Joint Embedding Predictive Architectures (JEPA), which learn by predicting latent representations instead of reconstructing raw signals. We introduce Laya, the first EEG foundation model based on LeJEPA. We show that latent prediction yields representations that encode semantic structure in EEG: Laya embeddings track clinically meaningful state changes such as seizure onset, are resilient to noise, and achieve the strongest mean clinical accuracy under frozen linear probing, with particular gains on tasks where relevant neural patterns are subtle and easily obscured by artifacts. Controlled ablations against matched MAE variants confirm that the choice of pretraining objective, rather than architecture or data, is the primary driver of these gains.",
-      "doi": "10.48550/arxiv.2603.16281",
-      "pmid": null,
-      "openalex_id": "W7138972657",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004279",
-      "confidence_scoring": {
-        "confidence_score": 0.6506291395425797,
-        "similarity_score": 0.5633152723312378,
-        "citation_text_length": 1721,
-        "dataset_text_length": 2221,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "What masking geometry works best for EEG foundation models?",
-      "author": "Pierre Guetschel, Bruno Aristimunha, Yassine El Ouahidi, Arnaud Delorme A, Thomas Moreau, Michael Tangermann",
-      "venue": "arXiv (Cornell University)",
-      "year": 2026,
-      "url": "https://doi.org/10.48550/arxiv.2609.33487",
-      "cited_by": 0,
-      "abstract": "EEG foundation models hold promise for scalable brain-signal decoding across clinical and cognitive neuroscience applications, yet their pre-training pipelines remain poorly understood. Among design choices, the masking strategy is particularly critical: it determines what the network must predict and from which context. Yet it has never been ablated in isolation, as each new model bundles a new masking strategy with a new backbone and objective. In this paper, we formalize the design choices for spatio-temporal masking strategies and train various models with a single pipeline under varying masking configurations across two SSL frameworks (MAE and JEPA). We then systematically evaluate the resulting 58 pre-trained models on the 12 datasets of OpenEEGBench under a linear probe. Both frameworks agree on an optimal masking configuration and on shared failure modes. Outside these, performance is robust: 11 MAE and 9 JEPA configurations are statistically indistinguishable from the best. We further identify a novel JEPA-specific failure mode, tagged bias-inflation collapse, invisible to standard detectors. With a well-chosen mask, our pipeline reaches REVE-level downstream performance at a fraction of REVE's pre-training compute.",
-      "doi": "10.48550/arxiv.2609.33487",
-      "pmid": null,
-      "openalex_id": "W7214740814",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004279",
-      "confidence_scoring": {
-        "confidence_score": 0.5796720770001412,
-        "similarity_score": 0.5018805861473083,
-        "citation_text_length": 1476,
-        "dataset_text_length": 2221,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "REVE: A Foundation Model for EEG - Adapting to Any Setup with Large-Scale Pretraining on 25,000 Subjects",
-      "author": "Yassine El Ouahidi, Jonathan Lys, Philipp Thölke, Nicolas Farrugia, Bastien Pasdeloup, Vincent Gripon, Karim Jerbi, Giulia Lioi",
-      "venue": "neural information processing systems",
-      "year": 2025,
-      "url": "https://doi.org/10.52202/085713-0760",
-      "cited_by": 64,
-      "abstract": "Foundation models have transformed AI by reducing reliance on task-specific data through large-scale pretraining. While successful in language and vision, their adoption in EEG has lagged due to the heterogeneity of public datasets, which are collected under varying protocols, devices, and electrode configurations. Existing EEG foundation models struggle to generalize across these variations, often restricting pretraining to a single setup, resulting in suboptimal performance, in particular under linear probing. We present REVE (Representation for EEG with Versatile Embeddings), a pretrained model explicitly designed to generalize across diverse EEG signals. REVE introduces a novel 4D positional encoding scheme that enables it to process signals of arbitrary length and electrode arrangement. Using a masked autoencoding objective, we pretrain REVE on over 60,000 hours of EEG data from 92 datasets spanning 25,000 subjects, representing the largest EEG pretraining effort to date. REVE achieves state-of-the-art results on 10 downstream EEG tasks, including motor imagery classification, seizure detection, sleep staging, cognitive load estimation, and emotion recognition. With little to no fine-tuning, it demonstrates strong generalization, and nuanced spatio-temporal modeling. We release code, pretrained weights, and tutorials to support standardized EEG research and accelerate progress in clinical neuroscience.",
-      "doi": "10.52202/085713-0760",
-      "pmid": null,
-      "openalex_id": "W7197020048",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004279",
-      "confidence_scoring": {
-        "confidence_score": 0.7093152165412903,
-        "similarity_score": 0.6141257286071777,
-        "citation_text_length": 1737,
-        "dataset_text_length": 2221,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    }
-  ],
+  "citation_details": [],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-11-09T11:07:16.898837+00:00",
+    "scoring_date": "2026-11-10T12:32:02.981685+00:00",
     "dataset_text_length": 2221,
-    "num_citations_scored": 4,
-    "summary_stats": {
-      "mean_confidence": 0.6717402843385936,
-      "median_confidence": 0.679972178041935,
-      "std_confidence": 0.06334457174922546,
-      "min_confidence": 0.5796720770001412,
-      "max_confidence": 0.7473447042703629,
-      "high_confidence_count": 2,
-      "medium_confidence_count": 2,
-      "low_confidence_count": 0
-    }
+    "num_citations_scored": 0
   }
 }
