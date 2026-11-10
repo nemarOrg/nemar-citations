@@ -1,10 +1,10 @@
 {
   "dataset_id": "on005540",
-  "num_citations": 3,
-  "date_last_updated": "2026-11-02T12:16:39.655144+00:00",
+  "num_citations": 4,
+  "date_last_updated": "2026-11-10T12:15:08.692556+00:00",
   "metadata": {
-    "total_cumulative_citations": 9,
-    "fetch_date": "2026-11-02T12:01:41.429916+00:00",
+    "total_cumulative_citations": 0,
+    "fetch_date": "2026-11-10T12:00:55.968820+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 1,
@@ -101,8 +101,8 @@
       "on005540",
       "ds005540"
     ],
-    "num_accession_mentions": 3,
-    "num_dataset_citations": 3,
+    "num_accession_mentions": 4,
+    "num_dataset_citations": 4,
     "num_datapaper_citations": 0
   },
   "citation_details": [
@@ -112,7 +112,7 @@
       "venue": "Scientific Data",
       "year": 2025,
       "url": "https://doi.org/10.1038/s41597-025-05349-2",
-      "cited_by": 9,
+      "cited_by": 11,
       "abstract": "EEG-based emotion decoding is essential for unveiling neural mechanisms of emotion and has applications in mental health and human-machine interaction. However, existing datasets for EEG-based emotion decoding are limited to a single context of emotion elicitation. The ability of emotion decoding methods to generalize across different contexts remains underexplored. To address this gap, we present the Multi-Context Emotional EEG (EmoEEG-MC) dataset, featuring 64-channel EEG and peripheral physiological data from 60 participants exposed to two distinct contexts: video-induced and imagery-induced emotions. These contexts evoke seven distinct emotional categories: joy, inspiration, tenderness, fear, disgust, sadness, and neutral emotion. The emotional experience of specific emotion categories was validated through subjective reports. To validate the potential of cross-context emotion decoding, we implemented a support vector machine with L1 regularization, achieving accuracies of 66.7% for binary classification (positive vs. negative emotions) and 28.9% for seven-category emotion classification, both significantly above chance levels. The EmoEEG-MC dataset serves as a foundational resource for understanding the neural substrates of emotion and enhancing the real-world applicability of affective computing.",
       "doi": "10.1038/s41597-025-05349-2",
       "pmid": "40610470",
@@ -132,8 +132,33 @@
       }
     },
     {
+      "title": "Laya: A LeJEPA Approach to EEG via Latent Prediction over Reconstruction",
+      "author": "Saarang Panchavati, Uddhav Panchavati, Hiroki Nariai, Corey Arnold, William F Speier",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2603.16281",
+      "cited_by": 8,
+      "abstract": "Electroencephalography (EEG) is a widely used tool for studying brain function, with applications in clinical neuroscience, diagnosis, and brain-computer interfaces (BCIs). Recent EEG foundation models trained on large unlabeled corpora aim to learn transferable representations, but their effectiveness remains unclear; reported improvements over smaller task-specific models are often modest, sensitive to downstream adaptation and fine-tuning strategies, and limited under linear probing. We hypothesize that one contributing factor is the reliance on signal reconstruction as the primary self-supervised learning (SSL) objective, which biases representations toward high-variance artifacts rather than task-relevant neural structure. To address this limitation, we explore an SSL paradigm based on Joint Embedding Predictive Architectures (JEPA), which learn by predicting latent representations instead of reconstructing raw signals. We introduce Laya, the first EEG foundation model based on LeJEPA. We show that latent prediction yields representations that encode semantic structure in EEG: Laya embeddings track clinically meaningful state changes such as seizure onset, are resilient to noise, and achieve the strongest mean clinical accuracy under frozen linear probing, with particular gains on tasks where relevant neural patterns are subtle and easily obscured by artifacts. Controlled ablations against matched MAE variants confirm that the choice of pretraining objective, rather than architecture or data, is the primary driver of these gains.",
+      "doi": "10.48550/arxiv.2603.16281",
+      "pmid": null,
+      "openalex_id": "W7138972657",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds005540",
+      "confidence_scoring": {
+        "confidence_score": 0.5432783764600754,
+        "similarity_score": 0.470370888710022,
+        "citation_text_length": 1721,
+        "dataset_text_length": 2405,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Predicting Cognitive Tasks from Single-Channel EEG through Task-Semantic Alignment",
-      "author": "Ryota Kanai C",
+      "author": "Ryota Kanai",
       "venue": "arXiv (Cornell University)",
       "year": 2026,
       "url": "https://doi.org/10.48550/arxiv.2610.15104",
@@ -148,9 +173,9 @@
       "discovery_method": "accession_mention",
       "matched_accession": "ds005540",
       "confidence_scoring": {
-        "confidence_score": 0.637008479833603,
-        "similarity_score": 0.5515224933624268,
-        "citation_text_length": 1660,
+        "confidence_score": 0.6348162317276002,
+        "similarity_score": 0.5496244430541992,
+        "citation_text_length": 1658,
         "dataset_text_length": 2405,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -184,17 +209,17 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-11-02T12:39:07.912928+00:00",
+    "scoring_date": "2026-11-10T12:37:24.336731+00:00",
     "dataset_text_length": 2405,
-    "num_citations_scored": 3,
+    "num_citations_scored": 4,
     "summary_stats": {
-      "mean_confidence": 0.7135449560483297,
-      "median_confidence": 0.637008479833603,
-      "std_confidence": 0.20974598087325416,
+      "mean_confidence": 0.6704302491247655,
+      "median_confidence": 0.5890473040938378,
+      "std_confidence": 0.19613496987503054,
       "min_confidence": 0.5036263883113862,
       "max_confidence": 1.0,
       "high_confidence_count": 1,
-      "medium_confidence_count": 2,
+      "medium_confidence_count": 3,
       "low_confidence_count": 0
     }
   }

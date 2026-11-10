@@ -1,0 +1,53 @@
+{
+  "dataset_id": "on009081",
+  "date_retrieved": "2026-11-10T11:00:26.801003+00:00",
+  "dataset_description": {
+    "Name": "EEG during Balinese dance movements and balance tasks in expert dancers and non-dancers",
+    "BIDSVersion": "1.9.0",
+    "DatasetType": "raw",
+    "License": "CC0",
+    "Authors": [
+      "I Putu Adiartha Griadhi",
+      "Nila Wahyuni",
+      "Indira Vidiari Juhanna",
+      "Ida Ayu Astiti Suadnyana"
+    ],
+    "HowToAcknowledge": "Please cite this dataset's DOI and the data article describing it (Griadhi IPA, Wahyuni N, Juhanna IV, Suadnyana IAA, Data in Brief).",
+    "EthicsApprovals": [
+      "Research Ethics Committee of the Faculty of Medicine, Universitas Udayana/Sanglah General Hospital (Komisi Etik Penelitian FK Unud/RSUP Sanglah), No. 3259/UN14.2.2.VII.14/LT/2026, 31 August 2026"
+    ],
+    "ReferencesAndLinks": [
+      "https://doi.org/10.5281/zenodo.24026706"
+    ],
+    "GeneratedBy": [
+      {
+        "Name": "MNE-BIDS",
+        "Version": "0.20.0",
+        "CodeURL": "https://mne.tools/mne-bids/"
+      }
+    ],
+    "DatasetDOI": "10.82901/nemar.on009081",
+    "SourceDatasets": [
+      {
+        "DOI": "doi:10.18112/openneuro.ds009081.v1.0.0",
+        "URL": "https://openneuro.org/datasets/ds009081/versions/1.0.0",
+        "Version": "1.0.0"
+      }
+    ],
+    "Version": "1.0.0"
+  },
+  "readme_content": "[![DOI](https://img.shields.io/badge/DOI-10.82901%2Fnemar.on009081-blue)](https://doi.org/10.82901/nemar.on009081)\n\n# EEG during Balinese dance movements and balance tasks in expert dancers and non-dancers\n\nRaw 16-channel EEG from 38 women (23 expert Balinese dancers, 15 non-dancers; age 15 years and older), recorded\nduring two paradigms in one session: three Balinese dance movements and a Romberg-type standing task. Standing Stork\n(single-leg stance) times are included in `participants.tsv`.\n\n- **task-rest**: separate resting recording made before the task session (about 1 min, standing, eyes open; participants closed their eyes only in the final part of the Romberg-type task).\n- **task-dance**: one continuous task recording. It contains three Balinese dance movements (ngeed, agem to the\n  right, agem to the left; 4 repetitions each, in two blocks separated by a 3-min standing rest), followed by a\n  Romberg-type standing protocol (feet together; 30 s eyes open while fixating a black dot on the wall, 15 s relaxed standing with eyes open, 30 s eyes\n  closed). In several recordings the EEG stopped before the end of the eyes-closed period (see `beyond_recording_end`).\n\nRecording: KT88-1016 digital EEG system (Contec Medical Systems), 16 dry scalp electrodes (10-20 system without midline sites), each referenced to the ipsilateral earlobe\n(A1 for left, A2 for right sites); 100 Hz sampling; effective bandwidth about 0.5-35 Hz (amplifier filtering). The\nchannels Add_lead1 and Add_lead2 carry no signal. The amplifier intermittently produced flat segments (signal resets,\nabout 0 uV); they are left in the data and should be masked before analysis. Occipital alpha power did not increase\nconsistently with eye closure in these recordings; see the data article.\n\nEvents (task-dance): movement phases (descent, hold, ascent) annotated manually from video; Romberg periods from the\nannotated eye-closure time; and the instruction display timeline. Repetitions in which the movement was not\nperformed are not listed. Two annotated repetitions lack one phase boundary (start of hold or return to upright), so\nthe events files contain 437 descent events for 438 annotated repetitions.\n\nParticipants: `participants.tsv` gives group, age group, sex, categorised dance experience and practice frequency,\nand the Standing Stork times (seconds; one trial per leg and eye condition with the hands at the sides, timed with a\nTakei balance tester before the EEG session; 240 s = test ceiling). Exact ages, dates, names and video recordings are not shared.\n\nTiming: EEG and video were started manually on a shared count; event times are given on the EEG clock with an\nEEG-video offset of 0 s. Two estimates of the residual offset disagree by about 1 s (onset of movement artefacts:\nmedian about 0 s; cross-correlation of video motion with the EEG muscle-artefact envelope: about +0.9 s, unreliable in\npart of the sample). Users analysing short phases such as the hold may repeat their analyses with an alternative\noffset.\n\nEthics: Research Ethics Committee of the Faculty of Medicine, Universitas Udayana/Sanglah General Hospital (Komisi Etik Penelitian FK Unud/RSUP Sanglah), No. 3259/UN14.2.2.VII.14/LT/2026, 31 August 2026. All participants gave written informed consent, including consent to share de-identified data; for\nparticipants younger than 18 years a parent gave written consent and the participant gave assent.\n\nCode for the conversion and analyses: https://doi.org/10.5281/zenodo.24026706\n\nContact: I Putu Adiartha Griadhi, Department of Physiology, Faculty of Medicine, Universitas Udayana, Denpasar, Bali,\nIndonesia (adiartha.griadhi@unud.ac.id).\n",
+  "github_info": {
+    "repository_url": "https://github.com/nemarDatasets/on009081",
+    "exists": true,
+    "description": "EEG during Balinese dance movements and balance tasks in expert dancers and non-dancers",
+    "created_at": "2026-11-07T05:00:56+00:00",
+    "updated_at": "2026-11-08T03:00:27+00:00",
+    "default_branch": "main"
+  },
+  "retrieval_status": {
+    "dataset_description": "not_found",
+    "readme": "not_found",
+    "repository": "success"
+  }
+}

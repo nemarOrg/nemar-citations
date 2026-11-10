@@ -1,10 +1,10 @@
 {
   "dataset_id": "on005555",
-  "num_citations": 6,
-  "date_last_updated": "2026-11-02T12:16:40.765783+00:00",
+  "num_citations": 8,
+  "date_last_updated": "2026-11-10T12:15:09.899742+00:00",
   "metadata": {
-    "total_cumulative_citations": 13,
-    "fetch_date": "2026-11-02T12:01:50.054627+00:00",
+    "total_cumulative_citations": 0,
+    "fetch_date": "2026-11-10T12:01:04.954414+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 1,
@@ -121,11 +121,34 @@
       "on005555",
       "ds005555"
     ],
-    "num_accession_mentions": 6,
-    "num_dataset_citations": 6,
+    "num_accession_mentions": 7,
+    "num_dataset_citations": 8,
     "num_datapaper_citations": 0
   },
   "citation_details": [
+    {
+      "title": "One night of closed-loop auditory stimulation during sleep enhances memory consolidation in patients with Alzheimer’s Disease",
+      "author": "Eduardo López‐Larraz, David Oriol, Galit Fierro, Esperanza Jubera-García, Jens G. Klinzing, María Sierra-Torralba, Eduardo Horna-Prat, Carlos Escolano, Javier Sutil-Jiménez, Francisca Rojas-Galinovic, Luis Montesano, C. Moreno Loscertales, Gerard Piñol‐Ripoll, Álvaro Pascual‐Leone, Eugenia Marta Moreno, Elena Muñoz-Farjas, Javier Mínguez",
+      "venue": "medRxiv",
+      "year": 2026,
+      "url": "https://doi.org/10.64898/2026.09.14.26360893",
+      "cited_by": 0,
+      "abstract": "INTRODUCTION: Sleep-dependent memory consolidation is impaired early in Alzheimer's disease (AD). Closed-loop auditory stimulation (CLAS) of sleep slow oscillations enhances memory consolidation in healthy individuals, but its efficacy in AD remains unknown. METHODS: We conducted a randomized, double-blind, placebo-controlled crossover trial in 37 patients with biomarker-confirmed early symptomatic AD and an amnestic clinical phenotype. We assessed the effect of one night of CLAS, compared with one night of sham stimulation, on declarative memory retention, sleep electrophysiology, and sleep architecture. RESULTS: = 0.04), enhanced stimulation-evoked slow-wave and fast spindle activity, and preserved sleep architecture and subjective sleep quality. DISCUSSION: This study provides the first demonstration that CLAS modulates sleep electrophysiology and improves overnight memory consolidation in patients with biomarker-confirmed AD. Further studies need to address the sustainability of su",
+      "doi": "10.64898/2026.09.14.26360893",
+      "pmid": "42780054",
+      "openalex_id": "W7213562363",
+      "source_doi": "10.82901/nemar.on005555",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5344700400531293,
+        "similarity_score": 0.4627446234226227,
+        "citation_text_length": 1510,
+        "dataset_text_length": 2342,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
     {
       "title": "Hierarchical Multimodal Sleep Staging with Optimized EEG, EOG, and PPG Features for Wearable Applications",
       "author": "Roberto De Fazio, Matteo Paiano, Ramiro Velázquez, Carolina Del-Valle-Soto, Paolo Visconti",
@@ -182,7 +205,7 @@
       "venue": "Sensors",
       "year": 2025,
       "url": "https://doi.org/10.3390/s25196021",
-      "cited_by": 3,
+      "cited_by": 5,
       "abstract": "Advancements in electroencephalography (EEG) technology and feature extraction methods have paved the way for wearable, non-invasive systems that enable continuous sleep monitoring outside clinical environments. This study presents the development and evaluation of an EEG-based acquisition system for sleep staging, which can be adapted for wearable applications. The system utilizes a custom experimental setup with the ADS1299EEG-FE-PDK evaluation board to acquire EEG signals from the forehead and in-ear regions under various conditions, including visual and auditory stimuli. Afterward, the acquired signals were processed to extract a wide range of features in time, frequency, and non-linear domains, selected based on their physiological relevance to sleep stages and disorders. The feature set was reduced using the Minimum Redundancy Maximum Relevance (mRMR) algorithm and Principal Component Analysis (PCA), resulting in a compact and informative subset of principal components. Experiments were conducted on the Bitbrain Open Access Sleep (BOAS) dataset to validate the selected features and assess their robustness across subjects. The feature set extracted from a single EEG frontal derivation (F4-F3) was then used to train and test a two-step deep learning model that combines Long Short-Term Memory (LSTM) and dense layers for 5-class sleep stage classification, utilizing attention and augmentation mechanisms to mitigate the natural imbalance of the feature set. The results-overall accuracies of 93.5% and 94.7% using the reduced feature sets (94% and 98% cumulative explained variance, respectively) and 97.9% using the complete feature set-demonstrate the feasibility of obtaining a reliable classification using a single EEG derivation, mainly for unobtrusive, home-based sleep monitoring systems.",
       "doi": "10.3390/s25196021",
       "pmid": "41094844",
@@ -207,7 +230,7 @@
       "venue": "arXiv (Cornell University)",
       "year": 2025,
       "url": "https://doi.org/10.48550/arxiv.2510.07960",
-      "cited_by": 0,
+      "cited_by": 1,
       "abstract": "Wearable EEG devices have emerged as a promising alternative to polysomnography (PSG). As affordable and scalable solutions, their widespread adoption results in the collection of massive volumes of unlabeled data that cannot be analyzed by clinicians at scale. Meanwhile, the recent success of deep learning for sleep scoring has relied on large annotated datasets. Self-supervised learning (SSL) offers an opportunity to bridge this gap, leveraging unlabeled signals to address label scarcity and reduce annotation effort. In this paper, we present the first systematic evaluation of SSL for sleep staging using wearable EEG. We introduce a structured benchmarking framework encompassing a range of SSL paradigms and propose a specialized pipeline tailored to the wearable EEG domain, evaluating them on two sleep databases acquired with the Ikon Sleep wearable headband: BOAS, a high-quality benchmark containing PSG and wearable EEG recordings with consensus labels, and HOGAR, a large collection of home-based, self-recorded, and unlabeled recordings. Three evaluation scenarios are defined to study label efficiency, representation quality, and cross-dataset generalization. Results show that SSL consistently improves classification performance by up to 10% over supervised baselines, with gains particularly evident when labeled data is scarce. SSL achieves clinical-grade accuracy above 80% leveraging only 5% to 10% of labeled data, while the supervised approach requires twice the labels. Additionally, the proposed domain-specific SSL pipeline outperforms the evaluated general-purpose EEG foundation models across all scenarios. Our findings demonstrate the potential of SSL to enable label-efficient sleep staging with wearable EEG, reducing reliance on manual annotations and advancing the development of affordable sleep monitoring systems.",
       "doi": "10.48550/arxiv.2510.07960",
       "pmid": null,
@@ -252,6 +275,31 @@
       }
     },
     {
+      "title": "LaBraM at Scale: Scaling Data and Models for EEG Pretraining",
+      "author": "Junyu Pan, Ruicheng Yin, Bao‐Liang Lu, Dongsheng Li, Wei-Long Zheng, Yansen Wang",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2611.03165",
+      "cited_by": 0,
+      "abstract": "LaBraM, an early EEG foundation model, demonstrated that large-scale EEG pretraining can yield strong representations for diverse downstream tasks. Building on this foundation, we expand pretraining data and model capacity while retaining its core encoder and objective. We train ten encoders with 5.8 million to 1.97 billion parameters on three EEG collections spanning 25,067 to 79,910 hours, adapting signal preparation and training to heterogeneous recordings. Across 23 tasks, Atom-L* reaches 59.05% mean balanced accuracy at its best evaluated full fine-tuning (Full-FT) checkpoint, 3.61 percentage points above the strongest baseline EEG foundation model. Quark-G leads linear probing (LP) at 54.33%, a 1.24-point margin. Both also lead average task rank. At the last evaluated checkpoints, larger encoders improve Full-FT more consistently than LP, and stronger LP does not guarantee stronger Full-FT. Preserving patch structure improves LP over average pooling. Data-fraction experiments suggest capacity-dependent saturation, while checkpoint trajectories show that downstream performance can decline as pretraining loss falls. Joint classification with a shared Qwen3 readout reaches 50.50% with Molecule-H and Qwen3-8B; increasing language-model size provides no consistent gain. These results demonstrate the value of scaling LaBraM and the importance of matching pretraining scale to downstream adaptation.",
+      "doi": "10.48550/arxiv.2611.03165",
+      "pmid": null,
+      "openalex_id": "W7225188755",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds005555",
+      "confidence_scoring": {
+        "confidence_score": 0.5066253429651262,
+        "similarity_score": 0.4386366605758667,
+        "citation_text_length": 1625,
+        "dataset_text_length": 2342,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Sleep-Spindle-Rich Windows Are Associated With Local Meta-Noetic Phase-Space Shifts in N2 Sleep",
       "author": "Robin Langell",
       "venue": "Zenodo (CERN European Organization for Nuclear Research)",
@@ -279,17 +327,17 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-11-02T12:39:10.829935+00:00",
+    "scoring_date": "2026-11-10T12:37:27.334139+00:00",
     "dataset_text_length": 2342,
-    "num_citations_scored": 6,
+    "num_citations_scored": 8,
     "summary_stats": {
-      "mean_confidence": 0.5908749003708363,
-      "median_confidence": 0.6338218237459661,
-      "std_confidence": 0.2144969069981281,
+      "mean_confidence": 0.5732930981554092,
+      "median_confidence": 0.5240862060338259,
+      "std_confidence": 0.18836801636290346,
       "min_confidence": 0.2799058306217194,
       "max_confidence": 0.8260907739400866,
       "high_confidence_count": 3,
-      "medium_confidence_count": 1,
+      "medium_confidence_count": 3,
       "low_confidence_count": 2
     }
   }

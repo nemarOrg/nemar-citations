@@ -1,10 +1,10 @@
 {
   "dataset_id": "on004572",
-  "num_citations": 3,
-  "date_last_updated": "2026-11-02T12:15:25.877370+00:00",
+  "num_citations": 6,
+  "date_last_updated": "2026-11-10T12:13:53.786305+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
-    "fetch_date": "2026-11-02T11:50:54.635000+00:00",
+    "fetch_date": "2026-11-10T11:50:19.451460+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -63,8 +63,8 @@
       "on004572",
       "ds004572"
     ],
-    "num_accession_mentions": 3,
-    "num_dataset_citations": 3,
+    "num_accession_mentions": 6,
+    "num_dataset_citations": 6,
     "num_datapaper_citations": 0
   },
   "citation_details": [
@@ -74,7 +74,7 @@
       "venue": "Psychophysiology",
       "year": 2025,
       "url": "https://doi.org/10.1111/psyp.70183",
-      "cited_by": 0,
+      "cited_by": 2,
       "abstract": "Expectancy theory of hypnosis posits that any procedure can serve as a hypnotic induction provided it is labeled as \"hypnosis\". The present study explored this hypothesis by contrasting the effects of two conventional and two unconventional (placebo) hypnotic inductions on hypnotic experiences and electrophysiological correlates. In a 2 × 2 balanced placebo design, all participants were exposed to four conditions: conventional induction labeled as \"hypnosis\", conventional induction labeled as \"control\", unconventional induction labeled as \"hypnosis\", and unconventional induction labeled as \"control\". EEG was recorded from 61 channels. We computed EEG features that were identified in previous studies as correlates of hypnosis or hypnotizability. Consistent with the predictions of expectancy theory, we found that labeling of the procedure was most influential in determining subjective hypnosis depth, and one of the unconventional (placebo) inductions, \"white noise hypnosis\", evoked comparable hypnosis depth to the conventional hypnotic inductions. However, contrary to its predictions, \"embedded hypnosis\", another unconventional induction, evoked smaller hypnosis depth reports than the other three inductions. Both relaxation and embedded induction procedures showed decreased gamma power in the midline occipital area. Most EEG features we explored were comparable between conventional and unconventional induction conditions, but labeling also seemed to have no effect on EEG changes, which is contrary to the prediction of the expectancy theory. Possible exceptions were a negative effect of conventional induction on functional connectivity between the O1-Pz channels in the theta band, and a decrease in anterior and posterior alpha power in trials labeled \"hypnosis\". However, these effects were inconclusive. Overall, our results provide only partial support for the expectancy theory of hypnosis. The most promising EEG correlate of hypnosis based on our results is decreased occipital gamma power. However, our findings should be considered exploratory. Confirmatory research is required to strengthen our confidence in these effects. TRIAL REGISTRATION: The research plan of this study was registered on the Open Science Framework (https://osf.io/kugdf) before any data collection. The data collection of the first 9 participants was not in accordance with the research plan due to a programming error. The data from these trials was not used in the confirmatory analysis. Consequently, we made changes to the sampling plan and the analysis plan. The altered version of the research plan had been registered at the Open Science Framework (https://osf.io/wvhda) before any new data was collected.",
       "doi": "10.1111/psyp.70183",
       "pmid": "41204701",
@@ -88,6 +88,31 @@
         "confidence_score": 0.7793291938304902,
         "similarity_score": 0.6747438907623291,
         "citation_text_length": 1847,
+        "dataset_text_length": 1723,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Laya: A LeJEPA Approach to EEG via Latent Prediction over Reconstruction",
+      "author": "Saarang Panchavati, Uddhav Panchavati, Hiroki Nariai, Corey Arnold, William F Speier",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2603.16281",
+      "cited_by": 8,
+      "abstract": "Electroencephalography (EEG) is a widely used tool for studying brain function, with applications in clinical neuroscience, diagnosis, and brain-computer interfaces (BCIs). Recent EEG foundation models trained on large unlabeled corpora aim to learn transferable representations, but their effectiveness remains unclear; reported improvements over smaller task-specific models are often modest, sensitive to downstream adaptation and fine-tuning strategies, and limited under linear probing. We hypothesize that one contributing factor is the reliance on signal reconstruction as the primary self-supervised learning (SSL) objective, which biases representations toward high-variance artifacts rather than task-relevant neural structure. To address this limitation, we explore an SSL paradigm based on Joint Embedding Predictive Architectures (JEPA), which learn by predicting latent representations instead of reconstructing raw signals. We introduce Laya, the first EEG foundation model based on LeJEPA. We show that latent prediction yields representations that encode semantic structure in EEG: Laya embeddings track clinically meaningful state changes such as seizure onset, are resilient to noise, and achieve the strongest mean clinical accuracy under frozen linear probing, with particular gains on tasks where relevant neural patterns are subtle and easily obscured by artifacts. Controlled ablations against matched MAE variants confirm that the choice of pretraining objective, rather than architecture or data, is the primary driver of these gains.",
+      "doi": "10.48550/arxiv.2603.16281",
+      "pmid": null,
+      "openalex_id": "W7138972657",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004572",
+      "confidence_scoring": {
+        "confidence_score": 0.49482393801212315,
+        "similarity_score": 0.42841899394989014,
+        "citation_text_length": 1721,
         "dataset_text_length": 1723,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -113,6 +138,56 @@
         "confidence_score": 0.46218020439147955,
         "similarity_score": 0.40015602111816406,
         "citation_text_length": 1476,
+        "dataset_text_length": 1723,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "EEGDash Corpus: A Training-Ready Public Corpus for EEG Foundation Models",
+      "author": "Kuber Shahi, Bruno Aristimunha, Arnaud Delorme A",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2611.06356",
+      "cited_by": 0,
+      "abstract": "Foundation models for electroencephalography (EEG) are pretrained on tens of thousands of hours of recordings, and their accuracy grows with that amount. Such data is hard to assemble. The largest sources are clinical archives that cannot be redistributed, and the public sources are spread over several archives, file formats, and licences. We release eegdash-corpus-v0, a training-ready corpus of 77 public EEG datasets, as the gated Hugging Face dataset EEGDash/eegdash-corpus-v0 with the SHA-256 of every file. REVE, the largest published EEG foundation model, names 89 datasets as its pretraining corpus. Twelve cannot be redistributed: four clinical archives that hold 82% of its hours, and eight under no-derivatives licences. The corpus holds the 76 others that REVE's sampling rate allows and one more from REVE's release card: 77 datasets, 14,075 hours from 7,272 subjects, 5.0 million 10-second samples and 6.21 billion tokens per epoch. Every dataset is fetched through EEGDash, converted once with REVE's recipe, and stored in its own buckets of a chunked Zarr store with its licence recorded beside it, so a model can train on the whole store or on any subset of datasets. To test that the store pretrains a model, we retrain REVE-Base from scratch twice with the authors' code, changed only in how it reads data, and score it on seven public OpenEEGBench tasks. It reaches 0.331 under linear probing and 0.273 after fine-tuning, against 0.333 and 0.325 for the released model and 0.200 and 0.205 for an untrained encoder. The converter, the conversion reports, and the loader changes are released with the corpus.",
+      "doi": "10.48550/arxiv.2611.06356",
+      "pmid": null,
+      "openalex_id": "W7225336390",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004572",
+      "confidence_scoring": {
+        "confidence_score": 0.5177065086364746,
+        "similarity_score": 0.4482307434082031,
+        "citation_text_length": 1685,
+        "dataset_text_length": 1723,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "REVE: A Foundation Model for EEG - Adapting to Any Setup with Large-Scale Pretraining on 25,000 Subjects",
+      "author": "Yassine El Ouahidi, Jonathan Lys, Philipp Thölke, Nicolas Farrugia, Bastien Pasdeloup, Vincent Gripon, Karim Jerbi, Giulia Lioi",
+      "venue": "neural information processing systems",
+      "year": 2025,
+      "url": "https://doi.org/10.52202/085713-0760",
+      "cited_by": 66,
+      "abstract": "Foundation models have transformed AI by reducing reliance on task-specific data through large-scale pretraining. While successful in language and vision, their adoption in EEG has lagged due to the heterogeneity of public datasets, which are collected under varying protocols, devices, and electrode configurations. Existing EEG foundation models struggle to generalize across these variations, often restricting pretraining to a single setup, resulting in suboptimal performance, in particular under linear probing. We present REVE (Representation for EEG with Versatile Embeddings), a pretrained model explicitly designed to generalize across diverse EEG signals. REVE introduces a novel 4D positional encoding scheme that enables it to process signals of arbitrary length and electrode arrangement. Using a masked autoencoding objective, we pretrain REVE on over 60,000 hours of EEG data from 92 datasets spanning 25,000 subjects, representing the largest EEG pretraining effort to date. REVE achieves state-of-the-art results on 10 downstream EEG tasks, including motor imagery classification, seizure detection, sleep staging, cognitive load estimation, and emotion recognition. With little to no fine-tuning, it demonstrates strong generalization, and nuanced spatio-temporal modeling. We release code, pretrained weights, and tutorials to support standardized EEG research and accelerate progress in clinical neuroscience.",
+      "doi": "10.52202/085713-0760",
+      "pmid": null,
+      "openalex_id": "W7197020048",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004572",
+      "confidence_scoring": {
+        "confidence_score": 0.5039077167212963,
+        "similarity_score": 0.43628373742103577,
+        "citation_text_length": 1737,
         "dataset_text_length": 1723,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -146,17 +221,17 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-11-02T12:35:22.969346+00:00",
+    "scoring_date": "2026-11-10T12:33:32.907583+00:00",
     "dataset_text_length": 1723,
-    "num_citations_scored": 3,
+    "num_citations_scored": 6,
     "summary_stats": {
-      "mean_confidence": 0.5695801216363908,
-      "median_confidence": 0.46723096668720254,
-      "std_confidence": 0.1483293239487866,
+      "mean_confidence": 0.5375297547131778,
+      "median_confidence": 0.49936582736670976,
+      "std_confidence": 0.1098738916462104,
       "min_confidence": 0.46218020439147955,
       "max_confidence": 0.7793291938304902,
       "high_confidence_count": 1,
-      "medium_confidence_count": 2,
+      "medium_confidence_count": 5,
       "low_confidence_count": 0
     }
   }

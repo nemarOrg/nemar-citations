@@ -1,10 +1,10 @@
 {
   "dataset_id": "on005795",
-  "num_citations": 5,
-  "date_last_updated": "2026-11-02T12:16:50.516213+00:00",
+  "num_citations": 7,
+  "date_last_updated": "2026-11-10T12:15:20.003678+00:00",
   "metadata": {
-    "total_cumulative_citations": 1,
-    "fetch_date": "2026-11-02T12:03:04.705556+00:00",
+    "total_cumulative_citations": 0,
+    "fetch_date": "2026-11-10T12:02:20.735888+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 1,
@@ -49,8 +49,8 @@
       "on005795",
       "ds005795"
     ],
-    "num_accession_mentions": 5,
-    "num_dataset_citations": 5,
+    "num_accession_mentions": 7,
+    "num_dataset_citations": 7,
     "num_datapaper_citations": 0
   },
   "citation_details": [
@@ -99,6 +99,56 @@
         "confidence_score": 0.5453172071278096,
         "similarity_score": 0.47213611006736755,
         "citation_text_length": 1334,
+        "dataset_text_length": 2430,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "A Scaling Study for fMRI Foundation Models",
+      "author": "Wenhao Ye, Xuanye Pan, Junfeng Xia, Junxiang Zhang, Mo Wang, Quanying Liu",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2609.27232",
+      "cited_by": 1,
+      "abstract": "Scaling laws have guided large-model development in computer vision and natural language processing, but the relationships among data, model size, and compute remain unclear for functional magnetic resonance imaging (fMRI) foundation models. Here, we conduct a controlled empirical study using pretraining data from more than 200 source datasets and over 10,000 GPU-hours of experiments. Holding the pretraining framework and downstream protocol fixed, we vary pretraining data size, model size, and training duration. Downstream performance generally improves with compute, yet models using similar compute can perform substantially differently. Additional pretraining data bring larger gains at larger model sizes, suggesting that data and model size should be scaled together. At matched compute, increasing pretraining data benefits more tasks than increasing model size, although the pattern varies across tasks. We then use in-distribution (ID) downstream performance to select the combination of pretraining data size, model size, and training duration at two fixed compute budgets. The resulting models are locked before out-of-distribution (OOD) evaluation. They achieve the highest average performance across the evaluated OOD tasks among the compared fMRI foundation models while using less pretraining compute. Overall, our results show that compute alone does not characterize fMRI scaling: performance depends on how pretraining data, model size, and training duration are combined.",
+      "doi": "10.48550/arxiv.2609.27232",
+      "pmid": null,
+      "openalex_id": "W7214239549",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds005795",
+      "confidence_scoring": {
+        "confidence_score": 0.49990168690681464,
+        "similarity_score": 0.4328153133392334,
+        "citation_text_length": 1676,
+        "dataset_text_length": 2430,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "BrainPFN: Amortized Brain-Behaviour Prediction via Prior-Data Fitted Networks",
+      "author": "Carlo Alberto Barbano, Demián Wassermann",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2611.06934",
+      "cited_by": 0,
+      "abstract": "The standard approach to predicting behavioral phenotypes from functional MRI is represented by Kernel Ridge Regression (KRR) applied on functional connectivity (FC) matrices. However, this approach is limited: separate models must be fit and tuned for every score and cohort, they do not transfer across datasets, and accuracy degrades sharply when only a handful of subjects are available, as is typical of clinical or cognitive studies. Despite an increasing interest in developing brain foundation models, none has consistently outperformed KRR on behaviour prediction; most reported gains come from easier targets such as age, sex, or diagnosis rather than continuous behavioural scores. We introduce BrainPFN, a Prior Data Fitted Network for brain behaviour regression. BrainPFN is meta-trained on a domain-specific prior built from ~7k real FC matrices, from which we sample one billion synthetic training samples. At inference, a labelled context is simply passed through the network in a single forward pass, with no per-score or per-cohort refitting required. Across four independent cohorts, BrainPFN beats KRR on small sample prediction, and leads recent foundation models pre-trained at four to nine times larger scale. Our meta-training pool, aggregated from open repositories, is a fraction of the size of the corpora behind competing models, most of which sit behind restrictive data use agreements such as UK Biobank. We release this pool publicly alongside code and checkpoints, showing that a modest, openly available pool can match or beat models trained at Biobank scale.",
+      "doi": "10.48550/arxiv.2611.06934",
+      "pmid": null,
+      "openalex_id": "W7215313644",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds005795",
+      "confidence_scoring": {
+        "confidence_score": 0.47724643707275394,
+        "similarity_score": 0.41320037841796875,
+        "citation_text_length": 1682,
         "dataset_text_length": 2430,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -182,17 +232,17 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-11-02T12:39:39.855932+00:00",
+    "scoring_date": "2026-11-10T12:37:57.464018+00:00",
     "dataset_text_length": 2430,
-    "num_citations_scored": 5,
+    "num_citations_scored": 7,
     "summary_stats": {
-      "mean_confidence": 0.5535657505989076,
-      "median_confidence": 0.5705307108163834,
-      "std_confidence": 0.048984861830206894,
+      "mean_confidence": 0.5349966967105866,
+      "median_confidence": 0.5453172071278096,
+      "std_confidence": 0.05111385673952818,
       "min_confidence": 0.46489163473248485,
       "max_confidence": 0.6106036072969437,
       "high_confidence_count": 0,
-      "medium_confidence_count": 5,
+      "medium_confidence_count": 7,
       "low_confidence_count": 0
     }
   }

@@ -1,10 +1,10 @@
 {
   "dataset_id": "on004561",
-  "num_citations": 1,
-  "date_last_updated": "2026-11-02T12:15:24.898347+00:00",
+  "num_citations": 3,
+  "date_last_updated": "2026-11-10T12:13:52.655670+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
-    "fetch_date": "2026-11-02T11:50:45.727110+00:00",
+    "fetch_date": "2026-11-10T11:50:07.552326+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 1,
@@ -43,8 +43,8 @@
       "on004561",
       "ds004561"
     ],
-    "num_accession_mentions": 1,
-    "num_dataset_citations": 1,
+    "num_accession_mentions": 3,
+    "num_dataset_citations": 3,
     "num_datapaper_citations": 0
   },
   "citation_details": [
@@ -72,21 +72,71 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "EEGDash Corpus: A Training-Ready Public Corpus for EEG Foundation Models",
+      "author": "Kuber Shahi, Bruno Aristimunha, Arnaud Delorme A",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2611.06356",
+      "cited_by": 0,
+      "abstract": "Foundation models for electroencephalography (EEG) are pretrained on tens of thousands of hours of recordings, and their accuracy grows with that amount. Such data is hard to assemble. The largest sources are clinical archives that cannot be redistributed, and the public sources are spread over several archives, file formats, and licences. We release eegdash-corpus-v0, a training-ready corpus of 77 public EEG datasets, as the gated Hugging Face dataset EEGDash/eegdash-corpus-v0 with the SHA-256 of every file. REVE, the largest published EEG foundation model, names 89 datasets as its pretraining corpus. Twelve cannot be redistributed: four clinical archives that hold 82% of its hours, and eight under no-derivatives licences. The corpus holds the 76 others that REVE's sampling rate allows and one more from REVE's release card: 77 datasets, 14,075 hours from 7,272 subjects, 5.0 million 10-second samples and 6.21 billion tokens per epoch. Every dataset is fetched through EEGDash, converted once with REVE's recipe, and stored in its own buckets of a chunked Zarr store with its licence recorded beside it, so a model can train on the whole store or on any subset of datasets. To test that the store pretrains a model, we retrain REVE-Base from scratch twice with the authors' code, changed only in how it reads data, and score it on seven public OpenEEGBench tasks. It reaches 0.331 under linear probing and 0.273 after fine-tuning, against 0.333 and 0.325 for the released model and 0.200 and 0.205 for an untrained encoder. The converter, the conversion reports, and the loader changes are released with the corpus.",
+      "doi": "10.48550/arxiv.2611.06356",
+      "pmid": null,
+      "openalex_id": "W7225336390",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004561",
+      "confidence_scoring": {
+        "confidence_score": 0.6018896207213402,
+        "similarity_score": 0.5211165547370911,
+        "citation_text_length": 1685,
+        "dataset_text_length": 1074,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "REVE: A Foundation Model for EEG - Adapting to Any Setup with Large-Scale Pretraining on 25,000 Subjects",
+      "author": "Yassine El Ouahidi, Jonathan Lys, Philipp Thölke, Nicolas Farrugia, Bastien Pasdeloup, Vincent Gripon, Karim Jerbi, Giulia Lioi",
+      "venue": "neural information processing systems",
+      "year": 2025,
+      "url": "https://doi.org/10.52202/085713-0760",
+      "cited_by": 66,
+      "abstract": "Foundation models have transformed AI by reducing reliance on task-specific data through large-scale pretraining. While successful in language and vision, their adoption in EEG has lagged due to the heterogeneity of public datasets, which are collected under varying protocols, devices, and electrode configurations. Existing EEG foundation models struggle to generalize across these variations, often restricting pretraining to a single setup, resulting in suboptimal performance, in particular under linear probing. We present REVE (Representation for EEG with Versatile Embeddings), a pretrained model explicitly designed to generalize across diverse EEG signals. REVE introduces a novel 4D positional encoding scheme that enables it to process signals of arbitrary length and electrode arrangement. Using a masked autoencoding objective, we pretrain REVE on over 60,000 hours of EEG data from 92 datasets spanning 25,000 subjects, representing the largest EEG pretraining effort to date. REVE achieves state-of-the-art results on 10 downstream EEG tasks, including motor imagery classification, seizure detection, sleep staging, cognitive load estimation, and emotion recognition. With little to no fine-tuning, it demonstrates strong generalization, and nuanced spatio-temporal modeling. We release code, pretrained weights, and tutorials to support standardized EEG research and accelerate progress in clinical neuroscience.",
+      "doi": "10.52202/085713-0760",
+      "pmid": null,
+      "openalex_id": "W7197020048",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004561",
+      "confidence_scoring": {
+        "confidence_score": 0.5728194084763527,
+        "similarity_score": 0.49594753980636597,
+        "citation_text_length": 1737,
+        "dataset_text_length": 1074,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-11-02T12:35:20.056217+00:00",
+    "scoring_date": "2026-11-10T12:33:29.813641+00:00",
     "dataset_text_length": 1074,
-    "num_citations_scored": 1,
+    "num_citations_scored": 3,
     "summary_stats": {
-      "mean_confidence": 0.4708608363568783,
-      "median_confidence": 0.4708608363568783,
-      "std_confidence": 0.0,
+      "mean_confidence": 0.5485232885181904,
+      "median_confidence": 0.5728194084763527,
+      "std_confidence": 0.05618340007969865,
       "min_confidence": 0.4708608363568783,
-      "max_confidence": 0.4708608363568783,
+      "max_confidence": 0.6018896207213402,
       "high_confidence_count": 0,
-      "medium_confidence_count": 1,
+      "medium_confidence_count": 3,
       "low_confidence_count": 0
     }
   }

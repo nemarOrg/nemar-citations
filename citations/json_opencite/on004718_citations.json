@@ -1,10 +1,10 @@
 {
   "dataset_id": "on004718",
-  "num_citations": 21,
-  "date_last_updated": "2026-11-02T12:15:38.362086+00:00",
+  "num_citations": 24,
+  "date_last_updated": "2026-11-10T12:14:06.802540+00:00",
   "metadata": {
-    "total_cumulative_citations": 128,
-    "fetch_date": "2026-11-02T11:52:48.560987+00:00",
+    "total_cumulative_citations": 121,
+    "fetch_date": "2026-11-10T11:52:10.970367+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -59,9 +59,9 @@
       "on004718",
       "ds004718"
     ],
-    "num_accession_mentions": 2,
-    "num_dataset_citations": 2,
-    "num_datapaper_citations": 19
+    "num_accession_mentions": 4,
+    "num_dataset_citations": 4,
+    "num_datapaper_citations": 20
   },
   "citation_details": [
     {
@@ -70,7 +70,7 @@
       "venue": "Nature Communications",
       "year": 2025,
       "url": "https://doi.org/10.1038/s41467-025-65499-0",
-      "cited_by": 51,
+      "cited_by": 52,
       "abstract": "While deep learning has enabled the decoding of language from intracranial brain recordings, achieving this with non-invasive recordings remains an open challenge. We introduce a deep learning pipeline to decode individual words from electro- (EEG) and magneto-encephalography (MEG) signals. We evaluate our approach on seven public datasets and two datasets which we collect ourselves, amounting to a total of 723 participants reading or listening to five million words in three languages. Our model outperforms existing methods consistently across participants, devices, languages, and tasks, and can decode words absent from the training set. Our analyses highlight the importance of the recording device and experimental protocol: MEG and reading are easier to decode than EEG and listening, and decoding performance consistently increases with the amount of data used for training and for averaging during testing. Overall, our findings delineate the path and remaining challenges towards buildi",
       "doi": "10.1038/s41467-025-65499-0",
       "pmid": "41298362",
@@ -93,7 +93,7 @@
       "venue": "ArXiv",
       "year": 2024,
       "url": "https://doi.org/10.48550/arXiv.2410.09230",
-      "cited_by": 45,
+      "cited_by": 46,
       "abstract": "Speech language models align with human brain responses to natural language to an impressive degree. However, current models rely heavily on low-level speech features, indicating they lack brain-relevant semantics which limits their utility as model organisms of semantic processing in the brain. In this work, we address this limitation by inducing brain-relevant bias directly into the models via fine-tuning with fMRI recordings of people listening to natural stories, a process we name brain-tuning. After testing it on 3 different pretrained model families, we show that brain-tuning not only improves overall alignment with new brain recordings in semantic language regions, but also reduces the reliance on low-level speech features for this alignment. Excitingly, we further show that brain-tuning leads to 1) consistent improvements in performance on a range of downstream tasks and 2) a representational space with increased semantic preference. Our results provide converging evidence, for",
       "doi": "10.48550/arXiv.2410.09230",
       "pmid": null,
@@ -205,21 +205,21 @@
     {
       "title": "HDND: Hierarchical Dynamic Neural Decoding for Multilingual Word/Character Retrieval from Non-Invasive Brain Recordings",
       "author": "Yue-Yang Li, Shu-Ran Chen, W. Siok, Ni-Zhuan Wang",
-      "venue": "n/a",
+      "venue": "ArXiv",
       "year": 2026,
-      "url": "n/a",
+      "url": "https://doi.org/10.48550/arXiv.2609.24095",
       "cited_by": 1,
       "abstract": "While deep learning has enabled language decoding from intracranial brain recordings, extending this capability to non-invasive recordings remains an unresolved challenge. Decoding individual words from non-invasive brain recordings is particularly difficult, as word-level neural evidence is weak, temporally distributed, and entangled with acoustic, lexical, and semantic structure. Existing retrieval pipelines often collapse these factors into a single representation, potentially discarding information available at intermediate temporal scales. Here, we introduce Hierarchical Dynamic Neural Decoding (HDND), a hierarchical dynamic decoding framework that treats word decoding as structured refinement rather than flat label retrieval. HDND combines intermediate neural representations, contextual semantic predictions, and, for selected reading conditions, an auxiliary character-form objective. We evaluate HDND across seven electroencephalography (EEG) and magnetoencephalography (MEG) datas",
-      "doi": null,
+      "doi": "10.48550/arXiv.2609.24095",
       "pmid": null,
       "openalex_id": null,
       "source_doi": "10.1101/2024.04.24.590842",
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5255555127561092,
-        "similarity_score": 0.45502641797065735,
-        "citation_text_length": 1210,
+        "confidence_score": 0.5188888934254646,
+        "similarity_score": 0.44925445318222046,
+        "citation_text_length": 1212,
         "dataset_text_length": 2344,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -249,6 +249,52 @@
       }
     },
     {
+      "title": "BrainScape: An open-source framework for integrating and preprocessing anatomical MRI datasets",
+      "author": "Muhammad Nabi Yasinzai, R. Mito, Mangor Pedersen",
+      "venue": "Imaging Neuroscience",
+      "year": 2025,
+      "url": "https://doi.org/10.1162/imag.a.944",
+      "cited_by": 1,
+      "abstract": "Abstract MRI has revolutionized our ability to investigate and understand brain structure and function in health and disease. A large amount of MRI data is widely available to researchers, both from large-scale multi-site consortia and smaller site-specific datasets. This wealth of MRI data offers opportunities to advance our understanding of the brain, particularly through machine learning and deep learning approaches that rely on large sample sizes to reveal complex associations between brain organization and its behavioral and clinical associations. Many large-scale initiatives provide extensive datasets with sufficient statistical power to support reproducibility, but reproducibility alone does not ensure clinical relevance or broad generalizability due to narrow demographic representations and minimized dataset variability. Recent work highlights the need to embrace dataset variability and open-science collaborations for pooling heterogeneous datasets. Nevertheless, effectively in",
+      "doi": "10.1162/imag.a.944",
+      "pmid": "41143077",
+      "openalex_id": null,
+      "source_doi": "10.1101/2024.04.24.590842",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5323165851831437,
+        "similarity_score": 0.4608801603317261,
+        "citation_text_length": 1201,
+        "dataset_text_length": 2344,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "LaBraM at Scale: Scaling Data and Models for EEG Pretraining",
+      "author": "Junyu Pan, Ruicheng Yin, Bao‐Liang Lu, Dongsheng Li, Wei-Long Zheng, Yansen Wang",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2611.03165",
+      "cited_by": 0,
+      "abstract": "LaBraM, an early EEG foundation model, demonstrated that large-scale EEG pretraining can yield strong representations for diverse downstream tasks. Building on this foundation, we expand pretraining data and model capacity while retaining its core encoder and objective. We train ten encoders with 5.8 million to 1.97 billion parameters on three EEG collections spanning 25,067 to 79,910 hours, adapting signal preparation and training to heterogeneous recordings. Across 23 tasks, Atom-L* reaches 59.05% mean balanced accuracy at its best evaluated full fine-tuning (Full-FT) checkpoint, 3.61 percentage points above the strongest baseline EEG foundation model. Quark-G leads linear probing (LP) at 54.33%, a 1.24-point margin. Both also lead average task rank. At the last evaluated checkpoints, larger encoders improve Full-FT more consistently than LP, and stronger LP does not guarantee stronger Full-FT. Preserving patch structure improves LP over average pooling. Data-fraction experiments sug",
+      "doi": "10.48550/arxiv.2611.03165",
+      "pmid": null,
+      "openalex_id": "W7225188755",
+      "source_doi": "10.1101/2024.04.24.590842",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.512645385414362,
+        "similarity_score": 0.4438488185405731,
+        "citation_text_length": 1205,
+        "dataset_text_length": 2344,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Neural Responses During Japanese Speech Listening at Different Playback Speeds: An Exploratory Functional MRI Study",
       "author": "Shunnosuke Shimizu, Ryo Kawamura, Kei Sasaki, Naoki Kodama",
       "venue": "Brain Sciences",
@@ -266,6 +312,29 @@
         "confidence_score": 0.6125897383689881,
         "similarity_score": 0.5303807258605957,
         "citation_text_length": 1226,
+        "dataset_text_length": 2344,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "BCCWJ-Brain: A Multi-Modal fMRI, MEG, and EEG Dataset of Naturalistic Japanese Reading",
+      "author": "Yushi Sugimoto, Masayuki Asahara, Hyeonjeong Jeong, Akitake Kanno, Masatoshi Koizumi, Yohei Oseki",
+      "venue": "bioRxiv (Cold Spring Harbor Laboratory)",
+      "year": 2026,
+      "url": "https://doi.org/10.64898/2026.07.05.736621",
+      "cited_by": 0,
+      "abstract": "Abstract We present the BCCWJ-Brain dataset, a multi-modal neuroimaging resource comprising functional magnetic resonance imaging (fMRI), magnetoencephalography (MEG), and electroencephalography (EEG) data recorded from native Japanese speakers reading newspaper articles from the Balanced Corpus of Contemporary Written Japanese (BCCWJ). Neural data were collected from 112 participants (36 fMRI, 35 MEG, and 41 EEG) as they read twenty newspaper articles presented in a Rapid Serial Visual Presentation (RSVP) paradigm. By providing three complementary neuroimaging modalities collected under identical naturalistic reading stimuli, this dataset provides a cognitive benchmark for computational models such as large language models. The dataset is publicly available on the OpenNeuro platform, offering a valuable resource for neuroscience, natural language processing, and related research fields.",
+      "doi": "10.64898/2026.07.05.736621",
+      "pmid": null,
+      "openalex_id": "W7167787497",
+      "source_doi": "10.1101/2024.04.24.590842",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6534572249650956,
+        "similarity_score": 0.5657638311386108,
+        "citation_text_length": 1161,
         "dataset_text_length": 2344,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -318,6 +387,29 @@
       }
     },
     {
+      "title": "Multi-Modal EEG Datasets and Benchmarks for EEG-Based Neural Decoding Research",
+      "author": "Szu Chi Chiu, Zhige Chen, Jibin Wu, Kay Chen Tan",
+      "venue": "International Conference on Computational Intelligence and Security (CIS)",
+      "year": 2025,
+      "url": "https://doi.org/10.1109/cis69366.2025.11433934",
+      "cited_by": 0,
+      "abstract": "The growing availability of publicly shared EEG datasets involving audio, video, and linguistic stimuli offers great potential for advancing multi-modal neural decoding research. However, significant heterogeneity in file formats, annotation structures, and temporal alignment across datasets has hindered their direct usability and cross-dataset benchmarking. In this study, we present a unified preprocessing pipeline applied to six diverse EEG datasets that cover auditory attention, language comprehension, and visual perception. The proposed pipeline standardizes EEG representations and multimodal annotations, allowing the resulting data to be aligned in time and directly usable for large-scale modeling tasks. We summarize the resulting unified database and highlight its consistency in structure and format. To demonstrate usability, we provide benchmark classification results on label-eligible datasets using both traditional methods (rLDA) and deep learning (EEGNet). The resulting resou",
+      "doi": "10.1109/cis69366.2025.11433934",
+      "pmid": null,
+      "openalex_id": "W7138958187",
+      "source_doi": "10.1101/2024.04.24.590842",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6207804465293885,
+        "similarity_score": 0.5374722480773926,
+        "citation_text_length": 1238,
+        "dataset_text_length": 2344,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
       "title": "Collective Brain Alignment During Story Reception: Shared Neural Responses in French, Chinese, and English Listeners of Le Petit Prince, 小王子, or The Little Prince",
       "author": "Ralf Schmälzle, Sue Lim, Nolan T. Jahn, Shelby Wilcox, Qijia Ye",
       "venue": "Asian Communication Research",
@@ -364,29 +456,6 @@
       }
     },
     {
-      "title": "BCCWJ-Brain: A Multi-Modal fMRI, MEG, and EEG Dataset of Naturalistic Japanese Reading",
-      "author": "Yushi Sugimoto, M. Asahara, Hyeonjeong Jeong, A. Kanno, Masatoshi Koizumi, Yohei Oseki",
-      "venue": "bioRxiv",
-      "year": 2026,
-      "url": "https://doi.org/10.64898/2026.07.05.736621",
-      "cited_by": 0,
-      "abstract": "We present the BCCWJ-Brain dataset, a multi-modal neuroimaging resource comprising functional magnetic resonance imaging (fMRI), magnetoencephalography (MEG), and electroencephalography (EEG) data recorded from native Japanese speakers reading newspaper articles from the Balanced Corpus of Contemporary Written Japanese (BCCWJ). Neural data were collected from 112 participants (36 fMRI, 35 MEG, and 41 EEG) as they read twenty newspaper articles presented in a Rapid Serial Visual Presentation (RSVP) paradigm. By providing three complementary neuroimaging modalities collected under identical naturalistic reading stimuli, this dataset provides a cognitive benchmark for computational models such as large language models. The dataset is publicly available on the OpenNeuro platform, offering a valuable resource for neuroscience, natural language processing, and related research fields.",
-      "doi": "10.64898/2026.07.05.736621",
-      "pmid": null,
-      "openalex_id": null,
-      "source_doi": "10.1101/2024.04.24.590842",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.6582278636097909,
-        "similarity_score": 0.5698942542076111,
-        "citation_text_length": 1109,
-        "dataset_text_length": 2344,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
       "title": "Brain-LLM Alignment Tracks Training Data, Not Typology",
       "author": "Dong-Xing Guo, Ji-Kun Wu, Siu-Ming Yiu",
       "venue": "ArXiv",
@@ -404,52 +473,6 @@
         "confidence_score": 0.5264102375507356,
         "similarity_score": 0.4557664394378662,
         "citation_text_length": 1136,
-        "dataset_text_length": 2344,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Multi-Modal EEG Datasets and Benchmarks for EEG-Based Neural Decoding Research",
-      "author": "Szu-Chi Chiu, Zhi-Ge Chen, Ji-Bin Wu, Kay Chen Tan",
-      "venue": "2025 21st International Conference on Computational Intelligence and Security (CIS)",
-      "year": 2025,
-      "url": "https://doi.org/10.1109/CIS69366.2025.11433934",
-      "cited_by": 0,
-      "abstract": "The growing availability of publicly shared EEG datasets involving audio, video, and linguistic stimuli offers great potential for advancing multi-modal neural decoding research. However, significant heterogeneity in file formats, annotation structures, and temporal alignment across datasets has hindered their direct usability and cross-dataset benchmarking. In this study, we present a unified preprocessing pipeline applied to six diverse EEG datasets that cover auditory attention, language comprehension, and visual perception. The proposed pipeline standardizes EEG representations and multimodal annotations, allowing the resulting data to be aligned in time and directly usable for large-scale modeling tasks. We summarize the resulting unified database and highlight its consistency in structure and format. To demonstrate usability, we provide benchmark classification results on label-eligible datasets using both traditional methods (rLDA) and deep learning (EEGNet). The resulting resou",
-      "doi": "10.1109/CIS69366.2025.11433934",
-      "pmid": null,
-      "openalex_id": null,
-      "source_doi": "10.1101/2024.04.24.590842",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.6280625599622728,
-        "similarity_score": 0.5437771081924438,
-        "citation_text_length": 1250,
-        "dataset_text_length": 2344,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "BrainScape: An open-source framework for integrating and preprocessing anatomical MRI datasets",
-      "author": "Muhammad Nabi Yasinzai, R. Mito, Mangor Pedersen",
-      "venue": "Imaging Neuroscience",
-      "year": 2025,
-      "url": "https://doi.org/10.1162/imag.a.944",
-      "cited_by": 0,
-      "abstract": "Abstract MRI has revolutionized our ability to investigate and understand brain structure and function in health and disease. A large amount of MRI data is widely available to researchers, both from large-scale multi-site consortia and smaller site-specific datasets. This wealth of MRI data offers opportunities to advance our understanding of the brain, particularly through machine learning and deep learning approaches that rely on large sample sizes to reveal complex associations between brain organization and its behavioral and clinical associations. Many large-scale initiatives provide extensive datasets with sufficient statistical power to support reproducibility, but reproducibility alone does not ensure clinical relevance or broad generalizability due to narrow demographic representations and minimized dataset variability. Recent work highlights the need to embrace dataset variability and open-science collaborations for pooling heterogeneous datasets. Nevertheless, effectively in",
-      "doi": "10.1162/imag.a.944",
-      "pmid": "41143077",
-      "openalex_id": null,
-      "source_doi": "10.1101/2024.04.24.590842",
-      "source_relation": "IsDescribedBy",
-      "discovery_backend": "opencite",
-      "confidence_scoring": {
-        "confidence_score": 0.5323165851831437,
-        "similarity_score": 0.4608801603317261,
-        "citation_text_length": 1201,
         "dataset_text_length": 2344,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -507,7 +530,7 @@
       "venue": "Scientific Data",
       "year": 2024,
       "url": "https://doi.org/10.1038/s41597-024-03745-8",
-      "cited_by": 10,
+      "cited_by": 13,
       "abstract": "Currently, the field of neurobiology of language is based on data from only a few Indo-European languages. The majority of this data comes from younger adults neglecting other age groups. Here we present a multimodal database which consists of task-based and resting state fMRI, structural MRI, and EEG data while participants over 65 years old listened to sections of the story The Little Prince in Cantonese. We also provide data on participants' language history, lifetime experiences, linguistic and cognitive skills. Audio and text annotations, including time-aligned speech segmentation and prosodic information, as well as word-by-word predictors such as frequency and part-of-speech tagging derived from natural language processing (NLP) tools are included in this database. Both MRI and EEG data diagnostics revealed that the data has good quality. This multimodal database could advance our understanding of spatiotemporal dynamics of language comprehension in the older population and help us study the effects of healthy aging on the relationship between brain and behaviour.",
       "doi": "10.1038/s41597-024-03745-8",
       "pmid": "39261552",
@@ -521,6 +544,56 @@
         "confidence_score": 1.0,
         "similarity_score": 0.931433379650116,
         "citation_text_length": 1344,
+        "dataset_text_length": 2344,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Laya: A LeJEPA Approach to EEG via Latent Prediction over Reconstruction",
+      "author": "Saarang Panchavati, Uddhav Panchavati, Hiroki Nariai, Corey Arnold, William F Speier",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2603.16281",
+      "cited_by": 8,
+      "abstract": "Electroencephalography (EEG) is a widely used tool for studying brain function, with applications in clinical neuroscience, diagnosis, and brain-computer interfaces (BCIs). Recent EEG foundation models trained on large unlabeled corpora aim to learn transferable representations, but their effectiveness remains unclear; reported improvements over smaller task-specific models are often modest, sensitive to downstream adaptation and fine-tuning strategies, and limited under linear probing. We hypothesize that one contributing factor is the reliance on signal reconstruction as the primary self-supervised learning (SSL) objective, which biases representations toward high-variance artifacts rather than task-relevant neural structure. To address this limitation, we explore an SSL paradigm based on Joint Embedding Predictive Architectures (JEPA), which learn by predicting latent representations instead of reconstructing raw signals. We introduce Laya, the first EEG foundation model based on LeJEPA. We show that latent prediction yields representations that encode semantic structure in EEG: Laya embeddings track clinically meaningful state changes such as seizure onset, are resilient to noise, and achieve the strongest mean clinical accuracy under frozen linear probing, with particular gains on tasks where relevant neural patterns are subtle and easily obscured by artifacts. Controlled ablations against matched MAE variants confirm that the choice of pretraining objective, rather than architecture or data, is the primary driver of these gains.",
+      "doi": "10.48550/arxiv.2603.16281",
+      "pmid": null,
+      "openalex_id": "W7138972657",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004718",
+      "confidence_scoring": {
+        "confidence_score": 0.4472504881024361,
+        "similarity_score": 0.387229859828949,
+        "citation_text_length": 1721,
+        "dataset_text_length": 2344,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "BrainPFN: Amortized Brain-Behaviour Prediction via Prior-Data Fitted Networks",
+      "author": "Carlo Alberto Barbano, Demián Wassermann",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2611.06934",
+      "cited_by": 0,
+      "abstract": "The standard approach to predicting behavioral phenotypes from functional MRI is represented by Kernel Ridge Regression (KRR) applied on functional connectivity (FC) matrices. However, this approach is limited: separate models must be fit and tuned for every score and cohort, they do not transfer across datasets, and accuracy degrades sharply when only a handful of subjects are available, as is typical of clinical or cognitive studies. Despite an increasing interest in developing brain foundation models, none has consistently outperformed KRR on behaviour prediction; most reported gains come from easier targets such as age, sex, or diagnosis rather than continuous behavioural scores. We introduce BrainPFN, a Prior Data Fitted Network for brain behaviour regression. BrainPFN is meta-trained on a domain-specific prior built from ~7k real FC matrices, from which we sample one billion synthetic training samples. At inference, a labelled context is simply passed through the network in a single forward pass, with no per-score or per-cohort refitting required. Across four independent cohorts, BrainPFN beats KRR on small sample prediction, and leads recent foundation models pre-trained at four to nine times larger scale. Our meta-training pool, aggregated from open repositories, is a fraction of the size of the corpora behind competing models, most of which sit behind restrictive data use agreements such as UK Biobank. We release this pool publicly alongside code and checkpoints, showing that a modest, openly available pool can match or beat models trained at Biobank scale.",
+      "doi": "10.48550/arxiv.2611.06934",
+      "pmid": null,
+      "openalex_id": "W7215313644",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004718",
+      "confidence_scoring": {
+        "confidence_score": 0.45104661449790007,
+        "similarity_score": 0.3905165493488312,
+        "citation_text_length": 1682,
         "dataset_text_length": 2344,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -554,17 +627,17 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-11-02T12:36:00.702831+00:00",
+    "scoring_date": "2026-11-10T12:34:11.574002+00:00",
     "dataset_text_length": 2344,
-    "num_citations_scored": 21,
+    "num_citations_scored": 24,
     "summary_stats": {
-      "mean_confidence": 0.572215980447474,
-      "median_confidence": 0.5390377879142761,
-      "std_confidence": 0.13382123445764382,
+      "mean_confidence": 0.5586982794168095,
+      "median_confidence": 0.5293634113669397,
+      "std_confidence": 0.1298461409718428,
       "min_confidence": 0.3776199339330197,
       "max_confidence": 1.0,
       "high_confidence_count": 2,
-      "medium_confidence_count": 18,
+      "medium_confidence_count": 21,
       "low_confidence_count": 1
     }
   }

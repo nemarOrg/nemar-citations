@@ -1,10 +1,10 @@
 {
   "dataset_id": "on005410",
-  "num_citations": 1,
-  "date_last_updated": "2026-11-02T11:59:37.967150+00:00",
+  "num_citations": 4,
+  "date_last_updated": "2026-11-10T12:14:54.233130+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
-    "fetch_date": "2026-11-02T11:59:37.967150+00:00",
+    "fetch_date": "2026-11-10T11:58:57.928396+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -57,11 +57,34 @@
       "on005410",
       "ds005410"
     ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 1
+    "num_accession_mentions": 1,
+    "num_dataset_citations": 1,
+    "num_datapaper_citations": 3
   },
   "citation_details": [
+    {
+      "title": "LaBraM at Scale: Scaling Data and Models for EEG Pretraining",
+      "author": "Junyu Pan, Ruicheng Yin, Bao‐Liang Lu, Dongsheng Li, Wei-Long Zheng, Yansen Wang",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2611.03165",
+      "cited_by": 0,
+      "abstract": "LaBraM, an early EEG foundation model, demonstrated that large-scale EEG pretraining can yield strong representations for diverse downstream tasks. Building on this foundation, we expand pretraining data and model capacity while retaining its core encoder and objective. We train ten encoders with 5.8 million to 1.97 billion parameters on three EEG collections spanning 25,067 to 79,910 hours, adapting signal preparation and training to heterogeneous recordings. Across 23 tasks, Atom-L* reaches 59.05% mean balanced accuracy at its best evaluated full fine-tuning (Full-FT) checkpoint, 3.61 percentage points above the strongest baseline EEG foundation model. Quark-G leads linear probing (LP) at 54.33%, a 1.24-point margin. Both also lead average task rank. At the last evaluated checkpoints, larger encoders improve Full-FT more consistently than LP, and stronger LP does not guarantee stronger Full-FT. Preserving patch structure improves LP over average pooling. Data-fraction experiments sug",
+      "doi": "10.48550/arxiv.2611.03165",
+      "pmid": null,
+      "openalex_id": "W7225188755",
+      "source_doi": "10.1101/2024.08.13.607803",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.47794767558574686,
+        "similarity_score": 0.4138075113296509,
+        "citation_text_length": 1205,
+        "dataset_text_length": 493,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
     {
       "title": "Behavioural avoidance to imagined conditioned stimuli in differential fear conditioning",
       "author": "Sharmili Mitra, Andrew L. Lyons, Marzieh Hajiloo, Steven G. Greening",
@@ -84,21 +107,69 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "La consolidation de la mémoire dans le conditionnement évaluatif : Impact de l'accès aux ressources cognitives selon le moment de l'apprentissage émotionnel",
+      "author": "Pierre Lyon",
+      "venue": "theses.fr (ABES)",
+      "year": 2025,
+      "url": "https://doi.org/10.70675/8520c235z30a5z4eb4z9400z7f7b13e8264f",
+      "cited_by": 0,
+      "abstract": "La consolidation de la mémoire dans le conditionnement évaluatif : Impact de l'accès aux ressources cognitives selon le moment de l'apprentissage émotionnel. Cette thèse étudie l'impact des ressources cognitives sur la consolidation du conditionnement évaluatif (CE). L'objectif est de comprendre comment une charge cognitive, appliquée avant, pendant ou après l'encodage, influence la stabilisation des associations entre stimulus conditionné et inconditionné (SC-SI). Après une revue des modèles du CE et de la mémoire (contiguïté, contingence, mémoire de travail, consolidation et reconsolidation), trois études expérimentales sont présentées. Elles examinent successivement l'effet d'une charge cognitive au moment de l'encodage, juste après l'apprentissage et à la suite d'une mobilisation cognitive préalable. Les résultats montrent que la disponibilité cognitive, selon son moment d'intervention, module différemment la force et la persistance des apprentissages affectifs. Ces données soutien",
+      "doi": "10.70675/8520c235z30a5z4eb4z9400z7f7b13e8264f",
+      "pmid": null,
+      "openalex_id": "W7152567222",
+      "source_doi": "10.1101/2024.08.13.607803",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.601145630478859,
+        "similarity_score": 0.5204724073410034,
+        "citation_text_length": 1222,
+        "dataset_text_length": 493,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Laya: A LeJEPA Approach to EEG via Latent Prediction over Reconstruction",
+      "author": "Saarang Panchavati, Uddhav Panchavati, Hiroki Nariai, Corey Arnold, William F Speier",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2603.16281",
+      "cited_by": 8,
+      "abstract": "Electroencephalography (EEG) is a widely used tool for studying brain function, with applications in clinical neuroscience, diagnosis, and brain-computer interfaces (BCIs). Recent EEG foundation models trained on large unlabeled corpora aim to learn transferable representations, but their effectiveness remains unclear; reported improvements over smaller task-specific models are often modest, sensitive to downstream adaptation and fine-tuning strategies, and limited under linear probing. We hypothesize that one contributing factor is the reliance on signal reconstruction as the primary self-supervised learning (SSL) objective, which biases representations toward high-variance artifacts rather than task-relevant neural structure. To address this limitation, we explore an SSL paradigm based on Joint Embedding Predictive Architectures (JEPA), which learn by predicting latent representations instead of reconstructing raw signals. We introduce Laya, the first EEG foundation model based on LeJEPA. We show that latent prediction yields representations that encode semantic structure in EEG: Laya embeddings track clinically meaningful state changes such as seizure onset, are resilient to noise, and achieve the strongest mean clinical accuracy under frozen linear probing, with particular gains on tasks where relevant neural patterns are subtle and easily obscured by artifacts. Controlled ablations against matched MAE variants confirm that the choice of pretraining objective, rather than architecture or data, is the primary driver of these gains.",
+      "doi": "10.48550/arxiv.2603.16281",
+      "pmid": null,
+      "openalex_id": "W7138972657",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds005410",
+      "confidence_scoring": {
+        "confidence_score": 0.49834603339433675,
+        "similarity_score": 0.4314684271812439,
+        "citation_text_length": 1721,
+        "dataset_text_length": 493,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-11-02T12:38:25.512609+00:00",
+    "scoring_date": "2026-11-10T12:36:40.368977+00:00",
     "dataset_text_length": 493,
-    "num_citations_scored": 1,
+    "num_citations_scored": 4,
     "summary_stats": {
-      "mean_confidence": 0.6076697096228599,
-      "median_confidence": 0.6076697096228599,
-      "std_confidence": 0.0,
-      "min_confidence": 0.6076697096228599,
+      "mean_confidence": 0.5462772622704507,
+      "median_confidence": 0.5497458319365979,
+      "std_confidence": 0.05862146692946342,
+      "min_confidence": 0.47794767558574686,
       "max_confidence": 0.6076697096228599,
       "high_confidence_count": 0,
-      "medium_confidence_count": 1,
+      "medium_confidence_count": 4,
       "low_confidence_count": 0
     }
   }

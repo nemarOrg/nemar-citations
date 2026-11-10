@@ -1,10 +1,10 @@
 {
   "dataset_id": "on004408",
-  "num_citations": 3,
-  "date_last_updated": "2026-11-02T12:15:09.714164+00:00",
+  "num_citations": 6,
+  "date_last_updated": "2026-11-10T12:13:38.314083+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
-    "fetch_date": "2026-11-02T11:48:43.896223+00:00",
+    "fetch_date": "2026-11-10T11:48:12.852991+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 1,
@@ -44,11 +44,36 @@
       "on004408",
       "ds004408"
     ],
-    "num_accession_mentions": 3,
-    "num_dataset_citations": 3,
+    "num_accession_mentions": 6,
+    "num_dataset_citations": 6,
     "num_datapaper_citations": 0
   },
   "citation_details": [
+    {
+      "title": "Do Models Hear Like Us? Probing the Representational Alignment of Audio LLMs and Naturalistic EEG",
+      "author": "Haoyun Yang, Xin Xiao, Jiang Zhong, Yu Tian, Dong Xiaohua, Yu Wei Mao, Hao Wu, Kaiwen Wei",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2601.16540",
+      "cited_by": 0,
+      "abstract": "Audio Large Language Models (Audio LLMs) have demonstrated strong capabilities in integrating speech perception with language understanding. However, whether their internal representations align with human neural dynamics during naturalistic listening remains largely unexplored. In this work, we systematically examine layer-wise representational alignment between 12 open-source Audio LLMs and Electroencephalogram (EEG) signals across 2 datasets. Specifically, we employ 8 similarity metrics, such as Spearman-based Representational Similarity Analysis (RSA), to characterize within-sentence representational geometry. Our analysis reveals 3 key findings: (1) we observe a rank-dependence split, in which model rankings vary substantially across different similarity metrics; (2) we identify spatio-temporal alignment patterns characterized by depth-dependent alignment peaks and a pronounced increase in RSA within the 250-500 ms time window, consistent with N400-related neural dynamics; (3) we find an affective dissociation whereby negative prosody, identified using a proposed Tri-modal Neighborhood Consistency (TNC) criterion, reduces geometric similarity while enhancing covariance-based dependence. These findings provide new neurobiological insights into the representational mechanisms of Audio LLMs.",
+      "doi": "10.48550/arxiv.2601.16540",
+      "pmid": null,
+      "openalex_id": "W7125696111",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004408",
+      "confidence_scoring": {
+        "confidence_score": 0.7377655631303788,
+        "similarity_score": 0.6387580633163452,
+        "citation_text_length": 1565,
+        "dataset_text_length": 1849,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
     {
       "title": "What masking geometry works best for EEG foundation models?",
       "author": "Pierre Guetschel, Bruno Aristimunha, Yassine El Ouahidi, Arnaud Delorme A, Thomas Moreau, Michael Tangermann",
@@ -76,7 +101,7 @@
     },
     {
       "title": "Predicting Cognitive Tasks from Single-Channel EEG through Task-Semantic Alignment",
-      "author": "Ryota Kanai C",
+      "author": "Ryota Kanai",
       "venue": "arXiv (Cornell University)",
       "year": 2026,
       "url": "https://doi.org/10.48550/arxiv.2610.15104",
@@ -91,9 +116,59 @@
       "discovery_method": "accession_mention",
       "matched_accession": "ds004408",
       "confidence_scoring": {
-        "confidence_score": 0.5848078608512879,
-        "similarity_score": 0.5063271522521973,
-        "citation_text_length": 1660,
+        "confidence_score": 0.5818397480249407,
+        "similarity_score": 0.5037573575973511,
+        "citation_text_length": 1658,
+        "dataset_text_length": 1849,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "EEGDash Corpus: A Training-Ready Public Corpus for EEG Foundation Models",
+      "author": "Kuber Shahi, Bruno Aristimunha, Arnaud Delorme A",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2611.06356",
+      "cited_by": 0,
+      "abstract": "Foundation models for electroencephalography (EEG) are pretrained on tens of thousands of hours of recordings, and their accuracy grows with that amount. Such data is hard to assemble. The largest sources are clinical archives that cannot be redistributed, and the public sources are spread over several archives, file formats, and licences. We release eegdash-corpus-v0, a training-ready corpus of 77 public EEG datasets, as the gated Hugging Face dataset EEGDash/eegdash-corpus-v0 with the SHA-256 of every file. REVE, the largest published EEG foundation model, names 89 datasets as its pretraining corpus. Twelve cannot be redistributed: four clinical archives that hold 82% of its hours, and eight under no-derivatives licences. The corpus holds the 76 others that REVE's sampling rate allows and one more from REVE's release card: 77 datasets, 14,075 hours from 7,272 subjects, 5.0 million 10-second samples and 6.21 billion tokens per epoch. Every dataset is fetched through EEGDash, converted once with REVE's recipe, and stored in its own buckets of a chunked Zarr store with its licence recorded beside it, so a model can train on the whole store or on any subset of datasets. To test that the store pretrains a model, we retrain REVE-Base from scratch twice with the authors' code, changed only in how it reads data, and score it on seven public OpenEEGBench tasks. It reaches 0.331 under linear probing and 0.273 after fine-tuning, against 0.333 and 0.325 for the released model and 0.200 and 0.205 for an untrained encoder. The converter, the conversion reports, and the loader changes are released with the corpus.",
+      "doi": "10.48550/arxiv.2611.06356",
+      "pmid": null,
+      "openalex_id": "W7225336390",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004408",
+      "confidence_scoring": {
+        "confidence_score": 0.6484157565236093,
+        "similarity_score": 0.5613989233970642,
+        "citation_text_length": 1685,
+        "dataset_text_length": 1849,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "REVE: A Foundation Model for EEG - Adapting to Any Setup with Large-Scale Pretraining on 25,000 Subjects",
+      "author": "Yassine El Ouahidi, Jonathan Lys, Philipp Thölke, Nicolas Farrugia, Bastien Pasdeloup, Vincent Gripon, Karim Jerbi, Giulia Lioi",
+      "venue": "neural information processing systems",
+      "year": 2025,
+      "url": "https://doi.org/10.52202/085713-0760",
+      "cited_by": 66,
+      "abstract": "Foundation models have transformed AI by reducing reliance on task-specific data through large-scale pretraining. While successful in language and vision, their adoption in EEG has lagged due to the heterogeneity of public datasets, which are collected under varying protocols, devices, and electrode configurations. Existing EEG foundation models struggle to generalize across these variations, often restricting pretraining to a single setup, resulting in suboptimal performance, in particular under linear probing. We present REVE (Representation for EEG with Versatile Embeddings), a pretrained model explicitly designed to generalize across diverse EEG signals. REVE introduces a novel 4D positional encoding scheme that enables it to process signals of arbitrary length and electrode arrangement. Using a masked autoencoding objective, we pretrain REVE on over 60,000 hours of EEG data from 92 datasets spanning 25,000 subjects, representing the largest EEG pretraining effort to date. REVE achieves state-of-the-art results on 10 downstream EEG tasks, including motor imagery classification, seizure detection, sleep staging, cognitive load estimation, and emotion recognition. With little to no fine-tuning, it demonstrates strong generalization, and nuanced spatio-temporal modeling. We release code, pretrained weights, and tutorials to support standardized EEG research and accelerate progress in clinical neuroscience.",
+      "doi": "10.52202/085713-0760",
+      "pmid": null,
+      "openalex_id": "W7197020048",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004408",
+      "confidence_scoring": {
+        "confidence_score": 0.6223233640193939,
+        "similarity_score": 0.5388081073760986,
+        "citation_text_length": 1737,
         "dataset_text_length": 1849,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -127,17 +202,17 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-11-02T12:34:33.796117+00:00",
+    "scoring_date": "2026-11-10T12:32:41.605103+00:00",
     "dataset_text_length": 1849,
-    "num_citations_scored": 3,
+    "num_citations_scored": 6,
     "summary_stats": {
-      "mean_confidence": 0.5111057494580746,
-      "median_confidence": 0.47901922255754475,
-      "std_confidence": 0.05226025674456552,
+      "mean_confidence": 0.5898089698702097,
+      "median_confidence": 0.6020815560221673,
+      "std_confidence": 0.09416084304531594,
       "min_confidence": 0.4694901649653912,
-      "max_confidence": 0.5848078608512879,
-      "high_confidence_count": 0,
-      "medium_confidence_count": 3,
+      "max_confidence": 0.7377655631303788,
+      "high_confidence_count": 1,
+      "medium_confidence_count": 5,
       "low_confidence_count": 0
     }
   }
