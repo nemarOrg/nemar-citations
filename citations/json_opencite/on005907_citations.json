@@ -1,7 +1,7 @@
 {
   "dataset_id": "on005907",
-  "num_citations": 0,
-  "date_last_updated": "2026-11-10T12:03:09.610111+00:00",
+  "num_citations": 2,
+  "date_last_updated": "2026-11-11T11:04:40.823425+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
     "fetch_date": "2026-11-10T12:03:09.610111+00:00",
@@ -39,13 +39,81 @@
       "three-armed bandit"
     ],
     "methods_description": "Data were collected between 2019 and 2021 at the CRCL at UNM while participants performed a 3-armed bandit reinforcement learning task with alcohol versus beverage cues. Triggers and outputs are documented in the BEH_EXPLAIN.m file in the code folder.",
-    "funding": []
+    "funding": [],
+    "searched_accessions": [
+      "on005907",
+      "ds005907"
+    ],
+    "num_accession_mentions": 2,
+    "num_dataset_citations": 2,
+    "num_datapaper_citations": 0
   },
-  "citation_details": [],
+  "citation_details": [
+    {
+      "title": "NeuroSync-MoE: Hierarchical Spectral-Spatial Mixture-of-Experts with Diffusion-Guided Test-Time Adaptation for EEG Alcoholism Detection",
+      "author": "Vishal Chandel, Richa Sharma",
+      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "year": 2026,
+      "url": "https://doi.org/10.5281/zenodo.23609991",
+      "cited_by": 0,
+      "abstract": "Open-source deep learning framework and empirical evaluation suite for NeuroSync-MoE. Features: (1) Differentiable Multi-Scale Spectral Tokenizer decomposing multi-channel EEG into canonical bands (delta, theta, alpha, beta, gamma); (2) Two-Level Hierarchical Mixture of Experts (HiMoE) with 5 Spectral Specialists, Cross-Expert Multi-Head Attention, and 4 Spatial Specialists; (3) Dual-Branch Spectral-Spatial Contrastive Self-Supervised Pretraining (SS-CSP); (4) Backpropagation-free Latent Diffusion Test-Time Adaptation (DG-TTA); and (5) Subject-Adversarial Domain Generalization (DANN/GRL) setting a leak-free state-of-the-art benchmark of 64.68% holdout accuracy across 40,290 evaluated epochs and 190 human subjects across SUNY Downstate UCI, OpenNeuro ds008851, and OpenNeuro ds005907 cohorts.",
+      "doi": "10.5281/zenodo.23609991",
+      "pmid": null,
+      "openalex_id": "W7223448966",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds005907",
+      "confidence_scoring": {
+        "confidence_score": 0.662944804430008,
+        "similarity_score": 0.5739781856536865,
+        "citation_text_length": 1059,
+        "dataset_text_length": 994,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Replication data for \"Compact Trial-Distribution Readouts for Selection-Aware Alcohol-Task EEG Decoding",
+      "author": "Wenxiang Geng, Kang Yuan, Zihan Chen, Xinshuo Wu, Haohao Xi, Yiwen Wang, Zheng Chang, Zenghui Ding",
+      "venue": "ScienceDB",
+      "year": 2026,
+      "url": "https://doi.org/10.57760/sciencedb.018o6",
+      "cited_by": 0,
+      "abstract": "It is the derived data and reproduction package for the paper \"Compact Trial-Distribution Readouts for Selection-Aware Alcohol-Task EEG Decoding\" (CCISP 2026, Paper ID S091). Two public alcohol-task EEG cohorts were used: OpenNeuro ds005907 (v1.0.0; 50 usable participants, 15,132 events, cue-locked) and OpenNeuro ds004515 (v1.0.0; 51 participants, 8,160 events, feedback-locked), with 49 participants shared between the two cohorts and the two tasks always evaluated separately. No new participants were recruited, no intervention was performed and no participant was re-contacted. Processing was carried out in Python 3.10 or later with numpy, scipy, scikit-learn, pandas, matplotlib and MNE; the four neural-network baselines (BIOT, BENDR, LaBraM, DBConformer) additionally used PyTorch, torchvision, timm and einops on one consumer GPU with 8 GB of memory. All other analyses were CPU-only, and every random seed is recorded in the result logs.Records were epoched and normalised to a 250 Hz working rate, with within-epoch, per-channel z-scoring. The spatial support is the original EEG montage of each public dataset: no source localisation, no spatial interpolation and no cross-montage resampling were applied, so the spatial reference is the electrode montage as published. Feature space was compressed to 966 (ds005907) and 938 (ds004515) coordinates per event and 7,728 and 7,504 coordinates per participant, from which eight across-trial distribution summaries are computed — mean, median, standard deviation, interquartile range, q90 minus q10, mean minus median, skewness and excess kurtosis — giving eight statistics per coordinate. Evaluation is a fully nested, participant-blocked cross-validation in which model selection and refitting occur only inside the inner leave-one-subject-out loop, so each held-out participant contributes exactly one out-of-fold prediction; the held-out decision uses class-balanced L2 logistic regression on 65 (ds005907) and 257 (ds004515) head coefficients. Temporal information therefore follows the original recordings, and no absolute clock time or participant time is retained.The package contains 140 files in open formats. TRACEABILITY.csv holds 28 rows, one per number reported in the paper, with the columns as_reported (the value printed in the paper), source_file and json_path (where that value is stored), script and protocol (how it was produced) and check (the tolerance comparison; all 28 rows read OK). logs/ contains 54 JSON result logs, each a flat, self-describing object that also embeds the protocol and script digests; logs/resource_profile/results.json holds 90 timing observations (3 subjects x 2 datasets x 2 readouts x 5 repeats on one pinned core), where observations[].total_seconds is the latency in seconds and observations[].value is the reused prediction vector rather than a latency. Balanced accuracy is stored as a fraction between 0 and 1; latencies are stored in seconds and reported in milliseconds.Files are grouped by function. code/scripts/ holds 41 analysis scripts for feature extraction, nested evaluation, baselines and audits; code/experiments/ holds the frozen entry point run_nested_readout_family.py with FREEZE.sha256 and PROTOCOL.md; code/paper_figures/ holds the camera-ready figure scripts and the re-derivation scripts for the reported p-values and CPU latencies; protocols/ holds 13 frozen protocol documents with their .sha256 seals, that is, the analysis rules as written before any result was inspected; logs/ holds the result logs described above; figures/source_data/ holds the exact plotting values so every figure can be redrawn without refitting a model, and figures/FIG3_CELL_AUDIT.md records the cell-by-cell reconciliation of Fig. 3(b); manuscript/ holds the camera-ready paper; MANIFEST.sha256 gives the SHA-256 digest of every file in the package.Raw EEG is deliberately not redistributed: both cohorts are public and are fetched by script, so no raw recording, no participant identifier and no personally identifiable information is contained here. There are no missing values in the stored predictions or tabular files, because every held-out participant contributes exactly one prediction; the only absent content is the raw recordings described above. Known limitations are stated explicitly rather than hidden: the neural-baseline checkpoints are not bundled and are pulled from their public release URLs at run time; Fig. 3(a) was rebuilt at camera-ready stage to add a colour bar, which changed the rendering but no underlying value; the Fig. 3(b) cell audit has been checked once against the rendered panel at 300 dpi but not by a second independent reader; and the CPU latencies are single-machine measurements (AMD EPYC 7282, one pinned core, one thread), so they are descriptive rather than portable, although the Hybrid8-to-MSM ratio should be. Uncertainty is reported rather than concealed: the primary comparison gives participant-level balanced accuracies of 0.7756 and 0.7454 for Hybrid8 against 0.6811 and 0.7069 for the matched MSM control, both paired 95% intervals include zero, and the exact paired randomisation test gives p = 0.4922 (exact McNemar p = 0.5078), so the difference is reported as directionally consistent but not confirmed. Floating-point differences in the last digits are possible across BLAS builds and do not change any reported rounded value. All content is in CSV, JSON, Markdown, Python or PDF, none of which requires proprietary software, a licence or a special viewer.",
+      "doi": "10.57760/sciencedb.018o6",
+      "pmid": null,
+      "openalex_id": "W7225425048",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds005907",
+      "confidence_scoring": {
+        "confidence_score": 0.8095895701646806,
+        "similarity_score": 0.7009433507919312,
+        "citation_text_length": 1749,
+        "dataset_text_length": 994,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    }
+  ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-11-10T12:38:13.831633+00:00",
+    "scoring_date": "2026-11-11T11:10:55.869221+00:00",
     "dataset_text_length": 994,
-    "num_citations_scored": 0
+    "num_citations_scored": 2,
+    "summary_stats": {
+      "mean_confidence": 0.7362671872973443,
+      "median_confidence": 0.7362671872973443,
+      "std_confidence": 0.07332238286733628,
+      "min_confidence": 0.662944804430008,
+      "max_confidence": 0.8095895701646806,
+      "high_confidence_count": 1,
+      "medium_confidence_count": 1,
+      "low_confidence_count": 0
+    }
   }
 }

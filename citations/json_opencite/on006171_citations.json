@@ -1,7 +1,7 @@
 {
   "dataset_id": "on006171",
-  "num_citations": 14,
-  "date_last_updated": "2026-11-10T12:04:36.876979+00:00",
+  "num_citations": 15,
+  "date_last_updated": "2026-11-11T11:04:50.661691+00:00",
   "metadata": {
     "total_cumulative_citations": 55,
     "fetch_date": "2026-11-10T12:04:36.876979+00:00",
@@ -69,7 +69,14 @@
       {
         "funder_name": "Comunidad de Madrid"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "on006171",
+      "ds006171"
+    ],
+    "num_accession_mentions": 1,
+    "num_dataset_citations": 2,
+    "num_datapaper_citations": 13
   },
   "citation_details": [
     {
@@ -323,7 +330,9 @@
         "dataset_text_length": 842,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
+      },
+      "mentions_accession": true,
+      "matched_accession": "ds006171"
     },
     {
       "title": "No overlap in neurophysiological predictors of moment-to-moment fluctuations of behavioural variability and subjective attentional state",
@@ -393,21 +402,46 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "DeeperBrain: A Neuro-Grounded EEG Foundation Model Towards Universal BCI",
+      "author": "Jiquan Wang, Sha Zhao, Yangxuan Zhou, Yiming Kang, Shijian Li, Gang Pan",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2601.06134",
+      "cited_by": 14,
+      "abstract": "Electroencephalography (EEG) foundation models hold significant promise for universal Brain-Computer Interfaces (BCIs). However, existing approaches often rely on end-to-end fine-tuning and exhibit limited efficacy under frozen-probing protocols, lacking the intrinsic universality required for broad generalization. This limitation stems from adapting general-purpose sequence architectures that overlook the biophysical and dynamical principles of neural activity. To bridge this gap, we propose DeeperBrain, a neuro-grounded foundation model integrating domain-specific inductive biases into its model design and learning objectives. Architecturally, DeeperBrain incorporates a volume conduction-aware channel encoding to model spatial mixing via 3D geometry, and a neurodynamics-aware temporal encoding capturing slow adaptations using oscillatory and exponential bases. For pretraining, we introduce a dual-objective strategy combining Masked EEG Reconstruction (MER) for local fidelity and Neurodynamics Statistics Prediction (NSP). NSP enforces alignment with macroscopic brain states by predicting interpretable order parameters, including spectral power, functional connectivity, cross-frequency coupling, and dynamic complexity. Extensive experiments demonstrate that DeeperBrain achieves state-of-the-art or highly competitive performance under end-to-end fine-tuning. Crucially, it maintains superior efficacy under a rigorous frozen-probing protocol, verifying that embedding neuroscientific first principles endows learned representations with the intrinsic universality essential for universal BCI. The code will be publicly available.",
+      "doi": "10.48550/arxiv.2601.06134",
+      "pmid": null,
+      "openalex_id": "W7123616012",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds006171",
+      "confidence_scoring": {
+        "confidence_score": 0.5326861363649369,
+        "similarity_score": 0.46120011806488037,
+        "citation_text_length": 1708,
+        "dataset_text_length": 842,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-11-10T12:38:43.637612+00:00",
+    "scoring_date": "2026-11-11T11:11:12.336296+00:00",
     "dataset_text_length": 842,
-    "num_citations_scored": 14,
+    "num_citations_scored": 15,
     "summary_stats": {
-      "mean_confidence": 0.5342733212560415,
-      "median_confidence": 0.5341542727500201,
-      "std_confidence": 0.06850992900182584,
+      "mean_confidence": 0.5341675089299679,
+      "median_confidence": 0.5326861363649369,
+      "std_confidence": 0.0661880635854363,
       "min_confidence": 0.4004944498836995,
       "max_confidence": 0.6484629142284395,
       "high_confidence_count": 0,
-      "medium_confidence_count": 14,
+      "medium_confidence_count": 15,
       "low_confidence_count": 0
     }
   }
