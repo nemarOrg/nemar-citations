@@ -1,7 +1,7 @@
 {
   "dataset_id": "on006466",
-  "num_citations": 9,
-  "date_last_updated": "2026-11-10T12:05:49.226491+00:00",
+  "num_citations": 11,
+  "date_last_updated": "2026-11-11T11:04:59.947364+00:00",
   "metadata": {
     "total_cumulative_citations": 13,
     "fetch_date": "2026-11-10T12:05:49.226491+00:00",
@@ -59,7 +59,14 @@
         "funder_name": "National Institute on Aging",
         "award_number": "R01AG057667"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "on006466",
+      "ds006466"
+    ],
+    "num_accession_mentions": 2,
+    "num_dataset_citations": 3,
+    "num_datapaper_citations": 8
   },
   "citation_details": [
     {
@@ -83,7 +90,9 @@
         "dataset_text_length": 2298,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
+      },
+      "mentions_accession": true,
+      "matched_accession": "ds006466"
     },
     {
       "title": "Molecular programs in human locus coeruleus link APOE and neuromelanin to Alzheimer’s vulnerability",
@@ -268,21 +277,71 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "EEG-FM-Compass: progress, benchmarking and future directions for EEG foundation models",
+      "author": "Dingkun Liu, Yuheng Chen, Zhu Chen, Zhenyao Cui, Yaozhi Wen, Jiayu An, Jingwei Luo, Dongrui Wu",
+      "venue": "National Science Review",
+      "year": 2026,
+      "url": "https://doi.org/10.1093/nsr/nwag466",
+      "cited_by": 32,
+      "abstract": "ABSTRACT Electroencephalography (EEG) foundation models (FMs) have recently emerged as a promising paradigm for brain–computer interfaces, aiming to learn transferable neural representations from large-scale heterogeneous recordings. Despite rapid progress, a fair and comprehensive comparison of existing EEG FMs is still lacking, owing to inconsistent pre-training objectives, preprocessing choices and downstream evaluation protocols. To fill this gap, we present EEG-FM-Compass. We first review 55 representative models and organize their design choices into a unified taxonomic framework including data standardization, model architectures and self-supervised pre-training strategies. We then evaluate 12 open-source FMs and competitive specialist baselines across 13 EEG datasets spanning 9 brain–computer interface paradigms. Emphasizing real-world deployments, we consider both cross-subject generalization under a leave-one-subject-out protocol and rapid calibration under a within-subject few-shot setting. We further compare full-parameter fine-tuning with linear probing to assess the transferability of pre-trained representations, and examine the relationship between model scale and downstream performance. Our results indicate that (i) linear probing is frequently insufficient; (ii) specialist models trained from scratch remain competitive across many tasks; and (iii) larger FMs do not necessarily yield better generalization performance under current data regimes and training practices.",
+      "doi": "10.1093/nsr/nwag466",
+      "pmid": null,
+      "openalex_id": "W7172428723",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds006466",
+      "confidence_scoring": {
+        "confidence_score": 0.5199961012601854,
+        "similarity_score": 0.45021307468414307,
+        "citation_text_length": 1742,
+        "dataset_text_length": 2298,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Predicting Cognitive Tasks from Single-Channel EEG through Task-Semantic Alignment",
+      "author": "Ryota Kanai",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2610.15104",
+      "cited_by": 0,
+      "abstract": "Studies of data scaling in electroencephalography (EEG) and related noninvasive recordings suggest that simple wearable devices could eventually reveal more about cognitive states. However, publicly available EEG data are difficult to combine. Different laboratories record different tasks, participants, and devices. Task-agnostic self-supervised learning can exploit such data, but representations learned only with EEG signals have not consistently produced feature representations that are directly effective for decoding the cognitive state. We therefore aimed to incorporate task information by embedding experimental instructions, stimuli and response demands in a common semantic space, and trained an EEG encoder to align signals from a single anterior--posterior differential channel with those task vectors. This framework supports zero-shot prediction without target-condition calibration and few-shot prediction using labeled samples. On a reserved ten-class evaluation, the highest observed zero-shot balanced accuracy was 30.13% (chance 10%). In a separate developmental few-shot experiment, balanced accuracy reached 34.47% using 16 labeled EEG examples per class from another participant, and 74.99% using examples from the test participant's own task recording. Our experiments suggest that training models on datasets with multiple tasks per participant appeared useful, whereas adding datasets containing only one or a few tasks sometimes reduced established performance despite broader task coverage. These exploratory results suggest that EEG datasets that repeat varied cognitive tasks and everyday activities within the same individuals across days, devices and independent studies would be particularly useful for training an EEG foundation model for predicting cognitive states.",
+      "doi": "10.48550/arxiv.2610.15104",
+      "pmid": null,
+      "openalex_id": "W7221793578",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds006466",
+      "confidence_scoring": {
+        "confidence_score": 0.598762686252594,
+        "similarity_score": 0.518409252166748,
+        "citation_text_length": 1658,
+        "dataset_text_length": 2298,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-11-10T12:39:10.731409+00:00",
+    "scoring_date": "2026-11-11T11:11:30.704234+00:00",
     "dataset_text_length": 2298,
-    "num_citations_scored": 9,
+    "num_citations_scored": 11,
     "summary_stats": {
-      "mean_confidence": 0.47735420371095344,
-      "median_confidence": 0.5112947130203248,
-      "std_confidence": 0.09498628409784854,
+      "mean_confidence": 0.49226787462830546,
+      "median_confidence": 0.5199961012601854,
+      "std_confidence": 0.0930851541613064,
       "min_confidence": 0.32415979117155075,
-      "max_confidence": 0.5761455756425858,
+      "max_confidence": 0.598762686252594,
       "high_confidence_count": 0,
-      "medium_confidence_count": 6,
+      "medium_confidence_count": 8,
       "low_confidence_count": 3
     }
   }

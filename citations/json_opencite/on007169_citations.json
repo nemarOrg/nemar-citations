@@ -1,7 +1,7 @@
 {
   "dataset_id": "on007169",
-  "num_citations": 0,
-  "date_last_updated": "2026-11-10T12:09:32.051903+00:00",
+  "num_citations": 2,
+  "date_last_updated": "2026-11-11T11:05:27.554223+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
     "fetch_date": "2026-11-10T12:09:32.051903+00:00",
@@ -92,13 +92,81 @@
       "working memory"
     ],
     "methods_description": "EEG was recorded with a combined EEG+ECG mobile system using a 19-channel 10-20 montage, Ag/AgCl electrodes, a linked-ear reference and 250 Hz sampling. ECG used 3 leads on the same system. Pupil Labs Pupil Core captured pupillometry, and all streams were synchronized via LSL. The protocol had a tutorial phase with feedback (20 trials per level) and a main experiment of 100 trials per level (1-back to 4-back) without feedback. Each letter was shown for 1.0 s followed by a 0.7 s blank interval.",
-    "funding": []
+    "funding": [],
+    "searched_accessions": [
+      "on007169",
+      "ds007169"
+    ],
+    "num_accession_mentions": 2,
+    "num_dataset_citations": 2,
+    "num_datapaper_citations": 0
   },
-  "citation_details": [],
+  "citation_details": [
+    {
+      "title": "SPERA: Spherical Prior EEG Foundation Model with Geometry- and Frequency-Aware Latent Prediction",
+      "author": "Minsu Kim, Ye-Sung Kim, Hyeseong Jeon, Wooseok Hyung, Joshua Lee, Chang-Hwan Im",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2610.10571",
+      "cited_by": 0,
+      "abstract": "Electroencephalography (EEG) provides a non-invasive measure of ongoing neural activity, but building general-purpose EEG models remains challenging due to the heterogeneity of subjects, devices, and electrode montages. Existing EEG foundation models predominantly rely on reconstruction-based objectives defined on the observed signal, which contains both neural and non-neural components. We introduce the Spherical Prior EEG Representation Architecture (SPERA), an EEG foundation model that adopts the joint-embedding predictive architecture (JEPA) to predict in latent space. SPERA introduces a Legendre-polynomial spatial prior, incorporated into attention to encode varying scalp electrode geometries. Two further components adapt the model to EEG: factorized temporal and spatial attention interleaved with periodic full-attention blocks, and a relational spectral regularizer aligning latent similarity structure with spectral views. Pretrained on approximately 80,000 hours of EEG from 29,048 subjects across 106 datasets, SPERA achieves the highest average balanced accuracy across nine downstream tasks spanning clinical, cognitive, and BCI applications. SPERA further exhibits strong parameter efficiency under linear probing and robustness across varying recording conditions, suggesting its potential as a general-purpose backbone for diverse EEG analyses.",
+      "doi": "10.48550/arxiv.2610.10571",
+      "pmid": null,
+      "openalex_id": "W7221188647",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds007169",
+      "confidence_scoring": {
+        "confidence_score": 0.5568874704837801,
+        "similarity_score": 0.48215365409851074,
+        "citation_text_length": 1610,
+        "dataset_text_length": 2255,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Predicting Cognitive Tasks from Single-Channel EEG through Task-Semantic Alignment",
+      "author": "Ryota Kanai",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2610.15104",
+      "cited_by": 0,
+      "abstract": "Studies of data scaling in electroencephalography (EEG) and related noninvasive recordings suggest that simple wearable devices could eventually reveal more about cognitive states. However, publicly available EEG data are difficult to combine. Different laboratories record different tasks, participants, and devices. Task-agnostic self-supervised learning can exploit such data, but representations learned only with EEG signals have not consistently produced feature representations that are directly effective for decoding the cognitive state. We therefore aimed to incorporate task information by embedding experimental instructions, stimuli and response demands in a common semantic space, and trained an EEG encoder to align signals from a single anterior--posterior differential channel with those task vectors. This framework supports zero-shot prediction without target-condition calibration and few-shot prediction using labeled samples. On a reserved ten-class evaluation, the highest observed zero-shot balanced accuracy was 30.13% (chance 10%). In a separate developmental few-shot experiment, balanced accuracy reached 34.47% using 16 labeled EEG examples per class from another participant, and 74.99% using examples from the test participant's own task recording. Our experiments suggest that training models on datasets with multiple tasks per participant appeared useful, whereas adding datasets containing only one or a few tasks sometimes reduced established performance despite broader task coverage. These exploratory results suggest that EEG datasets that repeat varied cognitive tasks and everyday activities within the same individuals across days, devices and independent studies would be particularly useful for training an EEG foundation model for predicting cognitive states.",
+      "doi": "10.48550/arxiv.2610.15104",
+      "pmid": null,
+      "openalex_id": "W7221793578",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds007169",
+      "confidence_scoring": {
+        "confidence_score": 0.6405416589975358,
+        "similarity_score": 0.5545815229415894,
+        "citation_text_length": 1658,
+        "dataset_text_length": 2255,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    }
+  ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-11-10T12:40:28.361905+00:00",
+    "scoring_date": "2026-11-11T11:12:21.746491+00:00",
     "dataset_text_length": 2255,
-    "num_citations_scored": 0
+    "num_citations_scored": 2,
+    "summary_stats": {
+      "mean_confidence": 0.598714564740658,
+      "median_confidence": 0.598714564740658,
+      "std_confidence": 0.04182709425687786,
+      "min_confidence": 0.5568874704837801,
+      "max_confidence": 0.6405416589975358,
+      "high_confidence_count": 0,
+      "medium_confidence_count": 2,
+      "low_confidence_count": 0
+    }
   }
 }

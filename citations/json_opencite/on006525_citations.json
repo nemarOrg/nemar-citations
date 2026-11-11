@@ -1,7 +1,7 @@
 {
   "dataset_id": "on006525",
-  "num_citations": 0,
-  "date_last_updated": "2026-11-10T12:06:11.786373+00:00",
+  "num_citations": 2,
+  "date_last_updated": "2026-11-11T11:05:02.959241+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
     "fetch_date": "2026-11-10T12:06:11.786373+00:00",
@@ -55,13 +55,81 @@
       {
         "funder_name": "OPTIONAL. List of sources of funding (grant numbers)"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "on006525",
+      "ds006525"
+    ],
+    "num_accession_mentions": 2,
+    "num_dataset_citations": 2,
+    "num_datapaper_citations": 0
   },
-  "citation_details": [],
+  "citation_details": [
+    {
+      "title": "FAIR m-BIDS: Advancing brain data utilization through multimodal and FAIR principles",
+      "author": "Seyed Saeed Mirhosseini, Hoda Naseri, Bahaareh Siahlou, Mehran Panahi Arasi, Saeid Monazami Eslami, Ali Asghar Safaei",
+      "venue": "Scientific Data",
+      "year": 2026,
+      "url": "https://doi.org/10.1038/s41597-026-06790-7",
+      "cited_by": 1,
+      "abstract": "In recent Datascience and AI studies, multimodality has become a key principle for achieving more accurate and dependable results. Managing multimodal data requires specialized platforms and structures to handle diverse data types from single subjects. The established BIDS (Brain Imaging Data Structure) standard faces limitations in supporting multimodal data, as each dataset is assigned to a single study with unique subject identities, preventing integration of multimodal data from the same individual across multiple studies. To address this limitation, this paper introduces FAIR m-BIDS (FAIR Multimodal Brain Imaging Data Structure), extending conventional BIDS by shifting granularity from dataset level to individual data entities. Each brain data file receives an independent GUId-Key (Global Unique Identifier Key), enabling researchers to select and integrate data items from different modalities and studies into customized multimodal datasets. The proposed structure enhances FAIR principles through improved findability, accessibility, interoperability, and reusability. Global identifiers enable tracking anonymized subject data across multiple datasets and modalities, while maintaining compatibility with conventional BIDS standards for advanced AI and neuroscience research applications.",
+      "doi": "10.1038/s41597-026-06790-7",
+      "pmid": "41760682",
+      "openalex_id": "W7131777480",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds006525",
+      "confidence_scoring": {
+        "confidence_score": 0.31566692948341374,
+        "similarity_score": 0.27330470085144043,
+        "citation_text_length": 1563,
+        "dataset_text_length": 1378,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "DeeperBrain: A Neuro-Grounded EEG Foundation Model Towards Universal BCI",
+      "author": "Jiquan Wang, Sha Zhao, Yangxuan Zhou, Yiming Kang, Shijian Li, Gang Pan",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2601.06134",
+      "cited_by": 14,
+      "abstract": "Electroencephalography (EEG) foundation models hold significant promise for universal Brain-Computer Interfaces (BCIs). However, existing approaches often rely on end-to-end fine-tuning and exhibit limited efficacy under frozen-probing protocols, lacking the intrinsic universality required for broad generalization. This limitation stems from adapting general-purpose sequence architectures that overlook the biophysical and dynamical principles of neural activity. To bridge this gap, we propose DeeperBrain, a neuro-grounded foundation model integrating domain-specific inductive biases into its model design and learning objectives. Architecturally, DeeperBrain incorporates a volume conduction-aware channel encoding to model spatial mixing via 3D geometry, and a neurodynamics-aware temporal encoding capturing slow adaptations using oscillatory and exponential bases. For pretraining, we introduce a dual-objective strategy combining Masked EEG Reconstruction (MER) for local fidelity and Neurodynamics Statistics Prediction (NSP). NSP enforces alignment with macroscopic brain states by predicting interpretable order parameters, including spectral power, functional connectivity, cross-frequency coupling, and dynamic complexity. Extensive experiments demonstrate that DeeperBrain achieves state-of-the-art or highly competitive performance under end-to-end fine-tuning. Crucially, it maintains superior efficacy under a rigorous frozen-probing protocol, verifying that embedding neuroscientific first principles endows learned representations with the intrinsic universality essential for universal BCI. The code will be publicly available.",
+      "doi": "10.48550/arxiv.2601.06134",
+      "pmid": null,
+      "openalex_id": "W7123616012",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds006525",
+      "confidence_scoring": {
+        "confidence_score": 0.5627210162580013,
+        "similarity_score": 0.48720434308052063,
+        "citation_text_length": 1708,
+        "dataset_text_length": 1378,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    }
+  ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-11-10T12:39:18.028043+00:00",
+    "scoring_date": "2026-11-11T11:11:38.099157+00:00",
     "dataset_text_length": 1378,
-    "num_citations_scored": 0
+    "num_citations_scored": 2,
+    "summary_stats": {
+      "mean_confidence": 0.4391939728707075,
+      "median_confidence": 0.4391939728707075,
+      "std_confidence": 0.12352704338729378,
+      "min_confidence": 0.31566692948341374,
+      "max_confidence": 0.5627210162580013,
+      "high_confidence_count": 0,
+      "medium_confidence_count": 1,
+      "low_confidence_count": 1
+    }
   }
 }

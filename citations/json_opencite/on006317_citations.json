@@ -1,7 +1,7 @@
 {
   "dataset_id": "on006317",
-  "num_citations": 0,
-  "date_last_updated": "2026-11-10T12:05:05.257539+00:00",
+  "num_citations": 1,
+  "date_last_updated": "2026-11-11T11:04:53.367638+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
     "fetch_date": "2026-11-10T12:05:05.257539+00:00",
@@ -37,13 +37,56 @@
       "speech decoding"
     ],
     "methods_description": null,
-    "funding": []
+    "funding": [],
+    "searched_accessions": [
+      "on006317",
+      "ds006317"
+    ],
+    "num_accession_mentions": 1,
+    "num_dataset_citations": 1,
+    "num_datapaper_citations": 0
   },
-  "citation_details": [],
+  "citation_details": [
+    {
+      "title": "DeeperBrain: A Neuro-Grounded EEG Foundation Model Towards Universal BCI",
+      "author": "Jiquan Wang, Sha Zhao, Yangxuan Zhou, Yiming Kang, Shijian Li, Gang Pan",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2601.06134",
+      "cited_by": 14,
+      "abstract": "Electroencephalography (EEG) foundation models hold significant promise for universal Brain-Computer Interfaces (BCIs). However, existing approaches often rely on end-to-end fine-tuning and exhibit limited efficacy under frozen-probing protocols, lacking the intrinsic universality required for broad generalization. This limitation stems from adapting general-purpose sequence architectures that overlook the biophysical and dynamical principles of neural activity. To bridge this gap, we propose DeeperBrain, a neuro-grounded foundation model integrating domain-specific inductive biases into its model design and learning objectives. Architecturally, DeeperBrain incorporates a volume conduction-aware channel encoding to model spatial mixing via 3D geometry, and a neurodynamics-aware temporal encoding capturing slow adaptations using oscillatory and exponential bases. For pretraining, we introduce a dual-objective strategy combining Masked EEG Reconstruction (MER) for local fidelity and Neurodynamics Statistics Prediction (NSP). NSP enforces alignment with macroscopic brain states by predicting interpretable order parameters, including spectral power, functional connectivity, cross-frequency coupling, and dynamic complexity. Extensive experiments demonstrate that DeeperBrain achieves state-of-the-art or highly competitive performance under end-to-end fine-tuning. Crucially, it maintains superior efficacy under a rigorous frozen-probing protocol, verifying that embedding neuroscientific first principles endows learned representations with the intrinsic universality essential for universal BCI. The code will be publicly available.",
+      "doi": "10.48550/arxiv.2601.06134",
+      "pmid": null,
+      "openalex_id": "W7123616012",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds006317",
+      "confidence_scoring": {
+        "confidence_score": 0.4894539490342141,
+        "similarity_score": 0.42376965284347534,
+        "citation_text_length": 1708,
+        "dataset_text_length": 1261,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    }
+  ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-11-10T12:38:52.585860+00:00",
+    "scoring_date": "2026-11-11T11:11:16.668995+00:00",
     "dataset_text_length": 1261,
-    "num_citations_scored": 0
+    "num_citations_scored": 1,
+    "summary_stats": {
+      "mean_confidence": 0.4894539490342141,
+      "median_confidence": 0.4894539490342141,
+      "std_confidence": 0.0,
+      "min_confidence": 0.4894539490342141,
+      "max_confidence": 0.4894539490342141,
+      "high_confidence_count": 0,
+      "medium_confidence_count": 1,
+      "low_confidence_count": 0
+    }
   }
 }

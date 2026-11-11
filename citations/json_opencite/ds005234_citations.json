@@ -1,7 +1,7 @@
 {
   "dataset_id": "ds005234",
-  "num_citations": 3,
-  "date_last_updated": "2026-09-30T10:44:23.412183+00:00",
+  "num_citations": 4,
+  "date_last_updated": "2026-11-11T11:06:02.358617+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
     "fetch_date": "2026-06-18T23:13:43.824736+00:00",
@@ -16,8 +16,8 @@
     "searched_accessions": [
       "ds005234"
     ],
-    "num_accession_mentions": 3,
-    "num_dataset_citations": 3,
+    "num_accession_mentions": 4,
+    "num_dataset_citations": 4,
     "num_datapaper_citations": 0,
     "anchors": [
       {
@@ -114,22 +114,47 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "SimCortex v2: Joint Cortical Surface Reconstruction with Near-Zero Collisions and Self-Intersections",
+      "author": "Kaveh Moradkhani, Sylvain Bouix A",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2610.07378",
+      "cited_by": 0,
+      "abstract": "Reconstructing cortical WM and pial surfaces from structural magnetic resonance imaging (MRI) is a prerequisite for surface-based neuroanatomical analysis, yet remains challenging because the cortex is thin and tightly folded. Reconstruction methods can produce geometric artifacts such as mesh self-intersections and collisions between cortical surfaces, and although recent deep learning methods have reduced reconstruction time from hours to minutes, these artifacts persist. We propose SimCortex v2, a deep learning framework for simultaneous reconstruction of the left and right WM and pial surfaces from T1-weighted MRI. SimCortex v2 estimates topologically correct initial surfaces from a volumetric segmentation and refines all four jointly using multi-scale stationary velocity fields predicted by a ribbon-conditioned, U-Net-like network. We evaluated SimCortex v2 on 560 cases from 14 cohorts, thirteen of them unseen during training, spanning ages 6-89, healthy and clinical populations, and scanners from three vendors. SimCortex v2 matched the surface-distance accuracy of the strongest baseline (average symmetric surface distance 0.253 mm) while showing no detected inter-surface collision in 92.14% of cases and the lowest self-intersection fraction (0.044%) among learning-based methods, whereas every baseline produced at least one collision in every case. Source code, configuration files, pretrained weights, preprocessed data, and the exact evaluation splits are publicly released.",
+      "doi": "10.48550/arxiv.2610.07378",
+      "pmid": null,
+      "openalex_id": "W7221005792",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds005234",
+      "confidence_scoring": {
+        "confidence_score": 0.3902439826726914,
+        "similarity_score": 0.33787357807159424,
+        "citation_text_length": 1698,
+        "dataset_text_length": 2601,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-09-30T10:48:43.358375+00:00",
+    "scoring_date": "2026-11-11T11:06:47.334912+00:00",
     "dataset_text_length": 2601,
-    "num_citations_scored": 3,
+    "num_citations_scored": 4,
     "summary_stats": {
-      "mean_confidence": 0.6856993952393533,
-      "median_confidence": 0.7171823608875276,
-      "std_confidence": 0.1828981025943211,
-      "min_confidence": 0.4476199015974999,
+      "mean_confidence": 0.6118355420976879,
+      "median_confidence": 0.5824011312425138,
+      "std_confidence": 0.2036084314370421,
+      "min_confidence": 0.3902439826726914,
       "max_confidence": 0.8922959232330323,
       "high_confidence_count": 2,
       "medium_confidence_count": 1,
-      "low_confidence_count": 0
+      "low_confidence_count": 1
     }
   }
 }
