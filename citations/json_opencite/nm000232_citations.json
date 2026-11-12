@@ -1,7 +1,7 @@
 {
   "dataset_id": "nm000232",
-  "num_citations": 98,
-  "date_last_updated": "2026-11-10T11:10:50.498772+00:00",
+  "num_citations": 99,
+  "date_last_updated": "2026-11-12T11:01:02.549830+00:00",
   "metadata": {
     "total_cumulative_citations": 1334,
     "fetch_date": "2026-11-10T11:10:50.498772+00:00",
@@ -87,7 +87,13 @@
         "funder_name": "European Research Council (ERC)",
         "award_number": "ERC-2018-StG 803370"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "nm000232"
+    ],
+    "num_accession_mentions": 1,
+    "num_dataset_citations": 2,
+    "num_datapaper_citations": 97
   },
   "citation_details": [
     {
@@ -2342,21 +2348,48 @@
         "dataset_text_length": 2362,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      },
+      "mentions_accession": true,
+      "matched_accession": "nm000232"
+    },
+    {
+      "title": "EEGDash Corpus: A Training-Ready Public Corpus for EEG Foundation Models",
+      "author": "Kuber Shahi, Bruno Aristimunha, Arnaud Delorme A",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2611.06356",
+      "cited_by": 0,
+      "abstract": "Foundation models for electroencephalography (EEG) are pretrained on tens of thousands of hours of recordings, and their accuracy grows with that amount. Such data is hard to assemble. The largest sources are clinical archives that cannot be redistributed, and the public sources are spread over several archives, file formats, and licences. We release eegdash-corpus-v0, a training-ready corpus of 77 public EEG datasets, as the gated Hugging Face dataset EEGDash/eegdash-corpus-v0 with the SHA-256 of every file. REVE, the largest published EEG foundation model, names 89 datasets as its pretraining corpus. Twelve cannot be redistributed: four clinical archives that hold 82% of its hours, and eight under no-derivatives licences. The corpus holds the 76 others that REVE's sampling rate allows and one more from REVE's release card: 77 datasets, 14,075 hours from 7,272 subjects, 5.0 million 10-second samples and 6.21 billion tokens per epoch. Every dataset is fetched through EEGDash, converted once with REVE's recipe, and stored in its own buckets of a chunked Zarr store with its licence recorded beside it, so a model can train on the whole store or on any subset of datasets. To test that the store pretrains a model, we retrain REVE-Base from scratch twice with the authors' code, changed only in how it reads data, and score it on seven public OpenEEGBench tasks. It reaches 0.331 under linear probing and 0.273 after fine-tuning, against 0.333 and 0.325 for the released model and 0.200 and 0.205 for an untrained encoder. The converter, the conversion reports, and the loader changes are released with the corpus.",
+      "doi": "10.48550/arxiv.2611.06356",
+      "pmid": null,
+      "openalex_id": "W7225336390",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "nm000232",
+      "confidence_scoring": {
+        "confidence_score": 0.7358639717102052,
+        "similarity_score": 0.6371116638183594,
+        "citation_text_length": 1685,
+        "dataset_text_length": 2362,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-11-10T12:20:17.180305+00:00",
+    "scoring_date": "2026-11-12T11:04:37.931293+00:00",
     "dataset_text_length": 2362,
-    "num_citations_scored": 98,
+    "num_citations_scored": 99,
     "summary_stats": {
-      "mean_confidence": 0.6086211316287519,
-      "median_confidence": 0.629846360385418,
-      "std_confidence": 0.11835977071774373,
+      "mean_confidence": 0.6099064128416959,
+      "median_confidence": 0.6321056619286537,
+      "std_confidence": 0.11844585598948623,
       "min_confidence": 0.22845247194170953,
       "max_confidence": 0.9639920881390572,
-      "high_confidence_count": 24,
+      "high_confidence_count": 25,
       "medium_confidence_count": 70,
       "low_confidence_count": 4
     }
