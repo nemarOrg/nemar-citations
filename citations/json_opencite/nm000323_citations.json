@@ -1,7 +1,7 @@
 {
   "dataset_id": "nm000323",
-  "num_citations": 105,
-  "date_last_updated": "2026-11-10T11:19:39.737622+00:00",
+  "num_citations": 106,
+  "date_last_updated": "2026-11-12T11:02:03.542574+00:00",
   "metadata": {
     "total_cumulative_citations": 9202,
     "fetch_date": "2026-11-10T11:19:39.737622+00:00",
@@ -68,7 +68,13 @@
       "OpenBMI"
     ],
     "methods_description": "EEG was recorded with a BrainAmp amplifier and Brain Products Ag/AgCl cap (62 EEG and 4 EMG channels, 1000 Hz, reference at nasion, ground AFz, impedance below 10 kOhm). Participants copy-spelled sentences by gazing at target characters in a random-set row-column speller with face stimuli (SOA 215 ms, ISI 135 ms, 5 sequences of 12 flashes per character), and counted target flashes. Training used 33 characters and the online test used 36 characters.",
-    "funding": []
+    "funding": [],
+    "searched_accessions": [
+      "nm000323"
+    ],
+    "num_accession_mentions": 1,
+    "num_dataset_citations": 1,
+    "num_datapaper_citations": 105
   },
   "citation_details": [
     {
@@ -2485,21 +2491,46 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "EEGDash Corpus: A Training-Ready Public Corpus for EEG Foundation Models",
+      "author": "Kuber Shahi, Bruno Aristimunha, Arnaud Delorme A",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2611.06356",
+      "cited_by": 0,
+      "abstract": "Foundation models for electroencephalography (EEG) are pretrained on tens of thousands of hours of recordings, and their accuracy grows with that amount. Such data is hard to assemble. The largest sources are clinical archives that cannot be redistributed, and the public sources are spread over several archives, file formats, and licences. We release eegdash-corpus-v0, a training-ready corpus of 77 public EEG datasets, as the gated Hugging Face dataset EEGDash/eegdash-corpus-v0 with the SHA-256 of every file. REVE, the largest published EEG foundation model, names 89 datasets as its pretraining corpus. Twelve cannot be redistributed: four clinical archives that hold 82% of its hours, and eight under no-derivatives licences. The corpus holds the 76 others that REVE's sampling rate allows and one more from REVE's release card: 77 datasets, 14,075 hours from 7,272 subjects, 5.0 million 10-second samples and 6.21 billion tokens per epoch. Every dataset is fetched through EEGDash, converted once with REVE's recipe, and stored in its own buckets of a chunked Zarr store with its licence recorded beside it, so a model can train on the whole store or on any subset of datasets. To test that the store pretrains a model, we retrain REVE-Base from scratch twice with the authors' code, changed only in how it reads data, and score it on seven public OpenEEGBench tasks. It reaches 0.331 under linear probing and 0.273 after fine-tuning, against 0.333 and 0.325 for the released model and 0.200 and 0.205 for an untrained encoder. The converter, the conversion reports, and the loader changes are released with the corpus.",
+      "doi": "10.48550/arxiv.2611.06356",
+      "pmid": null,
+      "openalex_id": "W7225336390",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "nm000323",
+      "confidence_scoring": {
+        "confidence_score": 0.6613866037130357,
+        "similarity_score": 0.5726290941238403,
+        "citation_text_length": 1685,
+        "dataset_text_length": 2477,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-11-10T12:22:57.499368+00:00",
+    "scoring_date": "2026-11-12T11:05:52.494074+00:00",
     "dataset_text_length": 2477,
-    "num_citations_scored": 105,
+    "num_citations_scored": 106,
     "summary_stats": {
-      "mean_confidence": 0.5831569122501783,
-      "median_confidence": 0.5860650658607484,
-      "std_confidence": 0.08497537320555601,
+      "mean_confidence": 0.583894928207375,
+      "median_confidence": 0.586074985563755,
+      "std_confidence": 0.08491103142241906,
       "min_confidence": 0.3370233803987503,
       "max_confidence": 0.8766805958747864,
       "high_confidence_count": 8,
-      "medium_confidence_count": 95,
+      "medium_confidence_count": 96,
       "low_confidence_count": 2
     }
   }

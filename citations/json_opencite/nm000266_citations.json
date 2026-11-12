@@ -1,7 +1,7 @@
 {
   "dataset_id": "nm000266",
-  "num_citations": 6,
-  "date_last_updated": "2026-11-10T11:14:29.487734+00:00",
+  "num_citations": 8,
+  "date_last_updated": "2026-11-12T11:01:58.343737+00:00",
   "metadata": {
     "total_cumulative_citations": 217,
     "fetch_date": "2026-11-10T11:14:29.487734+00:00",
@@ -82,7 +82,13 @@
         "funder_name": "German Research Foundation (DFG)",
         "award_number": "INST 39/963-1 FUGG"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "nm000266"
+    ],
+    "num_accession_mentions": 2,
+    "num_dataset_citations": 2,
+    "num_datapaper_citations": 6
   },
   "citation_details": [
     {
@@ -222,22 +228,72 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "Evolution of the Large Secreted Gel-Forming Mucins",
+      "author": "Jean‐Luc Desseyn, Jean‐Pierre Aubert, Nicole Porchet, Anne Laine",
+      "venue": "Molecular Biology and Evolution",
+      "year": 2000,
+      "url": "https://doi.org/10.1093/oxfordjournals.molbev.a026400",
+      "cited_by": 154,
+      "abstract": "Mucins, the major component of mucus, contain tandemly repeated sequences that differ from one mucin to another. Considerable advances have been made in recent years in our knowledge of mucin genes. The availability of the complete genomic and cDNA sequences of MUC5B, one of the four human mucin genes clustered on chromosome 11, provides an exemplary model for studying the molecular evolution of large mucins. The emerging picture is one of expansion of mucin genes by gene duplications, followed by internal repeat expansion that strictly preserves frameshift. Computational and phylogenetic analyses have permitted the proposal of an evolutionary history of the four human mucin genes located on chromosome 11 from an ancestor gene common to the human von Willebrand factor gene and the suggestion of a model for the evolution of the repeat coding portion of the MUC5B gene from a hypothetical ancestral minigene. The characterization of MUC5B, a member of the large secreted gel-forming mucin family, offers a new model for the comparative study of the structure-function relationship within this important family.",
+      "doi": "10.1093/oxfordjournals.molbev.a026400",
+      "pmid": "10908637",
+      "openalex_id": "W2015107805",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "nm000266",
+      "confidence_scoring": {
+        "confidence_score": 0.18014212101697924,
+        "similarity_score": 0.1637655645608902,
+        "citation_text_length": 1304,
+        "dataset_text_length": 2442,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "EEGDash Corpus: A Training-Ready Public Corpus for EEG Foundation Models",
+      "author": "Kuber Shahi, Bruno Aristimunha, Arnaud Delorme A",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2611.06356",
+      "cited_by": 0,
+      "abstract": "Foundation models for electroencephalography (EEG) are pretrained on tens of thousands of hours of recordings, and their accuracy grows with that amount. Such data is hard to assemble. The largest sources are clinical archives that cannot be redistributed, and the public sources are spread over several archives, file formats, and licences. We release eegdash-corpus-v0, a training-ready corpus of 77 public EEG datasets, as the gated Hugging Face dataset EEGDash/eegdash-corpus-v0 with the SHA-256 of every file. REVE, the largest published EEG foundation model, names 89 datasets as its pretraining corpus. Twelve cannot be redistributed: four clinical archives that hold 82% of its hours, and eight under no-derivatives licences. The corpus holds the 76 others that REVE's sampling rate allows and one more from REVE's release card: 77 datasets, 14,075 hours from 7,272 subjects, 5.0 million 10-second samples and 6.21 billion tokens per epoch. Every dataset is fetched through EEGDash, converted once with REVE's recipe, and stored in its own buckets of a chunked Zarr store with its licence recorded beside it, so a model can train on the whole store or on any subset of datasets. To test that the store pretrains a model, we retrain REVE-Base from scratch twice with the authors' code, changed only in how it reads data, and score it on seven public OpenEEGBench tasks. It reaches 0.331 under linear probing and 0.273 after fine-tuning, against 0.333 and 0.325 for the released model and 0.200 and 0.205 for an untrained encoder. The converter, the conversion reports, and the loader changes are released with the corpus.",
+      "doi": "10.48550/arxiv.2611.06356",
+      "pmid": null,
+      "openalex_id": "W7225336390",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "nm000266",
+      "confidence_scoring": {
+        "confidence_score": 0.5271434193849565,
+        "similarity_score": 0.4564012289047241,
+        "citation_text_length": 1685,
+        "dataset_text_length": 2442,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-11-10T12:21:35.701557+00:00",
+    "scoring_date": "2026-11-12T11:05:25.197947+00:00",
     "dataset_text_length": 2442,
-    "num_citations_scored": 6,
+    "num_citations_scored": 8,
     "summary_stats": {
-      "mean_confidence": 0.5372325521707536,
-      "median_confidence": 0.5385226079821588,
-      "std_confidence": 0.03698961610533865,
-      "min_confidence": 0.46956393063068397,
+      "mean_confidence": 0.4913351066783071,
+      "median_confidence": 0.5267855715751649,
+      "std_confidence": 0.12194883804172918,
+      "min_confidence": 0.18014212101697924,
       "max_confidence": 0.5856149116158487,
       "high_confidence_count": 0,
-      "medium_confidence_count": 6,
-      "low_confidence_count": 0
+      "medium_confidence_count": 7,
+      "low_confidence_count": 1
     }
   }
 }

@@ -1,7 +1,7 @@
 {
   "dataset_id": "nm000338",
-  "num_citations": 105,
-  "date_last_updated": "2026-11-10T11:20:55.473763+00:00",
+  "num_citations": 107,
+  "date_last_updated": "2026-11-12T11:02:04.488704+00:00",
   "metadata": {
     "total_cumulative_citations": 9202,
     "fetch_date": "2026-11-10T11:20:55.473763+00:00",
@@ -93,7 +93,13 @@
       "Electromyography"
     ],
     "methods_description": "EEG was recorded at 1000 Hz from 62 Ag/AgCl electrodes with a BrainAmp amplifier, nose-referenced and grounded at AFz, with impedance kept below 10 kOhm. Subjects sat 60 cm from a 21-inch LCD monitor and imagined grasping with the hand indicated by a left or right arrow cue for 4 s, after a 3 s fixation cross. Each of the two sessions had an offline training phase and an online test phase with visual feedback.",
-    "funding": []
+    "funding": [],
+    "searched_accessions": [
+      "nm000338"
+    ],
+    "num_accession_mentions": 2,
+    "num_dataset_citations": 2,
+    "num_datapaper_citations": 105
   },
   "citation_details": [
     {
@@ -2510,21 +2516,71 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "EEGDash Corpus: A Training-Ready Public Corpus for EEG Foundation Models",
+      "author": "Kuber Shahi, Bruno Aristimunha, Arnaud Delorme A",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2611.06356",
+      "cited_by": 0,
+      "abstract": "Foundation models for electroencephalography (EEG) are pretrained on tens of thousands of hours of recordings, and their accuracy grows with that amount. Such data is hard to assemble. The largest sources are clinical archives that cannot be redistributed, and the public sources are spread over several archives, file formats, and licences. We release eegdash-corpus-v0, a training-ready corpus of 77 public EEG datasets, as the gated Hugging Face dataset EEGDash/eegdash-corpus-v0 with the SHA-256 of every file. REVE, the largest published EEG foundation model, names 89 datasets as its pretraining corpus. Twelve cannot be redistributed: four clinical archives that hold 82% of its hours, and eight under no-derivatives licences. The corpus holds the 76 others that REVE's sampling rate allows and one more from REVE's release card: 77 datasets, 14,075 hours from 7,272 subjects, 5.0 million 10-second samples and 6.21 billion tokens per epoch. Every dataset is fetched through EEGDash, converted once with REVE's recipe, and stored in its own buckets of a chunked Zarr store with its licence recorded beside it, so a model can train on the whole store or on any subset of datasets. To test that the store pretrains a model, we retrain REVE-Base from scratch twice with the authors' code, changed only in how it reads data, and score it on seven public OpenEEGBench tasks. It reaches 0.331 under linear probing and 0.273 after fine-tuning, against 0.333 and 0.325 for the released model and 0.200 and 0.205 for an untrained encoder. The converter, the conversion reports, and the loader changes are released with the corpus.",
+      "doi": "10.48550/arxiv.2611.06356",
+      "pmid": null,
+      "openalex_id": "W7225336390",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "nm000338",
+      "confidence_scoring": {
+        "confidence_score": 0.6246119928359986,
+        "similarity_score": 0.5407896041870117,
+        "citation_text_length": 1685,
+        "dataset_text_length": 2497,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Human Motor Intelligence Research Stack",
+      "author": "Qussai Adlbi",
+      "venue": "Zenodo (CERN European Organization for Nuclear Research)",
+      "year": 2026,
+      "url": "https://doi.org/10.5281/zenodo.22288271",
+      "cited_by": 0,
+      "abstract": "Human Motor Intelligence is a reproducible external-validation research release covering two completed studies. P4 externally validates five zero-calibration EEG motor-imagery decoders on 54 independent OpenBMI subjects (NEMAR nm000338) under a strict leave-one-subject-out protocol, with a fully reproduced statistical pipeline and a byte-identical independent rerun. P5 is an amended external validation of four transparent EEG-EMG fusion pipelines on 24 Jeong2020 subjects (NEMAR nm000311). The release provides research-core source code, frozen experiment configurations, dataset manifests, and primary plus independent-rerun result artefacts. Full manuscript text is withheld pending peer-reviewed journal submission; short abstracts and highlights are included instead. This is research software only and does not constitute a validated clinical or diagnostic system.",
+      "doi": "10.5281/zenodo.22288271",
+      "pmid": null,
+      "openalex_id": "W7207753797",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "nm000338",
+      "confidence_scoring": {
+        "confidence_score": 0.7032587903738023,
+        "similarity_score": 0.6088820695877075,
+        "citation_text_length": 1019,
+        "dataset_text_length": 2497,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-11-10T12:23:18.708099+00:00",
+    "scoring_date": "2026-11-12T11:05:58.557442+00:00",
     "dataset_text_length": 2497,
-    "num_citations_scored": 105,
+    "num_citations_scored": 107,
     "summary_stats": {
-      "mean_confidence": 0.6359128075355576,
+      "mean_confidence": 0.6364365941536761,
       "median_confidence": 0.6452587375044824,
-      "std_confidence": 0.11191316053991276,
+      "std_confidence": 0.11105745594825002,
       "min_confidence": 0.3261029295623303,
       "max_confidence": 0.9101540297269822,
-      "high_confidence_count": 30,
-      "medium_confidence_count": 72,
+      "high_confidence_count": 31,
+      "medium_confidence_count": 73,
       "low_confidence_count": 3
     }
   }
