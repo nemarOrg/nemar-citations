@@ -1,7 +1,7 @@
 {
   "dataset_id": "on004200",
-  "num_citations": 6,
-  "date_last_updated": "2026-11-10T11:46:03.424520+00:00",
+  "num_citations": 8,
+  "date_last_updated": "2026-11-17T11:01:50.040960+00:00",
   "metadata": {
     "total_cumulative_citations": 63,
     "fetch_date": "2026-11-10T11:46:03.424520+00:00",
@@ -52,7 +52,14 @@
       "feedback"
     ],
     "methods_description": "Participants learned three temporal intervals and performed interleaved Production and Perception subtasks. In Production, they produced a short, medium, or long interval. In Perception, they judged a computer-produced interval as correct or incorrect. Visual feedback was given after each trial.",
-    "funding": []
+    "funding": [],
+    "searched_accessions": [
+      "on004200",
+      "ds004200"
+    ],
+    "num_accession_mentions": 2,
+    "num_dataset_citations": 2,
+    "num_datapaper_citations": 6
   },
   "citation_details": [
     {
@@ -192,21 +199,71 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "Temporal scaling of human scalp-recorded potentials",
+      "author": "Cameron Dale Hassall, Jack Harley, Nils Kolling, Laurence Tudor Hunt",
+      "venue": "Proceedings of the National Academy of Sciences",
+      "year": 2022,
+      "url": "https://doi.org/10.1073/pnas.2214638119",
+      "cited_by": 10,
+      "abstract": "Much of human behavior is governed by common processes that unfold over varying timescales. Standard event-related potential analysis assumes fixed-duration responses relative to experimental events. However, recent single-unit recordings in animals have revealed neural activity scales to span different durations during behaviors demanding flexible timing. Here, we employed a general linear modeling approach using a combination of fixed-duration and variable-duration regressors to unmix fixed-time and scaled-time components in human magneto-/electroencephalography (M/EEG) data. We use this to reveal consistent temporal scaling of human scalp-recorded potentials across four independent electroencephalogram (EEG) datasets, including interval perception, production, prediction, and value-based decision making. Between-trial variation in the temporally scaled response predicts between-trial variation in subject reaction times, demonstrating the relevance of this temporally scaled signal for temporal variation in behavior. Our results provide a general approach for studying flexibly timed behavior in the human brain.",
+      "doi": "10.1073/pnas.2214638119",
+      "pmid": "36256817",
+      "openalex_id": "W4306751367",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004200",
+      "confidence_scoring": {
+        "confidence_score": 0.7133626556396485,
+        "similarity_score": 0.6176300048828125,
+        "citation_text_length": 1334,
+        "dataset_text_length": 803,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Predicting Cognitive Tasks from Single-Channel EEG through Task-Semantic Alignment",
+      "author": "Ryota Kanai",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2610.15104",
+      "cited_by": 0,
+      "abstract": "Studies of data scaling in electroencephalography (EEG) and related noninvasive recordings suggest that simple wearable devices could eventually reveal more about cognitive states. However, publicly available EEG data are difficult to combine. Different laboratories record different tasks, participants, and devices. Task-agnostic self-supervised learning can exploit such data, but representations learned only with EEG signals have not consistently produced feature representations that are directly effective for decoding the cognitive state. We therefore aimed to incorporate task information by embedding experimental instructions, stimuli and response demands in a common semantic space, and trained an EEG encoder to align signals from a single anterior--posterior differential channel with those task vectors. This framework supports zero-shot prediction without target-condition calibration and few-shot prediction using labeled samples. On a reserved ten-class evaluation, the highest observed zero-shot balanced accuracy was 30.13% (chance 10%). In a separate developmental few-shot experiment, balanced accuracy reached 34.47% using 16 labeled EEG examples per class from another participant, and 74.99% using examples from the test participant's own task recording. Our experiments suggest that training models on datasets with multiple tasks per participant appeared useful, whereas adding datasets containing only one or a few tasks sometimes reduced established performance despite broader task coverage. These exploratory results suggest that EEG datasets that repeat varied cognitive tasks and everyday activities within the same individuals across days, devices and independent studies would be particularly useful for training an EEG foundation model for predicting cognitive states.",
+      "doi": "10.48550/arxiv.2610.15104",
+      "pmid": null,
+      "openalex_id": "W7221793578",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004200",
+      "confidence_scoring": {
+        "confidence_score": 0.4926160624623299,
+        "similarity_score": 0.4265074133872986,
+        "citation_text_length": 1658,
+        "dataset_text_length": 803,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-11-10T12:31:51.218025+00:00",
+    "scoring_date": "2026-11-17T11:05:45.608976+00:00",
     "dataset_text_length": 803,
-    "num_citations_scored": 6,
+    "num_citations_scored": 8,
     "summary_stats": {
-      "mean_confidence": 0.46913562163710604,
-      "median_confidence": 0.4748847138136626,
-      "std_confidence": 0.017257473560866772,
+      "mean_confidence": 0.5025990559905767,
+      "median_confidence": 0.4783269681036473,
+      "std_confidence": 0.08141459182128963,
       "min_confidence": 0.43749510794878016,
-      "max_confidence": 0.49068872362375265,
-      "high_confidence_count": 0,
-      "medium_confidence_count": 6,
+      "max_confidence": 0.7133626556396485,
+      "high_confidence_count": 1,
+      "medium_confidence_count": 7,
       "low_confidence_count": 0
     }
   }
