@@ -1,7 +1,7 @@
 {
   "dataset_id": "on004262",
-  "num_citations": 0,
-  "date_last_updated": "2026-11-10T11:46:24.271829+00:00",
+  "num_citations": 2,
+  "date_last_updated": "2026-11-17T11:01:52.191151+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
     "fetch_date": "2026-11-10T11:46:24.271829+00:00",
@@ -39,13 +39,81 @@
       "Learning"
     ],
     "methods_description": "Each trial began with a fixation cross (400-600 ms), followed by a gnome cue (1500 ms) and a bar outline. Participants indicated their guess with the mouse. The bar then rose at 1 degree per second and the final outcome was shown for 1000 ms. Six gnome types defined the outcome distributions, and event triggers marked each trial stage. Participant 11 was excluded due to excessive artifacts.",
-    "funding": []
+    "funding": [],
+    "searched_accessions": [
+      "on004262",
+      "ds004262"
+    ],
+    "num_accession_mentions": 2,
+    "num_dataset_citations": 2,
+    "num_datapaper_citations": 0
   },
-  "citation_details": [],
+  "citation_details": [
+    {
+      "title": "What masking geometry works best for EEG foundation models?",
+      "author": "Pierre Guetschel, Bruno Aristimunha, Yassine El Ouahidi, Arnaud Delorme A, Thomas Moreau, Michael Tangermann",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2609.33487",
+      "cited_by": 0,
+      "abstract": "EEG foundation models hold promise for scalable brain-signal decoding across clinical and cognitive neuroscience applications, yet their pre-training pipelines remain poorly understood. Among design choices, the masking strategy is particularly critical: it determines what the network must predict and from which context. Yet it has never been ablated in isolation, as each new model bundles a new masking strategy with a new backbone and objective. In this paper, we formalize the design choices for spatio-temporal masking strategies and train various models with a single pipeline under varying masking configurations across two SSL frameworks (MAE and JEPA). We then systematically evaluate the resulting 58 pre-trained models on the 12 datasets of OpenEEGBench under a linear probe. Both frameworks agree on an optimal masking configuration and on shared failure modes. Outside these, performance is robust: 11 MAE and 9 JEPA configurations are statistically indistinguishable from the best. We further identify a novel JEPA-specific failure mode, tagged bias-inflation collapse, invisible to standard detectors. With a well-chosen mask, our pipeline reaches REVE-level downstream performance at a fraction of REVE's pre-training compute.",
+      "doi": "10.48550/arxiv.2609.33487",
+      "pmid": null,
+      "openalex_id": "W7214740814",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004262",
+      "confidence_scoring": {
+        "confidence_score": 0.4177077350020409,
+        "similarity_score": 0.3616517186164856,
+        "citation_text_length": 1476,
+        "dataset_text_length": 1816,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "EEGDash Corpus: A Training-Ready Public Corpus for EEG Foundation Models",
+      "author": "Kuber Shahi, Bruno Aristimunha, Arnaud Delorme A",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2611.06356",
+      "cited_by": 0,
+      "abstract": "Electroencephalography (EEG) foundation models are pretrained on tens of thousands of hours. The largest clinical archives restrict redistribution, while public datasets use different formats and licences. Here, we rebuild the 77 redistributable datasets of the REVE pretraining corpus that reach its 200 Hz input (14,075 hours across 7,272 subjects) and release them as eegdash-corpus-v0, with raw-file access by name through EEGDash and a checksummed Zarr store on Hugging Face, converted with REVE's preprocessing recipe. Every dataset keeps its licence, and any subset of datasets can be selected by name. To test whether this public store pretrains REVE-Base, we train the model twice from scratch with REVE's trainer and score it on seven public OpenEEGBench tasks. First, under linear probing, the frozen encoder reaches 0.331 in chance-adjusted balanced accuracy, against 0.333 for the released model (untrained: 0.200), a difference smaller than the spread between our two pretraining seeds. Second, after fine-tuning, it reaches 0.273 against 0.325 published (0.301 in our rerun), and part of this gap comes from the scoring pipeline. A public, training-ready EEG corpus can therefore pretrain the frozen representations of a foundation model and provide a shared base that other groups can audit.",
+      "doi": "10.48550/arxiv.2611.06356",
+      "pmid": null,
+      "openalex_id": "W7225336390",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004262",
+      "confidence_scoring": {
+        "confidence_score": 0.42943327456712727,
+        "similarity_score": 0.3718037009239197,
+        "citation_text_length": 1492,
+        "dataset_text_length": 1816,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    }
+  ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-11-10T12:31:57.511163+00:00",
+    "scoring_date": "2026-11-17T11:05:48.471090+00:00",
     "dataset_text_length": 1816,
-    "num_citations_scored": 0
+    "num_citations_scored": 2,
+    "summary_stats": {
+      "mean_confidence": 0.4235705047845841,
+      "median_confidence": 0.4235705047845841,
+      "std_confidence": 0.005862769782543187,
+      "min_confidence": 0.4177077350020409,
+      "max_confidence": 0.42943327456712727,
+      "high_confidence_count": 0,
+      "medium_confidence_count": 2,
+      "low_confidence_count": 0
+    }
   }
 }

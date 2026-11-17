@@ -1,7 +1,7 @@
 {
   "dataset_id": "on003574",
-  "num_citations": 67,
-  "date_last_updated": "2026-11-10T11:40:07.698126+00:00",
+  "num_citations": 70,
+  "date_last_updated": "2026-11-17T11:01:03.477153+00:00",
   "metadata": {
     "total_cumulative_citations": 1040,
     "fetch_date": "2026-11-10T11:40:07.698126+00:00",
@@ -64,7 +64,14 @@
         "funder_name": "National Research Foundation of Korea",
         "award_number": "NRF-2017R1A2B4005305"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "on003574",
+      "ds003574"
+    ],
+    "num_accession_mentions": 3,
+    "num_dataset_citations": 70,
+    "num_datapaper_citations": 0
   },
   "citation_details": [
     {
@@ -1307,7 +1314,9 @@
         "dataset_text_length": 1789,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
+      },
+      "mentions_accession": true,
+      "matched_accession": "ds003574"
     },
     {
       "title": "Prioritizing Detailed Item Memories Through Post-Encoding Motivation Requires Consolidation",
@@ -1607,21 +1616,96 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "Reward biases spontaneous neural reactivation during sleep",
+      "author": "Virginie Sterpenich A, Mojca K. M. van Schie, Maximilien Catsiyannis, Avinash Ramyead, Stephen H. Perrig, Hee-Deok Yang, Dimitri Van De Ville, Sophie Schwartz",
+      "venue": "Nature Communications",
+      "year": 2021,
+      "url": "https://doi.org/10.1038/s41467-021-24357-5",
+      "cited_by": 87,
+      "abstract": "Sleep favors the reactivation and consolidation of newly acquired memories. Yet, how our brain selects the noteworthy information to be reprocessed during sleep remains largely unknown. From an evolutionary perspective, individuals must retain information that promotes survival, such as avoiding dangers, finding food, or obtaining praise or money. Here, we test whether neural representations of rewarded (compared to non-rewarded) events have priority for reactivation during sleep. Using functional MRI and a brain decoding approach, we show that patterns of brain activity observed during waking behavior spontaneously reemerge during slow-wave sleep. Critically, we report a privileged reactivation of neural patterns previously associated with a rewarded task (i.e., winning at a complex game). Moreover, during sleep, activity in task-related brain regions correlates with better subsequent memory performance. Our study uncovers a neural mechanism whereby rewarded life experiences are preferentially replayed and consolidated while we sleep.",
+      "doi": "10.1038/s41467-021-24357-5",
+      "pmid": "34230462",
+      "openalex_id": "W3178029257",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds003574",
+      "confidence_scoring": {
+        "confidence_score": 0.9469110167026521,
+        "similarity_score": 0.8198363780975342,
+        "citation_text_length": 1327,
+        "dataset_text_length": 1789,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "A Scaling Study for fMRI Foundation Models",
+      "author": "Wenhao Ye, Xuanye Pan, Junfeng Xia, Junxiang Zhang, Mo Wang, Quanying Liu",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2609.27232",
+      "cited_by": 1,
+      "abstract": "Scaling laws have guided large-model development in computer vision and natural language processing, but the relationships among data, model size, and compute remain unclear for functional magnetic resonance imaging (fMRI) foundation models. Here, we conduct a controlled empirical study using pretraining data from more than 200 source datasets and over 10,000 GPU-hours of experiments. Holding the pretraining framework and downstream protocol fixed, we vary pretraining data size, model size, and training duration. Downstream performance generally improves with compute, yet models using similar compute can perform substantially differently. Additional pretraining data bring larger gains at larger model sizes, suggesting that data and model size should be scaled together. At matched compute, increasing pretraining data benefits more tasks than increasing model size, although the pattern varies across tasks. We then use in-distribution (ID) downstream performance to select the combination of pretraining data size, model size, and training duration at two fixed compute budgets. The resulting models are locked before out-of-distribution (OOD) evaluation. They achieve the highest average performance across the evaluated OOD tasks among the compared fMRI foundation models while using less pretraining compute. Overall, our results show that compute alone does not characterize fMRI scaling: performance depends on how pretraining data, model size, and training duration are combined.",
+      "doi": "10.48550/arxiv.2609.27232",
+      "pmid": null,
+      "openalex_id": "W7214239549",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds003574",
+      "confidence_scoring": {
+        "confidence_score": 0.42652842879295355,
+        "similarity_score": 0.36928868293762207,
+        "citation_text_length": 1676,
+        "dataset_text_length": 1789,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "BrainPFN: Amortized Brain-Behaviour Prediction via Prior-Data Fitted Networks",
+      "author": "Carlo Alberto Barbano, Demián Wassermann",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2611.06934",
+      "cited_by": 0,
+      "abstract": "The standard approach to predicting behavioral phenotypes from functional MRI is represented by Kernel Ridge Regression (KRR) applied on functional connectivity (FC) matrices. However, this approach is limited: separate models must be fit and tuned for every score and cohort, they do not transfer across datasets, and accuracy degrades sharply when only a handful of subjects are available, as is typical of clinical or cognitive studies. Despite an increasing interest in developing brain foundation models, none has consistently outperformed KRR on behaviour prediction; most reported gains come from easier targets such as age, sex, or diagnosis rather than continuous behavioural scores. We introduce BrainPFN, a Prior Data Fitted Network for brain behaviour regression. BrainPFN is meta-trained on a domain-specific prior built from ~7k real FC matrices, from which we sample one billion synthetic training samples. At inference, a labelled context is simply passed through the network in a single forward pass, with no per-score or per-cohort refitting required. Across four independent cohorts, BrainPFN beats KRR on small sample prediction, and leads recent foundation models pre-trained at four to nine times larger scale. Our meta-training pool, aggregated from open repositories, is a fraction of the size of the corpora behind competing models, most of which sit behind restrictive data use agreements such as UK Biobank. We release this pool publicly alongside code and checkpoints, showing that a modest, openly available pool can match or beat models trained at Biobank scale.",
+      "doi": "10.48550/arxiv.2611.06934",
+      "pmid": null,
+      "openalex_id": "W7215313644",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds003574",
+      "confidence_scoring": {
+        "confidence_score": 0.5228196430206299,
+        "similarity_score": 0.45265769958496094,
+        "citation_text_length": 1682,
+        "dataset_text_length": 1789,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-11-10T12:29:28.639064+00:00",
+    "scoring_date": "2026-11-17T11:03:54.674951+00:00",
     "dataset_text_length": 1789,
-    "num_citations_scored": 67,
+    "num_citations_scored": 70,
     "summary_stats": {
-      "mean_confidence": 0.5913258801923315,
-      "median_confidence": 0.5871808916330338,
-      "std_confidence": 0.1178463866990365,
+      "mean_confidence": 0.5930727580200349,
+      "median_confidence": 0.5856875757873059,
+      "std_confidence": 0.12470302611538098,
       "min_confidence": 0.17453174985945227,
-      "max_confidence": 0.7895354980230332,
-      "high_confidence_count": 13,
-      "medium_confidence_count": 49,
+      "max_confidence": 0.9469110167026521,
+      "high_confidence_count": 14,
+      "medium_confidence_count": 51,
       "low_confidence_count": 5
     }
   }

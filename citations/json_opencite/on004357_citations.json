@@ -1,7 +1,7 @@
 {
   "dataset_id": "on004357",
-  "num_citations": 33,
-  "date_last_updated": "2026-11-10T11:47:22.836640+00:00",
+  "num_citations": 37,
+  "date_last_updated": "2026-11-17T11:02:00.583131+00:00",
   "metadata": {
     "total_cumulative_citations": 84,
     "fetch_date": "2026-11-10T11:47:22.836640+00:00",
@@ -52,7 +52,14 @@
       "Gabor stimuli"
     ],
     "methods_description": "Participants viewed fast streams of Gabor-like stimuli presented at 6.67 Hz and 20 Hz rates while EEG was recorded. They performed an orthogonal fixation colour change detection task. Sessions lasted about 1 hour.",
-    "funding": []
+    "funding": [],
+    "searched_accessions": [
+      "on004357",
+      "ds004357"
+    ],
+    "num_accession_mentions": 4,
+    "num_dataset_citations": 4,
+    "num_datapaper_citations": 33
   },
   "citation_details": [
     {
@@ -813,21 +820,121 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "Mapping the dynamics of visual feature coding: Insights into perception and integration",
+      "author": "Tijl Grootswagers, Amanda K. Robinson, Sophia M. Shatek, Thomas A. Carlson",
+      "venue": "PLoS Computational Biology",
+      "year": 2024,
+      "url": "https://doi.org/10.1371/journal.pcbi.1011760",
+      "cited_by": 36,
+      "abstract": "The basic computations performed in the human early visual cortex are the foundation for visual perception. While we know a lot about these computations, a key missing piece is how the coding of visual features relates to our perception of the environment. To investigate visual feature coding, interactions, and their relationship to human perception, we investigated neural responses and perceptual similarity judgements to a large set of visual stimuli that varied parametrically along four feature dimensions. We measured neural responses using electroencephalography (N = 16) to 256 grating stimuli that varied in orientation, spatial frequency, contrast, and colour. We then mapped the response profiles of the neural coding of each visual feature and their interactions, and related these to independently obtained behavioural judgements of stimulus similarity. The results confirmed fundamental principles of feature coding in the visual system, such that all four features were processed simultaneously but differed in their dynamics, and there was distinctive conjunction coding for different combinations of features in the neural responses. Importantly, modelling of the behaviour revealed that every stimulus feature contributed to perceptual judgements, despite the untargeted nature of the behavioural task. Further, the relationship between neural coding and behaviour was evident from initial processing stages, signifying that the fundamental features, not just their interactions, contribute to perception. This study highlights the importance of understanding how feature coding progresses through the visual hierarchy and the relationship between different stages of processing and perception.",
+      "doi": "10.1371/journal.pcbi.1011760",
+      "pmid": "38190390",
+      "openalex_id": "W4390660265",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004357",
+      "confidence_scoring": {
+        "confidence_score": 0.7149879097938537,
+        "similarity_score": 0.6190371513366699,
+        "citation_text_length": 1726,
+        "dataset_text_length": 871,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "What masking geometry works best for EEG foundation models?",
+      "author": "Pierre Guetschel, Bruno Aristimunha, Yassine El Ouahidi, Arnaud Delorme A, Thomas Moreau, Michael Tangermann",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2609.33487",
+      "cited_by": 0,
+      "abstract": "EEG foundation models hold promise for scalable brain-signal decoding across clinical and cognitive neuroscience applications, yet their pre-training pipelines remain poorly understood. Among design choices, the masking strategy is particularly critical: it determines what the network must predict and from which context. Yet it has never been ablated in isolation, as each new model bundles a new masking strategy with a new backbone and objective. In this paper, we formalize the design choices for spatio-temporal masking strategies and train various models with a single pipeline under varying masking configurations across two SSL frameworks (MAE and JEPA). We then systematically evaluate the resulting 58 pre-trained models on the 12 datasets of OpenEEGBench under a linear probe. Both frameworks agree on an optimal masking configuration and on shared failure modes. Outside these, performance is robust: 11 MAE and 9 JEPA configurations are statistically indistinguishable from the best. We further identify a novel JEPA-specific failure mode, tagged bias-inflation collapse, invisible to standard detectors. With a well-chosen mask, our pipeline reaches REVE-level downstream performance at a fraction of REVE's pre-training compute.",
+      "doi": "10.48550/arxiv.2609.33487",
+      "pmid": null,
+      "openalex_id": "W7214740814",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004357",
+      "confidence_scoring": {
+        "confidence_score": 0.555023467540741,
+        "similarity_score": 0.48053979873657227,
+        "citation_text_length": 1476,
+        "dataset_text_length": 871,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "EEGDash Corpus: A Training-Ready Public Corpus for EEG Foundation Models",
+      "author": "Kuber Shahi, Bruno Aristimunha, Arnaud Delorme A",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2611.06356",
+      "cited_by": 0,
+      "abstract": "Electroencephalography (EEG) foundation models are pretrained on tens of thousands of hours. The largest clinical archives restrict redistribution, while public datasets use different formats and licences. Here, we rebuild the 77 redistributable datasets of the REVE pretraining corpus that reach its 200 Hz input (14,075 hours across 7,272 subjects) and release them as eegdash-corpus-v0, with raw-file access by name through EEGDash and a checksummed Zarr store on Hugging Face, converted with REVE's preprocessing recipe. Every dataset keeps its licence, and any subset of datasets can be selected by name. To test whether this public store pretrains REVE-Base, we train the model twice from scratch with REVE's trainer and score it on seven public OpenEEGBench tasks. First, under linear probing, the frozen encoder reaches 0.331 in chance-adjusted balanced accuracy, against 0.333 for the released model (untrained: 0.200), a difference smaller than the spread between our two pretraining seeds. Second, after fine-tuning, it reaches 0.273 against 0.325 published (0.301 in our rerun), and part of this gap comes from the scoring pipeline. A public, training-ready EEG corpus can therefore pretrain the frozen representations of a foundation model and provide a shared base that other groups can audit.",
+      "doi": "10.48550/arxiv.2611.06356",
+      "pmid": null,
+      "openalex_id": "W7225336390",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004357",
+      "confidence_scoring": {
+        "confidence_score": 0.6493559503555298,
+        "similarity_score": 0.5622129440307617,
+        "citation_text_length": 1492,
+        "dataset_text_length": 871,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "REVE: A Foundation Model for EEG - Adapting to Any Setup with Large-Scale Pretraining on 25,000 Subjects",
+      "author": "Yassine El Ouahidi, Jonathan Lys, Philipp Thölke, Nicolas Farrugia, Bastien Pasdeloup, Vincent Gripon, Karim Jerbi, Giulia Lioi",
+      "venue": "neural information processing systems",
+      "year": 2025,
+      "url": "https://doi.org/10.52202/085713-0760",
+      "cited_by": 145,
+      "abstract": "Foundation models have transformed AI by reducing reliance on task-specific data through large-scale pretraining. While successful in language and vision, their adoption in EEG has lagged due to the heterogeneity of public datasets, which are collected under varying protocols, devices, and electrode configurations. Existing EEG foundation models struggle to generalize across these variations, often restricting pretraining to a single setup, resulting in suboptimal performance, in particular under linear probing. We present REVE (Representation for EEG with Versatile Embeddings), a pretrained model explicitly designed to generalize across diverse EEG signals. REVE introduces a novel 4D positional encoding scheme that enables it to process signals of arbitrary length and electrode arrangement. Using a masked autoencoding objective, we pretrain REVE on over 60,000 hours of EEG data from 92 datasets spanning 25,000 subjects, representing the largest EEG pretraining effort to date. REVE achieves state-of-the-art results on 10 downstream EEG tasks, including motor imagery classification, seizure detection, sleep staging, cognitive load estimation, and emotion recognition. With little to no fine-tuning, it demonstrates strong generalization, and nuanced spatio-temporal modeling. We release code, pretrained weights, and tutorials to support standardized EEG research and accelerate progress in clinical neuroscience.",
+      "doi": "10.52202/085713-0760",
+      "pmid": null,
+      "openalex_id": "W7197020048",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds004357",
+      "confidence_scoring": {
+        "confidence_score": 0.6516315677762032,
+        "similarity_score": 0.5641831755638123,
+        "citation_text_length": 1737,
+        "dataset_text_length": 871,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-11-10T12:32:24.763191+00:00",
+    "scoring_date": "2026-11-17T11:06:09.218428+00:00",
     "dataset_text_length": 871,
-    "num_citations_scored": 33,
+    "num_citations_scored": 37,
     "summary_stats": {
-      "mean_confidence": 0.5849487617882815,
-      "median_confidence": 0.6066747164726258,
-      "std_confidence": 0.1266452979575614,
+      "mean_confidence": 0.5911975144453951,
+      "median_confidence": 0.6076613107323647,
+      "std_confidence": 0.12239103145346117,
       "min_confidence": 0.1798449602723122,
       "max_confidence": 0.7987346926331521,
-      "high_confidence_count": 6,
-      "medium_confidence_count": 24,
+      "high_confidence_count": 7,
+      "medium_confidence_count": 27,
       "low_confidence_count": 3
     }
   }

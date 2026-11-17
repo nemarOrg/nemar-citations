@@ -1,7 +1,7 @@
 {
   "dataset_id": "on003766",
-  "num_citations": 9,
-  "date_last_updated": "2026-11-10T11:41:50.582550+00:00",
+  "num_citations": 11,
+  "date_last_updated": "2026-11-17T11:01:15.035480+00:00",
   "metadata": {
     "total_cumulative_citations": 107,
     "fetch_date": "2026-11-10T11:41:50.582550+00:00",
@@ -88,7 +88,14 @@
         "funder_name": "National Natural Science Foundation of China",
         "award_number": "82071935"
       }
-    ]
+    ],
+    "searched_accessions": [
+      "on003766",
+      "ds003766"
+    ],
+    "num_accession_mentions": 2,
+    "num_dataset_citations": 2,
+    "num_datapaper_citations": 9
   },
   "citation_details": [
     {
@@ -297,21 +304,71 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "A resource for assessing dynamic binary choices in the adult brain using EEG and mouse-tracking",
+      "author": "Kun Chen, Ruien Wang, Jiamin Huang, Fei Gao, Zhen Yuan, Yanyan Qi, Haiyan Wu",
+      "venue": "Scientific Data",
+      "year": 2022,
+      "url": "https://doi.org/10.1038/s41597-022-01538-5",
+      "cited_by": 10,
+      "abstract": "We present a dataset combining high-density Electroencephalography (HD-EEG, 128-channels) and mouse-tracking intended as a resource for examining the dynamic decision process of semantics and preference choices in the human brain. The dataset includes resting-state and task-related (food preference choices and semantic judgments) EEG acquired from 31 individuals (ages: 18-33). Along with the dataset, we also provided the preliminary microstate analysis of resting-state EEG and the ERPs, topomap, and time-frequency maps of the task-related EEG. We believe that the simultaneous mouse-tracking and EEG recording would crack the core components of binary choices and further index the temporal dynamics of decision making and response hesitation. This publicly available dataset could support the development of neural signal processing methods in motor EEG, thus advancing research in both the decision neuroscience and brain-computer interface (BCI) applications.",
+      "doi": "10.1038/s41597-022-01538-5",
+      "pmid": "35842416",
+      "openalex_id": "W4285587144",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds003766",
+      "confidence_scoring": {
+        "confidence_score": 1.0,
+        "similarity_score": 0.9379266500473022,
+        "citation_text_length": 1193,
+        "dataset_text_length": 2381,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Predicting Cognitive Tasks from Single-Channel EEG through Task-Semantic Alignment",
+      "author": "Ryota Kanai",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2610.15104",
+      "cited_by": 0,
+      "abstract": "Studies of data scaling in electroencephalography (EEG) and related noninvasive recordings suggest that simple wearable devices could eventually reveal more about cognitive states. However, publicly available EEG data are difficult to combine. Different laboratories record different tasks, participants, and devices. Task-agnostic self-supervised learning can exploit such data, but representations learned only with EEG signals have not consistently produced feature representations that are directly effective for decoding the cognitive state. We therefore aimed to incorporate task information by embedding experimental instructions, stimuli and response demands in a common semantic space, and trained an EEG encoder to align signals from a single anterior--posterior differential channel with those task vectors. This framework supports zero-shot prediction without target-condition calibration and few-shot prediction using labeled samples. On a reserved ten-class evaluation, the highest observed zero-shot balanced accuracy was 30.13% (chance 10%). In a separate developmental few-shot experiment, balanced accuracy reached 34.47% using 16 labeled EEG examples per class from another participant, and 74.99% using examples from the test participant's own task recording. Our experiments suggest that training models on datasets with multiple tasks per participant appeared useful, whereas adding datasets containing only one or a few tasks sometimes reduced established performance despite broader task coverage. These exploratory results suggest that EEG datasets that repeat varied cognitive tasks and everyday activities within the same individuals across days, devices and independent studies would be particularly useful for training an EEG foundation model for predicting cognitive states.",
+      "doi": "10.48550/arxiv.2610.15104",
+      "pmid": null,
+      "openalex_id": "W7221793578",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds003766",
+      "confidence_scoring": {
+        "confidence_score": 0.5994434094429018,
+        "similarity_score": 0.5189986228942871,
+        "citation_text_length": 1658,
+        "dataset_text_length": 2381,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-11-10T12:30:09.062351+00:00",
+    "scoring_date": "2026-11-17T11:04:30.370459+00:00",
     "dataset_text_length": 2381,
-    "num_citations_scored": 9,
+    "num_citations_scored": 11,
     "summary_stats": {
-      "mean_confidence": 0.4391693563262622,
-      "median_confidence": 0.4260518950223923,
-      "std_confidence": 0.166765169939869,
+      "mean_confidence": 0.5047243287617511,
+      "median_confidence": 0.5393768852949143,
+      "std_confidence": 0.22222887088650503,
       "min_confidence": 0.18253639161586765,
-      "max_confidence": 0.6972385069727899,
-      "high_confidence_count": 0,
-      "medium_confidence_count": 5,
+      "max_confidence": 1.0,
+      "high_confidence_count": 1,
+      "medium_confidence_count": 6,
       "low_confidence_count": 4
     }
   }
