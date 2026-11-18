@@ -1,10 +1,10 @@
 {
   "dataset_id": "on004602",
-  "num_citations": 2,
-  "date_last_updated": "2026-11-10T12:13:59.594717+00:00",
+  "num_citations": 0,
+  "date_last_updated": "2026-11-18T11:50:15.495027+00:00",
   "metadata": {
-    "total_cumulative_citations": 8,
-    "fetch_date": "2026-11-10T11:51:01.246337+00:00",
+    "total_cumulative_citations": 0,
+    "fetch_date": "2026-11-18T11:50:15.495027+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -56,79 +56,17 @@
     "methods_description": "Raw EGI MFF files were imported with EEGLAB, task-specific events were recoded into response-locked and stimulus-locked ERN/Pe-relevant labels, and the data were exported to BIDS.",
     "funding": [],
     "searched_accessions": [
-      "on004602",
-      "ds004602"
+      "on004602"
     ],
-    "num_accession_mentions": 2,
-    "num_dataset_citations": 2,
+    "num_accession_mentions": 0,
+    "num_dataset_citations": 0,
     "num_datapaper_citations": 0
   },
-  "citation_details": [
-    {
-      "title": "Laya: A LeJEPA Approach to EEG via Latent Prediction over Reconstruction",
-      "author": "Saarang Panchavati, Uddhav Panchavati, Hiroki Nariai, Corey Arnold, William F Speier",
-      "venue": "arXiv (Cornell University)",
-      "year": 2026,
-      "url": "https://doi.org/10.48550/arxiv.2603.16281",
-      "cited_by": 8,
-      "abstract": "Electroencephalography (EEG) is a widely used tool for studying brain function, with applications in clinical neuroscience, diagnosis, and brain-computer interfaces (BCIs). Recent EEG foundation models trained on large unlabeled corpora aim to learn transferable representations, but their effectiveness remains unclear; reported improvements over smaller task-specific models are often modest, sensitive to downstream adaptation and fine-tuning strategies, and limited under linear probing. We hypothesize that one contributing factor is the reliance on signal reconstruction as the primary self-supervised learning (SSL) objective, which biases representations toward high-variance artifacts rather than task-relevant neural structure. To address this limitation, we explore an SSL paradigm based on Joint Embedding Predictive Architectures (JEPA), which learn by predicting latent representations instead of reconstructing raw signals. We introduce Laya, the first EEG foundation model based on LeJEPA. We show that latent prediction yields representations that encode semantic structure in EEG: Laya embeddings track clinically meaningful state changes such as seizure onset, are resilient to noise, and achieve the strongest mean clinical accuracy under frozen linear probing, with particular gains on tasks where relevant neural patterns are subtle and easily obscured by artifacts. Controlled ablations against matched MAE variants confirm that the choice of pretraining objective, rather than architecture or data, is the primary driver of these gains.",
-      "doi": "10.48550/arxiv.2603.16281",
-      "pmid": null,
-      "openalex_id": "W7138972657",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004602",
-      "confidence_scoring": {
-        "confidence_score": 0.49862663894891746,
-        "similarity_score": 0.4317113757133484,
-        "citation_text_length": 1721,
-        "dataset_text_length": 950,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Predicting Cognitive Tasks from Single-Channel EEG through Task-Semantic Alignment",
-      "author": "Ryota Kanai",
-      "venue": "arXiv (Cornell University)",
-      "year": 2026,
-      "url": "https://doi.org/10.48550/arxiv.2610.15104",
-      "cited_by": 0,
-      "abstract": "Studies of data scaling in electroencephalography (EEG) and related noninvasive recordings suggest that simple wearable devices could eventually reveal more about cognitive states. However, publicly available EEG data are difficult to combine. Different laboratories record different tasks, participants, and devices. Task-agnostic self-supervised learning can exploit such data, but representations learned only with EEG signals have not consistently produced feature representations that are directly effective for decoding the cognitive state. We therefore aimed to incorporate task information by embedding experimental instructions, stimuli and response demands in a common semantic space, and trained an EEG encoder to align signals from a single anterior--posterior differential channel with those task vectors. This framework supports zero-shot prediction without target-condition calibration and few-shot prediction using labeled samples. On a reserved ten-class evaluation, the highest observed zero-shot balanced accuracy was 30.13% (chance 10%). In a separate developmental few-shot experiment, balanced accuracy reached 34.47% using 16 labeled EEG examples per class from another participant, and 74.99% using examples from the test participant's own task recording. Our experiments suggest that training models on datasets with multiple tasks per participant appeared useful, whereas adding datasets containing only one or a few tasks sometimes reduced established performance despite broader task coverage. These exploratory results suggest that EEG datasets that repeat varied cognitive tasks and everyday activities within the same individuals across days, devices and independent studies would be particularly useful for training an EEG foundation model for predicting cognitive states.",
-      "doi": "10.48550/arxiv.2610.15104",
-      "pmid": null,
-      "openalex_id": "W7221793578",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds004602",
-      "confidence_scoring": {
-        "confidence_score": 0.4948746067285538,
-        "similarity_score": 0.4284628629684448,
-        "citation_text_length": 1658,
-        "dataset_text_length": 950,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    }
-  ],
+  "citation_details": [],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-11-10T12:33:49.979284+00:00",
+    "scoring_date": "2026-11-18T12:32:11.705420+00:00",
     "dataset_text_length": 950,
-    "num_citations_scored": 2,
-    "summary_stats": {
-      "mean_confidence": 0.4967506228387356,
-      "median_confidence": 0.4967506228387356,
-      "std_confidence": 0.0018760161101818162,
-      "min_confidence": 0.4948746067285538,
-      "max_confidence": 0.49862663894891746,
-      "high_confidence_count": 0,
-      "medium_confidence_count": 2,
-      "low_confidence_count": 0
-    }
+    "num_citations_scored": 0
   }
 }

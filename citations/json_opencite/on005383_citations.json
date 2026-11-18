@@ -1,10 +1,10 @@
 {
   "dataset_id": "on005383",
-  "num_citations": 7,
-  "date_last_updated": "2026-11-10T12:14:50.540334+00:00",
+  "num_citations": 6,
+  "date_last_updated": "2026-11-18T11:57:43.089357+00:00",
   "metadata": {
-    "total_cumulative_citations": 17,
-    "fetch_date": "2026-11-10T11:58:27.804088+00:00",
+    "total_cumulative_citations": 27,
+    "fetch_date": "2026-11-18T11:57:43.089357+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 1,
@@ -50,11 +50,10 @@
       }
     ],
     "searched_accessions": [
-      "on005383",
-      "ds005383"
+      "on005383"
     ],
-    "num_accession_mentions": 2,
-    "num_dataset_citations": 7,
+    "num_accession_mentions": 0,
+    "num_dataset_citations": 6,
     "num_datapaper_citations": 0
   },
   "citation_details": [
@@ -64,7 +63,7 @@
       "venue": "Scientific Data",
       "year": 2025,
       "url": "https://doi.org/10.1038/s41597-025-06466-8",
-      "cited_by": 6,
+      "cited_by": 10,
       "abstract": "EEG-based neural decoding requires large-scale benchmark datasets. Paired brain-language data across speaking, listening, and reading modalities are essential for aligning neural activity with the semantic representation of large language models (LLMs). However, such datasets are rare, especially for non-English languages. Here, we present ChineseEEG-2, a high-density EEG dataset designed for benchmarking neural decoding models under real-world language tasks. Building on our previous ChineseEEG dataset, which focused on silent reading, ChineseEEG-2 adds two active modalities: Reading Aloud (RA) and Passive Listening (PL), using the same Chinese corpus. EEG and audio were simultaneously recorded from four participants during ~10.8 hours of reading aloud. These recordings were then played to eight other participants, collecting ~21.6 hours of EEG during listening. This setup enables precise temporal and semantic alignment across the RA and PL modalities. ChineseEEG-2 includes EEG signal",
       "doi": "10.1038/s41597-025-06466-8",
       "pmid": "41436506",
@@ -83,22 +82,45 @@
     },
     {
       "title": "SingLEM: Single-Channel Large EEG Model",
-      "author": "Jamiyan Sukhbaatar, S. Imamura, Ibuki Inoue, Shoya Murakami, Kazi Mahmudul Hassan, Seung-Woo Han, Ingon Chanpornpakdi, Toshihisa Tanaka",
-      "venue": "IEEE journal of biomedical and health informatics",
-      "year": 2025,
-      "url": "https://doi.org/10.1109/JBHI.2026.3732223",
-      "cited_by": 4,
+      "author": "Jamiyan Sukhbaatar, Satoshi Imamura, Ibuki Inoue, Shoya Murakami, Kazi Mahmudul Hassan, Seungwoo Han, Ingon Chanpornpakdi, Toshihisa Tanaka",
+      "venue": "IEEE Journal of Biomedical and Health Informatics",
+      "year": 2026,
+      "url": "https://doi.org/10.1109/jbhi.2026.3732223",
+      "cited_by": 8,
       "abstract": "Current deep learning models for electroencephalography (EEG) are often task-specific and depend on large labeled datasets, limiting their adaptability. Although EEG foundation models seek broader applicability, many still rely on predefined multi-channel inputs, electrode-layout assumptions, or model-specific channel handling. To address these limitations, we introduce the Single-Channel Large EEG Model (SingLEM), a self-supervised foundation model whose hybrid convolutional-Transformer encoder maps each channel independently to a reusable representation capturing local and long-range temporal structure. These representations can be used individually or combined through channel-wise feature concatenation. We assembled 71 public EEG datasets comprising approximately 9,200 subjects and 357,000 single-channel hours. For leakage-controlled evaluation, downstream results were obtained with a model pretrained on 68 datasets after excluding the three source datasets underlying the six tasks.",
-      "doi": "10.1109/JBHI.2026.3732223",
+      "doi": "10.1109/jbhi.2026.3732223",
       "pmid": "42709520",
-      "openalex_id": null,
+      "openalex_id": "W4415255631",
       "source_doi": "10.82901/nemar.on005383",
       "source_relation": "References",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.5762096343934537,
-        "similarity_score": 0.49888280034065247,
-        "citation_text_length": 1262,
+        "confidence_score": 0.5748909053206445,
+        "similarity_score": 0.49774104356765747,
+        "citation_text_length": 1266,
+        "dataset_text_length": 2483,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "3M-CPSEED, An EEG-based Dataset for Chinese Pinyin Production in Overt, Mouthed, and Imagined Speech",
+      "author": "Xinyu Ma, Yi Jiang, Ning Jiang",
+      "venue": "Scientific Data",
+      "year": 2025,
+      "url": "https://doi.org/10.1038/s41597-025-06346-1",
+      "cited_by": 6,
+      "abstract": "Speech brain-computer interfaces (BCIs) enable communication with the external world by decoding neural signals. However, language function as a higher-order brain function, the neural mechanisms underlying speech production remain incompletely understood. Currently most existing Chinese EEG datasets use sentences as stimuli, overlooking that Pinyin constitutes the phonetic foundation of Chinese characters, which limits research on decoding individual Chinese character components. Moreover, most datasets employ only one speech production paradigm, preventing exploration of the brain's diverse speech production modes. This study aims to construct the 3M-CPSEED Chinese Pinyin dataset for exploring neural activity during three distinct speech modes (overt speech, silently articulated speech, imagined speech)of syllables from distinct articulatory positions. The dataset comprises EEG recordings from 20 participants completing four experimental blocks within one day, yielding 1,800 validate",
+      "doi": "10.1038/s41597-025-06346-1",
+      "pmid": "41360823",
+      "openalex_id": "W4417107105",
+      "source_doi": "10.82901/nemar.on005383",
+      "source_relation": "References",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.753088925778866,
+        "similarity_score": 0.652025043964386,
+        "citation_text_length": 1184,
         "dataset_text_length": 2483,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -172,71 +194,21 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
-    },
-    {
-      "title": "TMNRED, A Chinese Language EEG Dataset for Fuzzy Semantic Target Identification in Natural Reading Environments",
-      "author": "Yanru Bai, Qi Tang, Ran Zhao, Hongxing Liu, Shuming Zhang, Mingkun Guo, Minghan Guo, Junjie Wang, Changjian Wang, Mu Xing, Guangjian Ni, Dong Ming",
-      "venue": "Scientific Data",
-      "year": 2025,
-      "url": "https://doi.org/10.1038/s41597-025-05036-2",
-      "cited_by": 4,
-      "abstract": "Semantic understanding is central to advanced cognitive functions, and the mechanisms by which the brain processes language information are still being explored. Existing EEG datasets often lack natural reading data specific to Chinese, limiting research on Chinese semantic decoding and natural language processing. This study aims to construct a Chinese natural reading EEG dataset, TMNRED, for semantic target identification in natural reading environments. TMNRED was collected from 30 participants reading sentences sourced from public internet resources and media reports. Each participant underwent 400-450 trials in a single day, resulting in a dataset with over 10 hours of continuous EEG data and more than 4000 trials. This dataset provides valuable physiological data for studying Chinese semantics and developing more accurate Chinese natural language processing models.",
-      "doi": "10.1038/s41597-025-05036-2",
-      "pmid": "40280929",
-      "openalex_id": "W4409785360",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds005383",
-      "confidence_scoring": {
-        "confidence_score": 1.0,
-        "similarity_score": 0.9312770366668701,
-        "citation_text_length": 1194,
-        "dataset_text_length": 2483,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
-    },
-    {
-      "title": "Predicting Cognitive Tasks from Single-Channel EEG through Task-Semantic Alignment",
-      "author": "Ryota Kanai",
-      "venue": "arXiv (Cornell University)",
-      "year": 2026,
-      "url": "https://doi.org/10.48550/arxiv.2610.15104",
-      "cited_by": 0,
-      "abstract": "Studies of data scaling in electroencephalography (EEG) and related noninvasive recordings suggest that simple wearable devices could eventually reveal more about cognitive states. However, publicly available EEG data are difficult to combine. Different laboratories record different tasks, participants, and devices. Task-agnostic self-supervised learning can exploit such data, but representations learned only with EEG signals have not consistently produced feature representations that are directly effective for decoding the cognitive state. We therefore aimed to incorporate task information by embedding experimental instructions, stimuli and response demands in a common semantic space, and trained an EEG encoder to align signals from a single anterior--posterior differential channel with those task vectors. This framework supports zero-shot prediction without target-condition calibration and few-shot prediction using labeled samples. On a reserved ten-class evaluation, the highest observed zero-shot balanced accuracy was 30.13% (chance 10%). In a separate developmental few-shot experiment, balanced accuracy reached 34.47% using 16 labeled EEG examples per class from another participant, and 74.99% using examples from the test participant's own task recording. Our experiments suggest that training models on datasets with multiple tasks per participant appeared useful, whereas adding datasets containing only one or a few tasks sometimes reduced established performance despite broader task coverage. These exploratory results suggest that EEG datasets that repeat varied cognitive tasks and everyday activities within the same individuals across days, devices and independent studies would be particularly useful for training an EEG foundation model for predicting cognitive states.",
-      "doi": "10.48550/arxiv.2610.15104",
-      "pmid": null,
-      "openalex_id": "W7221793578",
-      "source_doi": null,
-      "source_relation": null,
-      "discovery_backend": "openalex",
-      "discovery_method": "accession_mention",
-      "matched_accession": "ds005383",
-      "confidence_scoring": {
-        "confidence_score": 0.5977398803830147,
-        "similarity_score": 0.5175237059593201,
-        "citation_text_length": 1658,
-        "dataset_text_length": 2483,
-        "scoring_method": "sentence_transformers",
-        "model_used": "Qwen/Qwen3-Embedding-0.6B"
-      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-11-10T12:36:29.094216+00:00",
+    "scoring_date": "2026-11-18T12:34:48.547482+00:00",
     "dataset_text_length": 2483,
-    "num_citations_scored": 7,
+    "num_citations_scored": 6,
     "summary_stats": {
-      "mean_confidence": 0.6237416517947402,
-      "median_confidence": 0.5762096343934537,
-      "std_confidence": 0.21786475018660106,
+      "mean_confidence": 0.5867036464810372,
+      "median_confidence": 0.5216897857189179,
+      "std_confidence": 0.18195047216236704,
       "min_confidence": 0.3686711570620537,
-      "max_confidence": 1.0,
+      "max_confidence": 0.8929435327649118,
       "high_confidence_count": 2,
-      "medium_confidence_count": 4,
+      "medium_confidence_count": 3,
       "low_confidence_count": 1
     }
   }
