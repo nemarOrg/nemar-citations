@@ -1,10 +1,10 @@
 {
   "dataset_id": "nm000134",
-  "num_citations": 6,
-  "date_last_updated": "2026-11-10T11:03:08.350438+00:00",
+  "num_citations": 9,
+  "date_last_updated": "2026-11-18T11:02:52.862465+00:00",
   "metadata": {
-    "total_cumulative_citations": 2,
-    "fetch_date": "2026-11-10T11:03:08.350438+00:00",
+    "total_cumulative_citations": 9,
+    "fetch_date": "2026-11-18T11:02:52.862465+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -54,22 +54,62 @@
       "natural images"
     ],
     "methods_description": "Participants viewed images for 100 ms followed by 100 ms of blank screen in an RSVP paradigm, with an orthogonal oddball detection task (button press on Woody character catch trials). EEG was recorded at 256 Hz with 32 Ag/AgCl gel electrodes in an extended 10-20 montage centered on occipital and visual regions. Each session had 19 blocks of about 5 minutes. Data were exported as EDF and converted to BIDS with MNE-BIDS.",
-    "funding": [],
-    "searched_accessions": [
-      "nm000134"
-    ],
-    "num_accession_mentions": 0,
-    "num_dataset_citations": 0,
-    "num_datapaper_citations": 6
+    "funding": []
   },
   "citation_details": [
+    {
+      "title": "ZUNA: Flexible EEG Superresolution with Position-Aware Diffusion Autoencoders",
+      "author": "Christopher Warner, Jonas Mago, JR Huml, Mohamed Osman, Beren Millidge",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2602.18478",
+      "cited_by": 4,
+      "abstract": "We present \\texttt{ZUNA}, a 380M-parameter masked diffusion autoencoder trained to perform masked channel infilling and superresolution for arbitrary electrode numbers and positions in EEG signals. The \\texttt{ZUNA} architecture tokenizes multichannel EEG into short temporal windows and injects spatiotemporal structure via a 4D rotary positional encoding over (x,y,z,t), enabling inference on arbitrary channel subsets and positions. We train ZUNA on an aggregated and harmonized corpus spanning 208 public datasets containing approximately 2 million channel-hours using a combined reconstruction and heavy channel-dropout objective. We show that \\texttt{ZUNA} substantially improves over ubiquitous spherical-spline interpolation methods, with the gap widening at higher dropout rates. Crucially, compared to other deep learning methods in this space, \\texttt{ZUNA}'s performance \\emph{generalizes} across datasets and channel positions allowing it to be applied directly to novel datasets and pro",
+      "doi": "10.48550/arxiv.2602.18478",
+      "pmid": null,
+      "openalex_id": "W7131281367",
+      "source_doi": "10.48550/arxiv.2508.18571",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.5904031741619111,
+        "similarity_score": 0.5111715793609619,
+        "citation_text_length": 1212,
+        "dataset_text_length": 2280,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "ENIGMA: EEG-to-Image in 15 Minutes Using Less Than 1% of the Parameters",
+      "author": "Reese Kneeland, Wangshu Jiang, Ugo Bruzadin Nunes, Paul Steven Scotti, Arnaud Delorme A, Jonathan Xu",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2602.10361",
+      "cited_by": 3,
+      "abstract": "To be practical for real-life applications, models for brain-computer interfaces must be easily and quickly deployable on new subjects, effective on affordable scanning hardware, and small enough to run locally on accessible computing resources. To directly address these current limitations, we introduce ENIGMA, a multi-subject electroencephalography (EEG)-to-Image decoding model that reconstructs seen images from EEG recordings and achieves state-of-the-art (SOTA) performance on the research-grade THINGS-EEG2 and consumer-grade AllJoined-1.6M benchmarks, while fine-tuning effectively on new subjects with as little as 15 minutes of data. ENIGMA boasts a simpler architecture and requires less than 1% of the trainable parameters necessary for previous approaches. Our approach integrates a subject-unified spatio-temporal backbone along with a set of multi-subject latent alignment layers and an MLP projector to map raw EEG signals to a rich visual latent space. We evaluate our approach usi",
+      "doi": "10.48550/arxiv.2602.10361",
+      "pmid": null,
+      "openalex_id": "W7128722549",
+      "source_doi": "10.48550/arxiv.2508.18571",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.7778458946943284,
+        "similarity_score": 0.6734596490859985,
+        "citation_text_length": 1236,
+        "dataset_text_length": 2280,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
     {
       "title": "SCORE: Subject Coordinate Recovery for Label-Free Cross-Subject EEG-to-Image Retrieval",
       "author": "Zhenyao Cui, Siyuan Kan, Siyang Li, Ziwei Wang, Dongrui Wu",
       "venue": "arXiv (Cornell University)",
       "year": 2026,
       "url": "https://doi.org/10.48550/arxiv.2608.19134",
-      "cited_by": 1,
+      "cited_by": 2,
       "abstract": "Accurate visual decoding can reveal how the brain represents visual information and recover perceived content from neural signals such as electroencephalography (EEG), with potential for neural communication. However, current EEG-to-image retrieval methods perform far below their within-subject counterparts for new users without labeled calibration, limiting real-world deployment. To understand this gap, we analyze EEG features across subjects and find that different subjects preserve similar relationships among concepts but express them along different coordinate directions. We therefore propose Subject Coordinate Recovery (SCORE), a target label-free framework combining recovery-aware source training with coordinate alignment at deployment. During training, SCORE aligns source subject EEG with a common image space and simulates unseen-subject recovery through source-only episodes. At deployment, with both encoders frozen, SCORE selects reliable EEG-image landmarks through hubness-cor",
       "doi": "10.48550/arxiv.2608.19134",
       "pmid": null,
@@ -87,23 +127,46 @@
       }
     },
     {
-      "title": "ENIGMA: EEG-to-Image in 15 Minutes Using Less Than 1% of the Parameters",
-      "author": "Reese Kneeland, Wangshu Jiang, Ugo Bruzadin Nunes, Paul Steven Scotti, Arnaud Delorme A, Jonathan Xu",
+      "title": "Few-Shot Cross-Subject Neural--Image Retrieval via Stimulus-Anchored Latent Bias Calibration",
+      "author": "Xizhang Yao, Li Zhang, Gan Huang, Zhen Liang",
       "venue": "arXiv (Cornell University)",
       "year": 2026,
-      "url": "https://doi.org/10.48550/arxiv.2602.10361",
-      "cited_by": 1,
-      "abstract": "To be practical for real-life applications, models for brain-computer interfaces must be easily and quickly deployable on new subjects, effective on affordable scanning hardware, and small enough to run locally on accessible computing resources. To directly address these current limitations, we introduce ENIGMA, a multi-subject electroencephalography (EEG)-to-Image decoding model that reconstructs seen images from EEG recordings and achieves state-of-the-art (SOTA) performance on the research-grade THINGS-EEG2 and consumer-grade AllJoined-1.6M benchmarks, while fine-tuning effectively on new subjects with as little as 15 minutes of data. ENIGMA boasts a simpler architecture and requires less than 1% of the trainable parameters necessary for previous approaches. Our approach integrates a subject-unified spatio-temporal backbone along with a set of multi-subject latent alignment layers and an MLP projector to map raw EEG signals to a rich visual latent space. We evaluate our approach usi",
-      "doi": "10.48550/arxiv.2602.10361",
+      "url": "https://doi.org/10.48550/arxiv.2611.16257",
+      "cited_by": 0,
+      "abstract": "In cross-subject neural--image retrieval, comparing the mean of a few stimulus-matched target observations with the global source mean conflates subject-specific representation shifts with stimulus-composition effects. To address this problem, we propose Stimulus-Anchored Latent Bias Calibration (SA-LBC), which estimates the first-order shift under fixed preprocessing and a frozen source-trained representation by averaging residuals between target responses and same-stimulus source-population anchors, then shrinks the correction using source-derived uncertainty. Under uniform sampling without replacement from a finite stimulus population, we derive exact finite-population MSE expressions for the unshrunk anchored and global-mean estimators, including residual--anchor cross-covariance, and establish a necessary and sufficient condition for anchoring to reduce MSE relative to global-mean estimation. In a 10-subject leave-one-subject-out evaluation on THINGS-EEG2, SA-LBC increases mean re",
+      "doi": "10.48550/arxiv.2611.16257",
       "pmid": null,
-      "openalex_id": "W7128722549",
+      "openalex_id": "W7225993133",
       "source_doi": "10.48550/arxiv.2508.18571",
       "source_relation": "IsDescribedBy",
       "discovery_backend": "opencite",
       "confidence_scoring": {
-        "confidence_score": 0.7778458946943284,
-        "similarity_score": 0.6734596490859985,
-        "citation_text_length": 1236,
+        "confidence_score": 0.522537385225296,
+        "similarity_score": 0.45241332054138184,
+        "citation_text_length": 1201,
+        "dataset_text_length": 2280,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "Look Closer, Align Better: Explicit Visual Attributes for Robust EEG-to-Image Decoding",
+      "author": "Ke Xiao, Banghua Yang, Wenbin Guo, Fenqi Rong",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2611.09123",
+      "cited_by": 0,
+      "abstract": "EEG-to-image retrieval commonly aligns neural responses with representations from pretrained vision encoders. However, these representations may underrepresent fine-grained visual details needed to distinguish semantically similar images. To address this limitation, we first investigate the EEG decodability and complementary predictive value of explicit visual attributes, identifying visual cues that capture EEG-relevant information beyond pretrained representations. Building on these findings, we propose AttrEcho, a framework that enriches pretrained visual representations with complementary, spatially aligned visual attributes. Specifically, Region-Aligned Visual Attribute Fusion (RAVF) integrates EEG-relevant local visual attributes with spatially corresponding pretrained features through a learnable signed residual gate. We further employ Feature Token Aggregation (FTA), which learns dimension-specific weights across regions to aggregate refined visual features for contrastive alig",
+      "doi": "10.48550/arxiv.2611.09123",
+      "pmid": null,
+      "openalex_id": "W7225616970",
+      "source_doi": "10.48550/arxiv.2508.18571",
+      "source_relation": "IsDescribedBy",
+      "discovery_backend": "opencite",
+      "confidence_scoring": {
+        "confidence_score": 0.6764153856039048,
+        "similarity_score": 0.5856410264968872,
+        "citation_text_length": 1196,
         "dataset_text_length": 2280,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -204,17 +267,17 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-11-10T12:17:04.839196+00:00",
+    "scoring_date": "2026-11-18T12:15:04.780337+00:00",
     "dataset_text_length": 2280,
-    "num_citations_scored": 6,
+    "num_citations_scored": 9,
     "summary_stats": {
-      "mean_confidence": 0.6621777746081353,
-      "median_confidence": 0.6411859984695911,
-      "std_confidence": 0.07985948484116867,
-      "min_confidence": 0.5743979868292809,
+      "mean_confidence": 0.6402691769599915,
+      "median_confidence": 0.6174213033914566,
+      "std_confidence": 0.08082840894930156,
+      "min_confidence": 0.522537385225296,
       "max_confidence": 0.7778458946943284,
       "high_confidence_count": 2,
-      "medium_confidence_count": 4,
+      "medium_confidence_count": 7,
       "low_confidence_count": 0
     }
   }
