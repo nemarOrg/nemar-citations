@@ -1,7 +1,7 @@
 {
   "dataset_id": "nm000123",
-  "num_citations": 100,
-  "date_last_updated": "2026-11-18T11:01:48.566572+00:00",
+  "num_citations": 101,
+  "date_last_updated": "2026-11-19T11:08:32.766282+00:00",
   "metadata": {
     "total_cumulative_citations": 6674,
     "fetch_date": "2026-11-18T11:01:48.566572+00:00",
@@ -79,7 +79,13 @@
       "assistive robotics"
     ],
     "methods_description": "Eight EEG channels (Oz, O1, O2, POz, PO3, PO4, PO7, PO8) were recorded with a g.tec MobiLab amplifier at 256 Hz, referenced to the right mastoid. Each session consisted of 32 trials (8 per LED frequency and 8 rest trials). Trials lasted 5 s with 3 s pauses and began with an audio cue. A 20x30 cm panel with 3 groups of 4 LEDs provided the visual stimulation.",
-    "funding": []
+    "funding": [],
+    "searched_accessions": [
+      "nm000123"
+    ],
+    "num_accession_mentions": 1,
+    "num_dataset_citations": 1,
+    "num_datapaper_citations": 100
   },
   "citation_details": [
     {
@@ -2381,21 +2387,46 @@
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
       }
+    },
+    {
+      "title": "EEGDash Corpus: A Training-Ready Public Corpus for EEG Foundation Models",
+      "author": "Kuber Shahi, Bruno Aristimunha, Arnaud Delorme",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2611.06356",
+      "cited_by": 0,
+      "abstract": "Electroencephalography (EEG) foundation models are pretrained on tens of thousands of hours. The largest clinical archives restrict redistribution, while public datasets use different formats and licences. Here, we rebuild the 77 redistributable datasets of the REVE pretraining corpus that reach its 200 Hz input (14,075 hours across 7,272 subjects) and release them as eegdash-corpus-v0, with raw-file access by name through EEGDash and a checksummed Zarr store on Hugging Face, converted with REVE's preprocessing recipe. Every dataset keeps its licence, and any subset of datasets can be selected by name. To test whether this public store pretrains REVE-Base, we train the model twice from scratch with REVE's trainer and score it on seven public OpenEEGBench tasks. First, under linear probing, the frozen encoder reaches 0.331 in chance-adjusted balanced accuracy, against 0.333 for the released model (untrained: 0.200), a difference smaller than the spread between our two pretraining seeds. Second, after fine-tuning, it reaches 0.273 against 0.325 published (0.301 in our rerun), and part of this gap comes from the scoring pipeline. A public, training-ready EEG corpus can therefore pretrain the frozen representations of a foundation model and provide a shared base that other groups can audit.",
+      "doi": "10.48550/arxiv.2611.06356",
+      "pmid": null,
+      "openalex_id": "W7225336390",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "nm000123",
+      "confidence_scoring": {
+        "confidence_score": 0.6123458951711654,
+        "similarity_score": 0.5301696062088013,
+        "citation_text_length": 1490,
+        "dataset_text_length": 2296,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
     }
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-11-18T12:14:33.968166+00:00",
+    "scoring_date": "2026-11-19T11:09:36.472050+00:00",
     "dataset_text_length": 2296,
-    "num_citations_scored": 100,
+    "num_citations_scored": 101,
     "summary_stats": {
-      "mean_confidence": 0.4846964323684573,
-      "median_confidence": 0.4787735697627068,
-      "std_confidence": 0.11715018338934172,
+      "mean_confidence": 0.48596028843581085,
+      "median_confidence": 0.4817285531759263,
+      "std_confidence": 0.11725193327889157,
       "min_confidence": 0.17165568061172962,
       "max_confidence": 0.7390335202217103,
       "high_confidence_count": 6,
-      "medium_confidence_count": 72,
+      "medium_confidence_count": 73,
       "low_confidence_count": 22
     }
   }
