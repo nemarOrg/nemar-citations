@@ -1,10 +1,10 @@
 {
   "dataset_id": "on008082",
   "num_citations": 4,
-  "date_last_updated": "2026-11-11T11:05:59.006663+00:00",
+  "date_last_updated": "2026-11-19T11:08:19.721674+00:00",
   "metadata": {
     "total_cumulative_citations": 1,
-    "fetch_date": "2026-11-11T11:04:07.727308+00:00",
+    "fetch_date": "2026-11-19T11:05:57.573060+00:00",
     "processing_version": "1.0",
     "fetch_status": "success",
     "anchor_count": 2,
@@ -150,7 +150,7 @@
       "year": 2026,
       "url": "https://doi.org/10.5281/zenodo.23531370",
       "cited_by": 0,
-      "abstract": "This release provides a prepared EEG classification dataset derived from “A COVID-19 survivors and close contacts EEG dataset”, OpenNeuro ds008082, version 1.0.0, originally released under CC0 by Calzada-Reyes and colleagues. The classification target is COVID-survivor (covid) versus close-contact (close_contact) cohort membership. All 173 recordings were screened. One participant without eye-state events was excluded, leaving 172 participants and 36,535 eligible two-second eyes-closed windows. Each example contains 19 scalp EEG channels and 400 samples at 200 Hz, expressed in volts. Preparation uses eligible windows within the initial baseline between 10 and 480 seconds, common-average reference and per-channel temporal centering. Windows crossing discontinuities or non-rest events are excluded. A cohort-stratified participant split with random seed 42 produces 25,319 TRAIN windows from 120 participants and 11,216 TEST windows from 52 participants. All windows from a participant remain in the same partition. The release includes TRAIN and TEST files in aeon .ts format and the dataset preparation notebook. Source dataset: https://doi.org/10.18112/openneuro.ds008082.v1.0.0Source paper: https://doi.org/10.1016/j.cnp.2026.02.007",
+      "abstract": "This release provides a prepared EEG classification dataset derived from “A COVID-19 survivors and close contacts EEG dataset”, OpenNeuro ds008082, version 1.0.0, originally released under CC0 by Calzada-Reyes and colleagues. The classification target is COVID-survivor (covid) versus close-contact (close_contact) cohort membership. All 173 recordings were screened. One participant without eye-state events was excluded, leaving 172 participants and 36,535 eligible two-second eyes-closed windows. Each example contains 19 scalp EEG channels and 400 samples at 200 Hz, expressed in volts. Preparation uses eligible windows within the initial baseline between 10 and 480 seconds, common-average reference and per-channel temporal centering. Windows crossing discontinuities or non-rest events are excluded. A cohort-stratified participant split with random seed 42 produces 25,319 TRAIN windows from 120 participants and 11,216 TEST windows from 52 participants. All windows from a participant remain in the same partition. The release includes five files: COVID19_TRAIN.ts and COVID19_TEST.ts: signals and class labels in aeon format. COVID19_rows.tsv: row-aligned participant IDs, labels and optional grouped validation fold assignments. COVID19_metadata.json: sampling rate, channel order, units, label mapping and preprocessing details. README_COVID19.md: loading examples, evaluation instructions and source attribution. Five optional validation folds were constructed within TRAIN using StratifiedGroupKFold with random seed 42, keeping complete participants together. TEST is excluded from these folds. The two signal files support the standard fixed TRAIN/TEST benchmark; the companion table enables participant-aware tuning and participant-level reporting. Version 1.0.1 adds the three companion files. The signals, labels and participant-disjoint TRAIN/TEST split are unchanged from version 1.0.0. Source dataset: https://doi.org/10.18112/openneuro.ds008082.v1.0.0Source paper: https://doi.org/10.1016/j.cnp.2026.02.007",
       "doi": "10.5281/zenodo.23531370",
       "pmid": null,
       "openalex_id": "W7223135912",
@@ -160,9 +160,9 @@
       "discovery_method": "accession_mention",
       "matched_accession": "ds008082",
       "confidence_scoring": {
-        "confidence_score": 0.9956668514013292,
-        "similarity_score": 0.8620492219924927,
-        "citation_text_length": 1402,
+        "confidence_score": 0.9856724470853807,
+        "similarity_score": 0.8533960580825806,
+        "citation_text_length": 1657,
         "dataset_text_length": 1298,
         "scoring_method": "sentence_transformers",
         "model_used": "Qwen/Qwen3-Embedding-0.6B"
@@ -171,13 +171,13 @@
   ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-11-11T11:13:19.306827+00:00",
+    "scoring_date": "2026-11-19T11:15:02.539447+00:00",
     "dataset_text_length": 1298,
     "num_citations_scored": 4,
     "summary_stats": {
-      "mean_confidence": 0.8208997800946236,
-      "median_confidence": 0.8641339959204198,
-      "std_confidence": 0.18771239732500852,
+      "mean_confidence": 0.8184011790156366,
+      "median_confidence": 0.8591367937624457,
+      "std_confidence": 0.18542202335666846,
       "min_confidence": 0.5553311285376549,
       "max_confidence": 1.0,
       "high_confidence_count": 3,

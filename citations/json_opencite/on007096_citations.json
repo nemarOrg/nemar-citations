@@ -1,7 +1,7 @@
 {
   "dataset_id": "on007096",
-  "num_citations": 0,
-  "date_last_updated": "2026-11-18T12:08:49.362167+00:00",
+  "num_citations": 2,
+  "date_last_updated": "2026-11-19T11:07:42.591150+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
     "fetch_date": "2026-11-18T12:08:49.362167+00:00",
@@ -51,13 +51,81 @@
       "PURSUE"
     ],
     "methods_description": "Face perception task following the ERP CORE N170 paradigm, with EEG recorded from participants at three undergraduate institutions in 2017 and 2018. Task details are provided in the ERP CORE supplementary materials.",
-    "funding": []
+    "funding": [],
+    "searched_accessions": [
+      "on007096",
+      "ds007096"
+    ],
+    "num_accession_mentions": 2,
+    "num_dataset_citations": 2,
+    "num_datapaper_citations": 0
   },
-  "citation_details": [],
+  "citation_details": [
+    {
+      "title": "Predicting Cognitive Tasks from Single-Channel EEG through Task-Semantic Alignment",
+      "author": "Ryota Kanai",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2610.15104",
+      "cited_by": 0,
+      "abstract": "Studies of data scaling in electroencephalography (EEG) and related noninvasive recordings suggest that simple wearable devices could eventually reveal more about cognitive states. However, publicly available EEG data are difficult to combine. Different laboratories record different tasks, participants, and devices. Task-agnostic self-supervised learning can exploit such data, but representations learned only with EEG signals have not consistently produced feature representations that are directly effective for decoding the cognitive state. We therefore aimed to incorporate task information by embedding experimental instructions, stimuli and response demands in a common semantic space, and trained an EEG encoder to align signals from a single anterior--posterior differential channel with those task vectors. This framework supports zero-shot prediction without target-condition calibration and few-shot prediction using labeled samples. On a reserved ten-class evaluation, the highest observed zero-shot balanced accuracy was 30.13% (chance 10%). In a separate developmental few-shot experiment, balanced accuracy reached 34.47% using 16 labeled EEG examples per class from another participant, and 74.99% using examples from the test participant's own task recording. Our experiments suggest that training models on datasets with multiple tasks per participant appeared useful, whereas adding datasets containing only one or a few tasks sometimes reduced established performance despite broader task coverage. These exploratory results suggest that EEG datasets that repeat varied cognitive tasks and everyday activities within the same individuals across days, devices and independent studies would be particularly useful for training an EEG foundation model for predicting cognitive states.",
+      "doi": "10.48550/arxiv.2610.15104",
+      "pmid": null,
+      "openalex_id": "W7221793578",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds007096",
+      "confidence_scoring": {
+        "confidence_score": 0.5297967459261419,
+        "similarity_score": 0.45869848132133484,
+        "citation_text_length": 1658,
+        "dataset_text_length": 2189,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "PegasusAI Studio: Legible Cyberinfrastructure and Accountable AI Agents for Scientific Workflows",
+      "author": "Komal Thareja, Mats Rynge, Berent Aldikacti, Angelina Ju, Ian Lumsden, Anirban Mandal, Rajiv Mayani, Kin Wai Ng, Hamza Safri, Michael Stealey, Sai Ganesh Swaminathan, Michela Taufer, Karan Vahi, Michael Zink, Ewa Deelman",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2611.13309",
+      "cited_by": 0,
+      "abstract": "AI coding agents can now construct scientific workflows, but operating them on shared cyberinfrastructure (CI) raises problems that code generation does not solve. Agents need current knowledge of the workflow system and its execution sites and access to the runtime state of distributed executions, while facilities need to attribute every agent action to a user and bound it by that user's privileges. We present PegasusAI Studio, an AI-assisted science gateway built on the Pegasus and HTCondor stack. Studio makes CI legible to agents by projecting one facility-curated knowledge base into the native configuration of several coding agents, by introspecting workflow interfaces and execution sites, and by grounding diagnosis in workflow and scheduler telemetry. Agent actions operate within a trust envelope that combines federated authentication, per-user execution environments and scheduler credentials, provider-neutral model access, observability, and approval controls for state-changing actions. The same application runs as a JupyterHub-based gateway on a research cloud and as an Open OnDemand application on HPC systems. We evaluate Studio through case studies of legacy CASA weather workflow modernization, a gravitational-wave reanalysis, an EEG analysis built with an open-weight model, and an Event Horizon Telescope (EHT) M87 image reconstruction that recovered from two failed runs to a zero-failure execution. The evaluation establishes that these mechanisms operate as designed.",
+      "doi": "10.48550/arxiv.2611.13309",
+      "pmid": null,
+      "openalex_id": "W7225796626",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "ds007096",
+      "confidence_scoring": {
+        "confidence_score": 0.26652424670755864,
+        "similarity_score": 0.23075692355632782,
+        "citation_text_length": 1881,
+        "dataset_text_length": 2189,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    }
+  ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-11-18T12:38:35.503526+00:00",
+    "scoring_date": "2026-11-19T11:13:50.217881+00:00",
     "dataset_text_length": 2189,
-    "num_citations_scored": 0
+    "num_citations_scored": 2,
+    "summary_stats": {
+      "mean_confidence": 0.39816049631685024,
+      "median_confidence": 0.39816049631685024,
+      "std_confidence": 0.13163624960929163,
+      "min_confidence": 0.26652424670755864,
+      "max_confidence": 0.5297967459261419,
+      "high_confidence_count": 0,
+      "medium_confidence_count": 1,
+      "low_confidence_count": 1
+    }
   }
 }

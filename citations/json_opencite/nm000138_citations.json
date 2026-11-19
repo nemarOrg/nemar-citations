@@ -1,7 +1,7 @@
 {
   "dataset_id": "nm000138",
-  "num_citations": 0,
-  "date_last_updated": "2026-11-18T11:03:18.658531+00:00",
+  "num_citations": 3,
+  "date_last_updated": "2026-11-19T11:08:37.658675+00:00",
   "metadata": {
     "total_cumulative_citations": 0,
     "fetch_date": "2026-11-18T11:03:18.658531+00:00",
@@ -54,13 +54,105 @@
       "Electroencephalography"
     ],
     "methods_description": "EEG was recorded at 512 Hz from 16 active electrodes with a g.tec g.USBamp amplifier, referenced to the earlobe, in standard office conditions. Subjects imagined right hand movement, foot movement, or rest following visual cues lasting 3 seconds, with 20 trials per class and no feedback. Acquisition used Matlab/Simulink with g.tec drivers.",
-    "funding": []
+    "funding": [],
+    "searched_accessions": [
+      "nm000138"
+    ],
+    "num_accession_mentions": 3,
+    "num_dataset_citations": 3,
+    "num_datapaper_citations": 0
   },
-  "citation_details": [],
+  "citation_details": [
+    {
+      "title": "A FBN1 mutation association with different phenotypes of Marfan syndrome in a Chinese family",
+      "author": "Yapeng Li, Jianhua Xu, Mingjie Chen, Binbin Du, Qiaoli Li, Qinghe Xing, Yanzhou Zhang",
+      "venue": "Clinica Chimica Acta",
+      "year": 2016,
+      "url": "https://doi.org/10.1016/j.cca.2016.06.031",
+      "cited_by": 19,
+      "abstract": null,
+      "doi": "10.1016/j.cca.2016.06.031",
+      "pmid": "27353645",
+      "openalex_id": "W2464494715",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "nm000138",
+      "confidence_scoring": {
+        "confidence_score": 0.23556852340698242,
+        "similarity_score": 0.23556852340698242,
+        "citation_text_length": 224,
+        "dataset_text_length": 2202,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "A Novel Missense Mutation in the TGF-β-binding Protein-Like Domain 3 of FBN1 Causes Weill–Marchesani Syndrome with Intellectual Disability",
+      "author": "Mahdieh Hassani, Sara Taghizadeh, Anahita Farahzad, Mahvash Habibi, Setareh Banitalebi, Mahbubeh Kasiri, Alireza Sadeghi, Ahoura Nozari",
+      "venue": "Advanced Biomedical Research",
+      "year": 2023,
+      "url": "https://doi.org/10.4103/abr.abr_138_22",
+      "cited_by": 4,
+      "abstract": "Background: Weill–Marchesani syndrome (WMS) is a rare connective tissue disorder characterized by locus heterogeneity and variable expressivity. Patients suffering from WMS are described by short stature, brachydactyly, joint stiffness, congenital heart defects, and eye abnormalities. This disorder is inherited in two different modes; the autosomal dominant form of the disease occurs due to a mutation in FBN1 , and the recessive form results from mutations in ADAMTS10 , ADAMTS17 , or LTP2 genes. Materials and Methods: The family recruited in this study was a consanguineous Iranian family with an intellectually disabled girl referred to the Sadra Genetics laboratory, Shahrekord, Iran. The clinical history of family members was investigated. Whole-Exome Sequencing (WES) for the proband was performed. Sanger sequencing was used to assess the segregation of candidate variants in the other family members. Results: Whole-exome sequencing analysis revealed a novel heterozygote mutation in the proband located at the third TGF-β-binding protein-like (TB) domain of the FBN1 g ene (NM000138: c.2066A>G: (p. Glu689Gly), NP_000129.3, in exon 17 of the gene). Co-segregation analysis with Sanger sequencing confirmed this mutation in the affected members of the pedigree. Conclusion: Our findings represent an autosomal dominant form of specific WMS resulting from a substitution mutation in the FBN1 g ene. In addition to the typical manifestations of the disorder, mild intellectual disability (ID) was identified in the 8-year-old proband. Given the fact that ID is primarily reported in ADAMTS10 mutated cases, this family was clinically and genetically a novel case.",
+      "doi": "10.4103/abr.abr_138_22",
+      "pmid": "37288014",
+      "openalex_id": "W4367334404",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "nm000138",
+      "confidence_scoring": {
+        "confidence_score": 0.2507498395442963,
+        "similarity_score": 0.21709942817687988,
+        "citation_text_length": 1840,
+        "dataset_text_length": 2202,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    },
+    {
+      "title": "EEGDash Corpus: A Training-Ready Public Corpus for EEG Foundation Models",
+      "author": "Kuber Shahi, Bruno Aristimunha, Arnaud Delorme",
+      "venue": "arXiv (Cornell University)",
+      "year": 2026,
+      "url": "https://doi.org/10.48550/arxiv.2611.06356",
+      "cited_by": 0,
+      "abstract": "Electroencephalography (EEG) foundation models are pretrained on tens of thousands of hours. The largest clinical archives restrict redistribution, while public datasets use different formats and licences. Here, we rebuild the 77 redistributable datasets of the REVE pretraining corpus that reach its 200 Hz input (14,075 hours across 7,272 subjects) and release them as eegdash-corpus-v0, with raw-file access by name through EEGDash and a checksummed Zarr store on Hugging Face, converted with REVE's preprocessing recipe. Every dataset keeps its licence, and any subset of datasets can be selected by name. To test whether this public store pretrains REVE-Base, we train the model twice from scratch with REVE's trainer and score it on seven public OpenEEGBench tasks. First, under linear probing, the frozen encoder reaches 0.331 in chance-adjusted balanced accuracy, against 0.333 for the released model (untrained: 0.200), a difference smaller than the spread between our two pretraining seeds. Second, after fine-tuning, it reaches 0.273 against 0.325 published (0.301 in our rerun), and part of this gap comes from the scoring pipeline. A public, training-ready EEG corpus can therefore pretrain the frozen representations of a foundation model and provide a shared base that other groups can audit.",
+      "doi": "10.48550/arxiv.2611.06356",
+      "pmid": null,
+      "openalex_id": "W7225336390",
+      "source_doi": null,
+      "source_relation": null,
+      "discovery_backend": "openalex",
+      "discovery_method": "accession_mention",
+      "matched_accession": "nm000138",
+      "confidence_scoring": {
+        "confidence_score": 0.559025573283434,
+        "similarity_score": 0.48400482535362244,
+        "citation_text_length": 1490,
+        "dataset_text_length": 2202,
+        "scoring_method": "sentence_transformers",
+        "model_used": "Qwen/Qwen3-Embedding-0.6B"
+      }
+    }
+  ],
   "confidence_scoring": {
     "model_used": "Qwen/Qwen3-Embedding-0.6B",
-    "scoring_date": "2026-11-18T12:15:16.546767+00:00",
+    "scoring_date": "2026-11-19T11:09:55.979405+00:00",
     "dataset_text_length": 2202,
-    "num_citations_scored": 0
+    "num_citations_scored": 3,
+    "summary_stats": {
+      "mean_confidence": 0.34844797874490424,
+      "median_confidence": 0.2507498395442963,
+      "std_confidence": 0.14902977461151928,
+      "min_confidence": 0.23556852340698242,
+      "max_confidence": 0.559025573283434,
+      "high_confidence_count": 0,
+      "medium_confidence_count": 1,
+      "low_confidence_count": 2
+    }
   }
 }
